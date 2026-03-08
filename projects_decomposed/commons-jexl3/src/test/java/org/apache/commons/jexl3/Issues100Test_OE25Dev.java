@@ -274,6 +274,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Object value;
         for (int l = 0; l < 2; ++l) {
             value = jexl.createExpression("foo[0]").evaluate(ctxt);
+            // removed other assertion
             value = jexl.createExpression("foo[0] = 43").evaluate(ctxt);
             Assert.assertEquals(43, value);
     }
@@ -288,7 +289,9 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Object value;
         for (int l = 0; l < 2; ++l) {
             value = jexl.createExpression("foo[0]").evaluate(ctxt);
+            // removed other assertion
             value = jexl.createExpression("foo[0] = 43").evaluate(ctxt);
+            // removed other assertion
             value = jexl.createExpression("foo.0").evaluate(ctxt);
             Assert.assertEquals(43, value);
     }
@@ -303,8 +306,11 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Object value;
         for (int l = 0; l < 2; ++l) {
             value = jexl.createExpression("foo[0]").evaluate(ctxt);
+            // removed other assertion
             value = jexl.createExpression("foo[0] = 43").evaluate(ctxt);
+            // removed other assertion
             value = jexl.createExpression("foo.0").evaluate(ctxt);
+            // removed other assertion
             value = jexl.createExpression("foo.0 = 42").evaluate(ctxt);
             Assert.assertEquals(42, value);
     }
@@ -325,7 +331,9 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final JexlExpression selectExp = new Engine().createExpression("[a.propA]");
         context.set("a", new A105("a1", "p1"));
         Object[] r = (Object[]) selectExp.evaluate(context);
+        // removed other assertion
 
+//selectExp = new Engine().createExpression("[a.propA]");
         context.set("a", new A105("a2", "p2"));
         r = (Object[]) selectExp.evaluate(context);
         Assert.assertEquals("p2", r[0]);
@@ -342,6 +350,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new Engine();
         try {
             final Object value = jexl.createExpression("a / b").evaluate(context);
+            // removed other assertion
         } catch (final JexlException xjexl) {
             Assert.fail("should not occur");
     }
@@ -391,6 +400,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
             JexlExpression expr = jexl.createExpression(exprs[e]);
             final Object expected = exprs[e + 1];
             Object value = expr.evaluate(context);
+            // removed other assertion
             expr = jexl.createExpression(expr.getParsedText());
             value = expr.evaluate(context);
             Assert.assertEquals(expected, value);
@@ -414,6 +424,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new Engine();
         expr = jexl.createScript("size([])");
         value = expr.execute(null);
+        // removed other assertion
         expr = jexl.createScript(expr.getParsedText());
         value = expr.execute(null);
         Assert.assertEquals(0, value);
@@ -426,8 +437,10 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new Engine();
         expr = jexl.createScript("size([])");
         value = expr.execute(null);
+        // removed other assertion
         expr = jexl.createScript(expr.getParsedText());
         value = expr.execute(null);
+        // removed other assertion
 
         expr = jexl.createScript("if (true) { [] } else { {:} }");
         value = expr.execute(null);
@@ -441,11 +454,14 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new Engine();
         expr = jexl.createScript("size([])");
         value = expr.execute(null);
+        // removed other assertion
         expr = jexl.createScript(expr.getParsedText());
         value = expr.execute(null);
+        // removed other assertion
 
         expr = jexl.createScript("if (true) { [] } else { {:} }");
         value = expr.execute(null);
+        // removed other assertion
         expr = jexl.createScript(expr.getParsedText());
         value = expr.execute(null);
         Assert.assertTrue(value.getClass().isArray());
@@ -458,13 +474,17 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new Engine();
         expr = jexl.createScript("size([])");
         value = expr.execute(null);
+        // removed other assertion
         expr = jexl.createScript(expr.getParsedText());
         value = expr.execute(null);
+        // removed other assertion
 
         expr = jexl.createScript("if (true) { [] } else { {:} }");
         value = expr.execute(null);
+        // removed other assertion
         expr = jexl.createScript(expr.getParsedText());
         value = expr.execute(null);
+        // removed other assertion
 
         expr = jexl.createScript("size({:})");
         value = expr.execute(null);
@@ -478,16 +498,21 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new Engine();
         expr = jexl.createScript("size([])");
         value = expr.execute(null);
+        // removed other assertion
         expr = jexl.createScript(expr.getParsedText());
         value = expr.execute(null);
+        // removed other assertion
 
         expr = jexl.createScript("if (true) { [] } else { {:} }");
         value = expr.execute(null);
+        // removed other assertion
         expr = jexl.createScript(expr.getParsedText());
         value = expr.execute(null);
+        // removed other assertion
 
         expr = jexl.createScript("size({:})");
         value = expr.execute(null);
+        // removed other assertion
         expr = jexl.createScript(expr.getParsedText());
         value = expr.execute(null);
         Assert.assertEquals(0, value);
@@ -500,18 +525,24 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new Engine();
         expr = jexl.createScript("size([])");
         value = expr.execute(null);
+        // removed other assertion
         expr = jexl.createScript(expr.getParsedText());
         value = expr.execute(null);
+        // removed other assertion
 
         expr = jexl.createScript("if (true) { [] } else { {:} }");
         value = expr.execute(null);
+        // removed other assertion
         expr = jexl.createScript(expr.getParsedText());
         value = expr.execute(null);
+        // removed other assertion
 
         expr = jexl.createScript("size({:})");
         value = expr.execute(null);
+        // removed other assertion
         expr = jexl.createScript(expr.getParsedText());
         value = expr.execute(null);
+        // removed other assertion
 
         expr = jexl.createScript("if (false) { [] } else { {:} }");
         value = expr.execute(null);
@@ -525,21 +556,28 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new Engine();
         expr = jexl.createScript("size([])");
         value = expr.execute(null);
+        // removed other assertion
         expr = jexl.createScript(expr.getParsedText());
         value = expr.execute(null);
+        // removed other assertion
 
         expr = jexl.createScript("if (true) { [] } else { {:} }");
         value = expr.execute(null);
+        // removed other assertion
         expr = jexl.createScript(expr.getParsedText());
         value = expr.execute(null);
+        // removed other assertion
 
         expr = jexl.createScript("size({:})");
         value = expr.execute(null);
+        // removed other assertion
         expr = jexl.createScript(expr.getParsedText());
         value = expr.execute(null);
+        // removed other assertion
 
         expr = jexl.createScript("if (false) { [] } else { {:} }");
         value = expr.execute(null);
+        // removed other assertion
         expr = jexl.createScript(expr.getParsedText());
         value = expr.execute(null);
         Assert.assertTrue(value instanceof Map<?, ?>);
@@ -572,6 +610,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Object value;
         final JexlContext context = new MapContext();
         value = jexl.createScript("foo + 2", names).execute(context, 40);
+        // removed other assertion
         context.set("frak.foo", -40);
         value = jexl.createScript("frak.foo - 2", names).execute(context, 40);
         Assert.assertEquals(-42, value);
@@ -612,6 +651,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         context.set("x", 1);
         context.set("y", 10);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1.0d);
         context.set("y", 10.0d);
@@ -630,10 +670,12 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         context.set("x", 1);
         context.set("y", 10);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1.0d);
         context.set("y", 10.0d);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1);
         context.set("y", 10.0d);
@@ -652,14 +694,17 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         context.set("x", 1);
         context.set("y", 10);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1.0d);
         context.set("y", 10.0d);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1);
         context.set("y", 10.0d);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1.0d);
         context.set("y", 10);
@@ -678,18 +723,22 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         context.set("x", 1);
         context.set("y", 10);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1.0d);
         context.set("y", 10.0d);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1);
         context.set("y", 10.0d);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1.0d);
         context.set("y", 10);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", -10);
         context.set("y", 1);
@@ -708,22 +757,27 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         context.set("x", 1);
         context.set("y", 10);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1.0d);
         context.set("y", 10.0d);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1);
         context.set("y", 10.0d);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1.0d);
         context.set("y", 10);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", -10);
         context.set("y", 1);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", -10.0d);
         context.set("y", 1.0d);
@@ -742,26 +796,32 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         context.set("x", 1);
         context.set("y", 10);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1.0d);
         context.set("y", 10.0d);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1);
         context.set("y", 10.0d);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1.0d);
         context.set("y", 10);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", -10);
         context.set("y", 1);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", -10.0d);
         context.set("y", 1.0d);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", -10);
         context.set("y", 1.0d);
@@ -780,30 +840,37 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         context.set("x", 1);
         context.set("y", 10);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1.0d);
         context.set("y", 10.0d);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1);
         context.set("y", 10.0d);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", 1.0d);
         context.set("y", 10);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", -10);
         context.set("y", 1);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", -10.0d);
         context.set("y", 1.0d);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", -10);
         context.set("y", 1.0d);
         value = expr.evaluate(context);
+        // removed other assertion
 
         context.set("x", -10.0d);
         context.set("y", 1);
@@ -823,6 +890,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         ctx.set("month", new BigDecimal("12.00"));
         ctx.set("work.percent", new BigDecimal("100.00"));
 
+        // will fail because default scale is 5
         Assert.assertFalse((Boolean) exp1.evaluate(ctx));
     }
 
@@ -838,7 +906,10 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         ctx.set("month", new BigDecimal("12.00"));
         ctx.set("work.percent", new BigDecimal("100.00"));
 
+        // will fail because default scale is 5
+        // removed other assertion
 
+        // will succeed with scale = 2
         options.setMathScale(2);
         Assert.assertTrue((Boolean) exp1.evaluate(ctx));
     }
@@ -856,6 +927,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Object result;
         final JexlEngine jexl = new Engine();
         result = jexl.createScript(Integer.toString(Integer.MAX_VALUE)).execute(null);
+        // removed other assertion
         result = jexl.createScript(Integer.toString(Integer.MIN_VALUE + 1)).execute(null);
         Assert.assertEquals(Integer.MIN_VALUE + 1, result);
     }
@@ -865,7 +937,9 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Object result;
         final JexlEngine jexl = new Engine();
         result = jexl.createScript(Integer.toString(Integer.MAX_VALUE)).execute(null);
+        // removed other assertion
         result = jexl.createScript(Integer.toString(Integer.MIN_VALUE + 1)).execute(null);
+        // removed other assertion
         result = jexl.createScript(Integer.toString(Integer.MIN_VALUE)).execute(null);
         Assert.assertEquals(Integer.MIN_VALUE, result);
     }
@@ -946,6 +1020,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
 
         script = jexl.createScript("var y = state[3]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 3);
         script = jexl.createScript("var y = state[a]; y");
@@ -965,10 +1040,12 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
 
         script = jexl.createScript("var y = state[3]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 3);
         script = jexl.createScript("var y = state[a]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 2);
         script = jexl.createScript("var y = state[a + 1]; y");
@@ -988,14 +1065,17 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
 
         script = jexl.createScript("var y = state[3]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 3);
         script = jexl.createScript("var y = state[a]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 2);
         script = jexl.createScript("var y = state[a + 1]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 2);
         jc.set("b", 1);
@@ -1016,19 +1096,23 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
 
         script = jexl.createScript("var y = state[3]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 3);
         script = jexl.createScript("var y = state[a]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 2);
         script = jexl.createScript("var y = state[a + 1]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 2);
         jc.set("b", 1);
         script = jexl.createScript("var y = state[a + b]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         script = jexl.createScript("var y = state[3]; y", "state");
         result = script.execute(null, foo, 3);
@@ -1047,22 +1131,27 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
 
         script = jexl.createScript("var y = state[3]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 3);
         script = jexl.createScript("var y = state[a]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 2);
         script = jexl.createScript("var y = state[a + 1]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 2);
         jc.set("b", 1);
         script = jexl.createScript("var y = state[a + b]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         script = jexl.createScript("var y = state[3]; y", "state");
         result = script.execute(null, foo, 3);
+        // removed other assertion
 
         script = jexl.createScript("var y = state[a]; y", "state", "a");
         result = script.execute(null, foo, 3);
@@ -1081,25 +1170,31 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
 
         script = jexl.createScript("var y = state[3]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 3);
         script = jexl.createScript("var y = state[a]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 2);
         script = jexl.createScript("var y = state[a + 1]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 2);
         jc.set("b", 1);
         script = jexl.createScript("var y = state[a + b]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         script = jexl.createScript("var y = state[3]; y", "state");
         result = script.execute(null, foo, 3);
+        // removed other assertion
 
         script = jexl.createScript("var y = state[a]; y", "state", "a");
         result = script.execute(null, foo, 3);
+        // removed other assertion
 
         script = jexl.createScript("var y = state[a + 1]; y", "state", "a");
         result = script.execute(null, foo, 2);
@@ -1118,28 +1213,35 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
 
         script = jexl.createScript("var y = state[3]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 3);
         script = jexl.createScript("var y = state[a]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 2);
         script = jexl.createScript("var y = state[a + 1]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         jc.set("a", 2);
         jc.set("b", 1);
         script = jexl.createScript("var y = state[a + b]; y");
         result = script.execute(jc, foo);
+        // removed other assertion
 
         script = jexl.createScript("var y = state[3]; y", "state");
         result = script.execute(null, foo, 3);
+        // removed other assertion
 
         script = jexl.createScript("var y = state[a]; y", "state", "a");
         result = script.execute(null, foo, 3);
+        // removed other assertion
 
         script = jexl.createScript("var y = state[a + 1]; y", "state", "a");
         result = script.execute(null, foo, 2);
+        // removed other assertion
 
         script = jexl.createScript("var y = state[a + b]; y", "state", "a", "b");
         result = script.execute(null, foo, 2, 1);
@@ -1186,6 +1288,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
 
         script = jexl.createScript("var total = 10; total = (total - ((x < 3)? y : z)) / (total / 10); total", "x", "y", "z");
         result = script.execute(jc, 2, 2, 1);
+        // removed other assertion
         script = jexl.createScript("var total = 10; total = (total - ((x < 3)? y : 1)) / (total / 10); total", "x", "y", "z");
         result = script.execute(jc, 2, 2, 1);
         Assert.assertEquals(8, result);
@@ -1200,6 +1303,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         script = jexl.createScript("var total = 10; total('tt')");
         try {
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Method ambiguous) {
             Assert.assertEquals("total", ambiguous.getMethod());
     }
@@ -1214,6 +1318,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         JexlExpression assignArray = jexl.createExpression("quux.arr = [ 'hello', 'world' ]");
         final JexlExpression checkArray = jexl.createExpression("quux.arr");
 
+        // test with a string
         final Quux144 quux = (Quux144) create.evaluate(jc);
         Assert.assertNotNull("quux is null", quux);
     }
@@ -1227,8 +1332,11 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         JexlExpression assignArray = jexl.createExpression("quux.arr = [ 'hello', 'world' ]");
         final JexlExpression checkArray = jexl.createExpression("quux.arr");
 
+        // test with a string
         final Quux144 quux = (Quux144) create.evaluate(jc);
+        // removed other assertion
 
+        // test with a nonempty string array
         Object o = assignArray.evaluate(jc);
         Assert.assertEquals("Result is not a string array", String[].class, o.getClass());
     }
@@ -1242,9 +1350,13 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         JexlExpression assignArray = jexl.createExpression("quux.arr = [ 'hello', 'world' ]");
         final JexlExpression checkArray = jexl.createExpression("quux.arr");
 
+        // test with a string
         final Quux144 quux = (Quux144) create.evaluate(jc);
+        // removed other assertion
 
+        // test with a nonempty string array
         Object o = assignArray.evaluate(jc);
+        // removed other assertion
         o = checkArray.evaluate(jc);
         Assert.assertEquals("The array elements are equal", Arrays.asList("hello", "world"), Arrays.asList((String[]) o));
     }
@@ -1258,11 +1370,17 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         JexlExpression assignArray = jexl.createExpression("quux.arr = [ 'hello', 'world' ]");
         final JexlExpression checkArray = jexl.createExpression("quux.arr");
 
+        // test with a string
         final Quux144 quux = (Quux144) create.evaluate(jc);
+        // removed other assertion
 
+        // test with a nonempty string array
         Object o = assignArray.evaluate(jc);
+        // removed other assertion
         o = checkArray.evaluate(jc);
+        // removed other assertion
 
+        // test with a null array
         assignArray = jexl.createExpression("quux.arr = null");
         o = assignArray.evaluate(jc);
         Assert.assertNull("Result is not null", o);
@@ -1277,13 +1395,20 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         JexlExpression assignArray = jexl.createExpression("quux.arr = [ 'hello', 'world' ]");
         final JexlExpression checkArray = jexl.createExpression("quux.arr");
 
+        // test with a string
         final Quux144 quux = (Quux144) create.evaluate(jc);
+        // removed other assertion
 
+        // test with a nonempty string array
         Object o = assignArray.evaluate(jc);
+        // removed other assertion
         o = checkArray.evaluate(jc);
+        // removed other assertion
 
+        // test with a null array
         assignArray = jexl.createExpression("quux.arr = null");
         o = assignArray.evaluate(jc);
+        // removed other assertion
         o = checkArray.evaluate(jc);
         Assert.assertNull("Result is not null", o);
     }
@@ -1297,15 +1422,24 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         JexlExpression assignArray = jexl.createExpression("quux.arr = [ 'hello', 'world' ]");
         final JexlExpression checkArray = jexl.createExpression("quux.arr");
 
+        // test with a string
         final Quux144 quux = (Quux144) create.evaluate(jc);
+        // removed other assertion
 
+        // test with a nonempty string array
         Object o = assignArray.evaluate(jc);
+        // removed other assertion
         o = checkArray.evaluate(jc);
+        // removed other assertion
 
+        // test with a null array
         assignArray = jexl.createExpression("quux.arr = null");
         o = assignArray.evaluate(jc);
+        // removed other assertion
         o = checkArray.evaluate(jc);
+        // removed other assertion
 
+        // test with an empty array
         assignArray = jexl.createExpression("quux.arr = [ ]");
         o = assignArray.evaluate(jc);
         Assert.assertNotNull("Result is null", o);
@@ -1320,17 +1454,27 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         JexlExpression assignArray = jexl.createExpression("quux.arr = [ 'hello', 'world' ]");
         final JexlExpression checkArray = jexl.createExpression("quux.arr");
 
+        // test with a string
         final Quux144 quux = (Quux144) create.evaluate(jc);
+        // removed other assertion
 
+        // test with a nonempty string array
         Object o = assignArray.evaluate(jc);
+        // removed other assertion
         o = checkArray.evaluate(jc);
+        // removed other assertion
 
+        // test with a null array
         assignArray = jexl.createExpression("quux.arr = null");
         o = assignArray.evaluate(jc);
+        // removed other assertion
         o = checkArray.evaluate(jc);
+        // removed other assertion
 
+        // test with an empty array
         assignArray = jexl.createExpression("quux.arr = [ ]");
         o = assignArray.evaluate(jc);
+        // removed other assertion
         o = checkArray.evaluate(jc);
         Assert.assertEquals("The array elements are not equal", Collections.emptyList(), Arrays.asList((String[]) o));
     }
@@ -1344,18 +1488,29 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         JexlExpression assignArray = jexl.createExpression("quux.arr = [ 'hello', 'world' ]");
         final JexlExpression checkArray = jexl.createExpression("quux.arr");
 
+        // test with a string
         final Quux144 quux = (Quux144) create.evaluate(jc);
+        // removed other assertion
 
+        // test with a nonempty string array
         Object o = assignArray.evaluate(jc);
+        // removed other assertion
         o = checkArray.evaluate(jc);
+        // removed other assertion
 
+        // test with a null array
         assignArray = jexl.createExpression("quux.arr = null");
         o = assignArray.evaluate(jc);
+        // removed other assertion
         o = checkArray.evaluate(jc);
+        // removed other assertion
 
+        // test with an empty array
         assignArray = jexl.createExpression("quux.arr = [ ]");
         o = assignArray.evaluate(jc);
+        // removed other assertion
         o = checkArray.evaluate(jc);
+        // removed other assertion
         Assert.assertEquals("The array size is not zero", 0, ((String[]) o).length);
     }
 
@@ -1368,23 +1523,39 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         JexlExpression assignArray = jexl.createExpression("quux.arr = [ 'hello', 'world' ]");
         final JexlExpression checkArray = jexl.createExpression("quux.arr");
 
+        // test with a string
         final Quux144 quux = (Quux144) create.evaluate(jc);
+        // removed other assertion
 
+        // test with a nonempty string array
         Object o = assignArray.evaluate(jc);
+        // removed other assertion
         o = checkArray.evaluate(jc);
+        // removed other assertion
 
+        // test with a null array
         assignArray = jexl.createExpression("quux.arr = null");
         o = assignArray.evaluate(jc);
+        // removed other assertion
         o = checkArray.evaluate(jc);
+        // removed other assertion
 
+        // test with an empty array
         assignArray = jexl.createExpression("quux.arr = [ ]");
         o = assignArray.evaluate(jc);
+        // removed other assertion
         o = checkArray.evaluate(jc);
+        // removed other assertion
+        // removed other assertion
 
+        // test with an empty array on the overloaded setter for different types.
+        // so, the assignment should fail with logging 'The ambiguous property, arr2, should have failed.'
         try {
             assignArray = jexl.createExpression("quux.arr2 = [ ]");
             o = assignArray.evaluate(jc);
+            // removed other assertion
         } catch (final JexlException.Property e) {
+            //System.out.println("Expected ambiguous property setting exception: " + e);
         }
         Assert.assertNull("The arr2 property value should remain as null, not an empty array.", quux.arr2);
     }
@@ -1442,6 +1613,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         String src = "u.asList(['foo', 'bar'])";
         JexlScript e = jexl.createScript(src);
         Object o = e.execute(jc);
+        // removed other assertion
         Assert.assertEquals(Arrays.asList("foo", "bar"), o);
     }
 
@@ -1454,6 +1626,8 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         String src = "u.asList(['foo', 'bar'])";
         JexlScript e = jexl.createScript(src);
         Object o = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
 
         src = "u.asList([1, 2])";
         e = jexl.createScript(src);
@@ -1470,10 +1644,13 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         String src = "u.asList(['foo', 'bar'])";
         JexlScript e = jexl.createScript(src);
         Object o = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
 
         src = "u.asList([1, 2])";
         e = jexl.createScript(src);
         o = e.execute(jc);
+        // removed other assertion
         Assert.assertEquals(Arrays.asList(1, 2), o);
     }
 
@@ -1507,6 +1684,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final String str0 = "(functionA('z') | functionB('b')) &  (functionC('c') |  functionD('d') ) ";
         final JexlExpression expr0 = jexl.createExpression(str0);
         final Object value0 = expr0.evaluate(jc);
+        // removed other assertion
 
         final String str1 = "(functionA('z') & functionB('b')) |  (functionC('c') &  functionD('d') ) ";
         final JexlExpression expr1 = jexl.createExpression(str1);
@@ -1531,6 +1709,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final String src = "x = new ('java.util.HashSet'); x.add(1); x";
         final JexlScript e = jexl.createScript(src);
         final Object o = e.execute(jc);
+        // removed other assertion
         Assert.assertTrue(((Set) o).contains(1));
     }
 
@@ -1551,6 +1730,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().create();
         JexlExpression js0 = jexl.createExpression("x.y.z.callme(t)");
         jc.set("t", null);
+        // removed other assertion
         jc.set("t", 10);
         Assert.assertEquals(42, js0.evaluate(jc));
     }
@@ -1562,7 +1742,9 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().create();
         JexlExpression js0 = jexl.createExpression("x.y.z.callme(t)");
         jc.set("t", null);
+        // removed other assertion
         jc.set("t", 10);
+        // removed other assertion
         jc.set("t", -10);
         Assert.assertEquals(-42, js0.evaluate(jc));
     }
@@ -1574,8 +1756,11 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().create();
         JexlExpression js0 = jexl.createExpression("x.y.z.callme(t)");
         jc.set("t", null);
+        // removed other assertion
         jc.set("t", 10);
+        // removed other assertion
         jc.set("t", -10);
+        // removed other assertion
         jc.set("t", null);
         Assert.assertNull(js0.evaluate(jc));
     }
@@ -1587,9 +1772,13 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().create();
         JexlExpression js0 = jexl.createExpression("x.y.z.callme(t)");
         jc.set("t", null);
+        // removed other assertion
         jc.set("t", 10);
+        // removed other assertion
         jc.set("t", -10);
+        // removed other assertion
         jc.set("t", null);
+        // removed other assertion
         js0 = jexl.createExpression("x.y.z.kickme().callme(t)");
         jc.set("t", null);
         Assert.assertNull(js0.evaluate(jc));
@@ -1602,11 +1791,16 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().create();
         JexlExpression js0 = jexl.createExpression("x.y.z.callme(t)");
         jc.set("t", null);
+        // removed other assertion
         jc.set("t", 10);
+        // removed other assertion
         jc.set("t", -10);
+        // removed other assertion
         jc.set("t", null);
+        // removed other assertion
         js0 = jexl.createExpression("x.y.z.kickme().callme(t)");
         jc.set("t", null);
+        // removed other assertion
         jc.set("t", 10);
         Assert.assertEquals(42, js0.evaluate(jc));
     }
@@ -1618,12 +1812,18 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().create();
         JexlExpression js0 = jexl.createExpression("x.y.z.callme(t)");
         jc.set("t", null);
+        // removed other assertion
         jc.set("t", 10);
+        // removed other assertion
         jc.set("t", -10);
+        // removed other assertion
         jc.set("t", null);
+        // removed other assertion
         js0 = jexl.createExpression("x.y.z.kickme().callme(t)");
         jc.set("t", null);
+        // removed other assertion
         jc.set("t", 10);
+        // removed other assertion
         jc.set("t", -10);
         Assert.assertEquals(-42, js0.evaluate(jc));
     }
@@ -1635,13 +1835,20 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().create();
         JexlExpression js0 = jexl.createExpression("x.y.z.callme(t)");
         jc.set("t", null);
+        // removed other assertion
         jc.set("t", 10);
+        // removed other assertion
         jc.set("t", -10);
+        // removed other assertion
         jc.set("t", null);
+        // removed other assertion
         js0 = jexl.createExpression("x.y.z.kickme().callme(t)");
         jc.set("t", null);
+        // removed other assertion
         jc.set("t", 10);
+        // removed other assertion
         jc.set("t", -10);
+        // removed other assertion
         jc.set("t", null);
         Assert.assertNull(js0.evaluate(jc));
     }
@@ -1663,6 +1870,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
 
         final JexlScript e = jexl.createScript("(x, y)->{ x + y }");
         Object r = e.execute(jc, true, "EURT");
+        // removed other assertion
         r = e.execute(jc, "ELSAF", false);
         Assert.assertEquals("ELSAFfalse", r);
     }

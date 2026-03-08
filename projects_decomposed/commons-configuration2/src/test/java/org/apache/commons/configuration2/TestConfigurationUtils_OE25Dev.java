@@ -294,14 +294,17 @@ public class TestConfigurationUtils_OE25Dev {
 
     @Test
     public void testAppend_1_oe() {
+        // create the source configuration
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("key1", "value1");
         conf1.addProperty("key2", "value2");
 
+        // create the target configuration
         final Configuration conf2 = new BaseConfiguration();
         conf2.addProperty("key1", "value3");
         conf2.addProperty("key2", "value4");
 
+        // append the source configuration to the target configuration
         ConfigurationUtils.append(conf1, conf2);
 
         List<Object> expected = new ArrayList<>();
@@ -312,19 +315,23 @@ public class TestConfigurationUtils_OE25Dev {
 
     @Test
     public void testAppend_2_oe() {
+        // create the source configuration
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("key1", "value1");
         conf1.addProperty("key2", "value2");
 
+        // create the target configuration
         final Configuration conf2 = new BaseConfiguration();
         conf2.addProperty("key1", "value3");
         conf2.addProperty("key2", "value4");
 
+        // append the source configuration to the target configuration
         ConfigurationUtils.append(conf1, conf2);
 
         List<Object> expected = new ArrayList<>();
         expected.add("value3");
         expected.add("value1");
+        // removed other assertion
 
         expected = new ArrayList<>();
         expected.add("value4");
@@ -360,6 +367,7 @@ public class TestConfigurationUtils_OE25Dev {
         final BaseHierarchicalConfiguration conf = new BaseHierarchicalConfiguration();
         conf.addProperty("test", "yes");
         final BaseHierarchicalConfiguration copy = (BaseHierarchicalConfiguration) ConfigurationUtils.cloneConfiguration(conf);
+        // removed other assertion
         assertEquals("Property was not cloned", "yes", copy.getString("test"));
     }
 
@@ -405,6 +413,7 @@ public class TestConfigurationUtils_OE25Dev {
         params.setPublicID("testID");
         params.setSchemaValidation(true);
         final XMLBuilderParametersImpl clone = (XMLBuilderParametersImpl) ConfigurationUtils.cloneIfPossible(params);
+        // removed other assertion
         final Map<String, Object> map = clone.getParameters();
         for (final Map.Entry<String, Object> e : params.getParameters().entrySet()) {
             if (!e.getKey().startsWith("config-")) {
@@ -431,6 +440,7 @@ public class TestConfigurationUtils_OE25Dev {
     public void testCloneSynchronizerNewInstance_2_oe() {
         final SynchronizerTestImpl sync = new SynchronizerTestImpl();
         final SynchronizerTestImpl sync2 = (SynchronizerTestImpl) ConfigurationUtils.cloneSynchronizer(sync);
+        // removed other assertion
         assertNotSame("Same instance", sync, sync2);
     }
 
@@ -466,6 +476,7 @@ public class TestConfigurationUtils_OE25Dev {
         final BaseHierarchicalConfiguration hc = new BaseHierarchicalConfiguration();
         final ExpressionEngine engine = new DefaultExpressionEngine(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS);
         hc.setExpressionEngine(engine);
+        // removed other assertion
         assertSame("Expression engine was changed", engine, hc.getExpressionEngine());
     }
 
@@ -502,6 +513,7 @@ public class TestConfigurationUtils_OE25Dev {
         final BaseConfiguration conf = new BaseConfiguration();
         conf.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
         conf.addProperty("test.key", "1\\,2\\,3");
+        // removed other assertion
         final HierarchicalConfiguration<?> hc = ConfigurationUtils.convertToHierarchical(conf);
         assertEquals("Escaped list delimiters not correctly handled", "1,2,3", hc.getString("test.key"));
     }
@@ -525,6 +537,7 @@ public class TestConfigurationUtils_OE25Dev {
         final DefaultExpressionEngine engine = new DefaultExpressionEngine(
             new DefaultExpressionEngineSymbols.Builder(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS).setIndexStart("[").setIndexEnd("]").create());
         final HierarchicalConfiguration<?> hc = ConfigurationUtils.convertToHierarchical(conf, engine);
+        // removed other assertion
         assertFalse("Wrong value for test(b)", hc.getBoolean("test(b)"));
     }
 
@@ -543,6 +556,7 @@ public class TestConfigurationUtils_OE25Dev {
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
         config.addProperty("test", "1,2,3");
         final HierarchicalConfiguration<?> hc = ConfigurationUtils.convertToHierarchical(config);
+        // removed other assertion
         assertEquals("Wrong value 2", 2, hc.getInt("test(1)"));
     }
 
@@ -552,6 +566,8 @@ public class TestConfigurationUtils_OE25Dev {
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
         config.addProperty("test", "1,2,3");
         final HierarchicalConfiguration<?> hc = ConfigurationUtils.convertToHierarchical(config);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong value 3", 3, hc.getInt("test(2)"));
     }
 
@@ -569,14 +585,17 @@ public class TestConfigurationUtils_OE25Dev {
 
     @Test
     public void testCopy_1_oe() {
+        // create the source configuration
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("key1", "value1");
         conf1.addProperty("key2", "value2");
 
+        // create the target configuration
         final Configuration conf2 = new BaseConfiguration();
         conf2.addProperty("key1", "value3");
         conf2.addProperty("key2", "value4");
 
+        // copy the source configuration into the target configuration
         ConfigurationUtils.copy(conf1, conf2);
 
         assertEquals("'key1' property", "value1", conf2.getProperty("key1"));
@@ -584,16 +603,20 @@ public class TestConfigurationUtils_OE25Dev {
 
     @Test
     public void testCopy_2_oe() {
+        // create the source configuration
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("key1", "value1");
         conf1.addProperty("key2", "value2");
 
+        // create the target configuration
         final Configuration conf2 = new BaseConfiguration();
         conf2.addProperty("key1", "value3");
         conf2.addProperty("key2", "value4");
 
+        // copy the source configuration into the target configuration
         ConfigurationUtils.copy(conf1, conf2);
 
+        // removed other assertion
         assertEquals("'key2' property", "value2", conf2.getProperty("key2"));
     }
 
@@ -638,6 +661,7 @@ public class TestConfigurationUtils_OE25Dev {
         final Configuration config = new BaseConfiguration();
         final String lineSeparator = System.lineSeparator();
 
+        // removed other assertion
 
         config.setProperty("one", "1");
         assertEquals("String representation of a configuration", "one=1", ConfigurationUtils.toString(config));
@@ -648,8 +672,10 @@ public class TestConfigurationUtils_OE25Dev {
         final Configuration config = new BaseConfiguration();
         final String lineSeparator = System.lineSeparator();
 
+        // removed other assertion
 
         config.setProperty("one", "1");
+        // removed other assertion
 
         config.setProperty("two", "2");
         assertEquals("String representation of a configuration", "one=1" + lineSeparator + "two=2", ConfigurationUtils.toString(config));
@@ -660,10 +686,13 @@ public class TestConfigurationUtils_OE25Dev {
         final Configuration config = new BaseConfiguration();
         final String lineSeparator = System.lineSeparator();
 
+        // removed other assertion
 
         config.setProperty("one", "1");
+        // removed other assertion
 
         config.setProperty("two", "2");
+        // removed other assertion
 
         config.clearProperty("one");
         assertEquals("String representation of a configuration", "two=2", ConfigurationUtils.toString(config));
@@ -674,12 +703,16 @@ public class TestConfigurationUtils_OE25Dev {
         final Configuration config = new BaseConfiguration();
         final String lineSeparator = System.lineSeparator();
 
+        // removed other assertion
 
         config.setProperty("one", "1");
+        // removed other assertion
 
         config.setProperty("two", "2");
+        // removed other assertion
 
         config.clearProperty("one");
+        // removed other assertion
 
         config.setProperty("one", "1");
         assertEquals("String representation of a configuration", "two=2" + lineSeparator + "one=1", ConfigurationUtils.toString(config));

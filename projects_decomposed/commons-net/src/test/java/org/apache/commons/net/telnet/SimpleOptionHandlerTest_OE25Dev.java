@@ -76,11 +76,14 @@ public class SimpleOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTestAbst
 
     public void testConstructors_2_oe()
     {
+        // removed other assertion
         assertEquals(opthand2.getOptionCode(), 8);
     }
 
     public void testConstructors_3_oe()
     {
+        // removed other assertion
+        // removed other assertion
         assertEquals(opthand3.getOptionCode(), 91);
     }
 

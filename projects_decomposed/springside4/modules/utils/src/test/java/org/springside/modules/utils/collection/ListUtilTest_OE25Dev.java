@@ -71,39 +71,7 @@ public class ListUtilTest_OE25Dev {
 		List<String> list7 = ListUtil.synchronizedList(list6);
 	}
 
-	@Test
-	public void sortAndSearch() {
-
-		List<String> list = ListUtil.newArrayList("d", "a", "c", "b", "e", "i", "g");
-		ListUtil.sort(list);
-
-		assertThat(list).hasSize(7).containsExactly("a", "b", "c", "d", "e", "g", "i");
-
-		ListUtil.shuffle(list);
-		ListUtil.shuffle(list, new Random());
-		System.out.println("shuffle list:" + list);
-
-		ListUtil.sort(list, Ordering.natural());
-
-		assertThat(list).hasSize(7).containsExactly("a", "b", "c", "d", "e", "g", "i");
-
-		assertThat(ListUtil.binarySearch(list, "b")).isEqualTo(1);
-		assertThat(ListUtil.binarySearch(list, "b", Ordering.natural())).isEqualTo(1);
-		assertThat(ListUtil.binarySearch(list, "x")).isEqualTo(-8);
-
-		// reverse
-		List list8 = ListUtil.reverse(list);
-		assertThat(list8).hasSize(7).containsExactly("i", "g", "e", "d", "c", "b", "a");
-
-		// sortReverse
-		ListUtil.shuffle(list8);
-		ListUtil.sortReverse(list8);
-		assertThat(list8).hasSize(7).containsExactly("i", "g", "e", "d", "c", "b", "a");
-
-		ListUtil.shuffle(list8);
-		ListUtil.sortReverse(list8, Ordering.natural());
-		assertThat(list8).hasSize(7).containsExactly("i", "g", "e", "d", "c", "b", "a");
-	}
+	// @Test
 
 	
 
@@ -142,6 +110,7 @@ public class ListUtilTest_OE25Dev {
 		List<String> list2 = ListUtil.newArrayList("a", "b", "c");
 		List<String> list3 = ListUtil.newArrayList("a");
 
+		// removed other assertion
 		assertThat(ListUtil.isEmpty(null)).isTrue();
 	}
 
@@ -152,6 +121,8 @@ public class ListUtilTest_OE25Dev {
 		List<String> list2 = ListUtil.newArrayList("a", "b", "c");
 		List<String> list3 = ListUtil.newArrayList("a");
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(ListUtil.isEmpty(list2)).isFalse();
 	}
 
@@ -162,6 +133,9 @@ public class ListUtilTest_OE25Dev {
 		List<String> list2 = ListUtil.newArrayList("a", "b", "c");
 		List<String> list3 = ListUtil.newArrayList("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(ListUtil.isNotEmpty(list1)).isFalse();
 	}
@@ -173,7 +147,11 @@ public class ListUtilTest_OE25Dev {
 		List<String> list2 = ListUtil.newArrayList("a", "b", "c");
 		List<String> list3 = ListUtil.newArrayList("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(ListUtil.isNotEmpty(null)).isFalse();
 	}
 
@@ -184,7 +162,12 @@ public class ListUtilTest_OE25Dev {
 		List<String> list2 = ListUtil.newArrayList("a", "b", "c");
 		List<String> list3 = ListUtil.newArrayList("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(ListUtil.isNotEmpty(list2)).isTrue();
 	}
 
@@ -195,7 +178,13 @@ public class ListUtilTest_OE25Dev {
 		List<String> list2 = ListUtil.newArrayList("a", "b", "c");
 		List<String> list3 = ListUtil.newArrayList("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(ListUtil.getFirst(list2)).isEqualTo("a");
 	}
@@ -207,8 +196,15 @@ public class ListUtilTest_OE25Dev {
 		List<String> list2 = ListUtil.newArrayList("a", "b", "c");
 		List<String> list3 = ListUtil.newArrayList("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(ListUtil.getLast(list2)).isEqualTo("c");
 	}
 
@@ -219,8 +215,16 @@ public class ListUtilTest_OE25Dev {
 		List<String> list2 = ListUtil.newArrayList("a", "b", "c");
 		List<String> list3 = ListUtil.newArrayList("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(ListUtil.getFirst(list3)).isEqualTo("a");
 	}
@@ -232,9 +236,18 @@ public class ListUtilTest_OE25Dev {
 		List<String> list2 = ListUtil.newArrayList("a", "b", "c");
 		List<String> list3 = ListUtil.newArrayList("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(ListUtil.getLast(list3)).isEqualTo("a");
 	}
 
@@ -245,9 +258,19 @@ public class ListUtilTest_OE25Dev {
 		List<String> list2 = ListUtil.newArrayList("a", "b", "c");
 		List<String> list3 = ListUtil.newArrayList("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(ListUtil.getFirst(list1)).isNull();
 	}

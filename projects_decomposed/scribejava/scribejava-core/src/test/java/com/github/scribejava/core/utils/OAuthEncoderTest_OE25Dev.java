@@ -50,6 +50,7 @@ public class OAuthEncoderTest_OE25Dev {
     public void shouldPercentEncodeAllSpecialCharacters_2_oe() {
         final String plain = "!*'();:@&=+$,/?#[]";
         final String encoded = "%21%2A%27%28%29%3B%3A%40%26%3D%2B%24%2C%2F%3F%23%5B%5D";
+        // removed other assertion
         assertEquals(plain, OAuthEncoder.decode(encoded));
     }
 
@@ -62,6 +63,8 @@ public class OAuthEncoderTest_OE25Dev {
 
     @Test
     public void shouldPercentEncodeCorrectlyTwitterCodingExamples_1_oe() {
+        // These tests are part of the Twitter dev examples here
+        // -> https://dev.twitter.com/docs/auth/percent-encoding-parameters
         final String[] sources = {"Ladies + Gentlemen", "An encoded string!", "Dogs, Cats & Mice"};
         final String[] encoded = {"Ladies%20%2B%20Gentlemen", "An%20encoded%20string%21",
             "Dogs%2C%20Cats%20%26%20Mice"};

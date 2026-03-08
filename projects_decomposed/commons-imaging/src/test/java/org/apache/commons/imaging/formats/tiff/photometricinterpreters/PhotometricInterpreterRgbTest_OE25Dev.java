@@ -48,6 +48,7 @@ public class PhotometricInterpreterRgbTest_OE25Dev {
 
     @Test
     public void testConstructor_2_oe() {
+        // removed other assertion
         for (int i = 0; i < bitsPerSample.length; i++) {
             assertEquals(bitsPerSample[i], p.getBitsPerSample(i));
     }
@@ -55,22 +56,31 @@ public class PhotometricInterpreterRgbTest_OE25Dev {
 
     @Test
     public void testConstructor_3_oe() {
+        // removed other assertion
         for (int i = 0; i < bitsPerSample.length; i++) {
+            // removed other assertion
         }
         assertEquals(predictor, p.predictor);
     }
 
     @Test
     public void testConstructor_4_oe() {
+        // removed other assertion
         for (int i = 0; i < bitsPerSample.length; i++) {
+            // removed other assertion
         }
+        // removed other assertion
         assertEquals(width, p.width);
     }
 
     @Test
     public void testConstructor_5_oe() {
+        // removed other assertion
         for (int i = 0; i < bitsPerSample.length; i++) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         assertEquals(height, p.height);
     }
 

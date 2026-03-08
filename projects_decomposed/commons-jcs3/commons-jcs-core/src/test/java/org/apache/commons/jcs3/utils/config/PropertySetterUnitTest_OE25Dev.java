@@ -48,6 +48,7 @@ public class PropertySetterUnitTest_OE25Dev
     {
         final PropertySetter ps = new PropertySetter(this);
         final Object s = ps.convertArg("test", String.class);
+        // removed other assertion
 
         final Object i = ps.convertArg("1", Integer.TYPE);
         assertEquals("Should be an integer", Integer.valueOf(1), i);
@@ -58,8 +59,10 @@ public class PropertySetterUnitTest_OE25Dev
     {
         final PropertySetter ps = new PropertySetter(this);
         final Object s = ps.convertArg("test", String.class);
+        // removed other assertion
 
         final Object i = ps.convertArg("1", Integer.TYPE);
+        // removed other assertion
 
         final Object l = ps.convertArg("1", Long.TYPE);
         assertEquals("Should be a long", Long.valueOf(1), l);
@@ -70,10 +73,13 @@ public class PropertySetterUnitTest_OE25Dev
     {
         final PropertySetter ps = new PropertySetter(this);
         final Object s = ps.convertArg("test", String.class);
+        // removed other assertion
 
         final Object i = ps.convertArg("1", Integer.TYPE);
+        // removed other assertion
 
         final Object l = ps.convertArg("1", Long.TYPE);
+        // removed other assertion
 
         final Object b = ps.convertArg("true", Boolean.TYPE);
         assertEquals("Should be a boolean", Boolean.TRUE, b);
@@ -84,12 +90,16 @@ public class PropertySetterUnitTest_OE25Dev
     {
         final PropertySetter ps = new PropertySetter(this);
         final Object s = ps.convertArg("test", String.class);
+        // removed other assertion
 
         final Object i = ps.convertArg("1", Integer.TYPE);
+        // removed other assertion
 
         final Object l = ps.convertArg("1", Long.TYPE);
+        // removed other assertion
 
         final Object b = ps.convertArg("true", Boolean.TYPE);
+        // removed other assertion
 
         final Object e = ps.convertArg("TWO", EnumTest.class);
         assertEquals("Should be an enum", EnumTest.TWO, e);
@@ -100,14 +110,19 @@ public class PropertySetterUnitTest_OE25Dev
     {
         final PropertySetter ps = new PropertySetter(this);
         final Object s = ps.convertArg("test", String.class);
+        // removed other assertion
 
         final Object i = ps.convertArg("1", Integer.TYPE);
+        // removed other assertion
 
         final Object l = ps.convertArg("1", Long.TYPE);
+        // removed other assertion
 
         final Object b = ps.convertArg("true", Boolean.TYPE);
+        // removed other assertion
 
         final Object e = ps.convertArg("TWO", EnumTest.class);
+        // removed other assertion
 
         final Object f = ps.convertArg("test.conf", File.class);
         assertTrue("Should be a file", f instanceof File);

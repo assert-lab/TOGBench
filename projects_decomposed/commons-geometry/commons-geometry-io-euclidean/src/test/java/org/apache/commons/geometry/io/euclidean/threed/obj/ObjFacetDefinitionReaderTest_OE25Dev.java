@@ -30,6 +30,8 @@ import org.apache.commons.geometry.io.euclidean.threed.FacetDefinition;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class ObjFacetDefinitionReaderTest_OE25Dev {
 
     private static final double TEST_EPS = 1e-10;
@@ -40,13 +42,16 @@ class ObjFacetDefinitionReaderTest_OE25Dev {
 
     @Test
     void testDefaults_1_oe() {
+        // arrange
         final ObjFacetDefinitionReader reader = reader("");
 
+        // act/assert
         Assertions.assertFalse(reader.isFailOnNonPolygonKeywords());
     }
 
     @Test
     void testReadFacet_withNormal_1_oe() {
+        // arrange
         final ObjFacetDefinitionReader reader = reader(
                 "o test\n\n" +
                 "v 0 0 0\r\n" +
@@ -57,13 +62,16 @@ class ObjFacetDefinitionReaderTest_OE25Dev {
                 "f 1//1 2//1 3//1 4//1\n" +
                 "curv non-polygon data\n");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
         Assertions.assertEquals(1, facets.size());
     }
 
     @Test
     void testReadFacet_withoutNormal_1_oe() {
+        // arrange
         final ObjFacetDefinitionReader reader = reader(
                 "o test\n\n" +
                 "v 0 0 0\r\n" +
@@ -71,13 +79,16 @@ class ObjFacetDefinitionReaderTest_OE25Dev {
                 "v 1 1 0\r" +
                 "f 1 2 3\n");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
         Assertions.assertEquals(1, facets.size());
     }
 
     @Test
     void testReadFacet_withoutNormal_3_oe() {
+        // arrange
         final ObjFacetDefinitionReader reader = reader(
                 "o test\n\n" +
                 "v 0 0 0\r\n" +
@@ -85,15 +96,21 @@ class ObjFacetDefinitionReaderTest_OE25Dev {
                 "v 1 1 0\r" +
                 "f 1 2 3\n");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(facets.get(0).getNormal());
     }
 
     @Test
     void testClose_1_oe() {
+        // arrange
         final CloseCountReader closeReader = new CloseCountReader(new StringReader(""));
 
+        // act/assert
         try (ObjFacetDefinitionReader reader = new ObjFacetDefinitionReader(closeReader)) {
             Assertions.assertEquals(0, closeReader.getCloseCount());
     }
@@ -101,9 +118,12 @@ class ObjFacetDefinitionReaderTest_OE25Dev {
 
     @Test
     void testClose_2_oe() {
+        // arrange
         final CloseCountReader closeReader = new CloseCountReader(new StringReader(""));
 
+        // act/assert
         try (ObjFacetDefinitionReader reader = new ObjFacetDefinitionReader(closeReader)) {
+            // removed other assertion
         }
 
         Assertions.assertEquals(1, closeReader.getCloseCount());
@@ -111,6 +131,7 @@ class ObjFacetDefinitionReaderTest_OE25Dev {
 
 @Test
     void testReadFacet_failOnNonPolygon_1_oe() {
+        // arrange
         final ObjFacetDefinitionReader reader = reader(
                 "o test\n\n" +
                 "v 0 0 0\r\n" +
@@ -123,7 +144,12 @@ class ObjFacetDefinitionReaderTest_OE25Dev {
 
         reader.setFailOnNonPolygonKeywords(true);
 
-        GeometryTestUtils.assertThrowsWithMessage( () -> EuclideanIOTestUtils.readAll(reader), IllegalStateException.class, Pattern.compile("^Parsing failed.*"));
+        // act/assert
+        try {
+    EuclideanIOTestUtils.readAll(reader);
+    fail("Expected IllegalStateException with message: " + Pattern.compile("^Parsing failed.*"));
+} catch (IllegalStateException e) {
+}
     }
 
 }

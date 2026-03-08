@@ -94,6 +94,7 @@ public class TestMultiFileBuilderParametersImpl_OE25Dev {
         BeanHelper.setProperty(params, "managedBuilderParameters", bp);
         BeanHelper.setProperty(params, "throwExceptionOnMissing", Boolean.TRUE);
         final Map<String, Object> map = params.getParameters();
+        // removed other assertion
         assertSame("Wrong parameters instance", params, MultiFileBuilderParametersImpl.fromParameters(map));
     }
 
@@ -106,6 +107,8 @@ public class TestMultiFileBuilderParametersImpl_OE25Dev {
         BeanHelper.setProperty(params, "managedBuilderParameters", bp);
         BeanHelper.setProperty(params, "throwExceptionOnMissing", Boolean.TRUE);
         final Map<String, Object> map = params.getParameters();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong pattern", pattern, params.getFilePattern());
     }
 
@@ -118,6 +121,9 @@ public class TestMultiFileBuilderParametersImpl_OE25Dev {
         BeanHelper.setProperty(params, "managedBuilderParameters", bp);
         BeanHelper.setProperty(params, "throwExceptionOnMissing", Boolean.TRUE);
         final Map<String, Object> map = params.getParameters();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertSame("Wrong managed parameters", bp, params.getManagedBuilderParameters());
     }
 
@@ -138,6 +144,7 @@ public class TestMultiFileBuilderParametersImpl_OE25Dev {
         params.setManagedBuilderParameters(managedParams);
         params.setFilePattern("somePattern");
         final MultiFileBuilderParametersImpl clone = params.clone();
+        // removed other assertion
         assertNotSame("Managed parameters not cloned", params.getManagedBuilderParameters(), clone.getManagedBuilderParameters());
     }
 
@@ -148,6 +155,8 @@ public class TestMultiFileBuilderParametersImpl_OE25Dev {
         params.setManagedBuilderParameters(managedParams);
         params.setFilePattern("somePattern");
         final MultiFileBuilderParametersImpl clone = params.clone();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong file name",managedParams.getFileHandler().getFileName(),((FileBasedBuilderParametersImpl)clone.getManagedBuilderParameters()).getFileHandler().getFileName());
     }
 

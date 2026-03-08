@@ -183,11 +183,13 @@ class ListSamplerTest_OE25Dev {
             observed[findSample(sets, ListSampler.sample(rng, new ArrayList<>(cPop), 2))]++;
         }
 
+        // Pass if we cannot reject null hypothesis that distributions are the same.
         Assertions.assertFalse(chiSquareTest.chiSquareTest(expected, observed, 0.001));
     }
 
     @Test
     void testSampleWhole_1_oe() {
+        // Sample of size = size of collection must return the same collection.
          List<String> list = new ArrayList<>();
         list.add("one");
 
@@ -197,15 +199,18 @@ class ListSamplerTest_OE25Dev {
 
     @Test
     void testSampleWhole_2_oe() {
+        // Sample of size = size of collection must return the same collection.
          List<String> list = new ArrayList<>();
         list.add("one");
 
          List<String> one = ListSampler.sample(rng, list, 1);
+        // removed other assertion
         Assertions.assertTrue(one.contains("one"));
     }
 
     @Test
     void testSamplePrecondition1_1_oe() {
+        // Must fail for sample size > collection size.
          List<String> list = new ArrayList<>();
         list.add("one");
         try {
@@ -217,6 +222,7 @@ class ListSamplerTest_OE25Dev {
 
     @Test
     void testSamplePrecondition2_1_oe() {
+        // Must fail for empty collection.
          List<String> list = new ArrayList<>();
         try {
     ListSampler.sample(rng, list, 1);
@@ -235,6 +241,7 @@ class ListSamplerTest_OE25Dev {
          List<Integer> arrayList = new ArrayList<>(orig);
 
         ListSampler.shuffle(rng, arrayList);
+        // Ensure that at least one entry has moved.
         Assertions.assertTrue(compare(orig, arrayList, 0, orig.size(), false), "ArrayList");
     }
 
@@ -248,10 +255,13 @@ class ListSamplerTest_OE25Dev {
          List<Integer> arrayList = new ArrayList<>(orig);
 
         ListSampler.shuffle(rng, arrayList);
+        // Ensure that at least one entry has moved.
+        // removed other assertion
 
          List<Integer> linkedList = new LinkedList<>(orig);
 
         ListSampler.shuffle(rng, linkedList);
+        // Ensure that at least one entry has moved.
         Assertions.assertTrue(compare(orig, linkedList, 0, orig.size(), false), "LinkedList");
     }
 
@@ -266,6 +276,7 @@ class ListSamplerTest_OE25Dev {
          int start = 4;
         ListSampler.shuffle(rng, list, start, false);
 
+        // Ensure that all entries below index "start" did not move.
         Assertions.assertTrue(compare(orig, list, 0, start, true));
     }
 
@@ -280,7 +291,10 @@ class ListSamplerTest_OE25Dev {
          int start = 4;
         ListSampler.shuffle(rng, list, start, false);
 
+        // Ensure that all entries below index "start" did not move.
+        // removed other assertion
 
+        // Ensure that at least one entry has moved.
         Assertions.assertTrue(compare(orig, list, start, orig.size(), false));
     }
 
@@ -295,6 +309,7 @@ class ListSamplerTest_OE25Dev {
          int start = 4;
         ListSampler.shuffle(rng, list, start, true);
 
+        // Ensure that all entries above index "start" did not move.
         Assertions.assertTrue(compare(orig, list, start + 1, orig.size(), true));
     }
 
@@ -309,7 +324,10 @@ class ListSamplerTest_OE25Dev {
          int start = 4;
         ListSampler.shuffle(rng, list, start, true);
 
+        // Ensure that all entries above index "start" did not move.
+        // removed other assertion
 
+        // Ensure that at least one entry has moved.
         Assertions.assertTrue(compare(orig, list, 0, start + 1, false));
     }
 
@@ -327,6 +345,7 @@ class ListSamplerTest_OE25Dev {
                     array0[i0] = it0.next();
                 }
         
+                // Identical RNGs
                  long seed0 = RandomSource.createLong();
                  UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(seed0);
                  UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
@@ -348,6 +367,7 @@ class ListSamplerTest_OE25Dev {
             orig.add((i + 1) * rng.nextInt());
         }
 
+        // removed other assertion
                  List<Integer> list0 = new LinkedList<>(orig);
          int[] array0 = new int[list0.size()];
                 ListIterator<Integer> it0 = list0.listIterator();
@@ -355,6 +375,7 @@ class ListSamplerTest_OE25Dev {
                     array0[i0] = it0.next();
                 }
         
+                // Identical RNGs
                  long seed0 = RandomSource.createLong();
                  UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(seed0);
                  UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
@@ -386,6 +407,7 @@ class ListSamplerTest_OE25Dev {
             orig.add((i + 1) * rng.nextInt());
         }
 
+        // removed other assertion
         assertShuffleMatchesPermutationSamplerShuffle(new ArrayList<>(orig), 4, false);
     }
 
@@ -396,6 +418,8 @@ class ListSamplerTest_OE25Dev {
             orig.add((i + 1) * rng.nextInt());
         }
 
+        // removed other assertion
+        // removed other assertion
         assertShuffleMatchesPermutationSamplerShuffle(new LinkedList<>(orig), 4, true);
     }
 
@@ -406,6 +430,9 @@ class ListSamplerTest_OE25Dev {
             orig.add((i + 1) * rng.nextInt());
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertShuffleMatchesPermutationSamplerShuffle(new LinkedList<>(orig), 4, false);
     }
 
@@ -417,6 +444,10 @@ class ListSamplerTest_OE25Dev {
             orig.add((i + 1) * rng.nextInt());
         }
 
+        // When the size is small there is a chance that the list has no entries that move.
+        // E.g. The number of permutations of 3 items is only 6 giving a 1/6 chance of no change.
+        // So repeat test that the small shuffle matches the PermutationSampler.
+        // 10 times is (1/6)^10 or 1 in 60,466,176 of no change.
         for (int i = 0; i < 10; i++) {
             assertShuffleMatchesPermutationSamplerShuffle(new LinkedList<>(orig), size - 1, true);
     }

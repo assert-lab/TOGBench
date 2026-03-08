@@ -124,18 +124,24 @@ public class SymbolicLinkFileFilterTest_OE25Dev extends BaseFilterTest {
     @Test
     public void testAcceptActual_2_oe() throws FileSystemException {
         final FileFilter testee = SymbolicLinkFileFilter.ACTUAL;
+        // removed other assertion
         Assert.assertTrue(targetFileInfo.getFile().exists());
     }
 
     @Test
     public void testAcceptActual_3_oe() throws FileSystemException {
         final FileFilter testee = SymbolicLinkFileFilter.ACTUAL;
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(targetFileInfo.toString(), testee.accept(targetFileInfo));
     }
 
     @Test
     public void testAcceptActual_4_oe() throws FileSystemException {
         final FileFilter testee = SymbolicLinkFileFilter.ACTUAL;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(notExistingFileInfo.toString(), testee.accept(notExistingFileInfo));
     }
 
@@ -148,6 +154,7 @@ public class SymbolicLinkFileFilterTest_OE25Dev extends BaseFilterTest {
     @Test
     public void testAcceptSymbolic_2_oe() throws FileSystemException {
         final FileFilter testee = SymbolicLinkFileFilter.SYMBOLIC;
+        // removed other assertion
         Assert.assertFalse(notExistingFileInfo.toString(), testee.accept(notExistingFileInfo));
     }
 

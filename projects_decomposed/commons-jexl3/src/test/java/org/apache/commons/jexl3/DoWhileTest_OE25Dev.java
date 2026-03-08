@@ -68,6 +68,7 @@ public class DoWhileTest_OE25Dev extends JexlTestCase {
         jc.set("x", 1);
 
         Object o = e.execute(jc);
+        // removed other assertion
         Assert.assertEquals(10, jc.get("x"));
     }
 
@@ -78,6 +79,8 @@ public class DoWhileTest_OE25Dev extends JexlTestCase {
         jc.set("x", 1);
 
         Object o = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
 
         e = JEXL.createScript("var x = 0; do x += 1; while (x < 23)");
         o = e.execute(jc);
@@ -91,9 +94,12 @@ public class DoWhileTest_OE25Dev extends JexlTestCase {
         jc.set("x", 1);
 
         Object o = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
 
         e = JEXL.createScript("var x = 0; do x += 1; while (x < 23)");
         o = e.execute(jc);
+        // removed other assertion
 
 
         jc.set("x", 1);
@@ -109,14 +115,18 @@ public class DoWhileTest_OE25Dev extends JexlTestCase {
         jc.set("x", 1);
 
         Object o = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
 
         e = JEXL.createScript("var x = 0; do x += 1; while (x < 23)");
         o = e.execute(jc);
+        // removed other assertion
 
 
         jc.set("x", 1);
         e = JEXL.createScript("do x += 1; while (x < 23); return 42;");
         o = e.execute(jc);
+        // removed other assertion
         Assert.assertEquals(42, o);
     }
 
@@ -139,6 +149,7 @@ public class DoWhileTest_OE25Dev extends JexlTestCase {
         jc.set("y", new Integer(1));
 
         final Object o = e.execute(jc);
+        // removed other assertion
         Assert.assertEquals("x is wrong", new Integer(10), jc.get("x"));
     }
 
@@ -150,6 +161,8 @@ public class DoWhileTest_OE25Dev extends JexlTestCase {
         jc.set("y", new Integer(1));
 
         final Object o = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("y is wrong", new Integer(512), jc.get("y"));
     }
 
@@ -157,6 +170,7 @@ public class DoWhileTest_OE25Dev extends JexlTestCase {
     public void testForEachBreakInsideFunction_2_oe() throws Exception {
         try {
             final JexlScript e = JEXL.createScript("for (i : 1..2) {  y = function() { break; } }");
+            // removed other assertion
         } catch (final JexlException.Parsing xparse) {
             final String str = xparse.detailedMessage();
             Assert.assertTrue(str.contains("break"));
@@ -167,6 +181,7 @@ public class DoWhileTest_OE25Dev extends JexlTestCase {
     public void testForEachContinueInsideFunction_2_oe() throws Exception {
         try {
             final JexlScript e = JEXL.createScript("for (i : 1..2) {  y = function() { continue; } }");
+            // removed other assertion
         } catch (final JexlException.Parsing xparse) {
             final String str = xparse.detailedMessage();
             Assert.assertTrue(str.contains("continue"));

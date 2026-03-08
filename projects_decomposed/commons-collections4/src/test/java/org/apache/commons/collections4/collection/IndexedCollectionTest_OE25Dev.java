@@ -108,6 +108,23 @@ public class IndexedCollectionTest_OE25Dev extends AbstractCollectionTest<String
 
     //------------------------------------------------------------------------
 
+    public void testAddedObjectsCanBeRetrievedByKey() throws Exception {
+        final Collection<String> coll = makeTestCollection();
+        coll.add("12");
+        coll.add("16");
+        coll.add("1");
+        coll.addAll(asList("2","3","4"));
+
+        @SuppressWarnings("unchecked")
+        final IndexedCollection<Integer, String> indexed = (IndexedCollection<Integer, String>) coll;
+        assertEquals("12", indexed.get(12));
+        assertEquals("16", indexed.get(16));
+        assertEquals("1", indexed.get(1));
+        assertEquals("2", indexed.get(2));
+        assertEquals("3", indexed.get(3));
+        assertEquals("4", indexed.get(4));
+    }
+
     public void testEnsureDuplicateObjectsCauseException() throws Exception {
         final Collection<String> coll = makeUniqueTestCollection();
 
@@ -118,6 +135,34 @@ public class IndexedCollectionTest_OE25Dev extends AbstractCollectionTest<String
         } catch (final IllegalArgumentException e) {
             // expected
         }
+    }
+
+    public void testDecoratedCollectionIsIndexedOnCreation() throws Exception {
+        final Collection<String> original = makeFullCollection();
+        final IndexedCollection<Integer, String> indexed = decorateUniqueCollection(original);
+
+        assertEquals("1", indexed.get(1));
+        assertEquals("2", indexed.get(2));
+        assertEquals("3", indexed.get(3));
+    }
+
+    public void testReindexUpdatesIndexWhenDecoratedCollectionIsModifiedSeparately() throws Exception {
+        final Collection<String> original = new ArrayList<>();
+        final IndexedCollection<Integer, String> indexed = decorateUniqueCollection(original);
+
+        original.add("1");
+        original.add("2");
+        original.add("3");
+
+        assertNull(indexed.get(1));
+        assertNull(indexed.get(2));
+        assertNull(indexed.get(3));
+
+        indexed.reindex();
+
+        assertEquals("1", indexed.get(1));
+        assertEquals("2", indexed.get(2));
+        assertEquals("3", indexed.get(3));
     }
 
     public void testAddedObjectsCanBeRetrievedByKey_1_oe() throws Exception {

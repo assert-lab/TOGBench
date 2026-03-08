@@ -63,6 +63,7 @@ public class CompositeCacheConfiguratorUnitTest_OE25Dev
 
     public void testParseAuxiliary_CacheEventLogger_Normal_1_oe()
     {
+        // SETUP
         final String regionName = "MyRegion";
 
         final String auxName = "MockAux";
@@ -76,18 +77,22 @@ public class CompositeCacheConfiguratorUnitTest_OE25Dev
         props.put( auxPrefix + CompositeCacheConfigurator.ATTRIBUTE_PREFIX, auxiliaryAttributeClassName );
         props.put( auxPrefix + AuxiliaryCacheConfigurator.CACHE_EVENT_LOGGER_PREFIX, eventLoggerClassName );
 
+//        System.out.print( props );
 
         final CompositeCacheManager manager = CompositeCacheManager.getUnconfiguredInstance();
         final CompositeCacheConfigurator configurator = new CompositeCacheConfigurator();
 
+        // DO WORK
         final AuxiliaryCache<String, String> aux = configurator.parseAuxiliary( props, manager, auxName, regionName );
         final MockAuxiliaryCache<String, String> result = (MockAuxiliaryCache<String, String>)aux;
 
+        // VERIFY
         assertNotNull( "Should have an auxcache.", result );
     }
 
     public void testParseAuxiliary_CacheEventLogger_Normal_2_oe()
     {
+        // SETUP
         final String regionName = "MyRegion";
 
         final String auxName = "MockAux";
@@ -101,13 +106,17 @@ public class CompositeCacheConfiguratorUnitTest_OE25Dev
         props.put( auxPrefix + CompositeCacheConfigurator.ATTRIBUTE_PREFIX, auxiliaryAttributeClassName );
         props.put( auxPrefix + AuxiliaryCacheConfigurator.CACHE_EVENT_LOGGER_PREFIX, eventLoggerClassName );
 
+//        System.out.print( props );
 
         final CompositeCacheManager manager = CompositeCacheManager.getUnconfiguredInstance();
         final CompositeCacheConfigurator configurator = new CompositeCacheConfigurator();
 
+        // DO WORK
         final AuxiliaryCache<String, String> aux = configurator.parseAuxiliary( props, manager, auxName, regionName );
         final MockAuxiliaryCache<String, String> result = (MockAuxiliaryCache<String, String>)aux;
 
+        // VERIFY
+        // removed other assertion
         assertNotNull( "Should have an event logger.", result.getCacheEventLogger() );
     }
 

@@ -384,6 +384,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Var v0 = new Var(3115);
         script = jexl.createScript("(x)->{ x.value}");
         result = script.execute(jc, v0);
+        // removed other assertion
         script = jexl.createScript("(x)->{ x['VALUE']}");
         result = script.execute(jc, v0);
         Assert.assertEquals(3115, result);
@@ -399,8 +400,10 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Var v0 = new Var(3115);
         script = jexl.createScript("(x)->{ x.value}");
         result = script.execute(jc, v0);
+        // removed other assertion
         script = jexl.createScript("(x)->{ x['VALUE']}");
         result = script.execute(jc, v0);
+        // removed other assertion
         script = jexl.createScript("(x,y)->{ x.value = y}");
         result = script.execute(jc, v0, 42);
         Assert.assertEquals(42, result);
@@ -416,10 +419,13 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Var v0 = new Var(3115);
         script = jexl.createScript("(x)->{ x.value}");
         result = script.execute(jc, v0);
+        // removed other assertion
         script = jexl.createScript("(x)->{ x['VALUE']}");
         result = script.execute(jc, v0);
+        // removed other assertion
         script = jexl.createScript("(x,y)->{ x.value = y}");
         result = script.execute(jc, v0, 42);
+        // removed other assertion
         script = jexl.createScript("(x,y)->{ x['VALUE'] = y}");
         result = script.execute(jc, v0, 169);
         Assert.assertEquals(169, result);
@@ -435,6 +441,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final JexlScript foo12 = engine.createScript("foo[1..2]");
         try {
             final Object r = foo12.execute(ctx);
+            // removed other assertion
         } catch (final JexlException xp) {
             Assert.assertTrue(xp instanceof JexlException.Property);
     }
@@ -450,12 +457,16 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final JexlScript foo12 = engine.createScript("foo[1..2]");
         try {
             final Object r = foo12.execute(ctx);
+            // removed other assertion
         } catch (final JexlException xp) {
+            // removed other assertion
         }
 
         final JexlScript foo12assign = engine.createScript("foo[1..2] = x", "x");
         try {
             final Object r = foo12assign.execute(ctx, 25);
+            // removed other assertion
+            // removed other assertion
         } catch (final JexlException xp) {
             Assert.assertTrue(xp instanceof JexlException.Property);
     }
@@ -478,6 +489,8 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
         asserter.assertExpression("foo -= 2", i41 - 2);
@@ -490,8 +503,12 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
         asserter.assertExpression("foo *= 2", i41 * 2);
@@ -504,10 +521,16 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
         asserter.assertExpression("foo /= 2", i41 / 2);
@@ -520,12 +543,20 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
         asserter.assertExpression("foo %= 2", i41 % 2);
@@ -538,14 +569,24 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
         asserter.assertExpression("foo &= 3", (long) (i41 & 3));
@@ -558,16 +599,28 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
         asserter.assertExpression("foo |= 2", (long)(i41 | 2));
@@ -580,18 +633,32 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo", foo);
         asserter.assertExpression("foo ^= 2", (long)(i41 ^ 2));
@@ -614,6 +681,8 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
         asserter.assertExpression("foo.bar.quux -= 2", i41 - 2);
@@ -626,8 +695,12 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
         asserter.assertExpression("foo.bar.quux *= 2", i41 * 2);
@@ -640,10 +713,16 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
         asserter.assertExpression("foo.bar.quux /= 2", i41 / 2);
@@ -656,12 +735,20 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
         asserter.assertExpression("foo.bar.quux %= 2", i41 % 2);
@@ -674,14 +761,24 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
         asserter.assertExpression("foo.bar.quux &= 3", (long) (i41 & 3));
@@ -694,16 +791,28 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
         asserter.assertExpression("foo.bar.quux |= 2", (long)(i41 | 2));
@@ -716,18 +825,32 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
 
         context.put("foo.bar.quux", foo);
         asserter.assertExpression("foo.bar.quux ^= 2", (long)(i41 ^ 2));
@@ -760,6 +883,8 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo[0] -= 2", i41 - 2);
     }
@@ -776,7 +901,11 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo[0] *= 2", i41 * 2);
     }
@@ -793,8 +922,14 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo[0] /= 2", i41 / 2);
     }
@@ -811,9 +946,17 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo[0] %= 2", i41 % 2);
     }
@@ -830,10 +973,20 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo[0] &= 3", (long) (i41 & 3));
     }
@@ -850,11 +1003,23 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo[0] |= 2", (long)(i41 | 2));
     }
@@ -871,12 +1036,26 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo[0] ^= 2", (long)(i41 ^ 2));
     }
@@ -908,6 +1087,8 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.0 -= 2", i41 - 2);
     }
@@ -924,7 +1105,11 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.0 *= 2", i41 * 2);
     }
@@ -941,8 +1126,14 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.0 /= 2", i41 / 2);
     }
@@ -959,9 +1150,17 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.0 %= 2", i41 % 2);
     }
@@ -978,10 +1177,20 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.0 &= 3", (long) (i41 & 3));
     }
@@ -998,11 +1207,23 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.0 |= 2", (long)(i41 | 2));
     }
@@ -1019,12 +1240,26 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.0 ^= 2", (long)(i41 ^ 2));
     }
@@ -1052,6 +1287,8 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo.bar", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
     }
@@ -1066,7 +1303,11 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo.bar", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.bar[0] *= 2", i41 * 2);
     }
@@ -1081,8 +1322,14 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo.bar", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.bar[0] /= 2", i41 / 2);
     }
@@ -1097,9 +1344,17 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo.bar", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.bar[0] %= 2", i41 % 2);
     }
@@ -1114,10 +1369,20 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo.bar", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.bar[0] &= 3", (long) (i41 & 3));
     }
@@ -1132,11 +1397,23 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo.bar", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.bar[0] |= 2", (long)(i41 | 2));
     }
@@ -1151,12 +1428,26 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo.bar", foo);
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.bar[0] ^= 2", (long)(i41 ^ 2));
     }
@@ -1176,6 +1467,8 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.value -= 2", i41 - 2);
     }
@@ -1186,7 +1479,11 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.value *= 2", i41 * 2);
     }
@@ -1197,8 +1494,14 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.value /= 2", i41 / 2);
     }
@@ -1209,9 +1512,17 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.value %= 2", i41 % 2);
     }
@@ -1222,10 +1533,20 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.value &= 3", (long) (i41 & 3));
     }
@@ -1236,11 +1557,23 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.value |= 2", (long)(i41 | 2));
     }
@@ -1251,12 +1584,26 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.value ^= 2", (long)(i41 ^ 2));
     }
@@ -1276,6 +1623,8 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.bar[1] += 2", i41 + 3);
     }
@@ -1286,7 +1635,11 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
     }
@@ -1297,8 +1650,14 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.bar[0] *= 2", i41 * 2);
     }
@@ -1309,9 +1668,17 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.bar[0] /= 2", i41 / 2);
     }
@@ -1322,10 +1689,20 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.bar[0] %= 2", i41 % 2);
     }
@@ -1336,11 +1713,23 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.bar[0] &= 3", (long) (i41 & 3));
     }
@@ -1351,12 +1740,26 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.bar[0] |= 2", (long)(i41 | 2));
     }
@@ -1367,13 +1770,29 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
+        // removed other assertion
+        // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.bar[0] ^= 2", (long)(i41 ^ 2));
     }

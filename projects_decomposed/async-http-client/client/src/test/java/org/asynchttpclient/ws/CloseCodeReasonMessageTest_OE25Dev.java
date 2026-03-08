@@ -160,6 +160,7 @@ public class CloseCodeReasonMessageTest_OE25Dev extends AbstractBasicWebSocketTe
       c.prepareGet(getTargetUrl()).execute(new WebSocketUpgradeHandler.Builder().addWebSocketListener(new Listener(latch, text)).build()).get();
 
       latch.await();
+      // used to be correct 001-Idle Timeout prior to Jetty 9.4.15...
       assertEquals(text.get(), "1000-");
   }
   }

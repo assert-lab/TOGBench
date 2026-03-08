@@ -41,11 +41,14 @@ public class PrivateMethodsTest_OE25Dev {
 
     @Test
     public void testGet_2_oe() {
+        // removed other assertion
         assertEquals("bar-value", privateMethods.get("bar"));
     }
 
     @Test
     public void testGet_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals("baz-value", privateMethods.get("baz"));
     }
 

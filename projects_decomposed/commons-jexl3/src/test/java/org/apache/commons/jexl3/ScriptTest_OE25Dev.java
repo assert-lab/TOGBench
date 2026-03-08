@@ -85,6 +85,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
         jc.set("x", new Integer(1));
 
         final Object o = s.execute(jc);
+        // removed other assertion
         Assert.assertEquals("getText is wrong", code, s.getSourceText());
     }
 
@@ -105,6 +106,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         jc.set("out", System.out);
         final Object result = s.execute(jc);
+        // removed other assertion
         Assert.assertEquals("Wrong result", new Integer(7), result);
     }
 
@@ -125,6 +127,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         jc.set("out", System.out);
         final Object result = s.execute(jc, 13, 29);
+        // removed other assertion
         Assert.assertEquals("Wrong result", new Integer(42), result);
     }
 
@@ -145,6 +148,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         jc.set("out", System.out);
         final Object result = s.execute(jc);
+        // removed other assertion
         Assert.assertEquals("Wrong result", new Integer(7), result);
     }
 
@@ -165,6 +169,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         jc.set("out", System.out);
         final Object result = s.execute(jc, 13, 29);
+        // removed other assertion
         Assert.assertEquals("Wrong result", new Integer(42), result);
     }
 
@@ -195,6 +200,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
 
         resultatJexl.setCode("");
         e.evaluate(jc);
+        // removed other assertion
         resultatJexl.setCode("");
         s.execute(jc);
         Assert.assertEquals("OK", resultatJexl.getCode());

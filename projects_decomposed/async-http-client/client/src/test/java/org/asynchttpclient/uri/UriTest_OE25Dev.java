@@ -161,6 +161,7 @@ public class UriTest_OE25Dev {
   @Test
   public void testQueryWithNonRootPath_2_oe() {
     Uri uri = Uri.create("http://hello.com/foo?query=value");
+    // removed other assertion
     assertEquals(uri.getQuery(), "query=value");
   }
 
@@ -173,6 +174,7 @@ public class UriTest_OE25Dev {
   @Test
   public void testQueryWithNonRootPathAndTrailingSlash_2_oe() {
     Uri uri = Uri.create("http://hello.com/foo/?query=value");
+    // removed other assertion
     assertEquals(uri.getQuery(), "query=value");
   }
 
@@ -185,6 +187,7 @@ public class UriTest_OE25Dev {
   @Test
   public void testQueryWithRootPath_2_oe() {
     Uri uri = Uri.create("http://hello.com?query=value");
+    // removed other assertion
     assertEquals(uri.getQuery(), "query=value");
   }
 
@@ -197,6 +200,7 @@ public class UriTest_OE25Dev {
   @Test
   public void testQueryWithRootPathAndTrailingSlash_2_oe() {
     Uri uri = Uri.create("http://hello.com/?query=value");
+    // removed other assertion
     assertEquals(uri.getQuery(), "query=value");
   }
 
@@ -211,6 +215,7 @@ public class UriTest_OE25Dev {
   public void testWithNewScheme_2_oe() {
     Uri uri = new Uri("http", "user", "example.com", 44, "/path/path2", "query=4", null);
     Uri newUri = uri.withNewScheme("https");
+    // removed other assertion
     assertEquals(newUri.toUrl(), "https://user@example.com:44/path/path2?query=4", "toUrl returned incorrect url");
   }
 
@@ -225,6 +230,7 @@ public class UriTest_OE25Dev {
   public void testWithNewQuery_2_oe() {
     Uri uri = new Uri("http", "user", "example.com", 44, "/path/path2", "query=4", null);
     Uri newUri = uri.withNewQuery("query2=10&query3=20");
+    // removed other assertion
     assertEquals(newUri.toUrl(), "http://user@example.com:44/path/path2?query2=10&query3=20", "toUrl returned incorrect url");
   }
 
@@ -253,6 +259,7 @@ public class UriTest_OE25Dev {
   public void testGetSchemeDefaultPortHttpScheme_2_oe() {
     String url = "https://hello.com/level1/level2/level3";
     Uri uri = Uri.create(url);
+    // removed other assertion
 
     String url2 = "http://hello.com/level1/level2/level3";
     Uri uri2 = Uri.create(url2);
@@ -270,6 +277,7 @@ public class UriTest_OE25Dev {
   public void testGetSchemeDefaultPortWebSocketScheme_2_oe() {
     String url = "wss://hello.com/level1/level2/level3";
     Uri uri = Uri.create(url);
+    // removed other assertion
 
     String url2 = "ws://hello.com/level1/level2/level3";
     Uri uri2 = Uri.create(url2);
@@ -287,6 +295,7 @@ public class UriTest_OE25Dev {
   public void testGetExplicitPort_2_oe() {
     String url = "http://hello.com/level1/level2/level3";
     Uri uri = Uri.create(url);
+    // removed other assertion
 
     String url2 = "http://hello.com:8080/level1/level2/level3";
     Uri uri2 = Uri.create(url2);
@@ -316,6 +325,7 @@ public class UriTest_OE25Dev {
     String fragment = "foo";
     String urlWithFragment = url + "#" + fragment;
     Uri uri = Uri.create(urlWithFragment);
+    // removed other assertion
     assertEquals(uri.toUrl(), url, "toUrl should return without fragment");
   }
 
@@ -325,6 +335,8 @@ public class UriTest_OE25Dev {
     String fragment = "foo";
     String urlWithFragment = url + "#" + fragment;
     Uri uri = Uri.create(urlWithFragment);
+    // removed other assertion
+    // removed other assertion
     assertEquals(uri.toFullUrl(), urlWithFragment, "toFullUrl should return with fragment");
   }
 
@@ -345,6 +357,7 @@ public class UriTest_OE25Dev {
   public void testIsWebsocket_2_oe() {
     String url = "http://user@hello.com:8080/level1/level2/level3?q=1";
     Uri uri = Uri.create(url);
+    // removed other assertion
 
     url = "https://user@hello.com:8080/level1/level2/level3?q=1";
     uri = Uri.create(url);
@@ -355,9 +368,11 @@ public class UriTest_OE25Dev {
   public void testIsWebsocket_3_oe() {
     String url = "http://user@hello.com:8080/level1/level2/level3?q=1";
     Uri uri = Uri.create(url);
+    // removed other assertion
 
     url = "https://user@hello.com:8080/level1/level2/level3?q=1";
     uri = Uri.create(url);
+    // removed other assertion
 
     url = "ws://user@hello.com:8080/level1/level2/level3?q=1";
     uri = Uri.create(url);
@@ -368,12 +383,15 @@ public class UriTest_OE25Dev {
   public void testIsWebsocket_4_oe() {
     String url = "http://user@hello.com:8080/level1/level2/level3?q=1";
     Uri uri = Uri.create(url);
+    // removed other assertion
 
     url = "https://user@hello.com:8080/level1/level2/level3?q=1";
     uri = Uri.create(url);
+    // removed other assertion
 
     url = "ws://user@hello.com:8080/level1/level2/level3?q=1";
     uri = Uri.create(url);
+    // removed other assertion
 
     url = "wss://user@hello.com:8080/level1/level2/level3?q=1";
     uri = Uri.create(url);

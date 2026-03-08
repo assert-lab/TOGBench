@@ -57,6 +57,7 @@ class SortInPlaceTest_OE25Dev {
         final double[] yE = {9, 1, 4, 16, 25};
         final double[] zE = {27, 1, 8, 64, -125};
 
+        // removed other assertion
         Assertions.assertArrayEquals(yE, y);
     }
 
@@ -72,6 +73,8 @@ class SortInPlaceTest_OE25Dev {
         final double[] yE = {9, 1, 4, 16, 25};
         final double[] zE = {27, 1, 8, 64, -125};
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertArrayEquals(zE, z);
     }
 
@@ -102,6 +105,7 @@ class SortInPlaceTest_OE25Dev {
         final double[] yE = {25, 16, 4, 1, 9};
         final double[] zE = {-125, 64, 8, 1, 27};
 
+        // removed other assertion
         Assertions.assertArrayEquals(yE, y);
     }
 
@@ -117,6 +121,8 @@ class SortInPlaceTest_OE25Dev {
         final double[] yE = {25, 16, 4, 1, 9};
         final double[] zE = {-125, 64, 8, 1, 27};
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertArrayEquals(zE, z);
     }
 
@@ -147,6 +153,7 @@ class SortInPlaceTest_OE25Dev {
         final double[] yE = {2, 3, 1};
         final double[] zE = {5, 7, 0};
 
+        // removed other assertion
         Assertions.assertArrayEquals(yE, y);
     }
 
@@ -162,6 +169,8 @@ class SortInPlaceTest_OE25Dev {
         final double[] yE = {2, 3, 1};
         final double[] zE = {5, 7, 0};
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertArrayEquals(zE, z);
     }
 
@@ -186,6 +195,7 @@ class SortInPlaceTest_OE25Dev {
         final double[] two = {1, 2};
         final double[] onep = {2};
 
+        // removed other assertion
         try {
     SortInPlace.ASCENDING.apply(one, nullArray);
     fail("NullPointerException");
@@ -200,6 +210,8 @@ class SortInPlaceTest_OE25Dev {
         final double[] two = {1, 2};
         final double[] onep = {2};
 
+        // removed other assertion
+        // removed other assertion
         try {
     SortInPlace.ASCENDING.apply(one, onep, nullArray);
     fail("NullPointerException");

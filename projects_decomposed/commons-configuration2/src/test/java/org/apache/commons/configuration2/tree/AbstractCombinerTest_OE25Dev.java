@@ -87,6 +87,7 @@ public abstract class AbstractCombinerTest_OE25Dev {
 
     @Test
     public void testInit_2_oe() {
+        // removed other assertion
         assertFalse("Node is list node", combiner.isListNode(NodeStructureHelper.createNode("test", null)));
     }
 

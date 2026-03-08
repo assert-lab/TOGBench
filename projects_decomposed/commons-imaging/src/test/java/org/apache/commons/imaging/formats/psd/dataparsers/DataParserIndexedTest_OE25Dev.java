@@ -29,6 +29,7 @@ public class DataParserIndexedTest_OE25Dev{
       final byte[] byteArray = new byte[24];
       try {
         new DataParserIndexed(byteArray);
+        // removed other assertion
       } catch(final ArrayIndexOutOfBoundsException e) {
          assertTrue(e.getMessage().contains("256"));
   }
@@ -39,7 +40,9 @@ public class DataParserIndexedTest_OE25Dev{
       final byte[] byteArray = new byte[24];
       try {
         new DataParserIndexed(byteArray);
+        // removed other assertion
       } catch(final ArrayIndexOutOfBoundsException e) {
+         // removed other assertion
          assertEquals(DataParserIndexed.class.getName(), e.getStackTrace()[0].getClassName());
   }
   }

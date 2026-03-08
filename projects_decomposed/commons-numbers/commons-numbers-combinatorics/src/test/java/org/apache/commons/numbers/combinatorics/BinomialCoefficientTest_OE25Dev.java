@@ -103,6 +103,7 @@ class BinomialCoefficientTest_OE25Dev {
         final long[] bcoef6 = {1, 6, 15, 20, 15, 6, 1};
 
         for (int i = 0; i < 6; i++) {
+            // removed other assertion
         }
         for (int i = 0; i < 7; i++) {
             Assertions.assertEquals(bcoef6[i], BinomialCoefficient.value(6, i), "6 choose " + i);
@@ -115,8 +116,10 @@ class BinomialCoefficientTest_OE25Dev {
         final long[] bcoef6 = {1, 6, 15, 20, 15, 6, 1};
 
         for (int i = 0; i < 6; i++) {
+            // removed other assertion
         }
         for (int i = 0; i < 7; i++) {
+            // removed other assertion
         }
 
         for (int n = 1; n < 10; n++) {
@@ -132,12 +135,15 @@ class BinomialCoefficientTest_OE25Dev {
         final long[] bcoef6 = {1, 6, 15, 20, 15, 6, 1};
 
         for (int i = 0; i < 6; i++) {
+            // removed other assertion
         }
         for (int i = 0; i < 7; i++) {
+            // removed other assertion
         }
 
         for (int n = 1; n < 10; n++) {
             for (int k = 0; k <= n; k++) {
+                // removed other assertion
             }
         }
 
@@ -187,6 +193,7 @@ class BinomialCoefficientTest_OE25Dev {
 
     @Test
     void testBinomialCoefficientLarge_1_oe() throws Exception {
+        // This tests all legal and illegal values for n <= 200.
         for (int n = 0; n <= 200; n++) {
             for (int k = 0; k <= n; k++) {
                 long ourResult = -1;
@@ -210,6 +217,7 @@ class BinomialCoefficientTest_OE25Dev {
 
     @Test
     void testBinomialCoefficientLarge_2_oe() throws Exception {
+        // This tests all legal and illegal values for n <= 200.
         for (int n = 0; n <= 200; n++) {
             for (int k = 0; k <= n; k++) {
                 long ourResult = -1;
@@ -226,6 +234,7 @@ class BinomialCoefficientTest_OE25Dev {
                 } catch (ArithmeticException ex) {
                     shouldThrow = true;
                 }
+                // removed other assertion
                 Assertions.assertEquals(shouldThrow, didThrow, n + " choose " + k);
     }
     }
@@ -233,6 +242,7 @@ class BinomialCoefficientTest_OE25Dev {
 
     @Test
     void testBinomialCoefficientLarge_3_oe() throws Exception {
+        // This tests all legal and illegal values for n <= 200.
         for (int n = 0; n <= 200; n++) {
             for (int k = 0; k <= n; k++) {
                 long ourResult = -1;
@@ -249,6 +259,8 @@ class BinomialCoefficientTest_OE25Dev {
                 } catch (ArithmeticException ex) {
                     shouldThrow = true;
                 }
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertTrue(n > 66 || !didThrow, n + " choose " + k);
     }
     }
@@ -256,6 +268,7 @@ class BinomialCoefficientTest_OE25Dev {
 
     @Test
     void testBinomialCoefficientLarge_4_oe() throws Exception {
+        // This tests all legal and illegal values for n <= 200.
         for (int n = 0; n <= 200; n++) {
             for (int k = 0; k <= n; k++) {
                 long ourResult = -1;
@@ -272,6 +285,9 @@ class BinomialCoefficientTest_OE25Dev {
                 } catch (ArithmeticException ex) {
                     shouldThrow = true;
                 }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
             }
         }
 
@@ -282,6 +298,7 @@ class BinomialCoefficientTest_OE25Dev {
 
     @Test
     void testBinomialCoefficientLarge_5_oe() throws Exception {
+        // This tests all legal and illegal values for n <= 200.
         for (int n = 0; n <= 200; n++) {
             for (int k = 0; k <= n; k++) {
                 long ourResult = -1;
@@ -298,11 +315,15 @@ class BinomialCoefficientTest_OE25Dev {
                 } catch (ArithmeticException ex) {
                     shouldThrow = true;
                 }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
             }
         }
 
         long ourResult = BinomialCoefficient.value(300, 3);
         long exactResult = binomialCoefficient(300, 3);
+        // removed other assertion
 
         ourResult = BinomialCoefficient.value(700, 697);
         exactResult = binomialCoefficient(700, 697);
@@ -311,6 +332,7 @@ class BinomialCoefficientTest_OE25Dev {
 
     @Test
     void testBinomialCoefficientLarge_6_oe() throws Exception {
+        // This tests all legal and illegal values for n <= 200.
         for (int n = 0; n <= 200; n++) {
             for (int k = 0; k <= n; k++) {
                 long ourResult = -1;
@@ -327,14 +349,19 @@ class BinomialCoefficientTest_OE25Dev {
                 } catch (ArithmeticException ex) {
                     shouldThrow = true;
                 }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
             }
         }
 
         long ourResult = BinomialCoefficient.value(300, 3);
         long exactResult = binomialCoefficient(300, 3);
+        // removed other assertion
 
         ourResult = BinomialCoefficient.value(700, 697);
         exactResult = binomialCoefficient(700, 697);
+        // removed other assertion
 
         final int n = 10000;
         ourResult = BinomialCoefficient.value(n, 3);

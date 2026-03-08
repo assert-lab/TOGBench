@@ -184,6 +184,14 @@ public class OAuthSignatureCalculatorTest_OE25Dev {
             .setSignatureCalculator(calc)
             .build();
 
+    // From the signature tester, POST should look like:
+    // normalized parameters:
+    // file=vacation.jpg&oauth_consumer_key=dpf43f3p2l4k3l03&oauth_nonce=kllo9940pd9333jh&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1191242096&oauth_token=nnch734d00sl2jdk&oauth_version=1.0&size=original
+    // signature base string:
+    // POST&http%3A%2F%2Fphotos.example.net%2Fphotos&file%3Dvacation.jpg%26oauth_consumer_key%3Ddpf43f3p2l4k3l03%26oauth_nonce%3Dkllo9940pd9333jh%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1191242096%26oauth_token%3Dnnch734d00sl2jdk%26oauth_version%3D1.0%26size%3Doriginal
+    // signature: wPkvxykrw+BTdCcGqKr+3I+PsiM=
+    // header: OAuth
+    // realm="",oauth_version="1.0",oauth_consumer_key="dpf43f3p2l4k3l03",oauth_token="nnch734d00sl2jdk",oauth_timestamp="1191242096",oauth_nonce="kllo9940pd9333jh",oauth_signature_method="HMAC-SHA1",oauth_signature="wPkvxykrw%2BBTdCcGqKr%2B3I%2BPsiM%3D"
 
     String authHeader = req.getHeaders().get(AUTHORIZATION);
     Matcher m = Pattern.compile("oauth_signature=\"(.+?)\"").matcher(authHeader);
@@ -225,7 +233,16 @@ public class OAuthSignatureCalculatorTest_OE25Dev {
             .build();
 
     final List<Param> params = req.getQueryParams();
+    // removed other assertion
 
+    // From the signature tester, the URL should look like:
+    // normalized parameters:
+    // file=vacation.jpg&oauth_consumer_key=dpf43f3p2l4k3l03&oauth_nonce=kllo9940pd9333jh&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1191242096&oauth_token=nnch734d00sl2jdk&oauth_version=1.0&size=original
+    // signature base string:
+    // GET&http%3A%2F%2Fphotos.example.net%2Fphotos&file%3Dvacation.jpg%26oauth_consumer_key%3Ddpf43f3p2l4k3l03%26oauth_nonce%3Dkllo9940pd9333jh%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1191242096%26oauth_token%3Dnnch734d00sl2jdk%26oauth_version%3D1.0%26size%3Doriginal
+    // signature: tR3+Ty81lMeYAr/Fid0kMTYa/WM=
+    // Authorization header: OAuth
+    // realm="",oauth_version="1.0",oauth_consumer_key="dpf43f3p2l4k3l03",oauth_token="nnch734d00sl2jdk",oauth_timestamp="1191242096",oauth_nonce="kllo9940pd9333jh",oauth_signature_method="HMAC-SHA1",oauth_signature="tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D"
 
     String authHeader = req.getHeaders().get(AUTHORIZATION);
     Matcher m = Pattern.compile("oauth_signature=\"(.+?)\"").matcher(authHeader);
@@ -263,7 +280,16 @@ public class OAuthSignatureCalculatorTest_OE25Dev {
             .build();
 
     final List<Param> params = req.getQueryParams();
+    // removed other assertion
 
+    // From the signature tester, the URL should look like:
+    // normalized parameters:
+    // file=vacation.jpg&oauth_consumer_key=dpf43f3p2l4k3l03&oauth_nonce=kllo9940pd9333jh&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1191242096&oauth_token=nnch734d00sl2jdk&oauth_version=1.0&size=original
+    // signature base string:
+    // GET&http%3A%2F%2Fphotos.example.net%2Fphotos&file%3Dvacation.jpg%26oauth_consumer_key%3Ddpf43f3p2l4k3l03%26oauth_nonce%3Dkllo9940pd9333jh%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1191242096%26oauth_token%3Dnnch734d00sl2jdk%26oauth_version%3D1.0%26size%3Doriginal
+    // signature: tR3+Ty81lMeYAr/Fid0kMTYa/WM=
+    // Authorization header: OAuth
+    // realm="",oauth_version="1.0",oauth_consumer_key="dpf43f3p2l4k3l03",oauth_token="nnch734d00sl2jdk",oauth_timestamp="1191242096",oauth_nonce="kllo9940pd9333jh",oauth_signature_method="HMAC-SHA1",oauth_signature="tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D"
 
     String authHeader = req.getHeaders().get(AUTHORIZATION);
     Matcher m = Pattern.compile("oauth_signature=\"(.+?)\"").matcher(authHeader);

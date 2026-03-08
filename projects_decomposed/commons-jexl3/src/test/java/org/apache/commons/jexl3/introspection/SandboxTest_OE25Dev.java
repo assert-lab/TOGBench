@@ -270,7 +270,9 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         script = sjexl.createScript(expr);
         try {
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException xany) {
+            //
         }
         jc.set("foo", new Foo("42"));
             result = script.execute(jc);
@@ -339,6 +341,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
 
         script = sjexl.createScript(expr, "foo");
         result = script.execute(null, foo);
+        // removed other assertion
 
         script = sjexl.createScript("foo.ALIAS", "foo");
         result = script.execute(null, foo);
@@ -374,6 +377,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
 
         script = sjexl.createScript(expr, "foo", "$0");
         result = script.execute(null, foo, "43");
+        // removed other assertion
         Assert.assertEquals("43", foo.alias);
     }
 
@@ -382,7 +386,9 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         final JexlContext context = new MapContext();
         context.set("System", System.class);
         final JexlSandbox sandbox = new JexlSandbox();
+        // only allow call to currentTimeMillis (avoid exit, gc, loadLibrary, etc)
         sandbox.allow(System.class.getName()).execute("currentTimeMillis");
+        // can not create a new file
         sandbox.block(java.io.File.class.getName()).execute("");
 
         final JexlEngine sjexl = new JexlBuilder().sandbox(sandbox).safe(false).strict(true).create();
@@ -394,6 +400,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         script = sjexl.createScript("System.exit()");
         try {
             result = script.execute(context);
+            // removed other assertion
         } catch (final JexlException xjexl) {
             LOGGER.debug(xjexl.toString());
         }
@@ -401,6 +408,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         script = sjexl.createScript("System.exit(1)");
         try {
             result = script.execute(context);
+            // removed other assertion
         } catch (final JexlException xjexl) {
             LOGGER.debug(xjexl.toString());
         }
@@ -408,6 +416,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         script = sjexl.createScript("new('java.io.File', '/tmp/should-not-be-created')");
         try {
             result = script.execute(context);
+            // removed other assertion
         } catch (final JexlException xjexl) {
             LOGGER.debug(xjexl.toString());
         }
@@ -449,6 +458,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         final JexlScript get = sjexl.createScript("foo[x]", "foo", "x");
 
         result = method.execute(ctxt, foo, "nothing");
+        // removed other assertion
         result = null;
         result = get.execute(null, foo, 0);
         Assert.assertEquals("nothing", result);
@@ -468,8 +478,10 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         final JexlScript get = sjexl.createScript("foo[x]", "foo", "x");
 
         result = method.execute(ctxt, foo, "nothing");
+        // removed other assertion
         result = null;
         result = get.execute(null, foo, 0);
+        // removed other assertion
         result = null;
         result = set.execute(null, foo, 0, "42");
         Assert.assertEquals("42", result);
@@ -489,10 +501,13 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         final JexlScript get = sjexl.createScript("foo[x]", "foo", "x");
 
         result = method.execute(ctxt, foo, "nothing");
+        // removed other assertion
         result = null;
         result = get.execute(null, foo, 0);
+        // removed other assertion
         result = null;
         result = set.execute(null, foo, 0, "42");
+        // removed other assertion
 
         result = null;
         result = get.execute(null, foo, 0);
@@ -507,6 +522,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         final JexlSandbox sandbox = new JexlSandbox(false, true);
         sandbox.allow(Operation.class.getName());
         sandbox.block(Operation.class.getName()).execute("nonCallable");
+        //sandbox.block(Foo.class.getName()).execute();
         final JexlEngine sjexl = new JexlBuilder().sandbox(sandbox).safe(false).strict(true).create();
         final JexlScript someOp = sjexl.createScript("foo.someOp(y)", "foo", "y");
         result = someOp.execute(ctxt, foo, 30);
@@ -521,6 +537,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         final JexlScript foo = sjexl.createScript("x.getFoo()", "x");
         try {
             foo.execute(ctxt, new Foo44());
+            // removed other assertion
         } catch (final JexlException xany) {
             Assert.assertNotNull(xany);
     }
@@ -540,10 +557,12 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         JexlSandbox.Permissions p = sandbox.permissions("java.util.Map", false, true, true);
         p.read().add("quux");
         JexlEngine jexl = new JexlBuilder().sandbox(sandbox).create();
+        // cant read quux
         String q = "'quux'"; //quotes are important!
         JexlExpression expression = jexl.createExpression("{"+q+" : 'foo'}["+q+"]");
         try {
             Object o = expression.evaluate(null);
+            // removed other assertion
         } catch (JexlException.Property xp) {
             Assert.assertTrue(xp.getMessage().contains("undefined"));
     }
@@ -555,12 +574,16 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         JexlSandbox.Permissions p = sandbox.permissions("java.util.Map", false, true, true);
         p.read().add("quux");
         JexlEngine jexl = new JexlBuilder().sandbox(sandbox).create();
+        // cant read quux
         String q = "'quux'"; //quotes are important!
         JexlExpression expression = jexl.createExpression("{"+q+" : 'foo'}["+q+"]");
         try {
             Object o = expression.evaluate(null);
+            // removed other assertion
         } catch (JexlException.Property xp) {
+            // removed other assertion
         }
+        // can read foo, null
         for(String k : Arrays.asList("'foo'", "null")) {
             expression = jexl.createExpression("{"+k+" : 'foo'}["+k+"]");
             Object o = expression.evaluate(null);
@@ -574,6 +597,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         JexlSandbox.Permissions p = sandbox.permissions("java.util.Map", false, true, true);
         p.read().add(null);
         p.read().add("quux");
+        // can read bar
         JexlEngine jexl = new JexlBuilder().sandbox(sandbox).create();
         JexlExpression e0 = jexl.createExpression("{'bar' : 'foo'}['bar']");
         Object r0 = e0.evaluate(null);
@@ -586,13 +610,17 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         JexlSandbox.Permissions p = sandbox.permissions("java.util.Map", false, true, true);
         p.read().add(null);
         p.read().add("quux");
+        // can read bar
         JexlEngine jexl = new JexlBuilder().sandbox(sandbox).create();
         JexlExpression e0 = jexl.createExpression("{'bar' : 'foo'}['bar']");
         Object r0 = e0.evaluate(null);
+        // removed other assertion
+        // can not read quux, null
         for(String k : Arrays.asList("'quux'", "null")) {
             JexlExpression expression = jexl.createExpression("{"+k+" : 'foo'}["+k+"]");
             try {
                 Object o = expression.evaluate(null);
+                // removed other assertion
             } catch (JexlException.Property xp) {
                 Assert.assertTrue(xp.getMessage().contains("undefined"));
     }
@@ -617,10 +645,12 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         JexlSandbox.Permissions p = sandbox.permissions("java.util.Map", true, false, true);
         p.write().add("quux");
         JexlEngine jexl = new JexlBuilder().arithmetic(a350).sandbox(sandbox).create();
+        // can not write quux
         String q = "'quux'"; //quotes are important!
         JexlExpression expression = jexl.createExpression("{"+q+" : 'foo'}["+q+"] = '42'");
         try {
             Object o = expression.evaluate(null);
+            // removed other assertion
         } catch (JexlException.Property xp) {
             Assert.assertTrue(xp.getMessage().contains("undefined"));
     }
@@ -633,12 +663,16 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         JexlSandbox.Permissions p = sandbox.permissions("java.util.Map", true, false, true);
         p.write().add("quux");
         JexlEngine jexl = new JexlBuilder().arithmetic(a350).sandbox(sandbox).create();
+        // can not write quux
         String q = "'quux'"; //quotes are important!
         JexlExpression expression = jexl.createExpression("{"+q+" : 'foo'}["+q+"] = '42'");
         try {
             Object o = expression.evaluate(null);
+            // removed other assertion
         } catch (JexlException.Property xp) {
+            // removed other assertion
         }
+        // can write bar, null
         expression = jexl.createExpression("{'bar' : 'foo'}['bar'] = '42'");
         expression.evaluate(null);
         Map<?, ?> map = a350.getLastMap();
@@ -652,15 +686,20 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         JexlSandbox.Permissions p = sandbox.permissions("java.util.Map", true, false, true);
         p.write().add("quux");
         JexlEngine jexl = new JexlBuilder().arithmetic(a350).sandbox(sandbox).create();
+        // can not write quux
         String q = "'quux'"; //quotes are important!
         JexlExpression expression = jexl.createExpression("{"+q+" : 'foo'}["+q+"] = '42'");
         try {
             Object o = expression.evaluate(null);
+            // removed other assertion
         } catch (JexlException.Property xp) {
+            // removed other assertion
         }
+        // can write bar, null
         expression = jexl.createExpression("{'bar' : 'foo'}['bar'] = '42'");
         expression.evaluate(null);
         Map<?, ?> map = a350.getLastMap();
+        // removed other assertion
         map.clear();
         expression = jexl.createExpression("{null : 'foo'}[null] = '42'");
         expression.evaluate(null);
@@ -676,6 +715,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         p.write().add(null);
         p.write().add("quux");
         JexlEngine jexl = new JexlBuilder().arithmetic(a350).sandbox(sandbox).create();
+        // can write bar
         JexlExpression expression = jexl.createExpression("{'bar' : 'foo'}['bar'] = '42'");
         expression.evaluate(null);
         Map<?,?> map = a350.getLastMap();
@@ -690,13 +730,17 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         p.write().add(null);
         p.write().add("quux");
         JexlEngine jexl = new JexlBuilder().arithmetic(a350).sandbox(sandbox).create();
+        // can write bar
         JexlExpression expression = jexl.createExpression("{'bar' : 'foo'}['bar'] = '42'");
         expression.evaluate(null);
         Map<?,?> map = a350.getLastMap();
+        // removed other assertion
+        // can not write quux, null
         for(String k : Arrays.asList("'quux'", "null")) {
             expression = jexl.createExpression("{"+k+" : 'foo'}["+k+"] = '42'");
             try {
                 Object o = expression.evaluate(null);
+                // removed other assertion
             } catch (JexlException.Property xp) {
                 Assert.assertTrue(xp.getMessage().contains("undefined"));
     }

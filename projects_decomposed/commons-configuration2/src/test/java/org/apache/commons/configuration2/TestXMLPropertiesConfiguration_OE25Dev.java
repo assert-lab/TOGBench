@@ -87,6 +87,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         final Document doc = dBuilder.parse(file);
         final XMLPropertiesConfiguration conf = new XMLPropertiesConfiguration(doc.getDocumentElement());
 
+        // removed other assertion
 
         assertFalse("The configuration is empty", conf.isEmpty());
     }
@@ -101,7 +102,9 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         final Document doc = dBuilder.parse(file);
         final XMLPropertiesConfiguration conf = new XMLPropertiesConfiguration(doc.getDocumentElement());
 
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("'key1' property", "value1", conf.getProperty("key1"));
     }
 
@@ -115,7 +118,10 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         final Document doc = dBuilder.parse(file);
         final XMLPropertiesConfiguration conf = new XMLPropertiesConfiguration(doc.getDocumentElement());
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("'key2' property", "value2", conf.getProperty("key2"));
     }
 
@@ -129,20 +135,28 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         final Document doc = dBuilder.parse(file);
         final XMLPropertiesConfiguration conf = new XMLPropertiesConfiguration(doc.getDocumentElement());
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("'key3' property", "value3", conf.getProperty("key3"));
     }
 
     @Test
     public void testDOMSave_1_oe() throws Exception {
+        // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
 
+        // update the configuration
         conf.addProperty("key4", "value4");
         conf.clearProperty("key2");
         conf.setHeader("Description of the new property list");
 
+        // save the configuration
         final File saveFile = folder.newFile("test2.properties.xml");
 
+        // save as DOM into saveFile
         final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         final DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         final Document document = dBuilder.newDocument();
@@ -153,21 +167,27 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         final Result result = new StreamResult(saveFile);
         transformer.transform(source, result);
 
+        // reload the configuration
         final XMLPropertiesConfiguration conf2 = load(saveFile.getAbsolutePath());
 
+        // test the configuration
         assertEquals("header", "Description of the new property list", conf2.getHeader());
     }
 
     @Test
     public void testDOMSave_2_oe() throws Exception {
+        // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
 
+        // update the configuration
         conf.addProperty("key4", "value4");
         conf.clearProperty("key2");
         conf.setHeader("Description of the new property list");
 
+        // save the configuration
         final File saveFile = folder.newFile("test2.properties.xml");
 
+        // save as DOM into saveFile
         final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         final DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         final Document document = dBuilder.newDocument();
@@ -178,22 +198,29 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         final Result result = new StreamResult(saveFile);
         transformer.transform(source, result);
 
+        // reload the configuration
         final XMLPropertiesConfiguration conf2 = load(saveFile.getAbsolutePath());
 
+        // test the configuration
+        // removed other assertion
 
         assertFalse("The configuration is empty", conf2.isEmpty());
     }
 
     @Test
     public void testDOMSave_3_oe() throws Exception {
+        // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
 
+        // update the configuration
         conf.addProperty("key4", "value4");
         conf.clearProperty("key2");
         conf.setHeader("Description of the new property list");
 
+        // save the configuration
         final File saveFile = folder.newFile("test2.properties.xml");
 
+        // save as DOM into saveFile
         final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         final DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         final Document document = dBuilder.newDocument();
@@ -204,22 +231,30 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         final Result result = new StreamResult(saveFile);
         transformer.transform(source, result);
 
+        // reload the configuration
         final XMLPropertiesConfiguration conf2 = load(saveFile.getAbsolutePath());
 
+        // test the configuration
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("'key1' property", "value1", conf2.getProperty("key1"));
     }
 
     @Test
     public void testDOMSave_4_oe() throws Exception {
+        // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
 
+        // update the configuration
         conf.addProperty("key4", "value4");
         conf.clearProperty("key2");
         conf.setHeader("Description of the new property list");
 
+        // save the configuration
         final File saveFile = folder.newFile("test2.properties.xml");
 
+        // save as DOM into saveFile
         final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         final DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         final Document document = dBuilder.newDocument();
@@ -230,22 +265,31 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         final Result result = new StreamResult(saveFile);
         transformer.transform(source, result);
 
+        // reload the configuration
         final XMLPropertiesConfiguration conf2 = load(saveFile.getAbsolutePath());
 
+        // test the configuration
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("'key3' property", "value3", conf2.getProperty("key3"));
     }
 
     @Test
     public void testDOMSave_5_oe() throws Exception {
+        // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
 
+        // update the configuration
         conf.addProperty("key4", "value4");
         conf.clearProperty("key2");
         conf.setHeader("Description of the new property list");
 
+        // save the configuration
         final File saveFile = folder.newFile("test2.properties.xml");
 
+        // save as DOM into saveFile
         final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         final DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         final Document document = dBuilder.newDocument();
@@ -256,9 +300,15 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         final Result result = new StreamResult(saveFile);
         transformer.transform(source, result);
 
+        // reload the configuration
         final XMLPropertiesConfiguration conf2 = load(saveFile.getAbsolutePath());
 
+        // test the configuration
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("'key4' property", "value4", conf2.getProperty("key4"));
     }
 
@@ -271,6 +321,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
     @Test
     public void testLoad_2_oe() throws Exception {
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
+        // removed other assertion
 
         assertFalse("The configuration is empty", conf.isEmpty());
     }
@@ -278,110 +329,154 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
     @Test
     public void testLoad_3_oe() throws Exception {
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("'key1' property", "value1", conf.getProperty("key1"));
     }
 
     @Test
     public void testLoad_4_oe() throws Exception {
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("'key2' property", "value2", conf.getProperty("key2"));
     }
 
     @Test
     public void testLoad_5_oe() throws Exception {
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("'key3' property", "value3", conf.getProperty("key3"));
     }
 
     @Test
     public void testSave_1_oe() throws Exception {
+        // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
 
+        // update the configuration
         conf.addProperty("key4", "value4");
         conf.clearProperty("key2");
         conf.setHeader("Description of the new property list");
 
+        // save the configuration
         final File saveFile = folder.newFile("test2.properties.xml");
         final FileHandler saveHandler = new FileHandler(conf);
         saveHandler.save(saveFile);
 
+        // reload the configuration
         final XMLPropertiesConfiguration conf2 = load(saveFile.getAbsolutePath());
 
+        // test the configuration
         assertEquals("header", "Description of the new property list", conf2.getHeader());
     }
 
     @Test
     public void testSave_2_oe() throws Exception {
+        // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
 
+        // update the configuration
         conf.addProperty("key4", "value4");
         conf.clearProperty("key2");
         conf.setHeader("Description of the new property list");
 
+        // save the configuration
         final File saveFile = folder.newFile("test2.properties.xml");
         final FileHandler saveHandler = new FileHandler(conf);
         saveHandler.save(saveFile);
 
+        // reload the configuration
         final XMLPropertiesConfiguration conf2 = load(saveFile.getAbsolutePath());
 
+        // test the configuration
+        // removed other assertion
 
         assertFalse("The configuration is empty", conf2.isEmpty());
     }
 
     @Test
     public void testSave_3_oe() throws Exception {
+        // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
 
+        // update the configuration
         conf.addProperty("key4", "value4");
         conf.clearProperty("key2");
         conf.setHeader("Description of the new property list");
 
+        // save the configuration
         final File saveFile = folder.newFile("test2.properties.xml");
         final FileHandler saveHandler = new FileHandler(conf);
         saveHandler.save(saveFile);
 
+        // reload the configuration
         final XMLPropertiesConfiguration conf2 = load(saveFile.getAbsolutePath());
 
+        // test the configuration
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("'key1' property", "value1", conf2.getProperty("key1"));
     }
 
     @Test
     public void testSave_4_oe() throws Exception {
+        // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
 
+        // update the configuration
         conf.addProperty("key4", "value4");
         conf.clearProperty("key2");
         conf.setHeader("Description of the new property list");
 
+        // save the configuration
         final File saveFile = folder.newFile("test2.properties.xml");
         final FileHandler saveHandler = new FileHandler(conf);
         saveHandler.save(saveFile);
 
+        // reload the configuration
         final XMLPropertiesConfiguration conf2 = load(saveFile.getAbsolutePath());
 
+        // test the configuration
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("'key3' property", "value3", conf2.getProperty("key3"));
     }
 
     @Test
     public void testSave_5_oe() throws Exception {
+        // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
 
+        // update the configuration
         conf.addProperty("key4", "value4");
         conf.clearProperty("key2");
         conf.setHeader("Description of the new property list");
 
+        // save the configuration
         final File saveFile = folder.newFile("test2.properties.xml");
         final FileHandler saveHandler = new FileHandler(conf);
         saveHandler.save(saveFile);
 
+        // reload the configuration
         final XMLPropertiesConfiguration conf2 = load(saveFile.getAbsolutePath());
 
+        // test the configuration
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("'key4' property", "value4", conf2.getProperty("key4"));
     }
 

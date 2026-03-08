@@ -62,6 +62,34 @@ public class TransformedNavigableSetTest_OE25Dev<E> extends AbstractNavigableSet
     }
 
     //-----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testTransformedSet() {
+        final NavigableSet<E> set = TransformedNavigableSet.transformingNavigableSet(new TreeSet<E>(),
+                (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(0, set.size());
+        final E[] els = (E[]) new Object[] { "1", "3", "5", "7", "2", "4", "6" };
+        for (int i = 0; i < els.length; i++) {
+            set.add(els[i]);
+            assertEquals(i + 1, set.size());
+            assertEquals(true, set.contains(Integer.valueOf((String) els[i])));
+        }
+
+        assertEquals(true, set.remove(Integer.valueOf((String) els[0])));
+    }
+
+    public void testTransformedSet_decorateTransform() {
+        final Set<Object> originalSet = new TreeSet<>();
+        final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
+        Collections.addAll(originalSet, els);
+        final Set<?> set = TransformedSet.transformedSet(originalSet,
+                TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(els.length, set.size());
+        for (final Object el : els) {
+            assertEquals(true, set.contains(Integer.valueOf((String) el)));
+        }
+
+        assertEquals(true, set.remove(Integer.valueOf((String) els[0])));
+    }
 
     @Override
     public String getCompatibilityVersion() {

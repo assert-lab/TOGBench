@@ -117,119 +117,194 @@ class SimpleTriangle3DTest_OE25Dev {
 
     @Test
     void testProperties_1_oe() {
+        // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(2, 2, 1);
         final Vector3D p3 = Vector3D.of(2, 3, 1);
 
+        // act
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
 
+        // assert
         Assertions.assertFalse(tri.isFull());
     }
 
     @Test
     void testProperties_2_oe() {
+        // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(2, 2, 1);
         final Vector3D p3 = Vector3D.of(2, 3, 1);
 
+        // act
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tri.isEmpty());
     }
 
     @Test
     void testProperties_3_oe() {
+        // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(2, 2, 1);
         final Vector3D p3 = Vector3D.of(2, 3, 1);
 
+        // act
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(tri.isInfinite());
     }
 
     @Test
     void testProperties_4_oe() {
+        // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(2, 2, 1);
         final Vector3D p3 = Vector3D.of(2, 3, 1);
 
+        // act
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(tri.isFinite());
     }
 
     @Test
     void testProperties_5_oe() {
+        // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(2, 2, 1);
         final Vector3D p3 = Vector3D.of(2, 3, 1);
 
+        // act
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertSame(XY_PLANE_Z1, tri.getPlane());
     }
 
     @Test
     void testProperties_6_oe() {
+        // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(2, 2, 1);
         final Vector3D p3 = Vector3D.of(2, 3, 1);
 
+        // act
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(p1, tri.getPoint1());
     }
 
     @Test
     void testProperties_7_oe() {
+        // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(2, 2, 1);
         final Vector3D p3 = Vector3D.of(2, 3, 1);
 
+        // act
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(p2, tri.getPoint2());
     }
 
     @Test
     void testProperties_8_oe() {
+        // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(2, 2, 1);
         final Vector3D p3 = Vector3D.of(2, 3, 1);
 
+        // act
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(p3, tri.getPoint3());
     }
 
     @Test
     void testProperties_9_oe() {
+        // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(2, 2, 1);
         final Vector3D p3 = Vector3D.of(2, 3, 1);
 
+        // act
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Arrays.asList(p1, p2, p3), tri.getVertices());
     }
 
     @Test
     void testProperties_10_oe() {
+        // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(2, 2, 1);
         final Vector3D p3 = Vector3D.of(2, 3, 1);
 
+        // act
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<Vector2D> subspaceVertices = tri.getEmbedded().getSubspaceRegion().getVertices();
         Assertions.assertEquals(3, subspaceVertices.size());
@@ -237,25 +312,43 @@ class SimpleTriangle3DTest_OE25Dev {
 
     @Test
     void testProperties_14_oe() {
+        // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(2, 2, 1);
         final Vector3D p3 = Vector3D.of(2, 3, 1);
 
+        // act
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<Vector2D> subspaceVertices = tri.getEmbedded().getSubspaceRegion().getVertices();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0.5, tri.getSize(), TEST_EPS);
     }
 
     @Test
     void testVertices_listIsImmutable_1_oe() {
+        // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
                 Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1));
 
+        // act/assert
         try {
     tri.getVertices().add(Vector3D.of(-1, 0, 1));
     fail("UnsupportedOperationException");
@@ -265,120 +358,165 @@ class SimpleTriangle3DTest_OE25Dev {
 
     @Test
     void testToTriangles_1_oe() {
+        // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
                 Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1));
 
+        // act
         final List<Triangle3D> triangles = tri.toTriangles();
 
+        // assert
         Assertions.assertEquals(1, triangles.size());
     }
 
     @Test
     void testToTriangles_2_oe() {
+        // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
                 Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1));
 
+        // act
         final List<Triangle3D> triangles = tri.toTriangles();
 
+        // assert
+        // removed other assertion
         Assertions.assertSame(tri, triangles.get(0));
     }
 
     @Test
     void testGetSize_1_oe() {
+        // arrange
         final QuaternionRotation rot = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, 0.2);
 
+        // act/assert
         Assertions.assertEquals(0.5,new SimpleTriangle3D(XY_PLANE_Z1,Vector3D.of(0,0,1),Vector3D.of(1,0,1),Vector3D.of(0,1,1)).getSize(),TEST_EPS);
     }
 
     @Test
     void testGetSize_2_oe() {
+        // arrange
         final QuaternionRotation rot = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, 0.2);
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertEquals(1,new SimpleTriangle3D(XY_PLANE_Z1,Vector3D.of(0,0,1),Vector3D.of(2,0,1),Vector3D.of(0,1,1)).getSize(),TEST_EPS);
     }
 
     @Test
     void testGetSize_3_oe() {
+        // arrange
         final QuaternionRotation rot = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, 0.2);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertEquals(1.5,new SimpleTriangle3D(XY_PLANE_Z1,Vector3D.of(1,2,1),Vector3D.of(4,2,1),Vector3D.of(2,3,1)).getSize(),TEST_EPS);
     }
 
     @Test
     void testGetSize_4_oe() {
+        // arrange
         final QuaternionRotation rot = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, 0.2);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertEquals(1.5,new SimpleTriangle3D(XY_PLANE_Z1,rot.applyVector(Vector3D.of(1,2,1)),rot.apply(Vector3D.of(4,2,1)),rot.applyVector(Vector3D.of(2,3,1))).getSize(),TEST_EPS);
     }
 
     @Test
     void testReverse_2_oe() {
+        // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(3, 2, 1);
         final Vector3D p3 = Vector3D.of(2, 3, 1);
 
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
 
+        // act
         final SimpleTriangle3D result = tri.reverse();
 
+        // assert
+        // removed other assertion
 
         Assertions.assertSame(p1, result.getPoint1());
     }
 
     @Test
     void testReverse_3_oe() {
+        // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(3, 2, 1);
         final Vector3D p3 = Vector3D.of(2, 3, 1);
 
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
 
+        // act
         final SimpleTriangle3D result = tri.reverse();
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(p3, result.getPoint2());
     }
 
     @Test
     void testReverse_4_oe() {
+        // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(3, 2, 1);
         final Vector3D p3 = Vector3D.of(2, 3, 1);
 
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
 
+        // act
         final SimpleTriangle3D result = tri.reverse();
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(p2, result.getPoint3());
     }
 
     @Test
     void testReverse_6_oe() {
+        // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(3, 2, 1);
         final Vector3D p3 = Vector3D.of(2, 3, 1);
 
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
 
+        // act
         final SimpleTriangle3D result = tri.reverse();
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Vector3D v1 = result.getPoint1().vectorTo(result.getPoint2());
         final Vector3D v2 = result.getPoint1().vectorTo(result.getPoint3());
+        // removed other assertion
 
         Assertions.assertEquals(1, result.getSize(), TEST_EPS);
     }
 
     @Test
     void testTransform_6_oe() {
+        // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(3, 2, 1);
         final Vector3D p3 = Vector3D.of(2, 3, 1);
@@ -390,139 +528,185 @@ class SimpleTriangle3DTest_OE25Dev {
                 .scale(1, 1, 2)
                 .translate(Vector3D.of(1, 0, 0));
 
+        // act
         final SimpleTriangle3D result = tri.transform(t);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Vector3D v1 = result.getPoint1().vectorTo(result.getPoint2());
         final Vector3D v2 = result.getPoint1().vectorTo(result.getPoint3());
+        // removed other assertion
 
         Assertions.assertEquals(2, result.getSize(), TEST_EPS);
     }
 
     @Test
     void testSplit_plus_1_oe() {
+        // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
                 Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1));
 
         final Plane splitter = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
 
+        // act
         final Split<PlaneConvexSubset> split = tri.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
     @Test
     void testSplit_plus_2_oe() {
+        // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
                 Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1));
 
         final Plane splitter = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
 
+        // act
         final Split<PlaneConvexSubset> split = tri.split(splitter);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertNull(split.getMinus());
     }
 
     @Test
     void testSplit_plus_3_oe() {
+        // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
                 Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1));
 
         final Plane splitter = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
 
+        // act
         final Split<PlaneConvexSubset> split = tri.split(splitter);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(tri, split.getPlus());
     }
 
     @Test
     void testSplit_minus_1_oe() {
+        // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
                 Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1));
 
         final Plane splitter = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.MINUS_Z, TEST_PRECISION);
 
+        // act
         final Split<PlaneConvexSubset> split = tri.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
     @Test
     void testSplit_minus_2_oe() {
+        // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
                 Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1));
 
         final Plane splitter = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.MINUS_Z, TEST_PRECISION);
 
+        // act
         final Split<PlaneConvexSubset> split = tri.split(splitter);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertSame(tri, split.getMinus());
     }
 
     @Test
     void testSplit_minus_3_oe() {
+        // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
                 Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1));
 
         final Plane splitter = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.MINUS_Z, TEST_PRECISION);
 
+        // act
         final Split<PlaneConvexSubset> split = tri.split(splitter);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(split.getPlus());
     }
 
     @Test
     void testSplit_both_1_oe() {
+        // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
                 Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1));
 
         final Plane splitter = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.of(-1, 1, 0), TEST_PRECISION);
 
+        // act
         final Split<PlaneConvexSubset> split = tri.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
     @Test
     void testSplit_neither_1_oe() {
+        // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
                 Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1));
 
         final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.of(0, 1e-15, -1), TEST_PRECISION);
 
+        // act
         final Split<PlaneConvexSubset> split = tri.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
     @Test
     void testSplit_neither_2_oe() {
+        // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
                 Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1));
 
         final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.of(0, 1e-15, -1), TEST_PRECISION);
 
+        // act
         final Split<PlaneConvexSubset> split = tri.split(splitter);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertNull(split.getMinus());
     }
 
     @Test
     void testSplit_neither_3_oe() {
+        // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
                 Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1));
 
         final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.of(0, 1e-15, -1), TEST_PRECISION);
 
+        // act
         final Split<PlaneConvexSubset> split = tri.split(splitter);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(split.getPlus());
     }
 

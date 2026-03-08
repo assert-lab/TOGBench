@@ -62,15 +62,18 @@ class DocumentationExamplesTest_OE25Dev {
     void testAngularIntervalExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create angular intervals of different sizes, one of size pi/2 and one of size 3pi/2
         final AngularInterval a = AngularInterval.of(0, Angle.PI_OVER_TWO, precision);
         final AngularInterval b = AngularInterval.of(Point1S.PI, Point1S.of(Angle.PI_OVER_TWO), precision);
 
+        // test some points
         a.contains(Point1S.of(0.25 * Math.PI)); // true
         b.contains(Point1S.of(0.25 * Math.PI)); // true
 
         final RegionLocation aLocZero = a.classify(Point1S.ZERO); // RegionLocation.BOUNDARY
         final RegionLocation bLocZero = b.classify(Point1S.ZERO); // RegionLocation.INSIDE
 
+        // -------------------
         Assertions.assertTrue(a.contains(Point1S.of(0.25 * Math.PI)));
     }
 
@@ -78,15 +81,19 @@ class DocumentationExamplesTest_OE25Dev {
     void testAngularIntervalExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create angular intervals of different sizes, one of size pi/2 and one of size 3pi/2
         final AngularInterval a = AngularInterval.of(0, Angle.PI_OVER_TWO, precision);
         final AngularInterval b = AngularInterval.of(Point1S.PI, Point1S.of(Angle.PI_OVER_TWO), precision);
 
+        // test some points
         a.contains(Point1S.of(0.25 * Math.PI)); // true
         b.contains(Point1S.of(0.25 * Math.PI)); // true
 
         final RegionLocation aLocZero = a.classify(Point1S.ZERO); // RegionLocation.BOUNDARY
         final RegionLocation bLocZero = b.classify(Point1S.ZERO); // RegionLocation.INSIDE
 
+        // -------------------
+        // removed other assertion
         Assertions.assertTrue(b.contains(Point1S.of(0.25 * Math.PI)));
     }
 
@@ -94,15 +101,20 @@ class DocumentationExamplesTest_OE25Dev {
     void testAngularIntervalExample_3_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create angular intervals of different sizes, one of size pi/2 and one of size 3pi/2
         final AngularInterval a = AngularInterval.of(0, Angle.PI_OVER_TWO, precision);
         final AngularInterval b = AngularInterval.of(Point1S.PI, Point1S.of(Angle.PI_OVER_TWO), precision);
 
+        // test some points
         a.contains(Point1S.of(0.25 * Math.PI)); // true
         b.contains(Point1S.of(0.25 * Math.PI)); // true
 
         final RegionLocation aLocZero = a.classify(Point1S.ZERO); // RegionLocation.BOUNDARY
         final RegionLocation bLocZero = b.classify(Point1S.ZERO); // RegionLocation.INSIDE
 
+        // -------------------
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(RegionLocation.BOUNDARY, aLocZero);
     }
@@ -111,16 +123,22 @@ class DocumentationExamplesTest_OE25Dev {
     void testAngularIntervalExample_4_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create angular intervals of different sizes, one of size pi/2 and one of size 3pi/2
         final AngularInterval a = AngularInterval.of(0, Angle.PI_OVER_TWO, precision);
         final AngularInterval b = AngularInterval.of(Point1S.PI, Point1S.of(Angle.PI_OVER_TWO), precision);
 
+        // test some points
         a.contains(Point1S.of(0.25 * Math.PI)); // true
         b.contains(Point1S.of(0.25 * Math.PI)); // true
 
         final RegionLocation aLocZero = a.classify(Point1S.ZERO); // RegionLocation.BOUNDARY
         final RegionLocation bLocZero = b.classify(Point1S.ZERO); // RegionLocation.INSIDE
 
+        // -------------------
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(RegionLocation.INSIDE, bLocZero);
     }
 
@@ -128,15 +146,19 @@ class DocumentationExamplesTest_OE25Dev {
     void testRegionBSPTree1SExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a region from the union of multiple angular intervals
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
         tree.add(AngularInterval.of(0, 0.25 * Math.PI, precision));
         tree.add(AngularInterval.of(0.5 * Math.PI, Math.PI, precision));
         tree.add(AngularInterval.of(0.75 * Math.PI, 1.5 * Math.PI, precision));
 
+        // compute the region size in radians
         final double size = tree.getSize(); // 1.25pi
 
+        // convert back to intervals
         final List<AngularInterval> intervals = tree.toIntervals(); //size = 2
 
+        // ---------------
         Assertions.assertEquals(1.25 * Math.PI, size, TEST_EPS);
     }
 
@@ -144,15 +166,20 @@ class DocumentationExamplesTest_OE25Dev {
     void testRegionBSPTree1SExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a region from the union of multiple angular intervals
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
         tree.add(AngularInterval.of(0, 0.25 * Math.PI, precision));
         tree.add(AngularInterval.of(0.5 * Math.PI, Math.PI, precision));
         tree.add(AngularInterval.of(0.75 * Math.PI, 1.5 * Math.PI, precision));
 
+        // compute the region size in radians
         final double size = tree.getSize(); // 1.25pi
 
+        // convert back to intervals
         final List<AngularInterval> intervals = tree.toIntervals(); //size = 2
 
+        // ---------------
+        // removed other assertion
         Assertions.assertEquals(2, intervals.size());
     }
 
@@ -160,22 +187,27 @@ class DocumentationExamplesTest_OE25Dev {
     void testRegionBSPTree2SExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a path outlining a quadrant triangle
         final GreatArcPath path = GreatArcPath.builder(precision)
                 .append(Point2S.PLUS_I)
                 .append(Point2S.PLUS_J)
                 .append(Point2S.PLUS_K)
                 .build(true); // close the path with the starting path
 
+        // convert to a region
         final RegionBSPTree2S tree = path.toTree();
 
+        // split in two through the centroid
         final GreatCircle splitter = GreatCircles.fromPoints(tree.getCentroid(), Point2S.PLUS_K, precision);
         final Split<RegionBSPTree2S> split = tree.split(splitter);
 
+        // compute some properties for the minus side
         final RegionBSPTree2S minus = split.getMinus();
 
         final double minusSize = minus.getSize(); // pi/4
         final List<GreatArcPath> minusPaths = minus.getBoundaryPaths(); // size = 1
 
+        // ---------------------
         Assertions.assertEquals(Math.PI / 4, minusSize, TEST_EPS);
     }
 
@@ -183,22 +215,28 @@ class DocumentationExamplesTest_OE25Dev {
     void testRegionBSPTree2SExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a path outlining a quadrant triangle
         final GreatArcPath path = GreatArcPath.builder(precision)
                 .append(Point2S.PLUS_I)
                 .append(Point2S.PLUS_J)
                 .append(Point2S.PLUS_K)
                 .build(true); // close the path with the starting path
 
+        // convert to a region
         final RegionBSPTree2S tree = path.toTree();
 
+        // split in two through the centroid
         final GreatCircle splitter = GreatCircles.fromPoints(tree.getCentroid(), Point2S.PLUS_K, precision);
         final Split<RegionBSPTree2S> split = tree.split(splitter);
 
+        // compute some properties for the minus side
         final RegionBSPTree2S minus = split.getMinus();
 
         final double minusSize = minus.getSize(); // pi/4
         final List<GreatArcPath> minusPaths = minus.getBoundaryPaths(); // size = 1
 
+        // ---------------------
+        // removed other assertion
         Assertions.assertEquals(1, minusPaths.size());
     }
 

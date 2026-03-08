@@ -119,6 +119,7 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         final FormatCompliance formatCompliance = new FormatCompliance("");
         final TiffContents contents = reader.readDirectories(new ByteSourceArray(tiff.toByteArray()), true, formatCompliance);
         final TiffDirectory rootDir = contents.directories.get(0);
+        // removed other assertion
         assertEquals(page, rootDir.getFieldValue(TiffTagConstants.TIFF_TAG_PAGE_NUMBER, true)[0]);
     }
 
@@ -161,6 +162,8 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         final FormatCompliance formatCompliance = new FormatCompliance("");
         final TiffContents contents = reader.readDirectories(new ByteSourceArray(tiff.toByteArray()), true, formatCompliance);
         final TiffDirectory rootDir = contents.directories.get(0);
+        // removed other assertion
+        // removed other assertion
         final RationalNumber yRes = rootDir.getFieldValue(TiffTagConstants.TIFF_TAG_YRESOLUTION);
         assertEquals(twoThirds.numerator, yRes.numerator);
     }
@@ -204,7 +207,10 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         final FormatCompliance formatCompliance = new FormatCompliance("");
         final TiffContents contents = reader.readDirectories(new ByteSourceArray(tiff.toByteArray()), true, formatCompliance);
         final TiffDirectory rootDir = contents.directories.get(0);
+        // removed other assertion
+        // removed other assertion
         final RationalNumber yRes = rootDir.getFieldValue(TiffTagConstants.TIFF_TAG_YRESOLUTION);
+        // removed other assertion
         assertEquals(twoThirds.divisor, yRes.divisor);
     }
 
@@ -247,7 +253,11 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         final FormatCompliance formatCompliance = new FormatCompliance("");
         final TiffContents contents = reader.readDirectories(new ByteSourceArray(tiff.toByteArray()), true, formatCompliance);
         final TiffDirectory rootDir = contents.directories.get(0);
+        // removed other assertion
+        // removed other assertion
         final RationalNumber yRes = rootDir.getFieldValue(TiffTagConstants.TIFF_TAG_YRESOLUTION);
+        // removed other assertion
+        // removed other assertion
         assertEquals(t4Options, rootDir.getFieldValue(TiffTagConstants.TIFF_TAG_T4_OPTIONS));
     }
 
@@ -290,7 +300,12 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         final FormatCompliance formatCompliance = new FormatCompliance("");
         final TiffContents contents = reader.readDirectories(new ByteSourceArray(tiff.toByteArray()), true, formatCompliance);
         final TiffDirectory rootDir = contents.directories.get(0);
+        // removed other assertion
+        // removed other assertion
         final RationalNumber yRes = rootDir.getFieldValue(TiffTagConstants.TIFF_TAG_YRESOLUTION);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(width, rootDir.getSingleFieldValue(TiffTagConstants.TIFF_TAG_IMAGE_WIDTH));
     }
 
@@ -333,7 +348,13 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         final FormatCompliance formatCompliance = new FormatCompliance("");
         final TiffContents contents = reader.readDirectories(new ByteSourceArray(tiff.toByteArray()), true, formatCompliance);
         final TiffDirectory rootDir = contents.directories.get(0);
+        // removed other assertion
+        // removed other assertion
         final RationalNumber yRes = rootDir.getFieldValue(TiffTagConstants.TIFF_TAG_YRESOLUTION);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(width, rootDir.getSingleFieldValue(TiffTagConstants.TIFF_TAG_IMAGE_LENGTH));
     }
 
@@ -376,7 +397,14 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         final FormatCompliance formatCompliance = new FormatCompliance("");
         final TiffContents contents = reader.readDirectories(new ByteSourceArray(tiff.toByteArray()), true, formatCompliance);
         final TiffDirectory rootDir = contents.directories.get(0);
+        // removed other assertion
+        // removed other assertion
         final RationalNumber yRes = rootDir.getFieldValue(TiffTagConstants.TIFF_TAG_YRESOLUTION);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(area, rootDir.getFieldValue(GpsTagConstants.GPS_TAG_GPS_AREA_INFORMATION, true));
     }
 
@@ -419,7 +447,15 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         final FormatCompliance formatCompliance = new FormatCompliance("");
         final TiffContents contents = reader.readDirectories(new ByteSourceArray(tiff.toByteArray()), true, formatCompliance);
         final TiffDirectory rootDir = contents.directories.get(0);
+        // removed other assertion
+        // removed other assertion
         final RationalNumber yRes = rootDir.getFieldValue(TiffTagConstants.TIFF_TAG_YRESOLUTION);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(widthRes, rootDir.getFieldValue(MicrosoftHdPhotoTagConstants.EXIF_TAG_WIDTH_RESOLUTION), 0.0);
     }
 
@@ -462,7 +498,16 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         final FormatCompliance formatCompliance = new FormatCompliance("");
         final TiffContents contents = reader.readDirectories(new ByteSourceArray(tiff.toByteArray()), true, formatCompliance);
         final TiffDirectory rootDir = contents.directories.get(0);
+        // removed other assertion
+        // removed other assertion
         final RationalNumber yRes = rootDir.getFieldValue(TiffTagConstants.TIFF_TAG_YRESOLUTION);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(geoDoubleParams, rootDir.getFieldValue(GeoTiffTagConstants.EXIF_TAG_GEO_DOUBLE_PARAMS_TAG, true)[0], 0.0);
     }
 
@@ -505,7 +550,17 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         final FormatCompliance formatCompliance = new FormatCompliance("");
         final TiffContents contents = reader.readDirectories(new ByteSourceArray(tiff.toByteArray()), true, formatCompliance);
         final TiffDirectory rootDir = contents.directories.get(0);
+        // removed other assertion
+        // removed other assertion
         final RationalNumber yRes = rootDir.getFieldValue(TiffTagConstants.TIFF_TAG_YRESOLUTION);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(exposureCompensation.doubleValue(), rootDir.getFieldValue(ExifTagConstants.EXIF_TAG_EXPOSURE_COMPENSATION).doubleValue(), 0.0);
     }
 
@@ -548,7 +603,18 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         final FormatCompliance formatCompliance = new FormatCompliance("");
         final TiffContents contents = reader.readDirectories(new ByteSourceArray(tiff.toByteArray()), true, formatCompliance);
         final TiffDirectory rootDir = contents.directories.get(0);
+        // removed other assertion
+        // removed other assertion
         final RationalNumber yRes = rootDir.getFieldValue(TiffTagConstants.TIFF_TAG_YRESOLUTION);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         RationalNumber[] testLat = rootDir.getFieldValue(GpsTagConstants.GPS_TAG_GPS_LATITUDE, true);
         for (int i = 0; i < 3; i++) {
             assertEquals(latitude[i].doubleValue(), testLat[i].doubleValue(), 0.0);

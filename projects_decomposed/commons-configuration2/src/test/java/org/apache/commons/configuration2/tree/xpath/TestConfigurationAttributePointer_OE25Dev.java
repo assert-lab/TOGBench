@@ -140,6 +140,7 @@ public class TestConfigurationAttributePointer_OE25Dev {
     @Test
     public void testGetImmediateNode_2_oe() {
         final Object node = pointer.getImmediateNode();
+        // removed other assertion
         final QueryResult<?> proxy = (QueryResult<?>) node;
         assertTrue("No attribute result", proxy.isAttributeResult());
     }
@@ -147,14 +148,19 @@ public class TestConfigurationAttributePointer_OE25Dev {
     @Test
     public void testGetImmediateNode_3_oe() {
         final Object node = pointer.getImmediateNode();
+        // removed other assertion
         final QueryResult<?> proxy = (QueryResult<?>) node;
+        // removed other assertion
         assertEquals("Wrong parent node", parent.getConfigurationNode(), proxy.getNode());
     }
 
     @Test
     public void testGetImmediateNode_4_oe() {
         final Object node = pointer.getImmediateNode();
+        // removed other assertion
         final QueryResult<?> proxy = (QueryResult<?>) node;
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong attribute name", ATTR_NAME, proxy.getAttributeName());
     }
 
@@ -172,6 +178,7 @@ public class TestConfigurationAttributePointer_OE25Dev {
     @Test
     public void testGetName_2_oe() {
         final QName name = pointer.getName();
+        // removed other assertion
         assertNull("Prefix not null", name.getPrefix());
     }
 
@@ -209,6 +216,7 @@ public class TestConfigurationAttributePointer_OE25Dev {
     @Test
     public void testTestNode_2_oe() {
         NodeTest test = new NodeTypeTest(Compiler.NODE_TYPE_TEXT);
+        // removed other assertion
         test = new NodeTypeTest(Compiler.NODE_TYPE_COMMENT);
         assertFalse("A comment node", pointer.testNode(test));
     }

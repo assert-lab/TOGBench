@@ -322,6 +322,7 @@ public class ExifRewriteTest_OE25Dev extends ExifBaseTest {
 
             {
                 final JpegImageMetadata metadata = (JpegImageMetadata) Imaging.getMetadata(imageFile);
+                // removed other assertion
             }
 
             {
@@ -378,6 +379,7 @@ public class ExifRewriteTest_OE25Dev extends ExifBaseTest {
             new JpegUtils().dumpJFIF(byteSource);
 
             final JpegImageMetadata originalMetadata = (JpegImageMetadata) Imaging.getMetadata(imageFile);
+            // removed other assertion
 
             final TiffImageMetadata oldExifMetadata = originalMetadata.getExif();
             assertNotNull(oldExifMetadata);
@@ -401,8 +403,10 @@ public class ExifRewriteTest_OE25Dev extends ExifBaseTest {
             new JpegUtils().dumpJFIF(byteSource);
 
             final JpegImageMetadata originalMetadata = (JpegImageMetadata) Imaging.getMetadata(imageFile);
+            // removed other assertion
 
             final TiffImageMetadata oldExifMetadata = originalMetadata.getExif();
+            // removed other assertion
 
             ByteSource stripped;
             {
@@ -439,8 +443,10 @@ public class ExifRewriteTest_OE25Dev extends ExifBaseTest {
             new JpegUtils().dumpJFIF(byteSource);
 
             final JpegImageMetadata originalMetadata = (JpegImageMetadata) Imaging.getMetadata(imageFile);
+            // removed other assertion
 
             final TiffImageMetadata oldExifMetadata = originalMetadata.getExif();
+            // removed other assertion
 
             ByteSource stripped;
             {
@@ -455,10 +461,12 @@ public class ExifRewriteTest_OE25Dev extends ExifBaseTest {
                 stripped = new ByteSourceArray(bytes);
                 new JpegUtils().dumpJFIF(stripped);
 
+                // removed other assertion
             }
 
             {
                 final TiffOutputSet outputSet = oldExifMetadata.getOutputSet();
+                // outputSet.dump();
 
                 final ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
@@ -473,6 +481,7 @@ public class ExifRewriteTest_OE25Dev extends ExifBaseTest {
                 Debug.debug("Output Segments:");
                 new JpegUtils().dumpJFIF(new ByteSourceArray(bytes));
 
+                // assertTrue(!hasExifData(tempFile));
 
                 final JpegImageMetadata newMetadata = (JpegImageMetadata) Imaging.getMetadata(tempFile);
                 assertNotNull(newMetadata);
@@ -497,8 +506,10 @@ public class ExifRewriteTest_OE25Dev extends ExifBaseTest {
             new JpegUtils().dumpJFIF(byteSource);
 
             final JpegImageMetadata originalMetadata = (JpegImageMetadata) Imaging.getMetadata(imageFile);
+            // removed other assertion
 
             final TiffImageMetadata oldExifMetadata = originalMetadata.getExif();
+            // removed other assertion
 
             ByteSource stripped;
             {
@@ -513,10 +524,12 @@ public class ExifRewriteTest_OE25Dev extends ExifBaseTest {
                 stripped = new ByteSourceArray(bytes);
                 new JpegUtils().dumpJFIF(stripped);
 
+                // removed other assertion
             }
 
             {
                 final TiffOutputSet outputSet = oldExifMetadata.getOutputSet();
+                // outputSet.dump();
 
                 final ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
@@ -531,8 +544,10 @@ public class ExifRewriteTest_OE25Dev extends ExifBaseTest {
                 Debug.debug("Output Segments:");
                 new JpegUtils().dumpJFIF(new ByteSourceArray(bytes));
 
+                // assertTrue(!hasExifData(tempFile));
 
                 final JpegImageMetadata newMetadata = (JpegImageMetadata) Imaging.getMetadata(tempFile);
+                // removed other assertion
                 final TiffImageMetadata newExifMetadata = newMetadata.getExif();
                 assertNotNull(newExifMetadata);
     }

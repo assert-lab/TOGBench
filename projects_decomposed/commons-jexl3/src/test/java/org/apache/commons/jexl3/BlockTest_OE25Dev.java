@@ -54,6 +54,7 @@ public class BlockTest_OE25Dev extends JexlTestCase {
         final JexlScript e = JEXL.createScript("if (true) { x = 'Hello'; y = 'World';}");
         final JexlContext jc = new MapContext();
         final Object o = e.execute(jc);
+        // removed other assertion
         Assert.assertEquals("Second result is wrong", "World", jc.get("y"));
     }
 
@@ -62,6 +63,8 @@ public class BlockTest_OE25Dev extends JexlTestCase {
         final JexlScript e = JEXL.createScript("if (true) { x = 'Hello'; y = 'World';}");
         final JexlContext jc = new MapContext();
         final Object o = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("Block result is wrong", "World", o);
     }
 

@@ -90,6 +90,7 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
         final com.ning.http.client.Response response
                 = new MockResponse(200, "ok", new FluentCaseInsensitiveStringsMap(), new byte[0]);
         handler.onCompleted(response);
+        // removed other assertion
         assertNull(callback.getThrowable());
     }
 
@@ -100,6 +101,9 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
         final com.ning.http.client.Response response
                 = new MockResponse(200, "ok", new FluentCaseInsensitiveStringsMap(), new byte[0]);
         handler.onCompleted(response);
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
         assertEquals("All good", callback.getResponse());
     }
 
@@ -120,6 +124,7 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
         final com.ning.http.client.Response response
                 = new MockResponse(200, "ok", new FluentCaseInsensitiveStringsMap(), new byte[0]);
         handler.onCompleted(response);
+        // removed other assertion
         assertNotNull(callback.getThrowable());
     }
 
@@ -130,6 +135,8 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
         final com.ning.http.client.Response response
                 = new MockResponse(200, "ok", new FluentCaseInsensitiveStringsMap(), new byte[0]);
         handler.onCompleted(response);
+        // removed other assertion
+        // removed other assertion
         assertTrue(callback.getThrowable() instanceof OAuthException);
     }
 

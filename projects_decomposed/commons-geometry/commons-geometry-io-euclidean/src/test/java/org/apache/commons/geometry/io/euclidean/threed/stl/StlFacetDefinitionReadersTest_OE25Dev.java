@@ -31,6 +31,8 @@ import org.apache.commons.numbers.core.Precision;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class StlFacetDefinitionReadersTest_OE25Dev {
 
     private static final double TEST_EPS = 1e-10;
@@ -40,26 +42,33 @@ class StlFacetDefinitionReadersTest_OE25Dev {
 
     @Test
     void testCreate_cubeBinaryFile_1_oe() throws IOException {
+        // arrange
         final URL url = EuclideanIOTestUtils.resource("/models/cube-binary.stl");
 
+        // act
         try (FacetDefinitionReader reader = StlFacetDefinitionReaders.create(url.openStream(), null)) {
 
+            // assert
             Assertions.assertEquals(BinaryStlFacetDefinitionReader.class, reader.getClass());
     }
     }
 
     @Test
     void testCreate_cubeAsciiFile_1_oe() throws IOException {
+        // arrange
         final URL url = EuclideanIOTestUtils.resource("/models/cube-ascii.stl");
 
+        // act
         try (FacetDefinitionReader reader = StlFacetDefinitionReaders.create(url.openStream(), null)) {
 
+            // assert
             Assertions.assertEquals(TextStlFacetDefinitionReader.class, reader.getClass());
     }
     }
 
     @Test
     void testCreate_nonStandardCharset_charsetGiven_1_oe() {
+        // arrange
         final String content = "solid test\n" +
                 "facet normal 1 2 3 " +
                 "outer loop " +
@@ -72,14 +81,17 @@ class StlFacetDefinitionReadersTest_OE25Dev {
 
         final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
 
+        // act
         try (FacetDefinitionReader reader = StlFacetDefinitionReaders.create(in, StandardCharsets.UTF_16)) {
 
+            // assert
             Assertions.assertEquals(TextStlFacetDefinitionReader.class, reader.getClass());
     }
     }
 
     @Test
     void testCreate_nonStandardCharset_charsetGiven_2_oe() {
+        // arrange
         final String content = "solid test\n" +
                 "facet normal 1 2 3 " +
                 "outer loop " +
@@ -92,8 +104,11 @@ class StlFacetDefinitionReadersTest_OE25Dev {
 
         final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
 
+        // act
         try (FacetDefinitionReader reader = StlFacetDefinitionReaders.create(in, StandardCharsets.UTF_16)) {
 
+            // assert
+            // removed other assertion
 
             Assertions.assertNotNull(reader.readFacet());
     }
@@ -101,6 +116,7 @@ class StlFacetDefinitionReadersTest_OE25Dev {
 
     @Test
     void testCreate_nonStandardCharset_noCharsetGiven_1_oe() {
+        // arrange
         final String content = "solid test\n" +
                 "facet normal 1 2 3 " +
                 "outer loop " +
@@ -113,14 +129,17 @@ class StlFacetDefinitionReadersTest_OE25Dev {
 
         final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
 
+        // act
         try (FacetDefinitionReader reader = StlFacetDefinitionReaders.create(in, null)) {
 
+            // assert
             Assertions.assertEquals(BinaryStlFacetDefinitionReader.class, reader.getClass());
     }
     }
 
     @Test
     void testCreate_nonStandardCharset_noCharsetGiven_2_oe() {
+        // arrange
         final String content = "solid test\n" +
                 "facet normal 1 2 3 " +
                 "outer loop " +
@@ -133,8 +152,11 @@ class StlFacetDefinitionReadersTest_OE25Dev {
 
         final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
 
+        // act
         try (FacetDefinitionReader reader = StlFacetDefinitionReaders.create(in, null)) {
 
+            // assert
+            // removed other assertion
 
             Assertions.assertNotNull(reader.readFacet());
     }
@@ -142,6 +164,7 @@ class StlFacetDefinitionReadersTest_OE25Dev {
 
     @Test
     void testCreate_nonStandardCharset_noCharsetGiven_3_oe() {
+        // arrange
         final String content = "solid test\n" +
                 "facet normal 1 2 3 " +
                 "outer loop " +
@@ -154,19 +177,29 @@ class StlFacetDefinitionReadersTest_OE25Dev {
 
         final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
 
+        // act
         try (FacetDefinitionReader reader = StlFacetDefinitionReaders.create(in, null)) {
 
+            // assert
+            // removed other assertion
 
+            // removed other assertion
             Assertions.assertNotNull(reader.readFacet());
     }
     }
 
 @Test
     void testCreate_notEnoughBytes_1_oe() {
+        // arrange
         final byte[] bytes = new byte[1];
         final ByteArrayInputStream in = new ByteArrayInputStream(bytes);
 
-        GeometryTestUtils.assertThrowsWithMessage( () -> StlFacetDefinitionReaders.create(in, null), IllegalStateException.class, "Cannot determine STL format: attempted to read 5 bytes but found only 1 available");
+        // act/assert
+        try {
+    StlFacetDefinitionReaders.create(in, null);
+    fail("Expected IllegalStateException with message: " + "Cannot determine STL format: attempted to read 5 bytes but found only 1 available");
+} catch (IllegalStateException e) {
+}
     }
 
 }

@@ -1,4 +1,4 @@
-id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition,focal_method,docstring
 scribejava_1_1,"    @Test
     public void shouldReleaseLatchOnSuccess_1_oe() throws Exception {
         handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
@@ -10,7 +10,9 @@ scribejava_1_1,"    @Test
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_1_oe,com.github.scribejava.core.model.OAuthResponseException,getResponse(),,"public Response getResponse() {
         return response;
-    }"
+    }","public Response getResponse() {
+        return response;
+    }",
 scribejava_1_2,"    @Test
     public void shouldReleaseLatchOnSuccess_2_oe() throws Exception {
         handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
@@ -47,7 +49,33 @@ scribejava_1_2,"    @Test
             onThrowable(e);
             return null;
         }
-    }"
+    }","@Override
+    public T onCompleted(com.ning.http.client.Response ningResponse) {
+        try {
+            final Map<String, String> headersMap = new HashMap<>();
+
+            for (Map.Entry<String, List<String>> header : ningResponse.getHeaders().entrySet()) {
+                final StringBuilder value = new StringBuilder();
+                for (String str : header.getValue()) {
+                    value.append(str);
+                }
+                headersMap.put(header.getKey(), value.toString());
+            }
+
+            final Response response = new Response(ningResponse.getStatusCode(), ningResponse.getStatusText(),
+                    headersMap, ningResponse.getResponseBodyAsStream());
+
+            @SuppressWarnings(""unchecked"")
+            final T t = converter == null ? (T) response : converter.convert(response);
+            if (callback != null) {
+                callback.onCompleted(t);
+            }
+            return t;
+        } catch (IOException | RuntimeException e) {
+            onThrowable(e);
+            return null;
+        }
+    }",
 scribejava_1_3,"    @Test
     public void shouldReleaseLatchOnSuccess_3_oe() throws Exception {
         handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
@@ -62,7 +90,9 @@ scribejava_1_3,"    @Test
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_3_oe,com.github.scribejava.core.model.OAuthResponseException,getResponse(),,"public Response getResponse() {
         return response;
-    }"
+    }","public Response getResponse() {
+        return response;
+    }",
 scribejava_2_1,"    @Test
     public void shouldReportOAuthException_1_oe() throws Exception {
         handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
@@ -74,7 +104,9 @@ scribejava_2_1,"    @Test
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_1_oe,com.github.scribejava.core.model.OAuthResponseException,getResponse(),,"public Response getResponse() {
         return response;
-    }"
+    }","public Response getResponse() {
+        return response;
+    }",
 scribejava_2_2,"    @Test
     public void shouldReportOAuthException_2_oe() throws Exception {
         handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
@@ -111,7 +143,33 @@ scribejava_2_2,"    @Test
             onThrowable(e);
             return null;
         }
-    }"
+    }","@Override
+    public T onCompleted(com.ning.http.client.Response ningResponse) {
+        try {
+            final Map<String, String> headersMap = new HashMap<>();
+
+            for (Map.Entry<String, List<String>> header : ningResponse.getHeaders().entrySet()) {
+                final StringBuilder value = new StringBuilder();
+                for (String str : header.getValue()) {
+                    value.append(str);
+                }
+                headersMap.put(header.getKey(), value.toString());
+            }
+
+            final Response response = new Response(ningResponse.getStatusCode(), ningResponse.getStatusText(),
+                    headersMap, ningResponse.getResponseBodyAsStream());
+
+            @SuppressWarnings(""unchecked"")
+            final T t = converter == null ? (T) response : converter.convert(response);
+            if (callback != null) {
+                callback.onCompleted(t);
+            }
+            return t;
+        } catch (IOException | RuntimeException e) {
+            onThrowable(e);
+            return null;
+        }
+    }",
 scribejava_2_3,"    @Test
     public void shouldReportOAuthException_3_oe() throws Exception {
         handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
@@ -149,7 +207,33 @@ scribejava_2_3,"    @Test
             onThrowable(e);
             return null;
         }
-    }"
+    }","@Override
+    public T onCompleted(com.ning.http.client.Response ningResponse) {
+        try {
+            final Map<String, String> headersMap = new HashMap<>();
+
+            for (Map.Entry<String, List<String>> header : ningResponse.getHeaders().entrySet()) {
+                final StringBuilder value = new StringBuilder();
+                for (String str : header.getValue()) {
+                    value.append(str);
+                }
+                headersMap.put(header.getKey(), value.toString());
+            }
+
+            final Response response = new Response(ningResponse.getStatusCode(), ningResponse.getStatusText(),
+                    headersMap, ningResponse.getResponseBodyAsStream());
+
+            @SuppressWarnings(""unchecked"")
+            final T t = converter == null ? (T) response : converter.convert(response);
+            if (callback != null) {
+                callback.onCompleted(t);
+            }
+            return t;
+        } catch (IOException | RuntimeException e) {
+            onThrowable(e);
+            return null;
+        }
+    }",
 scribejava_4_1,"    @Test
     public void shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_1_oe() throws Exception {
         final MockWebServer server = new MockWebServer();
@@ -167,7 +251,10 @@ scribejava_4_1,"    @Test
 ",AbstractClientTest::shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_1_oe,com.github.scribejava.httpclient.ning.NingHttpClient,void close(),,"@Override
     public void close() {
         client.close();
-    }"
+    }","@Override
+    public void close() {
+        client.close();
+    }",
 scribejava_4_2,"    @Test
     public void shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_2_oe() throws Exception {
         final MockWebServer server = new MockWebServer();
@@ -191,7 +278,15 @@ scribejava_4_2,"    @Test
      * @return header value or null.
      */","public String getHeader(String name) {
         return headers.get(name);
-    }"
+    }","public String getHeader(String name) {
+        return headers.get(name);
+    }","/**
+     * Obtains a single HTTP Header value, or null if undefined
+     *
+     * @param name the header name.
+     *
+     * @return header value or null.
+     */"
 scribejava_10_1,"    @Test
     public void shouldCallCallback_1_oe() throws Exception {
         final String expectedResponseBody = ""response body for test shouldCallCallback"";
@@ -216,7 +311,9 @@ scribejava_10_1,"    @Test
      * @throws IOException IO Exception
      */","public String getBody() throws IOException {
         return body == null ? parseBodyContents() : body;
-    }"
+    }","public Response getResponse() {
+        return response;
+    }",
 scribejava_12_1,"    @Test
     public void shouldPercentEncodeString_1_oe() {
         final String plain = ""this is a test &^"";
@@ -235,7 +332,19 @@ scribejava_12_1,"    @Test
             encoded = applyRule(encoded, rule.getKey(), rule.getValue());
         }
         return encoded;
-    }"
+    }","public static String encode(String plain) {
+        Preconditions.checkNotNull(plain, ""Cannot encode null object"");
+        String encoded;
+        try {
+            encoded = URLEncoder.encode(plain, CHARSET);
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Charset not found while encoding string: "" + CHARSET, uee);
+        }
+        for (Map.Entry<String, String> rule : ENCODING_RULES.entrySet()) {
+            encoded = applyRule(encoded, rule.getKey(), rule.getValue());
+        }
+        return encoded;
+    }",
 scribejava_13_1,"    @Test
     public void shouldFormURLDecodeString_1_oe() {
         final String encoded = ""this+is+a+test+%26%5E"";
@@ -249,7 +358,14 @@ scribejava_13_1,"    @Test
         } catch (UnsupportedEncodingException uee) {
             throw new OAuthException(""Charset not found while decoding string: "" + CHARSET, uee);
         }
-    }"
+    }","public static String decode(String encoded) {
+        Preconditions.checkNotNull(encoded, ""Cannot decode null object"");
+        try {
+            return URLDecoder.decode(encoded, CHARSET);
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Charset not found while decoding string: "" + CHARSET, uee);
+        }
+    }",
 scribejava_14_1,"    @Test
     public void shouldPercentEncodeAllSpecialCharacters_1_oe() {
         final String plain = ""!*'();:@&=+$,/?#[]"";
@@ -268,7 +384,19 @@ scribejava_14_1,"    @Test
             encoded = applyRule(encoded, rule.getKey(), rule.getValue());
         }
         return encoded;
-    }"
+    }","public static String encode(String plain) {
+        Preconditions.checkNotNull(plain, ""Cannot encode null object"");
+        String encoded;
+        try {
+            encoded = URLEncoder.encode(plain, CHARSET);
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Charset not found while encoding string: "" + CHARSET, uee);
+        }
+        for (Map.Entry<String, String> rule : ENCODING_RULES.entrySet()) {
+            encoded = applyRule(encoded, rule.getKey(), rule.getValue());
+        }
+        return encoded;
+    }",
 scribejava_14_2,"    @Test
     public void shouldPercentEncodeAllSpecialCharacters_2_oe() {
         final String plain = ""!*'();:@&=+$,/?#[]"";
@@ -283,7 +411,14 @@ scribejava_14_2,"    @Test
         } catch (UnsupportedEncodingException uee) {
             throw new OAuthException(""Charset not found while decoding string: "" + CHARSET, uee);
         }
-    }"
+    }","public static String decode(String encoded) {
+        Preconditions.checkNotNull(encoded, ""Cannot decode null object"");
+        try {
+            return URLDecoder.decode(encoded, CHARSET);
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Charset not found while decoding string: "" + CHARSET, uee);
+        }
+    }",
 scribejava_15_1,"    @Test
     public void shouldNotPercentEncodeReservedCharacters_1_oe() {
         final String plain = ""abcde123456-._~"";
@@ -302,7 +437,19 @@ scribejava_15_1,"    @Test
             encoded = applyRule(encoded, rule.getKey(), rule.getValue());
         }
         return encoded;
-    }"
+    }","public static String encode(String plain) {
+        Preconditions.checkNotNull(plain, ""Cannot encode null object"");
+        String encoded;
+        try {
+            encoded = URLEncoder.encode(plain, CHARSET);
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Charset not found while encoding string: "" + CHARSET, uee);
+        }
+        for (Map.Entry<String, String> rule : ENCODING_RULES.entrySet()) {
+            encoded = applyRule(encoded, rule.getKey(), rule.getValue());
+        }
+        return encoded;
+    }",
 scribejava_16_1,"    @Test
     public void shouldPercentEncodeCorrectlyTwitterCodingExamples_1_oe() {
         // These tests are part of the Twitter dev examples here
@@ -327,7 +474,19 @@ scribejava_16_1,"    @Test
             encoded = applyRule(encoded, rule.getKey(), rule.getValue());
         }
         return encoded;
-    }"
+    }","public static String encode(String plain) {
+        Preconditions.checkNotNull(plain, ""Cannot encode null object"");
+        String encoded;
+        try {
+            encoded = URLEncoder.encode(plain, CHARSET);
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Charset not found while encoding string: "" + CHARSET, uee);
+        }
+        for (Map.Entry<String, String> rule : ENCODING_RULES.entrySet()) {
+            encoded = applyRule(encoded, rule.getKey(), rule.getValue());
+        }
+        return encoded;
+    }",
 scribejava_17_1,"    @Test
     public void shouldCorrectlyDecodeAStream_1_oe() throws IOException {
         final String value = ""expected"";
@@ -355,7 +514,27 @@ scribejava_17_1,"    @Test
             } while (read >= 0);
         }
         return out.toString();
-    }"
+    }","public static String getStreamContents(InputStream is) throws IOException {
+        Preconditions.checkNotNull(is, ""Cannot get String from a null object"");
+        final char[] buffer = new char[0x10000];
+        final StringBuilder out = new StringBuilder();
+        try (Reader in = new InputStreamReader(is, ""UTF-8"")) {
+            int read;
+            do {
+                read = in.read(buffer, 0, buffer.length);
+                if (read > 0) {
+                    out.append(buffer, 0, read);
+                }
+            } while (read >= 0);
+        }
+        return out.toString();
+    }","/**
+     * Returns the stream contents as an UTF-8 encoded string
+     *
+     * @param is input stream
+     * @return string contents
+     * @throws java.io.IOException in any. SocketTimeout in example
+     */"
 scribejava_18_1,"    @Test
     public void testGeneratingPKCE_1_oe() {
         final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
@@ -364,7 +543,9 @@ scribejava_18_1,"    @Test
     }
 ",PKCECodeChallengeMethodTest::testGeneratingPKCE_1_oe,com.github.scribejava.core.pkce.PKCE,getCodeChallengeMethod(),,"public PKCECodeChallengeMethod getCodeChallengeMethod() {
         return codeChallengeMethod;
-    }"
+    }","public PKCECodeChallengeMethod getCodeChallengeMethod() {
+        return codeChallengeMethod;
+    }",
 scribejava_18_2,"    @Test
     public void testGeneratingPKCE_2_oe() {
         final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
@@ -374,7 +555,9 @@ scribejava_18_2,"    @Test
     }
 ",PKCECodeChallengeMethodTest::testGeneratingPKCE_2_oe,com.github.scribejava.core.pkce.PKCE,getCodeVerifier(),,"public String getCodeVerifier() {
         return codeVerifier;
-    }"
+    }","public String getCodeVerifier() {
+        return codeVerifier;
+    }",
 scribejava_18_3,"    @Test
     public void testGeneratingPKCE_3_oe() {
         final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
@@ -385,7 +568,9 @@ scribejava_18_3,"    @Test
     }
 ",PKCECodeChallengeMethodTest::testGeneratingPKCE_3_oe,com.github.scribejava.core.pkce.PKCE,getCodeChallenge(),,"public String getCodeChallenge() {
         return codeChallenge;
-    }"
+    }","public String getCodeChallenge() {
+        return codeChallenge;
+    }",
 scribejava_19_1,"    @Test
     public void shouldExtractBaseStringFromOAuthRequest_1_oe() {
         final String expected = ""GET&http%3A%2F%2Fexample.com&oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback""
@@ -400,7 +585,16 @@ scribejava_19_1,"    @Test
      * @param response the whole response
      * @return OAuth access token
      * @throws java.io.IOException in case of troubles while getting body from the response
-     */","T extract(Response response) throws IOException, OAuthException;"
+     */","T extract(Response response) throws IOException, OAuthException;","@Override
+    public String extract(OAuthRequest request) {
+        checkPreconditions(request);
+        final String verb = OAuthEncoder.encode(getVerb(request));
+        final String url = OAuthEncoder.encode(getUrl(request));
+        final String params = getSortedAndEncodedParams(request);
+        return String.format(AMPERSAND_SEPARATED_STRING, verb, url, params);
+    }","/**
+     * {@inheritDoc}
+     */"
 scribejava_20_1,"    @Test
     public void shouldExcludePort80_1_oe() {
         final String expected = ""GET&http%3A%2F%2Fexample.com&oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback""
@@ -415,7 +609,16 @@ scribejava_20_1,"    @Test
      * @param response the whole response
      * @return OAuth access token
      * @throws java.io.IOException in case of troubles while getting body from the response
-     */","T extract(Response response) throws IOException, OAuthException;"
+     */","T extract(Response response) throws IOException, OAuthException;","@Override
+    public String extract(OAuthRequest request) {
+        checkPreconditions(request);
+        final String verb = OAuthEncoder.encode(getVerb(request));
+        final String url = OAuthEncoder.encode(getUrl(request));
+        final String params = getSortedAndEncodedParams(request);
+        return String.format(AMPERSAND_SEPARATED_STRING, verb, url, params);
+    }","/**
+     * {@inheritDoc}
+     */"
 scribejava_21_1,"    @Test
     public void shouldExcludePort80v2_1_oe() {
         final String expected = ""GET&http%3A%2F%2Fexample.com%2Ftest&oauth_callback%3Dhttp%253A%252F%252Fexample""
@@ -430,7 +633,16 @@ scribejava_21_1,"    @Test
      * @param response the whole response
      * @return OAuth access token
      * @throws java.io.IOException in case of troubles while getting body from the response
-     */","T extract(Response response) throws IOException, OAuthException;"
+     */","T extract(Response response) throws IOException, OAuthException;","@Override
+    public String extract(OAuthRequest request) {
+        checkPreconditions(request);
+        final String verb = OAuthEncoder.encode(getVerb(request));
+        final String url = OAuthEncoder.encode(getUrl(request));
+        final String params = getSortedAndEncodedParams(request);
+        return String.format(AMPERSAND_SEPARATED_STRING, verb, url, params);
+    }","/**
+     * {@inheritDoc}
+     */"
 scribejava_22_1,"    @Test
     public void shouldIncludePort8080_1_oe() {
         final String expected = ""GET&http%3A%2F%2Fexample.com%3A8080&oauth_callback%3Dhttp%253A%252F%252Fexample""
@@ -445,7 +657,16 @@ scribejava_22_1,"    @Test
      * @param response the whole response
      * @return OAuth access token
      * @throws java.io.IOException in case of troubles while getting body from the response
-     */","T extract(Response response) throws IOException, OAuthException;"
+     */","T extract(Response response) throws IOException, OAuthException;","@Override
+    public String extract(OAuthRequest request) {
+        checkPreconditions(request);
+        final String verb = OAuthEncoder.encode(getVerb(request));
+        final String url = OAuthEncoder.encode(getUrl(request));
+        final String params = getSortedAndEncodedParams(request);
+        return String.format(AMPERSAND_SEPARATED_STRING, verb, url, params);
+    }","/**
+     * {@inheritDoc}
+     */"
 scribejava_23_1,"    @Test
     public void shouldExcludePort443_1_oe() {
         final String expected = ""GET&https%3A%2F%2Fexample.com&oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback""
@@ -460,7 +681,16 @@ scribejava_23_1,"    @Test
      * @param response the whole response
      * @return OAuth access token
      * @throws java.io.IOException in case of troubles while getting body from the response
-     */","T extract(Response response) throws IOException, OAuthException;"
+     */","T extract(Response response) throws IOException, OAuthException;","@Override
+    public String extract(OAuthRequest request) {
+        checkPreconditions(request);
+        final String verb = OAuthEncoder.encode(getVerb(request));
+        final String url = OAuthEncoder.encode(getUrl(request));
+        final String params = getSortedAndEncodedParams(request);
+        return String.format(AMPERSAND_SEPARATED_STRING, verb, url, params);
+    }","/**
+     * {@inheritDoc}
+     */"
 scribejava_24_1,"    @Test
     public void shouldExcludePort443v2_1_oe() {
         final String expected = ""GET&https%3A%2F%2Fexample.com%2Ftest&oauth_callback%3Dhttp%253A%252F%252Fexample""
@@ -475,7 +705,16 @@ scribejava_24_1,"    @Test
      * @param response the whole response
      * @return OAuth access token
      * @throws java.io.IOException in case of troubles while getting body from the response
-     */","T extract(Response response) throws IOException, OAuthException;"
+     */","T extract(Response response) throws IOException, OAuthException;","@Override
+    public String extract(OAuthRequest request) {
+        checkPreconditions(request);
+        final String verb = OAuthEncoder.encode(getVerb(request));
+        final String url = OAuthEncoder.encode(getUrl(request));
+        final String params = getSortedAndEncodedParams(request);
+        return String.format(AMPERSAND_SEPARATED_STRING, verb, url, params);
+    }","/**
+     * {@inheritDoc}
+     */"
 scribejava_25_1,"    @Test
     public void shouldProperlyEncodeSpaces_1_oe() {
         final String expected = ""GET&http%3A%2F%2Fexample.com&body%3Dthis%2520param%2520has%2520whitespace""
@@ -490,7 +729,16 @@ scribejava_25_1,"    @Test
      * @param response the whole response
      * @return OAuth access token
      * @throws java.io.IOException in case of troubles while getting body from the response
-     */","T extract(Response response) throws IOException, OAuthException;"
+     */","T extract(Response response) throws IOException, OAuthException;","@Override
+    public String extract(OAuthRequest request) {
+        checkPreconditions(request);
+        final String verb = OAuthEncoder.encode(getVerb(request));
+        final String url = OAuthEncoder.encode(getUrl(request));
+        final String params = getSortedAndEncodedParams(request);
+        return String.format(AMPERSAND_SEPARATED_STRING, verb, url, params);
+    }","/**
+     * {@inheritDoc}
+     */"
 scribejava_26_1,"    @Test
     public void shouldExtractStandardHeader_1_oe() {
         final String header = extractor.extract(request);
@@ -508,7 +756,34 @@ scribejava_26_1,"    @Test
      * @param response the whole response
      * @return OAuth access token
      * @throws java.io.IOException in case of troubles while getting body from the response
-     */","T extract(Response response) throws IOException, OAuthException;"
+     */","T extract(Response response) throws IOException, OAuthException;","@Override
+    public String extract(OAuthRequest request) {
+        checkPreconditions(request);
+        final Map<String, String> parameters = request.getOauthParameters();
+
+        final StringBuilder header = new StringBuilder(PREAMBLE);
+
+        for (Map.Entry<String, String> parameter : parameters.entrySet()) {
+            if (header.length() > PREAMBLE.length()) {
+                header.append(PARAM_SEPARATOR);
+            }
+            header.append(parameter.getKey())
+                    .append(""=\"""")
+                    .append(OAuthEncoder.encode(parameter.getValue()))
+                    .append('""');
+        }
+
+        if (request.getRealm() != null && !request.getRealm().isEmpty()) {
+            header.append(PARAM_SEPARATOR)
+                    .append(OAuthConstants.REALM)
+                    .append(""=\"""")
+                    .append(request.getRealm())
+                    .append('""');
+        }
+        return header.toString();
+    }","/**
+     * {@inheritDoc}
+     */"
 scribejava_26_2,"    @Test
     public void shouldExtractStandardHeader_2_oe() {
         final String header = extractor.extract(request);
@@ -523,7 +798,9 @@ scribejava_26_2,"    @Test
     }
 ",HeaderExtractorTest::shouldExtractStandardHeader_2_oe,com.github.scribejava.core.model.ParameterList,contains(Parameter param),,"public boolean contains(Parameter param) {
         return params.contains(param);
-    }"
+    }","public boolean contains(Parameter param) {
+        return params.contains(param);
+    }",
 scribejava_26_3,"    @Test
     public void shouldExtractStandardHeader_3_oe() {
         final String header = extractor.extract(request);
@@ -539,7 +816,9 @@ scribejava_26_3,"    @Test
     }
 ",HeaderExtractorTest::shouldExtractStandardHeader_3_oe,com.github.scribejava.core.model.ParameterList,contains(Parameter param),,"public boolean contains(Parameter param) {
         return params.contains(param);
-    }"
+    }","public boolean contains(Parameter param) {
+        return params.contains(param);
+    }",
 scribejava_26_4,"    @Test
     public void shouldExtractStandardHeader_4_oe() {
         final String header = extractor.extract(request);
@@ -556,7 +835,9 @@ scribejava_26_4,"    @Test
     }
 ",HeaderExtractorTest::shouldExtractStandardHeader_4_oe,com.github.scribejava.core.model.ParameterList,contains(Parameter param),,"public boolean contains(Parameter param) {
         return params.contains(param);
-    }"
+    }","public boolean contains(Parameter param) {
+        return params.contains(param);
+    }",
 scribejava_26_5,"    @Test
     public void shouldExtractStandardHeader_5_oe() {
         final String header = extractor.extract(request);
@@ -574,7 +855,9 @@ scribejava_26_5,"    @Test
     }
 ",HeaderExtractorTest::shouldExtractStandardHeader_5_oe,com.github.scribejava.core.model.ParameterList,contains(Parameter param),,"public boolean contains(Parameter param) {
         return params.contains(param);
-    }"
+    }","public boolean contains(Parameter param) {
+        return params.contains(param);
+    }",
 scribejava_39_2,"    @Test
     public void testEmptyMultipartPayload_2_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload();
@@ -633,7 +916,49 @@ scribejava_39_2,"    @Test
 
         }
         return os;
-    }"
+    }","public static ByteArrayOutputStream getPayload(MultipartPayload multipartPayload) throws IOException {
+        final ByteArrayOutputStream os = new ByteArrayOutputStream();
+
+        final String preamble = multipartPayload.getPreamble();
+        if (preamble != null) {
+            os.write((preamble + ""\r\n"").getBytes());
+        }
+        final List<BodyPartPayload> bodyParts = multipartPayload.getBodyParts();
+        if (!bodyParts.isEmpty()) {
+            final String boundary = multipartPayload.getBoundary();
+            final byte[] startBoundary = (""--"" + boundary + ""\r\n"").getBytes();
+
+            for (BodyPartPayload bodyPart : bodyParts) {
+                os.write(startBoundary);
+
+                final Map<String, String> bodyPartHeaders = bodyPart.getHeaders();
+                if (bodyPartHeaders != null) {
+                    for (Map.Entry<String, String> header : bodyPartHeaders.entrySet()) {
+                        os.write((header.getKey() + "": "" + header.getValue() + ""\r\n"").getBytes());
+                    }
+                }
+
+                os.write(""\r\n"".getBytes());
+                if (bodyPart instanceof MultipartPayload) {
+                    getPayload((MultipartPayload) bodyPart).writeTo(os);
+                } else if (bodyPart instanceof ByteArrayBodyPartPayload) {
+                    final ByteArrayBodyPartPayload byteArrayBodyPart = (ByteArrayBodyPartPayload) bodyPart;
+                    os.write(byteArrayBodyPart.getPayload(), byteArrayBodyPart.getOff(), byteArrayBodyPart.getLen());
+                } else {
+                    throw new AssertionError(bodyPart.getClass());
+                }
+                os.write(""\r\n"".getBytes()); //CRLF for the next (starting or closing) boundary
+            }
+
+            os.write((""--"" + boundary + ""--"").getBytes());
+            final String epilogue = multipartPayload.getEpilogue();
+            if (epilogue != null) {
+                os.write((""\r\n"" + epilogue).getBytes());
+            }
+
+        }
+        return os;
+    }",
 scribejava_41_1,"    @Test
     public void testCRLFMultipartPayload_1_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload(""simple-boundary"");
@@ -655,7 +980,9 @@ scribejava_41_1,"    @Test
     }
 ",MultipartUtilsTest::testCRLFMultipartPayload_1_oe,com.github.scribejava.core.revoke.TokenTypeHint,getValue(),,"public String getValue() {
         return value;
-    }"
+    }","public String getValue() {
+        return value;
+    }",
 scribejava_41_2,"    @Test
     public void testCRLFMultipartPayload_2_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload(""simple-boundary"");
@@ -719,7 +1046,49 @@ scribejava_41_2,"    @Test
 
         }
         return os;
-    }"
+    }","public static ByteArrayOutputStream getPayload(MultipartPayload multipartPayload) throws IOException {
+        final ByteArrayOutputStream os = new ByteArrayOutputStream();
+
+        final String preamble = multipartPayload.getPreamble();
+        if (preamble != null) {
+            os.write((preamble + ""\r\n"").getBytes());
+        }
+        final List<BodyPartPayload> bodyParts = multipartPayload.getBodyParts();
+        if (!bodyParts.isEmpty()) {
+            final String boundary = multipartPayload.getBoundary();
+            final byte[] startBoundary = (""--"" + boundary + ""\r\n"").getBytes();
+
+            for (BodyPartPayload bodyPart : bodyParts) {
+                os.write(startBoundary);
+
+                final Map<String, String> bodyPartHeaders = bodyPart.getHeaders();
+                if (bodyPartHeaders != null) {
+                    for (Map.Entry<String, String> header : bodyPartHeaders.entrySet()) {
+                        os.write((header.getKey() + "": "" + header.getValue() + ""\r\n"").getBytes());
+                    }
+                }
+
+                os.write(""\r\n"".getBytes());
+                if (bodyPart instanceof MultipartPayload) {
+                    getPayload((MultipartPayload) bodyPart).writeTo(os);
+                } else if (bodyPart instanceof ByteArrayBodyPartPayload) {
+                    final ByteArrayBodyPartPayload byteArrayBodyPart = (ByteArrayBodyPartPayload) bodyPart;
+                    os.write(byteArrayBodyPart.getPayload(), byteArrayBodyPart.getOff(), byteArrayBodyPart.getLen());
+                } else {
+                    throw new AssertionError(bodyPart.getClass());
+                }
+                os.write(""\r\n"".getBytes()); //CRLF for the next (starting or closing) boundary
+            }
+
+            os.write((""--"" + boundary + ""--"").getBytes());
+            final String epilogue = multipartPayload.getEpilogue();
+            if (epilogue != null) {
+                os.write((""\r\n"" + epilogue).getBytes());
+            }
+
+        }
+        return os;
+    }",
 scribejava_43_1,"    @Test
     public void testComplexMultipartPayload_1_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload(""mixed"", ""unique-boundary-1"");
@@ -778,7 +1147,9 @@ scribejava_43_1,"    @Test
     }
 ",MultipartUtilsTest::testComplexMultipartPayload_1_oe,com.github.scribejava.core.revoke.TokenTypeHint,getValue(),,"public String getValue() {
         return value;
-    }"
+    }","public String getValue() {
+        return value;
+    }",
 scribejava_44_1,"    @Test
     public void testParseBoundaryFromHeader_1_oe() {
         assertNull(MultipartUtils.parseBoundaryFromHeader(null));
@@ -789,7 +1160,13 @@ scribejava_44_1,"    @Test
         }
         final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
         return matcher.find() ? matcher.group(1) : null;
-    }"
+    }","public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }",
 scribejava_44_9,"    @Test
     public void testParseBoundaryFromHeader_9_oe() {
         // removed other assertion
@@ -816,7 +1193,13 @@ scribejava_44_9,"    @Test
         }
         final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
         return matcher.find() ? matcher.group(1) : null;
-    }"
+    }","public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }",
 scribejava_44_10,"    @Test
     public void testParseBoundaryFromHeader_10_oe() {
         // removed other assertion
@@ -844,7 +1227,13 @@ scribejava_44_10,"    @Test
         }
         final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
         return matcher.find() ? matcher.group(1) : null;
-    }"
+    }","public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }",
 scribejava_44_11,"    @Test
     public void testParseBoundaryFromHeader_11_oe() {
         // removed other assertion
@@ -873,7 +1262,13 @@ scribejava_44_11,"    @Test
         }
         final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
         return matcher.find() ? matcher.group(1) : null;
-    }"
+    }","public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }",
 scribejava_44_12,"    @Test
     public void testParseBoundaryFromHeader_12_oe() {
         // removed other assertion
@@ -903,7 +1298,13 @@ scribejava_44_12,"    @Test
         }
         final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
         return matcher.find() ? matcher.group(1) : null;
-    }"
+    }","public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }",
 scribejava_44_13,"    @Test
     public void testParseBoundaryFromHeader_13_oe() {
         // removed other assertion
@@ -934,7 +1335,13 @@ scribejava_44_13,"    @Test
         }
         final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
         return matcher.find() ? matcher.group(1) : null;
-    }"
+    }","public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }",
 scribejava_44_19,"    @Test
     public void testParseBoundaryFromHeader_19_oe() {
         // removed other assertion
@@ -977,7 +1384,13 @@ scribejava_44_19,"    @Test
         }
         final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
         return matcher.find() ? matcher.group(1) : null;
-    }"
+    }","public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }",
 scribejava_44_20,"    @Test
     public void testParseBoundaryFromHeader_20_oe() {
         // removed other assertion
@@ -1021,7 +1434,13 @@ scribejava_44_20,"    @Test
         }
         final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
         return matcher.find() ? matcher.group(1) : null;
-    }"
+    }","public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }",
 scribejava_44_21,"    @Test
     public void testParseBoundaryFromHeader_21_oe() {
         // removed other assertion
@@ -1066,7 +1485,13 @@ scribejava_44_21,"    @Test
         }
         final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
         return matcher.find() ? matcher.group(1) : null;
-    }"
+    }","public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }",
 scribejava_44_22,"    @Test
     public void testParseBoundaryFromHeader_22_oe() {
         // removed other assertion
@@ -1112,7 +1537,13 @@ scribejava_44_22,"    @Test
         }
         final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
         return matcher.find() ? matcher.group(1) : null;
-    }"
+    }","public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }",
 scribejava_45_1,"    @Test
     public void shouldProduceCorrectRequestSync_1_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1127,7 +1558,12 @@ scribejava_45_1,"    @Test
         final OAuthRequest request = createAccessTokenPasswordGrantRequest(username, password, null);
 
         return sendAccessTokenRequestSync(request);
-    }"
+    }","public OAuth2AccessToken getAccessTokenPasswordGrant(String username, String password)
+            throws IOException, InterruptedException, ExecutionException {
+        final OAuthRequest request = createAccessTokenPasswordGrantRequest(username, password, null);
+
+        return sendAccessTokenRequestSync(request);
+    }",
 scribejava_45_2,"    @Test
     public void shouldProduceCorrectRequestSync_2_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1148,7 +1584,14 @@ scribejava_45_2,"    @Test
         }
 
         return response;
-    }"
+    }","@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }",
 scribejava_45_3,"    @Test
     public void shouldProduceCorrectRequestSync_3_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1170,7 +1613,14 @@ scribejava_45_3,"    @Test
         }
 
         return response;
-    }"
+    }","@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }",
 scribejava_45_4,"    @Test
     public void shouldProduceCorrectRequestSync_4_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1197,7 +1647,14 @@ scribejava_45_4,"    @Test
         }
 
         return response;
-    }"
+    }","@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }",
 scribejava_45_5,"    @Test
     public void shouldProduceCorrectRequestSync_5_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1226,7 +1683,14 @@ scribejava_45_5,"    @Test
         }
 
         return response;
-    }"
+    }","@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }",
 scribejava_45_6,"    @Test
     public void shouldProduceCorrectRequestSync_6_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1256,7 +1720,14 @@ scribejava_45_6,"    @Test
         }
 
         return response;
-    }"
+    }","@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }",
 scribejava_45_7,"    @Test
     public void shouldProduceCorrectRequestSync_7_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1287,7 +1758,14 @@ scribejava_45_7,"    @Test
         }
 
         return response;
-    }"
+    }","@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }",
 scribejava_46_1,"    @Test
     public void shouldProduceCorrectRequestAsync_1_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1305,7 +1783,14 @@ scribejava_46_1,"    @Test
         }
 
         return response;
-    }"
+    }","@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }",
 scribejava_46_2,"    @Test
     public void shouldProduceCorrectRequestAsync_2_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1327,7 +1812,14 @@ scribejava_46_2,"    @Test
         }
 
         return response;
-    }"
+    }","@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }",
 scribejava_46_3,"    @Test
     public void shouldProduceCorrectRequestAsync_3_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1350,7 +1842,14 @@ scribejava_46_3,"    @Test
         }
 
         return response;
-    }"
+    }","@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }",
 scribejava_46_4,"    @Test
     public void shouldProduceCorrectRequestAsync_4_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1378,7 +1877,14 @@ scribejava_46_4,"    @Test
         }
 
         return response;
-    }"
+    }","@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }",
 scribejava_46_5,"    @Test
     public void shouldProduceCorrectRequestAsync_5_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1408,7 +1914,14 @@ scribejava_46_5,"    @Test
         }
 
         return response;
-    }"
+    }","@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }",
 scribejava_46_6,"    @Test
     public void shouldProduceCorrectRequestAsync_6_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1439,7 +1952,14 @@ scribejava_46_6,"    @Test
         }
 
         return response;
-    }"
+    }","@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }",
 scribejava_46_7,"    @Test
     public void shouldProduceCorrectRequestAsync_7_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1471,7 +1991,14 @@ scribejava_46_7,"    @Test
         }
 
         return response;
-    }"
+    }","@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }",
 scribejava_47_1,"    @Test
     public void testOAuthExtractAuthorization_1_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1483,7 +2010,9 @@ scribejava_47_1,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_1_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
         return code;
-    }"
+    }","public String getCode() {
+        return code;
+    }",
 scribejava_47_2,"    @Test
     public void testOAuthExtractAuthorization_2_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1496,7 +2025,9 @@ scribejava_47_2,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_2_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
         return state;
-    }"
+    }","public String getState() {
+        return state;
+    }",
 scribejava_47_3,"    @Test
     public void testOAuthExtractAuthorization_3_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1512,7 +2043,9 @@ scribejava_47_3,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_3_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
         return code;
-    }"
+    }","public String getCode() {
+        return code;
+    }",
 scribejava_47_4,"    @Test
     public void testOAuthExtractAuthorization_4_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1529,7 +2062,9 @@ scribejava_47_4,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_4_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
         return state;
-    }"
+    }","public String getState() {
+        return state;
+    }",
 scribejava_47_5,"    @Test
     public void testOAuthExtractAuthorization_5_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1549,7 +2084,9 @@ scribejava_47_5,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_5_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
         return code;
-    }"
+    }","public String getCode() {
+        return code;
+    }",
 scribejava_47_6,"    @Test
     public void testOAuthExtractAuthorization_6_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1570,7 +2107,9 @@ scribejava_47_6,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_6_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
         return state;
-    }"
+    }","public String getState() {
+        return state;
+    }",
 scribejava_47_7,"    @Test
     public void testOAuthExtractAuthorization_7_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1594,7 +2133,9 @@ scribejava_47_7,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_7_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
         return code;
-    }"
+    }","public String getCode() {
+        return code;
+    }",
 scribejava_47_8,"    @Test
     public void testOAuthExtractAuthorization_8_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1619,7 +2160,9 @@ scribejava_47_8,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_8_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
         return state;
-    }"
+    }","public String getState() {
+        return state;
+    }",
 scribejava_47_9,"    @Test
     public void testOAuthExtractAuthorization_9_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1647,7 +2190,9 @@ scribejava_47_9,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_9_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
         return code;
-    }"
+    }","public String getCode() {
+        return code;
+    }",
 scribejava_47_10,"    @Test
     public void testOAuthExtractAuthorization_10_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1676,7 +2221,9 @@ scribejava_47_10,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_10_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
         return state;
-    }"
+    }","public String getState() {
+        return state;
+    }",
 scribejava_47_11,"    @Test
     public void testOAuthExtractAuthorization_11_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1708,7 +2255,9 @@ scribejava_47_11,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_11_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
         return code;
-    }"
+    }","public String getCode() {
+        return code;
+    }",
 scribejava_47_12,"    @Test
     public void testOAuthExtractAuthorization_12_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1741,7 +2290,9 @@ scribejava_47_12,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_12_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
         return state;
-    }"
+    }","public String getState() {
+        return state;
+    }",
 scribejava_47_13,"    @Test
     public void testOAuthExtractAuthorization_13_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1777,7 +2328,9 @@ scribejava_47_13,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_13_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
         return code;
-    }"
+    }","public String getCode() {
+        return code;
+    }",
 scribejava_47_14,"    @Test
     public void testOAuthExtractAuthorization_14_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1814,7 +2367,9 @@ scribejava_47_14,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_14_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
         return state;
-    }"
+    }","public String getState() {
+        return state;
+    }",
 scribejava_47_15,"    @Test
     public void testOAuthExtractAuthorization_15_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1854,7 +2409,9 @@ scribejava_47_15,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_15_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
         return code;
-    }"
+    }","public String getCode() {
+        return code;
+    }",
 scribejava_47_16,"    @Test
     public void testOAuthExtractAuthorization_16_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1895,7 +2452,9 @@ scribejava_47_16,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_16_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
         return state;
-    }"
+    }","public String getState() {
+        return state;
+    }",
 scribejava_47_17,"    @Test
     public void testOAuthExtractAuthorization_17_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1939,7 +2498,9 @@ scribejava_47_17,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_17_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
         return code;
-    }"
+    }","public String getCode() {
+        return code;
+    }",
 scribejava_47_18,"    @Test
     public void testOAuthExtractAuthorization_18_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -1984,7 +2545,9 @@ scribejava_47_18,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_18_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
         return state;
-    }"
+    }","public String getState() {
+        return state;
+    }",
 scribejava_47_19,"    @Test
     public void testOAuthExtractAuthorization_19_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -2032,7 +2595,9 @@ scribejava_47_19,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_19_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
         return code;
-    }"
+    }","public String getCode() {
+        return code;
+    }",
 scribejava_47_20,"    @Test
     public void testOAuthExtractAuthorization_20_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
@@ -2081,7 +2646,9 @@ scribejava_47_20,"    @Test
     }
 ",OAuth20ServiceTest::testOAuthExtractAuthorization_20_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
         return state;
-    }"
+    }","public String getState() {
+        return state;
+    }",
 scribejava_48_1,"    @Test
     public void shouldGetQueryStringParameters_1_oe() {
         final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
@@ -2095,7 +2662,22 @@ scribejava_48_1,"    @Test
     }
 ",RequestTest::shouldGetQueryStringParameters_1_oe,com.github.scribejava.core.model.ParameterList,size(),,"public int size() {
         return params.size();
-    }"
+    }","public ParameterList getQueryStringParams() {
+        try {
+            final ParameterList result = new ParameterList();
+            final String queryString = new URL(url).getQuery();
+            result.addQuerystring(queryString);
+            result.addAll(querystringParams);
+            return result;
+        } catch (MalformedURLException mue) {
+            throw new OAuthException(""Malformed URL"", mue);
+        }
+    }","/**
+     * Get a {@link ParameterList} with the query string parameters.
+     *
+     * @return a {@link ParameterList} containing the query string parameters.
+     * @throws OAuthException if the request URL is not valid.
+     */"
 scribejava_48_2,"    @Test
     public void shouldGetQueryStringParameters_2_oe() {
         final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
@@ -2110,7 +2692,22 @@ scribejava_48_2,"    @Test
     }
 ",RequestTest::shouldGetQueryStringParameters_2_oe,com.github.scribejava.core.model.ParameterList,size(),,"public int size() {
         return params.size();
-    }"
+    }","public ParameterList getQueryStringParams() {
+        try {
+            final ParameterList result = new ParameterList();
+            final String queryString = new URL(url).getQuery();
+            result.addQuerystring(queryString);
+            result.addAll(querystringParams);
+            return result;
+        } catch (MalformedURLException mue) {
+            throw new OAuthException(""Malformed URL"", mue);
+        }
+    }","/**
+     * Get a {@link ParameterList} with the query string parameters.
+     *
+     * @return a {@link ParameterList} containing the query string parameters.
+     * @throws OAuthException if the request URL is not valid.
+     */"
 scribejava_48_3,"    @Test
     public void shouldGetQueryStringParameters_3_oe() {
         final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
@@ -2126,7 +2723,22 @@ scribejava_48_3,"    @Test
     }
 ",RequestTest::shouldGetQueryStringParameters_3_oe,com.github.scribejava.core.model.ParameterList,contains(Parameter param),,"public boolean contains(Parameter param) {
         return params.contains(param);
-    }"
+    }","public ParameterList getQueryStringParams() {
+        try {
+            final ParameterList result = new ParameterList();
+            final String queryString = new URL(url).getQuery();
+            result.addQuerystring(queryString);
+            result.addAll(querystringParams);
+            return result;
+        } catch (MalformedURLException mue) {
+            throw new OAuthException(""Malformed URL"", mue);
+        }
+    }","/**
+     * Get a {@link ParameterList} with the query string parameters.
+     *
+     * @return a {@link ParameterList} containing the query string parameters.
+     * @throws OAuthException if the request URL is not valid.
+     */"
 scribejava_49_1,"    @Test
     public void shouldSetBodyParamsAndAddContentLength_1_oe() {
         final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
@@ -2148,7 +2760,20 @@ scribejava_49_1,"    @Test
         } catch (UnsupportedEncodingException uee) {
             throw new OAuthException(""Unsupported Charset: "" + getCharset(), uee);
         }
-    }"
+    }","public byte[] getByteArrayPayload() {
+        if (byteArrayPayload != null) {
+            return byteArrayPayload;
+        }
+        final String body = bodyParams.asFormUrlEncodedString();
+        try {
+            return body.getBytes(getCharset());
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Unsupported Charset: "" + getCharset(), uee);
+        }
+    }","/**
+     * @return the body of the request (set in {@link #setPayload(byte[])} or in
+     * {@link #addBodyParameter(java.lang.String, java.lang.String)} )
+     */"
 scribejava_50_1,"    @Test
     public void shouldSetPayloadAndHeaders_1_oe() {
         final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
@@ -2164,7 +2789,13 @@ scribejava_50_1,"    @Test
      * @return form encoded string
      */","public String getStringPayload() {
         return stringPayload;
-    }"
+    }","public String getStringPayload() {
+        return stringPayload;
+    }","/**
+     * Returns the body of the request (set in {@link #setPayload(java.lang.String)})
+     *
+     * @return form encoded string
+     */"
 scribejava_51_1,"    @Test
     public void shouldAllowAddingQuerystringParametersAfterCreation_1_oe() {
         final OAuthRequest request = new OAuthRequest(Verb.GET, ""http://example.com?one=val"");
@@ -2174,7 +2805,22 @@ scribejava_51_1,"    @Test
     }
 ",RequestTest::shouldAllowAddingQuerystringParametersAfterCreation_1_oe,com.github.scribejava.core.model.ParameterList,size(),,"public int size() {
         return params.size();
-    }"
+    }","public ParameterList getQueryStringParams() {
+        try {
+            final ParameterList result = new ParameterList();
+            final String queryString = new URL(url).getQuery();
+            result.addQuerystring(queryString);
+            result.addAll(querystringParams);
+            return result;
+        } catch (MalformedURLException mue) {
+            throw new OAuthException(""Malformed URL"", mue);
+        }
+    }","/**
+     * Get a {@link ParameterList} with the query string parameters.
+     *
+     * @return a {@link ParameterList} containing the query string parameters.
+     * @throws OAuthException if the request URL is not valid.
+     */"
 scribejava_52_1,"    @Test
     public void shouldReturnTheCompleteUrl_1_oe() {
         final OAuthRequest request = new OAuthRequest(Verb.GET, ""http://example.com?one=val"");
@@ -2188,7 +2834,13 @@ scribejava_52_1,"    @Test
      * @return the complete url.
      */","public String getCompleteUrl() {
         return querystringParams.appendTo(url);
-    }"
+    }","public String getCompleteUrl() {
+        return querystringParams.appendTo(url);
+    }","/**
+     * Returns the complete url (host + resource + encoded querystring parameters).
+     *
+     * @return the complete url.
+     */"
 scribejava_53_1,"    @Test
     public void shouldHandleQueryStringSpaceEncodingProperly_1_oe() {
         final OAuthRequest getRequest
@@ -2198,7 +2850,22 @@ scribejava_53_1,"    @Test
     }
 ",RequestTest::shouldHandleQueryStringSpaceEncodingProperly_1_oe,com.github.scribejava.core.model.ParameterList,contains(Parameter param),,"public boolean contains(Parameter param) {
         return params.contains(param);
-    }"
+    }","public ParameterList getQueryStringParams() {
+        try {
+            final ParameterList result = new ParameterList();
+            final String queryString = new URL(url).getQuery();
+            result.addQuerystring(queryString);
+            result.addAll(querystringParams);
+            return result;
+        } catch (MalformedURLException mue) {
+            throw new OAuthException(""Malformed URL"", mue);
+        }
+    }","/**
+     * Get a {@link ParameterList} with the query string parameters.
+     *
+     * @return a {@link ParameterList} containing the query string parameters.
+     * @throws OAuthException if the request URL is not valid.
+     */"
 scribejava_54_1,"    @Test
     public void shouldNotEncodeInStringPayload_1_oe() throws Exception {
         final String requestBody = ""~/!@#$%^&*( )_+//\r\n%2F&amp;"";
@@ -2214,7 +2881,13 @@ scribejava_54_1,"    @Test
      * @return form encoded string
      */","public String getStringPayload() {
         return stringPayload;
-    }"
+    }","public String getStringPayload() {
+        return stringPayload;
+    }","/**
+     * Returns the body of the request (set in {@link #setPayload(java.lang.String)})
+     *
+     * @return form encoded string
+     */"
 scribejava_55_1,"    @Test
     public void shouldNotEncodeInByteBodyPayload_1_oe() throws Exception {
         final byte[] requestBody = ""~/!@#$%^&*( )_+//\r\n%2F&amp;"".getBytes();
@@ -2237,7 +2910,20 @@ scribejava_55_1,"    @Test
         } catch (UnsupportedEncodingException uee) {
             throw new OAuthException(""Unsupported Charset: "" + getCharset(), uee);
         }
-    }"
+    }","public byte[] getByteArrayPayload() {
+        if (byteArrayPayload != null) {
+            return byteArrayPayload;
+        }
+        final String body = bodyParams.asFormUrlEncodedString();
+        try {
+            return body.getBytes(getCharset());
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Unsupported Charset: "" + getCharset(), uee);
+        }
+    }","/**
+     * @return the body of the request (set in {@link #setPayload(byte[])} or in
+     * {@link #addBodyParameter(java.lang.String, java.lang.String)} )
+     */"
 scribejava_56_1,"    @Test
     public void shouldEncodeInBodyParamsPayload_1_oe() throws Exception {
         final String expectedRequestBodyParamName = ""~/!@#$%^&*( )_+//\r\n%2F&amp;name"";
@@ -2262,7 +2948,14 @@ scribejava_56_1,"    @Test
         } catch (UnsupportedEncodingException uee) {
             throw new OAuthException(""Unsupported Charset: "" + getCharset(), uee);
         }
-    }"
+    }","public void addBodyParameter(String key, String value) {
+        bodyParams.add(key, value);
+    }","/**
+     * Add a body Parameter (for POST/ PUT Requests)
+     *
+     * @param key the parameter name
+     * @param value the parameter value
+     */"
 scribejava_57_1,"    @Test
     public void shouldAddOAuthParamters_1_oe() {
         request.addOAuthParameter(OAuthConstants.TOKEN, ""token"");
@@ -2275,7 +2968,9 @@ scribejava_57_1,"    @Test
     }
 ",OAuthRequestTest::shouldAddOAuthParamters_1_oe,com.github.scribejava.core.model.ParameterList,size(),,"public int size() {
         return params.size();
-    }"
+    }","public Map<String, String> getOauthParameters() {
+        return oauthParameters;
+    }",
 scribejava_58_1,"    @Test
     public void shouldNotSentHeaderTwice_1_oe() {
         assertTrue(request.getHeaders().isEmpty());
@@ -2284,7 +2979,9 @@ scribejava_58_1,"    @Test
      * @return true if the token is empty (oauth_token = """", oauth_token_secret = """")
      */","public boolean isEmpty() {
         return """".equals(token) && """".equals(tokenSecret);
-    }"
+    }","public Map<String, String> getHeaders() {
+        return headers;
+    }",
 scribejava_58_2,"    @Test
     public void shouldNotSentHeaderTwice_2_oe() {
         // removed other assertion
@@ -2296,7 +2993,9 @@ scribejava_58_2,"    @Test
     }
 ",OAuthRequestTest::shouldNotSentHeaderTwice_2_oe,com.github.scribejava.core.model.ParameterList,size(),,"public int size() {
         return params.size();
-    }"
+    }","public Map<String, String> getHeaders() {
+        return headers;
+    }",
 scribejava_58_3,"    @Test
     public void shouldNotSentHeaderTwice_3_oe() {
         // removed other assertion
@@ -2314,7 +3013,9 @@ scribejava_58_3,"    @Test
      * @return headers
      */","public Map<String, String> getHeaders() {
         return headers;
-    }"
+    }","public Map<String, String> getHeaders() {
+        return headers;
+    }",
 scribejava_58_4,"    @Test
     public void shouldNotSentHeaderTwice_4_oe() {
         // removed other assertion
@@ -2333,7 +3034,9 @@ scribejava_58_4,"    @Test
      * @return headers
      */","public Map<String, String> getHeaders() {
         return headers;
-    }"
+    }","public Map<String, String> getHeaders() {
+        return headers;
+    }",
 scribejava_58_5,"    @Test
     public void shouldNotSentHeaderTwice_5_oe() {
         // removed other assertion
@@ -2353,7 +3056,9 @@ scribejava_58_5,"    @Test
      * @return headers
      */","public Map<String, String> getHeaders() {
         return headers;
-    }"
+    }","public Map<String, String> getHeaders() {
+        return headers;
+    }",
 scribejava_58_6,"    @Test
     public void shouldNotSentHeaderTwice_6_oe() {
         // removed other assertion
@@ -2376,7 +3081,9 @@ scribejava_58_6,"    @Test
         }
 
         return response;
-    }"
+    }","public Map<String, String> getHeaders() {
+        return headers;
+    }",
 scribejava_58_7,"    @Test
     public void shouldNotSentHeaderTwice_7_oe() {
         // removed other assertion
@@ -2400,7 +3107,9 @@ scribejava_58_7,"    @Test
         }
 
         return response;
-    }"
+    }","public Map<String, String> getHeaders() {
+        return headers;
+    }",
 scribejava_58_8,"    @Test
     public void shouldNotSentHeaderTwice_8_oe() {
         // removed other assertion
@@ -2425,7 +3134,9 @@ scribejava_58_8,"    @Test
         }
 
         return response;
-    }"
+    }","public Map<String, String> getHeaders() {
+        return headers;
+    }",
 scribejava_59_1,"    @Test
     public void shouldAppendNothingToQuerystringIfGivenEmptyMap_1_oe() {
         final String url = ""http://www.example.com"";
@@ -2441,7 +3152,17 @@ scribejava_59_1,"    @Test
                     + (url.indexOf(QUERY_STRING_SEPARATOR) == -1 ? QUERY_STRING_SEPARATOR : PARAM_SEPARATOR)
                     + queryString;
         }
-    }"
+    }","public String appendTo(String url) {
+        Preconditions.checkNotNull(url, ""Cannot append to null URL"");
+        final String queryString = asFormUrlEncodedString();
+        if (queryString.equals(EMPTY_STRING)) {
+            return url;
+        } else {
+            return url
+                    + (url.indexOf(QUERY_STRING_SEPARATOR) == -1 ? QUERY_STRING_SEPARATOR : PARAM_SEPARATOR)
+                    + queryString;
+        }
+    }",
 scribejava_60_1,"    @Test
     public void shouldAppendParametersToSimpleUrl_1_oe() {
         String url = ""http://www.example.com"";
@@ -2463,7 +3184,17 @@ scribejava_60_1,"    @Test
                     + (url.indexOf(QUERY_STRING_SEPARATOR) == -1 ? QUERY_STRING_SEPARATOR : PARAM_SEPARATOR)
                     + queryString;
         }
-    }"
+    }","public String appendTo(String url) {
+        Preconditions.checkNotNull(url, ""Cannot append to null URL"");
+        final String queryString = asFormUrlEncodedString();
+        if (queryString.equals(EMPTY_STRING)) {
+            return url;
+        } else {
+            return url
+                    + (url.indexOf(QUERY_STRING_SEPARATOR) == -1 ? QUERY_STRING_SEPARATOR : PARAM_SEPARATOR)
+                    + queryString;
+        }
+    }",
 scribejava_61_1,"    @Test
     public void shouldAppendParametersToUrlWithQuerystring_1_oe() {
         String url = ""http://www.example.com?already=present"";
@@ -2485,7 +3216,17 @@ scribejava_61_1,"    @Test
                     + (url.indexOf(QUERY_STRING_SEPARATOR) == -1 ? QUERY_STRING_SEPARATOR : PARAM_SEPARATOR)
                     + queryString;
         }
-    }"
+    }","public String appendTo(String url) {
+        Preconditions.checkNotNull(url, ""Cannot append to null URL"");
+        final String queryString = asFormUrlEncodedString();
+        if (queryString.equals(EMPTY_STRING)) {
+            return url;
+        } else {
+            return url
+                    + (url.indexOf(QUERY_STRING_SEPARATOR) == -1 ? QUERY_STRING_SEPARATOR : PARAM_SEPARATOR)
+                    + queryString;
+        }
+    }",
 scribejava_62_1,"    @Test
     public void shouldProperlySortParameters_1_oe() {
         params.add(""param1"", ""v1"");
@@ -2504,7 +3245,11 @@ scribejava_62_1,"    @Test
             builder.append(PARAM_SEPARATOR).append(p.asUrlEncodedPair());
         }
         return builder.substring(1);
-    }"
+    }","public ParameterList sort() {
+        final ParameterList sorted = new ParameterList(params);
+        Collections.sort(sorted.getParams());
+        return sorted;
+    }",
 scribejava_63_1,"    @Test
     public void shouldProperlySortParametersWithTheSameName_1_oe() {
         params.add(""param1"", ""v1"");
@@ -2523,7 +3268,11 @@ scribejava_63_1,"    @Test
             builder.append(PARAM_SEPARATOR).append(p.asUrlEncodedPair());
         }
         return builder.substring(1);
-    }"
+    }","public ParameterList sort() {
+        final ParameterList sorted = new ParameterList(params);
+        Collections.sort(sorted.getParams());
+        return sorted;
+    }",
 scribejava_64_1,"    @Test
     public void shouldNotModifyTheOriginalParameterList_1_oe() {
         params.add(""param1"", ""v1"");
@@ -2535,7 +3284,11 @@ scribejava_64_1,"    @Test
         final ParameterList sorted = new ParameterList(params);
         Collections.sort(sorted.getParams());
         return sorted;
-    }"
+    }","public ParameterList sort() {
+        final ParameterList sorted = new ParameterList(params);
+        Collections.sort(sorted.getParams());
+        return sorted;
+    }",
 scribejava_65_1,"    @Test
     public void shouldTestEqualityBasedOnTokenAndSecret_1_oe() {
         final Token expected = new OAuth1AccessToken(""access"", ""secret"");
@@ -2543,7 +3296,7 @@ scribejava_65_1,"    @Test
 
         assertEquals(expected, actual);
     }
-",TokenTest::shouldTestEqualityBasedOnTokenAndSecret_1_oe,,,,
+",TokenTest::shouldTestEqualityBasedOnTokenAndSecret_1_oe,,,,,,
 scribejava_65_2,"    @Test
     public void shouldTestEqualityBasedOnTokenAndSecret_2_oe() {
         final Token expected = new OAuth1AccessToken(""access"", ""secret"");
@@ -2552,7 +3305,7 @@ scribejava_65_2,"    @Test
         // removed other assertion
         assertEquals(actual, actual);
     }
-",TokenTest::shouldTestEqualityBasedOnTokenAndSecret_2_oe,,,,
+",TokenTest::shouldTestEqualityBasedOnTokenAndSecret_2_oe,,,,,,
 scribejava_66_1,"    @Test
     public void shouldNotDependOnRawString_1_oe() {
         final Token expected = new OAuth1AccessToken(""access"", ""secret"", ""raw_string"");
@@ -2560,7 +3313,7 @@ scribejava_66_1,"    @Test
 
         assertEquals(expected, actual);
     }
-",TokenTest::shouldNotDependOnRawString_1_oe,,,,
+",TokenTest::shouldNotDependOnRawString_1_oe,,,,,,
 scribejava_67_1,"    @Test
     public void shouldReturnSameHashCodeForEqualObjects_1_oe() {
         final Token expected = new OAuth1AccessToken(""access"", ""secret"");
@@ -2568,14 +3321,14 @@ scribejava_67_1,"    @Test
 
         assertEquals(expected.hashCode(), actual.hashCode());
     }
-",TokenTest::shouldReturnSameHashCodeForEqualObjects_1_oe,,,,
+",TokenTest::shouldReturnSameHashCodeForEqualObjects_1_oe,,,,,,
 scribejava_68_1,"    @Test
     public void shouldNotBeEqualToNullOrOtherObjects_1_oe() {
         final Token expected = new OAuth1AccessToken(""access"", ""secret"", ""response"");
 
         assertNotSame(expected, null);
     }
-",TokenTest::shouldNotBeEqualToNullOrOtherObjects_1_oe,,,,
+",TokenTest::shouldNotBeEqualToNullOrOtherObjects_1_oe,,,,,,
 scribejava_68_2,"    @Test
     public void shouldNotBeEqualToNullOrOtherObjects_2_oe() {
         final Token expected = new OAuth1AccessToken(""access"", ""secret"", ""response"");
@@ -2583,7 +3336,7 @@ scribejava_68_2,"    @Test
         // removed other assertion
         assertNotSame(expected, new Object());
     }
-",TokenTest::shouldNotBeEqualToNullOrOtherObjects_2_oe,,,,
+",TokenTest::shouldNotBeEqualToNullOrOtherObjects_2_oe,,,,,,
 scribejava_69_1,"    @Test
     public void shouldReturnUrlParam_1_oe() {
         final Token actual = new OAuth1AccessToken(""acccess"", ""secret"",
@@ -2602,7 +3355,19 @@ scribejava_69_1,"    @Test
             }
         }
         return value;
-    }"
+    }","public String getParameter(String parameter) {
+        String value = null;
+        for (String str : rawResponse.split(""&"")) {
+            if (str.startsWith(parameter + '=')) {
+                final String[] part = str.split(""="");
+                if (part.length > 1) {
+                    value = part[1].trim();
+                }
+                break;
+            }
+        }
+        return value;
+    }",
 scribejava_69_2,"    @Test
     public void shouldReturnUrlParam_2_oe() {
         final Token actual = new OAuth1AccessToken(""acccess"", ""secret"",
@@ -2622,7 +3387,19 @@ scribejava_69_2,"    @Test
             }
         }
         return value;
-    }"
+    }","public String getParameter(String parameter) {
+        String value = null;
+        for (String str : rawResponse.split(""&"")) {
+            if (str.startsWith(parameter + '=')) {
+                final String[] part = str.split(""="");
+                if (part.length > 1) {
+                    value = part[1].trim();
+                }
+                break;
+            }
+        }
+        return value;
+    }",
 scribejava_69_3,"    @Test
     public void shouldReturnUrlParam_3_oe() {
         final Token actual = new OAuth1AccessToken(""acccess"", ""secret"",
@@ -2643,7 +3420,19 @@ scribejava_69_3,"    @Test
             }
         }
         return value;
-    }"
+    }","public String getParameter(String parameter) {
+        String value = null;
+        for (String str : rawResponse.split(""&"")) {
+            if (str.startsWith(parameter + '=')) {
+                final String[] part = str.split(""="");
+                if (part.length > 1) {
+                    value = part[1].trim();
+                }
+                break;
+            }
+        }
+        return value;
+    }",
 scribejava_69_4,"    @Test
     public void shouldReturnUrlParam_4_oe() {
         final Token actual = new OAuth1AccessToken(""acccess"", ""secret"",
@@ -2665,7 +3454,19 @@ scribejava_69_4,"    @Test
             }
         }
         return value;
-    }"
+    }","public String getParameter(String parameter) {
+        String value = null;
+        for (String str : rawResponse.split(""&"")) {
+            if (str.startsWith(parameter + '=')) {
+                final String[] part = str.split(""="");
+                if (part.length > 1) {
+                    value = part[1].trim();
+                }
+                break;
+            }
+        }
+        return value;
+    }",
 scribejava_70_1,"    @Test
     public void allImplementationsAreAvailable_1_oe() {
         assertTrue(Java8Base64.isAvailable());
@@ -2677,7 +3478,14 @@ scribejava_70_1,"    @Test
         } catch (ClassNotFoundException cnfE) {
             return false;
         }
-    }"
+    }","static boolean isAvailable() {
+        try {
+            Class.forName(""java.util.Base64"", false, Java8Base64.class.getClassLoader());
+            return true;
+        } catch (ClassNotFoundException cnfE) {
+            return false;
+        }
+    }",
 scribejava_70_2,"    @Test
     public void allImplementationsAreAvailable_2_oe() {
         // removed other assertion
@@ -2690,7 +3498,14 @@ scribejava_70_2,"    @Test
         } catch (ClassNotFoundException cnfE) {
             return false;
         }
-    }"
+    }","static boolean isAvailable() {
+        try {
+            Class.forName(""org.apache.commons.codec.binary.Base64"", false, CommonsCodecBase64.class.getClassLoader());
+            return true;
+        } catch (ClassNotFoundException cnfE) {
+            return false;
+        }
+    }",
 scribejava_70_3,"    @Test
     public void allImplementationsAreAvailable_3_oe() {
         // removed other assertion
@@ -2704,7 +3519,14 @@ scribejava_70_3,"    @Test
         } catch (ClassNotFoundException cnfE) {
             return false;
         }
-    }"
+    }","static boolean isAvailable() {
+        try {
+            Class.forName(""jakarta.xml.bind.DatatypeConverter"", false, JaxbBase64.class.getClassLoader());
+            return true;
+        } catch (ClassNotFoundException cnfE) {
+            return false;
+        }
+    }",
 scribejava_70_4,"    @Test
     public void allImplementationsAreAvailable_4_oe() {
         // removed other assertion
@@ -2719,7 +3541,14 @@ scribejava_70_4,"    @Test
         } catch (ClassNotFoundException cnfE) {
             return false;
         }
-    }"
+    }","static boolean isAvailable() {
+        try {
+            Class.forName(""javax.xml.bind.DatatypeConverter"", false, Jaxb230Base64.class.getClassLoader());
+            return true;
+        } catch (ClassNotFoundException cnfE) {
+            return false;
+        }
+    }",
 scribejava_71_1,"    @Test
     public void testEncode_1_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -2751,7 +3580,10 @@ scribejava_71_1,"    @Test
 
         assertEquals(helloWorldEncoded, java8Base64.internalEncode(helloWorldBytes));
     }
-",Base64Test::testEncode_1_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_1_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_2,"    @Test
     public void testEncode_2_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -2784,7 +3616,10 @@ scribejava_71_2,"    @Test
         // removed other assertion
         assertEquals(helloWorldTwoLinesEncoded, java8Base64.internalEncode(helloWorldTwoLinesBytes));
     }
-",Base64Test::testEncode_2_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_2_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_3,"    @Test
     public void testEncode_3_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -2818,7 +3653,10 @@ scribejava_71_3,"    @Test
         // removed other assertion
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,java8Base64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
     }
-",Base64Test::testEncode_3_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_3_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_4,"    @Test
     public void testEncode_4_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -2853,7 +3691,10 @@ scribejava_71_4,"    @Test
         // removed other assertion
         assertEquals(helloWorldDifferentCharsEncoded, java8Base64.internalEncode(helloWorldDifferentCharsBytes));
     }
-",Base64Test::testEncode_4_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_4_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_5,"    @Test
     public void testEncode_5_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -2889,7 +3730,10 @@ scribejava_71_5,"    @Test
         // removed other assertion
         assertEquals(str, java8Base64.internalEncode(bytes));
     }
-",Base64Test::testEncode_5_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_5_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_6,"    @Test
     public void testEncode_6_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -2926,7 +3770,10 @@ scribejava_71_6,"    @Test
         // removed other assertion
         assertEquals(allBytesStr, java8Base64.internalEncode(allBytes));
     }
-",Base64Test::testEncode_6_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_6_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_7,"    @Test
     public void testEncode_7_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -2965,7 +3812,10 @@ scribejava_71_7,"    @Test
 
         assertEquals(helloWorldEncoded, commonsCodecBase64.internalEncode(helloWorldBytes));
     }
-",Base64Test::testEncode_7_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_7_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_8,"    @Test
     public void testEncode_8_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3005,7 +3855,10 @@ scribejava_71_8,"    @Test
         // removed other assertion
         assertEquals(helloWorldTwoLinesEncoded, commonsCodecBase64.internalEncode(helloWorldTwoLinesBytes));
     }
-",Base64Test::testEncode_8_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_8_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_9,"    @Test
     public void testEncode_9_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3046,7 +3899,10 @@ scribejava_71_9,"    @Test
         // removed other assertion
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,commonsCodecBase64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
     }
-",Base64Test::testEncode_9_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_9_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_10,"    @Test
     public void testEncode_10_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3088,7 +3944,10 @@ scribejava_71_10,"    @Test
         // removed other assertion
         assertEquals(helloWorldDifferentCharsEncoded, commonsCodecBase64.internalEncode(helloWorldDifferentCharsBytes));
     }
-",Base64Test::testEncode_10_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_10_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_11,"    @Test
     public void testEncode_11_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3131,7 +3990,10 @@ scribejava_71_11,"    @Test
         // removed other assertion
         assertEquals(str, commonsCodecBase64.internalEncode(bytes));
     }
-",Base64Test::testEncode_11_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_11_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_12,"    @Test
     public void testEncode_12_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3175,7 +4037,10 @@ scribejava_71_12,"    @Test
         // removed other assertion
         assertEquals(allBytesStr, commonsCodecBase64.internalEncode(allBytes));
     }
-",Base64Test::testEncode_12_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_12_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_13,"    @Test
     public void testEncode_13_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3221,7 +4086,10 @@ scribejava_71_13,"    @Test
 
         assertEquals(helloWorldEncoded, jaxbBase64.internalEncode(helloWorldBytes));
     }
-",Base64Test::testEncode_13_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_13_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_14,"    @Test
     public void testEncode_14_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3268,7 +4136,10 @@ scribejava_71_14,"    @Test
         // removed other assertion
         assertEquals(helloWorldTwoLinesEncoded, jaxbBase64.internalEncode(helloWorldTwoLinesBytes));
     }
-",Base64Test::testEncode_14_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_14_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_15,"    @Test
     public void testEncode_15_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3316,7 +4187,10 @@ scribejava_71_15,"    @Test
         // removed other assertion
         assertEquals(helloWorldTwoLinesAndNewLineEncoded, jaxbBase64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
     }
-",Base64Test::testEncode_15_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_15_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_16,"    @Test
     public void testEncode_16_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3365,7 +4239,10 @@ scribejava_71_16,"    @Test
         // removed other assertion
         assertEquals(helloWorldDifferentCharsEncoded, jaxbBase64.internalEncode(helloWorldDifferentCharsBytes));
     }
-",Base64Test::testEncode_16_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_16_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_17,"    @Test
     public void testEncode_17_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3415,7 +4292,10 @@ scribejava_71_17,"    @Test
         // removed other assertion
         assertEquals(str, jaxbBase64.internalEncode(bytes));
     }
-",Base64Test::testEncode_17_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_17_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_18,"    @Test
     public void testEncode_18_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3466,7 +4346,10 @@ scribejava_71_18,"    @Test
         // removed other assertion
         assertEquals(allBytesStr, jaxbBase64.internalEncode(allBytes));
     }
-",Base64Test::testEncode_18_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_18_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_19,"    @Test
     public void testEncode_19_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3519,7 +4402,10 @@ scribejava_71_19,"    @Test
 
         assertEquals(helloWorldEncoded, jaxb230Base64.internalEncode(helloWorldBytes));
     }
-",Base64Test::testEncode_19_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_19_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_20,"    @Test
     public void testEncode_20_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3573,7 +4459,10 @@ scribejava_71_20,"    @Test
         // removed other assertion
         assertEquals(helloWorldTwoLinesEncoded, jaxb230Base64.internalEncode(helloWorldTwoLinesBytes));
     }
-",Base64Test::testEncode_20_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_20_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_21,"    @Test
     public void testEncode_21_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3628,7 +4517,10 @@ scribejava_71_21,"    @Test
         // removed other assertion
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxb230Base64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
     }
-",Base64Test::testEncode_21_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_21_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_22,"    @Test
     public void testEncode_22_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3684,7 +4576,10 @@ scribejava_71_22,"    @Test
         // removed other assertion
         assertEquals(helloWorldDifferentCharsEncoded, jaxb230Base64.internalEncode(helloWorldDifferentCharsBytes));
     }
-",Base64Test::testEncode_22_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_22_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_23,"    @Test
     public void testEncode_23_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3741,7 +4636,10 @@ scribejava_71_23,"    @Test
         // removed other assertion
         assertEquals(str, jaxb230Base64.internalEncode(bytes));
     }
-",Base64Test::testEncode_23_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_23_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_71_24,"    @Test
     public void testEncode_24_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
@@ -3799,7 +4697,10 @@ scribejava_71_24,"    @Test
         // removed other assertion
         assertEquals(allBytesStr, jaxb230Base64.internalEncode(allBytes));
     }
-",Base64Test::testEncode_24_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+",Base64Test::testEncode_24_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);,"@Override
+    protected String internalEncode(byte[] bytes) {
+        return JAVA8_BASE64.internalEncode(bytes);
+    }",
 scribejava_72_1,"    @Test
     public void testEncodeUrlWithoutPadding_1_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -3831,7 +4732,10 @@ scribejava_72_1,"    @Test
 
         assertEquals(helloWorldEncoded, java8Base64.internalEncodeUrlWithoutPadding(helloWorldBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_1_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_1_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_2,"    @Test
     public void testEncodeUrlWithoutPadding_2_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -3864,7 +4768,10 @@ scribejava_72_2,"    @Test
         // removed other assertion
         assertEquals(helloWorldTwoLinesEncoded, java8Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_2_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_2_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_3,"    @Test
     public void testEncodeUrlWithoutPadding_3_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -3898,7 +4805,10 @@ scribejava_72_3,"    @Test
         // removed other assertion
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,java8Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_3_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_3_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_4,"    @Test
     public void testEncodeUrlWithoutPadding_4_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -3933,7 +4843,10 @@ scribejava_72_4,"    @Test
         // removed other assertion
         assertEquals(helloWorldDifferentCharsEncoded,java8Base64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_4_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_4_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_5,"    @Test
     public void testEncodeUrlWithoutPadding_5_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -3969,7 +4882,10 @@ scribejava_72_5,"    @Test
         // removed other assertion
         assertEquals(str, java8Base64.internalEncodeUrlWithoutPadding(bytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_5_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_5_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_6,"    @Test
     public void testEncodeUrlWithoutPadding_6_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4006,7 +4922,10 @@ scribejava_72_6,"    @Test
         // removed other assertion
         assertEquals(allBytesStr, java8Base64.internalEncodeUrlWithoutPadding(allBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_6_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_6_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_7,"    @Test
     public void testEncodeUrlWithoutPadding_7_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4045,7 +4964,10 @@ scribejava_72_7,"    @Test
 
         assertEquals(helloWorldEncoded, commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_7_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_7_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_8,"    @Test
     public void testEncodeUrlWithoutPadding_8_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4085,7 +5007,10 @@ scribejava_72_8,"    @Test
         // removed other assertion
         assertEquals(helloWorldTwoLinesEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_8_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_8_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_9,"    @Test
     public void testEncodeUrlWithoutPadding_9_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4126,7 +5051,10 @@ scribejava_72_9,"    @Test
         // removed other assertion
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_9_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_9_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_10,"    @Test
     public void testEncodeUrlWithoutPadding_10_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4168,7 +5096,10 @@ scribejava_72_10,"    @Test
         // removed other assertion
         assertEquals(helloWorldDifferentCharsEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_10_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_10_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_11,"    @Test
     public void testEncodeUrlWithoutPadding_11_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4211,7 +5142,10 @@ scribejava_72_11,"    @Test
         // removed other assertion
         assertEquals(str, commonsCodecBase64.internalEncodeUrlWithoutPadding(bytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_11_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_11_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_12,"    @Test
     public void testEncodeUrlWithoutPadding_12_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4255,7 +5189,10 @@ scribejava_72_12,"    @Test
         // removed other assertion
         assertEquals(allBytesStr, commonsCodecBase64.internalEncodeUrlWithoutPadding(allBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_12_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_12_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_13,"    @Test
     public void testEncodeUrlWithoutPadding_13_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4301,7 +5238,10 @@ scribejava_72_13,"    @Test
 
         assertEquals(helloWorldEncoded, jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_13_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_13_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_14,"    @Test
     public void testEncodeUrlWithoutPadding_14_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4348,7 +5288,10 @@ scribejava_72_14,"    @Test
         // removed other assertion
         assertEquals(helloWorldTwoLinesEncoded, jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_14_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_14_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_15,"    @Test
     public void testEncodeUrlWithoutPadding_15_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4396,7 +5339,10 @@ scribejava_72_15,"    @Test
         // removed other assertion
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_15_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_15_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_16,"    @Test
     public void testEncodeUrlWithoutPadding_16_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4445,7 +5391,10 @@ scribejava_72_16,"    @Test
         // removed other assertion
         assertEquals(helloWorldDifferentCharsEncoded,jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_16_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_16_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_17,"    @Test
     public void testEncodeUrlWithoutPadding_17_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4495,7 +5444,10 @@ scribejava_72_17,"    @Test
         // removed other assertion
         assertEquals(str, jaxbBase64.internalEncodeUrlWithoutPadding(bytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_17_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_17_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_18,"    @Test
     public void testEncodeUrlWithoutPadding_18_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4546,7 +5498,10 @@ scribejava_72_18,"    @Test
         // removed other assertion
         assertEquals(allBytesStr, jaxbBase64.internalEncodeUrlWithoutPadding(allBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_18_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_18_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_19,"    @Test
     public void testEncodeUrlWithoutPadding_19_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4599,7 +5554,10 @@ scribejava_72_19,"    @Test
 
         assertEquals(helloWorldEncoded, jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_19_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_19_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_20,"    @Test
     public void testEncodeUrlWithoutPadding_20_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4653,7 +5611,10 @@ scribejava_72_20,"    @Test
         // removed other assertion
         assertEquals(helloWorldTwoLinesEncoded, jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_20_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_20_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_21,"    @Test
     public void testEncodeUrlWithoutPadding_21_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4708,7 +5669,10 @@ scribejava_72_21,"    @Test
         // removed other assertion
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_21_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_21_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_22,"    @Test
     public void testEncodeUrlWithoutPadding_22_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4764,7 +5728,10 @@ scribejava_72_22,"    @Test
         // removed other assertion
         assertEquals(helloWorldDifferentCharsEncoded,jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_22_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_22_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_23,"    @Test
     public void testEncodeUrlWithoutPadding_23_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4821,7 +5788,10 @@ scribejava_72_23,"    @Test
         // removed other assertion
         assertEquals(str, jaxb230Base64.internalEncodeUrlWithoutPadding(bytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_23_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_23_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_72_24,"    @Test
     public void testEncodeUrlWithoutPadding_24_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
@@ -4879,7 +5849,10 @@ scribejava_72_24,"    @Test
         // removed other assertion
         assertEquals(allBytesStr, jaxb230Base64.internalEncodeUrlWithoutPadding(allBytes));
     }
-",Base64Test::testEncodeUrlWithoutPadding_24_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+",Base64Test::testEncodeUrlWithoutPadding_24_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);,"@Override
+    protected String internalEncodeUrlWithoutPadding(byte[] bytes) {
+        return JAVA8_BASE64.internalEncodeUrlWithoutPadding(bytes);
+    }",
 scribejava_73_1,"    @Test
     public void shouldReturnTimestampInSeconds_1_oe() {
         final String expected = ""1000"";
@@ -4889,7 +5862,12 @@ scribejava_73_1,"    @Test
      * Returns the unix epoch timestamp in seconds
      *
      * @return timestamp
-     */",String getTimestampInSeconds();
+     */",String getTimestampInSeconds();,"@Override
+    public String getTimestampInSeconds() {
+        return String.valueOf(getTs());
+    }","/**
+     * {@inheritDoc}
+     */"
 scribejava_74_1,"    @Test
     public void shouldReturnNonce_1_oe() {
         final String expected = ""1042"";
@@ -4899,7 +5877,13 @@ scribejava_74_1,"    @Test
      * Returns a nonce (unique value for each request)
      *
      * @return nonce
-     */",String getNonce();
+     */",String getNonce();,"@Override
+    public String getNonce() {
+        final Long ts = getTs();
+        return String.valueOf(ts + timer.getRandomInteger());
+    }","/**
+     * {@inheritDoc}
+     */"
 scribejava_75_1,"    @Test
     public void shouldReturnSignatureMethodString_1_oe() {
         final String expected = ""HMAC-SHA1"";
@@ -4910,7 +5894,12 @@ scribejava_75_1,"    @Test
      */","@Override
     public String getSignatureMethod() {
         return METHOD;
-    }"
+    }","@Override
+    public String getSignatureMethod() {
+        return METHOD;
+    }","/**
+     * {@inheritDoc}
+     */"
 scribejava_76_1,"    @Test
     public void shouldReturnSignature_1_oe() {
         final String apiSecret = ""api secret"";
@@ -4929,7 +5918,18 @@ scribejava_76_1,"    @Test
             log(""signature is: %s"", signature);
         }
         return signature;
-    }"
+    }","@Override
+    public String getSignature(String baseString, String apiSecret, String tokenSecret) {
+        try {
+            Preconditions.checkEmptyString(baseString, ""Base string can't be null or empty string"");
+            Preconditions.checkNotNull(apiSecret, ""Api secret can't be null"");
+            return doSign(baseString, OAuthEncoder.encode(apiSecret) + '&' + OAuthEncoder.encode(tokenSecret));
+        } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeyException | RuntimeException e) {
+            throw new OAuthSignatureException(baseString, e);
+        }
+    }","/**
+     * {@inheritDoc}
+     */"
 scribejava_77_1,"    @Test
     public void shouldReturnSignatureMethodString_1_oe() {
         final String expected = ""RSA-SHA1"";
@@ -4940,7 +5940,12 @@ scribejava_77_1,"    @Test
      */","@Override
     public String getSignatureMethod() {
         return METHOD;
-    }"
+    }","@Override
+    public String getSignatureMethod() {
+        return METHOD;
+    }","/**
+     * {@inheritDoc}
+     */"
 scribejava_78_1,"    @Test
     public void shouldReturnSignature_1_oe() {
         final String apiSecret = ""api secret"";
@@ -4960,7 +5965,20 @@ scribejava_78_1,"    @Test
             log(""signature is: %s"", signature);
         }
         return signature;
-    }"
+    }","@Override
+    public String getSignature(String baseString, String apiSecret, String tokenSecret) {
+        try {
+            final Signature signature = Signature.getInstance(RSA_SHA1);
+            signature.initSign(privateKey);
+            signature.update(baseString.getBytes(UTF8));
+            return Base64.encode(signature.sign());
+        } catch (NoSuchAlgorithmException | InvalidKeyException | SignatureException | UnsupportedEncodingException
+                | RuntimeException e) {
+            throw new OAuthSignatureException(baseString, e);
+        }
+    }","/**
+     * {@inheritDoc}
+     */"
 scribejava_80_1,"    @Test
     public void shouldReleaseLatchOnIOException_1_oe() {
         handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER, future);
@@ -4979,7 +5997,9 @@ scribejava_80_1,"    @Test
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_1_oe,com.github.scribejava.core.model.OAuthResponseException,getResponse(),,"public Response getResponse() {
         return response;
-    }"
+    }","public Response getResponse() {
+        return response;
+    }",
 scribejava_80_2,"    @Test
     public void shouldReleaseLatchOnIOException_2_oe() {
         handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER, future);
@@ -5018,7 +6038,28 @@ scribejava_80_2,"    @Test
         } finally {
             okHttpFuture.finish();
         }
-    }"
+    }","@Override
+    public void onResponse(Call call, okhttp3.Response okHttpResponse) {
+        try {
+
+            final Response response = OkHttpHttpClient.convertResponse(okHttpResponse);
+            try {
+                @SuppressWarnings(""unchecked"")
+                final T t = converter == null ? (T) response : converter.convert(response);
+                okHttpFuture.setResult(t);
+                if (callback != null) {
+                    callback.onCompleted(t);
+                }
+            } catch (IOException | RuntimeException e) {
+                okHttpFuture.setException(e);
+                if (callback != null) {
+                    callback.onThrowable(e);
+                }
+            }
+        } finally {
+            okHttpFuture.finish();
+        }
+    }",
 scribejava_80_3,"    @Test
     public void shouldReleaseLatchOnIOException_3_oe() {
         handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER, future);
@@ -5058,7 +6099,28 @@ scribejava_80_3,"    @Test
         } finally {
             okHttpFuture.finish();
         }
-    }"
+    }","@Override
+    public void onResponse(Call call, okhttp3.Response okHttpResponse) {
+        try {
+
+            final Response response = OkHttpHttpClient.convertResponse(okHttpResponse);
+            try {
+                @SuppressWarnings(""unchecked"")
+                final T t = converter == null ? (T) response : converter.convert(response);
+                okHttpFuture.setResult(t);
+                if (callback != null) {
+                    callback.onCompleted(t);
+                }
+            } catch (IOException | RuntimeException e) {
+                okHttpFuture.setException(e);
+                if (callback != null) {
+                    callback.onThrowable(e);
+                }
+            }
+        } finally {
+            okHttpFuture.finish();
+        }
+    }",
 scribejava_80_4,"    @Test
     public void shouldReleaseLatchOnIOException_4_oe() {
         handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER, future);
@@ -5085,7 +6147,13 @@ scribejava_80_4,"    @Test
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_4_oe,com.github.scribejava.core.httpclient.HttpClient,"execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
             byte[] bodyContents)",,"Response execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
-            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException;"
+            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException;","@Override
+    public Response execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
+            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException {
+
+        return executeAsync(userAgent, headers, httpVerb, completeUrl, bodyContents, null,
+                (OAuthRequest.ResponseConverter<Response>) null).get();
+    }",
 scribejava_81_4,"    @Test
     public void shouldReportOAuthException_4_oe() {
         handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER, future);
@@ -5112,7 +6180,13 @@ scribejava_81_4,"    @Test
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_4_oe,com.github.scribejava.core.httpclient.HttpClient,"execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
             byte[] bodyContents)",,"Response execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
-            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException;"
+            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException;","@Override
+    public Response execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
+            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException {
+
+        return executeAsync(userAgent, headers, httpVerb, completeUrl, bodyContents, null,
+                (OAuthRequest.ResponseConverter<Response>) null).get();
+    }",
 scribejava_82_1,"    @Test
     public void shouldReleaseLatchOnCancel_1_oe() {
         handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
@@ -5123,7 +6197,9 @@ scribejava_82_1,"    @Test
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_1_oe,com.github.scribejava.core.model.OAuthResponseException,getResponse(),,"public Response getResponse() {
         return response;
-    }"
+    }","public Response getResponse() {
+        return response;
+    }",
 scribejava_82_2,"    @Test
     public void shouldReleaseLatchOnCancel_2_oe() {
         handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
@@ -5136,7 +6212,10 @@ scribejava_82_2,"    @Test
 ",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_2_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,cancel(boolean mayInterruptIfRunning),,"@Override
     public boolean cancel(boolean mayInterruptIfRunning) {
         return false;
-    }"
+    }","@Override
+    public boolean cancel(boolean mayInterruptIfRunning) {
+        return false;
+    }",
 scribejava_82_3,"    @Test
     public void shouldReleaseLatchOnCancel_3_oe() {
         handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
@@ -5150,7 +6229,10 @@ scribejava_82_3,"    @Test
 ",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_3_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,cancel(boolean mayInterruptIfRunning),,"@Override
     public boolean cancel(boolean mayInterruptIfRunning) {
         return false;
-    }"
+    }","@Override
+    public boolean cancel(boolean mayInterruptIfRunning) {
+        return false;
+    }",
 scribejava_82_4,"    @Test
     public void shouldReleaseLatchOnCancel_4_oe() {
         handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
@@ -5169,7 +6251,13 @@ scribejava_82_4,"    @Test
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_4_oe,com.github.scribejava.core.httpclient.HttpClient,"execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
             byte[] bodyContents)",,"Response execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
-            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException;"
+            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException;","@Override
+    public Response execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
+            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException {
+
+        return executeAsync(userAgent, headers, httpVerb, completeUrl, bodyContents, null,
+                (OAuthRequest.ResponseConverter<Response>) null).get();
+    }",
 scribejava_83_1,"    @Test
     public void shouldReleaseLatchOnFailure_1_oe() {
         handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
@@ -5180,7 +6268,9 @@ scribejava_83_1,"    @Test
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_1_oe,com.github.scribejava.core.model.OAuthResponseException,getResponse(),,"public Response getResponse() {
         return response;
-    }"
+    }","public Response getResponse() {
+        return response;
+    }",
 scribejava_83_2,"    @Test
     public void shouldReleaseLatchOnFailure_2_oe() {
         handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
@@ -5200,7 +6290,17 @@ scribejava_83_2,"    @Test
         } finally {
             okHttpFuture.finish();
         }
-    }"
+    }","@Override
+    public void onFailure(Call call, IOException exception) {
+        try {
+            okHttpFuture.setException(exception);
+            if (callback != null) {
+                callback.onThrowable(exception);
+            }
+        } finally {
+            okHttpFuture.finish();
+        }
+    }",
 scribejava_83_3,"    @Test
     public void shouldReleaseLatchOnFailure_3_oe() {
         handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
@@ -5221,7 +6321,17 @@ scribejava_83_3,"    @Test
         } finally {
             okHttpFuture.finish();
         }
-    }"
+    }","@Override
+    public void onFailure(Call call, IOException exception) {
+        try {
+            okHttpFuture.setException(exception);
+            if (callback != null) {
+                callback.onThrowable(exception);
+            }
+        } finally {
+            okHttpFuture.finish();
+        }
+    }",
 scribejava_83_4,"    @Test
     public void shouldReleaseLatchOnFailure_4_oe() {
         handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
@@ -5240,7 +6350,13 @@ scribejava_83_4,"    @Test
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_4_oe,com.github.scribejava.core.httpclient.HttpClient,"execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
             byte[] bodyContents)",,"Response execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
-            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException;"
+            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException;","@Override
+    public Response execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
+            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException {
+
+        return executeAsync(userAgent, headers, httpVerb, completeUrl, bodyContents, null,
+                (OAuthRequest.ResponseConverter<Response>) null).get();
+    }",
 scribejava_90_1,"    @Test
     public void testSigGeneration_1_oe() {
         final OAuth2AccessToken accessToken = new OAuth2AccessToken(""d3iwa.403gvrs194740652m1k4w2a503k3c"");
@@ -5263,7 +6379,20 @@ scribejava_90_1,"    @Test
         } catch (MalformedURLException mue) {
             throw new OAuthException(""Malformed URL"", mue);
         }
-    }"
+    }","public void signRequest(OAuth1AccessToken token, OAuthRequest request) {
+        if (isDebug()) {
+            log(""signing request: %s"", request.getCompleteUrl());
+        }
+
+        if (!token.isEmpty() || api.isEmptyOAuthTokenParamIsRequired()) {
+            request.addOAuthParameter(OAuthConstants.TOKEN, token.getToken());
+        }
+        if (isDebug()) {
+            log(""setting token to: %s"", token);
+        }
+        addOAuthParams(request, token.getTokenSecret());
+        appendSignature(request);
+    }",
 scribejava_91_1,"    @Test
     public void testErrorExtraction_1_oe() throws IOException {
 
@@ -5276,7 +6405,13 @@ scribejava_91_1,"    @Test
     }
 ",FitBitJsonTokenExtractorTest::testErrorExtraction_1_oe,com.github.scribejava.core.httpclient.HttpClient,"execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
             byte[] bodyContents)",,"Response execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
-            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException;"
+            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException;","@Override
+    public Response execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
+            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException {
+
+        return executeAsync(userAgent, headers, httpVerb, completeUrl, bodyContents, null,
+                (OAuthRequest.ResponseConverter<Response>) null).get();
+    }",
 scribejava_91_2,"    @Test
     public void testErrorExtraction_2_oe() throws IOException {
 
@@ -5286,7 +6421,9 @@ scribejava_91_2,"    @Test
     }
 ",FitBitJsonTokenExtractorTest::testErrorExtraction_2_oe,com.github.scribejava.core.model.OAuth2AccessTokenErrorResponse,getError(),,"public OAuth2Error getError() {
         return error;
-    }"
+    }","public OAuth2Error getError() {
+        return error;
+    }",
 scribejava_91_3,"    @Test
     public void testErrorExtraction_3_oe() throws IOException {
 
@@ -5297,7 +6434,9 @@ scribejava_91_3,"    @Test
     }
 ",FitBitJsonTokenExtractorTest::testErrorExtraction_3_oe,com.github.scribejava.core.model.OAuth2AccessTokenErrorResponse,getErrorDescription(),,"public String getErrorDescription() {
         return errorDescription;
-    }"
+    }","public String getErrorDescription() {
+        return errorDescription;
+    }",
 scribejava_27_1,"    @Test
     public void shouldExtractTokenFromOAuthStandardResponse_1_oe() throws IOException {
         final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
@@ -5310,7 +6449,9 @@ scribejava_27_1,"    @Test
     }
 ",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromOAuthStandardResponse_1_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
         return accessToken;
-    }"
+    }","public String getAccessToken() {
+        return accessToken;
+    }",
 scribejava_28_1,"    @Test
     public void shouldExtractTokenFromResponseWithExpiresParam_1_oe() throws IOException {
         final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
@@ -5323,7 +6464,9 @@ scribejava_28_1,"    @Test
     }
 ",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresParam_1_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
         return accessToken;
-    }"
+    }","public String getAccessToken() {
+        return accessToken;
+    }",
 scribejava_28_2,"    @Test
     public void shouldExtractTokenFromResponseWithExpiresParam_2_oe() throws IOException {
         final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
@@ -5337,7 +6480,31 @@ scribejava_28_2,"    @Test
     }
 ",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresParam_2_oe,com.github.scribejava.core.model.OAuth2AccessToken,getExpiresIn(),,"public Integer getExpiresIn() {
         return expiresIn;
-    }"
+    }","@Override
+    public OAuth2AccessToken extract(Response response) throws IOException {
+        if (response.getCode() != 200) {
+            throw new OAuthException(""Response code is not 200 but '"" + response.getCode() + '\'');
+        }
+        final String body = response.getBody();
+        Preconditions.checkEmptyString(body,
+                ""Response body is incorrect. Can't extract a token from an empty string"");
+
+        final String accessToken = extractParameter(body, ACCESS_TOKEN_REGEX_PATTERN, true);
+        final String tokenType = extractParameter(body, TOKEN_TYPE_REGEX_PATTERN, false);
+        final String expiresInString = extractParameter(body, EXPIRES_IN_REGEX_PATTERN, false);
+        Integer expiresIn;
+        try {
+            expiresIn = expiresInString == null ? null : Integer.valueOf(expiresInString);
+        } catch (NumberFormatException nfe) {
+            expiresIn = null;
+        }
+        final String refreshToken = extractParameter(body, REFRESH_TOKEN_REGEX_PATTERN, false);
+        final String scope = extractParameter(body, SCOPE_REGEX_PATTERN, false);
+
+        return new OAuth2AccessToken(accessToken, tokenType, expiresIn, refreshToken, scope, body);
+    }","/**
+     * {@inheritDoc}
+     */"
 scribejava_29_1,"    @Test
     public void shouldExtractTokenFromResponseWithExpiresAndRefreshParam_1_oe() throws IOException {
         final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
@@ -5350,7 +6517,9 @@ scribejava_29_1,"    @Test
     }
 ",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresAndRefreshParam_1_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
         return accessToken;
-    }"
+    }","public String getAccessToken() {
+        return accessToken;
+    }",
 scribejava_29_2,"    @Test
     public void shouldExtractTokenFromResponseWithExpiresAndRefreshParam_2_oe() throws IOException {
         final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
@@ -5364,7 +6533,31 @@ scribejava_29_2,"    @Test
     }
 ",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresAndRefreshParam_2_oe,com.github.scribejava.core.model.OAuth2AccessToken,getExpiresIn(),,"public Integer getExpiresIn() {
         return expiresIn;
-    }"
+    }","@Override
+    public OAuth2AccessToken extract(Response response) throws IOException {
+        if (response.getCode() != 200) {
+            throw new OAuthException(""Response code is not 200 but '"" + response.getCode() + '\'');
+        }
+        final String body = response.getBody();
+        Preconditions.checkEmptyString(body,
+                ""Response body is incorrect. Can't extract a token from an empty string"");
+
+        final String accessToken = extractParameter(body, ACCESS_TOKEN_REGEX_PATTERN, true);
+        final String tokenType = extractParameter(body, TOKEN_TYPE_REGEX_PATTERN, false);
+        final String expiresInString = extractParameter(body, EXPIRES_IN_REGEX_PATTERN, false);
+        Integer expiresIn;
+        try {
+            expiresIn = expiresInString == null ? null : Integer.valueOf(expiresInString);
+        } catch (NumberFormatException nfe) {
+            expiresIn = null;
+        }
+        final String refreshToken = extractParameter(body, REFRESH_TOKEN_REGEX_PATTERN, false);
+        final String scope = extractParameter(body, SCOPE_REGEX_PATTERN, false);
+
+        return new OAuth2AccessToken(accessToken, tokenType, expiresIn, refreshToken, scope, body);
+    }","/**
+     * {@inheritDoc}
+     */"
 scribejava_29_3,"    @Test
     public void shouldExtractTokenFromResponseWithExpiresAndRefreshParam_3_oe() throws IOException {
         final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
@@ -5379,7 +6572,9 @@ scribejava_29_3,"    @Test
     }
 ",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresAndRefreshParam_3_oe,com.github.scribejava.core.model.OAuth2AccessToken,getTokenType(),,"public String getTokenType() {
         return tokenType;
-    }"
+    }","public String getTokenType() {
+        return tokenType;
+    }",
 scribejava_29_4,"    @Test
     public void shouldExtractTokenFromResponseWithExpiresAndRefreshParam_4_oe() throws IOException {
         final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
@@ -5395,7 +6590,9 @@ scribejava_29_4,"    @Test
     }
 ",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresAndRefreshParam_4_oe,com.github.scribejava.core.model.OAuth2AccessToken,getRefreshToken(),,"public String getRefreshToken() {
         return refreshToken;
-    }"
+    }","public String getRefreshToken() {
+        return refreshToken;
+    }",
 scribejava_30_1,"    @Test
     public void shouldExtractTokenFromResponseWithManyParameters_1_oe() throws IOException {
         final String responseBody = ""access_token=foo1234&other_stuff=yeah_we_have_this_too&number=42"";
@@ -5407,7 +6604,9 @@ scribejava_30_1,"    @Test
     }
 ",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithManyParameters_1_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
         return accessToken;
-    }"
+    }","public String getAccessToken() {
+        return accessToken;
+    }",
 scribejava_31_1,"    @Test
     public void shouldExtractTokenFromOAuthStandardResponse_1_oe() throws IOException {
         final String responseBody = ""oauth_token=hh5s93j4hdidpola&oauth_token_secret=hdhd0244k9j7ao03"";
@@ -5419,7 +6618,9 @@ scribejava_31_1,"    @Test
     }
 ",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromOAuthStandardResponse_1_oe,com.github.scribejava.core.model.OAuth1Token,getToken(),,"public String getToken() {
         return token;
-    }"
+    }","public String getToken() {
+        return token;
+    }",
 scribejava_31_2,"    @Test
     public void shouldExtractTokenFromOAuthStandardResponse_2_oe() throws IOException {
         final String responseBody = ""oauth_token=hh5s93j4hdidpola&oauth_token_secret=hdhd0244k9j7ao03"";
@@ -5432,7 +6633,9 @@ scribejava_31_2,"    @Test
     }
 ",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromOAuthStandardResponse_2_oe,com.github.scribejava.core.model.OAuth1Token,getTokenSecret(),,"public String getTokenSecret() {
         return tokenSecret;
-    }"
+    }","public String getTokenSecret() {
+        return tokenSecret;
+    }",
 scribejava_32_1,"    @Test
     public void shouldExtractTokenFromInvertedOAuthStandardResponse_1_oe() throws IOException {
         final String responseBody = ""oauth_token_secret=hh5s93j4hdidpola&oauth_token=hdhd0244k9j7ao03"";
@@ -5444,7 +6647,9 @@ scribejava_32_1,"    @Test
     }
 ",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromInvertedOAuthStandardResponse_1_oe,com.github.scribejava.core.model.OAuth1Token,getTokenSecret(),,"public String getTokenSecret() {
         return tokenSecret;
-    }"
+    }","public String getTokenSecret() {
+        return tokenSecret;
+    }",
 scribejava_32_2,"    @Test
     public void shouldExtractTokenFromInvertedOAuthStandardResponse_2_oe() throws IOException {
         final String responseBody = ""oauth_token_secret=hh5s93j4hdidpola&oauth_token=hdhd0244k9j7ao03"";
@@ -5457,7 +6662,9 @@ scribejava_32_2,"    @Test
     }
 ",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromInvertedOAuthStandardResponse_2_oe,com.github.scribejava.core.model.OAuth1Token,getToken(),,"public String getToken() {
         return token;
-    }"
+    }","public String getToken() {
+        return token;
+    }",
 scribejava_33_1,"    @Test
     public void shouldExtractTokenFromResponseWithCallbackConfirmed_1_oe() throws IOException {
         final String responseBody = ""oauth_token=hh5s93j4hdidpola&oauth_token_secret=hdhd0244k9j7ao03""
@@ -5470,7 +6677,9 @@ scribejava_33_1,"    @Test
     }
 ",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromResponseWithCallbackConfirmed_1_oe,com.github.scribejava.core.model.OAuth1Token,getToken(),,"public String getToken() {
         return token;
-    }"
+    }","public String getToken() {
+        return token;
+    }",
 scribejava_33_2,"    @Test
     public void shouldExtractTokenFromResponseWithCallbackConfirmed_2_oe() throws IOException {
         final String responseBody = ""oauth_token=hh5s93j4hdidpola&oauth_token_secret=hdhd0244k9j7ao03""
@@ -5484,7 +6693,9 @@ scribejava_33_2,"    @Test
     }
 ",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromResponseWithCallbackConfirmed_2_oe,com.github.scribejava.core.model.OAuth1Token,getTokenSecret(),,"public String getTokenSecret() {
         return tokenSecret;
-    }"
+    }","public String getTokenSecret() {
+        return tokenSecret;
+    }",
 scribejava_34_1,"    @Test
     public void shouldExtractTokenWithEmptySecret_1_oe() throws IOException {
         final String responseBody = ""oauth_token=hh5s93j4hdidpola&oauth_token_secret="";
@@ -5496,7 +6707,9 @@ scribejava_34_1,"    @Test
     }
 ",OAuth1AccessTokenExtractorTest::shouldExtractTokenWithEmptySecret_1_oe,com.github.scribejava.core.model.OAuth1Token,getToken(),,"public String getToken() {
         return token;
-    }"
+    }","public String getToken() {
+        return token;
+    }",
 scribejava_34_2,"    @Test
     public void shouldExtractTokenWithEmptySecret_2_oe() throws IOException {
         final String responseBody = ""oauth_token=hh5s93j4hdidpola&oauth_token_secret="";
@@ -5509,7 +6722,9 @@ scribejava_34_2,"    @Test
     }
 ",OAuth1AccessTokenExtractorTest::shouldExtractTokenWithEmptySecret_2_oe,com.github.scribejava.core.model.OAuth1Token,getTokenSecret(),,"public String getTokenSecret() {
         return tokenSecret;
-    }"
+    }","public String getTokenSecret() {
+        return tokenSecret;
+    }",
 scribejava_35_1,"    @Test
     public void shouldParseResponse_1_oe() throws IOException {
         final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T3X\"", ""
@@ -5522,7 +6737,9 @@ scribejava_35_1,"    @Test
     }
 ",OAuth2AccessTokenJsonExtractorTest::shouldParseResponse_1_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
         return accessToken;
-    }"
+    }","public String getAccessToken() {
+        return accessToken;
+    }",
 scribejava_36_1,"    @Test
     public void shouldParseScopeFromResponse_1_oe() throws IOException {
         final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X\"", ""
@@ -5536,7 +6753,9 @@ scribejava_36_1,"    @Test
     }
 ",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_1_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
         return accessToken;
-    }"
+    }","public String getAccessToken() {
+        return accessToken;
+    }",
 scribejava_36_2,"    @Test
     public void shouldParseScopeFromResponse_2_oe() throws IOException {
         final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X\"", ""
@@ -5551,7 +6770,9 @@ scribejava_36_2,"    @Test
     }
 ",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_2_oe,com.github.scribejava.core.model.OAuth2AccessToken,getScope(),,"public String getScope() {
         return scope;
-    }"
+    }","public String getScope() {
+        return scope;
+    }",
 scribejava_36_3,"    @Test
     public void shouldParseScopeFromResponse_3_oe() throws IOException {
         final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X\"", ""
@@ -5575,7 +6796,9 @@ scribejava_36_3,"    @Test
     }
 ",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_3_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
         return accessToken;
-    }"
+    }","public String getAccessToken() {
+        return accessToken;
+    }",
 scribejava_36_4,"    @Test
     public void shouldParseScopeFromResponse_4_oe() throws IOException {
         final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X\"", ""
@@ -5600,7 +6823,9 @@ scribejava_36_4,"    @Test
     }
 ",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_4_oe,com.github.scribejava.core.model.OAuth2AccessToken,getScope(),,"public String getScope() {
         return scope;
-    }"
+    }","public String getScope() {
+        return scope;
+    }",
 scribejava_36_5,"    @Test
     public void shouldParseScopeFromResponse_5_oe() throws IOException {
         final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X\"", ""
@@ -5635,7 +6860,9 @@ scribejava_36_5,"    @Test
     }
 ",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_5_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
         return accessToken;
-    }"
+    }","public String getAccessToken() {
+        return accessToken;
+    }",
 scribejava_36_6,"    @Test
     public void shouldParseScopeFromResponse_6_oe() throws IOException {
         final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X\"", ""
@@ -5671,7 +6898,9 @@ scribejava_36_6,"    @Test
     }
 ",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_6_oe,com.github.scribejava.core.model.OAuth2AccessToken,getScope(),,"public String getScope() {
         return scope;
-    }"
+    }","public String getScope() {
+        return scope;
+    }",
 scribejava_36_7,"    @Test
     public void shouldParseScopeFromResponse_7_oe() throws IOException {
         final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X\"", ""
@@ -5708,7 +6937,9 @@ scribejava_36_7,"    @Test
     }
 ",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_7_oe,com.github.scribejava.core.model.OAuth2AccessToken,getRefreshToken(),,"public String getRefreshToken() {
         return refreshToken;
-    }"
+    }","public String getRefreshToken() {
+        return refreshToken;
+    }",
 scribejava_38_1,"    @Test
     public void testEscapedJsonInResponse_1_oe() throws IOException {
         final String responseBody = ""{ \""access_token\"":\""I0122HKLEM2\\/MV3ABKFTDT3T5X\"",""
@@ -5721,7 +6952,9 @@ scribejava_38_1,"    @Test
     }
 ",OAuth2AccessTokenJsonExtractorTest::testEscapedJsonInResponse_1_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
         return accessToken;
-    }"
+    }","public String getAccessToken() {
+        return accessToken;
+    }",
 scribejava_left_59_1,"@Test
     public void shouldThrowExceptionIfResponseIsError_1_oe() throws IOException {
         final String responseBody = ""{""
@@ -5738,4 +6971,13 @@ scribejava_left_59_1,"@Test
      * @param response the whole response
      * @return OAuth access token
      * @throws java.io.IOException in case of troubles while getting body from the response
-     */","T extract(Response response) throws IOException, OAuthException;"
+     */","T extract(Response response) throws IOException, OAuthException;","@Override
+    public OAuth2AccessToken extract(Response response) throws IOException {
+        final String body = response.getBody();
+        Preconditions.checkEmptyString(body, ""Response body is incorrect. Can't extract a token from an empty string"");
+
+        if (response.getCode() != 200) {
+            generateError(response);
+        }
+        return createToken(body);
+    }",

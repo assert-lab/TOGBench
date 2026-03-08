@@ -1,0 +1,2320 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+jsoup_293_1,"    @Test public void handlesUnclosedTitleAtEof_1_oe() {
+        Object a = Jsoup.parse(""<title>Data"").title();
+        assertEquals(""Data"", a);
+        }",HtmlParserTest::handlesUnclosedTitleAtEof_1_oe,org.jsoup.nodes.Document,title(),"/**
+     Get the string contents of the document's {@code title} element.
+     @return Trimmed title, or empty string if none set.
+     */","public String title() {
+        // title is a preserve whitespace tag (for document output), but normalised here
+        Element titleEl = head().selectFirst(titleEval);
+        return titleEl != null ? StringUtil.normaliseWhitespace(titleEl.text()).trim() : """";
+    }"
+jsoup_293_2,"    @Test public void handlesUnclosedTitleAtEof_2_oe() {
+        Object a = Jsoup.parse(""<title>Data<"").title();
+        assertEquals(""Data<"", a);
+        }",HtmlParserTest::handlesUnclosedTitleAtEof_2_oe,org.jsoup.nodes.Document,title(),"/**
+     Get the string contents of the document's {@code title} element.
+     @return Trimmed title, or empty string if none set.
+     */","public String title() {
+        // title is a preserve whitespace tag (for document output), but normalised here
+        Element titleEl = head().selectFirst(titleEval);
+        return titleEl != null ? StringUtil.normaliseWhitespace(titleEl.text()).trim() : """";
+    }"
+jsoup_293_3,"    @Test public void handlesUnclosedTitleAtEof_3_oe() {
+        Object a = Jsoup.parse(""<title>Data</"").title();
+        assertEquals(""Data</"", a);
+        }",HtmlParserTest::handlesUnclosedTitleAtEof_3_oe,org.jsoup.nodes.Document,title(),"/**
+     Get the string contents of the document's {@code title} element.
+     @return Trimmed title, or empty string if none set.
+     */","public String title() {
+        // title is a preserve whitespace tag (for document output), but normalised here
+        Element titleEl = head().selectFirst(titleEval);
+        return titleEl != null ? StringUtil.normaliseWhitespace(titleEl.text()).trim() : """";
+    }"
+jsoup_293_4,"    @Test public void handlesUnclosedTitleAtEof_4_oe() {
+        Object a = Jsoup.parse(""<title>Data</t"").title();
+        assertEquals(""Data</t"", a);
+        }",HtmlParserTest::handlesUnclosedTitleAtEof_4_oe,org.jsoup.nodes.Document,title(),"/**
+     Get the string contents of the document's {@code title} element.
+     @return Trimmed title, or empty string if none set.
+     */","public String title() {
+        // title is a preserve whitespace tag (for document output), but normalised here
+        Element titleEl = head().selectFirst(titleEval);
+        return titleEl != null ? StringUtil.normaliseWhitespace(titleEl.text()).trim() : """";
+    }"
+jsoup_293_5,"    @Test public void handlesUnclosedTitleAtEof_5_oe() {
+        Object a = Jsoup.parse(""<title>Data</ti"").title();
+        assertEquals(""Data</ti"", a);
+        }",HtmlParserTest::handlesUnclosedTitleAtEof_5_oe,org.jsoup.nodes.Document,title(),"/**
+     Get the string contents of the document's {@code title} element.
+     @return Trimmed title, or empty string if none set.
+     */","public String title() {
+        // title is a preserve whitespace tag (for document output), but normalised here
+        Element titleEl = head().selectFirst(titleEval);
+        return titleEl != null ? StringUtil.normaliseWhitespace(titleEl.text()).trim() : """";
+    }"
+jsoup_293_6,"    @Test public void handlesUnclosedTitleAtEof_6_oe() {
+        Object a = Jsoup.parse(""<title>Data</title>"").title();
+        assertEquals(""Data"", a);
+        }",HtmlParserTest::handlesUnclosedTitleAtEof_6_oe,org.jsoup.nodes.Document,title(),"/**
+     Get the string contents of the document's {@code title} element.
+     @return Trimmed title, or empty string if none set.
+     */","public String title() {
+        // title is a preserve whitespace tag (for document output), but normalised here
+        Element titleEl = head().selectFirst(titleEval);
+        return titleEl != null ? StringUtil.normaliseWhitespace(titleEl.text()).trim() : """";
+    }"
+jsoup_293_7,"    @Test public void handlesUnclosedTitleAtEof_7_oe() {
+        Object a = Jsoup.parse(""<title>Data</title >"").title();
+        assertEquals(""Data"", a);
+        }",HtmlParserTest::handlesUnclosedTitleAtEof_7_oe,org.jsoup.nodes.Document,title(),"/**
+     Get the string contents of the document's {@code title} element.
+     @return Trimmed title, or empty string if none set.
+     */","public String title() {
+        // title is a preserve whitespace tag (for document output), but normalised here
+        Element titleEl = head().selectFirst(titleEval);
+        return titleEl != null ? StringUtil.normaliseWhitespace(titleEl.text()).trim() : """";
+    }"
+jsoup_295_1,"    @Test public void handlesUnclosedScriptAtEof_1_oe() {
+        Object a = Jsoup.parse(""<script>Data"").select(""script"").first().data();
+        assertEquals(""Data"", a);
+        }",HtmlParserTest::handlesUnclosedScriptAtEof_1_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_295_2,"    @Test public void handlesUnclosedScriptAtEof_2_oe() {
+        Object a = Jsoup.parse(""<script>Data<"").select(""script"").first().data();
+        assertEquals(""Data<"", a);
+        }",HtmlParserTest::handlesUnclosedScriptAtEof_2_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_295_3,"    @Test public void handlesUnclosedScriptAtEof_3_oe() {
+        Object a = Jsoup.parse(""<script>Data</sc"").select(""script"").first().data();
+        assertEquals(""Data</sc"", a);
+        }",HtmlParserTest::handlesUnclosedScriptAtEof_3_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_295_4,"    @Test public void handlesUnclosedScriptAtEof_4_oe() {
+        Object a = Jsoup.parse(""<script>Data</-sc"").select(""script"").first().data();
+        assertEquals(""Data</-sc"", a);
+        }",HtmlParserTest::handlesUnclosedScriptAtEof_4_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_295_5,"    @Test public void handlesUnclosedScriptAtEof_5_oe() {
+        Object a = Jsoup.parse(""<script>Data</sc-"").select(""script"").first().data();
+        assertEquals(""Data</sc-"", a);
+        }",HtmlParserTest::handlesUnclosedScriptAtEof_5_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_295_6,"    @Test public void handlesUnclosedScriptAtEof_6_oe() {
+        Object a = Jsoup.parse(""<script>Data</sc--"").select(""script"").first().data();
+        assertEquals(""Data</sc--"", a);
+        }",HtmlParserTest::handlesUnclosedScriptAtEof_6_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_295_7,"    @Test public void handlesUnclosedScriptAtEof_7_oe() {
+        Object a = Jsoup.parse(""<script>Data</script>"").select(""script"").first().data();
+        assertEquals(""Data"", a);
+        }",HtmlParserTest::handlesUnclosedScriptAtEof_7_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_295_8,"    @Test public void handlesUnclosedScriptAtEof_8_oe() {
+        Object a = Jsoup.parse(""<script>Data</script"").select(""script"").first().data();
+        assertEquals(""Data</script"", a);
+        }",HtmlParserTest::handlesUnclosedScriptAtEof_8_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_295_9,"    @Test public void handlesUnclosedScriptAtEof_9_oe() {
+        Object a = Jsoup.parse(""<script>Data</script "").select(""script"").first().data();
+        assertEquals(""Data"", a);
+        }",HtmlParserTest::handlesUnclosedScriptAtEof_9_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_295_10,"    @Test public void handlesUnclosedScriptAtEof_10_oe() {
+        Object a = Jsoup.parse(""<script>Data</script n"").select(""script"").first().data();
+        assertEquals(""Data"", a);
+        }",HtmlParserTest::handlesUnclosedScriptAtEof_10_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_295_11,"    @Test public void handlesUnclosedScriptAtEof_11_oe() {
+        Object a = Jsoup.parse(""<script>Data</script n="").select(""script"").first().data();
+        assertEquals(""Data"", a);
+        }",HtmlParserTest::handlesUnclosedScriptAtEof_11_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_295_12,"    @Test public void handlesUnclosedScriptAtEof_12_oe() {
+        Object a = Jsoup.parse(""<script>Data</script n=\"""").select(""script"").first().data();
+        assertEquals(""Data"", a);
+        }",HtmlParserTest::handlesUnclosedScriptAtEof_12_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_295_13,"    @Test public void handlesUnclosedScriptAtEof_13_oe() {
+        Object a = Jsoup.parse(""<script>Data</script n=\""p"").select(""script"").first().data();
+        assertEquals(""Data"", a);
+        }",HtmlParserTest::handlesUnclosedScriptAtEof_13_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_296_1,"    @Test public void handlesUnclosedRawtextAtEof_1_oe() {
+        Object a = Jsoup.parse(""<style>Data"").select(""style"").first().data();
+        assertEquals(""Data"", a);
+        }",HtmlParserTest::handlesUnclosedRawtextAtEof_1_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_296_2,"    @Test public void handlesUnclosedRawtextAtEof_2_oe() {
+        Object a = Jsoup.parse(""<style>Data</st"").select(""style"").first().data();
+        assertEquals(""Data</st"", a);
+        }",HtmlParserTest::handlesUnclosedRawtextAtEof_2_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_296_3,"    @Test public void handlesUnclosedRawtextAtEof_3_oe() {
+        Object a = Jsoup.parse(""<style>Data</style>"").select(""style"").first().data();
+        assertEquals(""Data"", a);
+        }",HtmlParserTest::handlesUnclosedRawtextAtEof_3_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_296_4,"    @Test public void handlesUnclosedRawtextAtEof_4_oe() {
+        Object a = Jsoup.parse(""<style>Data</style"").select(""style"").first().data();
+        assertEquals(""Data</style"", a);
+        }",HtmlParserTest::handlesUnclosedRawtextAtEof_4_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_296_5,"    @Test public void handlesUnclosedRawtextAtEof_5_oe() {
+        Object a = Jsoup.parse(""<style>Data</-style"").select(""style"").first().data();
+        assertEquals(""Data</-style"", a);
+        }",HtmlParserTest::handlesUnclosedRawtextAtEof_5_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_296_6,"    @Test public void handlesUnclosedRawtextAtEof_6_oe() {
+        Object a = Jsoup.parse(""<style>Data</style-"").select(""style"").first().data();
+        assertEquals(""Data</style-"", a);
+        }",HtmlParserTest::handlesUnclosedRawtextAtEof_6_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_296_7,"    @Test public void handlesUnclosedRawtextAtEof_7_oe() {
+        Object a = Jsoup.parse(""<style>Data</style--"").select(""style"").first().data();
+        assertEquals(""Data</style--"", a);
+        }",HtmlParserTest::handlesUnclosedRawtextAtEof_7_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
+jsoup_385_1,"    @Test public void unescape_1_oe() {
+        Object a = TokenQueue.unescape(""one \\( \\) \\\\"");
+        assertEquals(""one ( ) \\"", a);
+        }",TokenQueueTest::unescape_1_oe,org.jsoup.parser.TokenQueue,unescape(String in),"/**
+     * Unescape a \ escaped string.
+     * @param in backslash escaped string
+     * @return unescaped string
+     */","public static String unescape(String in) {
+        StringBuilder out = StringUtil.borrowBuilder();
+        char last = 0;
+        for (char c : in.toCharArray()) {
+            if (c == ESC) {
+                if (last == ESC)
+                    out.append(c);
+            }
+            else 
+                out.append(c);
+            last = c;
+        }
+        return StringUtil.releaseBuilder(out);
+    }"
+jsoup_400_1,"    @Test public void knownTags_1_oe() {
+        boolean a = Tag.isKnownTag(""div"");
+        assertTrue(a);
+        }",TagTest::knownTags_1_oe,org.jsoup.parser.Tag,isKnownTag(),"/**
+     * Get if this is a pre-defined tag, or was auto created on parsing.
+     *
+     * @return if a known tag
+     */","public boolean isKnownTag() {
+        return tags.containsKey(tagName);
+    }"
+jsoup_400_2,"    @Test public void knownTags_2_oe() {
+        boolean a = Tag.isKnownTag(""explain"");
+        assertFalse(a);
+        }",TagTest::knownTags_2_oe,org.jsoup.parser.Tag,isKnownTag(),"/**
+     * Get if this is a pre-defined tag, or was auto created on parsing.
+     *
+     * @return if a known tag
+     */","public boolean isKnownTag() {
+        return tags.containsKey(tagName);
+    }"
+jsoup_442_1,"    @Test public void cp1252Entities_1_oe() {
+        Object a = Jsoup.parse(""&#0128;"").text();
+        assertEquals(""\u20ac"", a);
+        }",TokeniserTest::cp1252Entities_1_oe,org.jsoup.select.Elements,text(),"/**
+     * Get the combined text of all the matched elements.
+     * <p>
+     * Note that it is possible to get repeats if the matched elements contain both parent elements and their own
+     * children, as the Element.text() method returns the combined text of a parent and all its children.
+     * @return string of all text: unescaped and no HTML.
+     * @see Element#text()
+     * @see #eachText()
+     */","public String text() {
+        StringBuilder sb = StringUtil.borrowBuilder();
+        for (Element element : this) {
+            if (sb.length() != 0)
+                sb.append("" "");
+            sb.append(element.text());
+        }
+        return StringUtil.releaseBuilder(sb);
+    }"
+jsoup_442_2,"    @Test public void cp1252Entities_2_oe() {
+        Object a = Jsoup.parse(""&#0130;"").text();
+        assertEquals(""\u201a"", a);
+        }",TokeniserTest::cp1252Entities_2_oe,org.jsoup.select.Elements,text(),"/**
+     * Get the combined text of all the matched elements.
+     * <p>
+     * Note that it is possible to get repeats if the matched elements contain both parent elements and their own
+     * children, as the Element.text() method returns the combined text of a parent and all its children.
+     * @return string of all text: unescaped and no HTML.
+     * @see Element#text()
+     * @see #eachText()
+     */","public String text() {
+        StringBuilder sb = StringUtil.borrowBuilder();
+        for (Element element : this) {
+            if (sb.length() != 0)
+                sb.append("" "");
+            sb.append(element.text());
+        }
+        return StringUtil.releaseBuilder(sb);
+    }"
+jsoup_442_3,"    @Test public void cp1252Entities_3_oe() {
+        Object a = Jsoup.parse(""&#x80;"").text();
+        assertEquals(""\u20ac"", a);
+        }",TokeniserTest::cp1252Entities_3_oe,org.jsoup.select.Elements,text(),"/**
+     * Get the combined text of all the matched elements.
+     * <p>
+     * Note that it is possible to get repeats if the matched elements contain both parent elements and their own
+     * children, as the Element.text() method returns the combined text of a parent and all its children.
+     * @return string of all text: unescaped and no HTML.
+     * @see Element#text()
+     * @see #eachText()
+     */","public String text() {
+        StringBuilder sb = StringUtil.borrowBuilder();
+        for (Element element : this) {
+            if (sb.length() != 0)
+                sb.append("" "");
+            sb.append(element.text());
+        }
+        return StringUtil.releaseBuilder(sb);
+    }"
+jsoup_480_1,"    @Test public void cleansInternationalText_1_oe() {
+        Object a = Jsoup.clean(""привет"", Safelist.none());
+        assertEquals(""привет"", a);
+        }",CleanerTest::cleansInternationalText_1_oe,org.jsoup.safety.Safelist,none(),"/**
+     This safelist allows only text nodes: all HTML will be stripped.
+
+     @return safelist
+     */","public static Safelist none() {
+        return new Safelist();
+    }"
+jsoup_489_1,"    @Test
+    public void join_1_oe() {
+        Object a = StringUtil.join(Collections.singletonList(""""), "" "");
+        assertEquals("""", a);
+    }",StringUtilTest::join_1_oe,org.jsoup.internal.StringUtil,"join(Collection<?> strings, String sep)","/**
+     * Join a collection of strings by a separator
+     * @param strings collection of string objects
+     * @param sep string to place between strings
+     * @return joined string
+     */","public static String join(Collection<?> strings, String sep) {
+        return join(strings.iterator(), sep);
+    }"
+jsoup_489_2,"    @Test
+    public void join_2_oe() {
+        Object a = StringUtil.join(Collections.singletonList(""one""), "" "");
+        assertEquals(""one"", a);
+    }",StringUtilTest::join_2_oe,org.jsoup.internal.StringUtil,"join(Collection<?> strings, String sep)","/**
+     * Join a collection of strings by a separator
+     * @param strings collection of string objects
+     * @param sep string to place between strings
+     * @return joined string
+     */","public static String join(Collection<?> strings, String sep) {
+        return join(strings.iterator(), sep);
+    }"
+jsoup_489_3,"    @Test
+    public void join_3_oe() {
+        Object a = StringUtil.join(Arrays.asList(""one"", ""two"", ""three""), "" "");
+        assertEquals(""one two three"", a);
+    }",StringUtilTest::join_3_oe,org.jsoup.nodes.Attributes,asList(),"/**
+     Get the attributes as a List, for iteration.
+     @return a view of the attributes as an unmodifiable List.
+     */","public List<Attribute> asList() {
+        ArrayList<Attribute> list = new ArrayList<>(size);
+        for (int i = 0; i < size; i++) {
+            if (isInternalKey(keys[i]))
+                continue; // skip internal keys
+            Attribute attr = new Attribute(keys[i], (String) vals[i], Attributes.this);
+            list.add(attr);
+        }
+        return Collections.unmodifiableList(list);
+    }"
+jsoup_490_1,"    @Test public void padding_1_oe() {
+        Object a = StringUtil.padding(0);
+        assertEquals("""", a);
+        }",StringUtilTest::padding_1_oe,org.jsoup.internal.StringUtil,padding(int width),"/**
+     * Returns space padding (up to the default max of 30). Use {@link #padding(int, int)} to specify a different limit.
+     * @param width amount of padding desired
+     * @return string of spaces * width
+     * @see #padding(int, int) 
+      */","public static String padding(int width) {
+        return padding(width, 30);
+    }"
+jsoup_490_2,"    @Test public void padding_2_oe() {
+        Object a = StringUtil.padding(1);
+        assertEquals("" "", a);
+        }",StringUtilTest::padding_2_oe,org.jsoup.internal.StringUtil,padding(int width),"/**
+     * Returns space padding (up to the default max of 30). Use {@link #padding(int, int)} to specify a different limit.
+     * @param width amount of padding desired
+     * @return string of spaces * width
+     * @see #padding(int, int) 
+      */","public static String padding(int width) {
+        return padding(width, 30);
+    }"
+jsoup_490_3,"    @Test public void padding_3_oe() {
+        Object a = StringUtil.padding(2);
+        assertEquals(""  "", a);
+        }",StringUtilTest::padding_3_oe,org.jsoup.internal.StringUtil,padding(int width),"/**
+     * Returns space padding (up to the default max of 30). Use {@link #padding(int, int)} to specify a different limit.
+     * @param width amount of padding desired
+     * @return string of spaces * width
+     * @see #padding(int, int) 
+      */","public static String padding(int width) {
+        return padding(width, 30);
+    }"
+jsoup_490_4,"    @Test public void padding_4_oe() {
+        Object a = StringUtil.padding(15);
+        assertEquals(""               "", a);
+        }",StringUtilTest::padding_4_oe,org.jsoup.internal.StringUtil,padding(int width),"/**
+     * Returns space padding (up to the default max of 30). Use {@link #padding(int, int)} to specify a different limit.
+     * @param width amount of padding desired
+     * @return string of spaces * width
+     * @see #padding(int, int) 
+      */","public static String padding(int width) {
+        return padding(width, 30);
+    }"
+jsoup_490_6,"    @Test public void padding_6_oe() {
+        Object a = StringUtil.padding(20, -1);
+        assertEquals(""                    "", a);
+        }",StringUtilTest::padding_6_oe,org.jsoup.internal.StringUtil,padding(int width),"/**
+     * Returns space padding (up to the default max of 30). Use {@link #padding(int, int)} to specify a different limit.
+     * @param width amount of padding desired
+     * @return string of spaces * width
+     * @see #padding(int, int) 
+      */","public static String padding(int width) {
+        return padding(width, 30);
+    }"
+jsoup_490_7,"    @Test public void padding_7_oe() {
+
+        Object a = StringUtil.padding(21, -1);
+        assertEquals(""                     "", a);
+        }",StringUtilTest::padding_7_oe,org.jsoup.internal.StringUtil,padding(int width),"/**
+     * Returns space padding (up to the default max of 30). Use {@link #padding(int, int)} to specify a different limit.
+     * @param width amount of padding desired
+     * @return string of spaces * width
+     * @see #padding(int, int) 
+      */","public static String padding(int width) {
+        return padding(width, 30);
+    }"
+jsoup_490_8,"    @Test public void padding_8_oe() {
+
+
+        Object a = StringUtil.padding(30, -1);
+        assertEquals(""                              "", a);
+        }",StringUtilTest::padding_8_oe,org.jsoup.internal.StringUtil,padding(int width),"/**
+     * Returns space padding (up to the default max of 30). Use {@link #padding(int, int)} to specify a different limit.
+     * @param width amount of padding desired
+     * @return string of spaces * width
+     * @see #padding(int, int) 
+      */","public static String padding(int width) {
+        return padding(width, 30);
+    }"
+jsoup_490_9,"    @Test public void padding_9_oe() {
+
+
+        Object a = StringUtil.padding(45, -1);
+        assertEquals(""                                             "", a);
+        }",StringUtilTest::padding_9_oe,org.jsoup.internal.StringUtil,padding(int width),"/**
+     * Returns space padding (up to the default max of 30). Use {@link #padding(int, int)} to specify a different limit.
+     * @param width amount of padding desired
+     * @return string of spaces * width
+     * @see #padding(int, int) 
+      */","public static String padding(int width) {
+        return padding(width, 30);
+    }"
+jsoup_490_10,"    @Test public void padding_10_oe() {
+
+
+
+        Object a = StringUtil.padding(0, 0);
+        assertEquals("""", a);
+        }",StringUtilTest::padding_10_oe,org.jsoup.internal.StringUtil,padding(int width),"/**
+     * Returns space padding (up to the default max of 30). Use {@link #padding(int, int)} to specify a different limit.
+     * @param width amount of padding desired
+     * @return string of spaces * width
+     * @see #padding(int, int) 
+      */","public static String padding(int width) {
+        return padding(width, 30);
+    }"
+jsoup_490_11,"    @Test public void padding_11_oe() {
+
+
+
+
+        Object a = StringUtil.padding(21, 0);
+        assertEquals("""", a);
+        }",StringUtilTest::padding_11_oe,org.jsoup.internal.StringUtil,padding(int width),"/**
+     * Returns space padding (up to the default max of 30). Use {@link #padding(int, int)} to specify a different limit.
+     * @param width amount of padding desired
+     * @return string of spaces * width
+     * @see #padding(int, int) 
+      */","public static String padding(int width) {
+        return padding(width, 30);
+    }"
+jsoup_490_12,"    @Test public void padding_12_oe() {
+
+
+
+
+
+        Object a = StringUtil.padding(0, 30);
+        assertEquals("""", a);
+        }",StringUtilTest::padding_12_oe,org.jsoup.internal.StringUtil,padding(int width),"/**
+     * Returns space padding (up to the default max of 30). Use {@link #padding(int, int)} to specify a different limit.
+     * @param width amount of padding desired
+     * @return string of spaces * width
+     * @see #padding(int, int) 
+      */","public static String padding(int width) {
+        return padding(width, 30);
+    }"
+jsoup_490_13,"    @Test public void padding_13_oe() {
+
+
+
+
+
+        Object a = StringUtil.padding(1, 30);
+        assertEquals("" "", a);
+        }",StringUtilTest::padding_13_oe,org.jsoup.internal.StringUtil,padding(int width),"/**
+     * Returns space padding (up to the default max of 30). Use {@link #padding(int, int)} to specify a different limit.
+     * @param width amount of padding desired
+     * @return string of spaces * width
+     * @see #padding(int, int) 
+      */","public static String padding(int width) {
+        return padding(width, 30);
+    }"
+jsoup_490_14,"    @Test public void padding_14_oe() {
+
+
+
+
+
+        Object a = StringUtil.padding(2, 30);
+        assertEquals(""  "", a);
+        }",StringUtilTest::padding_14_oe,org.jsoup.internal.StringUtil,padding(int width),"/**
+     * Returns space padding (up to the default max of 30). Use {@link #padding(int, int)} to specify a different limit.
+     * @param width amount of padding desired
+     * @return string of spaces * width
+     * @see #padding(int, int) 
+      */","public static String padding(int width) {
+        return padding(width, 30);
+    }"
+jsoup_490_15,"    @Test public void padding_15_oe() {
+
+
+
+
+
+        Object a = StringUtil.padding(15, 30);
+        assertEquals(""               "", a);
+        }",StringUtilTest::padding_15_oe,org.jsoup.internal.StringUtil,padding(int width),"/**
+     * Returns space padding (up to the default max of 30). Use {@link #padding(int, int)} to specify a different limit.
+     * @param width amount of padding desired
+     * @return string of spaces * width
+     * @see #padding(int, int) 
+      */","public static String padding(int width) {
+        return padding(width, 30);
+    }"
+jsoup_490_16,"    @Test public void padding_16_oe() {
+
+
+
+
+
+        Object a = StringUtil.padding(45, 30);
+        assertEquals(""                              "", a);
+        }",StringUtilTest::padding_16_oe,org.jsoup.internal.StringUtil,padding(int width),"/**
+     * Returns space padding (up to the default max of 30). Use {@link #padding(int, int)} to specify a different limit.
+     * @param width amount of padding desired
+     * @return string of spaces * width
+     * @see #padding(int, int) 
+      */","public static String padding(int width) {
+        return padding(width, 30);
+    }"
+jsoup_490_17,"    @Test public void padding_17_oe() {
+
+
+
+
+
+
+        int a = 5;
+        assertEquals(a, StringUtil.padding(20, 5).length());
+        }",StringUtilTest::padding_17_oe,org.jsoup.internal.StringUtil,padding(int width),"/**
+     * Returns space padding (up to the default max of 30). Use {@link #padding(int, int)} to specify a different limit.
+     * @param width amount of padding desired
+     * @return string of spaces * width
+     * @see #padding(int, int) 
+      */","public static String padding(int width) {
+        return padding(width, 30);
+    }"
+jsoup_492_1,"    @Test public void isBlank_1_oe() {
+        boolean a = StringUtil.isBlank(null);
+        assertTrue(a);
+        }",StringUtilTest::isBlank_1_oe,org.jsoup.internal.StringUtil,isBlank(final String string),"/**
+     * Tests if a string is blank: null, empty, or only whitespace ("" "", \r\n, \t, etc)
+     * @param string string to test
+     * @return if string is blank
+     */","public static boolean isBlank(final String string) {
+        if (string == null || string.length() == 0)
+            return true;
+
+        int l = string.length();
+        for (int i = 0; i < l; i++) {
+            if (!StringUtil.isWhitespace(string.codePointAt(i)))
+                return false;
+        }
+        return true;
+    }"
+jsoup_492_2,"    @Test public void isBlank_2_oe() {
+        boolean a = StringUtil.isBlank("""");
+        assertTrue(a);
+        }",StringUtilTest::isBlank_2_oe,org.jsoup.internal.StringUtil,isBlank(final String string),"/**
+     * Tests if a string is blank: null, empty, or only whitespace ("" "", \r\n, \t, etc)
+     * @param string string to test
+     * @return if string is blank
+     */","public static boolean isBlank(final String string) {
+        if (string == null || string.length() == 0)
+            return true;
+
+        int l = string.length();
+        for (int i = 0; i < l; i++) {
+            if (!StringUtil.isWhitespace(string.codePointAt(i)))
+                return false;
+        }
+        return true;
+    }"
+jsoup_492_3,"    @Test public void isBlank_3_oe() {
+        boolean a = StringUtil.isBlank(""      "");
+        assertTrue(a);
+        }",StringUtilTest::isBlank_3_oe,org.jsoup.internal.StringUtil,isBlank(final String string),"/**
+     * Tests if a string is blank: null, empty, or only whitespace ("" "", \r\n, \t, etc)
+     * @param string string to test
+     * @return if string is blank
+     */","public static boolean isBlank(final String string) {
+        if (string == null || string.length() == 0)
+            return true;
+
+        int l = string.length();
+        for (int i = 0; i < l; i++) {
+            if (!StringUtil.isWhitespace(string.codePointAt(i)))
+                return false;
+        }
+        return true;
+    }"
+jsoup_492_4,"    @Test public void isBlank_4_oe() {
+        boolean a = StringUtil.isBlank(""   \r\n  "");
+        assertTrue(a);
+        }",StringUtilTest::isBlank_4_oe,org.jsoup.internal.StringUtil,isBlank(final String string),"/**
+     * Tests if a string is blank: null, empty, or only whitespace ("" "", \r\n, \t, etc)
+     * @param string string to test
+     * @return if string is blank
+     */","public static boolean isBlank(final String string) {
+        if (string == null || string.length() == 0)
+            return true;
+
+        int l = string.length();
+        for (int i = 0; i < l; i++) {
+            if (!StringUtil.isWhitespace(string.codePointAt(i)))
+                return false;
+        }
+        return true;
+    }"
+jsoup_492_5,"    @Test public void isBlank_5_oe() {
+
+        boolean a = StringUtil.isBlank(""hello"");
+        assertFalse(a);
+        }",StringUtilTest::isBlank_5_oe,org.jsoup.internal.StringUtil,isBlank(final String string),"/**
+     * Tests if a string is blank: null, empty, or only whitespace ("" "", \r\n, \t, etc)
+     * @param string string to test
+     * @return if string is blank
+     */","public static boolean isBlank(final String string) {
+        if (string == null || string.length() == 0)
+            return true;
+
+        int l = string.length();
+        for (int i = 0; i < l; i++) {
+            if (!StringUtil.isWhitespace(string.codePointAt(i)))
+                return false;
+        }
+        return true;
+    }"
+jsoup_492_6,"    @Test public void isBlank_6_oe() {
+
+        boolean a = StringUtil.isBlank(""   hello   "");
+        assertFalse(a);
+        }",StringUtilTest::isBlank_6_oe,org.jsoup.internal.StringUtil,isBlank(final String string),"/**
+     * Tests if a string is blank: null, empty, or only whitespace ("" "", \r\n, \t, etc)
+     * @param string string to test
+     * @return if string is blank
+     */","public static boolean isBlank(final String string) {
+        if (string == null || string.length() == 0)
+            return true;
+
+        int l = string.length();
+        for (int i = 0; i < l; i++) {
+            if (!StringUtil.isWhitespace(string.codePointAt(i)))
+                return false;
+        }
+        return true;
+    }"
+jsoup_493_1,"    @Test public void isNumeric_1_oe() {
+        boolean a = StringUtil.isNumeric(null);
+        assertFalse(a);
+        }",StringUtilTest::isNumeric_1_oe,org.jsoup.internal.StringUtil,isNumeric(String string),"/**
+     * Tests if a string is numeric, i.e. contains only digit characters
+     * @param string string to test
+     * @return true if only digit chars, false if empty or null or contains non-digit chars
+     */","public static boolean isNumeric(String string) {
+        if (string == null || string.length() == 0)
+            return false;
+
+        int l = string.length();
+        for (int i = 0; i < l; i++) {
+            if (!Character.isDigit(string.codePointAt(i)))
+                return false;
+        }
+        return true;
+    }"
+jsoup_493_2,"    @Test public void isNumeric_2_oe() {
+        boolean a = StringUtil.isNumeric("" "");
+        assertFalse(a);
+        }",StringUtilTest::isNumeric_2_oe,org.jsoup.internal.StringUtil,isNumeric(String string),"/**
+     * Tests if a string is numeric, i.e. contains only digit characters
+     * @param string string to test
+     * @return true if only digit chars, false if empty or null or contains non-digit chars
+     */","public static boolean isNumeric(String string) {
+        if (string == null || string.length() == 0)
+            return false;
+
+        int l = string.length();
+        for (int i = 0; i < l; i++) {
+            if (!Character.isDigit(string.codePointAt(i)))
+                return false;
+        }
+        return true;
+    }"
+jsoup_493_3,"    @Test public void isNumeric_3_oe() {
+        boolean a = StringUtil.isNumeric(""123 546"");
+        assertFalse(a);
+        }",StringUtilTest::isNumeric_3_oe,org.jsoup.internal.StringUtil,isNumeric(String string),"/**
+     * Tests if a string is numeric, i.e. contains only digit characters
+     * @param string string to test
+     * @return true if only digit chars, false if empty or null or contains non-digit chars
+     */","public static boolean isNumeric(String string) {
+        if (string == null || string.length() == 0)
+            return false;
+
+        int l = string.length();
+        for (int i = 0; i < l; i++) {
+            if (!Character.isDigit(string.codePointAt(i)))
+                return false;
+        }
+        return true;
+    }"
+jsoup_493_4,"    @Test public void isNumeric_4_oe() {
+        boolean a = StringUtil.isNumeric(""hello"");
+        assertFalse(a);
+        }",StringUtilTest::isNumeric_4_oe,org.jsoup.internal.StringUtil,isNumeric(String string),"/**
+     * Tests if a string is numeric, i.e. contains only digit characters
+     * @param string string to test
+     * @return true if only digit chars, false if empty or null or contains non-digit chars
+     */","public static boolean isNumeric(String string) {
+        if (string == null || string.length() == 0)
+            return false;
+
+        int l = string.length();
+        for (int i = 0; i < l; i++) {
+            if (!Character.isDigit(string.codePointAt(i)))
+                return false;
+        }
+        return true;
+    }"
+jsoup_493_5,"    @Test public void isNumeric_5_oe() {
+        boolean a = StringUtil.isNumeric(""123.334"");
+        assertFalse(a);
+        }",StringUtilTest::isNumeric_5_oe,org.jsoup.internal.StringUtil,isNumeric(String string),"/**
+     * Tests if a string is numeric, i.e. contains only digit characters
+     * @param string string to test
+     * @return true if only digit chars, false if empty or null or contains non-digit chars
+     */","public static boolean isNumeric(String string) {
+        if (string == null || string.length() == 0)
+            return false;
+
+        int l = string.length();
+        for (int i = 0; i < l; i++) {
+            if (!Character.isDigit(string.codePointAt(i)))
+                return false;
+        }
+        return true;
+    }"
+jsoup_493_6,"    @Test public void isNumeric_6_oe() {
+
+        boolean a = StringUtil.isNumeric(""1"");
+        assertTrue(a);
+        }",StringUtilTest::isNumeric_6_oe,org.jsoup.internal.StringUtil,isNumeric(String string),"/**
+     * Tests if a string is numeric, i.e. contains only digit characters
+     * @param string string to test
+     * @return true if only digit chars, false if empty or null or contains non-digit chars
+     */","public static boolean isNumeric(String string) {
+        if (string == null || string.length() == 0)
+            return false;
+
+        int l = string.length();
+        for (int i = 0; i < l; i++) {
+            if (!Character.isDigit(string.codePointAt(i)))
+                return false;
+        }
+        return true;
+    }"
+jsoup_493_7,"    @Test public void isNumeric_7_oe() {
+
+        boolean a = StringUtil.isNumeric(""1234"");
+        assertTrue(a);
+        }",StringUtilTest::isNumeric_7_oe,org.jsoup.internal.StringUtil,isNumeric(String string),"/**
+     * Tests if a string is numeric, i.e. contains only digit characters
+     * @param string string to test
+     * @return true if only digit chars, false if empty or null or contains non-digit chars
+     */","public static boolean isNumeric(String string) {
+        if (string == null || string.length() == 0)
+            return false;
+
+        int l = string.length();
+        for (int i = 0; i < l; i++) {
+            if (!Character.isDigit(string.codePointAt(i)))
+                return false;
+        }
+        return true;
+    }"
+jsoup_494_1,"    @Test public void isWhitespace_1_oe() {
+        boolean a = StringUtil.isWhitespace('\t');
+        assertTrue(a);
+        }",StringUtilTest::isWhitespace_1_oe,org.jsoup.internal.StringUtil,isWhitespace(int c),"/**
+     * Tests if a code point is ""whitespace"" as defined in the HTML spec. Used for output HTML.
+     * @param c code point to test
+     * @return true if code point is whitespace, false otherwise
+     * @see #isActuallyWhitespace(int)
+     */","public static boolean isWhitespace(int c){
+        return c == ' ' || c == '\t' || c == '\n' || c == '\f' || c == '\r';
+    }"
+jsoup_494_2,"    @Test public void isWhitespace_2_oe() {
+        boolean a = StringUtil.isWhitespace('\n');
+        assertTrue(a);
+        }",StringUtilTest::isWhitespace_2_oe,org.jsoup.internal.StringUtil,isWhitespace(int c),"/**
+     * Tests if a code point is ""whitespace"" as defined in the HTML spec. Used for output HTML.
+     * @param c code point to test
+     * @return true if code point is whitespace, false otherwise
+     * @see #isActuallyWhitespace(int)
+     */","public static boolean isWhitespace(int c){
+        return c == ' ' || c == '\t' || c == '\n' || c == '\f' || c == '\r';
+    }"
+jsoup_494_3,"    @Test public void isWhitespace_3_oe() {
+        boolean a = StringUtil.isWhitespace('\r');
+        assertTrue(a);
+        }",StringUtilTest::isWhitespace_3_oe,org.jsoup.internal.StringUtil,isWhitespace(int c),"/**
+     * Tests if a code point is ""whitespace"" as defined in the HTML spec. Used for output HTML.
+     * @param c code point to test
+     * @return true if code point is whitespace, false otherwise
+     * @see #isActuallyWhitespace(int)
+     */","public static boolean isWhitespace(int c){
+        return c == ' ' || c == '\t' || c == '\n' || c == '\f' || c == '\r';
+    }"
+jsoup_494_4,"    @Test public void isWhitespace_4_oe() {
+        boolean a = StringUtil.isWhitespace('\f');
+        assertTrue(a);
+        }",StringUtilTest::isWhitespace_4_oe,org.jsoup.internal.StringUtil,isWhitespace(int c),"/**
+     * Tests if a code point is ""whitespace"" as defined in the HTML spec. Used for output HTML.
+     * @param c code point to test
+     * @return true if code point is whitespace, false otherwise
+     * @see #isActuallyWhitespace(int)
+     */","public static boolean isWhitespace(int c){
+        return c == ' ' || c == '\t' || c == '\n' || c == '\f' || c == '\r';
+    }"
+jsoup_494_5,"    @Test public void isWhitespace_5_oe() {
+        boolean a = StringUtil.isWhitespace(' ');
+        assertTrue(a);
+        }",StringUtilTest::isWhitespace_5_oe,org.jsoup.internal.StringUtil,isWhitespace(int c),"/**
+     * Tests if a code point is ""whitespace"" as defined in the HTML spec. Used for output HTML.
+     * @param c code point to test
+     * @return true if code point is whitespace, false otherwise
+     * @see #isActuallyWhitespace(int)
+     */","public static boolean isWhitespace(int c){
+        return c == ' ' || c == '\t' || c == '\n' || c == '\f' || c == '\r';
+    }"
+jsoup_494_6,"    @Test public void isWhitespace_6_oe() {
+
+        boolean a = StringUtil.isWhitespace('\u00a0');
+        assertFalse(a);
+        }",StringUtilTest::isWhitespace_6_oe,org.jsoup.internal.StringUtil,isWhitespace(int c),"/**
+     * Tests if a code point is ""whitespace"" as defined in the HTML spec. Used for output HTML.
+     * @param c code point to test
+     * @return true if code point is whitespace, false otherwise
+     * @see #isActuallyWhitespace(int)
+     */","public static boolean isWhitespace(int c){
+        return c == ' ' || c == '\t' || c == '\n' || c == '\f' || c == '\r';
+    }"
+jsoup_494_7,"    @Test public void isWhitespace_7_oe() {
+
+        boolean a = StringUtil.isWhitespace('\u2000');
+        assertFalse(a);
+        }",StringUtilTest::isWhitespace_7_oe,org.jsoup.internal.StringUtil,isWhitespace(int c),"/**
+     * Tests if a code point is ""whitespace"" as defined in the HTML spec. Used for output HTML.
+     * @param c code point to test
+     * @return true if code point is whitespace, false otherwise
+     * @see #isActuallyWhitespace(int)
+     */","public static boolean isWhitespace(int c){
+        return c == ' ' || c == '\t' || c == '\n' || c == '\f' || c == '\r';
+    }"
+jsoup_494_8,"    @Test public void isWhitespace_8_oe() {
+
+        boolean a = StringUtil.isWhitespace('\u3000');
+        assertFalse(a);
+        }",StringUtilTest::isWhitespace_8_oe,org.jsoup.internal.StringUtil,isWhitespace(int c),"/**
+     * Tests if a code point is ""whitespace"" as defined in the HTML spec. Used for output HTML.
+     * @param c code point to test
+     * @return true if code point is whitespace, false otherwise
+     * @see #isActuallyWhitespace(int)
+     */","public static boolean isWhitespace(int c){
+        return c == ' ' || c == '\t' || c == '\n' || c == '\f' || c == '\r';
+    }"
+jsoup_495_1,"    @Test public void normaliseWhiteSpace_1_oe() {
+        Object a = normaliseWhitespace(""    \r \n \r\n"");
+        assertEquals("" "", a);
+        }",StringUtilTest::normaliseWhiteSpace_1_oe,org.jsoup.internal.StringUtil,normaliseWhitespace(String string),"/**
+     * Normalise the whitespace within this string; multiple spaces collapse to a single, and all whitespace characters
+     * (e.g. newline, tab) convert to a simple space.
+     * @param string content to normalise
+     * @return normalised string
+     */","public static String normaliseWhitespace(String string) {
+        StringBuilder sb = StringUtil.borrowBuilder();
+        appendNormalisedWhitespace(sb, string, false);
+        return StringUtil.releaseBuilder(sb);
+    }"
+jsoup_495_2,"    @Test public void normaliseWhiteSpace_2_oe() {
+        Object a = normaliseWhitespace(""   hello   \r \n  there    \n"");
+        assertEquals("" hello there "", a);
+        }",StringUtilTest::normaliseWhiteSpace_2_oe,org.jsoup.internal.StringUtil,normaliseWhitespace(String string),"/**
+     * Normalise the whitespace within this string; multiple spaces collapse to a single, and all whitespace characters
+     * (e.g. newline, tab) convert to a simple space.
+     * @param string content to normalise
+     * @return normalised string
+     */","public static String normaliseWhitespace(String string) {
+        StringBuilder sb = StringUtil.borrowBuilder();
+        appendNormalisedWhitespace(sb, string, false);
+        return StringUtil.releaseBuilder(sb);
+    }"
+jsoup_495_3,"    @Test public void normaliseWhiteSpace_3_oe() {
+        Object a = normaliseWhitespace(""hello"");
+        assertEquals(""hello"", a);
+        }",StringUtilTest::normaliseWhiteSpace_3_oe,org.jsoup.internal.StringUtil,normaliseWhitespace(String string),"/**
+     * Normalise the whitespace within this string; multiple spaces collapse to a single, and all whitespace characters
+     * (e.g. newline, tab) convert to a simple space.
+     * @param string content to normalise
+     * @return normalised string
+     */","public static String normaliseWhitespace(String string) {
+        StringBuilder sb = StringUtil.borrowBuilder();
+        appendNormalisedWhitespace(sb, string, false);
+        return StringUtil.releaseBuilder(sb);
+    }"
+jsoup_495_4,"    @Test public void normaliseWhiteSpace_4_oe() {
+        Object a = normaliseWhitespace(""hello\nthere"");
+        assertEquals(""hello there"", a);
+        }",StringUtilTest::normaliseWhiteSpace_4_oe,org.jsoup.internal.StringUtil,normaliseWhitespace(String string),"/**
+     * Normalise the whitespace within this string; multiple spaces collapse to a single, and all whitespace characters
+     * (e.g. newline, tab) convert to a simple space.
+     * @param string content to normalise
+     * @return normalised string
+     */","public static String normaliseWhitespace(String string) {
+        StringBuilder sb = StringUtil.borrowBuilder();
+        appendNormalisedWhitespace(sb, string, false);
+        return StringUtil.releaseBuilder(sb);
+    }"
+jsoup_497_1,"    @Test public void resolvesRelativeUrls_1_oe() {
+        Object a = resolve(""http://example.com"", ""./one/two?three"");
+        assertEquals(""http://example.com/one/two?three"", a);
+        }",StringUtilTest::resolvesRelativeUrls_1_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_2,"    @Test public void resolvesRelativeUrls_2_oe() {
+        Object a = resolve(""http://example.com?one"", ""./one/two?three"");
+        assertEquals(""http://example.com/one/two?three"", a);
+        }",StringUtilTest::resolvesRelativeUrls_2_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_3,"    @Test public void resolvesRelativeUrls_3_oe() {
+        Object a = resolve(""http://example.com"", ""./one/two?three#four"");
+        assertEquals(""http://example.com/one/two?three#four"", a);
+        }",StringUtilTest::resolvesRelativeUrls_3_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_4,"    @Test public void resolvesRelativeUrls_4_oe() {
+        Object a = resolve(""http://example.com/"", ""https://example.com/one"");
+        assertEquals(""https://example.com/one"", a);
+        }",StringUtilTest::resolvesRelativeUrls_4_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_5,"    @Test public void resolvesRelativeUrls_5_oe() {
+        Object a = resolve(""http://example.com/two/"", ""../one/two.html"");
+        assertEquals(""http://example.com/one/two.html"", a);
+        }",StringUtilTest::resolvesRelativeUrls_5_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_6,"    @Test public void resolvesRelativeUrls_6_oe() {
+        Object a = resolve(""https://example.com/"", ""//example2.com/one"");
+        assertEquals(""https://example2.com/one"", a);
+        }",StringUtilTest::resolvesRelativeUrls_6_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_7,"    @Test public void resolvesRelativeUrls_7_oe() {
+        Object a = resolve(""https://example.com:8080"", ""./one"");
+        assertEquals(""https://example.com:8080/one"", a);
+        }",StringUtilTest::resolvesRelativeUrls_7_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_8,"    @Test public void resolvesRelativeUrls_8_oe() {
+        Object a = resolve(""http://example.com/"", ""https://example2.com/one"");
+        assertEquals(""https://example2.com/one"", a);
+        }",StringUtilTest::resolvesRelativeUrls_8_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_9,"    @Test public void resolvesRelativeUrls_9_oe() {
+        Object a = resolve(""wrong"", ""https://example.com/one"");
+        assertEquals(""https://example.com/one"", a);
+        }",StringUtilTest::resolvesRelativeUrls_9_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_10,"    @Test public void resolvesRelativeUrls_10_oe() {
+        Object a = resolve(""https://example.com/one"", """");
+        assertEquals(""https://example.com/one"", a);
+        }",StringUtilTest::resolvesRelativeUrls_10_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_11,"    @Test public void resolvesRelativeUrls_11_oe() {
+        Object a = resolve(""wrong"", ""also wrong"");
+        assertEquals("""", a);
+        }",StringUtilTest::resolvesRelativeUrls_11_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_12,"    @Test public void resolvesRelativeUrls_12_oe() {
+        Object a = resolve(""ftp://example.com/two/"", ""../one"");
+        assertEquals(""ftp://example.com/one"", a);
+        }",StringUtilTest::resolvesRelativeUrls_12_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_13,"    @Test public void resolvesRelativeUrls_13_oe() {
+        Object a = resolve(""ftp://example.com/one/"", ""./two.c"");
+        assertEquals(""ftp://example.com/one/two.c"", a);
+        }",StringUtilTest::resolvesRelativeUrls_13_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_14,"    @Test public void resolvesRelativeUrls_14_oe() {
+        Object a = resolve(""ftp://example.com/one/"", ""two.c"");
+        assertEquals(""ftp://example.com/one/two.c"", a);
+        }",StringUtilTest::resolvesRelativeUrls_14_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_15,"    @Test public void resolvesRelativeUrls_15_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""../../../g"");
+        assertEquals(""http://example.com/g"", a);
+        }",StringUtilTest::resolvesRelativeUrls_15_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_16,"    @Test public void resolvesRelativeUrls_16_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""../../../../g"");
+        assertEquals(""http://example.com/g"", a);
+        }",StringUtilTest::resolvesRelativeUrls_16_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_17,"    @Test public void resolvesRelativeUrls_17_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""/./g"");
+        assertEquals(""http://example.com/g"", a);
+        }",StringUtilTest::resolvesRelativeUrls_17_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_18,"    @Test public void resolvesRelativeUrls_18_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""/../g"");
+        assertEquals(""http://example.com/g"", a);
+        }",StringUtilTest::resolvesRelativeUrls_18_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_19,"    @Test public void resolvesRelativeUrls_19_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""g."");
+        assertEquals(""http://example.com/b/c/g."", a);
+        }",StringUtilTest::resolvesRelativeUrls_19_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_20,"    @Test public void resolvesRelativeUrls_20_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", "".g"");
+        assertEquals(""http://example.com/b/c/.g"", a);
+        }",StringUtilTest::resolvesRelativeUrls_20_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_21,"    @Test public void resolvesRelativeUrls_21_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""g.."");
+        assertEquals(""http://example.com/b/c/g.."", a);
+        }",StringUtilTest::resolvesRelativeUrls_21_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_22,"    @Test public void resolvesRelativeUrls_22_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""..g"");
+        assertEquals(""http://example.com/b/c/..g"", a);
+        }",StringUtilTest::resolvesRelativeUrls_22_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_23,"    @Test public void resolvesRelativeUrls_23_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""./../g"");
+        assertEquals(""http://example.com/b/g"", a);
+        }",StringUtilTest::resolvesRelativeUrls_23_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_24,"    @Test public void resolvesRelativeUrls_24_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""./g/."");
+        assertEquals(""http://example.com/b/c/g/"", a);
+        }",StringUtilTest::resolvesRelativeUrls_24_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_25,"    @Test public void resolvesRelativeUrls_25_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""g/./h"");
+        assertEquals(""http://example.com/b/c/g/h"", a);
+        }",StringUtilTest::resolvesRelativeUrls_25_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_26,"    @Test public void resolvesRelativeUrls_26_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""g/../h"");
+        assertEquals(""http://example.com/b/c/h"", a);
+        }",StringUtilTest::resolvesRelativeUrls_26_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_27,"    @Test public void resolvesRelativeUrls_27_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""g;x=1/./y"");
+        assertEquals(""http://example.com/b/c/g;x=1/y"", a);
+        }",StringUtilTest::resolvesRelativeUrls_27_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_28,"    @Test public void resolvesRelativeUrls_28_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""g;x=1/../y"");
+        assertEquals(""http://example.com/b/c/y"", a);
+        }",StringUtilTest::resolvesRelativeUrls_28_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_29,"    @Test public void resolvesRelativeUrls_29_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""g?y/./x"");
+        assertEquals(""http://example.com/b/c/g?y/./x"", a);
+        }",StringUtilTest::resolvesRelativeUrls_29_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_30,"    @Test public void resolvesRelativeUrls_30_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""g?y/../x"");
+        assertEquals(""http://example.com/b/c/g?y/../x"", a);
+        }",StringUtilTest::resolvesRelativeUrls_30_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_31,"    @Test public void resolvesRelativeUrls_31_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""g#s/./x"");
+        assertEquals(""http://example.com/b/c/g#s/./x"", a);
+        }",StringUtilTest::resolvesRelativeUrls_31_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_497_32,"    @Test public void resolvesRelativeUrls_32_oe() {
+        Object a = resolve(""http://example.com/b/c/d;p?q"", ""g#s/../x"");
+        assertEquals(""http://example.com/b/c/g#s/../x"", a);
+        }",StringUtilTest::resolvesRelativeUrls_32_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_498_1,"    @Test void stripsControlCharsFromUrls_1_oe() {
+        Object a = resolve(""\nhttps://\texample.com/"", ""\r\nfo\to:ba\br"");
+        assertEquals(""foo:bar"", a);
+        }",StringUtilTest::stripsControlCharsFromUrls_1_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_499_1,"    @Test void allowsSpaceInUrl_1_oe() {
+        Object a = resolve(""HTTPS://example.com/example/"", ""../foo bar/"");
+        assertEquals(""https://example.com/foo bar/"", a);
+        }",StringUtilTest::allowsSpaceInUrl_1_oe,org.jsoup.internal.StringUtil,"resolve(URL base, String relUrl)","/**
+     * Create a new absolute URL, from a provided existing absolute URL and a relative URL component.
+     * @param base the existing absolute base URL
+     * @param relUrl the relative URL to resolve. (If it's already absolute, it will be returned)
+     * @return the resolved absolute URL
+     * @throws MalformedURLException if an error occurred generating the URL
+     */","public static URL resolve(URL base, String relUrl) throws MalformedURLException {
+        relUrl = stripControlChars(relUrl);
+        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        if (relUrl.startsWith(""?""))
+            relUrl = base.getPath() + relUrl;
+        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        URL url = new URL(base, relUrl);
+        String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst(""/"");
+        if (url.getRef() != null) {
+            fixedFile = fixedFile + ""#"" + url.getRef();
+        }
+        return new URL(url.getProtocol(), url.getHost(), url.getPort(), fixedFile);
+    }"
+jsoup_564_1,"    @Test
+    public void nodeName_1_oe() {
+        Object a = comment.nodeName();
+        assertEquals(""#comment"", a);
+    }",CommentTest::nodeName_1_oe,org.jsoup.nodes.Node,nodeName(),"/**
+     Get the node name of this node. Use for debugging purposes and not logic switching (for that, use instanceof).
+     @return node name
+     */",public abstract String nodeName();
+jsoup_565_1,"    @Test
+    public void getData_1_oe() {
+        Object a = comment.getData();
+        assertEquals("" This is one heck of a comment! "", a);
+    }",CommentTest::getData_1_oe,org.jsoup.parser.Token.Comment,getData(),,"String getData() {
+            return dataS != null ? dataS : data.toString();
+        }"
+jsoup_566_1,"    @Test
+    public void testToString_1_oe() {
+        Object a = comment.toString();
+        assertEquals(""<!-- This is one heck of a comment! -->"", a);
+    }",CommentTest::testToString_1_oe,,,,
+jsoup_569_1,"    @Test
+    public void isXmlDeclaration_1_oe() {
+        boolean a = comment.isXmlDeclaration();
+        assertFalse(a);
+    }",CommentTest::isXmlDeclaration_1_oe,org.jsoup.nodes.Comment,isXmlDeclaration(),"/**
+     * Check if this comment looks like an XML Declaration.
+     * @return true if it looks like, maybe, it's an XML Declaration.
+     */","public boolean isXmlDeclaration() {
+        String data = getData();
+        return isXmlDeclarationData(data);
+    }"
+jsoup_569_2,"    @Test
+    public void isXmlDeclaration_2_oe() {
+        boolean a = decl.isXmlDeclaration();
+        assertTrue(a);
+    }",CommentTest::isXmlDeclaration_2_oe,org.jsoup.nodes.Comment,isXmlDeclaration(),"/**
+     * Check if this comment looks like an XML Declaration.
+     * @return true if it looks like, maybe, it's an XML Declaration.
+     */","public boolean isXmlDeclaration() {
+        String data = getData();
+        return isXmlDeclarationData(data);
+    }"
+jsoup_785_1,"    @Test void booleanAttributesAreNotCaseSensitive_1_oe() {
+        boolean a = Attribute.isBooleanAttribute(""required"");
+        assertTrue(a);
+        }",AttributeTest::booleanAttributesAreNotCaseSensitive_1_oe,org.jsoup.nodes.Attribute,isBooleanAttribute(final String key),"/**
+     * Checks if this attribute name is defined as a boolean attribute in HTML5
+     */","public static boolean isBooleanAttribute(final String key) {
+        return Arrays.binarySearch(booleanAttributes, Normalizer.lowerCase(key)) >= 0;
+    }"
+jsoup_785_2,"    @Test void booleanAttributesAreNotCaseSensitive_2_oe() {
+        boolean a = Attribute.isBooleanAttribute(""REQUIRED"");
+        assertTrue(a);
+        }",AttributeTest::booleanAttributesAreNotCaseSensitive_2_oe,org.jsoup.nodes.Attribute,isBooleanAttribute(final String key),"/**
+     * Checks if this attribute name is defined as a boolean attribute in HTML5
+     */","public static boolean isBooleanAttribute(final String key) {
+        return Arrays.binarySearch(booleanAttributes, Normalizer.lowerCase(key)) >= 0;
+    }"
+jsoup_785_3,"    @Test void booleanAttributesAreNotCaseSensitive_3_oe() {
+        boolean a = Attribute.isBooleanAttribute(""rEQUIREd"");
+        assertTrue(a);
+        }",AttributeTest::booleanAttributesAreNotCaseSensitive_3_oe,org.jsoup.nodes.Attribute,isBooleanAttribute(final String key),"/**
+     * Checks if this attribute name is defined as a boolean attribute in HTML5
+     */","public static boolean isBooleanAttribute(final String key) {
+        return Arrays.binarySearch(booleanAttributes, Normalizer.lowerCase(key)) >= 0;
+    }"
+jsoup_785_4,"    @Test void booleanAttributesAreNotCaseSensitive_4_oe() {
+        boolean a = Attribute.isBooleanAttribute(""random string"");
+        assertFalse(a);
+        }",AttributeTest::booleanAttributesAreNotCaseSensitive_4_oe,org.jsoup.nodes.Attribute,isBooleanAttribute(final String key),"/**
+     * Checks if this attribute name is defined as a boolean attribute in HTML5
+     */","public static boolean isBooleanAttribute(final String key) {
+        return Arrays.binarySearch(booleanAttributes, Normalizer.lowerCase(key)) >= 0;
+    }"
+jsoup_790_1,"    @Test public void xhtml_1_oe() {
+        int a = 38;
+        assertEquals(a, xhtml.codepointForName(""amp""));
+        }",EntitiesTest::xhtml_1_oe,org.jsoup.nodes.Entities.EscapeMode,codepointForName(final String name),,"int codepointForName(final String name) {
+            int index = Arrays.binarySearch(nameKeys, name);
+            return index >= 0 ? codeVals[index] : empty;
+        }"
+jsoup_790_2,"    @Test public void xhtml_2_oe() {
+        int a = 62;
+        assertEquals(a, xhtml.codepointForName(""gt""));
+        }",EntitiesTest::xhtml_2_oe,org.jsoup.nodes.Entities.EscapeMode,codepointForName(final String name),,"int codepointForName(final String name) {
+            int index = Arrays.binarySearch(nameKeys, name);
+            return index >= 0 ? codeVals[index] : empty;
+        }"
+jsoup_790_3,"    @Test public void xhtml_3_oe() {
+        int a = 60;
+        assertEquals(a, xhtml.codepointForName(""lt""));
+        }",EntitiesTest::xhtml_3_oe,org.jsoup.nodes.Entities.EscapeMode,codepointForName(final String name),,"int codepointForName(final String name) {
+            int index = Arrays.binarySearch(nameKeys, name);
+            return index >= 0 ? codeVals[index] : empty;
+        }"
+jsoup_790_4,"    @Test public void xhtml_4_oe() {
+        int a = 34;
+        assertEquals(a, xhtml.codepointForName(""quot""));
+        }",EntitiesTest::xhtml_4_oe,org.jsoup.nodes.Entities.EscapeMode,codepointForName(final String name),,"int codepointForName(final String name) {
+            int index = Arrays.binarySearch(nameKeys, name);
+            return index >= 0 ? codeVals[index] : empty;
+        }"
+jsoup_790_5,"    @Test public void xhtml_5_oe() {
+
+        Object a = xhtml.nameForCodepoint(38);
+        assertEquals(""amp"", a);
+        }",EntitiesTest::xhtml_5_oe,org.jsoup.nodes.Entities.EscapeMode,nameForCodepoint(final int codepoint),,"String nameForCodepoint(final int codepoint) {
+            final int index = Arrays.binarySearch(codeKeys, codepoint);
+            if (index >= 0) {
+                // the results are ordered so lower case versions of same codepoint come after uppercase, and we prefer to emit lower
+                // (and binary search for same item with multi results is undefined
+                return (index < nameVals.length - 1 && codeKeys[index + 1] == codepoint) ?
+                    nameVals[index + 1] : nameVals[index];
+            }
+            return emptyName;
+        }"
+jsoup_790_6,"    @Test public void xhtml_6_oe() {
+
+        Object a = xhtml.nameForCodepoint(62);
+        assertEquals(""gt"", a);
+        }",EntitiesTest::xhtml_6_oe,org.jsoup.nodes.Entities.EscapeMode,nameForCodepoint(final int codepoint),,"String nameForCodepoint(final int codepoint) {
+            final int index = Arrays.binarySearch(codeKeys, codepoint);
+            if (index >= 0) {
+                // the results are ordered so lower case versions of same codepoint come after uppercase, and we prefer to emit lower
+                // (and binary search for same item with multi results is undefined
+                return (index < nameVals.length - 1 && codeKeys[index + 1] == codepoint) ?
+                    nameVals[index + 1] : nameVals[index];
+            }
+            return emptyName;
+        }"
+jsoup_790_7,"    @Test public void xhtml_7_oe() {
+
+        Object a = xhtml.nameForCodepoint(60);
+        assertEquals(""lt"", a);
+        }",EntitiesTest::xhtml_7_oe,org.jsoup.nodes.Entities.EscapeMode,nameForCodepoint(final int codepoint),,"String nameForCodepoint(final int codepoint) {
+            final int index = Arrays.binarySearch(codeKeys, codepoint);
+            if (index >= 0) {
+                // the results are ordered so lower case versions of same codepoint come after uppercase, and we prefer to emit lower
+                // (and binary search for same item with multi results is undefined
+                return (index < nameVals.length - 1 && codeKeys[index + 1] == codepoint) ?
+                    nameVals[index + 1] : nameVals[index];
+            }
+            return emptyName;
+        }"
+jsoup_790_8,"    @Test public void xhtml_8_oe() {
+
+        Object a = xhtml.nameForCodepoint(34);
+        assertEquals(""quot"", a);
+        }",EntitiesTest::xhtml_8_oe,org.jsoup.nodes.Entities.EscapeMode,nameForCodepoint(final int codepoint),,"String nameForCodepoint(final int codepoint) {
+            final int index = Arrays.binarySearch(codeKeys, codepoint);
+            if (index >= 0) {
+                // the results are ordered so lower case versions of same codepoint come after uppercase, and we prefer to emit lower
+                // (and binary search for same item with multi results is undefined
+                return (index < nameVals.length - 1 && codeKeys[index + 1] == codepoint) ?
+                    nameVals[index + 1] : nameVals[index];
+            }
+            return emptyName;
+        }"
+jsoup_791_1,"    @Test public void getByName_1_oe() {
+        Object a = Entities.getByName(""nGt"");
+        assertEquals(""≫⃒"", a);
+        }",EntitiesTest::getByName_1_oe,org.jsoup.nodes.Entities,getByName(String name),"/**
+     * Get the character(s) represented by the named entity
+     *
+     * @param name entity (e.g. ""lt"" or ""amp"")
+     * @return the string value of the character(s) represented by this entity, or """" if not defined
+     */","public static String getByName(String name) {
+        String val = multipoints.get(name);
+        if (val != null)
+            return val;
+        int codepoint = extended.codepointForName(name);
+        if (codepoint != empty)
+            return new String(new int[]{codepoint}, 0, 1);
+        return emptyName;
+    }"
+jsoup_791_2,"    @Test public void getByName_2_oe() {
+        Object a = Entities.getByName(""fjlig"");
+        assertEquals(""fj"", a);
+        }",EntitiesTest::getByName_2_oe,org.jsoup.nodes.Entities,getByName(String name),"/**
+     * Get the character(s) represented by the named entity
+     *
+     * @param name entity (e.g. ""lt"" or ""amp"")
+     * @return the string value of the character(s) represented by this entity, or """" if not defined
+     */","public static String getByName(String name) {
+        String val = multipoints.get(name);
+        if (val != null)
+            return val;
+        int codepoint = extended.codepointForName(name);
+        if (codepoint != empty)
+            return new String(new int[]{codepoint}, 0, 1);
+        return emptyName;
+    }"
+jsoup_791_3,"    @Test public void getByName_3_oe() {
+        Object a = Entities.getByName(""gg"");
+        assertEquals(""≫"", a);
+        }",EntitiesTest::getByName_3_oe,org.jsoup.nodes.Entities,getByName(String name),"/**
+     * Get the character(s) represented by the named entity
+     *
+     * @param name entity (e.g. ""lt"" or ""amp"")
+     * @return the string value of the character(s) represented by this entity, or """" if not defined
+     */","public static String getByName(String name) {
+        String val = multipoints.get(name);
+        if (val != null)
+            return val;
+        int codepoint = extended.codepointForName(name);
+        if (codepoint != empty)
+            return new String(new int[]{codepoint}, 0, 1);
+        return emptyName;
+    }"
+jsoup_791_4,"    @Test public void getByName_4_oe() {
+        Object a = Entities.getByName(""copy"");
+        assertEquals(""©"", a);
+        }",EntitiesTest::getByName_4_oe,org.jsoup.nodes.Entities,getByName(String name),"/**
+     * Get the character(s) represented by the named entity
+     *
+     * @param name entity (e.g. ""lt"" or ""amp"")
+     * @return the string value of the character(s) represented by this entity, or """" if not defined
+     */","public static String getByName(String name) {
+        String val = multipoints.get(name);
+        if (val != null)
+            return val;
+        int codepoint = extended.codepointForName(name);
+        if (codepoint != empty)
+            return new String(new int[]{codepoint}, 0, 1);
+        return emptyName;
+    }"
+jsoup_872_1,"    @Test
+    public void testCharset_1_oe() {
+        Object a = DataUtil.getCharsetFromContentType(""text/html;charset=utf-8 "");
+        assertEquals(""utf-8"", a);
+    }",DataUtilTest::testCharset_1_oe,org.jsoup.helper.DataUtil,getCharsetFromContentType(@Nullable String contentType),"/**
+     * Parse out a charset from a content type header. If the charset is not supported, returns null (so the default
+     * will kick in.)
+     * @param contentType e.g. ""text/html; charset=EUC-JP""
+     * @return ""EUC-JP"", or null if not found. Charset is trimmed and uppercased.
+     */","static @Nullable String getCharsetFromContentType(@Nullable String contentType) {
+        if (contentType == null) return null;
+        Matcher m = charsetPattern.matcher(contentType);
+        if (m.find()) {
+            String charset = m.group(1).trim();
+            charset = charset.replace(""charset="", """");
+            return validateCharset(charset);
+        }
+        return null;
+    }"
+jsoup_872_2,"    @Test
+    public void testCharset_2_oe() {
+        Object a = DataUtil.getCharsetFromContentType(""text/html; charset=UTF-8"");
+        assertEquals(""UTF-8"", a);
+    }",DataUtilTest::testCharset_2_oe,org.jsoup.helper.DataUtil,getCharsetFromContentType(@Nullable String contentType),"/**
+     * Parse out a charset from a content type header. If the charset is not supported, returns null (so the default
+     * will kick in.)
+     * @param contentType e.g. ""text/html; charset=EUC-JP""
+     * @return ""EUC-JP"", or null if not found. Charset is trimmed and uppercased.
+     */","static @Nullable String getCharsetFromContentType(@Nullable String contentType) {
+        if (contentType == null) return null;
+        Matcher m = charsetPattern.matcher(contentType);
+        if (m.find()) {
+            String charset = m.group(1).trim();
+            charset = charset.replace(""charset="", """");
+            return validateCharset(charset);
+        }
+        return null;
+    }"
+jsoup_872_3,"    @Test
+    public void testCharset_3_oe() {
+        Object a = DataUtil.getCharsetFromContentType(""text/html; charset=ISO-8859-1"");
+        assertEquals(""ISO-8859-1"", a);
+    }",DataUtilTest::testCharset_3_oe,org.jsoup.helper.DataUtil,getCharsetFromContentType(@Nullable String contentType),"/**
+     * Parse out a charset from a content type header. If the charset is not supported, returns null (so the default
+     * will kick in.)
+     * @param contentType e.g. ""text/html; charset=EUC-JP""
+     * @return ""EUC-JP"", or null if not found. Charset is trimmed and uppercased.
+     */","static @Nullable String getCharsetFromContentType(@Nullable String contentType) {
+        if (contentType == null) return null;
+        Matcher m = charsetPattern.matcher(contentType);
+        if (m.find()) {
+            String charset = m.group(1).trim();
+            charset = charset.replace(""charset="", """");
+            return validateCharset(charset);
+        }
+        return null;
+    }"
+jsoup_872_4,"    @Test
+    public void testCharset_4_oe() {
+        Object a = DataUtil.getCharsetFromContentType(""text/html"");
+        assertNull(a);
+    }",DataUtilTest::testCharset_4_oe,org.jsoup.helper.DataUtil,getCharsetFromContentType(@Nullable String contentType),"/**
+     * Parse out a charset from a content type header. If the charset is not supported, returns null (so the default
+     * will kick in.)
+     * @param contentType e.g. ""text/html; charset=EUC-JP""
+     * @return ""EUC-JP"", or null if not found. Charset is trimmed and uppercased.
+     */","static @Nullable String getCharsetFromContentType(@Nullable String contentType) {
+        if (contentType == null) return null;
+        Matcher m = charsetPattern.matcher(contentType);
+        if (m.find()) {
+            String charset = m.group(1).trim();
+            charset = charset.replace(""charset="", """");
+            return validateCharset(charset);
+        }
+        return null;
+    }"
+jsoup_872_5,"    @Test
+    public void testCharset_5_oe() {
+        Object a = DataUtil.getCharsetFromContentType(null);
+        assertNull(a);
+    }",DataUtilTest::testCharset_5_oe,org.jsoup.helper.DataUtil,getCharsetFromContentType(@Nullable String contentType),"/**
+     * Parse out a charset from a content type header. If the charset is not supported, returns null (so the default
+     * will kick in.)
+     * @param contentType e.g. ""text/html; charset=EUC-JP""
+     * @return ""EUC-JP"", or null if not found. Charset is trimmed and uppercased.
+     */","static @Nullable String getCharsetFromContentType(@Nullable String contentType) {
+        if (contentType == null) return null;
+        Matcher m = charsetPattern.matcher(contentType);
+        if (m.find()) {
+            String charset = m.group(1).trim();
+            charset = charset.replace(""charset="", """");
+            return validateCharset(charset);
+        }
+        return null;
+    }"
+jsoup_872_6,"    @Test
+    public void testCharset_6_oe() {
+        Object a = DataUtil.getCharsetFromContentType(""text/html;charset=Unknown"");
+        assertNull(a);
+    }",DataUtilTest::testCharset_6_oe,org.jsoup.helper.DataUtil,getCharsetFromContentType(@Nullable String contentType),"/**
+     * Parse out a charset from a content type header. If the charset is not supported, returns null (so the default
+     * will kick in.)
+     * @param contentType e.g. ""text/html; charset=EUC-JP""
+     * @return ""EUC-JP"", or null if not found. Charset is trimmed and uppercased.
+     */","static @Nullable String getCharsetFromContentType(@Nullable String contentType) {
+        if (contentType == null) return null;
+        Matcher m = charsetPattern.matcher(contentType);
+        if (m.find()) {
+            String charset = m.group(1).trim();
+            charset = charset.replace(""charset="", """");
+            return validateCharset(charset);
+        }
+        return null;
+    }"
+jsoup_873_1,"    @Test
+    public void testQuotedCharset_1_oe() {
+        Object a = DataUtil.getCharsetFromContentType(""text/html; charset=\""utf-8\"""");
+        assertEquals(""utf-8"", a);
+    }",DataUtilTest::testQuotedCharset_1_oe,org.jsoup.helper.DataUtil,getCharsetFromContentType(@Nullable String contentType),"/**
+     * Parse out a charset from a content type header. If the charset is not supported, returns null (so the default
+     * will kick in.)
+     * @param contentType e.g. ""text/html; charset=EUC-JP""
+     * @return ""EUC-JP"", or null if not found. Charset is trimmed and uppercased.
+     */","static @Nullable String getCharsetFromContentType(@Nullable String contentType) {
+        if (contentType == null) return null;
+        Matcher m = charsetPattern.matcher(contentType);
+        if (m.find()) {
+            String charset = m.group(1).trim();
+            charset = charset.replace(""charset="", """");
+            return validateCharset(charset);
+        }
+        return null;
+    }"
+jsoup_873_2,"    @Test
+    public void testQuotedCharset_2_oe() {
+        Object a = DataUtil.getCharsetFromContentType(""text/html;charset=\""UTF-8\"""");
+        assertEquals(""UTF-8"", a);
+    }",DataUtilTest::testQuotedCharset_2_oe,org.jsoup.helper.DataUtil,getCharsetFromContentType(@Nullable String contentType),"/**
+     * Parse out a charset from a content type header. If the charset is not supported, returns null (so the default
+     * will kick in.)
+     * @param contentType e.g. ""text/html; charset=EUC-JP""
+     * @return ""EUC-JP"", or null if not found. Charset is trimmed and uppercased.
+     */","static @Nullable String getCharsetFromContentType(@Nullable String contentType) {
+        if (contentType == null) return null;
+        Matcher m = charsetPattern.matcher(contentType);
+        if (m.find()) {
+            String charset = m.group(1).trim();
+            charset = charset.replace(""charset="", """");
+            return validateCharset(charset);
+        }
+        return null;
+    }"
+jsoup_873_3,"    @Test
+    public void testQuotedCharset_3_oe() {
+        Object a = DataUtil.getCharsetFromContentType(""text/html; charset=\""ISO-8859-1\"""");
+        assertEquals(""ISO-8859-1"", a);
+    }",DataUtilTest::testQuotedCharset_3_oe,org.jsoup.helper.DataUtil,getCharsetFromContentType(@Nullable String contentType),"/**
+     * Parse out a charset from a content type header. If the charset is not supported, returns null (so the default
+     * will kick in.)
+     * @param contentType e.g. ""text/html; charset=EUC-JP""
+     * @return ""EUC-JP"", or null if not found. Charset is trimmed and uppercased.
+     */","static @Nullable String getCharsetFromContentType(@Nullable String contentType) {
+        if (contentType == null) return null;
+        Matcher m = charsetPattern.matcher(contentType);
+        if (m.find()) {
+            String charset = m.group(1).trim();
+            charset = charset.replace(""charset="", """");
+            return validateCharset(charset);
+        }
+        return null;
+    }"
+jsoup_873_4,"    @Test
+    public void testQuotedCharset_4_oe() {
+        Object a = DataUtil.getCharsetFromContentType(""text/html; charset=\""Unsupported\"""");
+        assertNull(a);
+    }",DataUtilTest::testQuotedCharset_4_oe,org.jsoup.helper.DataUtil,getCharsetFromContentType(@Nullable String contentType),"/**
+     * Parse out a charset from a content type header. If the charset is not supported, returns null (so the default
+     * will kick in.)
+     * @param contentType e.g. ""text/html; charset=EUC-JP""
+     * @return ""EUC-JP"", or null if not found. Charset is trimmed and uppercased.
+     */","static @Nullable String getCharsetFromContentType(@Nullable String contentType) {
+        if (contentType == null) return null;
+        Matcher m = charsetPattern.matcher(contentType);
+        if (m.find()) {
+            String charset = m.group(1).trim();
+            charset = charset.replace(""charset="", """");
+            return validateCharset(charset);
+        }
+        return null;
+    }"
+jsoup_873_5,"    @Test
+    public void testQuotedCharset_5_oe() {
+        Object a = DataUtil.getCharsetFromContentType(""text/html; charset='UTF-8'"");
+        assertEquals(""UTF-8"", a);
+    }",DataUtilTest::testQuotedCharset_5_oe,org.jsoup.helper.DataUtil,getCharsetFromContentType(@Nullable String contentType),"/**
+     * Parse out a charset from a content type header. If the charset is not supported, returns null (so the default
+     * will kick in.)
+     * @param contentType e.g. ""text/html; charset=EUC-JP""
+     * @return ""EUC-JP"", or null if not found. Charset is trimmed and uppercased.
+     */","static @Nullable String getCharsetFromContentType(@Nullable String contentType) {
+        if (contentType == null) return null;
+        Matcher m = charsetPattern.matcher(contentType);
+        if (m.find()) {
+            String charset = m.group(1).trim();
+            charset = charset.replace(""charset="", """");
+            return validateCharset(charset);
+        }
+        return null;
+    }"
+jsoup_876_1,"    @Test
+    public void shouldNotThrowExceptionOnEmptyCharset_1_oe() {
+        Object a = DataUtil.getCharsetFromContentType(""text/html; charset="");
+        assertNull(a);
+    }",DataUtilTest::shouldNotThrowExceptionOnEmptyCharset_1_oe,org.jsoup.helper.DataUtil,getCharsetFromContentType(@Nullable String contentType),"/**
+     * Parse out a charset from a content type header. If the charset is not supported, returns null (so the default
+     * will kick in.)
+     * @param contentType e.g. ""text/html; charset=EUC-JP""
+     * @return ""EUC-JP"", or null if not found. Charset is trimmed and uppercased.
+     */","static @Nullable String getCharsetFromContentType(@Nullable String contentType) {
+        if (contentType == null) return null;
+        Matcher m = charsetPattern.matcher(contentType);
+        if (m.find()) {
+            String charset = m.group(1).trim();
+            charset = charset.replace(""charset="", """");
+            return validateCharset(charset);
+        }
+        return null;
+    }"
+jsoup_876_2,"    @Test
+    public void shouldNotThrowExceptionOnEmptyCharset_2_oe() {
+        Object a = DataUtil.getCharsetFromContentType(""text/html; charset=;"");
+        assertNull(a);
+    }",DataUtilTest::shouldNotThrowExceptionOnEmptyCharset_2_oe,org.jsoup.helper.DataUtil,getCharsetFromContentType(@Nullable String contentType),"/**
+     * Parse out a charset from a content type header. If the charset is not supported, returns null (so the default
+     * will kick in.)
+     * @param contentType e.g. ""text/html; charset=EUC-JP""
+     * @return ""EUC-JP"", or null if not found. Charset is trimmed and uppercased.
+     */","static @Nullable String getCharsetFromContentType(@Nullable String contentType) {
+        if (contentType == null) return null;
+        Matcher m = charsetPattern.matcher(contentType);
+        if (m.find()) {
+            String charset = m.group(1).trim();
+            charset = charset.replace(""charset="", """");
+            return validateCharset(charset);
+        }
+        return null;
+    }"
+jsoup_877_1,"    @Test
+    public void shouldSelectFirstCharsetOnWeirdMultileCharsetsInMetaTags_1_oe() {
+        Object a = DataUtil.getCharsetFromContentType(""text/html; charset=ISO-8859-1, charset=1251"");
+        assertEquals(""ISO-8859-1"", a);
+    }",DataUtilTest::shouldSelectFirstCharsetOnWeirdMultileCharsetsInMetaTags_1_oe,org.jsoup.helper.DataUtil,getCharsetFromContentType(@Nullable String contentType),"/**
+     * Parse out a charset from a content type header. If the charset is not supported, returns null (so the default
+     * will kick in.)
+     * @param contentType e.g. ""text/html; charset=EUC-JP""
+     * @return ""EUC-JP"", or null if not found. Charset is trimmed and uppercased.
+     */","static @Nullable String getCharsetFromContentType(@Nullable String contentType) {
+        if (contentType == null) return null;
+        Matcher m = charsetPattern.matcher(contentType);
+        if (m.find()) {
+            String charset = m.group(1).trim();
+            charset = charset.replace(""charset="", """");
+            return validateCharset(charset);
+        }
+        return null;
+    }"
+jsoup_878_1,"    @Test
+    public void shouldCorrectCharsetForDuplicateCharsetString_1_oe() {
+        Object a = DataUtil.getCharsetFromContentType(""text/html; charset=charset=iso-8859-1"");
+        assertEquals(""iso-8859-1"", a);
+    }",DataUtilTest::shouldCorrectCharsetForDuplicateCharsetString_1_oe,org.jsoup.helper.DataUtil,getCharsetFromContentType(@Nullable String contentType),"/**
+     * Parse out a charset from a content type header. If the charset is not supported, returns null (so the default
+     * will kick in.)
+     * @param contentType e.g. ""text/html; charset=EUC-JP""
+     * @return ""EUC-JP"", or null if not found. Charset is trimmed and uppercased.
+     */","static @Nullable String getCharsetFromContentType(@Nullable String contentType) {
+        if (contentType == null) return null;
+        Matcher m = charsetPattern.matcher(contentType);
+        if (m.find()) {
+            String charset = m.group(1).trim();
+            charset = charset.replace(""charset="", """");
+            return validateCharset(charset);
+        }
+        return null;
+    }"
+jsoup_879_1,"    @Test
+    public void shouldReturnNullForIllegalCharsetNames_1_oe() {
+        Object a = DataUtil.getCharsetFromContentType(""text/html; charset=$HJKDF§$/("");
+        assertNull(a);
+    }",DataUtilTest::shouldReturnNullForIllegalCharsetNames_1_oe,org.jsoup.helper.DataUtil,getCharsetFromContentType(@Nullable String contentType),"/**
+     * Parse out a charset from a content type header. If the charset is not supported, returns null (so the default
+     * will kick in.)
+     * @param contentType e.g. ""text/html; charset=EUC-JP""
+     * @return ""EUC-JP"", or null if not found. Charset is trimmed and uppercased.
+     */","static @Nullable String getCharsetFromContentType(@Nullable String contentType) {
+        if (contentType == null) return null;
+        Matcher m = charsetPattern.matcher(contentType);
+        if (m.find()) {
+            String charset = m.group(1).trim();
+            charset = charset.replace(""charset="", """");
+            return validateCharset(charset);
+        }
+        return null;
+    }"
+jsoup_left_842_1,"@Test
+    public void testSNIFail_1_oe() throws Exception {
+        assertThrows(IOException.class, () -> Jsoup.connect(WEBSITE_WITH_SNI).execute());
+    }",UrlConnectTest::testSNIFail_1_oe,org.jsoup.Connection,execute(),"/**
+     * Execute the request.
+     * @return a response object
+     * @throws java.net.MalformedURLException if the request URL is not a HTTP or HTTPS URL, or is otherwise malformed
+     * @throws HttpStatusException if the response is not OK and HTTP response errors are not ignored
+     * @throws UnsupportedMimeTypeException if the response mime type is not supported and those errors are not ignored
+     * @throws java.net.SocketTimeoutException if the connection times out
+     * @throws IOException on error
+     */",Response execute() throws IOException;

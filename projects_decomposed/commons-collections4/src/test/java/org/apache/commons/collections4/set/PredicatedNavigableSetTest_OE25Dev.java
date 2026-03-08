@@ -73,6 +73,50 @@ public class PredicatedNavigableSetTest_OE25Dev<E> extends AbstractNavigableSetT
         return PredicatedNavigableSet.predicatedNavigableSet(new TreeSet<E>(), testPredicate);
     }
 
+    public void testGetSet() {
+        final PredicatedNavigableSet<E> set = makeTestSet();
+        assertTrue("returned set should not be null", set.decorated() != null);
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testIllegalAdd() {
+        final NavigableSet<E> set = makeTestSet();
+        final String testString = "B";
+        try {
+            set.add((E) testString);
+            fail("Should fail string predicate.");
+        } catch (final IllegalArgumentException e) {
+            // expected
+        }
+        assertTrue("Collection shouldn't contain illegal element",!set.contains(testString));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testIllegalAddAll() {
+        final NavigableSet<E> set = makeTestSet();
+        final Set<E> elements = new TreeSet<>();
+        elements.add((E) "Aone");
+        elements.add((E) "Atwo");
+        elements.add((E) "Bthree");
+        elements.add((E) "Afour");
+        try {
+            set.addAll(elements);
+            fail("Should fail string predicate.");
+        } catch (final IllegalArgumentException e) {
+            // expected
+        }
+        assertTrue("Set shouldn't contain illegal element", !set.contains("Aone"));
+        assertTrue("Set shouldn't contain illegal element", !set.contains("Atwo"));
+        assertTrue("Set shouldn't contain illegal element", !set.contains("Bthree"));
+        assertTrue("Set shouldn't contain illegal element", !set.contains("Afour"));
+    }
+
+    public void testComparator() {
+        final NavigableSet<E> set = makeTestSet();
+        final Comparator<? super E> c = set.comparator();
+        assertTrue("natural order, so comparator should be null", c == null);
+    }
+
     @Override
     public String getCompatibilityVersion() {
         return "4.1";

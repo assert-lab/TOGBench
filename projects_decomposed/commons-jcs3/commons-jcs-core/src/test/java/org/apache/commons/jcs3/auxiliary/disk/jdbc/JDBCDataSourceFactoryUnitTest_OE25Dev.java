@@ -115,6 +115,7 @@ public class JDBCDataSourceFactoryUnitTest_OE25Dev
 
     public void testConfigureDataSourceFactory_Simple_1_oe() throws SQLException
     {
+        // SETUP
         final String poolName = "testConfigurePoolAccessAttributes_Simple";
 
         final String url = "adfads";
@@ -139,12 +140,14 @@ public class JDBCDataSourceFactoryUnitTest_OE25Dev
         final JDBCDiskCacheAttributes cattr = new JDBCDiskCacheAttributes();
         cattr.setConnectionPoolName( poolName );
 
+        // DO WORK
         final DataSourceFactory result = factory.getDataSourceFactory( cattr, props );
         assertTrue("Should be a shared pool data source factory", result instanceof SharedPoolDataSourceFactory);
     }
 
     public void testConfigureDataSourceFactory_Simple_2_oe() throws SQLException
     {
+        // SETUP
         final String poolName = "testConfigurePoolAccessAttributes_Simple";
 
         final String url = "adfads";
@@ -169,7 +172,9 @@ public class JDBCDataSourceFactoryUnitTest_OE25Dev
         final JDBCDiskCacheAttributes cattr = new JDBCDiskCacheAttributes();
         cattr.setConnectionPoolName( poolName );
 
+        // DO WORK
         final DataSourceFactory result = factory.getDataSourceFactory( cattr, props );
+        // removed other assertion
 
         final SharedPoolDataSource spds = (SharedPoolDataSource) result.getDataSource();
         assertNotNull( "Should have a data source class", spds );
@@ -177,6 +182,7 @@ public class JDBCDataSourceFactoryUnitTest_OE25Dev
 
     public void testConfigureDataSourceFactory_Simple_3_oe() throws SQLException
     {
+        // SETUP
         final String poolName = "testConfigurePoolAccessAttributes_Simple";
 
         final String url = "adfads";
@@ -201,15 +207,20 @@ public class JDBCDataSourceFactoryUnitTest_OE25Dev
         final JDBCDiskCacheAttributes cattr = new JDBCDiskCacheAttributes();
         cattr.setConnectionPoolName( poolName );
 
+        // DO WORK
         final DataSourceFactory result = factory.getDataSourceFactory( cattr, props );
+        // removed other assertion
 
         final SharedPoolDataSource spds = (SharedPoolDataSource) result.getDataSource();
+        // removed other assertion
 
+        // VERIFY
         assertEquals( "Wrong pool name", poolName, spds.getDescription() );
     }
 
     public void testConfigureDataSourceFactory_Simple_4_oe() throws SQLException
     {
+        // SETUP
         final String poolName = "testConfigurePoolAccessAttributes_Simple";
 
         final String url = "adfads";
@@ -234,15 +245,21 @@ public class JDBCDataSourceFactoryUnitTest_OE25Dev
         final JDBCDiskCacheAttributes cattr = new JDBCDiskCacheAttributes();
         cattr.setConnectionPoolName( poolName );
 
+        // DO WORK
         final DataSourceFactory result = factory.getDataSourceFactory( cattr, props );
+        // removed other assertion
 
         final SharedPoolDataSource spds = (SharedPoolDataSource) result.getDataSource();
+        // removed other assertion
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong maxActive value", maxActive, spds.getMaxTotal() );
     }
 
     public void testConfigureDataSourceFactory_Attributes_1_oe() throws SQLException
     {
+        // SETUP
         final String url = "adfads";
         final String userName = "zvzvz";
         final String password = "qewrrewq";
@@ -259,12 +276,14 @@ public class JDBCDataSourceFactoryUnitTest_OE25Dev
         cattr.setMaxTotal(maxActive);
         cattr.setDriverClassName(driverClassName);
 
+        // DO WORK
         final DataSourceFactory result = factory.getDataSourceFactory( cattr, null );
         assertTrue("Should be a shared pool data source factory", result instanceof SharedPoolDataSourceFactory);
     }
 
     public void testConfigureDataSourceFactory_Attributes_2_oe() throws SQLException
     {
+        // SETUP
         final String url = "adfads";
         final String userName = "zvzvz";
         final String password = "qewrrewq";
@@ -281,7 +300,9 @@ public class JDBCDataSourceFactoryUnitTest_OE25Dev
         cattr.setMaxTotal(maxActive);
         cattr.setDriverClassName(driverClassName);
 
+        // DO WORK
         final DataSourceFactory result = factory.getDataSourceFactory( cattr, null );
+        // removed other assertion
 
         final SharedPoolDataSource spds = (SharedPoolDataSource) result.getDataSource();
         assertNotNull( "Should have a data source class", spds );
@@ -289,6 +310,7 @@ public class JDBCDataSourceFactoryUnitTest_OE25Dev
 
     public void testConfigureDataSourceFactory_Attributes_3_oe() throws SQLException
     {
+        // SETUP
         final String url = "adfads";
         final String userName = "zvzvz";
         final String password = "qewrrewq";
@@ -305,15 +327,20 @@ public class JDBCDataSourceFactoryUnitTest_OE25Dev
         cattr.setMaxTotal(maxActive);
         cattr.setDriverClassName(driverClassName);
 
+        // DO WORK
         final DataSourceFactory result = factory.getDataSourceFactory( cattr, null );
+        // removed other assertion
 
         final SharedPoolDataSource spds = (SharedPoolDataSource) result.getDataSource();
+        // removed other assertion
 
+        // VERIFY
         assertEquals( "Wrong maxActive value", maxActive, spds.getMaxTotal() );
     }
 
     public void testConfigureDataSourceFactory_JNDI_1_oe() throws SQLException
     {
+        // SETUP
         final String jndiPath = "java:comp/env/jdbc/MyDB";
         final long ttl = 300000L;
 
@@ -329,6 +356,7 @@ public class JDBCDataSourceFactoryUnitTest_OE25Dev
         cattr.setJndiPath(jndiPath);
         cattr.setJndiTTL(ttl);
 
+        // DO WORK
         final DataSourceFactory result = factory.getDataSourceFactory( cattr, null );
         assertTrue("Should be a JNDI data source factory", result instanceof JndiDataSourceFactory);
     }

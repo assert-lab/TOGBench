@@ -1,0 +1,648 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition,focal_method,docstring
+bcel_24_1,"    public void testAnnotationsCount_1_oe()
+    {
+        assertEquals(""annotationCount"", 2, getVisitor().annotationCount);
+    }
+",CounterVisitorTestCase::testAnnotationsCount_1_oe,,,,,,
+bcel_25_1,"    public void testAnnotationDefaultCount_1_oe()
+    {
+        assertEquals(""annotationDefaultCount"", 0, getVisitor().annotationDefaultCount);
+    }
+",CounterVisitorTestCase::testAnnotationDefaultCount_1_oe,,,,,,
+bcel_26_1,"    public void testAnnotationEntryCount_1_oe()
+    {
+        assertEquals(""annotationEntryCount"", 2, getVisitor().annotationEntryCount);
+    }
+",CounterVisitorTestCase::testAnnotationEntryCount_1_oe,,,,,,
+bcel_27_1,"    public void testCodeCount_1_oe()
+    {
+        assertEquals(""codeCount"", 1, getVisitor().codeCount);
+    }
+",CounterVisitorTestCase::testCodeCount_1_oe,,,,,,
+bcel_28_1,"    public void testCodeExceptionCount_1_oe()
+    {
+        assertEquals(""codeExceptionCount"", 0, getVisitor().codeExceptionCount);
+    }
+",CounterVisitorTestCase::testCodeExceptionCount_1_oe,,,,,,
+bcel_29_1,"    public void testConstantClassCount_1_oe()
+    {
+        assertEquals(""constantClassCount"", 2, getVisitor().constantClassCount);
+    }
+",CounterVisitorTestCase::testConstantClassCount_1_oe,,,,,,
+bcel_30_1,"    public void testConstantDoubleCount_1_oe()
+    {
+        assertEquals(""constantDoubleCount"", 0, getVisitor().constantDoubleCount);
+    }
+",CounterVisitorTestCase::testConstantDoubleCount_1_oe,,,,,,
+bcel_31_1,"    public void testConstantFieldrefCount_1_oe()
+    {
+        assertEquals(""constantFieldrefCount"", 0, getVisitor().constantFieldrefCount);
+    }
+",CounterVisitorTestCase::testConstantFieldrefCount_1_oe,,,,,,
+bcel_32_1,"    public void testConstantFloatCount_1_oe()
+    {
+        assertEquals(""constantFloatCount"", 0, getVisitor().constantFloatCount);
+    }
+",CounterVisitorTestCase::testConstantFloatCount_1_oe,,,,,,
+bcel_33_1,"    public void testConstantIntegerCount_1_oe()
+    {
+        assertEquals(""constantIntegerCount"", 0, getVisitor().constantIntegerCount);
+    }
+",CounterVisitorTestCase::testConstantIntegerCount_1_oe,,,,,,
+bcel_34_1,"    public void testConstantInterfaceMethodrefCount_1_oe()
+    {
+        assertEquals(""constantInterfaceMethodrefCount"", 0, getVisitor().constantInterfaceMethodrefCount);
+    }
+",CounterVisitorTestCase::testConstantInterfaceMethodrefCount_1_oe,,,,,,
+bcel_35_1,"    public void testConstantLongCount_1_oe()
+    {
+        assertEquals(""constantLongCount"", 0, getVisitor().constantLongCount);
+    }
+",CounterVisitorTestCase::testConstantLongCount_1_oe,,,,,,
+bcel_36_1,"    public void testConstantMethodrefCount_1_oe()
+    {
+        assertEquals(""constantMethodrefCount"", 1, getVisitor().constantMethodrefCount);
+    }
+",CounterVisitorTestCase::testConstantMethodrefCount_1_oe,,,,,,
+bcel_37_1,"    public void testConstantNameAndTypeCount_1_oe()
+    {
+        assertEquals(""constantNameAndTypeCount"", 1, getVisitor().constantNameAndTypeCount);
+    }
+",CounterVisitorTestCase::testConstantNameAndTypeCount_1_oe,,,,,,
+bcel_38_1,"    public void testConstantPoolCount_1_oe()
+    {
+        assertEquals(""constantPoolCount"", 1, getVisitor().constantPoolCount);
+    }
+",CounterVisitorTestCase::testConstantPoolCount_1_oe,,,,,,
+bcel_39_1,"    public void testConstantStringCount_1_oe()
+    {
+        assertEquals(""constantStringCount"", 0, getVisitor().constantStringCount);
+    }
+",CounterVisitorTestCase::testConstantStringCount_1_oe,,,,,,
+bcel_40_1,"    public void testConstantValueCount_1_oe()
+    {
+        assertEquals(""constantValueCount"", 0, getVisitor().constantValueCount);
+    }
+",CounterVisitorTestCase::testConstantValueCount_1_oe,,,,,,
+bcel_41_1,"    public void testDeprecatedCount_1_oe()
+    {
+        assertEquals(""deprecatedCount"", 0, getVisitor().deprecatedCount);
+    }
+",CounterVisitorTestCase::testDeprecatedCount_1_oe,,,,,,
+bcel_42_1,"    public void testEnclosingMethodCount_1_oe()
+    {
+        assertEquals(""enclosingMethodCount"", 0, getVisitor().enclosingMethodCount);
+    }
+",CounterVisitorTestCase::testEnclosingMethodCount_1_oe,,,,,,
+bcel_43_1,"    public void testExceptionTableCount_1_oe()
+    {
+        assertEquals(""exceptionTableCount"", 0, getVisitor().exceptionTableCount);
+    }
+",CounterVisitorTestCase::testExceptionTableCount_1_oe,,,,,,
+bcel_44_1,"    public void testFieldCount_1_oe()
+    {
+        assertEquals(""fieldCount"", 0, getVisitor().fieldCount);
+    }
+",CounterVisitorTestCase::testFieldCount_1_oe,,,,,,
+bcel_45_1,"    public void testInnerClassCount_1_oe()
+    {
+        assertEquals(""innerClassCount"", 0, getVisitor().innerClassCount);
+    }
+",CounterVisitorTestCase::testInnerClassCount_1_oe,,,,,,
+bcel_46_1,"    public void testInnerClassesCount_1_oe()
+    {
+        assertEquals(""innerClassesCount"", 0, getVisitor().innerClassesCount);
+    }
+",CounterVisitorTestCase::testInnerClassesCount_1_oe,,,,,,
+bcel_47_1,"    public void testJavaClassCount_1_oe()
+    {
+        assertEquals(""javaClassCount"", 1, getVisitor().javaClassCount);
+    }
+",CounterVisitorTestCase::testJavaClassCount_1_oe,,,,,,
+bcel_48_1,"    public void testLineNumberCount_1_oe()
+    {
+        assertEquals(""lineNumberCount"", 1, getVisitor().lineNumberCount);
+    }
+",CounterVisitorTestCase::testLineNumberCount_1_oe,,,,,,
+bcel_49_1,"    public void testLineNumberTableCount_1_oe()
+    {
+        assertEquals(""lineNumberTableCount"", 1, getVisitor().lineNumberTableCount);
+    }
+",CounterVisitorTestCase::testLineNumberTableCount_1_oe,,,,,,
+bcel_50_1,"    public void testLocalVariableCount_1_oe()
+    {
+        assertEquals(""localVariableCount"", 1, getVisitor().localVariableCount);
+    }
+",CounterVisitorTestCase::testLocalVariableCount_1_oe,,,,,,
+bcel_51_1,"    public void testLocalVariableTableCount_1_oe()
+    {
+        assertEquals(""localVariableTableCount"", 1, getVisitor().localVariableTableCount);
+    }
+",CounterVisitorTestCase::testLocalVariableTableCount_1_oe,,,,,,
+bcel_52_1,"    public void testLocalVariableTypeTableCount_1_oe()
+    {
+        assertEquals(""localVariableTypeTableCount"", 0, getVisitor().localVariableTypeTableCount);
+    }
+",CounterVisitorTestCase::testLocalVariableTypeTableCount_1_oe,,,,,,
+bcel_53_1,"    public void testMethodCount_1_oe()
+    {
+        assertEquals(""methodCount"", 1, getVisitor().methodCount);
+    }
+",CounterVisitorTestCase::testMethodCount_1_oe,,,,,,
+bcel_54_1,"    public void testParameterAnnotationCount_1_oe()
+    {
+        assertEquals(""parameterAnnotationCount"", 0, getVisitor().parameterAnnotationCount);
+    }
+",CounterVisitorTestCase::testParameterAnnotationCount_1_oe,,,,,,
+bcel_55_1,"    public void testSignatureCount_1_oe()
+    {
+        assertEquals(""signatureAnnotationCount"", 0, getVisitor().signatureAnnotationCount);
+    }
+",CounterVisitorTestCase::testSignatureCount_1_oe,,,,,,
+bcel_56_1,"    public void testSourceFileCount_1_oe()
+    {
+        assertEquals(""sourceFileCount"", 1, getVisitor().sourceFileCount);
+    }
+",CounterVisitorTestCase::testSourceFileCount_1_oe,,,,,,
+bcel_57_1,"    public void testStackMapCount_1_oe()
+    {
+        assertEquals(""stackMapCount"", 0, getVisitor().stackMapCount);
+    }
+",CounterVisitorTestCase::testStackMapCount_1_oe,,,,,,
+bcel_58_1,"    public void testStackMapEntryCount_1_oe()
+    {
+        assertEquals(""stackMapEntryCount"", 0, getVisitor().stackMapEntryCount);
+    }
+",CounterVisitorTestCase::testStackMapEntryCount_1_oe,,,,,,
+bcel_59_1,"    public void testSyntheticCount_1_oe()
+    {
+        assertEquals(""syntheticCount"", 0, getVisitor().syntheticCount);
+    }
+",CounterVisitorTestCase::testSyntheticCount_1_oe,,,,,,
+bcel_60_1,"    public void testUnknownCount_1_oe()
+    {
+        assertEquals(""unknownCount"", 0, getVisitor().unknownCount);
+    }
+",CounterVisitorTestCase::testUnknownCount_1_oe,,,,,,
+bcel_90_1,"    public void testSignatureToStringWithGenerics_1_oe() throws Exception {
+    // tests for BCEL-197
+        assertEquals(""generic signature"", ""java.util.Map<X, java.util.List<Y>>"", Utility.signatureToString(""Ljava/util/Map<TX;Ljava/util/List<TY;>;>;""));
+    }
+",UtilityTestCase::testSignatureToStringWithGenerics_1_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */"
+bcel_90_2,"    public void testSignatureToStringWithGenerics_2_oe() throws Exception {
+    // tests for BCEL-197
+        // removed other assertion
+        assertEquals(""generic signature"", ""java.util.Set<? extends java.nio.file.OpenOption>"" , Utility.signatureToString(""Ljava/util/Set<+Ljava/nio/file/OpenOption;>;""));
+    }
+",UtilityTestCase::testSignatureToStringWithGenerics_2_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */"
+bcel_90_3,"    public void testSignatureToStringWithGenerics_3_oe() throws Exception {
+    // tests for BCEL-197
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""generic signature"", ""java.nio.file.attribute.FileAttribute<?>[]"", Utility.signatureToString(""[Ljava/nio/file/attribute/FileAttribute<*>;""));
+    }
+",UtilityTestCase::testSignatureToStringWithGenerics_3_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */"
+bcel_90_4,"    public void testSignatureToStringWithGenerics_4_oe() throws Exception {
+    // tests for BCEL-197
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-286
+        assertEquals(""generic signature"", ""boofcv.alg.tracker.tld.TldTracker<boofcv.struct.image.ImageGray<boofcv.struct.image.GrayU8>, boofcv.struct.image.GrayI<boofcv.struct.image.GrayU8>>"", Utility.signatureToString(""Lboofcv/alg/tracker/tld/TldTracker<Lboofcv/struct/image/ImageGray<Lboofcv/struct/image/GrayU8;>;Lboofcv/struct/image/GrayI<Lboofcv/struct/image/GrayU8;>;>;""));
+    }
+",UtilityTestCase::testSignatureToStringWithGenerics_4_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */"
+bcel_90_5,"    public void testSignatureToStringWithGenerics_5_oe() throws Exception {
+    // tests for BCEL-197
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-286
+        // removed other assertion
+        assertEquals(""generic signature"", ""java.util.Map<?, ?>"", Utility.signatureToString(""Ljava/util/Map<**>;""));
+    }
+",UtilityTestCase::testSignatureToStringWithGenerics_5_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */"
+bcel_90_6,"    public void testSignatureToStringWithGenerics_6_oe() throws Exception {
+    // tests for BCEL-197
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-286
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""generic signature"", ""com.jme3.util.IntMap<T>.IntMapIterator"", Utility.signatureToString(""Lcom/jme3/util/IntMap<TT;>.IntMapIterator;""));
+    }
+",UtilityTestCase::testSignatureToStringWithGenerics_6_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */"
+bcel_90_7,"    public void testSignatureToStringWithGenerics_7_oe() throws Exception {
+    // tests for BCEL-197
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-286
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-279
+        assertEquals(""type parameters signature"", ""<T extends java.lang.Object>(com.google.common.io.ByteProcessor<T>, int)T"", Utility.signatureToString(""<T:Ljava/lang/Object;>(Lcom/google/common/io/ByteProcessor<TT;>;I)TT;"", false));
+    }
+",UtilityTestCase::testSignatureToStringWithGenerics_7_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */"
+bcel_90_8,"    public void testSignatureToStringWithGenerics_8_oe() throws Exception {
+    // tests for BCEL-197
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-286
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-279
+        // removed other assertion
+        assertEquals(""type parameters signature"", ""<T extends Object>(com.google.common.io.ByteProcessor<T>, int)T"", Utility.signatureToString(""<T:Ljava/lang/Object;>(Lcom/google/common/io/ByteProcessor<TT;>;I)TT;"", true));
+    }
+",UtilityTestCase::testSignatureToStringWithGenerics_8_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */"
+bcel_90_9,"    public void testSignatureToStringWithGenerics_9_oe() throws Exception {
+    // tests for BCEL-197
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-286
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-279
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""type parameters signature"", ""<M extends java.lang.reflect.AccessibleObject & java.lang.reflect.Member>(M)void"", Utility.signatureToString(""<M:Ljava/lang/reflect/AccessibleObject;:Ljava/lang/reflect/Member;>(TM;)V""));
+    }
+",UtilityTestCase::testSignatureToStringWithGenerics_9_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */"
+bcel_90_10,"    public void testSignatureToStringWithGenerics_10_oe() throws Exception {
+    // tests for BCEL-197
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-286
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-279
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""type parameters signature"", ""<K1 extends K, V1 extends V>()com.google.common.cache.Weigher<K1, V1>"", Utility.signatureToString(""<K1:TK;V1:TV;>()Lcom/google/common/cache/Weigher<TK1;TV1;>;""));
+    }
+",UtilityTestCase::testSignatureToStringWithGenerics_10_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */"
+bcel_90_11,"    public void testSignatureToStringWithGenerics_11_oe() throws Exception {
+    // tests for BCEL-197
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-286
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-279
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""type parameters signature"", ""<K1 extends K, V1 extends V>(com.google.common.cache.Weigher<? super K1, ? super V1>)com.google.common.cache.CacheBuilder<K1, V1>"", Utility.signatureToString(""<K1:TK;V1:TV;>(Lcom/google/common/cache/Weigher<-TK1;-TV1;>;)Lcom/google/common/cache/CacheBuilder<TK1;TV1;>;""));
+    }
+",UtilityTestCase::testSignatureToStringWithGenerics_11_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */"
+bcel_90_12,"    public void testSignatureToStringWithGenerics_12_oe() throws Exception {
+    // tests for BCEL-197
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-286
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-279
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""class signature"", ""<N extends java.lang.Object, E extends java.lang.Object> extends java.lang.Object implements com.google.common.graph.Network<N, E>"", Utility.signatureToString(""<N:Ljava/lang/Object;E:Ljava/lang/Object;>Ljava/lang/Object;Lcom/google/common/graph/Network<TN;TE;>;"", false));
+    }
+",UtilityTestCase::testSignatureToStringWithGenerics_12_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */"
+bcel_90_13,"    public void testSignatureToStringWithGenerics_13_oe() throws Exception {
+    // tests for BCEL-197
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-286
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+    // tests for BCEL-279
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""class signature"", ""<K extends Object, V extends Object> extends Object"", Utility.signatureToString(""<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;""));
+    }
+",UtilityTestCase::testSignatureToStringWithGenerics_13_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }","/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */"
+bcel_93_1,"    public void testGetClassFile_1_oe() throws IOException {
+        Assert.assertNotNull(ClassPath.SYSTEM_CLASS_PATH.getClassFile(""java.lang.String""));
+    }
+",ClassPathTestCase::testGetClassFile_1_oe,org.apache.bcel.util.ClassPath.AbstractPathEntry,"getClassFile(String name, String suffix)",,"abstract ClassFile getClassFile(String name, String suffix) throws IOException;","@Override
+        ClassFile getClassFile(final String name, final String suffix) throws IOException {
+            final ZipEntry entry = zipFile.getEntry(toEntryName(name, suffix));
+
+            if (entry == null) {
+                return null;
+            }
+
+            return new ClassFile() {
+
+                @Override
+                public String getBase() {
+                    return zipFile.getName();
+                }
+
+                @Override
+                public InputStream getInputStream() throws IOException {
+                    return zipFile.getInputStream(entry);
+                }
+
+                @Override
+                public String getPath() {
+                    return entry.toString();
+                }
+
+                @Override
+                public long getSize() {
+                    return entry.getSize();
+                }
+
+                @Override
+                public long getTime() {
+                    return entry.getTime();
+                }
+            };
+        }",
+bcel_94_1,"    public void testGetResource_1_oe() {
+        Assert.assertNotNull(ClassPath.SYSTEM_CLASS_PATH.getResource(""java/lang/String.class""));
+    }
+",ClassPathTestCase::testGetResource_1_oe,org.apache.bcel.util.ClassPath.AbstractPathEntry,getResource(String name),,abstract URL getResource(String name);,"@Override
+        URL getResource(final String name) {
+            final ZipEntry entry = zipFile.getEntry(name);
+            try {
+                return entry != null ? new URL(""jar:file:"" + zipFile.getName() + ""!/"" + name) : null;
+            } catch (final MalformedURLException e) {
+                return null;
+            }
+        }",

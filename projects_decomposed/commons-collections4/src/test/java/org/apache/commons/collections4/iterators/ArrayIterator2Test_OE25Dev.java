@@ -58,6 +58,88 @@ public class ArrayIterator2Test_OE25Dev<E> extends AbstractIteratorTest<E> {
         return false;
     }
 
+    public void testIterator() {
+        final Iterator<E> iter = makeObject();
+        for (final int element : testArray) {
+            final Integer testValue = Integer.valueOf(element);
+            final Number iterValue = (Number) iter.next();
+
+            assertEquals("Iteration value is correct", testValue, iterValue);
+        }
+
+        assertTrue("Iterator should now be empty", !iter.hasNext());
+
+        try {
+            iter.next();
+        } catch (final Exception e) {
+            assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
+        }
+    }
+
+    public void testIndexedArray() {
+        Iterator<E> iter = makeArrayIterator(testArray, 2);
+        int count = 0;
+        while (iter.hasNext()) {
+            ++count;
+            iter.next();
+        }
+
+        assertEquals("the count should be right using ArrayIterator(Object,2) ", count, testArray.length - 2);
+
+        iter = makeArrayIterator(testArray, 1, testArray.length - 1);
+        count = 0;
+        while (iter.hasNext()) {
+            ++count;
+            iter.next();
+        }
+
+        assertEquals("the count should be right using ArrayIterator(Object,1," +(testArray.length - 1)+ ")",count,testArray.length - 2);
+
+        try {
+            iter = makeArrayIterator(testArray, -1);
+            fail("new ArrayIterator(Object,-1) should throw an ArrayIndexOutOfBoundsException");
+        } catch (final ArrayIndexOutOfBoundsException aioobe) {
+            // expected
+        }
+
+        try {
+            iter = makeArrayIterator(testArray, testArray.length + 1);
+            fail("new ArrayIterator(Object,length+1) should throw an ArrayIndexOutOfBoundsException");
+        } catch (final ArrayIndexOutOfBoundsException aioobe) {
+            // expected
+        }
+
+        try {
+            iter = makeArrayIterator(testArray, 0, -1);
+            fail("new ArrayIterator(Object,0,-1) should throw an ArrayIndexOutOfBoundsException");
+        } catch (final ArrayIndexOutOfBoundsException aioobe) {
+            // expected
+        }
+
+        try {
+            iter = makeArrayIterator(testArray, 0, testArray.length + 1);
+            fail("new ArrayIterator(Object,0,length+1) should throw an ArrayIndexOutOfBoundsException");
+        } catch (final ArrayIndexOutOfBoundsException aioobe) {
+            // expected
+        }
+
+        try {
+            iter = makeArrayIterator(testArray, 1, 1);
+            // expected not to fail
+        } catch (final IllegalArgumentException iae) {
+            // MODIFIED: an iterator over a zero-length section of array
+            //  should be perfectly legal behavior
+            fail("new ArrayIterator(Object,1,1) should NOT throw an IllegalArgumentException");
+        }
+
+        try {
+            iter = makeArrayIterator(testArray, testArray.length - 1, testArray.length - 2);
+            fail("new ArrayIterator(Object,length-2,length-1) should throw an IllegalArgumentException");
+        } catch (final IllegalArgumentException iae) {
+            // expected
+        }
+    }
+
     public void testIterator_1_oe() {
         final Iterator<E> iter = makeObject();
         for (final int element : testArray) {

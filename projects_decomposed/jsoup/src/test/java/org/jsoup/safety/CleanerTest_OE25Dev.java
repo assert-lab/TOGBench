@@ -127,6 +127,7 @@ public class CleanerTest_OE25Dev {
         String validAnchor = "<a href=\"#valid\">Valid anchor</a>";
         String invalidAnchor = "<a href=\"#anchor with spaces\">Invalid anchor</a>";
 
+        // A Safelist that does not allow anchors will strip them out.
         String cleanHtml = Jsoup.clean(validAnchor, Safelist.relaxed());
         assertEquals("<a>Valid anchor</a>", cleanHtml);
         }
@@ -135,7 +136,9 @@ public class CleanerTest_OE25Dev {
         String validAnchor = "<a href=\"#valid\">Valid anchor</a>";
         String invalidAnchor = "<a href=\"#anchor with spaces\">Invalid anchor</a>";
 
+        // A Safelist that does not allow anchors will strip them out.
         String cleanHtml = Jsoup.clean(validAnchor, Safelist.relaxed());
+        // removed other assertion
 
         cleanHtml = Jsoup.clean(invalidAnchor, Safelist.relaxed());
         assertEquals("<a>Invalid anchor</a>", cleanHtml);
@@ -145,10 +148,14 @@ public class CleanerTest_OE25Dev {
         String validAnchor = "<a href=\"#valid\">Valid anchor</a>";
         String invalidAnchor = "<a href=\"#anchor with spaces\">Invalid anchor</a>";
 
+        // A Safelist that does not allow anchors will strip them out.
         String cleanHtml = Jsoup.clean(validAnchor, Safelist.relaxed());
+        // removed other assertion
 
         cleanHtml = Jsoup.clean(invalidAnchor, Safelist.relaxed());
+        // removed other assertion
 
+        // A Safelist that allows them will keep them.
         Safelist relaxedWithAnchor = Safelist.relaxed().addProtocols("a", "href", "#");
 
         cleanHtml = Jsoup.clean(validAnchor, relaxedWithAnchor);
@@ -159,14 +166,20 @@ public class CleanerTest_OE25Dev {
         String validAnchor = "<a href=\"#valid\">Valid anchor</a>";
         String invalidAnchor = "<a href=\"#anchor with spaces\">Invalid anchor</a>";
 
+        // A Safelist that does not allow anchors will strip them out.
         String cleanHtml = Jsoup.clean(validAnchor, Safelist.relaxed());
+        // removed other assertion
 
         cleanHtml = Jsoup.clean(invalidAnchor, Safelist.relaxed());
+        // removed other assertion
 
+        // A Safelist that allows them will keep them.
         Safelist relaxedWithAnchor = Safelist.relaxed().addProtocols("a", "href", "#");
 
         cleanHtml = Jsoup.clean(validAnchor, relaxedWithAnchor);
+        // removed other assertion
 
+        // An invalid anchor is never valid.
         cleanHtml = Jsoup.clean(invalidAnchor, relaxedWithAnchor);
         assertEquals("<a>Invalid anchor</a>", cleanHtml);
         }
@@ -206,6 +219,7 @@ public class CleanerTest_OE25Dev {
         String nok5 = "<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>";
         String nok6 = "<p>Test <b><a href='http://example.com/'>OK</b></p>"; // missing close tag
         String nok7 = "</div>What";
+        // removed other assertion
         assertTrue(Jsoup.isValid(ok1, Safelist.basic()));
         }
 
@@ -219,6 +233,8 @@ public class CleanerTest_OE25Dev {
         String nok5 = "<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>";
         String nok6 = "<p>Test <b><a href='http://example.com/'>OK</b></p>"; // missing close tag
         String nok7 = "</div>What";
+        // removed other assertion
+        // removed other assertion
         assertFalse(Jsoup.isValid(nok1, Safelist.basic()));
         }
 
@@ -232,6 +248,9 @@ public class CleanerTest_OE25Dev {
         String nok5 = "<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>";
         String nok6 = "<p>Test <b><a href='http://example.com/'>OK</b></p>"; // missing close tag
         String nok7 = "</div>What";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(Jsoup.isValid(nok2, Safelist.basic()));
         }
 
@@ -245,6 +264,10 @@ public class CleanerTest_OE25Dev {
         String nok5 = "<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>";
         String nok6 = "<p>Test <b><a href='http://example.com/'>OK</b></p>"; // missing close tag
         String nok7 = "</div>What";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(Jsoup.isValid(nok3, Safelist.basic()));
         }
 
@@ -258,6 +281,11 @@ public class CleanerTest_OE25Dev {
         String nok5 = "<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>";
         String nok6 = "<p>Test <b><a href='http://example.com/'>OK</b></p>"; // missing close tag
         String nok7 = "</div>What";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(Jsoup.isValid(nok4, Safelist.basic()));
         }
 
@@ -271,6 +299,12 @@ public class CleanerTest_OE25Dev {
         String nok5 = "<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>";
         String nok6 = "<p>Test <b><a href='http://example.com/'>OK</b></p>"; // missing close tag
         String nok7 = "</div>What";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(Jsoup.isValid(nok5, Safelist.basic()));
         }
 
@@ -284,6 +318,13 @@ public class CleanerTest_OE25Dev {
         String nok5 = "<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>";
         String nok6 = "<p>Test <b><a href='http://example.com/'>OK</b></p>"; // missing close tag
         String nok7 = "</div>What";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(Jsoup.isValid(nok6, Safelist.basic()));
         }
 
@@ -297,6 +338,14 @@ public class CleanerTest_OE25Dev {
         String nok5 = "<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>";
         String nok6 = "<p>Test <b><a href='http://example.com/'>OK</b></p>"; // missing close tag
         String nok7 = "</div>What";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(Jsoup.isValid(ok, Safelist.none()));
         }
 
@@ -310,6 +359,15 @@ public class CleanerTest_OE25Dev {
         String nok5 = "<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>";
         String nok6 = "<p>Test <b><a href='http://example.com/'>OK</b></p>"; // missing close tag
         String nok7 = "</div>What";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(Jsoup.isValid(nok7, Safelist.basic()));
         }
 
@@ -330,6 +388,7 @@ public class CleanerTest_OE25Dev {
         Safelist relaxed = Safelist.relaxed();
         Cleaner cleaner = new Cleaner(relaxed);
         Document okDoc = Jsoup.parse(ok);
+        // removed other assertion
         assertFalse(cleaner.isValid(Jsoup.parse(nok)));
         }
 
@@ -340,6 +399,8 @@ public class CleanerTest_OE25Dev {
         Safelist relaxed = Safelist.relaxed();
         Cleaner cleaner = new Cleaner(relaxed);
         Document okDoc = Jsoup.parse(ok);
+        // removed other assertion
+        // removed other assertion
         assertFalse(new Cleaner(Safelist.none()).isValid(okDoc));
         }
 
@@ -372,6 +433,7 @@ public class CleanerTest_OE25Dev {
         Safelist safelist = Safelist.basic().preserveRelativeLinks(true);
         String html = "<a href=\"&#0013;ja&Tab;va&Tab;script&#0010;:alert(1)\">Link</a>";
         String clean = Jsoup.clean(html, "https://", safelist);
+        // removed other assertion
 
         String colon = "<a href=\"ja&Tab;va&Tab;script&colon;alert(1)\">Link</a>";
         String cleanColon = Jsoup.clean(colon, "https://", safelist);
@@ -394,6 +456,7 @@ public class CleanerTest_OE25Dev {
     @Test public void handlesCustomProtocols_2_oe() {
         String html = "<img src='cid:12345' /> <img src='data:gzzt' />";
         String dropped = Jsoup.clean(html, Safelist.basicWithImages());
+        // removed other assertion
 
         String preserved = Jsoup.clean(html, Safelist.basicWithImages().addProtocols("img", "src", "cid", "data"));
         assertEquals("<img src=\"cid:12345\"> <img src=\"data:gzzt\">", preserved);
@@ -414,11 +477,13 @@ public class CleanerTest_OE25Dev {
         String html = "<p class='foo' src='bar'>One</p>";
         Safelist safelist = new Safelist()
             .addAttributes("p", "class");
+        // ^^ safelist does not have explicit tag add for p, inferred from add attributes.
         String clean = Jsoup.clean(html, safelist);
         assertEquals("<p class=\"foo\">One</p>", clean);
         }
 
     @Test public void supplyOutputSettings_1_oe() {
+        // test that one can override the default document output settings
         Document.OutputSettings os = new Document.OutputSettings();
         os.prettyPrint(false);
         os.escapeMode(Entities.EscapeMode.extended);
@@ -431,6 +496,7 @@ public class CleanerTest_OE25Dev {
         }
 
     @Test public void supplyOutputSettings_2_oe() {
+        // test that one can override the default document output settings
         Document.OutputSettings os = new Document.OutputSettings();
         os.prettyPrint(false);
         os.escapeMode(Entities.EscapeMode.extended);
@@ -439,11 +505,13 @@ public class CleanerTest_OE25Dev {
         String html = "<div><p>&bernou;</p></div>";
         String customOut = Jsoup.clean(html, "http://foo.com/", Safelist.relaxed(), os);
         String defaultOut = Jsoup.clean(html, "http://foo.com/", Safelist.relaxed());
+        // removed other assertion
 
         assertEquals("<div><p>&Bscr;</p></div>",customOut);// entities now prefers shorted names if aliased assertEquals("<div>\n" + " <p>ℬ</p>\n" + "</div>",defaultOut);
         }
 
     @Test public void supplyOutputSettings_3_oe() {
+        // test that one can override the default document output settings
         Document.OutputSettings os = new Document.OutputSettings();
         os.prettyPrint(false);
         os.escapeMode(Entities.EscapeMode.extended);
@@ -452,7 +520,9 @@ public class CleanerTest_OE25Dev {
         String html = "<div><p>&bernou;</p></div>";
         String customOut = Jsoup.clean(html, "http://foo.com/", Safelist.relaxed(), os);
         String defaultOut = Jsoup.clean(html, "http://foo.com/", Safelist.relaxed());
+        // removed other assertion
 
+        // removed other assertion
 
         os.charset("ASCII");
         os.escapeMode(Entities.EscapeMode.base);
@@ -469,6 +539,7 @@ public class CleanerTest_OE25Dev {
     @Test public void handlesFramesets_2_oe() {
         String dirty = "<html><head><script></script><noscript></noscript></head><frameset><frame src=\"foo\" /><frame src=\"foo\" /></frameset></html>";
         String clean = Jsoup.clean(dirty, Safelist.basic());
+        // removed other assertion
         Document dirtyDoc = Jsoup.parse(dirty);
         Document cleanDoc = new Cleaner(Safelist.basic()).clean(dirtyDoc);
         assertNotNull(cleanDoc);
@@ -477,8 +548,10 @@ public class CleanerTest_OE25Dev {
     @Test public void handlesFramesets_3_oe() {
         String dirty = "<html><head><script></script><noscript></noscript></head><frameset><frame src=\"foo\" /><frame src=\"foo\" /></frameset></html>";
         String clean = Jsoup.clean(dirty, Safelist.basic());
+        // removed other assertion
         Document dirtyDoc = Jsoup.parse(dirty);
         Document cleanDoc = new Cleaner(Safelist.basic()).clean(dirtyDoc);
+        // removed other assertion
         assertEquals(0, cleanDoc.body().childNodeSize());
         }
 
@@ -500,6 +573,7 @@ public class CleanerTest_OE25Dev {
         }
 
     @Test public void handlesAttributesWithNoValue_1_oe() {
+        // https://github.com/jhy/jsoup/issues/973
         String clean = Jsoup.clean("<a href>Clean</a>", Safelist.basic());
 
         assertEquals("<a rel=\"nofollow\">Clean</a>", clean);
@@ -513,6 +587,7 @@ public class CleanerTest_OE25Dev {
         }
 
     @Test public void handlesNestedQuotesInAttribute_1_oe() {
+        // https://github.com/jhy/jsoup/issues/1243 - no repro
         String orig = "<div style=\"font-family: 'Calibri'\">Will (not) fail</div>";
         Safelist allow = Safelist.relaxed()
             .addAttributes("div", "style");
@@ -540,6 +615,7 @@ public class CleanerTest_OE25Dev {
         Safelist safelist = Safelist.none().addTags("p", "br");
 
         Document result = new Cleaner(safelist).clean(orig);
+        // removed other assertion
         assertEquals("<p>test<br /></p>", result.body().html());
         }
 
@@ -554,6 +630,7 @@ public class CleanerTest_OE25Dev {
         Document orig = Jsoup.parse("<script>xss</script>\n <p>Hello</p>", Parser.htmlParser().setTrackPosition(true));
         Element p = orig.expectFirst("p");
         Range origRange = p.sourceRange();
+        // removed other assertion
 
         Document clean = new Cleaner(Safelist.relaxed()).clean(orig);
         Element cleanP = clean.expectFirst("p");
@@ -565,10 +642,12 @@ public class CleanerTest_OE25Dev {
         Document orig = Jsoup.parse("<script>xss</script>\n <p>Hello</p>", Parser.htmlParser().setTrackPosition(true));
         Element p = orig.expectFirst("p");
         Range origRange = p.sourceRange();
+        // removed other assertion
 
         Document clean = new Cleaner(Safelist.relaxed()).clean(orig);
         Element cleanP = clean.expectFirst("p");
         Range cleanRange = cleanP.sourceRange();
+        // removed other assertion
         assertEquals(clean.endSourceRange(), orig.endSourceRange());
         }
 

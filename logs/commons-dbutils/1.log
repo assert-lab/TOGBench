@@ -22,7 +22,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-dbutils ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils
-[INFO] Storing buildNumber: 53df724e8c4d67547212d860dfed689b7c447fa6 at timestamp: 1772566650326
+[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772768454621
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-dbutils ---
@@ -55,78 +55,65 @@ main:
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/ColumnListHandlerTest_OE25Dev.java: Recompile with -Xlint:removal for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: Some input files use unchecked or unsafe operations.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-dbutils ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.dbutils.OutParameterTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.374 s - in org.apache.commons.dbutils.OutParameterTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetTest_OE25Dev
-[INFO] Tests run: 286, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.435 s - in org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.GenerousBeanProcessorTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.214 s - in org.apache.commons.dbutils.GenerousBeanProcessorTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.handlers.BeanListHandlerTest_OE25Dev
-[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s - in org.apache.commons.dbutils.handlers.BeanListHandlerTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.handlers.KeyedHandlerTest_OE25Dev
-[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.dbutils.handlers.KeyedHandlerTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.handlers.MapListHandlerTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.dbutils.handlers.MapListHandlerTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.handlers.BeanMapHandlerTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s - in org.apache.commons.dbutils.handlers.BeanMapHandlerTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.handlers.ArrayListHandlerTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.dbutils.handlers.ArrayListHandlerTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.handlers.MapHandlerTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.MapHandlerTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.handlers.properties.PropertyHandlerTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.properties.PropertyHandlerTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandlerTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandlerTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.handlers.properties.DatePropertyHandlerTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.properties.DatePropertyHandlerTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.handlers.ArrayHandlerTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.dbutils.handlers.ArrayHandlerTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.handlers.BeanHandlerTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s - in org.apache.commons.dbutils.handlers.BeanHandlerTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.handlers.ColumnListHandlerTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.dbutils.handlers.ColumnListHandlerTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.handlers.ScalarHandlerTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.ScalarHandlerTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.ProxyFactoryTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s - in org.apache.commons.dbutils.ProxyFactoryTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.ResultSetIteratorTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.dbutils.ResultSetIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.DbUtilsTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.dbutils.DbUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.BaseTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.BaseTestCase_OE25Dev
-[INFO] Running org.apache.commons.dbutils.BeanProcessorTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.dbutils.BeanProcessorTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.QueryLoaderTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.dbutils.QueryLoaderTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.BaseResultSetHandlerTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.dbutils.BaseResultSetHandlerTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.StatementConfigurationTest_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.dbutils.StatementConfigurationTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.ServiceLoaderTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.dbutils.ServiceLoaderTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.192 s - in org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev
-[INFO] Running org.apache.commons.dbutils.QueryRunnerTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.23 s - in org.apache.commons.dbutils.QueryRunnerTest_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 558, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
+[INFO] Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSetTest_OE25Dev.java:[1441,9] no suitable method found for assertEquals(java.lang.Object,float,double)
+    method junit.framework.TestCase.assertEquals(java.lang.String,java.lang.Object,java.lang.Object) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.TestCase.assertEquals(java.lang.String,java.lang.String,java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.TestCase.assertEquals(double,double,double) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to double)
+    method junit.framework.TestCase.assertEquals(float,float,float) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to float)
+    method junit.framework.TestCase.assertEquals(java.lang.String,long,long) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.TestCase.assertEquals(java.lang.String,boolean,boolean) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.TestCase.assertEquals(java.lang.String,byte,byte) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.TestCase.assertEquals(java.lang.String,char,char) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.TestCase.assertEquals(java.lang.String,short,short) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.TestCase.assertEquals(java.lang.String,int,int) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  16.998 s
-[INFO] Finished at: 2026-03-03T13:37:43-06:00
+[INFO] Total time:  15.358 s
+[INFO] Finished at: 2026-03-05T21:41:06-06:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.5.1:testCompile (default-testCompile) on project commons-dbutils: Compilation failure
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSetTest_OE25Dev.java:[1441,9] no suitable method found for assertEquals(java.lang.Object,float,double)
+[ERROR]     method junit.framework.TestCase.assertEquals(java.lang.String,java.lang.Object,java.lang.Object) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.TestCase.assertEquals(java.lang.String,java.lang.String,java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.TestCase.assertEquals(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to double)
+[ERROR]     method junit.framework.TestCase.assertEquals(float,float,float) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to float)
+[ERROR]     method junit.framework.TestCase.assertEquals(java.lang.String,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.TestCase.assertEquals(java.lang.String,boolean,boolean) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.TestCase.assertEquals(java.lang.String,byte,byte) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.TestCase.assertEquals(java.lang.String,char,char) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.TestCase.assertEquals(java.lang.String,short,short) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.TestCase.assertEquals(java.lang.String,int,int) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

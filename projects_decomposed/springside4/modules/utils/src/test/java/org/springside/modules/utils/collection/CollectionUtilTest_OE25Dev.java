@@ -11,22 +11,7 @@ import com.google.common.collect.Ordering;
 
 public class CollectionUtilTest_OE25Dev {
 
-	@Test
-	public void minAndMax() {
-		List<Integer> list = ListUtil.newArrayList(4, 1, 9, 100, 20, 101, 40);
-
-		assertThat(CollectionUtil.min(list)).isEqualTo(1);
-		assertThat(CollectionUtil.min(list, Ordering.natural())).isEqualTo(1);
-		assertThat(CollectionUtil.max(list)).isEqualTo(101);
-		assertThat(CollectionUtil.max(list, Ordering.natural())).isEqualTo(101);
-
-		assertThat(CollectionUtil.minAndMax(list).getFirst()).isEqualTo(1);
-		assertThat(CollectionUtil.minAndMax(list).getSecond()).isEqualTo(101);
-
-		assertThat(CollectionUtil.minAndMax(list, Ordering.natural()).getFirst()).isEqualTo(1);
-		assertThat(CollectionUtil.minAndMax(list, Ordering.natural()).getSecond()).isEqualTo(101);
-
-	}
+	// @Test
 
 	@Test
 	public void listCompare() {
@@ -88,6 +73,7 @@ public class CollectionUtilTest_OE25Dev {
 		Set<String> set2 = SetUtil.newSortedSet();
 		set2.add("a");
 
+		// removed other assertion
 		assertThat(CollectionUtil.isEmpty(null)).isTrue();
 	}
 
@@ -106,6 +92,8 @@ public class CollectionUtilTest_OE25Dev {
 		Set<String> set2 = SetUtil.newSortedSet();
 		set2.add("a");
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(CollectionUtil.isEmpty(list2)).isFalse();
 	}
 
@@ -124,6 +112,9 @@ public class CollectionUtilTest_OE25Dev {
 		Set<String> set2 = SetUtil.newSortedSet();
 		set2.add("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(CollectionUtil.isNotEmpty(list1)).isFalse();
 	}
@@ -143,7 +134,11 @@ public class CollectionUtilTest_OE25Dev {
 		Set<String> set2 = SetUtil.newSortedSet();
 		set2.add("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(CollectionUtil.isNotEmpty(null)).isFalse();
 	}
 
@@ -162,7 +157,12 @@ public class CollectionUtilTest_OE25Dev {
 		Set<String> set2 = SetUtil.newSortedSet();
 		set2.add("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(CollectionUtil.isNotEmpty(list2)).isTrue();
 	}
 
@@ -181,7 +181,13 @@ public class CollectionUtilTest_OE25Dev {
 		Set<String> set2 = SetUtil.newSortedSet();
 		set2.add("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(CollectionUtil.getFirst(list2)).isEqualTo("a");
 	}
@@ -201,8 +207,15 @@ public class CollectionUtilTest_OE25Dev {
 		Set<String> set2 = SetUtil.newSortedSet();
 		set2.add("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(CollectionUtil.getLast(list2)).isEqualTo("c");
 	}
 
@@ -221,8 +234,16 @@ public class CollectionUtilTest_OE25Dev {
 		Set<String> set2 = SetUtil.newSortedSet();
 		set2.add("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(CollectionUtil.getFirst(set1)).isEqualTo("a");
 	}
@@ -242,9 +263,18 @@ public class CollectionUtilTest_OE25Dev {
 		Set<String> set2 = SetUtil.newSortedSet();
 		set2.add("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(CollectionUtil.getLast(set1)).isEqualTo("c");
 	}
 
@@ -263,9 +293,19 @@ public class CollectionUtilTest_OE25Dev {
 		Set<String> set2 = SetUtil.newSortedSet();
 		set2.add("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(CollectionUtil.getFirst(list3)).isEqualTo("a");
 	}
@@ -285,10 +325,21 @@ public class CollectionUtilTest_OE25Dev {
 		Set<String> set2 = SetUtil.newSortedSet();
 		set2.add("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(CollectionUtil.getLast(list3)).isEqualTo("a");
 	}
 
@@ -307,10 +358,22 @@ public class CollectionUtilTest_OE25Dev {
 		Set<String> set2 = SetUtil.newSortedSet();
 		set2.add("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(CollectionUtil.getFirst(set2)).isEqualTo("a");
 	}
@@ -330,11 +393,24 @@ public class CollectionUtilTest_OE25Dev {
 		Set<String> set2 = SetUtil.newSortedSet();
 		set2.add("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(CollectionUtil.getLast(set2)).isEqualTo("a");
 	}
 
@@ -353,11 +429,25 @@ public class CollectionUtilTest_OE25Dev {
 		Set<String> set2 = SetUtil.newSortedSet();
 		set2.add("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(CollectionUtil.getFirst(list1)).isNull();
 	}
@@ -377,12 +467,28 @@ public class CollectionUtilTest_OE25Dev {
 		Set<String> set2 = SetUtil.newSortedSet();
 		set2.add("a");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(CollectionUtil.getLast(list1)).isNull();
 	}
 

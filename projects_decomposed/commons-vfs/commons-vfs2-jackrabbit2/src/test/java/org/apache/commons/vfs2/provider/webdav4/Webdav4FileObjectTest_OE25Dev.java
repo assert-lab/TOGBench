@@ -48,6 +48,7 @@ public class Webdav4FileObjectTest_OE25Dev {
         final FileSystemManager fsm = VFS.getManager();
 
         try (final FileObject file = fsm.resolveFile(WEBDAV4_URL)) {
+            // removed other assertion
             assertTrue(file instanceof Webdav4FileObject);
     }
     }
@@ -57,6 +58,8 @@ public class Webdav4FileObjectTest_OE25Dev {
         final FileSystemManager fsm = VFS.getManager();
 
         try (final FileObject file = fsm.resolveFile(WEBDAV4_URL)) {
+            // removed other assertion
+            // removed other assertion
 
             final Webdav4FileObject webdav4File = (Webdav4FileObject) file;
             assertEquals(INTERNAL_WEBDAV4_URL, webdav4File.toUrlString((GenericURLFileName) webdav4File.getName()));
@@ -77,6 +80,7 @@ public class Webdav4FileObjectTest_OE25Dev {
         final FileSystemManager fsm = VFS.getManager();
 
         try (final FileObject file = fsm.resolveFile(WEBDAV4S_URL)) {
+            // removed other assertion
             assertTrue(file instanceof Webdav4FileObject);
     }
     }
@@ -86,6 +90,8 @@ public class Webdav4FileObjectTest_OE25Dev {
         final FileSystemManager fsm = VFS.getManager();
 
         try (final FileObject file = fsm.resolveFile(WEBDAV4S_URL)) {
+            // removed other assertion
+            // removed other assertion
 
             final Webdav4FileObject webdav4File = (Webdav4FileObject) file;
             assertEquals(INTERNAL_WEBDAV4S_URL, webdav4File.toUrlString((GenericURLFileName) webdav4File.getName()));

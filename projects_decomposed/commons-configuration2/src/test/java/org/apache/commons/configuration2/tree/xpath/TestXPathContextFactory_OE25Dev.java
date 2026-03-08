@@ -58,6 +58,7 @@ public class TestXPathContextFactory_OE25Dev {
         final NodeHandler<ImmutableNode> handler = new InMemoryNodeModel(node).getNodeHandler();
         final JXPathContext context = factory.createContext(node, handler);
 
+        // removed other assertion
         final ConfigurationNodePointerFactory.NodeWrapper<?> wrapper = (ConfigurationNodePointerFactory.NodeWrapper<?>) context.getContextBean();
         assertSame("Wrong node", node, wrapper.getNode());
     }
@@ -68,7 +69,9 @@ public class TestXPathContextFactory_OE25Dev {
         final NodeHandler<ImmutableNode> handler = new InMemoryNodeModel(node).getNodeHandler();
         final JXPathContext context = factory.createContext(node, handler);
 
+        // removed other assertion
         final ConfigurationNodePointerFactory.NodeWrapper<?> wrapper = (ConfigurationNodePointerFactory.NodeWrapper<?>) context.getContextBean();
+        // removed other assertion
         assertSame("Wrong handler", handler, wrapper.getNodeHandler());
     }
 

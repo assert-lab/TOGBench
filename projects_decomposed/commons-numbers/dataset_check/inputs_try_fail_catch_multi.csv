@@ -1,0 +1,451 @@
+id,test_prefix,test_name
+commons-numbers_451,"@Test
+    final void testInverse_oe() {
+        final Quaternion q = Quaternion.of(1.5, 4, 2, -2.5);
+
+        final Quaternion inverseQ = q.inverse();
+        Assertions.assertEquals(1.5 / 28.5, inverseQ.getW());
+        Assertions.assertEquals(-4.0 / 28.5, inverseQ.getX());
+        Assertions.assertEquals(-2.0 / 28.5, inverseQ.getY());
+        Assertions.assertEquals(2.5 / 28.5, inverseQ.getZ());
+
+        final Quaternion product = Quaternion.multiply(inverseQ, q);
+        Assertions.assertEquals(1, product.getW(), EPS);
+        Assertions.assertEquals(0, product.getX(), EPS);
+        Assertions.assertEquals(0, product.getY(), EPS);
+        Assertions.assertEquals(0, product.getZ(), EPS);
+
+        final Quaternion qNul = Quaternion.of(0, 0, 0, 0);
+        try {
+            final Quaternion inverseQNul = qNul.inverse();
+            Assertions.fail(""expecting ZeroException but got : "" + inverseQNul);
+        } catch (IllegalStateException ex) {
+            // expected
+        }
+    }",QuaternionTest::testInverse_oe
+commons-numbers_473,"@Test
+    void testBadEndpoints_oe() {
+        final DoubleUnaryOperator f = new Sin();
+        final BrentSolver solver = new BrentSolver(DEFAULT_ABSOLUTE_ACCURACY,
+                                                   DEFAULT_RELATIVE_ACCURACY,
+                                                   DEFAULT_FUNCTION_ACCURACY);
+        try {  // Bad interval.
+            solver.findRoot(f, 1, -1);
+            Assertions.fail(""Expecting bad interval condition"");
+        } catch (SolverException ex) {
+            // Ensure expected error condition.
+            Assertions.assertNotEquals(-1, ex.getMessage().indexOf("" > ""));
+        }
+        try {  // No bracketing.
+            solver.findRoot(f, 1, 1.5);
+            Assertions.fail(""Expecting non-bracketing condition"");
+        } catch (SolverException ex) {
+            // Ensure expected error condition.
+            Assertions.assertNotEquals(-1, ex.getMessage().indexOf(""No bracketing""));
+        }
+        try {  // No bracketing.
+            solver.findRoot(f, 1, 1.2, 1.5);
+            Assertions.fail(""Expecting non-bracketing condition"");
+        } catch (SolverException ex) {
+            // Ensure expected error condition.
+            Assertions.assertNotEquals(-1, ex.getMessage().indexOf(""No bracketing""));
+        }
+    }",BrentSolverTest::testBadEndpoints_oe
+commons-numbers_474,"@Test
+    void testBadInitialGuess_oe() {
+        final DoubleUnaryOperator func = new QuinticFunction();
+        final BrentSolver solver = new BrentSolver(DEFAULT_ABSOLUTE_ACCURACY,
+                                                   DEFAULT_RELATIVE_ACCURACY,
+                                                   DEFAULT_FUNCTION_ACCURACY);
+
+        try {
+            // Invalid guess (it *is* a root, but outside of the range).
+            double result = solver.findRoot(func, 0.0, 7.0, 0.6);
+            Assertions.fail(""an out of range condition was expected"");
+        } catch (SolverException ex) {
+            // Ensure expected error condition.
+            Assertions.assertNotEquals(-1, ex.getMessage().indexOf(""out of range""));
+        }
+    }",BrentSolverTest::testBadInitialGuess_oe
+commons-numbers_529,"@Test
+    void testRoundDouble_oe() {
+        double x = 1.234567890;
+        Assertions.assertEquals(1.23, Precision.round(x, 2));
+        Assertions.assertEquals(1.235, Precision.round(x, 3));
+        Assertions.assertEquals(1.2346, Precision.round(x, 4));
+
+        // JIRA MATH-151
+        Assertions.assertEquals(39.25, Precision.round(39.245, 2));
+        Assertions.assertEquals(39.24, Precision.round(39.245, 2, RoundingMode.DOWN));
+        double xx = 39.0;
+        xx += 245d / 1000d;
+        Assertions.assertEquals(39.25, Precision.round(xx, 2));
+
+        // BZ 35904
+        Assertions.assertEquals(30.1d, Precision.round(30.095d, 2));
+        Assertions.assertEquals(30.1d, Precision.round(30.095d, 1));
+        Assertions.assertEquals(33.1d, Precision.round(33.095d, 1));
+        Assertions.assertEquals(33.1d, Precision.round(33.095d, 2));
+        Assertions.assertEquals(50.09d, Precision.round(50.085d, 2));
+        Assertions.assertEquals(50.19d, Precision.round(50.185d, 2));
+        Assertions.assertEquals(50.01d, Precision.round(50.005d, 2));
+        Assertions.assertEquals(30.01d, Precision.round(30.005d, 2));
+        Assertions.assertEquals(30.65d, Precision.round(30.645d, 2));
+
+        Assertions.assertEquals(1.24, Precision.round(x, 2, RoundingMode.CEILING));
+        Assertions.assertEquals(1.235, Precision.round(x, 3, RoundingMode.CEILING));
+        Assertions.assertEquals(1.2346, Precision.round(x, 4, RoundingMode.CEILING));
+        Assertions.assertEquals(-1.23, Precision.round(-x, 2, RoundingMode.CEILING));
+        Assertions.assertEquals(-1.234, Precision.round(-x, 3, RoundingMode.CEILING));
+        Assertions.assertEquals(-1.2345, Precision.round(-x, 4, RoundingMode.CEILING));
+
+        Assertions.assertEquals(1.23, Precision.round(x, 2, RoundingMode.DOWN));
+        Assertions.assertEquals(1.234, Precision.round(x, 3, RoundingMode.DOWN));
+        Assertions.assertEquals(1.2345, Precision.round(x, 4, RoundingMode.DOWN));
+        Assertions.assertEquals(-1.23, Precision.round(-x, 2, RoundingMode.DOWN));
+        Assertions.assertEquals(-1.234, Precision.round(-x, 3, RoundingMode.DOWN));
+        Assertions.assertEquals(-1.2345, Precision.round(-x, 4, RoundingMode.DOWN));
+
+        Assertions.assertEquals(1.23, Precision.round(x, 2, RoundingMode.FLOOR));
+        Assertions.assertEquals(1.234, Precision.round(x, 3, RoundingMode.FLOOR));
+        Assertions.assertEquals(1.2345, Precision.round(x, 4, RoundingMode.FLOOR));
+        Assertions.assertEquals(-1.24, Precision.round(-x, 2, RoundingMode.FLOOR));
+        Assertions.assertEquals(-1.235, Precision.round(-x, 3, RoundingMode.FLOOR));
+        Assertions.assertEquals(-1.2346, Precision.round(-x, 4, RoundingMode.FLOOR));
+
+        Assertions.assertEquals(1.23, Precision.round(x, 2, RoundingMode.HALF_DOWN));
+        Assertions.assertEquals(1.235, Precision.round(x, 3, RoundingMode.HALF_DOWN));
+        Assertions.assertEquals(1.2346, Precision.round(x, 4, RoundingMode.HALF_DOWN));
+        Assertions.assertEquals(-1.23, Precision.round(-x, 2, RoundingMode.HALF_DOWN));
+        Assertions.assertEquals(-1.235, Precision.round(-x, 3, RoundingMode.HALF_DOWN));
+        Assertions.assertEquals(-1.2346, Precision.round(-x, 4, RoundingMode.HALF_DOWN));
+        Assertions.assertEquals(1.234, Precision.round(1.2345, 3, RoundingMode.HALF_DOWN));
+        Assertions.assertEquals(-1.234, Precision.round(-1.2345, 3, RoundingMode.HALF_DOWN));
+
+        Assertions.assertEquals(1.23, Precision.round(x, 2, RoundingMode.HALF_EVEN));
+        Assertions.assertEquals(1.235, Precision.round(x, 3, RoundingMode.HALF_EVEN));
+        Assertions.assertEquals(1.2346, Precision.round(x, 4, RoundingMode.HALF_EVEN));
+        Assertions.assertEquals(-1.23, Precision.round(-x, 2, RoundingMode.HALF_EVEN));
+        Assertions.assertEquals(-1.235, Precision.round(-x, 3, RoundingMode.HALF_EVEN));
+        Assertions.assertEquals(-1.2346, Precision.round(-x, 4, RoundingMode.HALF_EVEN));
+        Assertions.assertEquals(1.234, Precision.round(1.2345, 3, RoundingMode.HALF_EVEN));
+        Assertions.assertEquals(-1.234, Precision.round(-1.2345, 3, RoundingMode.HALF_EVEN));
+        Assertions.assertEquals(1.236, Precision.round(1.2355, 3, RoundingMode.HALF_EVEN));
+        Assertions.assertEquals(-1.236, Precision.round(-1.2355, 3, RoundingMode.HALF_EVEN));
+
+        Assertions.assertEquals(1.23, Precision.round(x, 2, RoundingMode.HALF_UP));
+        Assertions.assertEquals(1.235, Precision.round(x, 3, RoundingMode.HALF_UP));
+        Assertions.assertEquals(1.2346, Precision.round(x, 4, RoundingMode.HALF_UP));
+        Assertions.assertEquals(-1.23, Precision.round(-x, 2, RoundingMode.HALF_UP));
+        Assertions.assertEquals(-1.235, Precision.round(-x, 3, RoundingMode.HALF_UP));
+        Assertions.assertEquals(-1.2346, Precision.round(-x, 4, RoundingMode.HALF_UP));
+        Assertions.assertEquals(1.235, Precision.round(1.2345, 3, RoundingMode.HALF_UP));
+        Assertions.assertEquals(-1.235, Precision.round(-1.2345, 3, RoundingMode.HALF_UP));
+
+        Assertions.assertEquals(-1.23, Precision.round(-1.23, 2, RoundingMode.UNNECESSARY));
+        Assertions.assertEquals(1.23, Precision.round(1.23, 2, RoundingMode.UNNECESSARY));
+
+        try {
+            Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
+            Assertions.fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+
+        Assertions.assertEquals(1.24, Precision.round(x, 2, RoundingMode.UP));
+        Assertions.assertEquals(1.235, Precision.round(x, 3, RoundingMode.UP));
+        Assertions.assertEquals(1.2346, Precision.round(x, 4, RoundingMode.UP));
+        Assertions.assertEquals(-1.24, Precision.round(-x, 2, RoundingMode.UP));
+        Assertions.assertEquals(-1.235, Precision.round(-x, 3, RoundingMode.UP));
+        Assertions.assertEquals(-1.2346, Precision.round(-x, 4, RoundingMode.UP));
+
+        // MATH-151
+        Assertions.assertEquals(39.25, Precision.round(39.245, 2, RoundingMode.HALF_UP));
+
+        // special values
+        Assertions.assertEquals(Double.NaN, Precision.round(Double.NaN, 2));
+        Assertions.assertEquals(0.0, Precision.round(0.0, 2));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Precision.round(Double.POSITIVE_INFINITY, 2));
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY, Precision.round(Double.NEGATIVE_INFINITY, 2));
+        // comparison of positive and negative zero is not possible -> always equal thus do string comparison
+        Assertions.assertEquals(""-0.0"", Double.toString(Precision.round(-0.0, 0)));
+        Assertions.assertEquals(""-0.0"", Double.toString(Precision.round(-1e-10, 0)));
+    }",PrecisionTest::testRoundDouble_oe
+commons-numbers_568,"@Test
+    void testGcd_oe() {
+        int a = 30;
+        int b = 50;
+        int c = 77;
+
+        Assertions.assertEquals(0, ArithmeticUtils.gcd(0, 0));
+
+        Assertions.assertEquals(b, ArithmeticUtils.gcd(0, b));
+        Assertions.assertEquals(a, ArithmeticUtils.gcd(a, 0));
+        Assertions.assertEquals(b, ArithmeticUtils.gcd(0, -b));
+        Assertions.assertEquals(a, ArithmeticUtils.gcd(-a, 0));
+
+        Assertions.assertEquals(10, ArithmeticUtils.gcd(a, b));
+        Assertions.assertEquals(10, ArithmeticUtils.gcd(-a, b));
+        Assertions.assertEquals(10, ArithmeticUtils.gcd(a, -b));
+        Assertions.assertEquals(10, ArithmeticUtils.gcd(-a, -b));
+
+        Assertions.assertEquals(1, ArithmeticUtils.gcd(a, c));
+        Assertions.assertEquals(1, ArithmeticUtils.gcd(-a, c));
+        Assertions.assertEquals(1, ArithmeticUtils.gcd(a, -c));
+        Assertions.assertEquals(1, ArithmeticUtils.gcd(-a, -c));
+
+        Assertions.assertEquals(3 * (1 << 15), ArithmeticUtils.gcd(3 * (1 << 20), 9 * (1 << 15)));
+
+        Assertions.assertEquals(Integer.MAX_VALUE, ArithmeticUtils.gcd(Integer.MAX_VALUE, 0));
+        Assertions.assertEquals(Integer.MAX_VALUE, ArithmeticUtils.gcd(-Integer.MAX_VALUE, 0));
+        Assertions.assertEquals(1 << 30, ArithmeticUtils.gcd(1 << 30, -Integer.MIN_VALUE));
+        try {
+            // gcd(Integer.MIN_VALUE, 0) > Integer.MAX_VALUE
+            ArithmeticUtils.gcd(Integer.MIN_VALUE, 0);
+            Assertions.fail(""expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+        try {
+            // gcd(0, Integer.MIN_VALUE) > Integer.MAX_VALUE
+            ArithmeticUtils.gcd(0, Integer.MIN_VALUE);
+            Assertions.fail(""expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+        try {
+            // gcd(Integer.MIN_VALUE, Integer.MIN_VALUE) > Integer.MAX_VALUE
+            ArithmeticUtils.gcd(Integer.MIN_VALUE, Integer.MIN_VALUE);
+            Assertions.fail(""expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+    }",ArithmeticUtilsTest::testGcd_oe
+commons-numbers_570,"@Test
+    void  testGcdLong_oe() {
+        long a = 30;
+        long b = 50;
+        long c = 77;
+
+        Assertions.assertEquals(0, ArithmeticUtils.gcd(0L, 0));
+
+        Assertions.assertEquals(b, ArithmeticUtils.gcd(0, b));
+        Assertions.assertEquals(a, ArithmeticUtils.gcd(a, 0));
+        Assertions.assertEquals(b, ArithmeticUtils.gcd(0, -b));
+        Assertions.assertEquals(a, ArithmeticUtils.gcd(-a, 0));
+
+        Assertions.assertEquals(10, ArithmeticUtils.gcd(a, b));
+        Assertions.assertEquals(10, ArithmeticUtils.gcd(-a, b));
+        Assertions.assertEquals(10, ArithmeticUtils.gcd(a, -b));
+        Assertions.assertEquals(10, ArithmeticUtils.gcd(-a, -b));
+
+        Assertions.assertEquals(1, ArithmeticUtils.gcd(a, c));
+        Assertions.assertEquals(1, ArithmeticUtils.gcd(-a, c));
+        Assertions.assertEquals(1, ArithmeticUtils.gcd(a, -c));
+        Assertions.assertEquals(1, ArithmeticUtils.gcd(-a, -c));
+
+        Assertions.assertEquals(3L * (1L << 45), ArithmeticUtils.gcd(3L * (1L << 50), 9L * (1L << 45)));
+
+        Assertions.assertEquals(1L << 45, ArithmeticUtils.gcd(1L << 45, Long.MIN_VALUE));
+
+        Assertions.assertEquals(Long.MAX_VALUE, ArithmeticUtils.gcd(Long.MAX_VALUE, 0L));
+        Assertions.assertEquals(Long.MAX_VALUE, ArithmeticUtils.gcd(-Long.MAX_VALUE, 0L));
+        Assertions.assertEquals(1, ArithmeticUtils.gcd(60247241209L, 153092023L));
+        try {
+            // gcd(Long.MIN_VALUE, 0) > Long.MAX_VALUE
+            ArithmeticUtils.gcd(Long.MIN_VALUE, 0);
+            Assertions.fail(""expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+        try {
+            // gcd(0, Long.MIN_VALUE) > Long.MAX_VALUE
+            ArithmeticUtils.gcd(0, Long.MIN_VALUE);
+            Assertions.fail(""expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+        try {
+            // gcd(Long.MIN_VALUE, Long.MIN_VALUE) > Long.MAX_VALUE
+            ArithmeticUtils.gcd(Long.MIN_VALUE, Long.MIN_VALUE);
+            Assertions.fail(""expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+    }",ArithmeticUtilsTest::testGcdLong_oe
+commons-numbers_571,"@Test
+    void testLcm_oe() {
+        int a = 30;
+        int b = 50;
+        int c = 77;
+
+        Assertions.assertEquals(0, ArithmeticUtils.lcm(0, b));
+        Assertions.assertEquals(0, ArithmeticUtils.lcm(a, 0));
+        Assertions.assertEquals(b, ArithmeticUtils.lcm(1, b));
+        Assertions.assertEquals(a, ArithmeticUtils.lcm(a, 1));
+        Assertions.assertEquals(150, ArithmeticUtils.lcm(a, b));
+        Assertions.assertEquals(150, ArithmeticUtils.lcm(-a, b));
+        Assertions.assertEquals(150, ArithmeticUtils.lcm(a, -b));
+        Assertions.assertEquals(150, ArithmeticUtils.lcm(-a, -b));
+        Assertions.assertEquals(2310, ArithmeticUtils.lcm(a, c));
+
+        // Assert that no intermediate value overflows:
+        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
+        Assertions.assertEquals((1 << 20) * 15, ArithmeticUtils.lcm((1 << 20) * 3, (1 << 20) * 5));
+
+        // Special case
+        Assertions.assertEquals(0, ArithmeticUtils.lcm(0, 0));
+
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Integer.MIN_VALUE, 1);
+            Assertions.fail(""Expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Integer.MIN_VALUE, 1 << 20);
+            Assertions.fail(""Expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+
+        try {
+            ArithmeticUtils.lcm(Integer.MAX_VALUE, Integer.MAX_VALUE - 1);
+            Assertions.fail(""Expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+    }",ArithmeticUtilsTest::testLcm_oe
+commons-numbers_572,"@Test
+    void testLcmLong_oe() {
+        long a = 30;
+        long b = 50;
+        long c = 77;
+
+        Assertions.assertEquals(0, ArithmeticUtils.lcm(0, b));
+        Assertions.assertEquals(0, ArithmeticUtils.lcm(a, 0));
+        Assertions.assertEquals(b, ArithmeticUtils.lcm(1, b));
+        Assertions.assertEquals(a, ArithmeticUtils.lcm(a, 1));
+        Assertions.assertEquals(150, ArithmeticUtils.lcm(a, b));
+        Assertions.assertEquals(150, ArithmeticUtils.lcm(-a, b));
+        Assertions.assertEquals(150, ArithmeticUtils.lcm(a, -b));
+        Assertions.assertEquals(150, ArithmeticUtils.lcm(-a, -b));
+        Assertions.assertEquals(2310, ArithmeticUtils.lcm(a, c));
+
+        Assertions.assertEquals(Long.MAX_VALUE, ArithmeticUtils.lcm(60247241209L, 153092023L));
+
+        // Assert that no intermediate value overflows:
+        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
+        Assertions.assertEquals((1L << 50) * 15, ArithmeticUtils.lcm((1L << 45) * 3, (1L << 50) * 5));
+
+        // Special case
+        Assertions.assertEquals(0L, ArithmeticUtils.lcm(0L, 0L));
+
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Long.MIN_VALUE, 1);
+            Assertions.fail(""Expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Long.MIN_VALUE, 1 << 20);
+            Assertions.fail(""Expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+
+        Assertions.assertEquals((long)Integer.MAX_VALUE *(Integer.MAX_VALUE - 1),ArithmeticUtils.lcm((long)Integer.MAX_VALUE,Integer.MAX_VALUE - 1));
+        try {
+            ArithmeticUtils.lcm(Long.MAX_VALUE, Long.MAX_VALUE - 1);
+            Assertions.fail(""Expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+    }",ArithmeticUtilsTest::testLcmLong_oe
+commons-numbers_573,"@Test
+    void testPow_oe() {
+
+        Assertions.assertEquals(1801088541, ArithmeticUtils.pow(21, 7));
+        Assertions.assertEquals(1, ArithmeticUtils.pow(21, 0));
+        try {
+            ArithmeticUtils.pow(21, -7);
+            Assertions.fail(""Expecting IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+
+        Assertions.assertEquals(1801088541, ArithmeticUtils.pow(21, 7));
+        Assertions.assertEquals(1, ArithmeticUtils.pow(21, 0));
+        try {
+            ArithmeticUtils.pow(21, -7);
+            Assertions.fail(""Expecting IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+
+        Assertions.assertEquals(1801088541L, ArithmeticUtils.pow(21L, 7));
+        Assertions.assertEquals(1L, ArithmeticUtils.pow(21L, 0));
+        try {
+            ArithmeticUtils.pow(21L, -7);
+            Assertions.fail(""Expecting IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+
+        BigInteger twentyOne = BigInteger.valueOf(21L);
+        Assertions.assertEquals(BigInteger.valueOf(1801088541L), ArithmeticUtils.pow(twentyOne, 7));
+        Assertions.assertEquals(BigInteger.ONE, ArithmeticUtils.pow(twentyOne, 0));
+        try {
+            ArithmeticUtils.pow(twentyOne, -7);
+            Assertions.fail(""Expecting IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+
+        Assertions.assertEquals(BigInteger.valueOf(1801088541L), ArithmeticUtils.pow(twentyOne, 7L));
+        Assertions.assertEquals(BigInteger.ONE, ArithmeticUtils.pow(twentyOne, 0L));
+        try {
+            ArithmeticUtils.pow(twentyOne, -7L);
+            Assertions.fail(""Expecting IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+
+        Assertions.assertEquals(BigInteger.valueOf(1801088541L), ArithmeticUtils.pow(twentyOne, BigInteger.valueOf(7L)));
+        Assertions.assertEquals(BigInteger.ONE, ArithmeticUtils.pow(twentyOne, BigInteger.ZERO));
+        Assertions.assertThrows(IllegalArgumentException.class, () ->
+            ArithmeticUtils.pow(twentyOne, BigInteger.valueOf(-7L)));
+
+        BigInteger bigOne =
+            new BigInteger(""1543786922199448028351389769265814882661837148"" +
+                           ""4763915343722775611762713982220306372888519211"" +
+                           ""560905579993523402015636025177602059044911261"");
+        Assertions.assertEquals(bigOne, ArithmeticUtils.pow(twentyOne, 103));
+        Assertions.assertEquals(bigOne, ArithmeticUtils.pow(twentyOne, 103L));
+        Assertions.assertEquals(bigOne, ArithmeticUtils.pow(twentyOne, BigInteger.valueOf(103L)));
+
+    }",ArithmeticUtilsTest::testPow_oe
+commons-numbers_591,"@Test
+    void testRemainderUnsignedLongSpecialCases_oe() {
+        long[] longs = getLongSpecialCases();
+        for (long dividend : longs) {
+            for (long divisor : longs) {
+                if (divisor == 0L) {
+                    try {
+                        ArithmeticUtils.remainderUnsigned(dividend, divisor);
+                        Assertions.fail(""Should have failed with ArithmeticException: division by zero"");
+                    } catch (ArithmeticException e) {
+                        // Success.
+                    }
+                } else {
+                    Assertions.assertEquals(remainderUnsignedExpected(dividend, divisor), ArithmeticUtils.remainderUnsigned(dividend, divisor));
+                }
+            }
+        }
+    }",ArithmeticUtilsTest::testRemainderUnsignedLongSpecialCases_oe

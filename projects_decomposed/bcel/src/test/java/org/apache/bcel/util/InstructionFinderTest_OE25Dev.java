@@ -52,6 +52,7 @@ public class InstructionFinderTest_OE25Dev extends AbstractTestCase {
 
         final Iterator<?> it = finder.search("ILOAD IADD", il.getInstructionHandles()[0], null );
         final InstructionHandle[] ihs = (InstructionHandle[])it.next();
+        // removed other assertion
         assertEquals(ihs[0].getInstruction(), new ILOAD(2));
     }
 
@@ -65,6 +66,8 @@ public class InstructionFinderTest_OE25Dev extends AbstractTestCase {
 
         final Iterator<?> it = finder.search("ILOAD IADD", il.getInstructionHandles()[0], null );
         final InstructionHandle[] ihs = (InstructionHandle[])it.next();
+        // removed other assertion
+        // removed other assertion
         assertEquals(ihs[1].getInstruction(), new IADD());
     }
 

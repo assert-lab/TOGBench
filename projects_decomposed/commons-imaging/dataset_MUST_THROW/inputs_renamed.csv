@@ -1,0 +1,183 @@
+id,test_prefix,test_name
+commons-imaging_75_101,"@Test
+    public void testGetColorBufferedImageThrowsIllegalArgumentException_oe_101_oe() {
+        try {
+            rgbBufferedImageFactory.getColorBufferedImage(0, 0, true);
+            fail(""Expecting exception: IllegalArgumentException"");
+        } catch(final IllegalArgumentException e) {
+        }
+    }
+",RgbBufferedImageFactoryTest::testGetColorBufferedImageThrowsIllegalArgumentException_oe_101_oe
+commons-imaging_90_101,"@Test
+    public void testReadWithNonNull_oe_101_oe() {
+        try {
+            rleReader.read(byteArrayInputStream, byteArray);
+            fail(""Expecting exception: Exception"");
+        } catch(final Exception e) {
+        }
+    }
+",RleReaderTest::testReadWithNonNull_oe_101_oe
+commons-imaging_96_101,"@Test
+  public void testGetRGBThrowsIOException_oe_101_oe() throws IOException {
+      try {
+        pbmFileInfo.getRGB(inputStream);
+        fail(""Expecting exception: IOException"");
+      } catch(final IOException e) {
+      }
+    }
+",PbmFileInfoTest::testGetRGBThrowsIOException_oe_101_oe
+commons-imaging_215_101,"@Test
+    public void testCreatesNegSizeSegment_oe_101_oe() throws IOException {
+        try {
+            final InputStream inputStream = new ByteArrayInputStream(bytes);
+            final ByteSource bs = new ByteSourceInputStream(inputStream, ""NegSizeSegment"");
+            final JpegImageParser p = new JpegImageParser();
+            p.getBufferedImage(bs, new JpegImagingParameters());
+            fail(""Expecting exception: ImageReadException"");
+        } catch (final ImageReadException e) {
+        }
+    }
+",NegSizeSegmentTest::testCreatesNegSizeSegment_oe_101_oe
+commons-imaging_221_101,"@Test
+  public void testCreatesJfifSegment_oe_101_oe() throws IOException {
+      try {
+        new JfifSegment((-2275), byteArray);
+        fail(""Expecting exception: Exception"");
+      } catch(final ImageReadException e) {
+      }
+    }
+",JfifSegmentTest::testCreatesJfifSegment_oe_101_oe
+commons-imaging_245_101,"@Test
+    public void testCreatesJpegXmpParserAndCallsParseXmpJpegSegment_oe_101_oe() {
+        try {
+            jpegXmpParser.parseXmpJpegSegment(byteArray);
+            fail(""Expecting exception: Exception"");
+        } catch(final Exception e) {
+        }
+    }
+",JpegXmpParserTest::testCreatesJpegXmpParserAndCallsParseXmpJpegSegment_oe_101_oe
+commons-imaging_260_101,"@Test
+    public void testWriteDataWithNonNull_oe_101_oe() {
+        try {
+            fieldTypeLong.writeData(byteOrder, byteOrder);
+            fail(""Expecting exception: Exception"");
+        } catch (final Exception e) {
+        }
+    }
+",FieldTypeLongTest::testWriteDataWithNonNull_oe_101_oe
+commons-imaging_263_101,"@Test
+    public void testCreatesFieldTypeShortAndCallsWriteData_oe_101_oe() {
+        try {
+            fieldTypeShort.writeData("""", byteOrder);
+            fail(""Expecting exception: Exception"");
+        } catch (final Exception e) {
+        }
+    }
+",FieldTypeShortTest::testCreatesFieldTypeShortAndCallsWriteData_oe_101_oe
+commons-imaging_283_101,"@Test
+    public void testConstructors_oe_101_oe() {
+        try {
+            ptest = new PhotometricInterpreterFloat(null);
+            fail(""Constructor failed to detect null arguments"");
+        } catch (final IllegalArgumentException iex) {
+
+        }
+    }
+",PhotometricInterpreterFloatTest::testConstructors_oe_101_oe
+commons-imaging_283_102,"@Test
+    public void testConstructors_oe_102_oe() {
+        try {
+            ptest = new PhotometricInterpreterFloat(0.1f, 0.1f);
+            fail(""Constructor failed to detect bad-range argument values"");
+        } catch (final IllegalArgumentException iex) {
+
+        }
+    }
+",PhotometricInterpreterFloatTest::testConstructors_oe_102_oe
+commons-imaging_291_101,"@Test
+    public void testFaultyConstructors_oe_101_oe() {
+        try {
+            pTest = new PaletteEntryForRange(0.0f, 0.0f, c0, c1);
+            fail(""Constructor failed to detect invalid range"");
+        } catch (final IllegalArgumentException iex) {
+            // successful test
+        }
+    }
+",PaletteEntryForRangeTest::testFaultyConstructors_oe_101_oe
+commons-imaging_291_102,"@Test
+    public void testFaultyConstructors_oe_102_oe() {
+        try {
+            pTest = new PaletteEntryForRange(0.0f, 1.0f, null, c1);
+            fail(""Constructor failed to detect null color"");
+        } catch (final IllegalArgumentException iex) {
+            // successful test
+        }
+    }
+",PaletteEntryForRangeTest::testFaultyConstructors_oe_102_oe
+commons-imaging_291_103,"@Test
+    public void testFaultyConstructors_oe_103_oe() {
+        try {
+            pTest = new PaletteEntryForRange(0.0f, 1.0f, c0, null);
+            fail(""Constructor failed to detect invalid color"");
+        } catch (final IllegalArgumentException iex) {
+            // successful test
+        }
+    }
+",PaletteEntryForRangeTest::testFaultyConstructors_oe_103_oe
+commons-imaging_291_104,"@Test
+    public void testFaultyConstructors_oe_104_oe() {
+        try {
+            pTest = new PaletteEntryForRange(0.0f, 0.0f, c0);
+            fail(""Constructor failed to detect invalid range"");
+        } catch (final IllegalArgumentException iex) {
+            // successful test
+        }
+    }
+",PaletteEntryForRangeTest::testFaultyConstructors_oe_104_oe
+commons-imaging_291_105,"@Test
+    public void testFaultyConstructors_oe_105_oe() {
+        try {
+            pTest = new PaletteEntryForRange(0.0f, 1.0f, null);
+            fail(""Constructor failed to detect null color"");
+        } catch (final IllegalArgumentException iex) {
+            // successful test
+        }
+    }
+",PaletteEntryForRangeTest::testFaultyConstructors_oe_105_oe
+commons-imaging_295_101,"@Test
+    public void testFaultyConstructors_oe_101_oe() {
+        try {
+            pTest = new PaletteEntryForValue(0.0f, null);
+            fail(""Constructor failed to detect null color"");
+        } catch (final IllegalArgumentException iex) {
+            // successful test
+        }
+    }
+",PaletteEntryForValueTest::testFaultyConstructors_oe_101_oe
+commons-imaging_305_101,"@Test
+    public void testCreatesPngChunkText_oe_101_oe() {
+        try {
+            new PngChunkText(1214, 1214, 0, byteArray);
+            fail(""Expecting exception: Exception"");
+        } catch(final Throwable e) {
+        }
+    }
+",PngChunkTextTest::testCreatesPngChunkText_oe_101_oe
+commons-imaging_306_101,"@Test
+    public void testFilterWithNegativeAndNegative_oe_101_oe() {
+        try {
+            transparencyFilterIndexedColor.filter((-416), (-398));
+            fail(""Expecting exception: Exception"");
+        } catch(final Exception e) {
+        }
+    }
+",TransparencyFilterIndexedColorTest::testFilterWithNegativeAndNegative_oe_101_oe
+commons-imaging_313_101,"@Test
+  public void testFailsToCreateDataParserIndexedThrowsArrayIndexOutOfBoundsException_oe_101_oe() {
+      try {
+        new DataParserIndexed(byteArray);
+        fail(""Expecting exception: ArrayIndexOutOfBoundsException"");
+      } catch(final ArrayIndexOutOfBoundsException e) {
+      }
+    }
+",DataParserIndexedTest::testFailsToCreateDataParserIndexedThrowsArrayIndexOutOfBoundsException_oe_101_oe

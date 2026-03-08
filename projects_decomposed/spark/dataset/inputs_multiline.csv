@@ -1,0 +1,273 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+spark_74_1,"    @Test
+    public void testEmbeddedServerIdentifier_defaultAndSet_1_oe() {
+        Object a = EmbeddedServers.defaultIdentifier();
+        assertEquals(""Should return defaultIdentifier()"", a, service.embeddedServerIdentifier());
+    }",ServiceTest::testEmbeddedServerIdentifier_defaultAndSet_1_oe,spark.Service,void embeddedServerIdentifier(Object obj),"/**
+     * Set the identifier used to select the EmbeddedServer;
+     * null for the default.
+     *
+     * @param obj the identifier passed to {@link EmbeddedServers}.
+     */","public synchronized void embeddedServerIdentifier(Object obj) {
+        if (initialized) {
+            throwBeforeRouteMappingException();
+        }
+        embeddedServerIdentifier = obj;
+    }"
+spark_105_1,"    @Test
+    public void testInitExceptionHandler_1_oe() throws Exception {
+        Object a = errorMessage;
+        Assert.assertEquals(""Custom init error"", a);
+    }",InitExceptionHandlerTest::testInitExceptionHandler_1_oe,,,,
+spark_142_1,"    @Test
+    public void testIsEmpty_whenArrayIsEmpty_1_oe() throws Exception {
+
+        boolean a = ObjectUtils.isEmpty(new Object[]{});
+        assertTrue(""Should return false because array is empty"", a);
+    }",ObjectUtilsTest::testIsEmpty_whenArrayIsEmpty_1_oe,spark.utils.ObjectUtils,isEmpty(Object[] array),"/**
+     * Determine whether the given array is empty:
+     * i.e. {@code null} or of zero length.
+     *
+     * @param array the array to check
+     * @return if empty
+     */","public static boolean isEmpty(Object[] array) {
+        return (array == null || array.length == 0);
+    }"
+spark_143_1,"    @Test
+    public void testIsEmpty_whenArrayIsNotEmpty_1_oe() throws Exception {
+
+        boolean a = ObjectUtils.isEmpty(new Integer[]{1,2});
+        assertFalse(""Should return false because array is not empty"", a);
+    }",ObjectUtilsTest::testIsEmpty_whenArrayIsNotEmpty_1_oe,spark.utils.ObjectUtils,isEmpty(Object[] array),"/**
+     * Determine whether the given array is empty:
+     * i.e. {@code null} or of zero length.
+     *
+     * @param array the array to check
+     * @return if empty
+     */","public static boolean isEmpty(Object[] array) {
+        return (array == null || array.length == 0);
+    }"
+spark_145_1,"    @Test
+    public void testIsParam_whenParameterFormattedAsParm_1_oe() throws Exception {
+
+        boolean a = SparkUtils.isParam("":param"");
+        assertTrue(""Should return true because parameter follows convention of a parameter(:paramname)"", a);
+    }",SparkUtilsTest::testIsParam_whenParameterFormattedAsParm_1_oe,spark.utils.SparkUtils,isParam(String routePart),,"public static boolean isParam(String routePart) {
+        return routePart.startsWith("":"");
+    }"
+spark_146_1,"    @Test
+    public void testIsParam_whenParameterNotFormattedAsParm_1_oe() throws Exception {
+
+        boolean a = SparkUtils.isParam("".param"");
+        assertFalse(""Should return false because parameter does not follows convention of a parameter(:paramname)"", a);
+    }",SparkUtilsTest::testIsParam_whenParameterNotFormattedAsParm_1_oe,spark.utils.SparkUtils,isParam(String routePart),,"public static boolean isParam(String routePart) {
+        return routePart.startsWith("":"");
+    }"
+spark_147_1,"    @Test
+    public void testIsSplat_whenParameterIsASplat_1_oe() throws Exception {
+
+        boolean a = SparkUtils.isSplat(""*"");
+        assertTrue(""Should return true because parameter is a splat (*)"", a);
+    }",SparkUtilsTest::testIsSplat_whenParameterIsASplat_1_oe,spark.utils.SparkUtils,isSplat(String routePart),,"public static boolean isSplat(String routePart) {
+        return routePart.equals(""*"");
+    }"
+spark_148_1,"    @Test
+    public void testIsSplat_whenParameterIsNotASplat_1_oe() throws Exception {
+
+        boolean a = SparkUtils.isSplat(""!"");
+        assertFalse(""Should return true because parameter is not a splat (*)"", a);
+    }",SparkUtilsTest::testIsSplat_whenParameterIsNotASplat_1_oe,spark.utils.SparkUtils,isSplat(String routePart),,"public static boolean isSplat(String routePart) {
+        return routePart.equals(""*"");
+    }"
+spark_left_196_1,"@Test
+    public void testMimeTypes_1_oe() throws Exception {
+        Object a = doGet(""/pages/index.html"").headers.get(""Content-Type"");
+        Assert.assertNull(a);
+    }",DisableMimeGuessingTest::testMimeTypes_1_oe,spark.Spark,"void get(final String path, final Route route)","/**
+     * Map the route for HTTP GET requests
+     *
+     * @param path  the path
+     * @param route The route
+     */","public static void get(final String path, final Route route) {
+        getInstance().get(path, route);
+    }"
+spark_left_196_2,"@Test
+    public void testMimeTypes_2_oe() throws Exception {
+        Object a = doGet(""/js/scripts.js"").headers.get(""Content-Type"");
+        Assert.assertNull(a);
+    }",DisableMimeGuessingTest::testMimeTypes_2_oe,spark.Spark,"void get(final String path, final Route route)","/**
+     * Map the route for HTTP GET requests
+     *
+     * @param path  the path
+     * @param route The route
+     */","public static void get(final String path, final Route route) {
+        getInstance().get(path, route);
+    }"
+spark_left_196_3,"@Test
+    public void testMimeTypes_3_oe() throws Exception {
+        Object a = doGet(""/css/style.css"").headers.get(""Content-Type"");
+        Assert.assertNull(a);
+    }",DisableMimeGuessingTest::testMimeTypes_3_oe,spark.Spark,"void get(final String path, final Route route)","/**
+     * Map the route for HTTP GET requests
+     *
+     * @param path  the path
+     * @param route The route
+     */","public static void get(final String path, final Route route) {
+        getInstance().get(path, route);
+    }"
+spark_left_196_4,"@Test
+    public void testMimeTypes_4_oe() throws Exception {
+        Object a = doGet(""/img/sparklogo.png"").headers.get(""Content-Type"");
+        Assert.assertNull(a);
+    }",DisableMimeGuessingTest::testMimeTypes_4_oe,spark.Spark,"void get(final String path, final Route route)","/**
+     * Map the route for HTTP GET requests
+     *
+     * @param path  the path
+     * @param route The route
+     */","public static void get(final String path, final Route route) {
+        getInstance().get(path, route);
+    }"
+spark_left_196_5,"@Test
+    public void testMimeTypes_5_oe() throws Exception {
+        Object a = doGet(""/img/sparklogo.svg"").headers.get(""Content-Type"");
+        Assert.assertNull(a);
+    }",DisableMimeGuessingTest::testMimeTypes_5_oe,spark.Spark,"void get(final String path, final Route route)","/**
+     * Map the route for HTTP GET requests
+     *
+     * @param path  the path
+     * @param route The route
+     */","public static void get(final String path, final Route route) {
+        getInstance().get(path, route);
+    }"
+spark_left_196_6,"@Test
+    public void testMimeTypes_6_oe() throws Exception {
+        Object a = doGet(""/img/sparklogoPng"").headers.get(""Content-Type"");
+        Assert.assertNull(a);
+    }",DisableMimeGuessingTest::testMimeTypes_6_oe,spark.Spark,"void get(final String path, final Route route)","/**
+     * Map the route for HTTP GET requests
+     *
+     * @param path  the path
+     * @param route The route
+     */","public static void get(final String path, final Route route) {
+        getInstance().get(path, route);
+    }"
+spark_left_196_7,"@Test
+    public void testMimeTypes_7_oe() throws Exception {
+        Object a = doGet(""/img/sparklogoSvg"").headers.get(""Content-Type"");
+        Assert.assertNull(a);
+    }",DisableMimeGuessingTest::testMimeTypes_7_oe,spark.Spark,"void get(final String path, final Route route)","/**
+     * Map the route for HTTP GET requests
+     *
+     * @param path  the path
+     * @param route The route
+     */","public static void get(final String path, final Route route) {
+        getInstance().get(path, route);
+    }"
+spark_left_196_8,"@Test
+    public void testMimeTypes_8_oe() throws Exception {
+        Object a = doGet(""/externalFile.html"").headers.get(""Content-Type"");
+        Assert.assertNull(a);
+    }",DisableMimeGuessingTest::testMimeTypes_8_oe,spark.Spark,"void get(final String path, final Route route)","/**
+     * Map the route for HTTP GET requests
+     *
+     * @param path  the path
+     * @param route The route
+     */","public static void get(final String path, final Route route) {
+        getInstance().get(path, route);
+    }"
+spark_left_201_1,"@Test
+    public void testMimeTypes_1_oe() throws Exception {
+        Object a = doGet(""/pages/index.html"").headers.get(""Content-Type"");
+        Assert.assertEquals(""text/html"", a);
+    }",StaticFilesTest::testMimeTypes_1_oe,spark.Spark,"void get(final String path, final Route route)","/**
+     * Map the route for HTTP GET requests
+     *
+     * @param path  the path
+     * @param route The route
+     */","public static void get(final String path, final Route route) {
+        getInstance().get(path, route);
+    }"
+spark_left_201_2,"@Test
+    public void testMimeTypes_2_oe() throws Exception {
+        Object a = doGet(""/js/scripts.js"").headers.get(""Content-Type"");
+        Assert.assertEquals(""application/javascript"", a);
+    }",StaticFilesTest::testMimeTypes_2_oe,spark.Spark,"void get(final String path, final Route route)","/**
+     * Map the route for HTTP GET requests
+     *
+     * @param path  the path
+     * @param route The route
+     */","public static void get(final String path, final Route route) {
+        getInstance().get(path, route);
+    }"
+spark_left_201_3,"@Test
+    public void testMimeTypes_3_oe() throws Exception {
+        Object a = doGet(""/css/style.css"").headers.get(""Content-Type"");
+        Assert.assertEquals(""text/css"", a);
+    }",StaticFilesTest::testMimeTypes_3_oe,spark.Spark,"void get(final String path, final Route route)","/**
+     * Map the route for HTTP GET requests
+     *
+     * @param path  the path
+     * @param route The route
+     */","public static void get(final String path, final Route route) {
+        getInstance().get(path, route);
+    }"
+spark_left_201_4,"@Test
+    public void testMimeTypes_4_oe() throws Exception {
+        Object a = doGet(""/img/sparklogo.png"").headers.get(""Content-Type"");
+        Assert.assertEquals(""image/png"", a);
+    }",StaticFilesTest::testMimeTypes_4_oe,spark.Spark,"void get(final String path, final Route route)","/**
+     * Map the route for HTTP GET requests
+     *
+     * @param path  the path
+     * @param route The route
+     */","public static void get(final String path, final Route route) {
+        getInstance().get(path, route);
+    }"
+spark_left_201_5,"@Test
+    public void testMimeTypes_5_oe() throws Exception {
+        Object a = doGet(""/img/sparklogo.svg"").headers.get(""Content-Type"");
+        Assert.assertEquals(""image/svg+xml"", a);
+    }",StaticFilesTest::testMimeTypes_5_oe,spark.Spark,"void get(final String path, final Route route)","/**
+     * Map the route for HTTP GET requests
+     *
+     * @param path  the path
+     * @param route The route
+     */","public static void get(final String path, final Route route) {
+        getInstance().get(path, route);
+    }"
+spark_left_201_6,"@Test
+    public void testMimeTypes_6_oe() throws Exception {
+        Object a = doGet(""/img/sparklogoPng"").headers.get(""Content-Type"");
+        Assert.assertEquals(""application/octet-stream"", a);
+    }",StaticFilesTest::testMimeTypes_6_oe,spark.Spark,"void get(final String path, final Route route)","/**
+     * Map the route for HTTP GET requests
+     *
+     * @param path  the path
+     * @param route The route
+     */","public static void get(final String path, final Route route) {
+        getInstance().get(path, route);
+    }"
+spark_left_201_7,"@Test
+    public void testMimeTypes_7_oe() throws Exception {
+        Object a = doGet(""/img/sparklogoSvg"").headers.get(""Content-Type"");
+        Assert.assertEquals(""application/octet-stream"", a);
+    }",StaticFilesTest::testMimeTypes_7_oe,spark.Spark,"void get(final String path, final Route route)","/**
+     * Map the route for HTTP GET requests
+     *
+     * @param path  the path
+     * @param route The route
+     */","public static void get(final String path, final Route route) {
+        getInstance().get(path, route);
+    }"
+spark_left_201_8,"@Test
+    public void testMimeTypes_8_oe() throws Exception {
+        Object a = doGet(""/externalFile.html"").headers.get(""Content-Type"");
+        Assert.assertEquals(""text/html"", a);
+    }",StaticFilesTest::testMimeTypes_8_oe,spark.Spark,"void get(final String path, final Route route)","/**
+     * Map the route for HTTP GET requests
+     *
+     * @param path  the path
+     * @param route The route
+     */","public static void get(final String path, final Route route) {
+        getInstance().get(path, route);
+    }"

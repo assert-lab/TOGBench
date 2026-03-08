@@ -34,6 +34,7 @@ public class FileChangeEventTest_OE25Dev {
     @Test
     public void testFileObject_2_oe() throws FileSystemException {
         try (final FileObject baseFile = VFS.getManager().toFileObject(new File("."))) {
+            // removed other assertion
             final FileChangeEvent fileChangeEvent = new FileChangeEvent(baseFile);
             Assert.assertEquals(fileChangeEvent.getFile(), fileChangeEvent.getFileObject());
     }

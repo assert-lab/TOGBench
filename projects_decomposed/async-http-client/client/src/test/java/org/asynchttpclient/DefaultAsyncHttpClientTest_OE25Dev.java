@@ -56,6 +56,7 @@ public class DefaultAsyncHttpClientTest_OE25Dev {
     try (AsyncHttpClient client1 = asyncHttpClient(config1)) {
       AsyncHttpClientConfig config2 = config().build();
       try (AsyncHttpClient client2 = asyncHttpClient(config2)) {
+        // removed other assertion
         assertEquals(config2.getCookieStore().count(), 1);
   }
   }
@@ -90,6 +91,7 @@ public class DefaultAsyncHttpClientTest_OE25Dev {
       AsyncHttpClientConfig config2 = config()
         .setCookieStore(cookieStore).setNettyTimer(nettyTimerMock2).build();
       try (AsyncHttpClient client2 = asyncHttpClient(config2)) {
+        // removed other assertion
         verify(nettyTimerMock1, times(1)).newTimeout(any(CookieEvictionTask.class), anyLong(), any(TimeUnit.class));
         verify(nettyTimerMock2, never()).newTimeout(any(CookieEvictionTask.class), anyLong(), any(TimeUnit.class));
       }
@@ -124,6 +126,7 @@ public class DefaultAsyncHttpClientTest_OE25Dev {
       .setCookieStore(cookieStore).setNettyTimer(nettyTimerMock1).build();
 
     try (AsyncHttpClient client1 = asyncHttpClient(config1)) {
+      // removed other assertion
       verify(nettyTimerMock1, times(1)).newTimeout(any(CookieEvictionTask.class), anyLong(), any(TimeUnit.class));
     }
 
@@ -138,9 +141,11 @@ public class DefaultAsyncHttpClientTest_OE25Dev {
       .setCookieStore(cookieStore).setNettyTimer(nettyTimerMock1).build();
 
     try (AsyncHttpClient client1 = asyncHttpClient(config1)) {
+      // removed other assertion
       verify(nettyTimerMock1, times(1)).newTimeout(any(CookieEvictionTask.class), anyLong(), any(TimeUnit.class));
     }
 
+    // removed other assertion
 
     Timer nettyTimerMock2 = mock(Timer.class);
     AsyncHttpClientConfig config2 = config()

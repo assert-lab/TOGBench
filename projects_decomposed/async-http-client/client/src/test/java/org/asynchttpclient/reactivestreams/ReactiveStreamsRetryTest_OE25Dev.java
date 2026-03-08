@@ -83,8 +83,10 @@ public class ReactiveStreamsRetryTest_OE25Dev extends AbstractBasicTest {
       final CountDownLatch streamOnHold = new CountDownLatch(1); // allows us to hold the subscriber from processing further body chunks
       final CountDownLatch replayingRequest = new CountDownLatch(1); // allows us to block until the request is being replayed ( this is what we want to test here!)
 
+      // a ref to the publisher is needed to get a hold on the channel (if there is a better way, this should be changed)
       final AtomicReference<StreamedResponsePublisher> publisherRef = new AtomicReference<>(null);
 
+      // executing the request
       client.preparePost(getTargetUrl()).setBody(LARGE_IMAGE_BYTES)
               .execute(new ReplayedSimpleAsyncHandler(replayingRequest, new BlockedStreamSubscriber(streamStarted, streamOnHold)) {
                 @Override
@@ -92,13 +94,16 @@ public class ReactiveStreamsRetryTest_OE25Dev extends AbstractBasicTest {
                   if (!(publisher instanceof StreamedResponsePublisher)) {
                     throw new IllegalStateException(String.format("publisher %s is expected to be an instance of %s", publisher, StreamedResponsePublisher.class));
                   } else if (!publisherRef.compareAndSet(null, (StreamedResponsePublisher) publisher)) {
+                    // abort on retry
                     return State.ABORT;
                   }
                   return super.onStream(publisher);
                 }
               });
 
+      // before proceeding, wait for the subscriber to receive at least one body chunk
       streamStarted.await();
+      // The stream has started, hence `StreamedAsyncHandler.onStream(publisher)` was called, and `publisherRef` was initialized with the `publisher` passed to `onStream`
       assertTrue(publisherRef.get() != null, "Expected a not null publisher.");
   }
   }
@@ -110,8 +115,10 @@ public class ReactiveStreamsRetryTest_OE25Dev extends AbstractBasicTest {
       final CountDownLatch streamOnHold = new CountDownLatch(1); // allows us to hold the subscriber from processing further body chunks
       final CountDownLatch replayingRequest = new CountDownLatch(1); // allows us to block until the request is being replayed ( this is what we want to test here!)
 
+      // a ref to the publisher is needed to get a hold on the channel (if there is a better way, this should be changed)
       final AtomicReference<StreamedResponsePublisher> publisherRef = new AtomicReference<>(null);
 
+      // executing the request
       client.preparePost(getTargetUrl()).setBody(LARGE_IMAGE_BYTES)
               .execute(new ReplayedSimpleAsyncHandler(replayingRequest, new BlockedStreamSubscriber(streamStarted, streamOnHold)) {
                 @Override
@@ -119,14 +126,19 @@ public class ReactiveStreamsRetryTest_OE25Dev extends AbstractBasicTest {
                   if (!(publisher instanceof StreamedResponsePublisher)) {
                     throw new IllegalStateException(String.format("publisher %s is expected to be an instance of %s", publisher, StreamedResponsePublisher.class));
                   } else if (!publisherRef.compareAndSet(null, (StreamedResponsePublisher) publisher)) {
+                    // abort on retry
                     return State.ABORT;
                   }
                   return super.onStream(publisher);
                 }
               });
 
+      // before proceeding, wait for the subscriber to receive at least one body chunk
       streamStarted.await();
+      // The stream has started, hence `StreamedAsyncHandler.onStream(publisher)` was called, and `publisherRef` was initialized with the `publisher` passed to `onStream`
+      // removed other assertion
 
+      // close the channel to emulate a connection crash while the response body chunks were being received.
       StreamedResponsePublisher publisher = publisherRef.get();
       final CountDownLatch channelClosed = new CountDownLatch(1);
 
@@ -134,8 +146,10 @@ public class ReactiveStreamsRetryTest_OE25Dev extends AbstractBasicTest {
       streamOnHold.countDown(); // the subscriber is set free to process new incoming body chunks.
       channelClosed.await(); // the channel is confirmed to be closed
 
+      // now we expect a new connection to be created and AHC retry logic to kick-in automatically
       replayingRequest.await(); // wait until we are notified the request is being replayed
 
+      // Change this if there is a better way of stating the test succeeded
       assertTrue(true);
   }
   }

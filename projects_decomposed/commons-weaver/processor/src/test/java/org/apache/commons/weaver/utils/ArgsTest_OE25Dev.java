@@ -36,46 +36,91 @@ public class ArgsTest_OE25Dev {
 
     @Test
     public void testCompare_2_oe() {
+        // removed other assertion
         assertTrue(Args.compare(ArrayUtils.EMPTY_CLASS_ARRAY, new Class[] { String.class }) < 0);
     }
 
     @Test
     public void testCompare_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertTrue(Args.compare(new Class[] { String.class }, ArrayUtils.EMPTY_CLASS_ARRAY) > 0);
     }
 
     @Test
     public void testCompare_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(Args.compare(new Class[] { String.class }, new Class[] { String.class }) == 0);
     }
 
     @Test
     public void testCompare_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(Args.compare(new Class[] { int.class }, new Class[] { String.class }) < 0);
     }
 
     @Test
     public void testCompare_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(Args.compare(new Class[] { String.class }, new Class[] { int.class }) > 0);
     }
 
     @Test
     public void testCompare_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(Args.compare(new Class[] { int.class, String.class }, new Class[] { int.class, String.class}) == 0);
     }
 
     @Test
     public void testCompare_8_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(Args.compare(new Class[] { String.class, String.class }, new Class[] { String.class, String.class}) == 0);
     }
 
     @Test
     public void testCompare_9_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(Args.compare(new Class[] { String.class, int.class }, new Class[] { String.class, String.class}) < 0);
     }
 
     @Test
     public void testCompare_10_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(Args.compare(new Class[] { String.class, String.class }, new Class[] { String.class, int.class}) > 0);
     }
 

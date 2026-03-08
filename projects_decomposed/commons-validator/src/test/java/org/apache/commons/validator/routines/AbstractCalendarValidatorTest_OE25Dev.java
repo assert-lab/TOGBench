@@ -197,6 +197,7 @@ public abstract class AbstractCalendarValidatorTest_OE25Dev extends TestCase {
         for (int i = 0; i < patternValid.length; i++) {
             String text = i + " value=[" +patternValid[i]+"] failed ";
             Object date = validator.parse(patternValid[i], "yy-MM-dd", null, null);
+            // removed other assertion
             assertTrue("isValid() " + text,  validator.isValid(patternValid[i], "yy-MM-dd"));
     }
     }
@@ -205,6 +206,8 @@ public abstract class AbstractCalendarValidatorTest_OE25Dev extends TestCase {
         for (int i = 0; i < patternValid.length; i++) {
             String text = i + " value=[" +patternValid[i]+"] failed ";
             Object date = validator.parse(patternValid[i], "yy-MM-dd", null, null);
+            // removed other assertion
+            // removed other assertion
             if (date instanceof Calendar) {
                 date = ((Calendar)date).getTime();
             }
@@ -224,6 +227,7 @@ public abstract class AbstractCalendarValidatorTest_OE25Dev extends TestCase {
         for (int i = 0; i < patternInvalid.length; i++) {
             String text = i + " value=[" +patternInvalid[i]+"] passed ";
             Object date = validator.parse(patternInvalid[i], "yy-MM-dd", null, null);
+            // removed other assertion
             assertFalse("isValid() " + text,  validator.isValid(patternInvalid[i], "yy-MM-dd"));
     }
     }
@@ -240,6 +244,7 @@ public abstract class AbstractCalendarValidatorTest_OE25Dev extends TestCase {
         for (int i = 0; i < localeValid.length; i++) {
             String text = i + " value=[" +localeValid[i]+"] failed ";
             Object date = validator.parse(localeValid[i], null, Locale.US, null);
+            // removed other assertion
             assertTrue("isValid() " + text,  validator.isValid(localeValid[i], Locale.US));
     }
     }
@@ -248,6 +253,8 @@ public abstract class AbstractCalendarValidatorTest_OE25Dev extends TestCase {
         for (int i = 0; i < localeValid.length; i++) {
             String text = i + " value=[" +localeValid[i]+"] failed ";
             Object date = validator.parse(localeValid[i], null, Locale.US, null);
+            // removed other assertion
+            // removed other assertion
             if (date instanceof Calendar) {
                 date = ((Calendar)date).getTime();
             }
@@ -267,29 +274,37 @@ public abstract class AbstractCalendarValidatorTest_OE25Dev extends TestCase {
         for (int i = 0; i < localeInvalid.length; i++) {
             String text = i + " value=[" +localeInvalid[i]+"] passed ";
             Object date = validator.parse(localeInvalid[i], null, Locale.US, null);
+            // removed other assertion
             assertFalse("isValid() " + text,  validator.isValid(localeInvalid[i], Locale.US));
     }
     }
 
     public void testFormat_1_oe() {
 
+        // Create a Date or Calendar
         Object test = validator.parse("2005-11-28", "yyyy-MM-dd", null, null);
         assertNotNull("Test Date ", test);
     }
 
     public void testFormat_2_oe() {
 
+        // Create a Date or Calendar
         Object test = validator.parse("2005-11-28", "yyyy-MM-dd", null, null);
+        // removed other assertion
         assertEquals("Format pattern", "28.11.05", validator.format(test, "dd.MM.yy"));
     }
 
     public void testFormat_3_oe() {
 
+        // Create a Date or Calendar
         Object test = validator.parse("2005-11-28", "yyyy-MM-dd", null, null);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Format locale",  "11/28/05", validator.format(test, Locale.US));
     }
 
     public void testSerialization_1_oe() {
+        // Serialize the check digit routine
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
             ObjectOutputStream oos = new ObjectOutputStream(baos);
@@ -302,6 +317,7 @@ public abstract class AbstractCalendarValidatorTest_OE25Dev extends TestCase {
     }
 
     public void testSerialization_2_oe() {
+        // Serialize the check digit routine
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
             ObjectOutputStream oos = new ObjectOutputStream(baos);
@@ -309,8 +325,10 @@ public abstract class AbstractCalendarValidatorTest_OE25Dev extends TestCase {
             oos.flush();
             oos.close();
         } catch (Exception e) {
+            // removed other assertion
         }
 
+        // Deserialize the test object
         Object result = null;
         try {
             ByteArrayInputStream bais =
@@ -324,6 +342,7 @@ public abstract class AbstractCalendarValidatorTest_OE25Dev extends TestCase {
     }
 
     public void testSerialization_3_oe() {
+        // Serialize the check digit routine
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
             ObjectOutputStream oos = new ObjectOutputStream(baos);
@@ -331,8 +350,10 @@ public abstract class AbstractCalendarValidatorTest_OE25Dev extends TestCase {
             oos.flush();
             oos.close();
         } catch (Exception e) {
+            // removed other assertion
         }
 
+        // Deserialize the test object
         Object result = null;
         try {
             ByteArrayInputStream bais =
@@ -341,6 +362,7 @@ public abstract class AbstractCalendarValidatorTest_OE25Dev extends TestCase {
             result = ois.readObject();
             bais.close();
         } catch (Exception e) {
+            // removed other assertion
         }
         assertNotNull(result);
     }

@@ -84,6 +84,7 @@ public class TestJndiBuilderParametersImpl_OE25Dev {
         BeanHelper.setProperty(params, "context", ctx);
         BeanHelper.setProperty(params, "prefix", prefix);
         final Map<String, Object> paramsMap = params.getParameters();
+        // removed other assertion
         assertEquals("Prefix not in map", prefix, paramsMap.get("prefix"));
     }
 

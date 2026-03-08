@@ -809,6 +809,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         builder.getConfiguration();
         final Set<String> names = builder.builderNames();
         final List<String> expected = Arrays.asList("props", "xml");
+        // removed other assertion
         assertTrue("Wrong builder names: " + names, names.containsAll(expected));
     }
 
@@ -819,6 +820,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
 
     @Test
     public void testBuilderNamesBeforeConfigurationAccess_2_oe() {
+        // removed other assertion
         builder.configure(createParameters().setFile(TEST_FILE));
         assertTrue("Got builders (2)", builder.builderNames().isEmpty());
     }
@@ -848,6 +850,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         builder.configure(createParameters().setFile(initFile));
         final CombinedConfiguration cc = builder.getConfiguration();
         Set<String> listNodes = cc.getNodeCombiner().getListNodes();
+        // removed other assertion
         assertTrue("table node not a list node", listNodes.contains("table"));
     }
 
@@ -857,6 +860,8 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         builder.configure(createParameters().setFile(initFile));
         final CombinedConfiguration cc = builder.getConfiguration();
         Set<String> listNodes = cc.getNodeCombiner().getListNodes();
+        // removed other assertion
+        // removed other assertion
         assertTrue("list node not a list node", listNodes.contains("list"));
     }
 
@@ -866,6 +871,9 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         builder.configure(createParameters().setFile(initFile));
         final CombinedConfiguration cc = builder.getConfiguration();
         Set<String> listNodes = cc.getNodeCombiner().getListNodes();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final CombinedConfiguration cca = (CombinedConfiguration) cc.getConfiguration(CombinedConfigurationBuilder.ADDITIONAL_NAME);
         listNodes = cca.getNodeCombiner().getListNodes();
@@ -920,6 +928,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
             .setListDelimiterHandler(listHandler).setConfigurationDecoder(decoder));
         final CombinedConfiguration cc = builder.getConfiguration();
         final CombinedConfiguration cc2 = (CombinedConfiguration) cc.getConfiguration("subcc");
+        // removed other assertion
         assertEquals("Wrong list delimiter handler", listHandler, cc2.getListDelimiterHandler());
     }
 
@@ -932,6 +941,8 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
             .setListDelimiterHandler(listHandler).setConfigurationDecoder(decoder));
         final CombinedConfiguration cc = builder.getConfiguration();
         final CombinedConfiguration cc2 = (CombinedConfiguration) cc.getConfiguration("subcc");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong decoder", decoder, cc2.getConfigurationDecoder());
     }
 
@@ -971,6 +982,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final CombinedConfiguration cc = builder.getConfiguration();
         final CombinedConfiguration cc2 = (CombinedConfiguration) cc.getConfiguration("subcc");
         final Collection<EventListener<? super ConfigurationEvent>> listeners = cc2.getEventListeners(ConfigurationEvent.ANY);
+        // removed other assertion
         assertTrue("Listener 2 not found", listeners.contains(l2));
     }
 
@@ -986,6 +998,8 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final CombinedConfiguration cc = builder.getConfiguration();
         final CombinedConfiguration cc2 = (CombinedConfiguration) cc.getConfiguration("subcc");
         final Collection<EventListener<? super ConfigurationEvent>> listeners = cc2.getEventListeners(ConfigurationEvent.ANY);
+        // removed other assertion
+        // removed other assertion
         final Collection<EventListener<? super Event>> eventListeners = cc2.getEventListeners(Event.ANY);
         assertEquals("Wrong number of event listeners", 1, eventListeners.size());
     }
@@ -1002,7 +1016,10 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final CombinedConfiguration cc = builder.getConfiguration();
         final CombinedConfiguration cc2 = (CombinedConfiguration) cc.getConfiguration("subcc");
         final Collection<EventListener<? super ConfigurationEvent>> listeners = cc2.getEventListeners(ConfigurationEvent.ANY);
+        // removed other assertion
+        // removed other assertion
         final Collection<EventListener<? super Event>> eventListeners = cc2.getEventListeners(Event.ANY);
+        // removed other assertion
         assertTrue("Wrong listener", eventListeners.contains(l1));
     }
 
@@ -1031,6 +1048,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         xmlParams.setFileSystem(fs);
         builder.configureEntityResolver(config, xmlParams);
         final EntityResolverWithPropertiesTestImpl resolver = (EntityResolverWithPropertiesTestImpl) xmlParams.getEntityResolver();
+        // removed other assertion
         assertSame("Base directory not set", baseDir, resolver.getBaseDir());
     }
 
@@ -1065,6 +1083,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         builder.configure(new CombinedBuilderParametersImpl().setDefinitionBuilder(createDefinitionBuilder(createDefinitionConfig(tagName, attrs)))
             .registerProvider(tagName, decl -> new ConstantConfigurationBuilder(dataConf)));
         final CombinedConfiguration cc = builder.getConfiguration();
+        // removed other assertion
         assertEquals("Property not set", Boolean.TRUE, cc.getProperty("tests." + tagName));
     }
 
@@ -1081,6 +1100,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File testFile = ConfigurationAssert.getTestFile("testCCLookup.xml");
         builder.configure(createParameters().setFile(testFile));
         final CombinedConfiguration cc = builder.getConfiguration();
+        // removed other assertion
         final Configuration xmlConf = cc.getConfiguration("xml");
         assertTrue("Lookup not registered in sub config", xmlConf.getInterpolator().getLookups().containsKey("test"));
     }
@@ -1092,6 +1112,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         builder.configure(new CombinedBuilderParametersImpl().setDefinitionBuilderParameters(new XMLBuilderParametersImpl().setFile(testFile))
             .setListDelimiterHandler(listHandler).setThrowExceptionOnMissing(false));
         final CombinedConfiguration cc = builder.getConfiguration();
+        // removed other assertion
         assertTrue("Wrong exception flag", cc.isThrowExceptionOnMissing());
     }
 
@@ -1102,6 +1123,8 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         builder.configure(new CombinedBuilderParametersImpl().setDefinitionBuilderParameters(new XMLBuilderParametersImpl().setFile(testFile))
             .setListDelimiterHandler(listHandler).setThrowExceptionOnMissing(false));
         final CombinedConfiguration cc = builder.getConfiguration();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong list delimiter handler", listHandler, cc.getListDelimiterHandler());
     }
 
@@ -1141,9 +1164,14 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File envFile = ConfigurationAssert.getTestFile("testCCEnvProperties.xml");
         builder.configure(createParameters().setFile(envFile));
         final CombinedConfiguration cc = builder.getConfiguration();
+        // removed other assertion
 
+        // The environment may contain settings with values that
+        // are altered by interpolation. Disable this for direct access
+        // to the String associated with the environment property name.
         cc.setInterpolator(null);
 
+        // Test the environment is available through the configuration
         for (final Map.Entry<String, String> e : System.getenv().entrySet()) {
             assertEquals("Wrong value for property: " + e.getKey(), e.getValue(), cc.getString(e.getKey()));
     }
@@ -1170,6 +1198,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         builder.configure(createParameters().setFile(TEST_FILE));
         builder.getConfiguration();
         final ConfigurationBuilder<? extends Configuration> propBuilder = builder.getNamedBuilder("props");
+        // removed other assertion
         assertTrue("Wrong sub configuration", propBuilder.getConfiguration() instanceof PropertiesConfiguration);
     }
 
@@ -1192,6 +1221,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final CombinedConfiguration config = builder.getConfiguration();
 
         List<String> list = config.getList(String.class, "test/mixed/array");
+        // removed other assertion
         final String[] stringArray = config.getStringArray("test/mixed/array");
         assertTrue("Wrong number of elements in array", stringArray.length > 2);
     }
@@ -1204,7 +1234,9 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final CombinedConfiguration config = builder.getConfiguration();
 
         List<String> list = config.getList(String.class, "test/mixed/array");
+        // removed other assertion
         final String[] stringArray = config.getStringArray("test/mixed/array");
+        // removed other assertion
         final XMLConfiguration xmlConfig = (XMLConfiguration) config.getConfiguration("xml");
         list = xmlConfig.getList(String.class, "split/list1");
         assertEquals("Wrong number of elements in XML list", 3, list.size());
@@ -1245,6 +1277,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         builder.getConfiguration();
         final XMLBuilderParametersImpl params = new XMLBuilderParametersImpl();
         builder.initChildBuilderParameters(params);
+        // removed other assertion
         assertEquals("Validating flag not set", Boolean.FALSE, params.getParameters().get("validating"));
     }
 
@@ -1260,6 +1293,8 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         builder.getConfiguration();
         final XMLBuilderParametersImpl params = new XMLBuilderParametersImpl();
         builder.initChildBuilderParameters(params);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong XML refresh", xmlRefresh, params.getReloadingRefreshDelay());
     }
 
@@ -1275,6 +1310,9 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         builder.getConfiguration();
         final XMLBuilderParametersImpl params = new XMLBuilderParametersImpl();
         builder.initChildBuilderParameters(params);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Basic flag not set", Boolean.TRUE, params.getParameters().get("throwExceptionOnMissing"));
     }
 
@@ -1290,6 +1328,10 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         builder.getConfiguration();
         final XMLBuilderParametersImpl params = new XMLBuilderParametersImpl();
         builder.initChildBuilderParameters(params);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final PropertiesBuilderParametersImpl params2 = new PropertiesBuilderParametersImpl();
         builder.initChildBuilderParameters(params2);
@@ -1309,6 +1351,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File testFile = ConfigurationAssert.getTestFile("testInterpolationBuilder.xml");
         builder.configure(createParameters().setFile(testFile));
         final CombinedConfiguration combConfig = builder.getConfiguration();
+        // removed other assertion
         final XMLConfiguration xmlConfig = (XMLConfiguration) combConfig.getConfiguration("test");
         assertEquals("Wrong value from XML config", "abc-product", xmlConfig.getString("products/product/desc"));
     }
@@ -1318,7 +1361,9 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File testFile = ConfigurationAssert.getTestFile("testInterpolationBuilder.xml");
         builder.configure(createParameters().setFile(testFile));
         final CombinedConfiguration combConfig = builder.getConfiguration();
+        // removed other assertion
         final XMLConfiguration xmlConfig = (XMLConfiguration) combConfig.getConfiguration("test");
+        // removed other assertion
         final HierarchicalConfiguration<ImmutableNode> subConfig = xmlConfig.configurationAt("products/product[@name='abc']", true);
         assertEquals("Wrong value from sub config", "abc-product", subConfig.getString("desc"));
     }
@@ -1344,7 +1389,9 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
         final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+        // removed other assertion
 
+        // Test if union was constructed correctly
         Object prop = compositeConfiguration.getProperty("tables.table.name");
         assertTrue(prop instanceof Collection);
     }
@@ -1354,8 +1401,11 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
         final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+        // removed other assertion
 
+        // Test if union was constructed correctly
         Object prop = compositeConfiguration.getProperty("tables.table.name");
+        // removed other assertion
         assertEquals(3, ((Collection<?>) prop).size());
     }
 
@@ -1364,8 +1414,12 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
         final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+        // removed other assertion
 
+        // Test if union was constructed correctly
         Object prop = compositeConfiguration.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
         assertEquals("users", compositeConfiguration.getProperty("tables.table(0).name"));
     }
 
@@ -1374,8 +1428,13 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
         final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+        // removed other assertion
 
+        // Test if union was constructed correctly
         Object prop = compositeConfiguration.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("documents", compositeConfiguration.getProperty("tables.table(1).name"));
     }
 
@@ -1384,8 +1443,14 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
         final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+        // removed other assertion
 
+        // Test if union was constructed correctly
         Object prop = compositeConfiguration.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("tasks", compositeConfiguration.getProperty("tables.table(2).name"));
     }
 
@@ -1394,8 +1459,15 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
         final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+        // removed other assertion
 
+        // Test if union was constructed correctly
         Object prop = compositeConfiguration.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         prop = compositeConfiguration.getProperty("tables.table.fields.field.name");
         assertTrue(prop instanceof Collection);
@@ -1406,10 +1478,18 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
         final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+        // removed other assertion
 
+        // Test if union was constructed correctly
         Object prop = compositeConfiguration.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         prop = compositeConfiguration.getProperty("tables.table.fields.field.name");
+        // removed other assertion
         assertEquals(17, ((Collection<?>) prop).size());
     }
 
@@ -1418,10 +1498,19 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
         final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+        // removed other assertion
 
+        // Test if union was constructed correctly
         Object prop = compositeConfiguration.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         prop = compositeConfiguration.getProperty("tables.table.fields.field.name");
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("smtp.mydomain.org", compositeConfiguration.getString("mail.host.smtp"));
     }
@@ -1431,11 +1520,21 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
         final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+        // removed other assertion
 
+        // Test if union was constructed correctly
         Object prop = compositeConfiguration.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         prop = compositeConfiguration.getProperty("tables.table.fields.field.name");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("pop3.mydomain.org", compositeConfiguration.getString("mail.host.pop"));
     }
 
@@ -1444,12 +1543,24 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
         final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+        // removed other assertion
 
+        // Test if union was constructed correctly
         Object prop = compositeConfiguration.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         prop = compositeConfiguration.getProperty("tables.table.fields.field.name");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // This was overriden
         assertEquals("masterOfPost", compositeConfiguration.getString("mail.account.user"));
     }
 
@@ -1458,12 +1569,25 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
         final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+        // removed other assertion
 
+        // Test if union was constructed correctly
         Object prop = compositeConfiguration.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         prop = compositeConfiguration.getProperty("tables.table.fields.field.name");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // This was overriden
+        // removed other assertion
         assertEquals("topsecret", compositeConfiguration.getString("mail.account.psswd"));
     }
 
@@ -1472,13 +1596,28 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
         final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+        // removed other assertion
 
+        // Test if union was constructed correctly
         Object prop = compositeConfiguration.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         prop = compositeConfiguration.getProperty("tables.table.fields.field.name");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // This was overriden
+        // removed other assertion
+        // removed other assertion
 
+        // This was overridden, too, but not in additional section
         assertEquals("enhanced factory", compositeConfiguration.getString("test.configuration"));
     }
 
@@ -1495,6 +1634,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File optionalFile = ConfigurationAssert.getTestFile("testDigesterOptionalConfiguration.xml");
         builder.configure(createParameters().setFile(optionalFile));
         final Configuration config = builder.getConfiguration();
+        // removed other assertion
         assertEquals("value", config.getProperty("element"));
     }
 
@@ -1525,6 +1665,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final BasicConfigurationBuilder<? extends BaseHierarchicalConfiguration> defBuilder = createDefinitionBuilder(defConfig);
         builder.configure(new CombinedBuilderParametersImpl().setDefinitionBuilder(defBuilder));
         final CombinedConfiguration cc = builder.getConfiguration();
+        // removed other assertion
         assertTrue("Wrong configuration type", cc.getConfiguration(name) instanceof XMLConfiguration);
     }
 
@@ -1541,6 +1682,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final CombinedConfiguration config = createMultiFileConfig("testCCMultiTenent.xml");
         switchToMultiFile("1001");
         final HierarchicalConfiguration<?> multiConf = (HierarchicalConfiguration<?>) config.getConfiguration("clientConfig");
+        // removed other assertion
         assertEquals("Wrong bg color", "#808080", config.getString("colors.background"));
     }
 
@@ -1549,6 +1691,8 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final CombinedConfiguration config = createMultiFileConfig("testCCMultiTenent.xml");
         switchToMultiFile("1001");
         final HierarchicalConfiguration<?> multiConf = (HierarchicalConfiguration<?>) config.getConfiguration("clientConfig");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong text color", "#000000", multiConf.getString("colors/text"));
     }
 
@@ -1601,6 +1745,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         prepareSubBuilderTest(attrs);
         final CombinedConfiguration cc = builder.getConfiguration();
         final BasicConfigurationBuilder<?> subBuilder2 = (BasicConfigurationBuilder<?>) builder.getNamedBuilder(BUILDER_NAME);
+        // removed other assertion
         subBuilder.reset();
         assertSame("Configuration was reset", cc, builder.getConfiguration());
     }
@@ -1624,6 +1769,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final ConfigurationBuilder<? extends Configuration> subBuilder = builder.getNamedBuilder(BUILDER_NAME);
         defBuilder.reset();
         final CombinedConfiguration cc2 = builder.getConfiguration();
+        // removed other assertion
         final ConfigurationBuilder<? extends Configuration> subBuilder2 = builder.getNamedBuilder(BUILDER_NAME);
         assertNotSame("No new sub builder instance", subBuilder, subBuilder2);
     }
@@ -1660,6 +1806,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         final File systemFile = ConfigurationAssert.getTestFile("testCCSystemProperties.xml");
         builder.configure(createParameters().setFile(systemFile));
         final CombinedConfiguration cc = builder.getConfiguration();
+        // removed other assertion
         assertEquals("Properties not added", "value1", System.getProperty("key1"));
     }
 

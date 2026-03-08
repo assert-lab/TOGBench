@@ -18,6 +18,7 @@ public class PlatformsTest_OE25Dev {
 	public void PlatformTest_2_oe() {
 
 		if (Platforms.IS_WINDOWS) {
+			// removed other assertion
 			assertThat(Platforms.FILE_PATH_SEPARATOR_CHAR).isEqualTo('\\');
 	}
 	}
@@ -26,6 +27,8 @@ public class PlatformsTest_OE25Dev {
 	public void PlatformTest_3_oe() {
 
 		if (Platforms.IS_WINDOWS) {
+			// removed other assertion
+			// removed other assertion
 		} else {
 			assertThat(Platforms.FILE_PATH_SEPARATOR).isEqualTo("/");
 	}
@@ -35,7 +38,10 @@ public class PlatformsTest_OE25Dev {
 	public void PlatformTest_4_oe() {
 
 		if (Platforms.IS_WINDOWS) {
+			// removed other assertion
+			// removed other assertion
 		} else {
+			// removed other assertion
 			assertThat(Platforms.FILE_PATH_SEPARATOR_CHAR).isEqualTo('/');
 	}
 	}
@@ -44,7 +50,11 @@ public class PlatformsTest_OE25Dev {
 	public void PlatformTest_5_oe() {
 
 		if (Platforms.IS_WINDOWS) {
+			// removed other assertion
+			// removed other assertion
 		} else {
+			// removed other assertion
+			// removed other assertion
 		}
 
 		System.out.println("OS_NAME:" + Platforms.OS_NAME);
@@ -66,7 +76,11 @@ public class PlatformsTest_OE25Dev {
 	public void PlatformTest_6_oe() {
 
 		if (Platforms.IS_WINDOWS) {
+			// removed other assertion
+			// removed other assertion
 		} else {
+			// removed other assertion
+			// removed other assertion
 		}
 
 		System.out.println("OS_NAME:" + Platforms.OS_NAME);
@@ -80,6 +94,7 @@ public class PlatformsTest_OE25Dev {
 		System.out.println("WORKING_DIR:" + Platforms.WORKING_DIR);
 
 		if (Platforms.IS_JAVA7) {
+			// removed other assertion
 			assertThat(Platforms.IS_ATLEASET_JAVA7).isTrue();
 	}
 	}
@@ -88,7 +103,11 @@ public class PlatformsTest_OE25Dev {
 	public void PlatformTest_7_oe() {
 
 		if (Platforms.IS_WINDOWS) {
+			// removed other assertion
+			// removed other assertion
 		} else {
+			// removed other assertion
+			// removed other assertion
 		}
 
 		System.out.println("OS_NAME:" + Platforms.OS_NAME);
@@ -102,6 +121,8 @@ public class PlatformsTest_OE25Dev {
 		System.out.println("WORKING_DIR:" + Platforms.WORKING_DIR);
 
 		if (Platforms.IS_JAVA7) {
+			// removed other assertion
+			// removed other assertion
 			assertThat(Platforms.IS_ATLEASET_JAVA8).isFalse();
 	}
 	}
@@ -110,7 +131,11 @@ public class PlatformsTest_OE25Dev {
 	public void PlatformTest_8_oe() {
 
 		if (Platforms.IS_WINDOWS) {
+			// removed other assertion
+			// removed other assertion
 		} else {
+			// removed other assertion
+			// removed other assertion
 		}
 
 		System.out.println("OS_NAME:" + Platforms.OS_NAME);
@@ -124,6 +149,9 @@ public class PlatformsTest_OE25Dev {
 		System.out.println("WORKING_DIR:" + Platforms.WORKING_DIR);
 
 		if (Platforms.IS_JAVA7) {
+			// removed other assertion
+			// removed other assertion
+			// removed other assertion
 		}
 		
 		if (Platforms.IS_JAVA8) {
@@ -135,7 +163,11 @@ public class PlatformsTest_OE25Dev {
 	public void PlatformTest_9_oe() {
 
 		if (Platforms.IS_WINDOWS) {
+			// removed other assertion
+			// removed other assertion
 		} else {
+			// removed other assertion
+			// removed other assertion
 		}
 
 		System.out.println("OS_NAME:" + Platforms.OS_NAME);
@@ -149,9 +181,13 @@ public class PlatformsTest_OE25Dev {
 		System.out.println("WORKING_DIR:" + Platforms.WORKING_DIR);
 
 		if (Platforms.IS_JAVA7) {
+			// removed other assertion
+			// removed other assertion
+			// removed other assertion
 		}
 		
 		if (Platforms.IS_JAVA8) {
+			// removed other assertion
 			assertThat(Platforms.IS_ATLEASET_JAVA7).isTrue();
 	}
 	}
@@ -160,7 +196,11 @@ public class PlatformsTest_OE25Dev {
 	public void PlatformTest_10_oe() {
 
 		if (Platforms.IS_WINDOWS) {
+			// removed other assertion
+			// removed other assertion
 		} else {
+			// removed other assertion
+			// removed other assertion
 		}
 
 		System.out.println("OS_NAME:" + Platforms.OS_NAME);
@@ -174,9 +214,14 @@ public class PlatformsTest_OE25Dev {
 		System.out.println("WORKING_DIR:" + Platforms.WORKING_DIR);
 
 		if (Platforms.IS_JAVA7) {
+			// removed other assertion
+			// removed other assertion
+			// removed other assertion
 		}
 		
 		if (Platforms.IS_JAVA8) {
+			// removed other assertion
+			// removed other assertion
 			assertThat(Platforms.IS_ATLEASET_JAVA8).isTrue();
 	}
 	}
@@ -185,7 +230,11 @@ public class PlatformsTest_OE25Dev {
 	public void PlatformTest_11_oe() {
 
 		if (Platforms.IS_WINDOWS) {
+			// removed other assertion
+			// removed other assertion
 		} else {
+			// removed other assertion
+			// removed other assertion
 		}
 
 		System.out.println("OS_NAME:" + Platforms.OS_NAME);
@@ -199,9 +248,15 @@ public class PlatformsTest_OE25Dev {
 		System.out.println("WORKING_DIR:" + Platforms.WORKING_DIR);
 
 		if (Platforms.IS_JAVA7) {
+			// removed other assertion
+			// removed other assertion
+			// removed other assertion
 		}
 		
 		if (Platforms.IS_JAVA8) {
+			// removed other assertion
+			// removed other assertion
+			// removed other assertion
 		}
 		
 		System.out.println("pid:"+ Platforms.getPid());

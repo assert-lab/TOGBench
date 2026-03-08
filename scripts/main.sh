@@ -2,7 +2,7 @@
 
 find projects_decomposed -type f -name "*_OE25Dev*.java" -delete
 
-# find . -type f -name "*_OE25Dev*.java" -delete
+# find projects_decomposed -type f -name "*inputs_no_empty_blocks.csv" -delete
 
 # find projects_decomposed -type d -name "dataset" -exec rm -rf {} +
 
@@ -30,29 +30,6 @@ find projects_decomposed -type f -name "*_OE25Dev*.java" -delete
 # ./scripts/concat_custom_to_standard.sh
 
 # ========== CUSTOM ASSERTION HANDLING ENDS =============
-
-# python3 - << 'PY' > all_decomposed.txt
-# from pathlib import Path
-
-# root = Path(".")
-# total = 0
-# files = 0
-
-# for p in sorted(root.glob("projects_decomposed/*/dataset/meta.csv")):
-#     n = -1
-#     with p.open("rb") as f:
-#         for n, _ in enumerate(f):
-#             pass
-#     rows = max(n, 0)
-#     print(f"{p.parent.parent.name},{rows}")
-#     total += rows
-#     files += 1
-
-# print("----")
-# print(f"projects_with_csv={files}")
-# print(f"total_rows={total}")
-# PY
-
 
 # python3 scripts/dataset_post_process.py
 
@@ -104,7 +81,9 @@ find projects_decomposed -type f -name "*_OE25Dev*.java" -delete
 ./scripts/project_fixes/spark.sh
 # ./scripts/project_fixes/springside4.sh
 
+
 python3 scripts/dedup_dataset_final.py
+python3 scripts/remove_comments.py
 # first run to keep all logs - error and running
 python3 scripts/3_rebuild_decomposed.py
 

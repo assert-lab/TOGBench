@@ -52,46 +52,61 @@ class LinecastPoint3DTest_OE25Dev {
 
     @Test
     void testProperties_1_oe() {
+        // arrange
         final Vector3D pt = Vector3D.of(1, 1, 1);
         final Vector3D normal = Vector3D.Unit.MINUS_X;
 
         final LinecastPoint3D it = new LinecastPoint3D(pt, normal, X_AXIS);
 
+        // act
         Assertions.assertSame(pt, it.getPoint());
     }
 
     @Test
     void testProperties_2_oe() {
+        // arrange
         final Vector3D pt = Vector3D.of(1, 1, 1);
         final Vector3D normal = Vector3D.Unit.MINUS_X;
 
         final LinecastPoint3D it = new LinecastPoint3D(pt, normal, X_AXIS);
 
+        // act
+        // removed other assertion
         Assertions.assertSame(normal, it.getNormal());
     }
 
     @Test
     void testProperties_3_oe() {
+        // arrange
         final Vector3D pt = Vector3D.of(1, 1, 1);
         final Vector3D normal = Vector3D.Unit.MINUS_X;
 
         final LinecastPoint3D it = new LinecastPoint3D(pt, normal, X_AXIS);
 
+        // act
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(X_AXIS, it.getLine());
     }
 
     @Test
     void testProperties_4_oe() {
+        // arrange
         final Vector3D pt = Vector3D.of(1, 1, 1);
         final Vector3D normal = Vector3D.Unit.MINUS_X;
 
         final LinecastPoint3D it = new LinecastPoint3D(pt, normal, X_AXIS);
 
+        // act
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.0, it.getAbscissa(), TEST_EPS);
     }
 
     @Test
     void testCompareTo_1_oe() {
+        // arrange
         final LinecastPoint3D a = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
 
         final LinecastPoint3D b = new LinecastPoint3D(Vector3D.of(2, 2, 2), Vector3D.Unit.PLUS_X, X_AXIS);
@@ -99,11 +114,13 @@ class LinecastPoint3DTest_OE25Dev {
         final LinecastPoint3D d = new LinecastPoint3D(Vector3D.of(1, 4, 4), Vector3D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1, 4, 4), Vector3D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
         Assertions.assertEquals(-1, LinecastPoint3D.ABSCISSA_ORDER.compare(a, b));
     }
 
     @Test
     void testCompareTo_2_oe() {
+        // arrange
         final LinecastPoint3D a = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
 
         final LinecastPoint3D b = new LinecastPoint3D(Vector3D.of(2, 2, 2), Vector3D.Unit.PLUS_X, X_AXIS);
@@ -111,11 +128,14 @@ class LinecastPoint3DTest_OE25Dev {
         final LinecastPoint3D d = new LinecastPoint3D(Vector3D.of(1, 4, 4), Vector3D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1, 4, 4), Vector3D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(1, LinecastPoint3D.ABSCISSA_ORDER.compare(a, c));
     }
 
     @Test
     void testCompareTo_3_oe() {
+        // arrange
         final LinecastPoint3D a = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
 
         final LinecastPoint3D b = new LinecastPoint3D(Vector3D.of(2, 2, 2), Vector3D.Unit.PLUS_X, X_AXIS);
@@ -123,11 +143,15 @@ class LinecastPoint3DTest_OE25Dev {
         final LinecastPoint3D d = new LinecastPoint3D(Vector3D.of(1, 4, 4), Vector3D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1, 4, 4), Vector3D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, LinecastPoint3D.ABSCISSA_ORDER.compare(a, d));
     }
 
     @Test
     void testCompareTo_4_oe() {
+        // arrange
         final LinecastPoint3D a = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
 
         final LinecastPoint3D b = new LinecastPoint3D(Vector3D.of(2, 2, 2), Vector3D.Unit.PLUS_X, X_AXIS);
@@ -135,143 +159,198 @@ class LinecastPoint3DTest_OE25Dev {
         final LinecastPoint3D d = new LinecastPoint3D(Vector3D.of(1, 4, 4), Vector3D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1, 4, 4), Vector3D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, LinecastPoint3D.ABSCISSA_ORDER.compare(a, e));
     }
 
     @Test
     void testHashCode_1_oe() {
+        // arrange
         final LinecastPoint3D a = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D b = new LinecastPoint3D(Vector3D.of(2, 2, 2), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D c = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint3D d = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
 
+        // act
         final int hash = a.hashCode();
 
+        // assert
         Assertions.assertEquals(hash, a.hashCode());
     }
 
     @Test
     void testHashCode_2_oe() {
+        // arrange
         final LinecastPoint3D a = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D b = new LinecastPoint3D(Vector3D.of(2, 2, 2), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D c = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint3D d = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
 
+        // act
         final int hash = a.hashCode();
 
+        // assert
+        // removed other assertion
 
         Assertions.assertNotEquals(hash, b.hashCode());
     }
 
     @Test
     void testHashCode_3_oe() {
+        // arrange
         final LinecastPoint3D a = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D b = new LinecastPoint3D(Vector3D.of(2, 2, 2), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D c = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint3D d = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
 
+        // act
         final int hash = a.hashCode();
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(hash, c.hashCode());
     }
 
     @Test
     void testHashCode_4_oe() {
+        // arrange
         final LinecastPoint3D a = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D b = new LinecastPoint3D(Vector3D.of(2, 2, 2), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D c = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint3D d = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
 
+        // act
         final int hash = a.hashCode();
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(hash, d.hashCode());
     }
 
     @Test
     void testHashCode_5_oe() {
+        // arrange
         final LinecastPoint3D a = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D b = new LinecastPoint3D(Vector3D.of(2, 2, 2), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D c = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint3D d = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
 
+        // act
         final int hash = a.hashCode();
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(hash, e.hashCode());
     }
 
     @Test
     void testEquals_2_oe() {
+        // arrange
         final LinecastPoint3D a = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D b = new LinecastPoint3D(Vector3D.of(2, 2, 2), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D c = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint3D d = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertNotEquals(a, b);
     }
 
     @Test
     void testEquals_3_oe() {
+        // arrange
         final LinecastPoint3D a = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D b = new LinecastPoint3D(Vector3D.of(2, 2, 2), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D c = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint3D d = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(a, c);
     }
 
     @Test
     void testEquals_4_oe() {
+        // arrange
         final LinecastPoint3D a = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D b = new LinecastPoint3D(Vector3D.of(2, 2, 2), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D c = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint3D d = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(a, d);
     }
 
     @Test
     void testEquals_5_oe() {
+        // arrange
         final LinecastPoint3D a = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D b = new LinecastPoint3D(Vector3D.of(2, 2, 2), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D c = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint3D d = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(a, e);
     }
 
     @Test
     void testEquals_6_oe() {
+        // arrange
         final LinecastPoint3D a = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D b = new LinecastPoint3D(Vector3D.of(2, 2, 2), Vector3D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint3D c = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint3D d = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(e, a);
     }
 
     @Test
     void testEq_1_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, precision);
@@ -287,11 +366,13 @@ class LinecastPoint3DTest_OE25Dev {
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1 + 1e-3, 1 + 1e-3, 1 + 1e-3),
                 Vector3D.Unit.from(1 + 1e-3, 1e-3, 1e-3), otherLine);
 
+        // act/assert
         Assertions.assertTrue(a.eq(a, precision));
     }
 
     @Test
     void testEq_2_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, precision);
@@ -307,12 +388,15 @@ class LinecastPoint3DTest_OE25Dev {
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1 + 1e-3, 1 + 1e-3, 1 + 1e-3),
                 Vector3D.Unit.from(1 + 1e-3, 1e-3, 1e-3), otherLine);
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertFalse(a.eq(b, precision));
     }
 
     @Test
     void testEq_3_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, precision);
@@ -328,12 +412,16 @@ class LinecastPoint3DTest_OE25Dev {
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1 + 1e-3, 1 + 1e-3, 1 + 1e-3),
                 Vector3D.Unit.from(1 + 1e-3, 1e-3, 1e-3), otherLine);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(a.eq(c, precision));
     }
 
     @Test
     void testEq_4_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, precision);
@@ -349,13 +437,18 @@ class LinecastPoint3DTest_OE25Dev {
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1 + 1e-3, 1 + 1e-3, 1 + 1e-3),
                 Vector3D.Unit.from(1 + 1e-3, 1e-3, 1e-3), otherLine);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(a.eq(d, precision));
     }
 
     @Test
     void testEq_5_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, precision);
@@ -371,22 +464,31 @@ class LinecastPoint3DTest_OE25Dev {
         final LinecastPoint3D e = new LinecastPoint3D(Vector3D.of(1 + 1e-3, 1 + 1e-3, 1 + 1e-3),
                 Vector3D.Unit.from(1 + 1e-3, 1e-3, 1e-3), otherLine);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(a.eq(e, precision));
     }
 
     @Test
     void testSortAndFilter_empty_1_oe() {
+        // arrange
         final List<LinecastPoint3D> pts = new ArrayList<>();
 
+        // act
         LinecastPoint3D.sortAndFilter(pts);
 
+        // assert
         Assertions.assertEquals(0, pts.size());
     }
 
     @Test
     void testSortAndFilter_1_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, precision);
@@ -409,13 +511,16 @@ class LinecastPoint3DTest_OE25Dev {
 
         final List<LinecastPoint3D> list = new ArrayList<>(Arrays.asList(d, aDup1, bDup, b, c, a, aDup2));
 
+        // act
         LinecastPoint3D.sortAndFilter(list);
 
+        // assert
         Assertions.assertEquals(4, list.size());
     }
 
     @Test
     void testSortAndFilter_2_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, precision);
@@ -438,14 +543,18 @@ class LinecastPoint3DTest_OE25Dev {
 
         final List<LinecastPoint3D> list = new ArrayList<>(Arrays.asList(d, aDup1, bDup, b, c, a, aDup2));
 
+        // act
         LinecastPoint3D.sortAndFilter(list);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertSame(b, list.get(0));
     }
 
     @Test
     void testSortAndFilter_3_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, precision);
@@ -468,14 +577,19 @@ class LinecastPoint3DTest_OE25Dev {
 
         final List<LinecastPoint3D> list = new ArrayList<>(Arrays.asList(d, aDup1, bDup, b, c, a, aDup2));
 
+        // act
         LinecastPoint3D.sortAndFilter(list);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(a, list.get(1));
     }
 
     @Test
     void testSortAndFilter_4_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, precision);
@@ -498,14 +612,20 @@ class LinecastPoint3DTest_OE25Dev {
 
         final List<LinecastPoint3D> list = new ArrayList<>(Arrays.asList(d, aDup1, bDup, b, c, a, aDup2));
 
+        // act
         LinecastPoint3D.sortAndFilter(list);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(c, list.get(2));
     }
 
     @Test
     void testSortAndFilter_5_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, precision);
@@ -528,9 +648,15 @@ class LinecastPoint3DTest_OE25Dev {
 
         final List<LinecastPoint3D> list = new ArrayList<>(Arrays.asList(d, aDup1, bDup, b, c, a, aDup2));
 
+        // act
         LinecastPoint3D.sortAndFilter(list);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(d, list.get(3));
     }
 

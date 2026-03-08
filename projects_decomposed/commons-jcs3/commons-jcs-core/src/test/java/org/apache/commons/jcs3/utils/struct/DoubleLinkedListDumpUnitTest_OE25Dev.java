@@ -34,6 +34,7 @@ public class DoubleLinkedListDumpUnitTest_OE25Dev
 
     public void testDumpEntries_DebugTrue_1_oe()
     {
+        // SETUP
         final StringWriter stringWriter = new StringWriter();
         TestLogConfigurationUtil.configureLogger( stringWriter, DoubleLinkedList.class.getName() );
 
@@ -49,13 +50,16 @@ public class DoubleLinkedListDumpUnitTest_OE25Dev
         list.addLast( node2 );
         list.debugDumpEntries();
 
+        // WO WORK
         final String result = stringWriter.toString();
 
+        // VERIFY
         assertTrue( "Missing node in log dump", result.indexOf( payload1 ) != -1 );
     }
 
     public void testDumpEntries_DebugTrue_2_oe()
     {
+        // SETUP
         final StringWriter stringWriter = new StringWriter();
         TestLogConfigurationUtil.configureLogger( stringWriter, DoubleLinkedList.class.getName() );
 
@@ -71,8 +75,11 @@ public class DoubleLinkedListDumpUnitTest_OE25Dev
         list.addLast( node2 );
         list.debugDumpEntries();
 
+        // WO WORK
         final String result = stringWriter.toString();
 
+        // VERIFY
+        // removed other assertion
         assertTrue( "Missing node in log dump", result.indexOf( payload2 ) != -1 );
     }
 

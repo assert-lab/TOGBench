@@ -38,6 +38,7 @@ public class MapHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<String,Object>> h = new MapHandler();
         Map<String,Object> results = h.handle(this.rs);
 
+        // removed other assertion
         assertEquals(COLS, results.keySet().size());
     }
 
@@ -45,6 +46,8 @@ public class MapHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<String,Object>> h = new MapHandler();
         Map<String,Object> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("1", results.get("ONE"));
     }
 
@@ -52,6 +55,9 @@ public class MapHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<String,Object>> h = new MapHandler();
         Map<String,Object> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", results.get("two"));
     }
 
@@ -59,6 +65,10 @@ public class MapHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<String,Object>> h = new MapHandler();
         Map<String,Object> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("THREE", results.get("Three"));
     }
 

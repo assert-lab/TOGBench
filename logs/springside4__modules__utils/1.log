@@ -78,1053 +78,437 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.springside.modules.utils.misc.SamplerTest_OE25Dev
-sample 10.5% in 10000 hits should close to 1050, actual is 1016
-sample 10.5% in 10000 hits should close to 1050, actual is 1072
-sample 0.5% in 10000 hits should close to 50, actual is 52
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.213 s - in org.springside.modules.utils.misc.SamplerTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.1 s - in org.springside.modules.utils.misc.SamplerTest_OE25Dev
 [INFO] Running org.springside.modules.utils.concurrent.BasicFutureTest_OE25Dev
-onCompleted:haha
-onCompleted:haha
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.concurrent.BasicFutureTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.concurrent.BasicFutureTest_OE25Dev
 [INFO] Running org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev
-start task
-start task
-start task
-start task
-13:37:18.690 [pool-10-thread-1] WARN  test - InterruptedException
-start task
-start task
-13:37:19.145 [pool-12-thread-1] WARN  test - InterruptedException
-start task
-start task
-13:37:19.608 [pool-14-thread-1] WARN  test - InterruptedException
-start task
-13:37:19.617 [pool-15-thread-1] WARN  test - InterruptedException
-13:37:21.125 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-13:37:21.224 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-13:37:21.322 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-13:37:21.424 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-13:37:21.522 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-13:37:21.627 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.011 s - in org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.concurrent.threadpool.ThreadPoolBuilderTest_OE25Dev
-[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 s - in org.springside.modules.utils.concurrent.threadpool.ThreadPoolBuilderTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.concurrent.threadpool.ThreadPoolBuilderTest_OE25Dev
 [INFO] Running org.springside.modules.utils.concurrent.ConcurrentToolsTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.springside.modules.utils.concurrent.ConcurrentToolsTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.utils.concurrent.ConcurrentToolsTest_OE25Dev
 [INFO] Running org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev
-13:37:21.722 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-13:37:21.740 [main] INFO  o.s.m.utils.concurrent.ThreadDumpper - Thread dump by ThreadDumpper
-13:37:21.741 [main] INFO  o.s.m.utils.concurrent.ThreadDumpper - Finish the threads snapshot
-13:37:21.745 [main] INFO  o.s.m.utils.concurrent.ThreadDumpper - 
-"pool-16-thread-1" Id=41 WAITING
-	at java.base@17.0.17/jdk.internal.misc.Unsafe.park(Native Method)
-	at java.base@17.0.17/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
-	at java.base@17.0.17/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
-	at java.base@17.0.17/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3465)
-	at java.base@17.0.17/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3436)
-	at java.base@17.0.17/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1630)
-	at java.base@17.0.17/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1170)
-	at java.base@17.0.17/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
-	...
-
-"pool-85-thread-7" Id=64 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"Reference Handler" Id=2 RUNNABLE
-	at java.base@17.0.17/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
-	at java.base@17.0.17/java.lang.ref.Reference.processPendingReferences(Reference.java:253)
-	at java.base@17.0.17/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:215)
-
-"Signal Dispatcher" Id=4 RUNNABLE
-
-"pool-85-thread-5" Id=62 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-18-thread-1" Id=43 TIMED_WAITING
-	at java.base@17.0.17/jdk.internal.misc.Unsafe.park(Native Method)
-	at java.base@17.0.17/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
-	at java.base@17.0.17/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679)
-	at java.base@17.0.17/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
-	at java.base@17.0.17/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	...
-
-"pool-85-thread-6" Id=63 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"Common-Cleaner" Id=21 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Object.wait(Native Method)
-	at java.base@17.0.17/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
-	at java.base@17.0.17/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-	at java.base@17.0.17/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:162)
-
-"surefire-forkedjvm-command-thread" Id=22 RUNNABLE
-	at java.base@17.0.17/java.io.FileInputStream.readBytes(Native Method)
-	at java.base@17.0.17/java.io.FileInputStream.read(FileInputStream.java:276)
-	at java.base@17.0.17/java.io.BufferedInputStream.fill(BufferedInputStream.java:244)
-	at java.base@17.0.17/java.io.BufferedInputStream.read(BufferedInputStream.java:263)
-	at java.base@17.0.17/java.io.DataInputStream.readInt(DataInputStream.java:381)
-	at app//org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
-	at app//org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"surefire-forkedjvm-ping-30s" Id=23 TIMED_WAITING
-	at java.base@17.0.17/jdk.internal.misc.Unsafe.park(Native Method)
-	at java.base@17.0.17/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
-	at java.base@17.0.17/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679)
-	at java.base@17.0.17/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
-	at java.base@17.0.17/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	...
-
-"pool-85-thread-4" Id=61 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-85-thread-1" Id=58 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"Notification Thread" Id=20 RUNNABLE
-
-"process reaper" Id=24 TIMED_WAITING
-	at java.base@17.0.17/jdk.internal.misc.Unsafe.park(Native Method)
-	at java.base@17.0.17/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
-	at java.base@17.0.17/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:401)
-	at java.base@17.0.17/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:903)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-85-thread-8" Id=65 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"main" Id=1 RUNNABLE
-	at java.base@17.0.17/java.lang.Thread.dumpThreads(Native Method)
-	at java.base@17.0.17/java.lang.Thread.getAllStackTraces(Thread.java:1671)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpper.threadDumpIfNeed(ThreadDumpper.java:66)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpper.threadDumpIfNeed(ThreadDumpper.java:43)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev.test_1_oe(ThreadDumpperTest_OE25Dev.java:38)
-	at java.base@17.0.17/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base@17.0.17/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base@17.0.17/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	...
-
-"pool-85-thread-10" Id=67 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-85-thread-2" Id=59 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-85-thread-9" Id=66 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"Finalizer" Id=3 WAITING
-	at java.base@17.0.17/java.lang.Object.wait(Native Method)
-	at java.base@17.0.17/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
-	at java.base@17.0.17/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
-	at java.base@17.0.17/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:172)
-
-"pool-85-thread-3" Id=60 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-
-13:37:21.775 [main] INFO  o.s.m.utils.concurrent.ThreadDumpper - Thread dump by ThreadDumpper
-13:37:21.775 [main] INFO  o.s.m.utils.concurrent.ThreadDumpper - Finish the threads snapshot
-13:37:21.776 [main] INFO  o.s.m.utils.concurrent.ThreadDumpper - 
-"pool-85-thread-7" Id=64 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"Reference Handler" Id=2 RUNNABLE
-	at java.base@17.0.17/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
-	at java.base@17.0.17/java.lang.ref.Reference.processPendingReferences(Reference.java:253)
-	at java.base@17.0.17/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:215)
-
-"Signal Dispatcher" Id=4 RUNNABLE
-
-"pool-18-thread-1" Id=43 TIMED_WAITING
-	at java.base@17.0.17/jdk.internal.misc.Unsafe.park(Native Method)
-	at java.base@17.0.17/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
-	at java.base@17.0.17/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679)
-	at java.base@17.0.17/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
-	at java.base@17.0.17/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	...
-
-"pool-85-thread-6" Id=63 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-86-thread-2" Id=69 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"surefire-forkedjvm-ping-30s" Id=23 TIMED_WAITING
-	at java.base@17.0.17/jdk.internal.misc.Unsafe.park(Native Method)
-	at java.base@17.0.17/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
-	at java.base@17.0.17/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679)
-	at java.base@17.0.17/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
-	at java.base@17.0.17/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	...
-
-"pool-85-thread-1" Id=58 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-86-thread-7" Id=74 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"Notification Thread" Id=20 RUNNABLE
-
-"process reaper" Id=24 TIMED_WAITING
-	at java.base@17.0.17/jdk.internal.misc.Unsafe.park(Native Method)
-	at java.base@17.0.17/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
-	at java.base@17.0.17/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:401)
-	at java.base@17.0.17/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:903)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-86-thread-10" Id=77 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"main" Id=1 RUNNABLE
-	at java.base@17.0.17/java.lang.Thread.dumpThreads(Native Method)
-	at java.base@17.0.17/java.lang.Thread.getAllStackTraces(Thread.java:1671)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpper.threadDumpIfNeed(ThreadDumpper.java:66)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpper.threadDumpIfNeed(ThreadDumpper.java:43)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev.test_2_oe(ThreadDumpperTest_OE25Dev.java:58)
-	at java.base@17.0.17/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base@17.0.17/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base@17.0.17/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	...
-
-"pool-16-thread-1" Id=41 WAITING
-	at java.base@17.0.17/jdk.internal.misc.Unsafe.park(Native Method)
-	at java.base@17.0.17/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
-	at java.base@17.0.17/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
-	at java.base@17.0.17/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3465)
-	at java.base@17.0.17/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3436)
-	at java.base@17.0.17/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1630)
-	at java.base@17.0.17/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1170)
-	at java.base@17.0.17/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
-	...
-
-"pool-86-thread-3" Id=70 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-85-thread-5" Id=62 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"Common-Cleaner" Id=21 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Object.wait(Native Method)
-	at java.base@17.0.17/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
-	at java.base@17.0.17/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-	at java.base@17.0.17/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:162)
-
-"surefire-forkedjvm-command-thread" Id=22 RUNNABLE
-	at java.base@17.0.17/java.io.FileInputStream.readBytes(Native Method)
-	at java.base@17.0.17/java.io.FileInputStream.read(FileInputStream.java:276)
-	at java.base@17.0.17/java.io.BufferedInputStream.fill(BufferedInputStream.java:244)
-	at java.base@17.0.17/java.io.BufferedInputStream.read(BufferedInputStream.java:263)
-	at java.base@17.0.17/java.io.DataInputStream.readInt(DataInputStream.java:381)
-	at app//org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
-	at app//org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-85-thread-4" Id=61 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-86-thread-4" Id=71 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-85-thread-8" Id=65 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-86-thread-6" Id=73 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-85-thread-10" Id=67 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-86-thread-1" Id=68 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-85-thread-2" Id=59 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-86-thread-9" Id=76 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-86-thread-8" Id=75 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-86-thread-5" Id=72 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"pool-85-thread-9" Id=66 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-"Finalizer" Id=3 WAITING
-	at java.base@17.0.17/java.lang.Object.wait(Native Method)
-	at java.base@17.0.17/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
-	at java.base@17.0.17/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
-	at java.base@17.0.17/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:172)
-
-"pool-85-thread-3" Id=60 TIMED_WAITING
-	at java.base@17.0.17/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.17/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.17/java.lang.Thread.run(Thread.java:840)
-
-
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 s - in org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev
 [INFO] Running org.springside.modules.utils.io.FileTreeWalkerTest_OE25Dev
-13:37:21.825 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.091 s - in org.springside.modules.utils.io.FileTreeWalkerTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.io.FileTreeWalkerTest_OE25Dev
 [INFO] Running org.springside.modules.utils.io.IOUtilTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.springside.modules.utils.io.IOUtilTest_OE25Dev
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.288 s <<< FAILURE! - in org.springside.modules.utils.io.IOUtilTest_OE25Dev
+[ERROR] read_2_oe(org.springside.modules.utils.io.IOUtilTest_OE25Dev)  Time elapsed: 0.021 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected size: 2 but was: 1 in:
+[["ABCDEFG", "ABC"]]
+	at org.springside.modules.utils.io.IOUtilTest_OE25Dev.read_2_oe(IOUtilTest_OE25Dev.java:44)
+
 [INFO] Running org.springside.modules.utils.io.FileUtilTest_OE25Dev
-13:37:21.922 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 s - in org.springside.modules.utils.io.FileUtilTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.springside.modules.utils.io.FileUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.io.ResourceUtilTest_OE25Dev
-jar:file:/home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/target/surefire/surefirebooter9932856355596721067.jar!/META-INF/MANIFEST.MF
-jar:file:/home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/target/surefire/surefirebooter9932856355596721067.jar!/META-INF/MANIFEST.MF
-jar:file:/home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/target/surefire/surefirebooter9932856355596721067.jar!/META-INF/MANIFEST.MF
-[jar:file:/home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/target/surefire/surefirebooter9932856355596721067.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/apache/maven/surefire/surefire-booter/2.22.0/surefire-booter-2.22.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/apache/maven/surefire/surefire-api/2.22.0/surefire-api-2.22.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/apache/maven/surefire/surefire-logger-api/2.22.0/surefire-logger-api-2.22.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/apache/commons/commons-lang3/3.5/commons-lang3-3.5.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/slf4j/slf4j-api/1.7.22/slf4j-api-1.7.22.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.6/jackson-databind-2.8.6.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.6/jackson-core-2.8.6.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/ma/glasnost/orika/orika-core/1.5.0/orika-core-1.5.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/javassist/javassist/3.19.0-GA/javassist-3.19.0-GA.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/carrotsearch/java-sizeof/0.0.4/java-sizeof-0.0.4.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/codehaus/janino/janino/2.7.5/janino-2.7.5.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/codehaus/janino/commons-compiler/2.7.5/commons-compiler-2.7.5.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/cglib/cglib/3.2.4/cglib-3.2.4.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/ow2/asm/asm/6.0_ALPHA/asm-6.0_ALPHA.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/junit/junit/4.12/junit-4.12.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/net/bytebuddy/byte-buddy/1.12.21/byte-buddy-1.12.21.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/mockito/mockito-core/3.12.4/mockito-core-3.12.4.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/net/bytebuddy/byte-buddy-agent/1.11.13/byte-buddy-agent-1.11.13.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/ch/qos/logback/logback-classic/1.1.8/logback-classic-1.1.8.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/ch/qos/logback/logback-core/1.1.8/logback-core-1.1.8.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/jaxen/jaxen/1.1.6/jaxen-1.1.6.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/sun/xml/bind/jaxb-core/2.3.0.1/jaxb-core-2.3.0.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/sun/xml/bind/jaxb-impl/2.3.1/jaxb-impl-2.3.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/javax/activation/activation/1.1.1/activation-1.1.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/apache/maven/surefire/surefire-junit4/2.22.0/surefire-junit4-2.22.0.jar!/META-INF/MANIFEST.MF]
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.springside.modules.utils.io.ResourceUtilTest_OE25Dev
+[ERROR] Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.038 s <<< FAILURE! - in org.springside.modules.utils.io.ResourceUtilTest_OE25Dev
+[ERROR] test_3_oe(org.springside.modules.utils.io.ResourceUtilTest_OE25Dev)  Time elapsed: 0.014 s  <<< FAILURE!
+org.junit.ComparisonFailure: 
+
+Expecting actual:
+  [["ABCDEFG", "ABC"]]
+to contain exactly (and in same order):
+  ["ABCDEFG", "ABC"]
+but some elements were not found:
+  ["ABCDEFG", "ABC"]
+and others were not expected:
+  [["ABCDEFG", "ABC"]]
+ expected:<[["ABCDEFG", "ABC"]]> but was:<[[["ABCDEFG", "ABC"]]]>
+	at org.springside.modules.utils.io.ResourceUtilTest_OE25Dev.test_3_oe(ResourceUtilTest_OE25Dev.java:59)
+
+[ERROR] test_4_oe(org.springside.modules.utils.io.ResourceUtilTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
+org.junit.ComparisonFailure: 
+
+Expecting actual:
+  [["ABCDEFG", "ABC"]]
+to contain exactly (and in same order):
+  ["ABCDEFG", "ABC"]
+but some elements were not found:
+  ["ABCDEFG", "ABC"]
+and others were not expected:
+  [["ABCDEFG", "ABC"]]
+ expected:<[["ABCDEFG", "ABC"]]> but was:<[[["ABCDEFG", "ABC"]]]>
+	at org.springside.modules.utils.io.ResourceUtilTest_OE25Dev.test_4_oe(ResourceUtilTest_OE25Dev.java:65)
+
 [INFO] Running org.springside.modules.utils.io.URLResourceTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.springside.modules.utils.io.URLResourceTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.io.URLResourceTest_OE25Dev
 [INFO] Running org.springside.modules.utils.io.FilePathUtilTest_OE25Dev
-13:37:22.028 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-the jar file contains Files.class/home/tasfia/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.springside.modules.utils.io.FilePathUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.springside.modules.utils.io.FilePathUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.collection.QueueUtilTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.springside.modules.utils.collection.QueueUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.QueueUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.collection.CollectionUtilTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.springside.modules.utils.collection.CollectionUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.CollectionUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.collection.SetUtilTest_OE25Dev
-13:37:22.124 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 s - in org.springside.modules.utils.collection.SetUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.SetUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.collection.type.PairTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.type.PairTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.type.PairTest_OE25Dev
 [INFO] Running org.springside.modules.utils.collection.type.SortedArrayListTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.springside.modules.utils.collection.type.SortedArrayListTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.type.SortedArrayListTest_OE25Dev
 [INFO] Running org.springside.modules.utils.collection.type.ConcurrentHashSetTest_OE25Dev
-a,b,c,a,b,c,a,b,c,a,b,c,a,b,c,a,b,c,a,b,c,a,b,c,a,b,13:37:22.236 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-c,[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s - in org.springside.modules.utils.collection.type.ConcurrentHashSetTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.type.ConcurrentHashSetTest_OE25Dev
 [INFO] Running org.springside.modules.utils.collection.ListUtilTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.springside.modules.utils.collection.ListUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.ListUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.collection.ArrayUtilTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.springside.modules.utils.collection.ArrayUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.ArrayUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.collection.MapUtilTest_OE25Dev
-13:37:22.338 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-13:37:22.452 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-13:37:22.531 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.412 s - in org.springside.modules.utils.collection.MapUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.springside.modules.utils.collection.MapUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.text.EncodeUtilTest_OE25Dev
-13:37:22.694 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.springside.modules.utils.text.EncodeUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.springside.modules.utils.text.EncodeUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.text.EscapeUtilTest_OE25Dev
-13:37:22.730 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-http%3A%2F%2Flocahost%2F%3Fquery%3D%E4%B8%AD%E6%96%87%26t%3D1
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.springside.modules.utils.text.EscapeUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.text.EscapeUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.text.TextValidatorTest_OE25Dev
-[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.springside.modules.utils.text.TextValidatorTest_OE25Dev
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s - in org.springside.modules.utils.text.TextValidatorTest_OE25Dev
 [INFO] Running org.springside.modules.utils.text.HashUtilTest_OE25Dev
-sha1:sCtJLx2IJNto032AhdkP64t/os4=
-sha1:sCtJLx2IJNto032AhdkP64t/os4=
-sha1:sCtJLx2IJNto032AhdkP64t/os4=
-sha1 with salt:fkENTNoe5wggegmn+GviwIRu30U=
-sha1:sCtJLx2IJNto032AhdkP64t/os4=
-sha1 with salt:KW+wzN7HPSZuPPcvZLJoI7imwS4=
-sha1:sCtJLx2IJNto032AhdkP64t/os4=
-sha1 with salt:dXPPg6hPzZdPnVonKZYV/62lhz4=
-sha1 with salt with iteration:yZSVRazeAzZBMQwkHMegAkZ1c70=
-sha1:sCtJLx2IJNto032AhdkP64t/os4=
-sha1 with salt:orqgGjLUiZxwHIsHOo+B7qMcUyw=
-sha1 with salt with iteration:a6UY4hn/s5fFwrXIzZklyoPf9Hc=
-13:37:22.829 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 s - in org.springside.modules.utils.text.HashUtilTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.springside.modules.utils.text.HashUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.text.CsvUtilTest_OE25Dev
 [INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.springside.modules.utils.text.CsvUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.text.WildcardMatcherTest_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.text.WildcardMatcherTest_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.springside.modules.utils.text.WildcardMatcherTest_OE25Dev
 [INFO] Running org.springside.modules.utils.text.MoreStringUtilTest_OE25Dev
-[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.springside.modules.utils.text.MoreStringUtilTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.text.MoreStringUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.net.NetUtilTest_OE25Dev
-13:37:22.889 [main] INFO  o.s.modules.utils.net.NetUtil - localhost is 127.0.0.1
-random port:20080
-random port:20048
-random port:20065
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.springside.modules.utils.net.NetUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.net.NetUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.net.IPUtilTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.springside.modules.utils.net.IPUtilTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.springside.modules.utils.net.IPUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.mapper.JsonMapperTest_OE25Dev
-13:37:22.924 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-13:37:23.024 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-13:37:23.125 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Bean:{"name":"A","defaultValue":"hello","nullValue":null,"emptyValue":[]}
-Bean:{"name":"A","defaultValue":"hello","nullValue":null,"emptyValue":[]}
-Map:{"name":"A","age":2}
-Bean:{"name":"A","defaultValue":"hello","nullValue":null,"emptyValue":[]}
-Map:{"name":"A","age":2}
-13:37:23.222 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-String List:["A","B","C"]
-Bean:{"name":"A","defaultValue":"hello","nullValue":null,"emptyValue":[]}
-Map:{"name":"A","age":2}
-String List:["A","B","C"]
-Bean List:[{"name":"A","defaultValue":"hello","nullValue":null,"emptyValue":[]},{"name":"B","defaultValue":"hello","nullValue":null,"emptyValue":[]}]
-Bean:{"name":"A","defaultValue":"hello","nullValue":null,"emptyValue":[]}
-Map:{"name":"A","age":2}
-String List:["A","B","C"]
-Bean List:[{"name":"A","defaultValue":"hello","nullValue":null,"emptyValue":[]},{"name":"B","defaultValue":"hello","nullValue":null,"emptyValue":[]}]
-Array List:[{"name":"A","defaultValue":"hello","nullValue":null,"emptyValue":[]},{"name":"B","defaultValue":"hello","nullValue":null,"emptyValue":[]}]
-[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.396 s - in org.springside.modules.utils.mapper.JsonMapperTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.mapper.JsonMapperTest_OE25Dev
 [INFO] Running org.springside.modules.utils.mapper.XmlMapperTest_OE25Dev
-13:37:23.322 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-13:37:23.427 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-13:37:23.523 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Jaxb Object to Xml result:
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<user id="1">
-    <name>calvin</name>
-    <interests>
-        <interest>movie</interest>
-        <interest>sports</interest>
-    </interests>
-</user>
-
-Jaxb Object to Xml result:
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<user id="1">
-    <name>calvin</name>
-    <interests>
-        <interest>movie</interest>
-        <interest>sports</interest>
-    </interests>
-</user>
-
-Jaxb Xml to Object result:
-org.springside.modules.utils.mapper.XmlMapperTest_OE25Dev$User@1eba372c[id=1,name=calvin,password=<null>,interests=[movie, sports]]
-Jaxb Xml to Object result:
-org.springside.modules.utils.mapper.XmlMapperTest_OE25Dev$User@1a69561c[id=1,name=calvin,password=<null>,interests=[movie, sports]]
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.297 s - in org.springside.modules.utils.mapper.XmlMapperTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.mapper.XmlMapperTest_OE25Dev
 [INFO] Running org.springside.modules.utils.base.PropertiesUtilTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.springside.modules.utils.base.PropertiesUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.PropertiesUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.base.EnumUtilTest_OE25Dev
-13:37:23.622 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.EnumUtilTest_OE25Dev
+[ERROR] Tests run: 6, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in org.springside.modules.utils.base.EnumUtilTest_OE25Dev
+[ERROR] test_1_oe(org.springside.modules.utils.base.EnumUtilTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<1[]> but was:<1[L]>
+	at org.springside.modules.utils.base.EnumUtilTest_OE25Dev.test_1_oe(EnumUtilTest_OE25Dev.java:30)
+
+[ERROR] test_2_oe(org.springside.modules.utils.base.EnumUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<3[]> but was:<3[L]>
+	at org.springside.modules.utils.base.EnumUtilTest_OE25Dev.test_2_oe(EnumUtilTest_OE25Dev.java:36)
+
+[ERROR] test_3_oe(org.springside.modules.utils.base.EnumUtilTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<1[]> but was:<1[L]>
+	at org.springside.modules.utils.base.EnumUtilTest_OE25Dev.test_3_oe(EnumUtilTest_OE25Dev.java:43)
+
+[ERROR] test_4_oe(org.springside.modules.utils.base.EnumUtilTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<3[]> but was:<3[L]>
+	at org.springside.modules.utils.base.EnumUtilTest_OE25Dev.test_4_oe(EnumUtilTest_OE25Dev.java:50)
+
+[ERROR] test_5_oe(org.springside.modules.utils.base.EnumUtilTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected size: 2 but was: 1 in:
+[[A, B]]
+	at org.springside.modules.utils.base.EnumUtilTest_OE25Dev.test_5_oe(EnumUtilTest_OE25Dev.java:58)
+
+[ERROR] test_6_oe(org.springside.modules.utils.base.EnumUtilTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected size: 3 but was: 1 in:
+[[A, C, D]]
+	at org.springside.modules.utils.base.EnumUtilTest_OE25Dev.test_6_oe(EnumUtilTest_OE25Dev.java:66)
+
 [INFO] Running org.springside.modules.utils.base.ExceptionUtilTest_OE25Dev
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.springside.modules.utils.base.ExceptionUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.ExceptionUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.base.PlatformsTest_OE25Dev
-OS_NAME:Linux
-OS_VERSION:6.14.0-37-generic
-OS_ARCH:amd64
-JAVA_SPECIFICATION_VERSION:17
-JAVA_VERSION:17.0.17
-JAVA_HOME:/usr/lib/jvm/java-17-openjdk-amd64
-USER_HOME:/home/tasfia
-TMP_DIR:/tmp
-WORKING_DIR:/home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils
-OS_NAME:Linux
-OS_VERSION:6.14.0-37-generic
-OS_ARCH:amd64
-JAVA_SPECIFICATION_VERSION:17
-JAVA_VERSION:17.0.17
-JAVA_HOME:/usr/lib/jvm/java-17-openjdk-amd64
-USER_HOME:/home/tasfia
-TMP_DIR:/tmp
-WORKING_DIR:/home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils
-OS_NAME:Linux
-OS_VERSION:6.14.0-37-generic
-OS_ARCH:amd64
-JAVA_SPECIFICATION_VERSION:17
-JAVA_VERSION:17.0.17
-JAVA_HOME:/usr/lib/jvm/java-17-openjdk-amd64
-USER_HOME:/home/tasfia
-TMP_DIR:/tmp
-WORKING_DIR:/home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils
-OS_NAME:Linux
-OS_VERSION:6.14.0-37-generic
-OS_ARCH:amd64
-JAVA_SPECIFICATION_VERSION:17
-JAVA_VERSION:17.0.17
-JAVA_HOME:/usr/lib/jvm/java-17-openjdk-amd64
-USER_HOME:/home/tasfia
-TMP_DIR:/tmp
-WORKING_DIR:/home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils
-OS_NAME:Linux
-OS_VERSION:6.14.0-37-generic
-OS_ARCH:amd64
-JAVA_SPECIFICATION_VERSION:17
-JAVA_VERSION:17.0.17
-JAVA_HOME:/usr/lib/jvm/java-17-openjdk-amd64
-USER_HOME:/home/tasfia
-TMP_DIR:/tmp
-WORKING_DIR:/home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils
-OS_NAME:Linux
-OS_VERSION:6.14.0-37-generic
-OS_ARCH:amd64
-JAVA_SPECIFICATION_VERSION:17
-JAVA_VERSION:17.0.17
-JAVA_HOME:/usr/lib/jvm/java-17-openjdk-amd64
-USER_HOME:/home/tasfia
-TMP_DIR:/tmp
-WORKING_DIR:/home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils
-OS_NAME:Linux
-OS_VERSION:6.14.0-37-generic
-OS_ARCH:amd64
-JAVA_SPECIFICATION_VERSION:17
-JAVA_VERSION:17.0.17
-JAVA_HOME:/usr/lib/jvm/java-17-openjdk-amd64
-USER_HOME:/home/tasfia
-TMP_DIR:/tmp
-WORKING_DIR:/home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils
-pid:1614943
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.springside.modules.utils.base.PlatformsTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.PlatformsTest_OE25Dev
 [INFO] Running org.springside.modules.utils.base.BeanUtilTest_OE25Dev
-[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.springside.modules.utils.base.BeanUtilTest_OE25Dev
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.springside.modules.utils.base.BeanUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.base.ObjectUtilTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.ObjectUtilTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.springside.modules.utils.base.ObjectUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.base.SystemPropertiesUtilTest_OE25Dev
-[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.utils.base.SystemPropertiesUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.SystemPropertiesUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.base.MoreValidateTest_OE25Dev
-[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.utils.base.MoreValidateTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.MoreValidateTest_OE25Dev
 [INFO] Running org.springside.modules.utils.security.CryptoUtilTest_OE25Dev
-13:37:23.722 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-hmac-sha1 key in hex      :88DC2F4F7B46AC2CB99494CEE95C6C8BA55F8FC6
-hmac-sha1 in hex result   :BFD008EF5C3D4EECBF00A3F53DBD5F5CCACF132F
-aes key in hex            :58A3F83649723773713CA4C9ED4EE133
-iv in hex                 :A48CF0049500490A58509578D74914F5
-aes encrypt in hex result :B1196792EF179F2D4FC20425C12C9BF7
-aes key in hex            :D1FC196D69E1117C9CCFE40D48A0DA64
-aes encrypt in hex result :5A8716508DA0BD29DA70DD0FA2EAA079
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.1 s - in org.springside.modules.utils.security.CryptoUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.security.CryptoUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.time.DateUtilTest_OE25Dev
-13:37:23.823 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[INFO] Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in org.springside.modules.utils.time.DateUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.time.DateUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.time.ClockUtilTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.utils.time.ClockUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.springside.modules.utils.time.ClockUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.time.CachingDatFormatterTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.springside.modules.utils.time.CachingDatFormatterTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.time.CachingDatFormatterTest_OE25Dev
 [INFO] Running org.springside.modules.utils.time.DateFormatUtilTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.springside.modules.utils.time.DateFormatUtilTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.springside.modules.utils.time.DateFormatUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.number.RandomUtilTest_OE25Dev
-MElhN
-fo7ep
-v7sDL
-WjP4AdW
-Sb63m
-3HLOSm
-1BVZO
-eebi5cE
-cs4LM
-vYSjvtMud
-VcBmg
-UMgZQdf
-bxsyZ
-XPkZCfQ
-xTNFS
-eoiGb
-PHxU8
-0kPhSnhIA
-k8Naq
-bGKQe
-xauAT
-HYvwCTcYS
-xamPH
-GGJtUXxjG
-9kcQl
-wm1tftwm
-jBNsp
-wxIWo
-OadAV
-mEUTnVNJ
-xLpCm
-iteyUTiQs
-Bq}2P
-${V}X
-8B}zs
-nB{_/r@
-2nd32
-mfAFv
-2CDIB
-9TrDBZzEi
-LkjAe
-oApzjUUeh
-rGfKQ
-FrIXoL
-JH8hX
-~"#Ob"
-WzQ&n
->>a}gwZ}0
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.springside.modules.utils.number.RandomUtilTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.springside.modules.utils.number.RandomUtilTest_OE25Dev
 [INFO] Running org.springside.modules.utils.number.UnitConverterTest_OE25Dev
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.springside.modules.utils.number.UnitConverterTest_OE25Dev
+[ERROR] Tests run: 13, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in org.springside.modules.utils.number.UnitConverterTest_OE25Dev
+[ERROR] convertSizeBytes_1_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<12345[]> but was:<12345[L]>
+	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertSizeBytes_1_oe(UnitConverterTest_OE25Dev.java:104)
+
+[ERROR] convertSizeBytes_2_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<12[]> but was:<12[L]>
+	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertSizeBytes_2_oe(UnitConverterTest_OE25Dev.java:110)
+
+[ERROR] convertSizeBytes_3_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<12288[]> but was:<12288[L]>
+	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertSizeBytes_3_oe(UnitConverterTest_OE25Dev.java:116)
+
+[ERROR] convertSizeBytes_4_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<12582912[]> but was:<12582912[L]>
+	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertSizeBytes_4_oe(UnitConverterTest_OE25Dev.java:122)
+
+[ERROR] convertDurationMillis_1_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<12345[]> but was:<12345[L]>
+	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertDurationMillis_1_oe(UnitConverterTest_OE25Dev.java:62)
+
+[ERROR] convertDurationMillis_2_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<12000[]> but was:<12000[L]>
+	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertDurationMillis_2_oe(UnitConverterTest_OE25Dev.java:68)
+
+[ERROR] convertDurationMillis_3_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<12000[]> but was:<12000[L]>
+	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertDurationMillis_3_oe(UnitConverterTest_OE25Dev.java:74)
+
+[ERROR] convertDurationMillis_4_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<12[]> but was:<12[L]>
+	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertDurationMillis_4_oe(UnitConverterTest_OE25Dev.java:80)
+
+[ERROR] convertDurationMillis_5_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<720000[]> but was:<720000[L]>
+	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertDurationMillis_5_oe(UnitConverterTest_OE25Dev.java:86)
+
 [INFO] Running org.springside.modules.utils.number.MathUtilTest_OE25Dev
-[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.springside.modules.utils.number.MathUtilTest_OE25Dev
+[ERROR] Tests run: 25, Failures: 10, Errors: 0, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! - in org.springside.modules.utils.number.MathUtilTest_OE25Dev
+[ERROR] caculate_12_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<8[]> but was:<8[L]>
+	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_12_oe(MathUtilTest_OE25Dev.java:217)
+
+[ERROR] caculate_13_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<1[]> but was:<1[L]>
+	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_13_oe(MathUtilTest_OE25Dev.java:227)
+
+[ERROR] caculate_16_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<3[]> but was:<3[L]>
+	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_16_oe(MathUtilTest_OE25Dev.java:260)
+
+[ERROR] divide_3_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<2[]> but was:<2[L]>
+	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.divide_3_oe(MathUtilTest_OE25Dev.java:278)
+
+[ERROR] caculate_4_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<5[]> but was:<5[L]>
+	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_4_oe(MathUtilTest_OE25Dev.java:151)
+
+[ERROR] caculate_5_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<5[]> but was:<5[L]>
+	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_5_oe(MathUtilTest_OE25Dev.java:158)
+
+[ERROR] caculate_6_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<1[]> but was:<1[L]>
+	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_6_oe(MathUtilTest_OE25Dev.java:165)
+
+[ERROR] caculate_7_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<5[]> but was:<5[L]>
+	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_7_oe(MathUtilTest_OE25Dev.java:173)
+
+[ERROR] caculate_8_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<5[]> but was:<5[L]>
+	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_8_oe(MathUtilTest_OE25Dev.java:181)
+
+[ERROR] caculate_9_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<1[]> but was:<1[L]>
+	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_9_oe(MathUtilTest_OE25Dev.java:189)
+
 [INFO] Running org.springside.modules.utils.number.NumberUtilTest_OE25Dev
-[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.springside.modules.utils.number.NumberUtilTest_OE25Dev
+[ERROR] Tests run: 50, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in org.springside.modules.utils.number.NumberUtilTest_OE25Dev
+[ERROR] toNumber_7_oe(org.springside.modules.utils.number.NumberUtilTest_OE25Dev)  Time elapsed: 0.01 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<0[]> but was:<0[L]>
+	at org.springside.modules.utils.number.NumberUtilTest_OE25Dev.toNumber_7_oe(NumberUtilTest_OE25Dev.java:196)
+
+[ERROR] toNumber_10_oe(org.springside.modules.utils.number.NumberUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<0[L]> but was:<0[.0]>
+	at org.springside.modules.utils.number.NumberUtilTest_OE25Dev.toNumber_10_oe(NumberUtilTest_OE25Dev.java:219)
+
 [INFO] Running org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev
-13:37:23.926 [pool-18-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-13:37:23.957 [main] WARN  o.s.modules.utils.reflect.ClassUtil - TestBean2's superclass not ParameterizedType
-13:37:23.958 [main] WARN  o.s.modules.utils.reflect.ClassUtil - TestBean3's superclass not ParameterizedType
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev
+21:40:49.037 [main] WARN  o.s.modules.utils.reflect.ClassUtil - TestBean2's superclass not ParameterizedType
+21:40:49.043 [main] WARN  o.s.modules.utils.reflect.ClassUtil - TestBean3's superclass not ParameterizedType
+[ERROR] Tests run: 17, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.053 s <<< FAILURE! - in org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev
+[ERROR] getAllClass_1_oe(org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected size: 4 but was: 1 in:
+[[org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.CInterface,
+    org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.BInterface,
+    org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.AInterface,
+    org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.DInterface]]
+	at org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.getAllClass_1_oe(ClassUtilTest_OE25Dev.java:255)
+
+[ERROR] getAllClass_2_oe(org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected size: 2 but was: 1 in:
+[[org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.AClass,
+    java.lang.Object]]
+	at org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.getAllClass_2_oe(ClassUtilTest_OE25Dev.java:263)
+
+[ERROR] getAllClass_3_oe(org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev)  Time elapsed: 0.013 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected size: 4 but was: 1 in:
+[[@org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$DAnnotation(),
+    @org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$CAnnotation(),
+    @org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BAnnotation(),
+    @org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AAnnotation()]]
+	at org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.getAllClass_3_oe(ClassUtilTest_OE25Dev.java:272)
+
+[ERROR] getAllClass_4_oe(org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected size: 2 but was: 1 in:
+[[public int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.sfield,
+    public int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.tfield]]
+	at org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.getAllClass_4_oe(ClassUtilTest_OE25Dev.java:282)
+
+[ERROR] getAllClass_5_oe(org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected size: 3 but was: 1 in:
+[[private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.afield,
+    private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.efield,
+    private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.bfield]]
+	at org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.getAllClass_5_oe(ClassUtilTest_OE25Dev.java:293)
+
+[ERROR] getAllClass_6_oe(org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expecting ArrayList:
+  [[private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.dfield]]
+to contain:
+  [private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.dfield]
+but could not find the following element(s):
+  [private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.dfield]
+
+	at org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.getAllClass_6_oe(ClassUtilTest_OE25Dev.java:305)
+
+[ERROR] getAllClass_7_oe(org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected size: 3 but was: 1 in:
+[[public void org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.hello(),
+    public void org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.hello3(int),
+    public void org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.hello4(int)]]
+	at org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.getAllClass_7_oe(ClassUtilTest_OE25Dev.java:318)
+
 [INFO] Running org.springside.modules.test.log.LogbackListAppenderTest_OE25Dev
-13:37:23.972 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.972 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - World
-13:37:23.972 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.972 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - World
-13:37:23.972 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.972 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - World
-13:37:23.972 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.972 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - World
-13:37:23.972 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.972 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - World
-13:37:23.972 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.972 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.972 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.972 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.972 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.972 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.973 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.973 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.973 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.973 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.973 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.973 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - World
-13:37:23.973 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.973 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - World
-13:37:23.973 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.973 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - World
-13:37:23.973 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-13:37:23.973 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - World
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.springside.modules.test.log.LogbackListAppenderTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.test.log.LogbackListAppenderTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[INFO] Tests run: 780, Failures: 0, Errors: 0, Skipped: 0
+[ERROR] Failures: 
+[ERROR]   EnumUtilTest_OE25Dev.test_1_oe:30 expected:<1[]> but was:<1[L]>
+[ERROR]   EnumUtilTest_OE25Dev.test_2_oe:36 expected:<3[]> but was:<3[L]>
+[ERROR]   EnumUtilTest_OE25Dev.test_3_oe:43 expected:<1[]> but was:<1[L]>
+[ERROR]   EnumUtilTest_OE25Dev.test_4_oe:50 expected:<3[]> but was:<3[L]>
+[ERROR]   EnumUtilTest_OE25Dev.test_5_oe:58 
+Expected size: 2 but was: 1 in:
+[[A, B]]
+[ERROR]   EnumUtilTest_OE25Dev.test_6_oe:66 
+Expected size: 3 but was: 1 in:
+[[A, C, D]]
+[ERROR]   IOUtilTest_OE25Dev.read_2_oe:44 
+Expected size: 2 but was: 1 in:
+[["ABCDEFG", "ABC"]]
+[ERROR]   ResourceUtilTest_OE25Dev.test_3_oe:59 
+Expecting actual:
+  [["ABCDEFG", "ABC"]]
+to contain exactly (and in same order):
+  ["ABCDEFG", "ABC"]
+but some elements were not found:
+  ["ABCDEFG", "ABC"]
+and others were not expected:
+  [["ABCDEFG", "ABC"]]
+ expected:<[["ABCDEFG", "ABC"]]> but was:<[[["ABCDEFG", "ABC"]]]>
+[ERROR]   ResourceUtilTest_OE25Dev.test_4_oe:65 
+Expecting actual:
+  [["ABCDEFG", "ABC"]]
+to contain exactly (and in same order):
+  ["ABCDEFG", "ABC"]
+but some elements were not found:
+  ["ABCDEFG", "ABC"]
+and others were not expected:
+  [["ABCDEFG", "ABC"]]
+ expected:<[["ABCDEFG", "ABC"]]> but was:<[[["ABCDEFG", "ABC"]]]>
+[ERROR]   MathUtilTest_OE25Dev.caculate_12_oe:217 expected:<8[]> but was:<8[L]>
+[ERROR]   MathUtilTest_OE25Dev.caculate_13_oe:227 expected:<1[]> but was:<1[L]>
+[ERROR]   MathUtilTest_OE25Dev.caculate_16_oe:260 expected:<3[]> but was:<3[L]>
+[ERROR]   MathUtilTest_OE25Dev.caculate_4_oe:151 expected:<5[]> but was:<5[L]>
+[ERROR]   MathUtilTest_OE25Dev.caculate_5_oe:158 expected:<5[]> but was:<5[L]>
+[ERROR]   MathUtilTest_OE25Dev.caculate_6_oe:165 expected:<1[]> but was:<1[L]>
+[ERROR]   MathUtilTest_OE25Dev.caculate_7_oe:173 expected:<5[]> but was:<5[L]>
+[ERROR]   MathUtilTest_OE25Dev.caculate_8_oe:181 expected:<5[]> but was:<5[L]>
+[ERROR]   MathUtilTest_OE25Dev.caculate_9_oe:189 expected:<1[]> but was:<1[L]>
+[ERROR]   MathUtilTest_OE25Dev.divide_3_oe:278 expected:<2[]> but was:<2[L]>
+[ERROR]   NumberUtilTest_OE25Dev.toNumber_10_oe:219 expected:<0[L]> but was:<0[.0]>
+[ERROR]   NumberUtilTest_OE25Dev.toNumber_7_oe:196 expected:<0[]> but was:<0[L]>
+[ERROR]   UnitConverterTest_OE25Dev.convertDurationMillis_1_oe:62 expected:<12345[]> but was:<12345[L]>
+[ERROR]   UnitConverterTest_OE25Dev.convertDurationMillis_2_oe:68 expected:<12000[]> but was:<12000[L]>
+[ERROR]   UnitConverterTest_OE25Dev.convertDurationMillis_3_oe:74 expected:<12000[]> but was:<12000[L]>
+[ERROR]   UnitConverterTest_OE25Dev.convertDurationMillis_4_oe:80 expected:<12[]> but was:<12[L]>
+[ERROR]   UnitConverterTest_OE25Dev.convertDurationMillis_5_oe:86 expected:<720000[]> but was:<720000[L]>
+[ERROR]   UnitConverterTest_OE25Dev.convertSizeBytes_1_oe:104 expected:<12345[]> but was:<12345[L]>
+[ERROR]   UnitConverterTest_OE25Dev.convertSizeBytes_2_oe:110 expected:<12[]> but was:<12[L]>
+[ERROR]   UnitConverterTest_OE25Dev.convertSizeBytes_3_oe:116 expected:<12288[]> but was:<12288[L]>
+[ERROR]   UnitConverterTest_OE25Dev.convertSizeBytes_4_oe:122 expected:<12582912[]> but was:<12582912[L]>
+[ERROR]   ClassUtilTest_OE25Dev.getAllClass_1_oe:255 
+Expected size: 4 but was: 1 in:
+[[org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.CInterface,
+    org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.BInterface,
+    org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.AInterface,
+    org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.DInterface]]
+[ERROR]   ClassUtilTest_OE25Dev.getAllClass_2_oe:263 
+Expected size: 2 but was: 1 in:
+[[org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.AClass,
+    java.lang.Object]]
+[ERROR]   ClassUtilTest_OE25Dev.getAllClass_3_oe:272 
+Expected size: 4 but was: 1 in:
+[[@org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$DAnnotation(),
+    @org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$CAnnotation(),
+    @org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BAnnotation(),
+    @org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AAnnotation()]]
+[ERROR]   ClassUtilTest_OE25Dev.getAllClass_4_oe:282 
+Expected size: 2 but was: 1 in:
+[[public int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.sfield,
+    public int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.tfield]]
+[ERROR]   ClassUtilTest_OE25Dev.getAllClass_5_oe:293 
+Expected size: 3 but was: 1 in:
+[[private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.afield,
+    private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.efield,
+    private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.bfield]]
+[ERROR]   ClassUtilTest_OE25Dev.getAllClass_6_oe:305 
+Expecting ArrayList:
+  [[private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.dfield]]
+to contain:
+  [private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.dfield]
+but could not find the following element(s):
+  [private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.dfield]
+
+[ERROR]   ClassUtilTest_OE25Dev.getAllClass_7_oe:318 
+Expected size: 3 but was: 1 in:
+[[public void org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.hello(),
+    public void org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.hello3(int),
+    public void org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.hello4(int)]]
+[INFO] 
+[ERROR] Tests run: 257, Failures: 37, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  25.464 s
-[INFO] Finished at: 2026-03-03T13:37:24-06:00
+[INFO] Total time:  20.314 s
+[INFO] Finished at: 2026-03-05T21:40:49-06:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project springside-utils: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

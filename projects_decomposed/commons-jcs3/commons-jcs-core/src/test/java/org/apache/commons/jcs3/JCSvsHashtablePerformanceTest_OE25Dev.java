@@ -194,6 +194,7 @@ public class JCSvsHashtablePerformanceTest_OE25Dev
             return;
         }
         doWork();
+        // removed other assertion
         assertTrue( this.ratioGet < target );
     }
 

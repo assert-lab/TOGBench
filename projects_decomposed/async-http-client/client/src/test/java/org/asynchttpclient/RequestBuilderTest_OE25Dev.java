@@ -88,6 +88,7 @@ public class RequestBuilderTest_OE25Dev {
   public void testParsesQueryParams_2_oe() {
     Request request = get("http://foo.com/?param1=value1").addQueryParam("param2", "value2").build();
 
+    // removed other assertion
     List<Param> params = request.getQueryParams();
     assertEquals(params.size(), 2);
   }
@@ -96,7 +97,9 @@ public class RequestBuilderTest_OE25Dev {
   public void testParsesQueryParams_3_oe() {
     Request request = get("http://foo.com/?param1=value1").addQueryParam("param2", "value2").build();
 
+    // removed other assertion
     List<Param> params = request.getQueryParams();
+    // removed other assertion
     assertEquals(params.get(0), new Param("param1", "value1"));
   }
 
@@ -104,7 +107,10 @@ public class RequestBuilderTest_OE25Dev {
   public void testParsesQueryParams_4_oe() {
     Request request = get("http://foo.com/?param1=value1").addQueryParam("param2", "value2").build();
 
+    // removed other assertion
     List<Param> params = request.getQueryParams();
+    // removed other assertion
+    // removed other assertion
     assertEquals(params.get(1), new Param("param2", "value2"));
   }
 
@@ -117,6 +123,7 @@ public class RequestBuilderTest_OE25Dev {
   @Test
   public void testUserProvidedRequestMethod_2_oe() {
     Request req = new RequestBuilder("ABC").setUrl("http://foo.com").build();
+    // removed other assertion
     assertEquals(req.getUrl(), "http://foo.com");
   }
 
@@ -129,6 +136,7 @@ public class RequestBuilderTest_OE25Dev {
   @Test
   public void testPercentageEncodedUserInfo_2_oe() {
     final Request req = get("http://hello:wor%20ld@foo.com").build();
+    // removed other assertion
     assertEquals(req.getUrl(), "http://hello:wor%20ld@foo.com");
   }
 
@@ -141,6 +149,7 @@ public class RequestBuilderTest_OE25Dev {
   @Test
   public void testContentTypeCharsetToBodyEncoding_2_oe() {
     final Request req = get("http://localhost").setHeader("Content-Type", "application/json; charset=utf-8").build();
+    // removed other assertion
     final Request req2 = get("http://localhost").setHeader("Content-Type", "application/json; charset=\"utf-8\"").build();
     assertEquals(req2.getCharset(), UTF_8);
   }
@@ -161,6 +170,7 @@ public class RequestBuilderTest_OE25Dev {
   @Test
   public void testSetHeaders_2_oe() {
     RequestBuilder requestBuilder = new RequestBuilder();
+    // removed other assertion
 
     Map<CharSequence, Collection<?>> headers = new HashMap<>();
     headers.put("Content-Type", Collections.singleton("application/json"));
@@ -171,10 +181,12 @@ public class RequestBuilderTest_OE25Dev {
   @Test
   public void testSetHeaders_3_oe() {
     RequestBuilder requestBuilder = new RequestBuilder();
+    // removed other assertion
 
     Map<CharSequence, Collection<?>> headers = new HashMap<>();
     headers.put("Content-Type", Collections.singleton("application/json"));
     requestBuilder.setHeaders(headers);
+    // removed other assertion
     assertEquals(requestBuilder.headers.get("Content-Type"), "application/json", "header value incorrect");
   }
 
@@ -201,6 +213,7 @@ public class RequestBuilderTest_OE25Dev {
     cookie.setSecure(true);
     cookie.setHttpOnly(true);
     requestBuilder.addOrReplaceCookie(cookie);
+    // removed other assertion
     assertEquals(requestBuilder.cookies.get(0), cookie, "cookie does not match");
   }
 
@@ -214,6 +227,8 @@ public class RequestBuilderTest_OE25Dev {
     cookie.setSecure(true);
     cookie.setHttpOnly(true);
     requestBuilder.addOrReplaceCookie(cookie);
+    // removed other assertion
+    // removed other assertion
 
     Cookie cookie2 = new DefaultCookie("name", "value");
     cookie2.setDomain("google2.com");
@@ -236,6 +251,8 @@ public class RequestBuilderTest_OE25Dev {
     cookie.setSecure(true);
     cookie.setHttpOnly(true);
     requestBuilder.addOrReplaceCookie(cookie);
+    // removed other assertion
+    // removed other assertion
 
     Cookie cookie2 = new DefaultCookie("name", "value");
     cookie2.setDomain("google2.com");
@@ -245,6 +262,7 @@ public class RequestBuilderTest_OE25Dev {
     cookie2.setHttpOnly(false);
 
     requestBuilder.addOrReplaceCookie(cookie2);
+    // removed other assertion
     assertEquals(requestBuilder.cookies.get(0), cookie2, "cookie does not match");
   }
 
@@ -258,6 +276,8 @@ public class RequestBuilderTest_OE25Dev {
     cookie.setSecure(true);
     cookie.setHttpOnly(true);
     requestBuilder.addOrReplaceCookie(cookie);
+    // removed other assertion
+    // removed other assertion
 
     Cookie cookie2 = new DefaultCookie("name", "value");
     cookie2.setDomain("google2.com");
@@ -267,6 +287,8 @@ public class RequestBuilderTest_OE25Dev {
     cookie2.setHttpOnly(false);
 
     requestBuilder.addOrReplaceCookie(cookie2);
+    // removed other assertion
+    // removed other assertion
 
     Cookie cookie3 = new DefaultCookie("name2", "value");
     cookie3.setDomain("google.com");

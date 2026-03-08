@@ -81,6 +81,7 @@ public class FileObjectUtilsTest_OE25Dev {
     public void testReadPropertiesInto_2_oe() throws FileSystemException, IOException {
         final Properties p = new Properties();
         p.setProperty("extraKey", "extraValue");
+        // removed other assertion
         Assert.assertEquals("extraValue", p.getProperty("extraKey"));
     }
 
@@ -93,12 +94,15 @@ public class FileObjectUtilsTest_OE25Dev {
     @Test
     public void testReadProperties_1_oe_2_oe() throws FileSystemException, IOException {
                 final Properties p0 = FileObjectUtils .readProperties(VFS.getManager().toFileObject(new File("src/test/resources/test.properties")));
+        // removed other assertion
                 Assert.assertEquals("1", p0.getProperty("one"));
     }
 
     @Test
     public void testReadProperties_1_oe_3_oe() throws FileSystemException, IOException {
                 final Properties p0 = FileObjectUtils .readProperties(VFS.getManager().toFileObject(new File("src/test/resources/test.properties")));
+        // removed other assertion
+                // removed other assertion
                 Assert.assertEquals("2", p0.getProperty("two"));
     }
 
@@ -115,6 +119,7 @@ public class FileObjectUtilsTest_OE25Dev {
         final Properties p = new Properties();
         p.setProperty("extraKey", "extraValue");
                 final Properties p0 = FileObjectUtils .readProperties(VFS.getManager().toFileObject(new File("src/test/resources/test.properties")), p);
+        // removed other assertion
                 Assert.assertEquals("1", p0.getProperty("one"));
     }
 
@@ -123,6 +128,8 @@ public class FileObjectUtilsTest_OE25Dev {
         final Properties p = new Properties();
         p.setProperty("extraKey", "extraValue");
                 final Properties p0 = FileObjectUtils .readProperties(VFS.getManager().toFileObject(new File("src/test/resources/test.properties")), p);
+        // removed other assertion
+                // removed other assertion
                 Assert.assertEquals("2", p0.getProperty("two"));
     }
 

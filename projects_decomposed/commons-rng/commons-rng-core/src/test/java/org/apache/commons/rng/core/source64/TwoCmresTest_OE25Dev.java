@@ -43,6 +43,7 @@ class TwoCmresTest_OE25Dev {
          TwoCmres rng1 = new TwoCmres(seed, index1, index2);
          TwoCmres rng2 = new TwoCmres(seed, index2, index1);
 
+        // Try a few values.
          int n = 1000;
         for (int[] i = {0}; i[0] < n; i[0]++) {
             Assertions.assertNotEquals(rng1.nextLong(), rng2.nextLong(), () -> "i=" + i[0]);
@@ -53,12 +54,14 @@ class TwoCmresTest_OE25Dev {
     void testSeedingWithASingleBitProducesDifferentOutputFromZeroSeed_1_oe() {
          int n = 100;
 
+        // Output with a zero seed
          long[] values = new long[n];
          TwoCmres rng = new TwoCmres(0);
         for (int i = 0; i < n; i++) {
             values[i] = rng.nextLong();
         }
 
+        // Seed with a single bit
         for (int bit = 0; bit < 32; bit++) {
              int seed = 1 << bit;
             RandomAssert.assertNotEquals(values, new TwoCmres(seed));
@@ -82,11 +85,13 @@ class TwoCmresTest_OE25Dev {
     void testSubcycleGeneratorsIndex_1_oe() {
          int seed = 246810;
 
+        // Valid indices are between 0 (included) and max (excluded).
          int max = TwoCmres.numberOfSubcycleGenerators();
 
         for (int i = 0; i < max; i++) {
             for (int j = 0; j < max; j++) {
                 if (i != j) { // Subcycle generators must be different.
+                    // Can be instantiated.
                     new TwoCmres(seed, i, j);
                 }
             }
@@ -105,17 +110,20 @@ class TwoCmresTest_OE25Dev {
     void testSubcycleGeneratorsIndex_2_oe() {
          int seed = 246810;
 
+        // Valid indices are between 0 (included) and max (excluded).
          int max = TwoCmres.numberOfSubcycleGenerators();
 
         for (int i = 0; i < max; i++) {
             for (int j = 0; j < max; j++) {
                 if (i != j) { // Subcycle generators must be different.
+                    // Can be instantiated.
                     new TwoCmres(seed, i, j);
                 }
             }
         }
 
         for (int wrongIndex : new int[] {-1, max}) {
+            // removed other assertion
             try {
     new TwoCmres(seed, 1, wrongIndex);
     fail("IndexOutOfBoundsException: () -> \"Exception expected for index j = \" + wrongIndex");
@@ -147,8 +155,10 @@ class TwoCmresTest_OE25Dev {
         list.add(new Cmres(multiply, rotate, start));
 
         long nextMultiply = multiply + 1;
+        // removed other assertion
 
         list.add(new Cmres(nextMultiply, rotate, start));
+        // This should throw as the list now contains the multiply value
         try {
     Cmres.Factory.checkUnique(list, nextMultiply);
     fail("IllegalStateException");

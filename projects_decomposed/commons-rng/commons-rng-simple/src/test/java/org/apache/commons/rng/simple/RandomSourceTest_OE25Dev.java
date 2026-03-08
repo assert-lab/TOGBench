@@ -28,6 +28,7 @@ class RandomSourceTest_OE25Dev {
     void testCreateInt_1_oe() {
          int n = 4;
         for (int i = 0; i < n; i++) {
+            // Can fail, but unlikely given the range.
             Assertions.assertNotEquals(RandomSource.createInt(),RandomSource.createInt());
     }
     }
@@ -36,6 +37,7 @@ class RandomSourceTest_OE25Dev {
     void testCreateLong_1_oe() {
          int n = 6;
         for (int i = 0; i < n; i++) {
+            // Can fail, but unlikely given the range.
             Assertions.assertNotEquals(RandomSource.createLong(),RandomSource.createLong());
     }
     }
@@ -51,8 +53,10 @@ class RandomSourceTest_OE25Dev {
     void testCreateIntArray_2_oe() {
          int n = 13;
          int[] seed = RandomSource.createIntArray(n);
+        // removed other assertion
 
         for (int i = 1; i < n; i++) {
+            // Can fail, but unlikely given the range.
             Assertions.assertNotEquals(seed[i - 1], seed[i]);
     }
     }
@@ -68,8 +72,10 @@ class RandomSourceTest_OE25Dev {
     void testCreateLongArray_2_oe() {
          int n = 9;
          long[] seed = RandomSource.createLongArray(n);
+        // removed other assertion
 
         for (int i = 1; i < n; i++) {
+            // Can fail, but unlikely given the range.
             Assertions.assertNotEquals(seed[i - 1], seed[i]);
     }
     }
@@ -81,11 +87,14 @@ class RandomSourceTest_OE25Dev {
 
     @Test
     void testIsJumpable_2_oe() {
+        // removed other assertion
         Assertions.assertTrue(RandomSource.XOR_SHIFT_1024_S_PHI.isJumpable(), "XOR_SHIFT_1024_S_PHI is Jumpable");
     }
 
     @Test
     void testIsJumpable_3_oe() {
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(RandomSource.XO_SHI_RO_256_SS.isJumpable(), "XO_SHI_RO_256_SS is Jumpable");
     }
 
@@ -96,11 +105,14 @@ class RandomSourceTest_OE25Dev {
 
     @Test
     void testIsLongJumpable_2_oe() {
+        // removed other assertion
         Assertions.assertFalse(RandomSource.XOR_SHIFT_1024_S_PHI.isLongJumpable(), "XOR_SHIFT_1024_S_PHI is not LongJumpable");
     }
 
     @Test
     void testIsLongJumpable_3_oe() {
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(RandomSource.XO_SHI_RO_256_SS.isLongJumpable(), "XO_SHI_RO_256_SS is LongJumpable");
     }
 

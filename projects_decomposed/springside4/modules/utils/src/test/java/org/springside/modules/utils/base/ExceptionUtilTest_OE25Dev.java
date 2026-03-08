@@ -63,9 +63,11 @@ public class ExceptionUtilTest_OE25Dev {
 
 	@Test
 	public void unchecked_2_oe() {
+		// convert Exception to RuntimeException with cause
 		Exception exception = new Exception("my exception");
 		try {
 			ExceptionUtil.unchecked(exception);
+			// removed other assertion
 		} catch (Throwable t) {
 			assertThat(t.getCause()).isSameAs(exception);
 	}
@@ -73,15 +75,20 @@ public class ExceptionUtilTest_OE25Dev {
 
 	@Test
 	public void unchecked_4_oe() {
+		// convert Exception to RuntimeException with cause
 		Exception exception = new Exception("my exception");
 		try {
 			ExceptionUtil.unchecked(exception);
+			// removed other assertion
 		} catch (Throwable t) {
+			// removed other assertion
 		}
 
+		// do nothing of Error
 		Error error = new LinkageError();
 		try {
 			ExceptionUtil.unchecked(error);
+			// removed other assertion
 		} catch (Throwable t) {
 			assertThat(t).isSameAs(error);
 	}
@@ -89,21 +96,29 @@ public class ExceptionUtilTest_OE25Dev {
 
 	@Test
 	public void unchecked_6_oe() {
+		// convert Exception to RuntimeException with cause
 		Exception exception = new Exception("my exception");
 		try {
 			ExceptionUtil.unchecked(exception);
+			// removed other assertion
 		} catch (Throwable t) {
+			// removed other assertion
 		}
 
+		// do nothing of Error
 		Error error = new LinkageError();
 		try {
 			ExceptionUtil.unchecked(error);
+			// removed other assertion
 		} catch (Throwable t) {
+			// removed other assertion
 		}
 
+		// do nothing of RuntimeException
 		RuntimeException runtimeException = new RuntimeException("haha");
 		try {
 			ExceptionUtil.unchecked(runtimeException);
+			// removed other assertion
 		} catch (Throwable t) {
 			assertThat(t).isSameAs(runtimeException);
 	}
@@ -118,6 +133,7 @@ public class ExceptionUtilTest_OE25Dev {
 	@Test
 	public void unwrap_2_oe() {
 		RuntimeException re = new RuntimeException("my runtime");
+		// removed other assertion
 
 		ExecutionException ee = new ExecutionException(re);
 		assertThat(ExceptionUtil.unwrap(ee)).isSameAs(re);
@@ -126,8 +142,10 @@ public class ExceptionUtilTest_OE25Dev {
 	@Test
 	public void unwrap_3_oe() {
 		RuntimeException re = new RuntimeException("my runtime");
+		// removed other assertion
 
 		ExecutionException ee = new ExecutionException(re);
+		// removed other assertion
 
 		InvocationTargetException ie = new InvocationTargetException(re);
 		assertThat(ExceptionUtil.unwrap(ie)).isSameAs(re);
@@ -136,10 +154,13 @@ public class ExceptionUtilTest_OE25Dev {
 	@Test
 	public void unwrap_4_oe() {
 		RuntimeException re = new RuntimeException("my runtime");
+		// removed other assertion
 
 		ExecutionException ee = new ExecutionException(re);
+		// removed other assertion
 
 		InvocationTargetException ie = new InvocationTargetException(re);
+		// removed other assertion
 		
 		Exception e = new Exception("my exception");
 		ExecutionException ee2 = new ExecutionException(e);
@@ -165,6 +186,7 @@ public class ExceptionUtilTest_OE25Dev {
 		IllegalStateException illegalStateException = new IllegalStateException(ioexception);
 		RuntimeException runtimeException = new RuntimeException(illegalStateException);
 
+		// removed other assertion
 		assertThat(ExceptionUtil.isCausedBy(runtimeException, IllegalStateException.class, IOException.class)).isTrue();
 	}
 
@@ -174,6 +196,8 @@ public class ExceptionUtilTest_OE25Dev {
 		IllegalStateException illegalStateException = new IllegalStateException(ioexception);
 		RuntimeException runtimeException = new RuntimeException(illegalStateException);
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(ExceptionUtil.isCausedBy(runtimeException, Exception.class)).isTrue();
 	}
 
@@ -183,6 +207,9 @@ public class ExceptionUtilTest_OE25Dev {
 		IllegalStateException illegalStateException = new IllegalStateException(ioexception);
 		RuntimeException runtimeException = new RuntimeException(illegalStateException);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(ExceptionUtil.isCausedBy(runtimeException, IllegalAccessException.class)).isFalse();
 	}
 
@@ -201,6 +228,8 @@ public class ExceptionUtilTest_OE25Dev {
 		IllegalStateException illegalStateException = new IllegalStateException(ioexception);
 		RuntimeException runtimeException = new RuntimeException(illegalStateException);
 
+		// removed other assertion
+		// 无cause
 		assertThat(ExceptionUtil.getRootCause(ioexception)).isSameAs(ioexception);
 	}
 
@@ -213,14 +242,18 @@ public class ExceptionUtilTest_OE25Dev {
 	@Test
 	public void buildMessage_2_oe() {
 		IOException ioexception = new IOException("my exception");
+		// removed other assertion
 		assertThat(ExceptionUtil.toStringWithShortName(null)).isEqualTo("");
 	}
 
 	@Test
 	public void buildMessage_4_oe() {
 		IOException ioexception = new IOException("my exception");
+		// removed other assertion
+		// removed other assertion
 
 		RuntimeException runtimeExcetpion = new RuntimeException("my runtimeException", ioexception);
+		// removed other assertion
 
 		assertThat(ExceptionUtil.toStringWithRootCause(null)).isEqualTo("");
 	}
@@ -228,9 +261,14 @@ public class ExceptionUtilTest_OE25Dev {
 	@Test
 	public void buildMessage_5_oe() {
 		IOException ioexception = new IOException("my exception");
+		// removed other assertion
+		// removed other assertion
 
 		RuntimeException runtimeExcetpion = new RuntimeException("my runtimeException", ioexception);
+		// removed other assertion
 
+		// removed other assertion
+		// 无cause
 		assertThat(ExceptionUtil.toStringWithRootCause(ioexception)).isEqualTo("IOException: my exception");
 	}
 

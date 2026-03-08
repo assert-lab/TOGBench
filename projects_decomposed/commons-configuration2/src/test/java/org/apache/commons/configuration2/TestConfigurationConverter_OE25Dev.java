@@ -84,6 +84,7 @@ public class TestConfigurationConverter_OE25Dev {
 
         final Map<Object, Object> map = ConfigurationConverter.getMap(config);
 
+        // removed other assertion
         assertEquals("'string' property", "teststring", map.get("string"));
     }
 
@@ -100,6 +101,7 @@ public class TestConfigurationConverter_OE25Dev {
         final BaseConfiguration config = createTestConfiguration();
         final Properties props = ConfigurationConverter.getProperties(config);
 
+        // removed other assertion
         assertEquals("'string' property", "teststring", props.getProperty("string"));
     }
 
@@ -108,6 +110,8 @@ public class TestConfigurationConverter_OE25Dev {
         final BaseConfiguration config = createTestConfiguration();
         final Properties props = ConfigurationConverter.getProperties(config);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("'interpolated' property", "teststring", props.getProperty("interpolated"));
     }
 
@@ -116,6 +120,9 @@ public class TestConfigurationConverter_OE25Dev {
         final BaseConfiguration config = createTestConfiguration();
         final Properties props = ConfigurationConverter.getProperties(config);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("'array' property", "item 1,item 2", props.getProperty("array"));
     }
 
@@ -124,6 +131,10 @@ public class TestConfigurationConverter_OE25Dev {
         final BaseConfiguration config = createTestConfiguration();
         final Properties props = ConfigurationConverter.getProperties(config);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("'interpolated-array' property", "teststring,teststring", props.getProperty("interpolated-array"));
     }
 
@@ -181,6 +192,7 @@ public class TestConfigurationConverter_OE25Dev {
         final AbstractConfiguration config = (AbstractConfiguration) ConfigurationConverter.getConfiguration(props);
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
 
+        // removed other assertion
         final List<Object> item1 = config.getList("list");
         assertEquals("This returns 'item 1'", "item 1", item1.get(0));
     }
@@ -195,7 +207,9 @@ public class TestConfigurationConverter_OE25Dev {
         final AbstractConfiguration config = (AbstractConfiguration) ConfigurationConverter.getConfiguration(props);
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
 
+        // removed other assertion
         final List<Object> item1 = config.getList("list");
+        // removed other assertion
 
         assertEquals("This returns 123", 123, config.getInt("int"));
     }

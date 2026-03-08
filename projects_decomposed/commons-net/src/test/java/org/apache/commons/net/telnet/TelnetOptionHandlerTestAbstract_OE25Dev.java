@@ -70,73 +70,151 @@ public abstract class TelnetOptionHandlerTestAbstract_OE25Dev extends TestCase
 
     public void testConstructors_1_oe()
     {
+        // add test of the option code
         assertTrue(!opthand1.getInitLocal());
     }
 
     public void testConstructors_2_oe()
     {
+        // add test of the option code
+        // removed other assertion
         assertTrue(!opthand1.getInitRemote());
     }
 
     public void testConstructors_3_oe()
     {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
         assertTrue(!opthand1.getAcceptLocal());
     }
 
     public void testConstructors_4_oe()
     {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!opthand1.getAcceptRemote());
     }
 
     public void testConstructors_5_oe()
     {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(opthand2.getInitLocal());
     }
 
     public void testConstructors_6_oe()
     {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue(opthand2.getInitRemote());
     }
 
     public void testConstructors_7_oe()
     {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(opthand2.getAcceptLocal());
     }
 
     public void testConstructors_8_oe()
     {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(opthand2.getAcceptRemote());
     }
 
     public void testConstructors_9_oe()
     {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(!opthand3.getInitLocal());
     }
 
     public void testConstructors_10_oe()
     {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue(!opthand3.getInitRemote());
     }
 
     public void testConstructors_11_oe()
     {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(!opthand3.getAcceptLocal());
     }
 
     public void testConstructors_12_oe()
     {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!opthand3.getAcceptRemote());
     }
 
@@ -153,6 +231,7 @@ public abstract class TelnetOptionHandlerTestAbstract_OE25Dev extends TestCase
         opthand2.setWill(true);
         opthand3.setWill(false);
 
+        // removed other assertion
         assertTrue(opthand2.getWill());
     }
 
@@ -161,6 +240,8 @@ public abstract class TelnetOptionHandlerTestAbstract_OE25Dev extends TestCase
         opthand2.setWill(true);
         opthand3.setWill(false);
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(!opthand3.getWill());
     }
 
@@ -177,6 +258,7 @@ public abstract class TelnetOptionHandlerTestAbstract_OE25Dev extends TestCase
         opthand2.setDo(true);
         opthand3.setDo(false);
 
+        // removed other assertion
         assertTrue(opthand2.getDo());
     }
 
@@ -185,6 +267,8 @@ public abstract class TelnetOptionHandlerTestAbstract_OE25Dev extends TestCase
         opthand2.setDo(true);
         opthand3.setDo(false);
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(!opthand3.getDo());
     }
 

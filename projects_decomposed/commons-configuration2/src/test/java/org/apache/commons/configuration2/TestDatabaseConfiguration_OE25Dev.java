@@ -303,6 +303,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(';'));
         config.addProperty("keyList", "1;2;3");
         final String[] values = config.getStringArray("keyList");
+        // removed other assertion
         assertEquals("Wrong value at index 1", "2", values[1]);
     }
 
@@ -353,6 +354,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         final DatabaseConfiguration config2 = helper.setUpMultiConfig(DatabaseConfiguration.class, CONFIG_NAME2);
         config2.addProperty("key1", "some test");
         config.clearProperty("key1");
+        // removed other assertion
         assertTrue("Property cleared in other config", config2.containsKey("key1"));
     }
 
@@ -389,6 +391,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         final Configuration subset = config.subset("key1");
         subset.clear();
 
+        // removed other assertion
         assertFalse("the parent configuration is empty", config.isEmpty());
     }
 
@@ -401,6 +404,7 @@ public class TestDatabaseConfiguration_OE25Dev {
     @Test
     public void testContainsKeyMultiple_2_oe() throws ConfigurationException {
         final Configuration config = helper.setUpMultiConfig();
+        // removed other assertion
         assertTrue("missing key2", config.containsKey("key2"));
     }
 
@@ -413,6 +417,7 @@ public class TestDatabaseConfiguration_OE25Dev {
     @Test
     public void testContainsKeySingle_2_oe() throws ConfigurationException {
         final Configuration config = setUpConfig();
+        // removed other assertion
         assertTrue("missing key2", config.containsKey("key2"));
     }
 
@@ -453,6 +458,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         final DatabaseBuilderParameters params = helper.setUpDefaultParameters().setTable("configurationList");
         final Configuration config1 = helper.createConfig(DatabaseConfiguration.class, params);
         final Iterator<String> i = config1.getKeys();
+        // removed other assertion
         final Object key = i.next();
         assertEquals("key3", key.toString());
     }
@@ -462,7 +468,9 @@ public class TestDatabaseConfiguration_OE25Dev {
         final DatabaseBuilderParameters params = helper.setUpDefaultParameters().setTable("configurationList");
         final Configuration config1 = helper.createConfig(DatabaseConfiguration.class, params);
         final Iterator<String> i = config1.getKeys();
+        // removed other assertion
         final Object key = i.next();
+        // removed other assertion
         assertFalse(i.hasNext());
     }
 
@@ -510,6 +518,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         final DatabaseConfiguration config = setUpConfig();
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(';'));
         final List<Object> values = config.getList("keyMulti");
+        // removed other assertion
         assertEquals("Wrong list element 0", "a", values.get(0));
     }
 
@@ -518,6 +527,8 @@ public class TestDatabaseConfiguration_OE25Dev {
         final DatabaseConfiguration config = setUpConfig();
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(';'));
         final List<Object> values = config.getList("keyMulti");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong list element 2", "c", values.get(2));
     }
 
@@ -538,6 +549,7 @@ public class TestDatabaseConfiguration_OE25Dev {
     public void testGetPropertyDirectMultiple_2_oe() throws ConfigurationException {
         final Configuration config = helper.setUpMultiConfig();
 
+        // removed other assertion
         assertEquals("property2", "value2", config.getProperty("key2"));
     }
 
@@ -545,6 +557,8 @@ public class TestDatabaseConfiguration_OE25Dev {
     public void testGetPropertyDirectMultiple_3_oe() throws ConfigurationException {
         final Configuration config = helper.setUpMultiConfig();
 
+        // removed other assertion
+        // removed other assertion
         assertNull("unknown property", config.getProperty("key3"));
     }
 
@@ -559,6 +573,7 @@ public class TestDatabaseConfiguration_OE25Dev {
     public void testGetPropertyDirectSingle_2_oe() throws ConfigurationException {
         final Configuration config = setUpConfig();
 
+        // removed other assertion
         assertEquals("property2", "value2", config.getProperty("key2"));
     }
 
@@ -566,6 +581,8 @@ public class TestDatabaseConfiguration_OE25Dev {
     public void testGetPropertyDirectSingle_3_oe() throws ConfigurationException {
         final Configuration config = setUpConfig();
 
+        // removed other assertion
+        // removed other assertion
         assertNull("unknown property", config.getProperty("key3"));
     }
 
@@ -578,6 +595,7 @@ public class TestDatabaseConfiguration_OE25Dev {
     @Test
     public void testIsEmptyMultiple_2_oe() throws ConfigurationException {
         final Configuration config1 = helper.setUpMultiConfig();
+        // removed other assertion
 
         final Configuration config2 = helper.setUpMultiConfig(DatabaseConfiguration.class, "testIsEmpty");
         assertTrue("The configuration named 'testIsEmpty' is not empty", config2.isEmpty());
@@ -610,6 +628,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(';'));
         config.setProperty("keyList", "1;2;3");
         final String[] values = config.getStringArray("keyList");
+        // removed other assertion
         assertEquals("Wrong value at index 1", "2", values[1]);
     }
 

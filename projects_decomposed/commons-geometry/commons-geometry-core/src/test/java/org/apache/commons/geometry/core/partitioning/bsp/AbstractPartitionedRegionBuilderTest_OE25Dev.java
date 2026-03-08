@@ -30,6 +30,8 @@ import org.apache.commons.geometry.core.partitioning.test.TestRegionBSPTree;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
     private static void insertGridRecursive(final double min, final double max, final int count, final TestRegionBuilder builder) {
@@ -69,177 +71,237 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
     @Test
     void testBuildRegion_empty_1_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
         Assertions.assertTrue(tree.isEmpty());
     }
 
     @Test
     void testBuildRegion_empty_2_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(1, tree.count());
     }
 
     @Test
     void testBuildRegion_empty_3_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, tree.height());
     }
 
     @Test
     void testBuildRegion_noPartitions_halfSpace_1_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
         Assertions.assertFalse(tree.isEmpty());
     }
 
     @Test
     void testBuildRegion_noPartitions_halfSpace_2_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testBuildRegion_noPartitions_halfSpace_3_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(3, tree.count());
     }
 
     @Test
     void testBuildRegion_noPartitions_halfSpace_4_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(1, tree.height());
     }
 
     @Test
     void testBuildRegion_boundaryOnPartition_sameOrientation_1_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
         Assertions.assertFalse(tree.isEmpty());
     }
 
     @Test
     void testBuildRegion_boundaryOnPartition_sameOrientation_2_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testBuildRegion_boundaryOnPartition_oppositeOrientation_1_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
         Assertions.assertFalse(tree.isEmpty());
     }
 
     @Test
     void testBuildRegion_boundaryOnPartition_oppositeOrientation_2_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testBuildRegion_boundaryOnPartition_multipleBoundaries_sameOrientation_1_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 1), new TestPoint2D(0, 0)));
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
         Assertions.assertFalse(tree.isEmpty());
     }
 
     @Test
     void testBuildRegion_boundaryOnPartition_multipleBoundaries_sameOrientation_2_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 1), new TestPoint2D(0, 0)));
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testBuildRegion_boundaryOnPartition_multipleBoundaries_oppositeOrientation_1_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(-1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 1), new TestPoint2D(0, 0)));
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
         Assertions.assertFalse(tree.isEmpty());
     }
 
     @Test
     void testBuildRegion_boundaryOnPartition_multipleBoundaries_oppositeOrientation_2_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(-1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 1), new TestPoint2D(0, 0)));
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testBuildRegion_multipleBoundariesOnPartition_1_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
@@ -249,13 +311,16 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
         Assertions.assertFalse(tree.isEmpty());
     }
 
     @Test
     void testBuildRegion_multipleBoundariesOnPartition_2_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
@@ -265,37 +330,48 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testBuildRegion_grid_halfSpace_boundaryOnPartition_1_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         insertGridRecursive(-2, 2, 5, builder);
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
         Assertions.assertFalse(tree.isEmpty());
     }
 
     @Test
     void testBuildRegion_grid_halfSpace_boundaryOnPartition_2_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         insertGridRecursive(-2, 2, 5, builder);
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testBuildRegion_boundariesOnPartitionPropagateInsideCorrectly_1_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)));
         builder.insertPartition(new TestLineSegment(new TestPoint2D(0, -1), new TestPoint2D(0, 1)));
 
@@ -303,13 +379,16 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(1, 1), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
         Assertions.assertFalse(tree.isEmpty());
     }
 
     @Test
     void testBuildRegion_boundariesOnPartitionPropagateInsideCorrectly_2_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)));
         builder.insertPartition(new TestLineSegment(new TestPoint2D(0, -1), new TestPoint2D(0, 1)));
 
@@ -317,11 +396,14 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(1, 1), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testBuildRegion_grid_cube_1_oe() {
+        // arrange
         final int maxCount = 5;
 
         final List<TestLineSegment> boundaries = Arrays.asList(
@@ -334,6 +416,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         for (int c = 0; c <= maxCount; ++c) {
             final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+            // act
             insertGridRecursive(-2, 2, c, builder);
 
             for (final TestLineSegment boundary : boundaries) {
@@ -342,12 +425,14 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
             final TestRegionBSPTree tree = builder.build();
 
+            // assert
             Assertions.assertFalse(tree.isEmpty());
     }
     }
 
     @Test
     void testBuildRegion_grid_cube_2_oe() {
+        // arrange
         final int maxCount = 5;
 
         final List<TestLineSegment> boundaries = Arrays.asList(
@@ -360,6 +445,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         for (int c = 0; c <= maxCount; ++c) {
             final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+            // act
             insertGridRecursive(-2, 2, c, builder);
 
             for (final TestLineSegment boundary : boundaries) {
@@ -368,12 +454,15 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
             final TestRegionBSPTree tree = builder.build();
 
+            // assert
+            // removed other assertion
             Assertions.assertFalse(tree.isFull());
     }
     }
 
     @Test
     void testBuildRegion_grid_diamond_1_oe() {
+        // arrange
         final int maxCount = 5;
 
         final List<TestLineSegment> boundaries = Arrays.asList(
@@ -386,6 +475,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         for (int c = 0; c <= maxCount; ++c) {
             final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+            // act
             insertGridRecursive(-2, 2, c, builder);
 
             for (final TestLineSegment boundary : boundaries) {
@@ -394,12 +484,14 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
             final TestRegionBSPTree tree = builder.build();
 
+            // assert
             Assertions.assertFalse(tree.isEmpty());
     }
     }
 
     @Test
     void testBuildRegion_grid_diamond_2_oe() {
+        // arrange
         final int maxCount = 5;
 
         final List<TestLineSegment> boundaries = Arrays.asList(
@@ -412,6 +504,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         for (int c = 0; c <= maxCount; ++c) {
             final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+            // act
             insertGridRecursive(-2, 2, c, builder);
 
             for (final TestLineSegment boundary : boundaries) {
@@ -420,12 +513,15 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
             final TestRegionBSPTree tree = builder.build();
 
+            // assert
+            // removed other assertion
             Assertions.assertFalse(tree.isFull());
     }
     }
 
     @Test
     void testBuildRegion_grid_horseshoe_1_oe() {
+        // arrange
         final int maxCount = 5;
 
         final List<TestLineSegment> boundaries = Arrays.asList(
@@ -442,6 +538,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         for (int c = 0; c <= maxCount; ++c) {
             final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+            // act
             insertGridRecursive(-2, 2, c, builder);
 
             for (final TestLineSegment boundary : boundaries) {
@@ -450,12 +547,14 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
             final TestRegionBSPTree tree = builder.build();
 
+            // assert
             Assertions.assertFalse(tree.isEmpty());
     }
     }
 
     @Test
     void testBuildRegion_grid_horseshoe_2_oe() {
+        // arrange
         final int maxCount = 5;
 
         final List<TestLineSegment> boundaries = Arrays.asList(
@@ -472,6 +571,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         for (int c = 0; c <= maxCount; ++c) {
             final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+            // act
             insertGridRecursive(-2, 2, c, builder);
 
             for (final TestLineSegment boundary : boundaries) {
@@ -480,215 +580,317 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
             final TestRegionBSPTree tree = builder.build();
 
+            // assert
+            // removed other assertion
             Assertions.assertFalse(tree.isFull());
     }
     }
 
 @Test
     void testCtor_invalidTree_1_oe() {
+        // arrange
         final TestRegionBSPTree tree = new TestRegionBSPTree(true);
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { new TestRegionBuilder(tree); }, IllegalArgumentException.class, "Tree must be empty");
+        // act/assert
+        try {
+     new TestRegionBuilder(tree);
+    fail("Expected IllegalArgumentException with message: " + "Tree must be empty");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testInsertPartition_cannotInsertAfterBoundary_1_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0)).span()); }, IllegalStateException.class, "Cannot insert partitions after boundaries have been inserted");
+        // act/assert
+        try {
+     builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0)).span());
+    fail("Expected IllegalStateException with message: " + "Cannot insert partitions after boundaries have been inserted");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testBuildRegion_noPartitions_halfSpace_5_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE, new TestPoint2D(-5, 1), new TestPoint2D(0, 1), new TestPoint2D(5, 1));
     }
 
 @Test
     void testBuildRegion_noPartitions_halfSpace_6_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.BOUNDARY, new TestPoint2D(-5, 0), new TestPoint2D(0, 0), new TestPoint2D(5, 0));
     }
 
 @Test
     void testBuildRegion_noPartitions_halfSpace_7_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(-5, -1), new TestPoint2D(0, -1), new TestPoint2D(5, -1));
     }
 
 @Test
     void testBuildRegion_boundaryOnPartition_sameOrientation_3_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE, new TestPoint2D(-5, 1), new TestPoint2D(0, 1), new TestPoint2D(5, 1));
     }
 
 @Test
     void testBuildRegion_boundaryOnPartition_sameOrientation_4_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.BOUNDARY, new TestPoint2D(-5, 0), new TestPoint2D(0, 0), new TestPoint2D(5, 0));
     }
 
 @Test
     void testBuildRegion_boundaryOnPartition_sameOrientation_5_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(-5, -1), new TestPoint2D(0, -1), new TestPoint2D(5, -1));
     }
 
 @Test
     void testBuildRegion_boundaryOnPartition_oppositeOrientation_3_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE, new TestPoint2D(-5, 1), new TestPoint2D(0, 1), new TestPoint2D(5, 1));
     }
 
 @Test
     void testBuildRegion_boundaryOnPartition_oppositeOrientation_4_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.BOUNDARY, new TestPoint2D(-5, 0), new TestPoint2D(0, 0), new TestPoint2D(5, 0));
     }
 
 @Test
     void testBuildRegion_boundaryOnPartition_oppositeOrientation_5_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(-5, -1), new TestPoint2D(0, -1), new TestPoint2D(5, -1));
     }
 
 @Test
     void testBuildRegion_boundaryOnPartition_multipleBoundaries_sameOrientation_4_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 1), new TestPoint2D(0, 0)));
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.BOUNDARY, new TestPoint2D(0, 5), new TestPoint2D(0, 0), new TestPoint2D(5, 0));
     }
 
 @Test
     void testBuildRegion_boundaryOnPartition_multipleBoundaries_sameOrientation_5_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 1), new TestPoint2D(0, 0)));
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(-5, 1), new TestPoint2D(-5, -1), new TestPoint2D(0, -1), new TestPoint2D(5, -1));
     }
 
 @Test
     void testBuildRegion_boundaryOnPartition_multipleBoundaries_oppositeOrientation_4_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(-1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 1), new TestPoint2D(0, 0)));
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.BOUNDARY, new TestPoint2D(0, 5), new TestPoint2D(0, 0), new TestPoint2D(5, 0));
     }
 
 @Test
     void testBuildRegion_boundaryOnPartition_multipleBoundaries_oppositeOrientation_5_oe() {
+     // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(-1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 1), new TestPoint2D(0, 0)));
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(-5, 1), new TestPoint2D(-5, -1), new TestPoint2D(0, -1), new TestPoint2D(5, -1));
     }
 
 @Test
     void testBuildRegion_multipleBoundariesOnPartition_3_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
@@ -698,14 +900,19 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE, new TestPoint2D(1, 1), new TestPoint2D(-1, -1));
     }
 
 @Test
     void testBuildRegion_multipleBoundariesOnPartition_4_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
@@ -715,15 +922,21 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.BOUNDARY, new TestPoint2D(1, 0), new TestPoint2D(-1, 0), new TestPoint2D(0, 1), new TestPoint2D(0, -1));
     }
 
 @Test
     void testBuildRegion_multipleBoundariesOnPartition_5_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0)).span());
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
@@ -733,58 +946,83 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(-1, 1), new TestPoint2D(1, -1));
     }
 
 @Test
     void testBuildRegion_grid_halfSpace_boundaryOnPartition_3_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         insertGridRecursive(-2, 2, 5, builder);
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE, new TestPoint2D(-5, 1), new TestPoint2D(0, 1), new TestPoint2D(5, 1));
     }
 
 @Test
     void testBuildRegion_grid_halfSpace_boundaryOnPartition_4_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         insertGridRecursive(-2, 2, 5, builder);
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.BOUNDARY, new TestPoint2D(-5, 0), new TestPoint2D(0, 0), new TestPoint2D(5, 0));
     }
 
 @Test
     void testBuildRegion_grid_halfSpace_boundaryOnPartition_5_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         insertGridRecursive(-2, 2, 5, builder);
 
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(-5, -1), new TestPoint2D(0, -1), new TestPoint2D(5, -1));
     }
 
 @Test
     void testBuildRegion_boundariesOnPartitionPropagateInsideCorrectly_3_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)));
         builder.insertPartition(new TestLineSegment(new TestPoint2D(0, -1), new TestPoint2D(0, 1)));
 
@@ -792,14 +1030,19 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(1, 1), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE, new TestPoint2D(2, 2), new TestPoint2D(5, 5));
     }
 
 @Test
     void testBuildRegion_boundariesOnPartitionPropagateInsideCorrectly_4_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)));
         builder.insertPartition(new TestLineSegment(new TestPoint2D(0, -1), new TestPoint2D(0, 1)));
 
@@ -807,15 +1050,21 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(1, 1), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.BOUNDARY, new TestPoint2D(1, 0), new TestPoint2D(1, 10), new TestPoint2D(10, 0));
     }
 
 @Test
     void testBuildRegion_boundariesOnPartitionPropagateInsideCorrectly_5_oe() {
+        // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+        // act
         builder.insertPartition(new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)));
         builder.insertPartition(new TestLineSegment(new TestPoint2D(0, -1), new TestPoint2D(0, 1)));
 
@@ -823,14 +1072,20 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         builder.insertBoundary(new TestLineSegment(new TestPoint2D(1, 1), new TestPoint2D(1, 0)));
         final TestRegionBSPTree tree = builder.build();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(-1, 1), new TestPoint2D(-10, 10), new TestPoint2D(-1, -1), new TestPoint2D(1, -1));
     }
 
 @Test
     void testBuildRegion_grid_cube_3_oe() {
+        // arrange
         final int maxCount = 5;
 
         final List<TestLineSegment> boundaries = Arrays.asList(
@@ -843,6 +1098,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         for (int c = 0; c <= maxCount; ++c) {
             final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+            // act
             insertGridRecursive(-2, 2, c, builder);
 
             for (final TestLineSegment boundary : boundaries) {
@@ -851,6 +1107,9 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
             final TestRegionBSPTree tree = builder.build();
 
+            // assert
+            // removed other assertion
+            // removed other assertion
 
             PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE, new TestPoint2D(0, 0), new TestPoint2D(-0.5, -0.5), new TestPoint2D(0.5, -0.5), new TestPoint2D(0.5, 0.5), new TestPoint2D(-0.5, 0.5));
     }
@@ -858,6 +1117,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
 @Test
     void testBuildRegion_grid_cube_4_oe() {
+        // arrange
         final int maxCount = 5;
 
         final List<TestLineSegment> boundaries = Arrays.asList(
@@ -870,6 +1130,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         for (int c = 0; c <= maxCount; ++c) {
             final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+            // act
             insertGridRecursive(-2, 2, c, builder);
 
             for (final TestLineSegment boundary : boundaries) {
@@ -878,7 +1139,11 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
             final TestRegionBSPTree tree = builder.build();
 
+            // assert
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
 
             PartitionTestUtils.assertPointLocations(tree, RegionLocation.BOUNDARY, new TestPoint2D(-1, -1), new TestPoint2D(1, -1), new TestPoint2D(1, 1), new TestPoint2D(-1, 1), new TestPoint2D(-1, 0), new TestPoint2D(1, 0), new TestPoint2D(0, 1), new TestPoint2D(0, -1));
     }
@@ -886,6 +1151,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
 @Test
     void testBuildRegion_grid_cube_5_oe() {
+        // arrange
         final int maxCount = 5;
 
         final List<TestLineSegment> boundaries = Arrays.asList(
@@ -898,6 +1164,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         for (int c = 0; c <= maxCount; ++c) {
             final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+            // act
             insertGridRecursive(-2, 2, c, builder);
 
             for (final TestLineSegment boundary : boundaries) {
@@ -906,8 +1173,13 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
             final TestRegionBSPTree tree = builder.build();
 
+            // assert
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
 
+            // removed other assertion
 
             PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(-2, -2), new TestPoint2D(2, -2), new TestPoint2D(2, 2), new TestPoint2D(-2, 2), new TestPoint2D(-2, 0), new TestPoint2D(2, 0), new TestPoint2D(0, 2), new TestPoint2D(0, -2));
     }
@@ -915,6 +1187,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
 @Test
     void testBuildRegion_grid_diamond_3_oe() {
+        // arrange
         final int maxCount = 5;
 
         final List<TestLineSegment> boundaries = Arrays.asList(
@@ -927,6 +1200,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         for (int c = 0; c <= maxCount; ++c) {
             final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+            // act
             insertGridRecursive(-2, 2, c, builder);
 
             for (final TestLineSegment boundary : boundaries) {
@@ -935,6 +1209,9 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
             final TestRegionBSPTree tree = builder.build();
 
+            // assert
+            // removed other assertion
+            // removed other assertion
 
             PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE, new TestPoint2D(0, 0), new TestPoint2D(-0.25, -0.25), new TestPoint2D(0.25, -0.25), new TestPoint2D(0.25, 0.25), new TestPoint2D(-0.25, 0.25));
     }
@@ -942,6 +1219,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
 @Test
     void testBuildRegion_grid_diamond_4_oe() {
+        // arrange
         final int maxCount = 5;
 
         final List<TestLineSegment> boundaries = Arrays.asList(
@@ -954,6 +1232,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         for (int c = 0; c <= maxCount; ++c) {
             final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+            // act
             insertGridRecursive(-2, 2, c, builder);
 
             for (final TestLineSegment boundary : boundaries) {
@@ -962,7 +1241,11 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
             final TestRegionBSPTree tree = builder.build();
 
+            // assert
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
 
             PartitionTestUtils.assertPointLocations(tree, RegionLocation.BOUNDARY, new TestPoint2D(-0.5, 0.5), new TestPoint2D(-0.5, -0.5), new TestPoint2D(0.5, -0.5), new TestPoint2D(0.5, 0.5), new TestPoint2D(-1, 0), new TestPoint2D(1, 0), new TestPoint2D(0, 1), new TestPoint2D(0, -1));
     }
@@ -970,6 +1253,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
 @Test
     void testBuildRegion_grid_diamond_5_oe() {
+        // arrange
         final int maxCount = 5;
 
         final List<TestLineSegment> boundaries = Arrays.asList(
@@ -982,6 +1266,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         for (int c = 0; c <= maxCount; ++c) {
             final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+            // act
             insertGridRecursive(-2, 2, c, builder);
 
             for (final TestLineSegment boundary : boundaries) {
@@ -990,8 +1275,13 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
             final TestRegionBSPTree tree = builder.build();
 
+            // assert
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
 
+            // removed other assertion
 
             PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(-2, -2), new TestPoint2D(2, -2), new TestPoint2D(2, 2), new TestPoint2D(-2, 2), new TestPoint2D(-2, 0), new TestPoint2D(2, 0), new TestPoint2D(0, 2), new TestPoint2D(0, -2));
     }
@@ -999,6 +1289,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
 @Test
     void testBuildRegion_grid_horseshoe_3_oe() {
+        // arrange
         final int maxCount = 5;
 
         final List<TestLineSegment> boundaries = Arrays.asList(
@@ -1015,6 +1306,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         for (int c = 0; c <= maxCount; ++c) {
             final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+            // act
             insertGridRecursive(-2, 2, c, builder);
 
             for (final TestLineSegment boundary : boundaries) {
@@ -1023,6 +1315,9 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
             final TestRegionBSPTree tree = builder.build();
 
+            // assert
+            // removed other assertion
+            // removed other assertion
 
             PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE, new TestPoint2D(0, 0), new TestPoint2D(0, 1.5), new TestPoint2D(2, 1.5), new TestPoint2D(0, -0.5), new TestPoint2D(2, -0.5));
     }
@@ -1030,6 +1325,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
 @Test
     void testBuildRegion_grid_horseshoe_4_oe() {
+        // arrange
         final int maxCount = 5;
 
         final List<TestLineSegment> boundaries = Arrays.asList(
@@ -1046,6 +1342,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         for (int c = 0; c <= maxCount; ++c) {
             final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+            // act
             insertGridRecursive(-2, 2, c, builder);
 
             for (final TestLineSegment boundary : boundaries) {
@@ -1054,7 +1351,11 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
             final TestRegionBSPTree tree = builder.build();
 
+            // assert
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
 
             PartitionTestUtils.assertPointLocations(tree, RegionLocation.BOUNDARY, new TestPoint2D(1, 0), new TestPoint2D(1, 1), new TestPoint2D(3, 1), new TestPoint2D(3, 2), new TestPoint2D(-1, 2), new TestPoint2D(-1, -1), new TestPoint2D(3, -1), new TestPoint2D(3, 0), new TestPoint2D(1, 0.5), new TestPoint2D(2, 1), new TestPoint2D(3, 1.5), new TestPoint2D(1, 2), new TestPoint2D(-1, 0.5), new TestPoint2D(3, -0.5), new TestPoint2D(2, 0));
     }
@@ -1062,6 +1363,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
 @Test
     void testBuildRegion_grid_horseshoe_5_oe() {
+        // arrange
         final int maxCount = 5;
 
         final List<TestLineSegment> boundaries = Arrays.asList(
@@ -1078,6 +1380,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         for (int c = 0; c <= maxCount; ++c) {
             final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
 
+            // act
             insertGridRecursive(-2, 2, c, builder);
 
             for (final TestLineSegment boundary : boundaries) {
@@ -1086,8 +1389,13 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
 
             final TestRegionBSPTree tree = builder.build();
 
+            // assert
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
 
+            // removed other assertion
 
             PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(2, 0.5), new TestPoint2D(4, 0.5), new TestPoint2D(4, 0), new TestPoint2D(4, 1.5), new TestPoint2D(1, 4), new TestPoint2D(1, -4), new TestPoint2D(-4, 0.5));
     }

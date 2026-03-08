@@ -54,26 +54,41 @@ public class DataUtilTest_OE25Dev {
 
     @Test
     public void testCharset_2_oe() {
+        // removed other assertion
         assertEquals("UTF-8", DataUtil.getCharsetFromContentType("text/html; charset=UTF-8"));
     }
 
     @Test
     public void testCharset_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals("ISO-8859-1", DataUtil.getCharsetFromContentType("text/html; charset=ISO-8859-1"));
     }
 
     @Test
     public void testCharset_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull(DataUtil.getCharsetFromContentType("text/html"));
     }
 
     @Test
     public void testCharset_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull(DataUtil.getCharsetFromContentType(null));
     }
 
     @Test
     public void testCharset_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull(DataUtil.getCharsetFromContentType("text/html;charset=Unknown"));
     }
 
@@ -84,21 +99,31 @@ public class DataUtilTest_OE25Dev {
 
     @Test
     public void testQuotedCharset_2_oe() {
+        // removed other assertion
         assertEquals("UTF-8", DataUtil.getCharsetFromContentType("text/html;charset=\"UTF-8\""));
     }
 
     @Test
     public void testQuotedCharset_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals("ISO-8859-1", DataUtil.getCharsetFromContentType("text/html; charset=\"ISO-8859-1\""));
     }
 
     @Test
     public void testQuotedCharset_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull(DataUtil.getCharsetFromContentType("text/html; charset=\"Unsupported\""));
     }
 
     @Test
     public void testQuotedCharset_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("UTF-8", DataUtil.getCharsetFromContentType("text/html; charset='UTF-8'"));
     }
 
@@ -120,6 +145,7 @@ public class DataUtilTest_OE25Dev {
     public void discardsSpuriousByteOrderMarkWhenNoCharsetSet_2_oe() throws IOException {
         String html = "\uFEFF<html><head><title>One</title></head><body>Two</body></html>";
         Document doc = DataUtil.parseInputStream(stream(html), null, "http://foo.com/", Parser.htmlParser());
+        // removed other assertion
         assertEquals("UTF-8", doc.outputSettings().charset().displayName());
     }
 
@@ -130,6 +156,7 @@ public class DataUtilTest_OE25Dev {
 
     @Test
     public void shouldNotThrowExceptionOnEmptyCharset_2_oe() {
+        // removed other assertion
         assertNull(DataUtil.getCharsetFromContentType("text/html; charset=;"));
     }
 
@@ -161,6 +188,7 @@ public class DataUtilTest_OE25Dev {
         String m1 = DataUtil.mimeBoundary();
         String m2 = DataUtil.mimeBoundary();
 
+        // removed other assertion
         assertEquals(DataUtil.boundaryLength, m2.length());
     }
 
@@ -169,6 +197,8 @@ public class DataUtilTest_OE25Dev {
         String m1 = DataUtil.mimeBoundary();
         String m2 = DataUtil.mimeBoundary();
 
+        // removed other assertion
+        // removed other assertion
         assertNotSame(m1, m2);
     }
 
@@ -214,6 +244,7 @@ public class DataUtilTest_OE25Dev {
 
     @Test
     public void parseSequenceInputStream_1_oe() throws IOException {
+        // https://github.com/jhy/jsoup/pull/1671
         File in = getFile("/htmltests/medium.html");
         String fileContent = new String(Files.readAllBytes(in.toPath()));
         int halfLength = fileContent.length() / 2;
@@ -229,6 +260,7 @@ public class DataUtilTest_OE25Dev {
 
     @Test
     public void supportsBOMinFiles_1_oe() throws IOException {
+        // test files from http://www.i18nl10n.com/korean/utftest/
         File in = getFile("/bomtests/bom_utf16be.html");
         Document doc = Jsoup.parse(in, null, "http://example.com");
         assertTrue(doc.title().contains("UTF-16BE"));
@@ -236,15 +268,20 @@ public class DataUtilTest_OE25Dev {
 
     @Test
     public void supportsBOMinFiles_2_oe() throws IOException {
+        // test files from http://www.i18nl10n.com/korean/utftest/
         File in = getFile("/bomtests/bom_utf16be.html");
         Document doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
         assertTrue(doc.text().contains("가각갂갃간갅"));
     }
 
     @Test
     public void supportsBOMinFiles_3_oe() throws IOException {
+        // test files from http://www.i18nl10n.com/korean/utftest/
         File in = getFile("/bomtests/bom_utf16be.html");
         Document doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
+        // removed other assertion
 
         in = getFile("/bomtests/bom_utf16le.html");
         doc = Jsoup.parse(in, null, "http://example.com");
@@ -253,21 +290,30 @@ public class DataUtilTest_OE25Dev {
 
     @Test
     public void supportsBOMinFiles_4_oe() throws IOException {
+        // test files from http://www.i18nl10n.com/korean/utftest/
         File in = getFile("/bomtests/bom_utf16be.html");
         Document doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
+        // removed other assertion
 
         in = getFile("/bomtests/bom_utf16le.html");
         doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
         assertTrue(doc.text().contains("가각갂갃간갅"));
     }
 
     @Test
     public void supportsBOMinFiles_5_oe() throws IOException {
+        // test files from http://www.i18nl10n.com/korean/utftest/
         File in = getFile("/bomtests/bom_utf16be.html");
         Document doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
+        // removed other assertion
 
         in = getFile("/bomtests/bom_utf16le.html");
         doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
+        // removed other assertion
 
         in = getFile("/bomtests/bom_utf32be.html");
         doc = Jsoup.parse(in, null, "http://example.com");
@@ -276,27 +322,40 @@ public class DataUtilTest_OE25Dev {
 
     @Test
     public void supportsBOMinFiles_6_oe() throws IOException {
+        // test files from http://www.i18nl10n.com/korean/utftest/
         File in = getFile("/bomtests/bom_utf16be.html");
         Document doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
+        // removed other assertion
 
         in = getFile("/bomtests/bom_utf16le.html");
         doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
+        // removed other assertion
 
         in = getFile("/bomtests/bom_utf32be.html");
         doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
         assertTrue(doc.text().contains("가각갂갃간갅"));
     }
 
     @Test
     public void supportsBOMinFiles_7_oe() throws IOException {
+        // test files from http://www.i18nl10n.com/korean/utftest/
         File in = getFile("/bomtests/bom_utf16be.html");
         Document doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
+        // removed other assertion
 
         in = getFile("/bomtests/bom_utf16le.html");
         doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
+        // removed other assertion
 
         in = getFile("/bomtests/bom_utf32be.html");
         doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
+        // removed other assertion
 
         in = getFile("/bomtests/bom_utf32le.html");
         doc = Jsoup.parse(in, null, "http://example.com");
@@ -305,17 +364,25 @@ public class DataUtilTest_OE25Dev {
 
     @Test
     public void supportsBOMinFiles_8_oe() throws IOException {
+        // test files from http://www.i18nl10n.com/korean/utftest/
         File in = getFile("/bomtests/bom_utf16be.html");
         Document doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
+        // removed other assertion
 
         in = getFile("/bomtests/bom_utf16le.html");
         doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
+        // removed other assertion
 
         in = getFile("/bomtests/bom_utf32be.html");
         doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
+        // removed other assertion
 
         in = getFile("/bomtests/bom_utf32le.html");
         doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
         assertTrue(doc.text().contains("가각갂갃간갅"));
     }
 
@@ -345,6 +412,7 @@ public class DataUtilTest_OE25Dev {
     public void supportsZippedUTF8BOM_2_oe() throws IOException {
         File in = getFile("/bomtests/bom_utf8.html.gz");
         Document doc = Jsoup.parse(in, null, "http://example.com");
+        // removed other assertion
         assertEquals("There is a UTF8 BOM at the top (before the XML decl). If not read correctly, will look like a non-joining space.", doc.body().text());
     }
 
@@ -372,11 +440,13 @@ public class DataUtilTest_OE25Dev {
     public void lLoadsGzipFile_2_oe() throws IOException {
         File in = getFile("/htmltests/gzip.html.gz");
         Document doc = Jsoup.parse(in, null);
+        // removed other assertion
         assertEquals("This is a gzipped HTML file.", doc.selectFirst("p").text());
     }
 
     @Test
     public void loadsZGzipFile_1_oe() throws IOException {
+        // compressed on win, with z suffix
         File in = getFile("/htmltests/gzip.html.z");
         Document doc = Jsoup.parse(in, null);
         assertEquals("Gzip test", doc.title());
@@ -384,8 +454,10 @@ public class DataUtilTest_OE25Dev {
 
     @Test
     public void loadsZGzipFile_2_oe() throws IOException {
+        // compressed on win, with z suffix
         File in = getFile("/htmltests/gzip.html.z");
         Document doc = Jsoup.parse(in, null);
+        // removed other assertion
         assertEquals("This is a gzipped HTML file.", doc.selectFirst("p").text());
     }
 
@@ -400,6 +472,7 @@ public class DataUtilTest_OE25Dev {
     public void handlesFakeGzipFile_2_oe() throws IOException {
         File in = getFile("/htmltests/fake-gzip.html.gz");
         Document doc = Jsoup.parse(in, null);
+        // removed other assertion
         assertEquals("And should still be readable.", doc.selectFirst("p").text());
     }
 

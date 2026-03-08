@@ -158,30 +158,45 @@ public class TestFileLocator_OE25Dev {
     @Test
     public void testCreateFileLocatorUndefined_2_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().create();
+        // removed other assertion
         assertNull("Got a file name", locator.getFileName());
     }
 
     @Test
     public void testCreateFileLocatorUndefined_3_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().create();
+        // removed other assertion
+        // removed other assertion
         assertNull("Got a URL", locator.getSourceURL());
     }
 
     @Test
     public void testCreateFileLocatorUndefined_4_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().create();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("Got an encoding", locator.getEncoding());
     }
 
     @Test
     public void testCreateFileLocatorUndefined_5_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().create();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("Got a file system", locator.getFileSystem());
     }
 
     @Test
     public void testCreateFileLocatorUndefined_6_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().create();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("Got a location strategy", locator.getLocationStrategy());
     }
 
@@ -210,6 +225,7 @@ public class TestFileLocator_OE25Dev {
         final FileLocator loc = FileLocatorUtils.fileLocator().basePath(BASE_PATH).fileName(FILE_NAME).encoding(ENCODING).fileSystem(fileSystem)
             .sourceURL(sourceURL).locationStrategy(locationStrategy).create();
         final String s = loc.toString();
+        // removed other assertion
         assertThat(s, containsString("basePath=" + BASE_PATH));
     }
 
@@ -218,6 +234,8 @@ public class TestFileLocator_OE25Dev {
         final FileLocator loc = FileLocatorUtils.fileLocator().basePath(BASE_PATH).fileName(FILE_NAME).encoding(ENCODING).fileSystem(fileSystem)
             .sourceURL(sourceURL).locationStrategy(locationStrategy).create();
         final String s = loc.toString();
+        // removed other assertion
+        // removed other assertion
         assertThat(s, containsString("sourceURL=" + sourceURL));
     }
 
@@ -226,6 +244,9 @@ public class TestFileLocator_OE25Dev {
         final FileLocator loc = FileLocatorUtils.fileLocator().basePath(BASE_PATH).fileName(FILE_NAME).encoding(ENCODING).fileSystem(fileSystem)
             .sourceURL(sourceURL).locationStrategy(locationStrategy).create();
         final String s = loc.toString();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertThat(s, containsString("encoding=" + ENCODING));
     }
 
@@ -234,6 +255,10 @@ public class TestFileLocator_OE25Dev {
         final FileLocator loc = FileLocatorUtils.fileLocator().basePath(BASE_PATH).fileName(FILE_NAME).encoding(ENCODING).fileSystem(fileSystem)
             .sourceURL(sourceURL).locationStrategy(locationStrategy).create();
         final String s = loc.toString();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertThat(s, containsString("fileSystem=" + fileSystem));
     }
 
@@ -242,6 +267,11 @@ public class TestFileLocator_OE25Dev {
         final FileLocator loc = FileLocatorUtils.fileLocator().basePath(BASE_PATH).fileName(FILE_NAME).encoding(ENCODING).fileSystem(fileSystem)
             .sourceURL(sourceURL).locationStrategy(locationStrategy).create();
         final String s = loc.toString();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertThat(s, containsString("locationStrategy=" + locationStrategy));
     }
 

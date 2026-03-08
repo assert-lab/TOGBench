@@ -103,6 +103,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         BigInteger expected = new BigInteger("12345");
+        // removed other assertion
         assertEquals("validate(A) locale ", expected, BigIntegerValidator.getInstance().validate(localeVal, locale));
     }
 
@@ -115,6 +116,8 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         BigInteger expected = new BigInteger("12345");
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(A) pattern", expected, BigIntegerValidator.getInstance().validate(patternVal, pattern));
     }
 
@@ -127,6 +130,9 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         BigInteger expected = new BigInteger("12345");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(A) both",    expected, BigIntegerValidator.getInstance().validate(germanPatternVal, pattern, Locale.GERMAN));
     }
 
@@ -139,6 +145,10 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         BigInteger expected = new BigInteger("12345");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue("isValid(A) default", BigIntegerValidator.getInstance().isValid(defaultVal));
     }
@@ -152,7 +162,12 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         BigInteger expected = new BigInteger("12345");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue("isValid(A) locale ", BigIntegerValidator.getInstance().isValid(localeVal, locale));
     }
 
@@ -165,7 +180,13 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         BigInteger expected = new BigInteger("12345");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid(A) pattern", BigIntegerValidator.getInstance().isValid(patternVal, pattern));
     }
 
@@ -178,7 +199,14 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         BigInteger expected = new BigInteger("12345");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid(A) both",    BigIntegerValidator.getInstance().isValid(germanPatternVal, pattern, Locale.GERMAN));
     }
 
@@ -191,7 +219,15 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         BigInteger expected = new BigInteger("12345");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertNull("validate(B) default", BigIntegerValidator.getInstance().validate(XXXX));
     }
@@ -205,8 +241,17 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         BigInteger expected = new BigInteger("12345");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertNull("validate(B) locale ", BigIntegerValidator.getInstance().validate(XXXX, locale));
     }
 
@@ -219,8 +264,18 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         BigInteger expected = new BigInteger("12345");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertNull("validate(B) pattern", BigIntegerValidator.getInstance().validate(XXXX, pattern));
     }
 
@@ -233,8 +288,19 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         BigInteger expected = new BigInteger("12345");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("validate(B) both",    BigIntegerValidator.getInstance().validate(patternVal, pattern, Locale.GERMAN));
     }
 
@@ -247,8 +313,20 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         BigInteger expected = new BigInteger("12345");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("isValid(B) default", BigIntegerValidator.getInstance().isValid(XXXX));
     }
@@ -262,9 +340,22 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         BigInteger expected = new BigInteger("12345");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("isValid(B) locale ", BigIntegerValidator.getInstance().isValid(XXXX, locale));
     }
 
@@ -277,9 +368,23 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         BigInteger expected = new BigInteger("12345");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid(B) pattern", BigIntegerValidator.getInstance().isValid(XXXX, pattern));
     }
 
@@ -292,9 +397,24 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         BigInteger expected = new BigInteger("12345");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid(B) both",    BigIntegerValidator.getInstance().isValid(patternVal, pattern, Locale.GERMAN));
     }
 
@@ -307,6 +427,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         BigInteger number20 = validator.validate("20", "#");
         BigInteger number21 = validator.validate("21", "#");
 
+        // Test isInRange()
         assertFalse("isInRange() < min",   validator.isInRange(number9,  10, 20));
     }
 
@@ -319,6 +440,8 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         BigInteger number20 = validator.validate("20", "#");
         BigInteger number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
         assertTrue("isInRange() = min",    validator.isInRange(number10, 10, 20));
     }
 
@@ -331,6 +454,9 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         BigInteger number20 = validator.validate("20", "#");
         BigInteger number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
         assertTrue("isInRange() in range", validator.isInRange(number11, 10, 20));
     }
 
@@ -343,6 +469,10 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         BigInteger number20 = validator.validate("20", "#");
         BigInteger number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isInRange() = max",    validator.isInRange(number20, 10, 20));
     }
 
@@ -355,6 +485,11 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         BigInteger number20 = validator.validate("20", "#");
         BigInteger number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isInRange() > max",   validator.isInRange(number21, 10, 20));
     }
 
@@ -367,7 +502,14 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         BigInteger number20 = validator.validate("20", "#");
         BigInteger number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
         assertFalse("minValue() < min",    validator.minValue(number9,  10));
     }
 
@@ -380,7 +522,15 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         BigInteger number20 = validator.validate("20", "#");
         BigInteger number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
         assertTrue("minValue() = min",     validator.minValue(number10, 10));
     }
 
@@ -393,7 +543,16 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         BigInteger number20 = validator.validate("20", "#");
         BigInteger number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
         assertTrue("minValue() > min",     validator.minValue(number11, 10));
     }
 
@@ -406,8 +565,19 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         BigInteger number20 = validator.validate("20", "#");
         BigInteger number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
         assertTrue("maxValue() < max",     validator.maxValue(number19, 20));
     }
 
@@ -420,8 +590,20 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         BigInteger number20 = validator.validate("20", "#");
         BigInteger number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
         assertTrue("maxValue() = max",     validator.maxValue(number20, 20));
     }
 
@@ -434,8 +616,21 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         BigInteger number20 = validator.validate("20", "#");
         BigInteger number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
         assertFalse("maxValue() > max",    validator.maxValue(number21, 20));
     }
 

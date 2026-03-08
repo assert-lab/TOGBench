@@ -1,0 +1,33 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-jmh/src/test/java/org/apache/commons/rng/examples/jmh/sampling/distribution/ZigguratSamplerTest_OE25Dev.java:[162,9] cannot find symbol
+  symbol:   method testSamples(double[],java.util.function.Function<org.apache.commons.rng.UniformRandomProvider,org.apache.commons.rng.sampling.distribution.ContinuousSampler>,ZigguratSa[...]ution,double[],double[],double[],double[],double[],double[],double[])
+  location: class org.apache.commons.rng.examples.jmh.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-jmh/src/test/java/org/apache/commons/rng/examples/jmh/sampling/distribution/ZigguratSamplerTest_OE25Dev.java:[198,9] cannot find symbol
+  symbol:   method testSamples(double[],java.util.function.Function<org.apache.commons.rng.UniformRandomProvider,org.apache.commons.rng.sampling.distribution.ContinuousSampler>,ZigguratSa[...]ution,double[],double[],double[],double[],double[],double[],double[],double[],double[])
+  location: class org.apache.commons.rng.examples.jmh.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-jmh/src/test/java/org/apache/commons/rng/examples/jmh/sampling/distribution/ZigguratSamplerTest_OE25Dev.java:[231,9] cannot find symbol
+  symbol:   method testSamples(double[],java.util.function.Function<org.apache.commons.rng.UniformRandomProvider,org.apache.commons.rng.sampling.distribution.ContinuousSampler>,ZigguratSa[...]ution,double[],double[],double[],double[])
+  location: class org.apache.commons.rng.examples.jmh.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-jmh/src/test/java/org/apache/commons/rng/examples/jmh/sampling/distribution/ZigguratSamplerTest_OE25Dev.java:[262,9] cannot find symbol
+  symbol:   method testSamples(double[],java.util.function.Function<org.apache.commons.rng.UniformRandomProvider,org.apache.commons.rng.sampling.distribution.ContinuousSampler>,ZigguratSa[...]ution,double[],double[],double[],double[],double[])
+  location: class org.apache.commons.rng.examples.jmh.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-rng-examples-jmh: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-jmh/src/test/java/org/apache/commons/rng/examples/jmh/sampling/distribution/ZigguratSamplerTest_OE25Dev.java:[162,9] cannot find symbol
+[ERROR]   symbol:   method testSamples(double[],java.util.function.Function<org.apache.commons.rng.UniformRandomProvider,org.apache.commons.rng.sampling.distribution.ContinuousSampler>,ZigguratSa[...]ution,double[],double[],double[],double[],double[],double[],double[])
+[ERROR]   location: class org.apache.commons.rng.examples.jmh.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-jmh/src/test/java/org/apache/commons/rng/examples/jmh/sampling/distribution/ZigguratSamplerTest_OE25Dev.java:[198,9] cannot find symbol
+[ERROR]   symbol:   method testSamples(double[],java.util.function.Function<org.apache.commons.rng.UniformRandomProvider,org.apache.commons.rng.sampling.distribution.ContinuousSampler>,ZigguratSa[...]ution,double[],double[],double[],double[],double[],double[],double[],double[],double[])
+[ERROR]   location: class org.apache.commons.rng.examples.jmh.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-jmh/src/test/java/org/apache/commons/rng/examples/jmh/sampling/distribution/ZigguratSamplerTest_OE25Dev.java:[231,9] cannot find symbol
+[ERROR]   symbol:   method testSamples(double[],java.util.function.Function<org.apache.commons.rng.UniformRandomProvider,org.apache.commons.rng.sampling.distribution.ContinuousSampler>,ZigguratSa[...]ution,double[],double[],double[],double[])
+[ERROR]   location: class org.apache.commons.rng.examples.jmh.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-jmh/src/test/java/org/apache/commons/rng/examples/jmh/sampling/distribution/ZigguratSamplerTest_OE25Dev.java:[262,9] cannot find symbol
+[ERROR]   symbol:   method testSamples(double[],java.util.function.Function<org.apache.commons.rng.UniformRandomProvider,org.apache.commons.rng.sampling.distribution.ContinuousSampler>,ZigguratSa[...]ution,double[],double[],double[],double[],double[])
+[ERROR]   location: class org.apache.commons.rng.examples.jmh.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

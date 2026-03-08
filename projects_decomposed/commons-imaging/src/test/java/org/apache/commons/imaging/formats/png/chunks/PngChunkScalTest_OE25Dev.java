@@ -41,6 +41,7 @@ public class PngChunkScalTest_OE25Dev {
       final PngChunkScal pngChunkScal = new PngChunkScal(10, chunkType, 0,
             new byte[]{1, 48, 46, 48, 49, 0, 48, 46, 48, 50});
 
+      // removed other assertion
       assertEquals(pngChunkScal.unitsPerPixelXAxis, 0.01, delta);
    }
 
@@ -49,6 +50,8 @@ public class PngChunkScalTest_OE25Dev {
       final PngChunkScal pngChunkScal = new PngChunkScal(10, chunkType, 0,
             new byte[]{1, 48, 46, 48, 49, 0, 48, 46, 48, 50});
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(pngChunkScal.unitsPerPixelYAxis, 0.02, delta);
    }
 
@@ -65,6 +68,7 @@ public class PngChunkScalTest_OE25Dev {
       final PngChunkScal pngChunkScal = new PngChunkScal(10, chunkType, 0,
             new byte[]{2, 48, 46, 48, 49, 0, 48, 46, 48, 50});
 
+      // removed other assertion
       assertEquals(pngChunkScal.unitsPerPixelXAxis, 0.01, delta);
    }
 
@@ -73,6 +77,8 @@ public class PngChunkScalTest_OE25Dev {
       final PngChunkScal pngChunkScal = new PngChunkScal(10, chunkType, 0,
             new byte[]{2, 48, 46, 48, 49, 0, 48, 46, 48, 50});
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(pngChunkScal.unitsPerPixelYAxis, 0.02, delta);
    }
 

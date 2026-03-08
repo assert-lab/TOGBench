@@ -59,6 +59,8 @@ public class JpegReadTest_OE25Dev extends JpegBaseTest {
     public void test_1_oe(final File imageFile) throws Exception {
         JpegImageParser jpegImageParser = new JpegImageParser();
         final ImageMetadata metadata = jpegImageParser.getExifMetadata(new ByteSourceFile(imageFile), new TiffImagingParameters());
+        // TODO only run this tests with images that have metadata...
+        //assertNotNull(metadata);
         Debug.debug("metadata", metadata);
 
         Debug.debug("ICC profile", Imaging.getICCProfile(imageFile));

@@ -139,6 +139,7 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
 
         Assertions.assertEquals(b, ArithmeticUtils.gcd(0, b));
     }
@@ -149,7 +150,9 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(a, ArithmeticUtils.gcd(a, 0));
     }
 
@@ -159,7 +162,10 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(b, ArithmeticUtils.gcd(0, -b));
     }
 
@@ -169,7 +175,11 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(a, ArithmeticUtils.gcd(-a, 0));
     }
 
@@ -179,7 +189,12 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(10, ArithmeticUtils.gcd(a, b));
     }
@@ -190,8 +205,14 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(10, ArithmeticUtils.gcd(-a, b));
     }
 
@@ -201,8 +222,15 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(10, ArithmeticUtils.gcd(a, -b));
     }
 
@@ -212,8 +240,16 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(10, ArithmeticUtils.gcd(-a, -b));
     }
 
@@ -223,8 +259,17 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1, ArithmeticUtils.gcd(a, c));
     }
@@ -235,9 +280,19 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(1, ArithmeticUtils.gcd(-a, c));
     }
 
@@ -247,9 +302,20 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, ArithmeticUtils.gcd(a, -c));
     }
 
@@ -259,9 +325,21 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, ArithmeticUtils.gcd(-a, -c));
     }
 
@@ -271,9 +349,22 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(3 * (1 << 15), ArithmeticUtils.gcd(3 * (1 << 20), 9 * (1 << 15)));
     }
@@ -284,10 +375,24 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertEquals(Integer.MAX_VALUE, ArithmeticUtils.gcd(Integer.MAX_VALUE, 0));
     }
@@ -298,11 +403,26 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Integer.MAX_VALUE, ArithmeticUtils.gcd(-Integer.MAX_VALUE, 0));
     }
 
@@ -312,16 +432,33 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1 << 30, ArithmeticUtils.gcd(1 << 30, -Integer.MIN_VALUE));
     }
 
     @Test
     void testGcdConsistency_1_oe() {
+        // Use Integer to prevent varargs vs array issue with Arrays.asList
         Integer[] primeList = {19, 23, 53, 67, 73, 79, 101, 103, 111, 131};
 
         for (int i = 0; i < 20; i++) {
@@ -339,6 +476,7 @@ class ArithmeticUtilsTest_OE25Dev {
 
     @Test
     void testGcdConsistency_2_oe() {
+        // Use Integer to prevent varargs vs array issue with Arrays.asList
         Integer[] primeList = {19, 23, 53, 67, 73, 79, 101, 103, 111, 131};
 
         for (int i = 0; i < 20; i++) {
@@ -350,6 +488,7 @@ class ArithmeticUtilsTest_OE25Dev {
             int i1 = p1 * p2 * p3;
             int i2 = p1 * p2 * p4;
             int gcd = p1 * p2;
+            // removed other assertion
             long l1 = i1;
             long l2 = i2;
             Assertions.assertEquals(gcd, ArithmeticUtils.gcd(l1, l2));
@@ -371,6 +510,7 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
         Assertions.assertEquals(b, ArithmeticUtils.gcd(0, b));
     }
@@ -381,7 +521,9 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(a, ArithmeticUtils.gcd(a, 0));
     }
 
@@ -391,7 +533,10 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(b, ArithmeticUtils.gcd(0, -b));
     }
 
@@ -401,7 +546,11 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(a, ArithmeticUtils.gcd(-a, 0));
     }
 
@@ -411,7 +560,12 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(10, ArithmeticUtils.gcd(a, b));
     }
@@ -422,8 +576,14 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(10, ArithmeticUtils.gcd(-a, b));
     }
 
@@ -433,8 +593,15 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(10, ArithmeticUtils.gcd(a, -b));
     }
 
@@ -444,8 +611,16 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(10, ArithmeticUtils.gcd(-a, -b));
     }
 
@@ -455,8 +630,17 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1, ArithmeticUtils.gcd(a, c));
     }
@@ -467,9 +651,19 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(1, ArithmeticUtils.gcd(-a, c));
     }
 
@@ -479,9 +673,20 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, ArithmeticUtils.gcd(a, -c));
     }
 
@@ -491,9 +696,21 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, ArithmeticUtils.gcd(-a, -c));
     }
 
@@ -503,9 +720,22 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(3L * (1L << 45), ArithmeticUtils.gcd(3L * (1L << 50), 9L * (1L << 45)));
     }
@@ -516,10 +746,24 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertEquals(1L << 45, ArithmeticUtils.gcd(1L << 45, Long.MIN_VALUE));
     }
@@ -530,11 +774,26 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertEquals(Long.MAX_VALUE, ArithmeticUtils.gcd(Long.MAX_VALUE, 0L));
     }
@@ -545,12 +804,28 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Long.MAX_VALUE, ArithmeticUtils.gcd(-Long.MAX_VALUE, 0L));
     }
 
@@ -560,12 +835,29 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, ArithmeticUtils.gcd(60247241209L, 153092023L));
     }
 
@@ -584,6 +876,7 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
         Assertions.assertEquals(0, ArithmeticUtils.lcm(a, 0));
     }
 
@@ -593,6 +886,8 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(b, ArithmeticUtils.lcm(1, b));
     }
 
@@ -602,6 +897,9 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(a, ArithmeticUtils.lcm(a, 1));
     }
 
@@ -611,6 +909,10 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(150, ArithmeticUtils.lcm(a, b));
     }
 
@@ -620,6 +922,11 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(150, ArithmeticUtils.lcm(-a, b));
     }
 
@@ -629,6 +936,12 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(150, ArithmeticUtils.lcm(a, -b));
     }
 
@@ -638,6 +951,13 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(150, ArithmeticUtils.lcm(-a, -b));
     }
 
@@ -647,6 +967,14 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(2310, ArithmeticUtils.lcm(a, c));
     }
 
@@ -656,7 +984,18 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Assert that no intermediate value overflows:
+        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
         Assertions.assertEquals((1 << 20) * 15, ArithmeticUtils.lcm((1 << 20) * 3, (1 << 20) * 5));
     }
 
@@ -666,8 +1005,21 @@ class ArithmeticUtilsTest_OE25Dev {
         int b = 50;
         int c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Assert that no intermediate value overflows:
+        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
+        // removed other assertion
 
+        // Special case
         Assertions.assertEquals(0, ArithmeticUtils.lcm(0, 0));
     }
 
@@ -686,6 +1038,7 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
         Assertions.assertEquals(0, ArithmeticUtils.lcm(a, 0));
     }
 
@@ -695,6 +1048,8 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(b, ArithmeticUtils.lcm(1, b));
     }
 
@@ -704,6 +1059,9 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(a, ArithmeticUtils.lcm(a, 1));
     }
 
@@ -713,6 +1071,10 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(150, ArithmeticUtils.lcm(a, b));
     }
 
@@ -722,6 +1084,11 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(150, ArithmeticUtils.lcm(-a, b));
     }
 
@@ -731,6 +1098,12 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(150, ArithmeticUtils.lcm(a, -b));
     }
 
@@ -740,6 +1113,13 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(150, ArithmeticUtils.lcm(-a, -b));
     }
 
@@ -749,6 +1129,14 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(2310, ArithmeticUtils.lcm(a, c));
     }
 
@@ -758,6 +1146,15 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Long.MAX_VALUE, ArithmeticUtils.lcm(60247241209L, 153092023L));
     }
@@ -768,8 +1165,20 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // Assert that no intermediate value overflows:
+        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
         Assertions.assertEquals((1L << 50) * 15, ArithmeticUtils.lcm((1L << 45) * 3, (1L << 50) * 5));
     }
 
@@ -779,9 +1188,23 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // Assert that no intermediate value overflows:
+        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
+        // removed other assertion
 
+        // Special case
         Assertions.assertEquals(0L, ArithmeticUtils.lcm(0L, 0L));
     }
 
@@ -791,18 +1214,39 @@ class ArithmeticUtilsTest_OE25Dev {
         long b = 50;
         long c = 77;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // Assert that no intermediate value overflows:
+        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
+        // removed other assertion
 
+        // Special case
+        // removed other assertion
 
         try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
             ArithmeticUtils.lcm(Long.MIN_VALUE, 1);
+            // removed other assertion
         } catch (ArithmeticException expected) {
+            // expected
         }
 
         try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
             ArithmeticUtils.lcm(Long.MIN_VALUE, 1 << 20);
+            // removed other assertion
         } catch (ArithmeticException expected) {
+            // expected
         }
 
         Assertions.assertEquals((long)Integer.MAX_VALUE *(Integer.MAX_VALUE - 1),ArithmeticUtils.lcm((long)Integer.MAX_VALUE,Integer.MAX_VALUE - 1));
@@ -817,15 +1261,20 @@ class ArithmeticUtilsTest_OE25Dev {
     @Test
     void testPow_2_oe() {
 
+        // removed other assertion
         Assertions.assertEquals(1, ArithmeticUtils.pow(21, 0));
     }
 
     @Test
     void testPow_4_oe() {
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
         Assertions.assertEquals(1801088541, ArithmeticUtils.pow(21, 7));
@@ -834,25 +1283,38 @@ class ArithmeticUtilsTest_OE25Dev {
     @Test
     void testPow_5_oe() {
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
         Assertions.assertEquals(1, ArithmeticUtils.pow(21, 0));
     }
 
     @Test
     void testPow_7_oe() {
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
         Assertions.assertEquals(1801088541L, ArithmeticUtils.pow(21L, 7));
@@ -861,35 +1323,56 @@ class ArithmeticUtilsTest_OE25Dev {
     @Test
     void testPow_8_oe() {
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
         Assertions.assertEquals(1L, ArithmeticUtils.pow(21L, 0));
     }
 
     @Test
     void testPow_10_oe() {
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21L, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
         BigInteger twentyOne = BigInteger.valueOf(21L);
@@ -899,47 +1382,76 @@ class ArithmeticUtilsTest_OE25Dev {
     @Test
     void testPow_11_oe() {
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21L, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
         BigInteger twentyOne = BigInteger.valueOf(21L);
+        // removed other assertion
         Assertions.assertEquals(BigInteger.ONE, ArithmeticUtils.pow(twentyOne, 0));
     }
 
     @Test
     void testPow_13_oe() {
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21L, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
         BigInteger twentyOne = BigInteger.valueOf(21L);
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(twentyOne, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
         Assertions.assertEquals(BigInteger.valueOf(1801088541L), ArithmeticUtils.pow(twentyOne, 7L));
@@ -948,57 +1460,94 @@ class ArithmeticUtilsTest_OE25Dev {
     @Test
     void testPow_14_oe() {
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21L, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
         BigInteger twentyOne = BigInteger.valueOf(21L);
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(twentyOne, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
         Assertions.assertEquals(BigInteger.ONE, ArithmeticUtils.pow(twentyOne, 0L));
     }
 
     @Test
     void testPow_16_oe() {
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21L, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
         BigInteger twentyOne = BigInteger.valueOf(21L);
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(twentyOne, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(twentyOne, -7L);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
         Assertions.assertEquals(BigInteger.valueOf(1801088541L), ArithmeticUtils.pow(twentyOne, BigInteger.valueOf(7L)));
@@ -1007,64 +1556,107 @@ class ArithmeticUtilsTest_OE25Dev {
     @Test
     void testPow_17_oe() {
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21L, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
         BigInteger twentyOne = BigInteger.valueOf(21L);
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(twentyOne, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(twentyOne, -7L);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
         Assertions.assertEquals(BigInteger.ONE, ArithmeticUtils.pow(twentyOne, BigInteger.ZERO));
     }
 
     @Test
     void testPow_18_oe() {
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21L, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
         BigInteger twentyOne = BigInteger.valueOf(21L);
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(twentyOne, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(twentyOne, -7L);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
     ArithmeticUtils.pow(twentyOne, BigInteger.valueOf(-7L));
     fail("IllegalArgumentException");
@@ -1075,32 +1667,55 @@ class ArithmeticUtilsTest_OE25Dev {
     @Test
     void testPow_19_oe() {
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21L, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
         BigInteger twentyOne = BigInteger.valueOf(21L);
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(twentyOne, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(twentyOne, -7L);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         BigInteger bigOne =
             new BigInteger("1543786922199448028351389769265814882661837148" +
@@ -1112,74 +1727,123 @@ class ArithmeticUtilsTest_OE25Dev {
     @Test
     void testPow_20_oe() {
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21L, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
         BigInteger twentyOne = BigInteger.valueOf(21L);
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(twentyOne, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(twentyOne, -7L);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         BigInteger bigOne =
             new BigInteger("1543786922199448028351389769265814882661837148" +
                            "4763915343722775611762713982220306372888519211" +
                            "560905579993523402015636025177602059044911261");
+        // removed other assertion
         Assertions.assertEquals(bigOne, ArithmeticUtils.pow(twentyOne, 103L));
     }
 
     @Test
     void testPow_21_oe() {
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(21L, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
         BigInteger twentyOne = BigInteger.valueOf(21L);
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(twentyOne, -7);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
         try {
             ArithmeticUtils.pow(twentyOne, -7L);
+            // removed other assertion
         } catch (IllegalArgumentException e) {
+            // expected behavior
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         BigInteger bigOne =
             new BigInteger("1543786922199448028351389769265814882661837148" +
                            "4763915343722775611762713982220306372888519211" +
                            "560905579993523402015636025177602059044911261");
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(bigOne, ArithmeticUtils.pow(twentyOne, BigInteger.valueOf(103L)));
     }
 
@@ -1203,6 +1867,7 @@ class ArithmeticUtilsTest_OE25Dev {
     void testPowInt_2_oe() {
         final int base = 21;
 
+        // removed other assertion
         Assertions.assertEquals(1801088541L,ArithmeticUtils.pow(base,7));
     }
 
@@ -1226,6 +1891,7 @@ class ArithmeticUtilsTest_OE25Dev {
     void testPowNegativeInt_2_oe() {
         final int base = -21;
 
+        // removed other assertion
         Assertions.assertEquals(-1801088541,ArithmeticUtils.pow(base,7));
     }
 
@@ -1267,6 +1933,7 @@ class ArithmeticUtilsTest_OE25Dev {
     void testPowLong_2_oe() {
         final long base = 21;
 
+        // removed other assertion
         Assertions.assertEquals(3243919932521508681L,ArithmeticUtils.pow(base,14));
     }
 
@@ -1290,6 +1957,7 @@ class ArithmeticUtilsTest_OE25Dev {
     void testPowNegativeLong_2_oe() {
         final long base = -21;
 
+        // removed other assertion
         Assertions.assertEquals(3243919932521508681L,ArithmeticUtils.pow(base,14));
     }
 
@@ -1318,31 +1986,52 @@ class ArithmeticUtilsTest_OE25Dev {
 
     @Test
     void testPowEdgeCases_2_oe() {
+        // removed other assertion
         Assertions.assertEquals(0L, ArithmeticUtils.pow(0L, 2));
     }
 
     @Test
     void testPowEdgeCases_3_oe() {
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, ArithmeticUtils.pow(0, 1));
     }
 
     @Test
     void testPowEdgeCases_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0L, ArithmeticUtils.pow(0L, 1));
     }
 
     @Test
     void testPowEdgeCases_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, ArithmeticUtils.pow(0, 0));
     }
 
     @Test
     void testPowEdgeCases_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1L, ArithmeticUtils.pow(0L, 0));
     }
 
     @Test
     void testPowEdgeCases_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         for (int i = 20; i <= 35; i++) {
             final int ti = i;
@@ -1356,9 +2045,16 @@ class ArithmeticUtilsTest_OE25Dev {
 
     @Test
     void testPowEdgeCases_8_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         for (int i = 20; i <= 35; i++) {
             final int ti = i;
+            // removed other assertion
         }
         for (int i = 40; i <= 70; i++) {
             final int ti = i;
@@ -1391,6 +2087,7 @@ class ArithmeticUtilsTest_OE25Dev {
 
     @Test
     void testRemainderUnsignedInt_2_oe() {
+        // removed other assertion
         Assertions.assertEquals(6, ArithmeticUtils.remainderUnsigned(-2147479015, 25));
     }
 
@@ -1416,6 +2113,7 @@ class ArithmeticUtilsTest_OE25Dev {
         for (int dividend : ints) {
             for (int divisor : ints) {
                 if (divisor == 0) {
+                    // removed other assertion
                 } else {
                     Assertions.assertEquals(remainderUnsignedExpected(dividend, divisor), ArithmeticUtils.remainderUnsigned(dividend, divisor));
     }
@@ -1436,7 +2134,9 @@ class ArithmeticUtilsTest_OE25Dev {
                 if (divisor == 0L) {
                     try {
                         ArithmeticUtils.remainderUnsigned(dividend, divisor);
+                        // removed other assertion
                     } catch (ArithmeticException e) {
+                        // Success.
                     }
                 } else {
                     Assertions.assertEquals(remainderUnsignedExpected(dividend, divisor), ArithmeticUtils.remainderUnsigned(dividend, divisor));
@@ -1452,46 +2152,91 @@ class ArithmeticUtilsTest_OE25Dev {
 
     @Test
     void testDivideUnsignedInt_2_oe() {
+        // removed other assertion
         Assertions.assertEquals(85899531, ArithmeticUtils.divideUnsigned(-2147479015, 25));
     }
 
     @Test
     void testDivideUnsignedInt_3_oe() {
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(2147483646, ArithmeticUtils.divideUnsigned(-3, 2));
     }
 
     @Test
     void testDivideUnsignedInt_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(330382098, ArithmeticUtils.divideUnsigned(-16, 13));
     }
 
     @Test
     void testDivideUnsignedInt_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(306783377, ArithmeticUtils.divideUnsigned(-16, 14));
     }
 
     @Test
     void testDivideUnsignedInt_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(2, ArithmeticUtils.divideUnsigned(-1, 2147483647));
     }
 
     @Test
     void testDivideUnsignedInt_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(2, ArithmeticUtils.divideUnsigned(-2, 2147483647));
     }
 
     @Test
     void testDivideUnsignedInt_8_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, ArithmeticUtils.divideUnsigned(-3, 2147483647));
     }
 
     @Test
     void testDivideUnsignedInt_9_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, ArithmeticUtils.divideUnsigned(-16, 2147483647));
     }
 
     @Test
     void testDivideUnsignedInt_10_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, ArithmeticUtils.divideUnsigned(-16, 2147483646));
     }
 
@@ -1517,6 +2262,7 @@ class ArithmeticUtilsTest_OE25Dev {
         for (int dividend : ints) {
             for (int divisor : ints) {
                 if (divisor == 0) {
+                    // removed other assertion
                 } else {
                     Assertions.assertEquals(divideUnsignedExpected(dividend, divisor), ArithmeticUtils.divideUnsigned(dividend, divisor));
     }
@@ -1551,6 +2297,7 @@ class ArithmeticUtilsTest_OE25Dev {
         for (long dividend : longs) {
             for (long divisor : longs) {
                 if (divisor == 0L) {
+                    // removed other assertion
                 } else {
                     Assertions.assertEquals(divideUnsignedExpected(dividend, divisor), ArithmeticUtils.divideUnsigned(dividend, divisor));
     }

@@ -251,6 +251,7 @@ public abstract class AbstractClientTest_OE25Dev {
         oAuthService.execute(request, null).get(30, TimeUnit.SECONDS).close();
 
         final RecordedRequest recordedRequest = server.takeRequest();
+        // removed other assertion
         assertEquals(HttpClient.DEFAULT_CONTENT_TYPE, recordedRequest.getHeader(HttpClient.CONTENT_TYPE));
     }
 

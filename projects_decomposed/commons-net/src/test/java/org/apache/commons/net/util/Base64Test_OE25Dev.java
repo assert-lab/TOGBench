@@ -46,6 +46,7 @@ public class Base64Test_OE25Dev {
     @Test
     public void testBase64Boolean_2_oe() {
         final Base64 b64 = new Base64(true);
+        // removed other assertion
         assertTrue(Arrays.equals(new byte[]{'\r','\n'}, b64.getLineSeparator()));
     }
 
@@ -60,6 +61,7 @@ public class Base64Test_OE25Dev {
     public void testBase64Int_2_oe() {
         Base64 b64;
         b64 = new Base64(8);
+        // removed other assertion
         assertEquals(8, b64.getLineLength());
     }
 
@@ -67,6 +69,8 @@ public class Base64Test_OE25Dev {
     public void testBase64Int_3_oe() {
         Base64 b64;
         b64 = new Base64(8);
+        // removed other assertion
+        // removed other assertion
         b64 = new Base64(11);
         assertEquals(8, b64.getLineLength());
     }
@@ -82,6 +86,7 @@ public class Base64Test_OE25Dev {
     public void testBase64IntByteArray_2_oe() {
         final Base64 b64;
         b64 = new Base64(8, new byte[]{});
+        // removed other assertion
         assertTrue(Arrays.equals(new byte[]{}, b64.getLineSeparator()));
     }
 
@@ -96,6 +101,7 @@ public class Base64Test_OE25Dev {
     public void testBase64IntByteArrayBoolean_2_oe() {
         Base64 b64;
         b64 = new Base64(8, new byte[]{}, false);
+        // removed other assertion
         b64 = new Base64(8, new byte[]{}, true);
         assertTrue(b64.isUrlSafe());
     }
@@ -107,6 +113,7 @@ public class Base64Test_OE25Dev {
 
     @Test
     public void testIsBase64_2_oe() {
+        // removed other assertion
         assertFalse(Base64.isBase64((byte)' '));
     }
 
@@ -117,6 +124,7 @@ public class Base64Test_OE25Dev {
 
     @Test
     public void testIsArrayByteBase64_2_oe() {
+        // removed other assertion
         assertFalse(Base64.isArrayByteBase64(new byte[]{'?'}));
     }
 
@@ -194,6 +202,7 @@ public class Base64Test_OE25Dev {
         final byte[] binaryData = new byte[]{'1','2','3'};
         byte[] encoded;
         encoded = Base64.encodeBase64(binaryData, false, false);
+        // removed other assertion
         assertEquals(4, encoded.length);
     }
 
@@ -202,9 +211,13 @@ public class Base64Test_OE25Dev {
         final byte[] binaryData = new byte[]{'1','2','3'};
         byte[] encoded;
         encoded = Base64.encodeBase64(binaryData, false, false);
+        // removed other assertion
+        // removed other assertion
         try {
             Base64.encodeBase64(binaryData, false, false, 3);
+            // removed other assertion
         } catch (final IllegalArgumentException expected) {
+            // expected
         }
         encoded = Base64.encodeBase64(binaryData, false, false, 4); // NET-483
         assertNotNull(encoded);
@@ -215,11 +228,16 @@ public class Base64Test_OE25Dev {
         final byte[] binaryData = new byte[]{'1','2','3'};
         byte[] encoded;
         encoded = Base64.encodeBase64(binaryData, false, false);
+        // removed other assertion
+        // removed other assertion
         try {
             Base64.encodeBase64(binaryData, false, false, 3);
+            // removed other assertion
         } catch (final IllegalArgumentException expected) {
+            // expected
         }
         encoded = Base64.encodeBase64(binaryData, false, false, 4); // NET-483
+        // removed other assertion
         assertEquals(4, encoded.length);
     }
 
@@ -228,11 +246,17 @@ public class Base64Test_OE25Dev {
         final byte[] binaryData = new byte[]{'1','2','3'};
         byte[] encoded;
         encoded = Base64.encodeBase64(binaryData, false, false);
+        // removed other assertion
+        // removed other assertion
         try {
             Base64.encodeBase64(binaryData, false, false, 3);
+            // removed other assertion
         } catch (final IllegalArgumentException expected) {
+            // expected
         }
         encoded = Base64.encodeBase64(binaryData, false, false, 4); // NET-483
+        // removed other assertion
+        // removed other assertion
         encoded = Base64.encodeBase64(binaryData, true, false);
         assertNotNull(encoded);
     }
@@ -242,12 +266,19 @@ public class Base64Test_OE25Dev {
         final byte[] binaryData = new byte[]{'1','2','3'};
         byte[] encoded;
         encoded = Base64.encodeBase64(binaryData, false, false);
+        // removed other assertion
+        // removed other assertion
         try {
             Base64.encodeBase64(binaryData, false, false, 3);
+            // removed other assertion
         } catch (final IllegalArgumentException expected) {
+            // expected
         }
         encoded = Base64.encodeBase64(binaryData, false, false, 4); // NET-483
+        // removed other assertion
+        // removed other assertion
         encoded = Base64.encodeBase64(binaryData, true, false);
+        // removed other assertion
         assertEquals(6, encoded.length); // always adds trailer;
     }
 
@@ -256,15 +287,25 @@ public class Base64Test_OE25Dev {
         final byte[] binaryData = new byte[]{'1','2','3'};
         byte[] encoded;
         encoded = Base64.encodeBase64(binaryData, false, false);
+        // removed other assertion
+        // removed other assertion
         try {
             Base64.encodeBase64(binaryData, false, false, 3);
+            // removed other assertion
         } catch (final IllegalArgumentException expected) {
+            // expected
         }
         encoded = Base64.encodeBase64(binaryData, false, false, 4); // NET-483
+        // removed other assertion
+        // removed other assertion
         encoded = Base64.encodeBase64(binaryData, true, false);
+        // removed other assertion
+        // removed other assertion
         try {
             Base64.encodeBase64(binaryData, true, false, 5);
+            // removed other assertion
         } catch (final IllegalArgumentException expected) {
+            // expected
         }
         encoded = Base64.encodeBase64(binaryData, true, false, 6);
         assertNotNull(encoded);
@@ -275,17 +316,28 @@ public class Base64Test_OE25Dev {
         final byte[] binaryData = new byte[]{'1','2','3'};
         byte[] encoded;
         encoded = Base64.encodeBase64(binaryData, false, false);
+        // removed other assertion
+        // removed other assertion
         try {
             Base64.encodeBase64(binaryData, false, false, 3);
+            // removed other assertion
         } catch (final IllegalArgumentException expected) {
+            // expected
         }
         encoded = Base64.encodeBase64(binaryData, false, false, 4); // NET-483
+        // removed other assertion
+        // removed other assertion
         encoded = Base64.encodeBase64(binaryData, true, false);
+        // removed other assertion
+        // removed other assertion
         try {
             Base64.encodeBase64(binaryData, true, false, 5);
+            // removed other assertion
         } catch (final IllegalArgumentException expected) {
+            // expected
         }
         encoded = Base64.encodeBase64(binaryData, true, false, 6);
+        // removed other assertion
         assertEquals(6, encoded.length);
     }
 

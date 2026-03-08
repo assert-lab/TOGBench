@@ -69,13 +69,91 @@ public class PermutationIteratorTest_OE25Dev extends AbstractIteratorTest<List<C
 
     //-----------------------------------------------------------------------
 
+    @SuppressWarnings("boxing") // OK in test code
+    public void testPermutationResultSize() {
+        int factorial = 1;
+        for (int i = 0; i < 8; i++, factorial*=i) {
+            final List<Integer> list = new ArrayList<>();
+            for (int j = 0; j < i; j++) {
+                list.add(j);
+            }
+            final Iterator<List<Integer>> it = new PermutationIterator<>(list);
+            int count = 0;
+            while (it.hasNext()) {
+                it.next();
+                count++;
+            }
+            assertEquals(factorial, count);
+        }
+    }
+
     /**
      * test checking that all the permutations are returned
      */
+    @SuppressWarnings("boxing") // OK in test code
+    public void testPermutationExhaustivity() {
+        final List<Character> perm1 = new ArrayList<>();
+        final List<Character> perm2 = new ArrayList<>();
+        final List<Character> perm3 = new ArrayList<>();
+        final List<Character> perm4 = new ArrayList<>();
+        final List<Character> perm5 = new ArrayList<>();
+        final List<Character> perm6 = new ArrayList<>();
+
+        perm1.add('A');
+        perm2.add('A');
+        perm3.add('B');
+        perm4.add('B');
+        perm5.add('C');
+        perm6.add('C');
+
+        perm1.add('B');
+        perm2.add('C');
+        perm3.add('A');
+        perm4.add('C');
+        perm5.add('A');
+        perm6.add('B');
+
+        perm1.add('C');
+        perm2.add('B');
+        perm3.add('C');
+        perm4.add('A');
+        perm5.add('B');
+        perm6.add('A');
+
+        final List<List<Character>> results = new ArrayList<>();
+
+        final PermutationIterator<Character> it = makeObject();
+        while (it.hasNext()) {
+            final List<Character> next = it.next();
+            results.add(next);
+        }
+        //3! permutation for 3 elements
+        assertEquals(6, results.size());
+        assertTrue(results.contains(perm1));
+        assertTrue(results.contains(perm2));
+        assertTrue(results.contains(perm3));
+        assertTrue(results.contains(perm4));
+        assertTrue(results.contains(perm5));
+        assertTrue(results.contains(perm6));
+    }
 
     /**
      * test checking that all the permutations are returned only once.
      */
+    public void testPermutationUnicity() {
+        final List<List<Character>> resultsList = new ArrayList<>();
+        final Set<List<Character>> resultsSet = new HashSet<>();
+
+        final PermutationIterator<Character> it = makeObject();
+        while (it.hasNext()) {
+            final List<Character> permutation = it.next();
+            resultsList.add(permutation);
+            resultsSet.add(permutation);
+        }
+        //3! permutation for 3 elements
+        assertEquals(6, resultsList.size());
+        assertEquals(6, resultsSet.size());
+    }
 
     public void testPermutationException() {
         final List<List<Character>> resultsList = new ArrayList<>();
@@ -92,6 +170,26 @@ public class PermutationIteratorTest_OE25Dev extends AbstractIteratorTest<List<C
         } catch (final NoSuchElementException e) {
             // expected
         }
+    }
+
+    public void testPermutatorHasMore() {
+        final PermutationIterator<Character> it = makeObject();
+        for (int i = 0; i < 6; i++) {
+            assertTrue(it.hasNext());
+            it.next();
+        }
+        assertFalse(it.hasNext());
+    }
+
+    public void testEmptyCollection() {
+        final PermutationIterator<Character> it = makeEmptyIterator();
+        // there is one permutation for an empty set: 0! = 1
+        assertTrue(it.hasNext());
+
+        final List<Character> nextPermutation = it.next();
+        assertEquals(0, nextPermutation.size());
+
+        assertFalse(it.hasNext());
     }
 
     public void testPermutationResultSize_1_oe() {

@@ -55,6 +55,7 @@ public class JpegImageParserTest_OE25Dev {
                 .getFile());
         final JpegImageParser parser = new JpegImageParser();
         final BufferedImage image = parser.getBufferedImage(new ByteSourceFile(imageFile), null);
+        // removed other assertion
         assertEquals(241, image.getHeight());
     }
 
@@ -65,6 +66,8 @@ public class JpegImageParserTest_OE25Dev {
                 .getFile());
         final JpegImageParser parser = new JpegImageParser();
         final BufferedImage image = parser.getBufferedImage(new ByteSourceFile(imageFile), null);
+        // removed other assertion
+        // removed other assertion
         assertEquals(-16777216, image.getRGB(0, 0));
     }
 
@@ -75,6 +78,9 @@ public class JpegImageParserTest_OE25Dev {
                 .getFile());
         final JpegImageParser parser = new JpegImageParser();
         final BufferedImage image = parser.getBufferedImage(new ByteSourceFile(imageFile), null);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(-12177367, image.getRGB(198, 13));
     }
 

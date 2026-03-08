@@ -65,6 +65,7 @@ public class NoNullResponseTest_OE25Dev extends AbstractBasicTest {
       final Response response1 = builder.execute().get();
       Thread.sleep(4000);
       final Response response2 = builder.execute().get();
+      // removed other assertion
       assertNotNull(response2);
   }
   }

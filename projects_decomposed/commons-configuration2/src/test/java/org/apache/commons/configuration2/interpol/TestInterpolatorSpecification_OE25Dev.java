@@ -222,6 +222,7 @@ public class TestInterpolatorSpecification_OE25Dev {
             .withParentInterpolator(parent)
             .withStringConverter(stringConverter)
             .create();
+        // removed other assertion
         assertSame("Wrong parent interpolator", parent, spec.getParentInterpolator());
     }
 
@@ -247,6 +248,8 @@ public class TestInterpolatorSpecification_OE25Dev {
             .withParentInterpolator(parent)
             .withStringConverter(stringConverter)
             .create();
+        // removed other assertion
+        // removed other assertion
         assertSame("Wrong string converter", stringConverter, spec.getStringConverter());
     }
 
@@ -289,6 +292,7 @@ public class TestInterpolatorSpecification_OE25Dev {
             .withInterpolator(interpolator)
             .withStringConverter(stringConverter)
             .create();
+        // removed other assertion
         assertSame("Wrong parent interpolator", parent, spec.getParentInterpolator());
     }
 
@@ -310,6 +314,8 @@ public class TestInterpolatorSpecification_OE25Dev {
             .withInterpolator(interpolator)
             .withStringConverter(stringConverter)
             .create();
+        // removed other assertion
+        // removed other assertion
         assertSame("Wrong string converter", stringConverter, spec.getStringConverter());
     }
 

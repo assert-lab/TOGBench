@@ -126,6 +126,7 @@ public class ConnectTest_OE25Dev {
             Document doc = Jsoup.connect(url).get();
         } catch (MalformedURLException e) {
             threw = true;
+            // removed other assertion
         } catch (IOException e) {
         }
         assertTrue(threw);
@@ -150,6 +151,7 @@ public class ConnectTest_OE25Dev {
             .ignoreHttpErrors(true);
         Connection.Response res = con.execute();
         Document doc = res.parse();
+        // removed other assertion
         assertEquals("Webserver Environment Variables", doc.title());
     }
 
@@ -170,6 +172,7 @@ public class ConnectTest_OE25Dev {
             .cookie("auth", "token")
             .post();
 
+        // removed other assertion
         assertEquals("gzip", ihVal("Accept-Encoding", doc));
     }
 
@@ -180,6 +183,8 @@ public class ConnectTest_OE25Dev {
             .cookie("auth", "token")
             .post();
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("auth=token", ihVal("Cookie", doc));
     }
 
@@ -190,6 +195,9 @@ public class ConnectTest_OE25Dev {
             .cookie("auth", "token")
             .post();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("度一下", ihVal("百", doc));
     }
 
@@ -200,6 +208,10 @@ public class ConnectTest_OE25Dev {
             .cookie("auth", "token")
             .post();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Jsoup, Jonathan", ihVal("uname", doc));
     }
 
@@ -210,6 +222,11 @@ public class ConnectTest_OE25Dev {
             .cookie("auth", "token")
             .post();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("application/x-www-form-urlencoded; charset=UTF-8", ihVal("Content-Type", doc));
     }
 
@@ -232,6 +249,7 @@ public class ConnectTest_OE25Dev {
                 .data("uname", "Jsoup", "uname", "Jonathan", "百", "度一下")
                 .post();
 
+        // removed other assertion
 
         assertTrue(ihVal("Content-Type",doc).contains("boundary"));// should be automatically set assertEquals("Jsoup,Jonathan",ihVal("uname",doc));
     }
@@ -244,12 +262,15 @@ public class ConnectTest_OE25Dev {
                 .data("uname", "Jsoup", "uname", "Jonathan", "百", "度一下")
                 .post();
 
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("度一下", ihVal("百", doc));
     }
 
     @Test
     public void canSendSecFetchHeaders_1_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/1461
         Document doc = Jsoup.connect(echoUrl)
             .header("Random-Header-name", "hello")
             .header("Sec-Fetch-Site", "cross-site")
@@ -261,23 +282,28 @@ public class ConnectTest_OE25Dev {
 
     @Test
     public void canSendSecFetchHeaders_2_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/1461
         Document doc = Jsoup.connect(echoUrl)
             .header("Random-Header-name", "hello")
             .header("Sec-Fetch-Site", "cross-site")
             .header("Sec-Fetch-Mode", "cors")
             .get();
 
+        // removed other assertion
         assertEquals("cross-site", ihVal("Sec-Fetch-Site", doc));
     }
 
     @Test
     public void canSendSecFetchHeaders_3_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/1461
         Document doc = Jsoup.connect(echoUrl)
             .header("Random-Header-name", "hello")
             .header("Sec-Fetch-Site", "cross-site")
             .header("Sec-Fetch-Mode", "cors")
             .get();
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("cors", ihVal("Sec-Fetch-Mode", doc));
     }
 
@@ -304,6 +330,7 @@ public class ConnectTest_OE25Dev {
             .header("Sec-Fetch-Mode", "cors")
             .get();
 
+        // removed other assertion
         assertEquals("cross-site", ihVal("Sec-Fetch-Site", doc));
     }
 
@@ -317,6 +344,8 @@ public class ConnectTest_OE25Dev {
             .header("Sec-Fetch-Mode", "cors")
             .get();
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("cors", ihVal("Sec-Fetch-Mode", doc));
     }
 
@@ -341,6 +370,7 @@ public class ConnectTest_OE25Dev {
             .userAgent(browserUa)
             .data("foo", "true")
             .post();
+        // removed other assertion
         assertEquals("application/json", ihVal("Content-Type", doc));
     }
 
@@ -353,6 +383,8 @@ public class ConnectTest_OE25Dev {
             .userAgent(browserUa)
             .data("foo", "true")
             .post();
+        // removed other assertion
+        // removed other assertion
         assertEquals("foo=true", ihVal("Query String", doc));
     }
 
@@ -365,6 +397,9 @@ public class ConnectTest_OE25Dev {
             .userAgent(browserUa)
             .data("foo", "true")
             .post();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(body, ihVal("Post Data", doc));
     }
 
@@ -387,6 +422,7 @@ public class ConnectTest_OE25Dev {
             .header("Content-Type", "application/json")
             .userAgent(browserUa)
             .post();
+        // removed other assertion
         assertEquals("application/json", ihVal("Content-Type", doc));
     }
 
@@ -398,6 +434,8 @@ public class ConnectTest_OE25Dev {
             .header("Content-Type", "application/json")
             .userAgent(browserUa)
             .post();
+        // removed other assertion
+        // removed other assertion
         assertEquals(body, ihVal("Post Data", doc));
     }
 
@@ -420,6 +458,7 @@ public class ConnectTest_OE25Dev {
             .header("Content-Type", "text/plain")
             .userAgent(browserUa)
             .post();
+        // removed other assertion
         assertEquals("text/plain", ihVal("Content-Type", doc));
     }
 
@@ -431,6 +470,8 @@ public class ConnectTest_OE25Dev {
             .header("Content-Type", "text/plain")
             .userAgent(browserUa)
             .post();
+        // removed other assertion
+        // removed other assertion
         assertEquals(body, ihVal("Post Data", doc));
     }
 
@@ -455,6 +496,7 @@ public class ConnectTest_OE25Dev {
             .header("Content-Type", "text/plain") // todo - if user sets content-type, we should append postcharset
             .userAgent(browserUa)
             .post();
+        // removed other assertion
         assertEquals("uname=Jsoup&uname=Jonathan&%E7%99%BE=%E5%BA%A6%E4%B8%80%E4%B8%8B", ihVal("Query String", doc));
     }
 
@@ -467,6 +509,8 @@ public class ConnectTest_OE25Dev {
             .header("Content-Type", "text/plain") // todo - if user sets content-type, we should append postcharset
             .userAgent(browserUa)
             .post();
+        // removed other assertion
+        // removed other assertion
         assertEquals(body, ihVal("Post Data", doc));
     }
 
@@ -489,6 +533,7 @@ public class ConnectTest_OE25Dev {
             .data("what", "about & me?");
 
         Document doc = con.get();
+        // removed other assertion
         assertEquals("the, about & me?", ihVal("what", doc));
     }
 
@@ -500,6 +545,8 @@ public class ConnectTest_OE25Dev {
             .data("what", "about & me?");
 
         Document doc = con.get();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Mozilla", ihVal("User-Agent", doc));
     }
 
@@ -511,6 +558,9 @@ public class ConnectTest_OE25Dev {
             .data("what", "about & me?");
 
         Document doc = con.get();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("http://example.com", ihVal("Referer", doc));
     }
 
@@ -535,6 +585,7 @@ public class ConnectTest_OE25Dev {
             .execute();
 
         Document doc = res.parse();
+        // removed other assertion
         assertEquals("gzip", ihVal("Accept-Encoding", doc));
     }
 
@@ -547,6 +598,8 @@ public class ConnectTest_OE25Dev {
             .execute();
 
         Document doc = res.parse();
+        // removed other assertion
+        // removed other assertion
         assertEquals("auth=token", ihVal("Cookie", doc));
     }
 
@@ -579,6 +632,7 @@ public class ConnectTest_OE25Dev {
             .data("surname", "Soup")
             .post();
 
+        // removed other assertion
 
         assertEquals("application/octet-stream", ihVal("Part secondPart ContentType", res));
     }
@@ -596,7 +650,9 @@ public class ConnectTest_OE25Dev {
             .data("surname", "Soup")
             .post();
 
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("secondPart", ihVal("Part secondPart Name", res));
     }
 
@@ -613,7 +669,10 @@ public class ConnectTest_OE25Dev {
             .data("surname", "Soup")
             .post();
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("google-ipod.html.gz", ihVal("Part secondPart Filename", res));
     }
 
@@ -630,7 +689,11 @@ public class ConnectTest_OE25Dev {
             .data("surname", "Soup")
             .post();
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("12212", ihVal("Part secondPart Size", res));
     }
 
@@ -647,7 +710,12 @@ public class ConnectTest_OE25Dev {
             .data("surname", "Soup")
             .post();
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("image/jpeg", ihVal("Part firstPart ContentType", res));
     }
@@ -665,8 +733,14 @@ public class ConnectTest_OE25Dev {
             .data("surname", "Soup")
             .post();
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("firstPart", ihVal("Part firstPart Name", res));
     }
 
@@ -683,8 +757,15 @@ public class ConnectTest_OE25Dev {
             .data("surname", "Soup")
             .post();
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("thumb.jpg", ihVal("Part firstPart Filename", res));
     }
 
@@ -701,8 +782,16 @@ public class ConnectTest_OE25Dev {
             .data("surname", "Soup")
             .post();
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("1052", ihVal("Part firstPart Size", res));
     }
 
@@ -719,8 +808,17 @@ public class ConnectTest_OE25Dev {
             .data("surname", "Soup")
             .post();
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("Jay", ihVal("firstname", res));
     }
@@ -738,9 +836,19 @@ public class ConnectTest_OE25Dev {
             .data("surname", "Soup")
             .post();
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("Soup", ihVal("surname", res));
     }
 
@@ -757,6 +865,7 @@ public class ConnectTest_OE25Dev {
         Connection.Response res = Jsoup.connect(echoUrl).execute().bufferUp();
 
         Document doc = res.parse();
+        // removed other assertion
 
         Document doc2 = res.parse();
         assertTrue(doc2.title().contains("Environment"));
@@ -782,6 +891,7 @@ public class ConnectTest_OE25Dev {
     public void bodyAndBytesAvailableBeforeParse_2_oe() throws IOException {
         Connection.Response res = Jsoup.connect(echoUrl).execute();
         String body = res.body();
+        // removed other assertion
         byte[] bytes = res.bodyAsBytes();
         assertTrue(bytes.length > 100);
     }
@@ -790,7 +900,9 @@ public class ConnectTest_OE25Dev {
     public void bodyAndBytesAvailableBeforeParse_3_oe() throws IOException {
         Connection.Response res = Jsoup.connect(echoUrl).execute();
         String body = res.body();
+        // removed other assertion
         byte[] bytes = res.bodyAsBytes();
+        // removed other assertion
 
         Document doc = res.parse();
         assertTrue(doc.title().contains("Environment"));
@@ -805,6 +917,7 @@ public class ConnectTest_OE25Dev {
                 .data(RedirectServlet.LocationParam, echoUrl);
         Connection.Response res = con.execute();
 
+        // test cookies set by redirect:
         Map<String, String> cookies = res.cookies();
         assertEquals("asdfg123", cookies.get("token"));
     }
@@ -818,7 +931,9 @@ public class ConnectTest_OE25Dev {
                 .data(RedirectServlet.LocationParam, echoUrl);
         Connection.Response res = con.execute();
 
+        // test cookies set by redirect:
         Map<String, String> cookies = res.cookies();
+        // removed other assertion
         assertEquals("jhy", cookies.get("uid"));
     }
 
@@ -831,13 +946,19 @@ public class ConnectTest_OE25Dev {
                 .data(RedirectServlet.LocationParam, echoUrl);
         Connection.Response res = con.execute();
 
+        // test cookies set by redirect:
         Map<String, String> cookies = res.cookies();
+        // removed other assertion
+        // removed other assertion
 
+        // send those cookies into the echo URL by map:
         Document doc = Jsoup.connect(echoUrl).cookies(cookies).get();
         assertEquals("token=asdfg123; uid=jhy", ihVal("Cookie", doc));
     }
 
     @Test public void requestCookiesSurviveRedirect_1_oe() throws IOException {
+        // this test makes sure that Request keyval cookies (not in the cookie store) are sent on subsequent redirections,
+        // when not using the session method
         Connection con = Jsoup.connect(RedirectServlet.Url)
             .data(RedirectServlet.LocationParam, echoUrl)
             .cookie("LetMeIn", "True")
@@ -848,35 +969,47 @@ public class ConnectTest_OE25Dev {
         }
 
     @Test public void requestCookiesSurviveRedirect_2_oe() throws IOException {
+        // this test makes sure that Request keyval cookies (not in the cookie store) are sent on subsequent redirections,
+        // when not using the session method
         Connection con = Jsoup.connect(RedirectServlet.Url)
             .data(RedirectServlet.LocationParam, echoUrl)
             .cookie("LetMeIn", "True")
             .cookie("DoesItWork", "Yes");
 
         Connection.Response res = con.execute();
+        // removed other assertion
         Document doc = res.parse();
         assertEquals(echoUrl, doc.location());
         }
 
     @Test public void requestCookiesSurviveRedirect_3_oe() throws IOException {
+        // this test makes sure that Request keyval cookies (not in the cookie store) are sent on subsequent redirections,
+        // when not using the session method
         Connection con = Jsoup.connect(RedirectServlet.Url)
             .data(RedirectServlet.LocationParam, echoUrl)
             .cookie("LetMeIn", "True")
             .cookie("DoesItWork", "Yes");
 
         Connection.Response res = con.execute();
+        // removed other assertion
         Document doc = res.parse();
+        // removed other assertion
         assertEquals("True", ihVal("Cookie: LetMeIn", doc));
         }
 
     @Test public void requestCookiesSurviveRedirect_4_oe() throws IOException {
+        // this test makes sure that Request keyval cookies (not in the cookie store) are sent on subsequent redirections,
+        // when not using the session method
         Connection con = Jsoup.connect(RedirectServlet.Url)
             .data(RedirectServlet.LocationParam, echoUrl)
             .cookie("LetMeIn", "True")
             .cookie("DoesItWork", "Yes");
 
         Connection.Response res = con.execute();
+        // removed other assertion
         Document doc = res.parse();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Yes", ihVal("Cookie: DoesItWork", doc));
         }
 
@@ -889,6 +1022,7 @@ public class ConnectTest_OE25Dev {
     @Test
     public void supportsDeflate_2_oe() throws IOException {
         Connection.Response res = Jsoup.connect(Deflateservlet.Url).execute();
+        // removed other assertion
 
         Document doc = res.parse();
         assertEquals("Hello, World!", doc.selectFirst("p").text());
@@ -896,6 +1030,7 @@ public class ConnectTest_OE25Dev {
 
     @Test
     public void handlesLargerContentLengthParseRead_1_oe() throws IOException {
+        // this handles situations where the remote server sets a content length greater than it actually writes
 
         Connection.Response res = Jsoup.connect(InterruptedServlet.Url)
             .data(InterruptedServlet.Magnitude, InterruptedServlet.Larger)
@@ -908,6 +1043,7 @@ public class ConnectTest_OE25Dev {
 
     @Test
     public void handlesLargerContentLengthParseRead_2_oe() throws IOException {
+        // this handles situations where the remote server sets a content length greater than it actually writes
 
         Connection.Response res = Jsoup.connect(InterruptedServlet.Url)
             .data(InterruptedServlet.Magnitude, InterruptedServlet.Larger)
@@ -915,6 +1051,7 @@ public class ConnectTest_OE25Dev {
             .execute();
 
         Document document = res.parse();
+        // removed other assertion
         assertEquals(0, document.select("p").size());
     }
 
@@ -923,6 +1060,8 @@ public class ConnectTest_OE25Dev {
         Connection.Response res = Jsoup.connect(InterruptedServlet.Url)
                 .timeout(400)
                 .execute();
+        // this servlet writes max_buffer data, but sets content length to max_buffer/2. So will read up to that.
+        // previous versions of jetty would allow to write less, and would throw except here
 
         res.bufferUp();
         Document doc = res.parse();
@@ -944,6 +1083,7 @@ public class ConnectTest_OE25Dev {
             .get();
 
         Element p = doc.selectFirst("p");
+        // removed other assertion
 
         assertEquals(HelloServlet.Url, doc.location());
         }
@@ -964,6 +1104,7 @@ public class ConnectTest_OE25Dev {
             Connection.Response res = Jsoup.connect(RedirectServlet.Url)
                 .execute();
         } catch (IOException e) {
+            // removed other assertion
             threw = true;
         }
         assertTrue(threw);
@@ -984,6 +1125,7 @@ public class ConnectTest_OE25Dev {
             .data(RedirectServlet.LocationParam, EchoServlet.Url)
             .post();
 
+        // removed other assertion
         assertEquals("GET", ihVal("Method", doc));
         }
 
@@ -993,6 +1135,8 @@ public class ConnectTest_OE25Dev {
             .data(RedirectServlet.LocationParam, EchoServlet.Url)
             .post();
 
+        // removed other assertion
+        // removed other assertion
         assertNull(ihVal("Hello", doc)); // data not sent;
         }
 
@@ -1013,6 +1157,7 @@ public class ConnectTest_OE25Dev {
             .data(RedirectServlet.CodeParam, "307")
             .post();
 
+        // removed other assertion
         assertEquals("POST", ihVal("Method", doc));
         }
 
@@ -1023,6 +1168,8 @@ public class ConnectTest_OE25Dev {
             .data(RedirectServlet.CodeParam, "307")
             .post();
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("there", ihVal("Hello", doc));
         }
 
@@ -1037,10 +1184,12 @@ public class ConnectTest_OE25Dev {
         Connection con = Jsoup.connect(FileServlet.urlTo("/bomtests/bom_utf8.html"));
         Document doc = con.get();
 
+        // removed other assertion
         assertEquals("OK", doc.title());
         }
 
 @Test public void testParseRss_1_oe() throws IOException {
+        // test that we switch automatically to xml, and we support application/rss+xml
         Connection con = Jsoup.connect(FileServlet.urlTo("/htmltests/test-rss.xml"));
         con.data(FileServlet.ContentTypeParam, "application/rss+xml");
         Document doc = con.get();
@@ -1049,50 +1198,77 @@ public class ConnectTest_OE25Dev {
         }
 
 @Test public void testParseRss_2_oe() throws IOException {
+        // test that we switch automatically to xml, and we support application/rss+xml
         Connection con = Jsoup.connect(FileServlet.urlTo("/htmltests/test-rss.xml"));
         con.data(FileServlet.ContentTypeParam, "application/rss+xml");
         Document doc = con.get();
         Element title = doc.selectFirst("title");
+        // removed other assertion
         assertEquals("jsoup RSS news", title.text());
         }
 
 @Test public void testParseRss_3_oe() throws IOException {
+        // test that we switch automatically to xml, and we support application/rss+xml
         Connection con = Jsoup.connect(FileServlet.urlTo("/htmltests/test-rss.xml"));
         con.data(FileServlet.ContentTypeParam, "application/rss+xml");
         Document doc = con.get();
         Element title = doc.selectFirst("title");
+        // removed other assertion
+        // removed other assertion
         assertEquals("channel", title.parent().nodeName());
         }
 
 @Test public void testParseRss_4_oe() throws IOException {
+        // test that we switch automatically to xml, and we support application/rss+xml
         Connection con = Jsoup.connect(FileServlet.urlTo("/htmltests/test-rss.xml"));
         con.data(FileServlet.ContentTypeParam, "application/rss+xml");
         Document doc = con.get();
         Element title = doc.selectFirst("title");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("",doc.title());// the document title is unset,this tag is channel>title,not html>head>title assertEquals(3,doc.select("link").size());
         }
 
 @Test public void testParseRss_5_oe() throws IOException {
+        // test that we switch automatically to xml, and we support application/rss+xml
         Connection con = Jsoup.connect(FileServlet.urlTo("/htmltests/test-rss.xml"));
         con.data(FileServlet.ContentTypeParam, "application/rss+xml");
         Document doc = con.get();
         Element title = doc.selectFirst("title");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("application/rss+xml", con.response().contentType());
         }
 
 @Test public void testParseRss_6_oe() throws IOException {
+        // test that we switch automatically to xml, and we support application/rss+xml
         Connection con = Jsoup.connect(FileServlet.urlTo("/htmltests/test-rss.xml"));
         con.data(FileServlet.ContentTypeParam, "application/rss+xml");
         Document doc = con.get();
         Element title = doc.selectFirst("title");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(doc.parser().getTreeBuilder() instanceof XmlTreeBuilder);
         }
 
 @Test public void testParseRss_7_oe() throws IOException {
+        // test that we switch automatically to xml, and we support application/rss+xml
         Connection con = Jsoup.connect(FileServlet.urlTo("/htmltests/test-rss.xml"));
         con.data(FileServlet.ContentTypeParam, "application/rss+xml");
         Document doc = con.get();
         Element title = doc.selectFirst("title");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(Document.OutputSettings.Syntax.xml, doc.outputSettings().syntax());
         }
 
@@ -1128,6 +1304,7 @@ public class ConnectTest_OE25Dev {
         Document docFromFileRead = Jsoup.parse(ParseTest.getFile(localPath), "UTF-8");
 
         String text = docFromLocalServer.body().text();
+        // removed other assertion
         assertEquals(text, docFromLocalServer.body().text());
     }
 
@@ -1140,6 +1317,8 @@ public class ConnectTest_OE25Dev {
         Document docFromFileRead = Jsoup.parse(ParseTest.getFile(localPath), "UTF-8");
 
         String text = docFromLocalServer.body().text();
+        // removed other assertion
+        // removed other assertion
         assertEquals(text, docFromFileRead.body().text());
     }
 
@@ -1154,6 +1333,7 @@ public class ConnectTest_OE25Dev {
     public void postHtmlFile_2_oe() throws IOException {
         Document index = Jsoup.connect(FileServlet.urlTo("/htmltests/upload-form.html")).get();
         List<FormElement> forms = index.select("[name=tidy]").forms();
+        // removed other assertion
         FormElement form = forms.get(0);
         Connection post = form.submit();
 
@@ -1168,6 +1348,7 @@ public class ConnectTest_OE25Dev {
     public void postHtmlFile_3_oe() throws IOException {
         Document index = Jsoup.connect(FileServlet.urlTo("/htmltests/upload-form.html")).get();
         List<FormElement> forms = index.select("[name=tidy]").forms();
+        // removed other assertion
         FormElement form = forms.get(0);
         Connection post = form.submit();
 
@@ -1175,6 +1356,7 @@ public class ConnectTest_OE25Dev {
         FileInputStream stream = new FileInputStream(uploadFile);
 
         Connection.KeyVal fileData = post.data("_file");
+        // removed other assertion
         fileData.value("check.html");
         fileData.inputStream(stream);
 
@@ -1193,6 +1375,7 @@ public class ConnectTest_OE25Dev {
     public void postHtmlFile_4_oe() throws IOException {
         Document index = Jsoup.connect(FileServlet.urlTo("/htmltests/upload-form.html")).get();
         List<FormElement> forms = index.select("[name=tidy]").forms();
+        // removed other assertion
         FormElement form = forms.get(0);
         Connection post = form.submit();
 
@@ -1200,6 +1383,7 @@ public class ConnectTest_OE25Dev {
         FileInputStream stream = new FileInputStream(uploadFile);
 
         Connection.KeyVal fileData = post.data("_file");
+        // removed other assertion
         fileData.value("check.html");
         fileData.inputStream(stream);
 
@@ -1211,6 +1395,7 @@ public class ConnectTest_OE25Dev {
         }
 
         Document doc = res.parse();
+        // removed other assertion
         assertEquals(ihVal("Part _file Name", doc), "_file");
     }
 
@@ -1218,6 +1403,7 @@ public class ConnectTest_OE25Dev {
     public void postHtmlFile_5_oe() throws IOException {
         Document index = Jsoup.connect(FileServlet.urlTo("/htmltests/upload-form.html")).get();
         List<FormElement> forms = index.select("[name=tidy]").forms();
+        // removed other assertion
         FormElement form = forms.get(0);
         Connection post = form.submit();
 
@@ -1225,6 +1411,7 @@ public class ConnectTest_OE25Dev {
         FileInputStream stream = new FileInputStream(uploadFile);
 
         Connection.KeyVal fileData = post.data("_file");
+        // removed other assertion
         fileData.value("check.html");
         fileData.inputStream(stream);
 
@@ -1236,10 +1423,13 @@ public class ConnectTest_OE25Dev {
         }
 
         Document doc = res.parse();
+        // removed other assertion
+        // removed other assertion
         assertEquals(ihVal("_function", doc), "tidy");
     }
 
 void fetchHandlesXml_1_oe(String contentType) throws IOException {
+        // should auto-detect xml and use XML parser, unless explicitly requested the html parser
         String xmlUrl = FileServlet.urlTo("/htmltests/xml-test.xml");
         Connection con = Jsoup.connect(xmlUrl);
         con.data(FileServlet.ContentTypeParam, contentType);
@@ -1249,25 +1439,31 @@ void fetchHandlesXml_1_oe(String contentType) throws IOException {
 }
 
 void fetchHandlesXml_2_oe(String contentType) throws IOException {
+        // should auto-detect xml and use XML parser, unless explicitly requested the html parser
         String xmlUrl = FileServlet.urlTo("/htmltests/xml-test.xml");
         Connection con = Jsoup.connect(xmlUrl);
         con.data(FileServlet.ContentTypeParam, contentType);
         Document doc = con.get();
         Connection.Request req = con.request();
+        // removed other assertion
         assertEquals("<doc><val>One<val>Two</val>Three</val></doc>\n", doc.outerHtml());
 }
 
 void fetchHandlesXml_3_oe(String contentType) throws IOException {
+        // should auto-detect xml and use XML parser, unless explicitly requested the html parser
         String xmlUrl = FileServlet.urlTo("/htmltests/xml-test.xml");
         Connection con = Jsoup.connect(xmlUrl);
         con.data(FileServlet.ContentTypeParam, contentType);
         Document doc = con.get();
         Connection.Request req = con.request();
+        // removed other assertion
+        // removed other assertion
         assertEquals(con.response().contentType(), contentType);
 }
 
 @Test
     public void fetchHandlesXmlAsHtmlWhenParserSet_1_oe() throws IOException {
+        // should auto-detect xml and use XML parser, unless explicitly requested the html parser
         String xmlUrl = FileServlet.urlTo("/htmltests/xml-test.xml");
         Connection con = Jsoup.connect(xmlUrl).parser(Parser.htmlParser());
         con.data(FileServlet.ContentTypeParam, "application/xml");
@@ -1278,16 +1474,19 @@ void fetchHandlesXml_3_oe(String contentType) throws IOException {
 
 @Test
     public void fetchHandlesXmlAsHtmlWhenParserSet_2_oe() throws IOException {
+        // should auto-detect xml and use XML parser, unless explicitly requested the html parser
         String xmlUrl = FileServlet.urlTo("/htmltests/xml-test.xml");
         Connection con = Jsoup.connect(xmlUrl).parser(Parser.htmlParser());
         con.data(FileServlet.ContentTypeParam, "application/xml");
         Document doc = con.get();
         Connection.Request req = con.request();
+        // removed other assertion
         assertEquals("<html> <head></head> <body> <doc> <val> One <val> Two </val>Three </val> </doc> </body> </html>", StringUtil.normaliseWhitespace(doc.outerHtml()));
     }
 
 @Test
     public void combinesSameHeadersWithComma_1_oe() throws IOException {
+        // http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
         Connection con = Jsoup.connect(echoUrl);
         con.get();
 
@@ -1297,19 +1496,24 @@ void fetchHandlesXml_3_oe(String contentType) throws IOException {
 
 @Test
     public void combinesSameHeadersWithComma_2_oe() throws IOException {
+        // http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
         Connection con = Jsoup.connect(echoUrl);
         con.get();
 
         Connection.Response res = con.response();
+        // removed other assertion
         assertEquals("no-cache, no-store", res.header("Cache-Control"));
     }
 
 @Test
     public void combinesSameHeadersWithComma_3_oe() throws IOException {
+        // http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
         Connection con = Jsoup.connect(echoUrl);
         con.get();
 
         Connection.Response res = con.response();
+        // removed other assertion
+        // removed other assertion
 
         List<String> header = res.headers("Cache-Control");
         assertEquals(2, header.size());
@@ -1317,23 +1521,32 @@ void fetchHandlesXml_3_oe(String contentType) throws IOException {
 
 @Test
     public void combinesSameHeadersWithComma_4_oe() throws IOException {
+        // http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
         Connection con = Jsoup.connect(echoUrl);
         con.get();
 
         Connection.Response res = con.response();
+        // removed other assertion
+        // removed other assertion
 
         List<String> header = res.headers("Cache-Control");
+        // removed other assertion
         assertEquals("no-cache", header.get(0));
     }
 
 @Test
     public void combinesSameHeadersWithComma_5_oe() throws IOException {
+        // http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
         Connection con = Jsoup.connect(echoUrl);
         con.get();
 
         Connection.Response res = con.response();
+        // removed other assertion
+        // removed other assertion
 
         List<String> header = res.headers("Cache-Control");
+        // removed other assertion
+        // removed other assertion
         assertEquals("no-store", header.get(1));
     }
 
@@ -1354,6 +1567,7 @@ void fetchHandlesXml_3_oe(String contentType) throws IOException {
             .method(Connection.Method.HEAD)
             .data(FileServlet.ContentTypeParam, "text/xml");
         final Connection.Response response = con.execute();
+        // removed other assertion
         assertEquals("",response.body());// head ought to have no body;
     }
 
@@ -1364,6 +1578,8 @@ void fetchHandlesXml_3_oe(String contentType) throws IOException {
             .method(Connection.Method.HEAD)
             .data(FileServlet.ContentTypeParam, "text/xml");
         final Connection.Response response = con.execute();
+        // removed other assertion
+        // removed other assertion
         Document doc = response.parse();
         assertEquals("", doc.text());
     }
@@ -1385,12 +1601,14 @@ void fetchHandlesXml_3_oe(String contentType) throws IOException {
 
         W3CDom dom = new W3CDom();
         org.w3c.dom.Document wDoc = dom.fromJsoup(doc);
+        // removed other assertion
         String html = dom.asString(wDoc);
         assertTrue(html.contains("Upload"));
     }
 
 @Test
     public void baseHrefCorrectAfterHttpEquiv_1_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/440
         Connection.Response res = Jsoup.connect(FileServlet.urlTo("/htmltests/charset-base.html")).execute();
         Document doc = res.parse();
         assertEquals("http://example.com/foo.jpg", doc.select("img").first().absUrl("src"));
@@ -1421,6 +1639,7 @@ void fetchHandlesXml_3_oe(String contentType) throws IOException {
         Connection.Response unlimitedRes = Jsoup.connect(url).maxBodySize(0).execute();
 
         int actualDocText = 269535;
+        // removed other assertion
         assertEquals(49165, smallRes.parse().text().length());
     }
 
@@ -1435,6 +1654,8 @@ void fetchHandlesXml_3_oe(String contentType) throws IOException {
         Connection.Response unlimitedRes = Jsoup.connect(url).maxBodySize(0).execute();
 
         int actualDocText = 269535;
+        // removed other assertion
+        // removed other assertion
         assertEquals(196577, mediumRes.parse().text().length());
     }
 
@@ -1449,6 +1670,9 @@ void fetchHandlesXml_3_oe(String contentType) throws IOException {
         Connection.Response unlimitedRes = Jsoup.connect(url).maxBodySize(0).execute();
 
         int actualDocText = 269535;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(actualDocText, largeRes.parse().text().length());
     }
 
@@ -1463,6 +1687,10 @@ void fetchHandlesXml_3_oe(String contentType) throws IOException {
         Connection.Response unlimitedRes = Jsoup.connect(url).maxBodySize(0).execute();
 
         int actualDocText = 269535;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(actualDocText, unlimitedRes.parse().text().length());
     }
 
@@ -1479,11 +1707,14 @@ void fetchHandlesXml_3_oe(String contentType) throws IOException {
         Connection con = Jsoup.connect(url).parser(Parser.xmlParser());
         Document doc1 = con.get();
         Document doc2 = con.get();
+        // removed other assertion
         assertEquals("Large HTML", doc2.title());
         }
 
 @Test
     public void maxBodySizeInReadToByteBuffer_1_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/1774
+        // when calling readToByteBuffer, contents were not buffered up
         String url = FileServlet.urlTo("/htmltests/large.html"); // 280 K
 
         Connection.Response defaultRes = Jsoup.connect(url).execute();
@@ -1498,6 +1729,8 @@ void fetchHandlesXml_3_oe(String contentType) throws IOException {
 
 @Test
     public void maxBodySizeInReadToByteBuffer_2_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/1774
+        // when calling readToByteBuffer, contents were not buffered up
         String url = FileServlet.urlTo("/htmltests/large.html"); // 280 K
 
         Connection.Response defaultRes = Jsoup.connect(url).execute();
@@ -1507,11 +1740,14 @@ void fetchHandlesXml_3_oe(String contentType) throws IOException {
         Connection.Response unlimitedRes = Jsoup.connect(url).maxBodySize(0).execute();
 
         int actualDocText = 280735;
+        // removed other assertion
         assertEquals(50 * 1024, smallRes.body().length());
     }
 
 @Test
     public void maxBodySizeInReadToByteBuffer_3_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/1774
+        // when calling readToByteBuffer, contents were not buffered up
         String url = FileServlet.urlTo("/htmltests/large.html"); // 280 K
 
         Connection.Response defaultRes = Jsoup.connect(url).execute();
@@ -1521,11 +1757,15 @@ void fetchHandlesXml_3_oe(String contentType) throws IOException {
         Connection.Response unlimitedRes = Jsoup.connect(url).maxBodySize(0).execute();
 
         int actualDocText = 280735;
+        // removed other assertion
+        // removed other assertion
         assertEquals(200 * 1024, mediumRes.body().length());
     }
 
 @Test
     public void maxBodySizeInReadToByteBuffer_4_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/1774
+        // when calling readToByteBuffer, contents were not buffered up
         String url = FileServlet.urlTo("/htmltests/large.html"); // 280 K
 
         Connection.Response defaultRes = Jsoup.connect(url).execute();
@@ -1535,11 +1775,16 @@ void fetchHandlesXml_3_oe(String contentType) throws IOException {
         Connection.Response unlimitedRes = Jsoup.connect(url).maxBodySize(0).execute();
 
         int actualDocText = 280735;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(actualDocText, largeRes.body().length());
     }
 
 @Test
     public void maxBodySizeInReadToByteBuffer_5_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/1774
+        // when calling readToByteBuffer, contents were not buffered up
         String url = FileServlet.urlTo("/htmltests/large.html"); // 280 K
 
         Connection.Response defaultRes = Jsoup.connect(url).execute();
@@ -1549,6 +1794,10 @@ void fetchHandlesXml_3_oe(String contentType) throws IOException {
         Connection.Response unlimitedRes = Jsoup.connect(url).maxBodySize(0).execute();
 
         int actualDocText = 280735;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(actualDocText, unlimitedRes.body().length());
     }
 

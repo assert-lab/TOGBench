@@ -884,6 +884,7 @@ public class TestFileHandler_OE25Dev {
         final FileBased content = new FileBasedTestImpl();
         final FileHandler h2 = new FileHandler(content, h1);
         h1.setFileName("someOtherFile.txt");
+        // removed other assertion
         assertEquals("Wrong location", f, h2.getFile());
     }
 
@@ -900,6 +901,7 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler();
         handler.setFile(createTestFile());
         handler.clearLocation();
+        // removed other assertion
         assertNull("Got a file", handler.getFile());
     }
 
@@ -908,6 +910,8 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler();
         handler.setFile(createTestFile());
         handler.clearLocation();
+        // removed other assertion
+        // removed other assertion
         assertNull("Got a URL", handler.getURL());
     }
 
@@ -916,6 +920,9 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler();
         handler.setFile(createTestFile());
         handler.clearLocation();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("Got a base path", handler.getBasePath());
     }
 
@@ -924,6 +931,10 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler();
         handler.setFile(createTestFile());
         handler.clearLocation();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("Got a path", handler.getPath());
     }
 
@@ -952,6 +963,7 @@ public class TestFileHandler_OE25Dev {
     @Test
     public void testGetLocationStrategyDefault_2_oe() {
         final FileHandler handler = new FileHandler();
+        // removed other assertion
         assertSame("Wrong default strategy", FileLocatorUtils.DEFAULT_LOCATION_STRATEGY, handler.getLocationStrategy());
     }
 
@@ -1010,6 +1022,7 @@ public class TestFileHandler_OE25Dev {
                 t.join();
             }
             final FileLocator locator = handler.getFileLocator();
+            // removed other assertion
             assertNull("Got a URL", locator.getSourceURL());
     }
     }
@@ -1035,6 +1048,8 @@ public class TestFileHandler_OE25Dev {
                 t.join();
             }
             final FileLocator locator = handler.getFileLocator();
+            // removed other assertion
+            // removed other assertion
             assertEquals("Wrong encoding", encoding, locator.getEncoding());
     }
     }
@@ -1060,6 +1075,9 @@ public class TestFileHandler_OE25Dev {
                 t.join();
             }
             final FileLocator locator = handler.getFileLocator();
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertSame("Wrong file system", fileSystem, locator.getFileSystem());
     }
     }
@@ -1085,6 +1103,10 @@ public class TestFileHandler_OE25Dev {
                 t.join();
             }
             final FileLocator locator = handler.getFileLocator();
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertSame("Wrong location strategy", locationStrategy, locator.getLocationStrategy());
     }
     }
@@ -1175,6 +1197,7 @@ public class TestFileHandler_OE25Dev {
         final File file = createTestFile();
         try {
             handler.load(file);
+            // removed other assertion
         } catch (final ConfigurationException cex) {
             assertEquals("Wrong message", "No content available!", cex.getMessage());
     }
@@ -1210,6 +1233,7 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler(content);
         try {
             handler.load(in);
+            // removed other assertion
         } catch (final ConfigurationException cex) {
             assertEquals("Wrong root cause", ioex, cex.getCause());
     }
@@ -1254,6 +1278,7 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler(content);
         try {
             handler.load(bin);
+            // removed other assertion
         } catch (final ConfigurationException cex) {
             assertEquals("Wrong cause", ioex, cex.getCause());
     }
@@ -1270,7 +1295,10 @@ public class TestFileHandler_OE25Dev {
     public void testLocateSuccess_4_oe() throws ConfigurationException {
         final FileHandler handler = new FileHandler();
         handler.setFileName(TEST_FILENAME);
+        // removed other assertion
         final FileLocator locator = handler.getFileLocator();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong file name", TEST_FILENAME, locator.getFileName());
     }
 
@@ -1287,6 +1315,7 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler();
         handler.setBasePath("only/a/base/path");
         final FileLocator locator = handler.getFileLocator();
+        // removed other assertion
         assertSame("Locator was changed", locator, handler.getFileLocator());
     }
 
@@ -1303,6 +1332,7 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler();
         handler.setFileName("unknown file");
         final FileLocator locator = handler.getFileLocator();
+        // removed other assertion
         assertSame("Locator was changed", locator, handler.getFileLocator());
     }
 
@@ -1348,6 +1378,7 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler(content);
         handler.setURL(url);
         handler.load();
+        // removed other assertion
         final File out = new File(path, "out.txt");
         handler.save(out);
         assertEquals("Wrong data written", CONTENT, readFile(out));
@@ -1410,6 +1441,7 @@ public class TestFileHandler_OE25Dev {
         handler.setFileSystem(fs);
         try {
             handler.save(file.getName());
+            // removed other assertion
         } catch (final ConfigurationException cex) {
             assertEquals("Wrong cause", urlex, cex.getCause());
     }
@@ -1453,6 +1485,7 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler(content);
         try {
             handler.save(out);
+            // removed other assertion
         } catch (final ConfigurationException cex) {
             assertEquals("Wrong cause", ioex, cex.getCause());
     }
@@ -1475,6 +1508,7 @@ public class TestFileHandler_OE25Dev {
         final String basePath = ConfigurationAssert.TEST_DIR_NAME;
         handler.setBasePath(basePath);
         final FileLocator locator = handler.getFileLocator();
+        // removed other assertion
         assertNull("Got a URL", locator.getSourceURL());
     }
 
@@ -1485,6 +1519,8 @@ public class TestFileHandler_OE25Dev {
         final String basePath = ConfigurationAssert.TEST_DIR_NAME;
         handler.setBasePath(basePath);
         final FileLocator locator = handler.getFileLocator();
+        // removed other assertion
+        // removed other assertion
         assertNull("Got a file name", locator.getFileName());
     }
 
@@ -1510,6 +1546,7 @@ public class TestFileHandler_OE25Dev {
         final File directory = ConfigurationAssert.TEST_DIR;
         final File file = ConfigurationAssert.getTestFile(TEST_FILENAME);
         handler.setFile(file);
+        // removed other assertion
         assertEquals("Wrong file name", TEST_FILENAME, handler.getFileName());
     }
 
@@ -1519,6 +1556,8 @@ public class TestFileHandler_OE25Dev {
         final File directory = ConfigurationAssert.TEST_DIR;
         final File file = ConfigurationAssert.getTestFile(TEST_FILENAME);
         handler.setFile(file);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong path", file.getAbsolutePath(), handler.getPath());
     }
 
@@ -1543,6 +1582,7 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler();
         handler.setURL(ConfigurationAssert.getTestURL(TEST_FILENAME));
         handler.setFileName(TEST_FILENAME);
+        // removed other assertion
         assertEquals("Wrong file name", TEST_FILENAME, handler.getFileName());
     }
 
@@ -1551,6 +1591,8 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler();
         handler.setURL(ConfigurationAssert.getTestURL(TEST_FILENAME));
         handler.setFileName(TEST_FILENAME);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong file name in locator", TEST_FILENAME, handler.getFileLocator().getFileName());
     }
 
@@ -1559,6 +1601,9 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler();
         handler.setURL(ConfigurationAssert.getTestURL(TEST_FILENAME));
         handler.setFileName(TEST_FILENAME);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("Got a URL", handler.getFileLocator().getSourceURL());
     }
 
@@ -1584,6 +1629,7 @@ public class TestFileHandler_OE25Dev {
         EasyMock.replay(sys);
         final FileHandler handler = new FileHandler(new FileBasedTestImpl());
         handler.setFileSystem(sys);
+        // removed other assertion
         handler.setFileSystem(null);
         assertEquals("Not default file system", FileLocatorUtils.DEFAULT_FILE_SYSTEM, handler.getFileSystem());
     }
@@ -1603,6 +1649,7 @@ public class TestFileHandler_OE25Dev {
         EasyMock.replay(strategy);
         final FileHandler handler = new FileHandler();
         handler.setLocationStrategy(strategy);
+        // removed other assertion
         assertSame("Wrong strategy", strategy, handler.getLocationStrategy());
     }
 
@@ -1617,6 +1664,7 @@ public class TestFileHandler_OE25Dev {
     public void testSetPath_2_oe() throws MalformedURLException {
         final FileHandler handler = new FileHandler();
         handler.setPath(ConfigurationAssert.TEST_DIR_NAME + File.separator + TEST_FILENAME);
+        // removed other assertion
         assertEquals("Wrong base path", ConfigurationAssert.TEST_DIR.getAbsolutePath(), handler.getBasePath());
     }
 
@@ -1624,6 +1672,8 @@ public class TestFileHandler_OE25Dev {
     public void testSetPath_3_oe() throws MalformedURLException {
         final FileHandler handler = new FileHandler();
         handler.setPath(ConfigurationAssert.TEST_DIR_NAME + File.separator + TEST_FILENAME);
+        // removed other assertion
+        // removed other assertion
         final File file = ConfigurationAssert.getTestFile(TEST_FILENAME);
         assertEquals("Wrong path", file.getAbsolutePath(), handler.getPath());
     }
@@ -1632,7 +1682,10 @@ public class TestFileHandler_OE25Dev {
     public void testSetPath_4_oe() throws MalformedURLException {
         final FileHandler handler = new FileHandler();
         handler.setPath(ConfigurationAssert.TEST_DIR_NAME + File.separator + TEST_FILENAME);
+        // removed other assertion
+        // removed other assertion
         final File file = ConfigurationAssert.getTestFile(TEST_FILENAME);
+        // removed other assertion
         assertEquals("Wrong URL", file.toURI().toURL(), handler.getURL());
     }
 
@@ -1640,7 +1693,11 @@ public class TestFileHandler_OE25Dev {
     public void testSetPath_5_oe() throws MalformedURLException {
         final FileHandler handler = new FileHandler();
         handler.setPath(ConfigurationAssert.TEST_DIR_NAME + File.separator + TEST_FILENAME);
+        // removed other assertion
+        // removed other assertion
         final File file = ConfigurationAssert.getTestFile(TEST_FILENAME);
+        // removed other assertion
+        // removed other assertion
         assertNull("Got a URL", handler.getFileLocator().getSourceURL());
     }
 
@@ -1661,6 +1718,7 @@ public class TestFileHandler_OE25Dev {
 
         final FileHandler handler = new FileHandler();
         handler.setFileName(testProperties);
+        // removed other assertion
 
         handler.setBasePath(testBasePath);
         handler.setFileName("hello.xml");
@@ -1674,9 +1732,11 @@ public class TestFileHandler_OE25Dev {
 
         final FileHandler handler = new FileHandler();
         handler.setFileName(testProperties);
+        // removed other assertion
 
         handler.setBasePath(testBasePath);
         handler.setFileName("hello.xml");
+        // removed other assertion
         assertEquals(testBasePath.toString(), handler.getBasePath());
     }
 
@@ -1687,9 +1747,12 @@ public class TestFileHandler_OE25Dev {
 
         final FileHandler handler = new FileHandler();
         handler.setFileName(testProperties);
+        // removed other assertion
 
         handler.setBasePath(testBasePath);
         handler.setFileName("hello.xml");
+        // removed other assertion
+        // removed other assertion
         assertEquals(new File(testBasePath, "hello.xml"), handler.getFile());
     }
 
@@ -1700,9 +1763,13 @@ public class TestFileHandler_OE25Dev {
 
         final FileHandler handler = new FileHandler();
         handler.setFileName(testProperties);
+        // removed other assertion
 
         handler.setBasePath(testBasePath);
         handler.setFileName("hello.xml");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         handler.setBasePath(testBasePath);
         handler.setFileName("subdir/hello.xml");
@@ -1716,12 +1783,17 @@ public class TestFileHandler_OE25Dev {
 
         final FileHandler handler = new FileHandler();
         handler.setFileName(testProperties);
+        // removed other assertion
 
         handler.setBasePath(testBasePath);
         handler.setFileName("hello.xml");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         handler.setBasePath(testBasePath);
         handler.setFileName("subdir/hello.xml");
+        // removed other assertion
         assertEquals(testBasePath.toString(), handler.getBasePath());
     }
 
@@ -1732,12 +1804,18 @@ public class TestFileHandler_OE25Dev {
 
         final FileHandler handler = new FileHandler();
         handler.setFileName(testProperties);
+        // removed other assertion
 
         handler.setBasePath(testBasePath);
         handler.setFileName("hello.xml");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         handler.setBasePath(testBasePath);
         handler.setFileName("subdir/hello.xml");
+        // removed other assertion
+        // removed other assertion
         assertEquals(new File(testBasePath, "subdir/hello.xml"), handler.getFile());
     }
 
@@ -1754,6 +1832,7 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler();
         handler.setURL(new URL("https://commons.apache.org/configuration/index.html"));
 
+        // removed other assertion
         assertEquals("file name", "index.html", handler.getFileName());
     }
 
@@ -1762,12 +1841,16 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler();
         handler.setURL(new URL("https://commons.apache.org/configuration/index.html"));
 
+        // removed other assertion
+        // removed other assertion
         assertNull("Got a file name in locator", handler.getFileLocator().getFileName());
     }
 
     @Test
     public void testSetURLFileScheme_1_oe() throws MalformedURLException {
         final FileHandler handler = new FileHandler();
+        // file URL - This url is invalid, a valid url would be
+        // file:///temp/test.properties.
         handler.setURL(new URL("file:/temp/test.properties"));
         assertEquals("base path", "file:///temp/", handler.getBasePath());
     }
@@ -1775,7 +1858,10 @@ public class TestFileHandler_OE25Dev {
     @Test
     public void testSetURLFileScheme_2_oe() throws MalformedURLException {
         final FileHandler handler = new FileHandler();
+        // file URL - This url is invalid, a valid url would be
+        // file:///temp/test.properties.
         handler.setURL(new URL("file:/temp/test.properties"));
+        // removed other assertion
         assertEquals("file name", TEST_FILENAME, handler.getFileName());
     }
 
@@ -1794,6 +1880,7 @@ public class TestFileHandler_OE25Dev {
         handler.setURL(ConfigurationAssert.getTestURL(TEST_FILENAME));
         handler.setURL(null);
         final FileLocator locator = handler.getFileLocator();
+        // removed other assertion
         assertNull("Got a file name", locator.getFileName());
     }
 
@@ -1803,6 +1890,8 @@ public class TestFileHandler_OE25Dev {
         handler.setURL(ConfigurationAssert.getTestURL(TEST_FILENAME));
         handler.setURL(null);
         final FileLocator locator = handler.getFileLocator();
+        // removed other assertion
+        // removed other assertion
         assertNull("Got a URL", locator.getSourceURL());
     }
 
@@ -1819,6 +1908,7 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler();
         final URL url = new URL("https://issues.apache.org/bugzilla/show_bug.cgi?id=37886");
         handler.setURL(url);
+        // removed other assertion
         assertEquals("File name incorrect", "show_bug.cgi", handler.getFileName());
     }
 
@@ -1827,6 +1917,8 @@ public class TestFileHandler_OE25Dev {
         final FileHandler handler = new FileHandler();
         final URL url = new URL("https://issues.apache.org/bugzilla/show_bug.cgi?id=37886");
         handler.setURL(url);
+        // removed other assertion
+        // removed other assertion
         assertEquals("URL was not correctly stored", url, handler.getURL());
     }
 

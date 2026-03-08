@@ -50,6 +50,8 @@ public class VFSTest_OE25Dev {
     public void test_setManager_2_oe() throws FileSystemException {
         final StandardFileSystemManager fileSystemManager = new StandardFileSystemManager();
         VFS.setManager(fileSystemManager);
+        // removed other assertion
+        // Reset global for other tests
         VFS.setManager(null);
         Assert.assertNotNull(VFS.getManager());
     }
@@ -58,7 +60,10 @@ public class VFSTest_OE25Dev {
     public void test_setManager_3_oe() throws FileSystemException {
         final StandardFileSystemManager fileSystemManager = new StandardFileSystemManager();
         VFS.setManager(fileSystemManager);
+        // removed other assertion
+        // Reset global for other tests
         VFS.setManager(null);
+        // removed other assertion
         Assert.assertNotEquals(fileSystemManager, VFS.getManager());
     }
 
@@ -84,6 +89,7 @@ public class VFSTest_OE25Dev {
             VFS.setManager(fileSystemManager);
             VFS.setManager(null);
         }
+        // removed other assertion
         Assert.assertFalse(VFS.getManager().resolveFile(Paths.get("DoesNotExist.not").toUri()).exists());
     }
 

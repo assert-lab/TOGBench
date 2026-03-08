@@ -513,6 +513,7 @@ class ProvidersCommonParametricTest_OE25Dev {
     @ParameterizedTest
     @MethodSource("getList")
     void testPreconditionNextInt_2_oe(UniformRandomProvider generator) {
+        // removed other assertion
         try {
     generator.nextInt(0);
     fail("IllegalArgumentException");
@@ -533,6 +534,7 @@ class ProvidersCommonParametricTest_OE25Dev {
     @ParameterizedTest
     @MethodSource("getList")
     void testPreconditionNextLong_2_oe(UniformRandomProvider generator) {
+        // removed other assertion
         try {
     generator.nextLong(0);
     fail("IllegalArgumentException");
@@ -559,6 +561,7 @@ class ProvidersCommonParametricTest_OE25Dev {
          int size = 10;
          int num = 1;
          byte[] buf = new byte[size];
+        // removed other assertion
         try {
     generator.nextBytes(buf, size, 0);
     fail("IndexOutOfBoundsException");
@@ -572,6 +575,8 @@ class ProvidersCommonParametricTest_OE25Dev {
          int size = 10;
          int num = 1;
          byte[] buf = new byte[size];
+        // removed other assertion
+        // removed other assertion
          int offset = 2;
         try {
     generator.nextBytes(buf, offset, size - offset + 1);
@@ -586,7 +591,10 @@ class ProvidersCommonParametricTest_OE25Dev {
          int size = 10;
          int num = 1;
          byte[] buf = new byte[size];
+        // removed other assertion
+        // removed other assertion
          int offset = 2;
+        // removed other assertion
         try {
     generator.nextBytes(buf, offset, -1);
     fail("IndexOutOfBoundsException");
@@ -610,7 +618,10 @@ class ProvidersCommonParametricTest_OE25Dev {
             }
         };
 
+        // Test should pass for the part of the buffer where values are put.
+        // removed other assertion
 
+        // Test must fail for the parts of the buffer where no values are put.
         Assertions.assertFalse(isUniformNextBytes(buffer, 0, offset, nextMethod));
     }
 
@@ -630,17 +641,26 @@ class ProvidersCommonParametricTest_OE25Dev {
             }
         };
 
+        // Test should pass for the part of the buffer where values are put.
+        // removed other assertion
 
+        // Test must fail for the parts of the buffer where no values are put.
+        // removed other assertion
         Assertions.assertFalse(isUniformNextBytes(buffer, offset + size, buffer.length, nextMethod));
     }
 
     @ParameterizedTest
     @MethodSource("getList")
     void testStateSettable_1_oe(RestorableUniformRandomProvider generator) {
+        // Should be fairly large in order to ensure that all the internal
+        // state is away from its initial settings.
          int n = 10000;
 
+        // Save.
          RandomProviderState state = generator.saveState();
+        // Store some values.
          List<Number> listOrig = makeList(n, generator);
+        // Discard a few more.
          List<Number> listDiscard = makeList(n, generator);
         Assertions.assertNotEquals(0, listDiscard.size());
     }
@@ -648,23 +668,38 @@ class ProvidersCommonParametricTest_OE25Dev {
     @ParameterizedTest
     @MethodSource("getList")
     void testStateSettable_2_oe(RestorableUniformRandomProvider generator) {
+        // Should be fairly large in order to ensure that all the internal
+        // state is away from its initial settings.
          int n = 10000;
 
+        // Save.
          RandomProviderState state = generator.saveState();
+        // Store some values.
          List<Number> listOrig = makeList(n, generator);
+        // Discard a few more.
          List<Number> listDiscard = makeList(n, generator);
+        // removed other assertion
         Assertions.assertNotEquals(listOrig, listDiscard);
     }
 
     @ParameterizedTest
     @MethodSource("getList")
     void testStateSettable_3_oe(RestorableUniformRandomProvider generator) {
+        // Should be fairly large in order to ensure that all the internal
+        // state is away from its initial settings.
          int n = 10000;
 
+        // Save.
          RandomProviderState state = generator.saveState();
+        // Store some values.
          List<Number> listOrig = makeList(n, generator);
+        // Discard a few more.
          List<Number> listDiscard = makeList(n, generator);
+        // removed other assertion
+        // removed other assertion
+        // Reset.
         generator.restoreState(state);
+        // Replay.
          List<Number> listReplay = makeList(n, generator);
         Assertions.assertNotSame(listOrig, listReplay);
     }
@@ -672,13 +707,24 @@ class ProvidersCommonParametricTest_OE25Dev {
     @ParameterizedTest
     @MethodSource("getList")
     void testStateSettable_4_oe(RestorableUniformRandomProvider generator) {
+        // Should be fairly large in order to ensure that all the internal
+        // state is away from its initial settings.
          int n = 10000;
 
+        // Save.
          RandomProviderState state = generator.saveState();
+        // Store some values.
          List<Number> listOrig = makeList(n, generator);
+        // Discard a few more.
          List<Number> listDiscard = makeList(n, generator);
+        // removed other assertion
+        // removed other assertion
+        // Reset.
         generator.restoreState(state);
+        // Replay.
          List<Number> listReplay = makeList(n, generator);
+        // removed other assertion
+        // Check that the restored state is the same as the original.
         Assertions.assertEquals(listOrig, listReplay);
     }
 
@@ -686,6 +732,7 @@ class ProvidersCommonParametricTest_OE25Dev {
     @MethodSource("getList")
     void testStateWrongSize_1_oe(RestorableUniformRandomProvider generator) {
          RandomProviderState state = new DummyGenerator().saveState();
+        // Try to restore with an invalid state (wrong size).
         try {
     generator.restoreState(state);
     fail("IllegalStateException");

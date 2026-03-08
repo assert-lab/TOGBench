@@ -112,6 +112,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = createEngine();
         final JexlScript s = jexl.createScript("function(x) { x + x }");
         final String fsstr = s.getParsedText(0);
+        // removed other assertion
         Assert.assertEquals(42, s.execute(null, 21));
     }
 
@@ -120,6 +121,8 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = createEngine();
         final JexlScript s = jexl.createScript("function(x) { x + x }");
         final String fsstr = s.getParsedText(0);
+        // removed other assertion
+        // removed other assertion
         JexlScript s42 = jexl.createScript("s(21)");
         final JexlEvalContext ctxt = new JexlEvalContext();
         ctxt.set("s", s);
@@ -132,10 +135,13 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = createEngine();
         final JexlScript s = jexl.createScript("function(x) { x + x }");
         final String fsstr = s.getParsedText(0);
+        // removed other assertion
+        // removed other assertion
         JexlScript s42 = jexl.createScript("s(21)");
         final JexlEvalContext ctxt = new JexlEvalContext();
         ctxt.set("s", s);
         Object result = s42.execute(ctxt);
+        // removed other assertion
         result = s42.execute(ctxt);
         Assert.assertEquals(42, result);
     }
@@ -145,11 +151,15 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = createEngine();
         final JexlScript s = jexl.createScript("function(x) { x + x }");
         final String fsstr = s.getParsedText(0);
+        // removed other assertion
+        // removed other assertion
         JexlScript s42 = jexl.createScript("s(21)");
         final JexlEvalContext ctxt = new JexlEvalContext();
         ctxt.set("s", s);
         Object result = s42.execute(ctxt);
+        // removed other assertion
         result = s42.execute(ctxt);
+        // removed other assertion
         s42 = jexl.createScript("x-> { x + x }");
         result = s42.execute(ctxt, 21);
         Assert.assertEquals(42, result);
@@ -170,6 +180,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         String strs = "var s = function(x) { x + x }; s(21)";
         JexlScript s42 = jexl.createScript(strs);
         Object result = s42.execute(null);
+        // removed other assertion
         strs = "var s = function(x, y) { x + y }; s(15, 27)";
         s42 = jexl.createScript(strs);
         result = s42.execute(null);
@@ -191,6 +202,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         String strs = "var t = 20; var s = function(x, y) { x + y + t}; s(15, 7)";
         JexlScript s42 = jexl.createScript(strs);
         Object result = s42.execute(null);
+        // removed other assertion
         strs = "var t = 19; var s = function(x, y) { var t = 20; x + y + t}; s(15, 7)";
         s42 = jexl.createScript(strs);
         result = s42.execute(null);
@@ -203,9 +215,11 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         String strs = "var t = 20; var s = function(x, y) { x + y + t}; s(15, 7)";
         JexlScript s42 = jexl.createScript(strs);
         Object result = s42.execute(null);
+        // removed other assertion
         strs = "var t = 19; var s = function(x, y) { var t = 20; x + y + t}; s(15, 7)";
         s42 = jexl.createScript(strs);
         result = s42.execute(null);
+        // removed other assertion
         strs = "var t = 20; var s = function(x, y) {x + y + t}; t = 54; s(15, 7)";
         s42 = jexl.createScript(strs);
         result = s42.execute(null);
@@ -218,12 +232,15 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         String strs = "var t = 20; var s = function(x, y) { x + y + t}; s(15, 7)";
         JexlScript s42 = jexl.createScript(strs);
         Object result = s42.execute(null);
+        // removed other assertion
         strs = "var t = 19; var s = function(x, y) { var t = 20; x + y + t}; s(15, 7)";
         s42 = jexl.createScript(strs);
         result = s42.execute(null);
+        // removed other assertion
         strs = "var t = 20; var s = function(x, y) {x + y + t}; t = 54; s(15, 7)";
         s42 = jexl.createScript(strs);
         result = s42.execute(null);
+        // removed other assertion
         strs = "var t = 19; var s = function(x, y) { var t = 20; x + y + t}; t = 54; s(15, 7)";
         s42 = jexl.createScript(strs);
         result = s42.execute(null);
@@ -245,6 +262,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         String strs = "var t = 19; ( (x, y)->{ var t = 20; x + y + t} )(15, 7);";
         JexlScript s42 = jexl.createScript(strs);
         Object result = s42.execute(null);
+        // removed other assertion
 
         strs = "( (x, y)->{ ( (xx, yy)->{xx + yy } )(x, y) } )(15, 27)";
         s42 = jexl.createScript(strs);
@@ -258,10 +276,12 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         String strs = "var t = 19; ( (x, y)->{ var t = 20; x + y + t} )(15, 7);";
         JexlScript s42 = jexl.createScript(strs);
         Object result = s42.execute(null);
+        // removed other assertion
 
         strs = "( (x, y)->{ ( (xx, yy)->{xx + yy } )(x, y) } )(15, 27)";
         s42 = jexl.createScript(strs);
         result = s42.execute(null);
+        // removed other assertion
 
         strs = "var t = 19; var s = (x, y)->{ var t = 20; x + y + t}; t = 54; s(15, 7)";
         s42 = jexl.createScript(strs);
@@ -295,6 +315,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         final String strs = "(x)->{ (y)->{ x + y } }";
         final JexlScript s42 = jexl.createScript(strs);
         final JexlScript s42b = jexl.createScript(s42.toString());
+        // removed other assertion
         Assert.assertEquals(s42, s42b);
     }
 
@@ -305,6 +326,8 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         final String strs = "(x)->{ (y)->{ x + y } }";
         final JexlScript s42 = jexl.createScript(strs);
         final JexlScript s42b = jexl.createScript(s42.toString());
+        // removed other assertion
+        // removed other assertion
         Object result = s42.execute(ctx, 15);
         Assert.assertTrue(result instanceof JexlScript);
     }
@@ -316,7 +339,10 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         final String strs = "(x)->{ (y)->{ x + y } }";
         final JexlScript s42 = jexl.createScript(strs);
         final JexlScript s42b = jexl.createScript(s42.toString());
+        // removed other assertion
+        // removed other assertion
         Object result = s42.execute(ctx, 15);
+        // removed other assertion
         final Object resultb = s42.execute(ctx, 15);
         Assert.assertEquals(result.hashCode(), resultb.hashCode());
     }
@@ -328,8 +354,12 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         final String strs = "(x)->{ (y)->{ x + y } }";
         final JexlScript s42 = jexl.createScript(strs);
         final JexlScript s42b = jexl.createScript(s42.toString());
+        // removed other assertion
+        // removed other assertion
         Object result = s42.execute(ctx, 15);
+        // removed other assertion
         final Object resultb = s42.execute(ctx, 15);
+        // removed other assertion
         Assert.assertEquals(result, resultb);
     }
 
@@ -340,8 +370,13 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         final String strs = "(x)->{ (y)->{ x + y } }";
         final JexlScript s42 = jexl.createScript(strs);
         final JexlScript s42b = jexl.createScript(s42.toString());
+        // removed other assertion
+        // removed other assertion
         Object result = s42.execute(ctx, 15);
+        // removed other assertion
         final Object resultb = s42.execute(ctx, 15);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(result, jexl.createScript(resultb.toString(), "x").execute(ctx, 15));
     }
 
@@ -352,8 +387,14 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         final String strs = "(x)->{ (y)->{ x + y } }";
         final JexlScript s42 = jexl.createScript(strs);
         final JexlScript s42b = jexl.createScript(s42.toString());
+        // removed other assertion
+        // removed other assertion
         Object result = s42.execute(ctx, 15);
+        // removed other assertion
         final Object resultb = s42.execute(ctx, 15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final JexlScript s15 = (JexlScript) result;
         final Callable<Object> s15b = s15.callable(ctx, 27);
         result = s15.execute(ctx, 27);
@@ -367,11 +408,18 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         final String strs = "(x)->{ (y)->{ x + y } }";
         final JexlScript s42 = jexl.createScript(strs);
         final JexlScript s42b = jexl.createScript(s42.toString());
+        // removed other assertion
+        // removed other assertion
         Object result = s42.execute(ctx, 15);
+        // removed other assertion
         final Object resultb = s42.execute(ctx, 15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final JexlScript s15 = (JexlScript) result;
         final Callable<Object> s15b = s15.callable(ctx, 27);
         result = s15.execute(ctx, 27);
+        // removed other assertion
         result = s15b.call();
         Assert.assertEquals(42, result);
     }
@@ -388,6 +436,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Set<List<String>> hvars;
         String strs;
 
+        // hosted variables are NOT local variables
         strs = "(x)->{ (y)->{ x + y } }";
         s42 = jexl.createScript(strs);
         result = s42.execute(ctx, 15);
@@ -406,9 +455,11 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Set<List<String>> hvars;
         String strs;
 
+        // hosted variables are NOT local variables
         strs = "(x)->{ (y)->{ x + y } }";
         s42 = jexl.createScript(strs);
         result = s42.execute(ctx, 15);
+        // removed other assertion
         s15 = (JexlScript) result;
         localv = s15.getLocalVariables();
         Assert.assertEquals(0, localv.length);
@@ -426,11 +477,14 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Set<List<String>> hvars;
         String strs;
 
+        // hosted variables are NOT local variables
         strs = "(x)->{ (y)->{ x + y } }";
         s42 = jexl.createScript(strs);
         result = s42.execute(ctx, 15);
+        // removed other assertion
         s15 = (JexlScript) result;
         localv = s15.getLocalVariables();
+        // removed other assertion
         hvars = s15.getVariables();
         Assert.assertEquals(1, hvars.size());
     }
@@ -447,13 +501,20 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Set<List<String>> hvars;
         String strs;
 
+        // hosted variables are NOT local variables
         strs = "(x)->{ (y)->{ x + y } }";
         s42 = jexl.createScript(strs);
         result = s42.execute(ctx, 15);
+        // removed other assertion
         s15 = (JexlScript) result;
         localv = s15.getLocalVariables();
+        // removed other assertion
         hvars = s15.getVariables();
+        // removed other assertion
 
+        // declaring a local that overrides captured
+        // in 3.1, such a local was considered local
+        // per 3.2, this local is considered captured
         strs = "(x)->{ (y)->{ var z = 169; var x; x + y } }";
         s42 = jexl.createScript(strs);
         result = s42.execute(ctx, 15);
@@ -472,16 +533,24 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Set<List<String>> hvars;
         String strs;
 
+        // hosted variables are NOT local variables
         strs = "(x)->{ (y)->{ x + y } }";
         s42 = jexl.createScript(strs);
         result = s42.execute(ctx, 15);
+        // removed other assertion
         s15 = (JexlScript) result;
         localv = s15.getLocalVariables();
+        // removed other assertion
         hvars = s15.getVariables();
+        // removed other assertion
 
+        // declaring a local that overrides captured
+        // in 3.1, such a local was considered local
+        // per 3.2, this local is considered captured
         strs = "(x)->{ (y)->{ var z = 169; var x; x + y } }";
         s42 = jexl.createScript(strs);
         result = s42.execute(ctx, 15);
+        // removed other assertion
         s15 = (JexlScript) result;
         localv = s15.getLocalVariables();
         Assert.assertNotNull(localv);
@@ -499,18 +568,27 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Set<List<String>> hvars;
         String strs;
 
+        // hosted variables are NOT local variables
         strs = "(x)->{ (y)->{ x + y } }";
         s42 = jexl.createScript(strs);
         result = s42.execute(ctx, 15);
+        // removed other assertion
         s15 = (JexlScript) result;
         localv = s15.getLocalVariables();
+        // removed other assertion
         hvars = s15.getVariables();
+        // removed other assertion
 
+        // declaring a local that overrides captured
+        // in 3.1, such a local was considered local
+        // per 3.2, this local is considered captured
         strs = "(x)->{ (y)->{ var z = 169; var x; x + y } }";
         s42 = jexl.createScript(strs);
         result = s42.execute(ctx, 15);
+        // removed other assertion
         s15 = (JexlScript) result;
         localv = s15.getLocalVariables();
+        // removed other assertion
         Assert.assertEquals(1, localv.length);
     }
 
@@ -526,18 +604,28 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Set<List<String>> hvars;
         String strs;
 
+        // hosted variables are NOT local variables
         strs = "(x)->{ (y)->{ x + y } }";
         s42 = jexl.createScript(strs);
         result = s42.execute(ctx, 15);
+        // removed other assertion
         s15 = (JexlScript) result;
         localv = s15.getLocalVariables();
+        // removed other assertion
         hvars = s15.getVariables();
+        // removed other assertion
 
+        // declaring a local that overrides captured
+        // in 3.1, such a local was considered local
+        // per 3.2, this local is considered captured
         strs = "(x)->{ (y)->{ var z = 169; var x; x + y } }";
         s42 = jexl.createScript(strs);
         result = s42.execute(ctx, 15);
+        // removed other assertion
         s15 = (JexlScript) result;
         localv = s15.getLocalVariables();
+        // removed other assertion
+        // removed other assertion
         hvars = s15.getVariables();
         Assert.assertEquals(1, hvars.size());
     }
@@ -554,19 +642,31 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Set<List<String>> hvars;
         String strs;
 
+        // hosted variables are NOT local variables
         strs = "(x)->{ (y)->{ x + y } }";
         s42 = jexl.createScript(strs);
         result = s42.execute(ctx, 15);
+        // removed other assertion
         s15 = (JexlScript) result;
         localv = s15.getLocalVariables();
+        // removed other assertion
         hvars = s15.getVariables();
+        // removed other assertion
 
+        // declaring a local that overrides captured
+        // in 3.1, such a local was considered local
+        // per 3.2, this local is considered captured
         strs = "(x)->{ (y)->{ var z = 169; var x; x + y } }";
         s42 = jexl.createScript(strs);
         result = s42.execute(ctx, 15);
+        // removed other assertion
         s15 = (JexlScript) result;
         localv = s15.getLocalVariables();
+        // removed other assertion
+        // removed other assertion
         hvars = s15.getVariables();
+        // removed other assertion
+        // evidence this is not (strictly) a local since it inherited a captured value
         result = s15.execute(ctx, 27);
         Assert.assertEquals(42, result);
     }
@@ -588,6 +688,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Object result;
 
         script = jexl.createScript("(x)->{ x }");
+        // removed other assertion
         result = script.execute(null, 42);
         Assert.assertEquals(42, result);
     }
@@ -613,6 +714,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
 
         final JexlScript base = jexl.createScript("(x, y, z)->{ x + y + z }");
         parms = base.getUnboundParameters();
+        // removed other assertion
         script = base.curry(5);
         parms = script.getUnboundParameters();
         Assert.assertEquals(2, parms.length);
@@ -627,8 +729,10 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
 
         final JexlScript base = jexl.createScript("(x, y, z)->{ x + y + z }");
         parms = base.getUnboundParameters();
+        // removed other assertion
         script = base.curry(5);
         parms = script.getUnboundParameters();
+        // removed other assertion
         script = script.curry(15);
         parms = script.getUnboundParameters();
         Assert.assertEquals(1, parms.length);
@@ -643,10 +747,13 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
 
         final JexlScript base = jexl.createScript("(x, y, z)->{ x + y + z }");
         parms = base.getUnboundParameters();
+        // removed other assertion
         script = base.curry(5);
         parms = script.getUnboundParameters();
+        // removed other assertion
         script = script.curry(15);
         parms = script.getUnboundParameters();
+        // removed other assertion
         script = script.curry(22);
         parms = script.getUnboundParameters();
         Assert.assertEquals(0, parms.length);
@@ -661,12 +768,16 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
 
         final JexlScript base = jexl.createScript("(x, y, z)->{ x + y + z }");
         parms = base.getUnboundParameters();
+        // removed other assertion
         script = base.curry(5);
         parms = script.getUnboundParameters();
+        // removed other assertion
         script = script.curry(15);
         parms = script.getUnboundParameters();
+        // removed other assertion
         script = script.curry(22);
         parms = script.getUnboundParameters();
+        // removed other assertion
         result = script.execute(null);
         Assert.assertEquals(42, result);
     }
@@ -694,6 +805,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         final JexlScript base = jexl.createScript("(x, y, z)->{ x + y + z }");
         script = base.curry(5, 15);
         parms = script.getUnboundParameters();
+        // removed other assertion
         script = script.curry(22);
         result = script.execute(null);
         Assert.assertEquals(42, result);
@@ -726,6 +838,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         final JexlScript base = jexl.createScript("(x, y, z)->{ x + y + z }");
         final String text = base.toString();
         JexlScript script = base.curry(5, 15);
+        // removed other assertion
 
         final JexlEvalContext ctxt = new JexlEvalContext();
         ctxt.set("s", base);
@@ -740,11 +853,13 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         final JexlScript base = jexl.createScript("(x, y, z)->{ x + y + z }");
         final String text = base.toString();
         JexlScript script = base.curry(5, 15);
+        // removed other assertion
 
         final JexlEvalContext ctxt = new JexlEvalContext();
         ctxt.set("s", base);
         script = jexl.createScript("return s");
         Object result = script.execute(ctxt);
+        // removed other assertion
 
         script = jexl.createScript("return s.curry(1)");
         result = script.execute(ctxt);

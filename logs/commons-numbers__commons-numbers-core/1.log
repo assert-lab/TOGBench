@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core
-[INFO] Storing buildNumber: 53df724e8c4d67547212d860dfed689b7c447fa6 at timestamp: 1772566702349
+[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772768497506
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-core ---
@@ -52,36 +52,22 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-numbers-core ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 14 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/target/test-classes
+[INFO] Compiling 8 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/target/test-classes
 [INFO] 
 [INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-core ---
 [INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/target/jacoco.exec
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-numbers-core ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.numbers.core.EpsilonDoubleEquivalenceTest_OE25Dev
-[INFO] Tests run: 90, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s - in org.apache.commons.numbers.core.EpsilonDoubleEquivalenceTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.core.PrecisionTest_OE25Dev
-[INFO] Tests run: 313, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.263 s - in org.apache.commons.numbers.core.PrecisionTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.core.SumTest_OE25Dev
-[INFO] Tests run: 89, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.numbers.core.SumTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.core.NormTest_OE25Dev
-[INFO] Tests run: 125, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.556 s - in org.apache.commons.numbers.core.NormTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.core.ExtendedPrecisionTest_OE25Dev
-[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.numbers.core.ExtendedPrecisionTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
-[INFO] Tests run: 123, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 774, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.339 s
-[INFO] Finished at: 2026-03-03T13:38:32-06:00
+[INFO] Total time:  7.027 s
+[INFO] Finished at: 2026-03-05T21:41:41-06:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-numbers-core: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

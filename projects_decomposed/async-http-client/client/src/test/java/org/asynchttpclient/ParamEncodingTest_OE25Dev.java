@@ -76,6 +76,7 @@ public class ParamEncodingTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient client = asyncHttpClient()) {
       Future<Response> f = client.preparePost("http://localhost:" + port1).addFormParam("test", value).execute();
       Response resp = f.get(10, TimeUnit.SECONDS);
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -87,6 +88,8 @@ public class ParamEncodingTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient client = asyncHttpClient()) {
       Future<Response> f = client.preparePost("http://localhost:" + port1).addFormParam("test", value).execute();
       Response resp = f.get(10, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getHeader("X-Param"), value.trim());
   }
   }

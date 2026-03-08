@@ -81,6 +81,7 @@ public class Expect100ContinueTest_OE25Dev extends AbstractBasicTest {
               .setBody(SIMPLE_TEXT_FILE)
               .execute();
       Response resp = f.get();
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -93,6 +94,8 @@ public class Expect100ContinueTest_OE25Dev extends AbstractBasicTest {
               .setBody(SIMPLE_TEXT_FILE)
               .execute();
       Response resp = f.get();
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getResponseBody(), SIMPLE_TEXT_FILE_STRING);
   }
   }

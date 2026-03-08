@@ -1,0 +1,1632 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+bcel_1_1,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AnonymousClassTest"");
+        assertFalse(""regular outer classes are not anonymous"", clazz .isAnonymous());",AnonymousClassTestCase::testRegularClassIsNotAnonymous_1_oe,org.apache.bcel.classfile.JavaClass,isAnonymous(),"/**
+     * @since 6.0
+     */","public final boolean isAnonymous() {
+        computeNestedTypeStatus();
+        return this.isAnonymous;
+    }"
+bcel_1_2,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AnonymousClassTest"");
+        assertFalse(""regular outer classes are not nested"", clazz.isNested());",AnonymousClassTestCase::testRegularClassIsNotAnonymous_2_oe,org.apache.bcel.classfile.JavaClass,isNested(),"/**
+     * @since 6.0
+     */","public final boolean isNested() {
+        computeNestedTypeStatus();
+        return this.isNested;
+    }"
+bcel_2_1,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AnonymousClassTest$X"");
+        assertFalse(""regular inner classes are not anonymous"", clazz .isAnonymous());",AnonymousClassTestCase::testNamedInnerClassIsNotAnonymous_1_oe,org.apache.bcel.classfile.JavaClass,isAnonymous(),"/**
+     * @since 6.0
+     */","public final boolean isAnonymous() {
+        computeNestedTypeStatus();
+        return this.isAnonymous;
+    }"
+bcel_2_2,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AnonymousClassTest$X"");
+        assertTrue(""regular inner classes are nested"", clazz.isNested());",AnonymousClassTestCase::testNamedInnerClassIsNotAnonymous_2_oe,org.apache.bcel.classfile.JavaClass,isNested(),"/**
+     * @since 6.0
+     */","public final boolean isNested() {
+        computeNestedTypeStatus();
+        return this.isNested;
+    }"
+bcel_3_1,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AnonymousClassTest$Y"");
+        assertFalse(""regular static inner classes are not anonymous"", clazz .isAnonymous());",AnonymousClassTestCase::testStaticInnerClassIsNotAnonymous_1_oe,org.apache.bcel.classfile.JavaClass,isAnonymous(),"/**
+     * @since 6.0
+     */","public final boolean isAnonymous() {
+        computeNestedTypeStatus();
+        return this.isAnonymous;
+    }"
+bcel_3_2,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AnonymousClassTest$Y"");
+        assertTrue(""regular static inner classes are nested"", clazz.isNested());",AnonymousClassTestCase::testStaticInnerClassIsNotAnonymous_2_oe,org.apache.bcel.classfile.JavaClass,isNested(),"/**
+     * @since 6.0
+     */","public final boolean isNested() {
+        computeNestedTypeStatus();
+        return this.isNested;
+    }"
+bcel_4_1,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AnonymousClassTest$1"");
+        assertTrue(""anonymous inner classes are anonymous"", clazz.isAnonymous());",AnonymousClassTestCase::testAnonymousInnerClassIsAnonymous_1_oe,org.apache.bcel.classfile.JavaClass,isAnonymous(),"/**
+     * @since 6.0
+     */","public final boolean isAnonymous() {
+        computeNestedTypeStatus();
+        return this.isAnonymous;
+    }"
+bcel_4_2,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AnonymousClassTest$1"");
+        assertTrue(""anonymous inner classes are anonymous"", clazz.isNested());",AnonymousClassTestCase::testAnonymousInnerClassIsAnonymous_2_oe,org.apache.bcel.classfile.JavaClass,isNested(),"/**
+     * @since 6.0
+     */","public final boolean isNested() {
+        computeNestedTypeStatus();
+        return this.isNested;
+    }"
+bcel_5_1,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.PLSETestClass"");
+        final ClassGen gen = new ClassGen(clazz);
+        final ConstantPoolGen pool = gen.getConstantPool();
+        final Method m = gen.getMethodAt(2);
+        final LocalVariableTable lvt = m.getLocalVariableTable();
+        final MethodGen mg = new MethodGen(m, gen.getClassName(), pool);
+        final LocalVariableTable new_lvt = mg.getLocalVariableTable(mg.getConstantPool());
+        assertEquals(""number of locals"", lvt.getTableLength(), new_lvt.getTableLength());",PLSETestCase::testB79_1_oe,org.apache.bcel.classfile.LocalVariableTable,getTableLength(),,"public final int getTableLength() {
+        return localVariableTable == null ? 0 : localVariableTable.length;
+    }"
+bcel_6_1,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.PLSETestEnum"");
+        final ClassGen gen = new ClassGen(clazz);
+        final ConstantPoolGen pool = gen.getConstantPool();
+        final Method m = gen.getMethodAt(0);
+        final MethodGen mg = new MethodGen(m, gen.getClassName(), pool);
+        final InstructionList il = mg.getInstructionList();
+        final InstructionHandle ih = il.findHandle(3);
+        final InvokeInstruction ii = (InvokeInstruction)(ih.getInstruction());
+        final String cn = ii.getClassName(pool);
+        assertEquals(""[Lorg.apache.bcel.data.PLSETestEnum;"", cn);",PLSETestCase::testB262_1_oe,org.apache.bcel.generic.InvokeInstruction,getClassName( final ConstantPoolGen cpg ),"/**
+     * This overrides the deprecated version as we know here that the referenced class
+     * may legally be an array.
+     *
+     * @return name of the referenced class/interface
+     * @throws IllegalArgumentException if the referenced class is an array (this should not happen)
+     */","@Override
+    public String getClassName( final ConstantPoolGen cpg ) {
+        final ConstantPool cp = cpg.getConstantPool();
+        final ConstantCP cmr = (ConstantCP) cp.getConstant(super.getIndex());
+        final String className = cp.getConstantString(cmr.getClassIndex(), Const.CONSTANT_Class);
+        return className.replace('/', '.');
+    }"
+bcel_7_1,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.PLSETestClass2"");
+        final ClassGen cg = new ClassGen(clazz);
+        final ConstantPoolGen pool = cg.getConstantPool();
+        final Method m = cg.getMethodAt(1);  // 'main'
+        final LocalVariableTable lvt = m.getLocalVariableTable();
+        final LocalVariable lv = lvt.getLocalVariable(2, 4);  // 'i'
+        final MethodGen mg = new MethodGen(m, cg.getClassName(), pool);
+        final LocalVariableTable new_lvt = mg.getLocalVariableTable(mg.getConstantPool());
+        final LocalVariable new_lv = new_lvt.getLocalVariable(2, 4);  // 'i'
+        assertEquals(""live range length"", lv.getLength(), new_lv.getLength());",PLSETestCase::testB295_1_oe,org.apache.bcel.classfile.LocalVariable,getLength(),"/**
+     * @return Variable is valid within getStartPC() .. getStartPC()+getLength()
+     */","public int getLength() {
+        return length;
+    }"
+bcel_8_1,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AttributeTestClassEM01$1S"");
+        final Attribute[] encMethodAttrs = findAttribute(""EnclosingMethod"", clazz);
+        assertTrue(""Expected 1 EnclosingMethod attribute but found "" + encMethodAttrs.length, encMethodAttrs.length == 1);",EnclosingMethodAttributeTestCase::testCheckMethodLevelNamedInnerClass_1_oe,org.apache.bcel.classfile.JavaClass,getConstantPool(),"/**
+     * @return Constant pool.
+     */","public ConstantPool getConstantPool() {
+        return constantPool;
+    }"
+bcel_8_2,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AttributeTestClassEM01$1S"");
+        final ConstantPool pool = clazz.getConstantPool();
+        final Attribute[] encMethodAttrs = findAttribute(""EnclosingMethod"", clazz);
+        final EnclosingMethod em = (EnclosingMethod) encMethodAttrs[0];
+        final String enclosingClassName = em.getEnclosingClass().getBytes(pool);
+        assertTrue( ""Expected class name to be '""+PACKAGE_BASE_SIG+""/data/AttributeTestClassEM01' but was "" + enclosingClassName, enclosingClassName .equals(PACKAGE_BASE_SIG+""/data/AttributeTestClassEM01""));",EnclosingMethodAttributeTestCase::testCheckMethodLevelNamedInnerClass_2_oe,org.apache.bcel.generic.NamedAndTyped,getName(),,String getName();
+bcel_8_3,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AttributeTestClassEM01$1S"");
+        final ConstantPool pool = clazz.getConstantPool();
+        final Attribute[] encMethodAttrs = findAttribute(""EnclosingMethod"", clazz);
+        final EnclosingMethod em = (EnclosingMethod) encMethodAttrs[0];
+        final String enclosingMethodName = em.getEnclosingMethod().getName(pool);
+        assertTrue(""Expected method name to be 'main' but was "" + enclosingMethodName, enclosingMethodName.equals(""main""));",EnclosingMethodAttributeTestCase::testCheckMethodLevelNamedInnerClass_3_oe,org.apache.bcel.generic.NamedAndTyped,getName(),,String getName();
+bcel_9_1,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AttributeTestClassEM02$1"");
+        final Attribute[] encMethodAttrs = findAttribute(""EnclosingMethod"", clazz);
+        assertTrue(""Expected 1 EnclosingMethod attribute but found "" + encMethodAttrs.length, encMethodAttrs.length == 1);",EnclosingMethodAttributeTestCase::testCheckClassLevelNamedInnerClass_1_oe,org.apache.bcel.classfile.JavaClass,getConstantPool(),"/**
+     * @return Constant pool.
+     */","public ConstantPool getConstantPool() {
+        return constantPool;
+    }"
+bcel_9_2,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AttributeTestClassEM02$1"");
+        final Attribute[] encMethodAttrs = findAttribute(""EnclosingMethod"", clazz);
+        final EnclosingMethod em = (EnclosingMethod) encMethodAttrs[0];
+        assertTrue( ""The class is not within a method, so method_index should be null, but it is "" + em.getEnclosingMethodIndex(), em .getEnclosingMethodIndex() == 0);",EnclosingMethodAttributeTestCase::testCheckClassLevelNamedInnerClass_2_oe,org.apache.bcel.classfile.EnclosingMethod,getEnclosingMethodIndex(),,"public final int getEnclosingMethodIndex() {
+        return methodIndex;
+    }"
+bcel_9_3,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AttributeTestClassEM02$1"");
+        final ConstantPool pool = clazz.getConstantPool();
+        final Attribute[] encMethodAttrs = findAttribute(""EnclosingMethod"", clazz);
+        final EnclosingMethod em = (EnclosingMethod) encMethodAttrs[0];
+        final String enclosingClassName = em.getEnclosingClass().getBytes(pool);
+        assertTrue( ""Expected class name to be '""+PACKAGE_BASE_SIG+""/data/AttributeTestClassEM02' but was "" + enclosingClassName, enclosingClassName .equals(PACKAGE_BASE_SIG+""/data/AttributeTestClassEM02""));",EnclosingMethodAttributeTestCase::testCheckClassLevelNamedInnerClass_3_oe,org.apache.bcel.classfile.Synthetic,getBytes(),"/**
+     * @return data bytes.
+     */","public byte[] getBytes() {
+        return bytes;
+    }"
+bcel_10_1,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AttributeTestClassEM02$1"");
+        final Attribute[] encMethodAttrs = findAttribute(""EnclosingMethod"", clazz);
+        assertTrue(""Expected 1 EnclosingMethod attribute but found "" + encMethodAttrs.length, encMethodAttrs.length == 1);",EnclosingMethodAttributeTestCase::testAttributeSerializtion_1_oe,org.apache.bcel.classfile.JavaClass,getConstantPool(),"/**
+     * @return Constant pool.
+     */","public ConstantPool getConstantPool() {
+        return constantPool;
+    }"
+bcel_10_2,"        final SyntheticRepository repos2 = createRepos(""."");
+        final JavaClass clazz2 = repos2.loadClass(""AttributeTestClassEM02$1"");
+        Assert.assertNotNull(clazz2); // Use the variable to avoid a warning;",EnclosingMethodAttributeTestCase::testAttributeSerializtion_2_oe,org.apache.bcel.util.AbstractClassPathRepository,loadClass(String className),"/**
+     * Finds a JavaClass object by name. If it is already in this Repository, the Repository version is returned.
+     * Otherwise, the Repository's classpath is searched for the class (and it is added to the Repository if found).
+     *
+     * @param className
+     *            the name of the class
+     * @return the JavaClass object
+     * @throws ClassNotFoundException
+     *             if the class is not in the Repository, and could not be found on the classpath
+     */","@Override
+    public JavaClass loadClass(String className) throws ClassNotFoundException {
+        if (className == null || className.isEmpty()) {
+            throw new IllegalArgumentException(""Invalid class name "" + className);
+        }
+        className = className.replace('/', '.'); // Just in case, canonical form
+        final JavaClass clazz = findClass(className);
+        if (clazz != null) {
+            return clazz;
+        }
+        try {
+            return loadClass(_path.getInputStream(className), className);
+        } catch (final IOException e) {
+            throw new ClassNotFoundException(""Exception while looking for class "" + className + "": "" + e, e);
+        }
+    }"
+bcel_10_3,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AttributeTestClassEM02$1"");
+        final Attribute[] encMethodAttrs = findAttribute(""EnclosingMethod"", clazz);
+        final EnclosingMethod em = (EnclosingMethod) encMethodAttrs[0];
+        assertTrue( ""The class is not within a method, so method_index should be null, but it is "" + em.getEnclosingMethodIndex(), em .getEnclosingMethodIndex() == 0);",EnclosingMethodAttributeTestCase::testAttributeSerializtion_3_oe,org.apache.bcel.classfile.EnclosingMethod,getEnclosingMethodIndex(),,"public final int getEnclosingMethodIndex() {
+        return methodIndex;
+    }"
+bcel_10_4,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AttributeTestClassEM02$1"");
+        final ConstantPool pool = clazz.getConstantPool();
+        final Attribute[] encMethodAttrs = findAttribute(""EnclosingMethod"", clazz);
+        final EnclosingMethod em = (EnclosingMethod) encMethodAttrs[0];
+        final String enclosingClassName = em.getEnclosingClass().getBytes(pool);
+        assertTrue( ""Expected class name to be '""+PACKAGE_BASE_SIG+""/data/AttributeTestClassEM02' but was "" + enclosingClassName, enclosingClassName .equals(PACKAGE_BASE_SIG+""/data/AttributeTestClassEM02""));",EnclosingMethodAttributeTestCase::testAttributeSerializtion_4_oe,org.apache.bcel.classfile.Synthetic,getBytes(),"/**
+     * @return data bytes.
+     */","public byte[] getBytes() {
+        return bytes;
+    }"
+bcel_11_1,"        final AnnotationDefault a = (AnnotationDefault) findAttribute(
+        final SimpleElementValue val = (SimpleElementValue) a.getDefaultValue();
+        assertTrue(""Should be STRING but is "" + val.getElementValueType(), val .getElementValueType() == ElementValue.STRING);",AnnotationDefaultAttributeTestCase::testMethodAnnotations_1_oe,org.apache.bcel.generic.ElementValueGen,getElementValueType(),,"public int getElementValueType()
+    {
+        return type;
+    }"
+bcel_11_2,"        final AnnotationDefault a = (AnnotationDefault) findAttribute(
+        final SimpleElementValue val = (SimpleElementValue) a.getDefaultValue();
+        assertTrue(""Should have default of bananas but default is "" + val.getValueString(), val.getValueString().equals(""bananas""));",AnnotationDefaultAttributeTestCase::testMethodAnnotations_2_oe,org.apache.bcel.classfile.SimpleElementValue,getValueString(),,"public String getValueString()
+    {
+        if (super.getType() != STRING) {
+            throw new IllegalStateException(
+                    ""Dont call getValueString() on a non STRING ElementValue"");
+        }
+        final ConstantUtf8 c = (ConstantUtf8) super.getConstantPool().getConstant(getIndex(),
+                Const.CONSTANT_Utf8);
+        return c.getBytes();
+    }"
+bcel_12_1,"        JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.SimpleEnum"");
+        assertTrue( ""Expected SimpleEnum class to say it was an enum - but it didn't !"", clazz.isEnum());",EnumAccessFlagTestCase::testEnumClassSaysItIs_1_oe,org.apache.bcel.classfile.AccessFlags,void isEnum(final boolean flag),,"public final void isEnum(final boolean flag) {
+        setFlag(Const.ACC_ENUM, flag);
+    }"
+bcel_12_2,"        JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.SimpleEnum"");
+        clazz = getTestClass(PACKAGE_BASE_NAME+"".data.SimpleClass"");
+        assertTrue( ""Expected SimpleClass class to say it was not an enum - but it didn't !"", !clazz.isEnum());",EnumAccessFlagTestCase::testEnumClassSaysItIs_2_oe,org.apache.bcel.classfile.AccessFlags,void isEnum(final boolean flag),,"public final void isEnum(final boolean flag) {
+        setFlag(Const.ACC_ENUM, flag);
+    }"
+bcel_13_1,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        final ConstantPoolGen cp = cg.getConstantPool();
+        final SimpleElementValueGen evg = new SimpleElementValueGen(
+        assertTrue(""Should have the same index in the constantpool but "" + evg.getIndex() + ""!="" + cp.lookupInteger(555), evg.getIndex() == cp.lookupInteger(555));",ElementValueGenTestCase::testCreateIntegerElementValue_1_oe,org.apache.bcel.generic.ConstantPoolGen,lookupInteger( final int n ),"/**
+     * Look for ConstantInteger in ConstantPool.
+     *
+     * @param n integer number to look for
+     * @return index on success, -1 otherwise
+     */","public int lookupInteger( final int n ) {
+        for (int i = 1; i < index; i++) {
+            if (constants[i] instanceof ConstantInteger) {
+                final ConstantInteger c = (ConstantInteger) constants[i];
+                if (c.getBytes() == n) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }"
+bcel_14_1,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        final ConstantPoolGen cp = cg.getConstantPool();
+        final SimpleElementValueGen evg = new SimpleElementValueGen(
+        assertTrue(""Should have the same index in the constantpool but "" + evg.getIndex() + ""!="" + cp.lookupFloat(111.222f), evg .getIndex() == cp.lookupFloat(111.222f));",ElementValueGenTestCase::testCreateFloatElementValue_1_oe,org.apache.bcel.generic.ConstantPoolGen,lookupFloat( final float n ),"/**
+     * Look for ConstantFloat in ConstantPool.
+     *
+     * @param n Float number to look for
+     * @return index on success, -1 otherwise
+     */","public int lookupFloat( final float n ) {
+        final int bits = Float.floatToIntBits(n);
+        for (int i = 1; i < index; i++) {
+            if (constants[i] instanceof ConstantFloat) {
+                final ConstantFloat c = (ConstantFloat) constants[i];
+                if (Float.floatToIntBits(c.getBytes()) == bits) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }"
+bcel_15_1,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        final ConstantPoolGen cp = cg.getConstantPool();
+        final SimpleElementValueGen evg = new SimpleElementValueGen(
+        final int idx = cp.lookupDouble(333.44);
+        assertTrue(""Should have the same index in the constantpool but "" + evg.getIndex() + ""!="" + idx, evg.getIndex() == idx);",ElementValueGenTestCase::testCreateDoubleElementValue_1_oe,org.apache.bcel.generic.SimpleElementValueGen,getIndex(),,"public int getIndex()
+    {
+        return idx;
+    }"
+bcel_16_1,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        final ConstantPoolGen cp = cg.getConstantPool();
+        final SimpleElementValueGen evg = new SimpleElementValueGen(
+        final int idx = cp.lookupLong(3334455L);
+        assertTrue(""Should have the same index in the constantpool but "" + evg.getIndex() + ""!="" + idx, evg.getIndex() == idx);",ElementValueGenTestCase::testCreateLongElementValue_1_oe,org.apache.bcel.generic.SimpleElementValueGen,getIndex(),,"public int getIndex()
+    {
+        return idx;
+    }"
+bcel_17_1,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        final ConstantPoolGen cp = cg.getConstantPool();
+        final SimpleElementValueGen evg = new SimpleElementValueGen(
+        final int idx = cp.lookupInteger('t');
+        assertTrue(""Should have the same index in the constantpool but "" + evg.getIndex() + ""!="" + idx, evg.getIndex() == idx);",ElementValueGenTestCase::testCreateCharElementValue_1_oe,org.apache.bcel.generic.SimpleElementValueGen,getIndex(),,"public int getIndex()
+    {
+        return idx;
+    }"
+bcel_18_1,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        final ConstantPoolGen cp = cg.getConstantPool();
+        final SimpleElementValueGen evg = new SimpleElementValueGen(
+        final int idx = cp.lookupInteger((byte) 'z');
+        assertTrue(""Should have the same index in the constantpool but "" + evg.getIndex() + ""!="" + idx, evg.getIndex() == idx);",ElementValueGenTestCase::testCreateByteElementValue_1_oe,org.apache.bcel.generic.SimpleElementValueGen,getIndex(),,"public int getIndex()
+    {
+        return idx;
+    }"
+bcel_19_1,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        final ConstantPoolGen cp = cg.getConstantPool();
+        final SimpleElementValueGen evg = new SimpleElementValueGen(
+        final int idx = cp.lookupInteger(1); // 1 == true
+        assertTrue(""Should have the same index in the constantpool but "" + evg.getIndex() + ""!="" + idx, evg.getIndex() == idx);",ElementValueGenTestCase::testCreateBooleanElementValue_1_oe,org.apache.bcel.generic.SimpleElementValueGen,getIndex(),,"public int getIndex()
+    {
+        return idx;
+    }"
+bcel_20_1,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        final ConstantPoolGen cp = cg.getConstantPool();
+        final SimpleElementValueGen evg = new SimpleElementValueGen(
+        final int idx = cp.lookupInteger(42);
+        assertTrue(""Should have the same index in the constantpool but "" + evg.getIndex() + ""!="" + idx, evg.getIndex() == idx);",ElementValueGenTestCase::testCreateShortElementValue_1_oe,org.apache.bcel.generic.SimpleElementValueGen,getIndex(),,"public int getIndex()
+    {
+        return idx;
+    }"
+bcel_21_1,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        final ConstantPoolGen cp = cg.getConstantPool();
+        final SimpleElementValueGen evg = new SimpleElementValueGen(
+        assertTrue(""Should have the same index in the constantpool but "" + evg.getIndex() + ""!="" + cp.lookupUtf8(""hello""), evg .getIndex() == cp.lookupUtf8(""hello""));",ElementValueGenTestCase::testCreateStringElementValue_1_oe,org.apache.bcel.generic.ConstantPoolGen,lookupUtf8( final String n ),"/**
+     * Look for ConstantUtf8 in ConstantPool.
+     *
+     * @param n Utf8 string to look for
+     * @return index on success, -1 otherwise
+     */","public int lookupUtf8( final String n ) {
+        final Index index = utf8Table.get(n);
+        return (index != null) ? index.index : -1;
+    }"
+bcel_22_1,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        final ConstantPoolGen cp = cg.getConstantPool();
+        final ObjectType enumType = new ObjectType(""SimpleEnum""); // Supports rainbow
+        final EnumElementValueGen evg = new EnumElementValueGen(enumType, ""Red"", cp);
+        assertTrue( ""The new ElementValue value index should match the contents of the constantpool but "" + evg.getValueIndex() + ""!="" + cp.lookupUtf8(""Red""), evg.getValueIndex() == cp.lookupUtf8(""Red""));",ElementValueGenTestCase::testCreateEnumElementValue_1_oe,org.apache.bcel.generic.ConstantPoolGen,lookupUtf8( final String n ),"/**
+     * Look for ConstantUtf8 in ConstantPool.
+     *
+     * @param n Utf8 string to look for
+     * @return index on success, -1 otherwise
+     */","public int lookupUtf8( final String n ) {
+        final Index index = utf8Table.get(n);
+        return (index != null) ? index.index : -1;
+    }"
+bcel_23_1,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        final ConstantPoolGen cp = cg.getConstantPool();
+        final ObjectType classType = new ObjectType(""java.lang.Integer"");
+        final ClassElementValueGen evg = new ClassElementValueGen(classType, cp);
+        assertTrue(""Unexpected value for contained class: '"" + evg.getClassString() + ""'"", evg.getClassString().contains(""Integer""));",ElementValueGenTestCase::testCreateClassElementValue_1_oe,org.apache.bcel.generic.InstructionList,contains(final InstructionHandle i),,"public boolean contains(final InstructionHandle i) {
+        if (i == null) {
+            return false;
+        }
+        for (InstructionHandle ih = start; ih != null; ih = ih.getNext()) {
+            if (ih == i) {
+                return true;
+            }
+        }
+        return false;
+    }"
+bcel_24_1,"        assertEquals(""annotationCount"", 2, getVisitor().annotationCount);",CounterVisitorTestCase::testAnnotationsCount_1_oe,,,,
+bcel_25_1,"        assertEquals(""annotationDefaultCount"", 0, getVisitor().annotationDefaultCount);",CounterVisitorTestCase::testAnnotationDefaultCount_1_oe,,,,
+bcel_26_1,"        assertEquals(""annotationEntryCount"", 2, getVisitor().annotationEntryCount);",CounterVisitorTestCase::testAnnotationEntryCount_1_oe,,,,
+bcel_27_1,"        assertEquals(""codeCount"", 1, getVisitor().codeCount);",CounterVisitorTestCase::testCodeCount_1_oe,,,,
+bcel_28_1,"        assertEquals(""codeExceptionCount"", 0, getVisitor().codeExceptionCount);",CounterVisitorTestCase::testCodeExceptionCount_1_oe,,,,
+bcel_29_1,"        assertEquals(""constantClassCount"", 2, getVisitor().constantClassCount);",CounterVisitorTestCase::testConstantClassCount_1_oe,,,,
+bcel_30_1,"        assertEquals(""constantDoubleCount"", 0, getVisitor().constantDoubleCount);",CounterVisitorTestCase::testConstantDoubleCount_1_oe,,,,
+bcel_31_1,"        assertEquals(""constantFieldrefCount"", 0, getVisitor().constantFieldrefCount);",CounterVisitorTestCase::testConstantFieldrefCount_1_oe,,,,
+bcel_32_1,"        assertEquals(""constantFloatCount"", 0, getVisitor().constantFloatCount);",CounterVisitorTestCase::testConstantFloatCount_1_oe,,,,
+bcel_33_1,"        assertEquals(""constantIntegerCount"", 0, getVisitor().constantIntegerCount);",CounterVisitorTestCase::testConstantIntegerCount_1_oe,,,,
+bcel_34_1,"        assertEquals(""constantInterfaceMethodrefCount"", 0, getVisitor().constantInterfaceMethodrefCount);",CounterVisitorTestCase::testConstantInterfaceMethodrefCount_1_oe,,,,
+bcel_35_1,"        assertEquals(""constantLongCount"", 0, getVisitor().constantLongCount);",CounterVisitorTestCase::testConstantLongCount_1_oe,,,,
+bcel_36_1,"        assertEquals(""constantMethodrefCount"", 1, getVisitor().constantMethodrefCount);",CounterVisitorTestCase::testConstantMethodrefCount_1_oe,,,,
+bcel_37_1,"        assertEquals(""constantNameAndTypeCount"", 1, getVisitor().constantNameAndTypeCount);",CounterVisitorTestCase::testConstantNameAndTypeCount_1_oe,,,,
+bcel_38_1,"        assertEquals(""constantPoolCount"", 1, getVisitor().constantPoolCount);",CounterVisitorTestCase::testConstantPoolCount_1_oe,,,,
+bcel_39_1,"        assertEquals(""constantStringCount"", 0, getVisitor().constantStringCount);",CounterVisitorTestCase::testConstantStringCount_1_oe,,,,
+bcel_40_1,"        assertEquals(""constantValueCount"", 0, getVisitor().constantValueCount);",CounterVisitorTestCase::testConstantValueCount_1_oe,,,,
+bcel_41_1,"        assertEquals(""deprecatedCount"", 0, getVisitor().deprecatedCount);",CounterVisitorTestCase::testDeprecatedCount_1_oe,,,,
+bcel_42_1,"        assertEquals(""enclosingMethodCount"", 0, getVisitor().enclosingMethodCount);",CounterVisitorTestCase::testEnclosingMethodCount_1_oe,,,,
+bcel_43_1,"        assertEquals(""exceptionTableCount"", 0, getVisitor().exceptionTableCount);",CounterVisitorTestCase::testExceptionTableCount_1_oe,,,,
+bcel_44_1,"        assertEquals(""fieldCount"", 0, getVisitor().fieldCount);",CounterVisitorTestCase::testFieldCount_1_oe,,,,
+bcel_45_1,"        assertEquals(""innerClassCount"", 0, getVisitor().innerClassCount);",CounterVisitorTestCase::testInnerClassCount_1_oe,,,,
+bcel_46_1,"        assertEquals(""innerClassesCount"", 0, getVisitor().innerClassesCount);",CounterVisitorTestCase::testInnerClassesCount_1_oe,,,,
+bcel_47_1,"        assertEquals(""javaClassCount"", 1, getVisitor().javaClassCount);",CounterVisitorTestCase::testJavaClassCount_1_oe,,,,
+bcel_48_1,"        assertEquals(""lineNumberCount"", 1, getVisitor().lineNumberCount);",CounterVisitorTestCase::testLineNumberCount_1_oe,,,,
+bcel_49_1,"        assertEquals(""lineNumberTableCount"", 1, getVisitor().lineNumberTableCount);",CounterVisitorTestCase::testLineNumberTableCount_1_oe,,,,
+bcel_50_1,"        assertEquals(""localVariableCount"", 1, getVisitor().localVariableCount);",CounterVisitorTestCase::testLocalVariableCount_1_oe,,,,
+bcel_51_1,"        assertEquals(""localVariableTableCount"", 1, getVisitor().localVariableTableCount);",CounterVisitorTestCase::testLocalVariableTableCount_1_oe,,,,
+bcel_52_1,"        assertEquals(""localVariableTypeTableCount"", 0, getVisitor().localVariableTypeTableCount);",CounterVisitorTestCase::testLocalVariableTypeTableCount_1_oe,,,,
+bcel_53_1,"        assertEquals(""methodCount"", 1, getVisitor().methodCount);",CounterVisitorTestCase::testMethodCount_1_oe,,,,
+bcel_54_1,"        assertEquals(""parameterAnnotationCount"", 0, getVisitor().parameterAnnotationCount);",CounterVisitorTestCase::testParameterAnnotationCount_1_oe,,,,
+bcel_55_1,"        assertEquals(""signatureAnnotationCount"", 0, getVisitor().signatureAnnotationCount);",CounterVisitorTestCase::testSignatureCount_1_oe,,,,
+bcel_56_1,"        assertEquals(""sourceFileCount"", 1, getVisitor().sourceFileCount);",CounterVisitorTestCase::testSourceFileCount_1_oe,,,,
+bcel_57_1,"        assertEquals(""stackMapCount"", 0, getVisitor().stackMapCount);",CounterVisitorTestCase::testStackMapCount_1_oe,,,,
+bcel_58_1,"        assertEquals(""stackMapEntryCount"", 0, getVisitor().stackMapEntryCount);",CounterVisitorTestCase::testStackMapEntryCount_1_oe,,,,
+bcel_59_1,"        assertEquals(""syntheticCount"", 0, getVisitor().syntheticCount);",CounterVisitorTestCase::testSyntheticCount_1_oe,,,,
+bcel_60_1,"        assertEquals(""unknownCount"", 0, getVisitor().unknownCount);",CounterVisitorTestCase::testUnknownCount_1_oe,,,,
+bcel_61_1,"        JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.SimpleAnnotation"");
+        assertTrue( ""Expected SimpleAnnotation class to say it was an annotation - but it didn't !"", clazz.isAnnotation());",AnnotationAccessFlagTestCase::testAnnotationClassSaysItIs_1_oe,org.apache.bcel.classfile.AccessFlags,void isAnnotation(final boolean flag),,"public final void isAnnotation(final boolean flag) {
+        setFlag(Const.ACC_ANNOTATION, flag);
+    }"
+bcel_61_2,"        JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.SimpleAnnotation"");
+        clazz = getTestClass(PACKAGE_BASE_NAME+"".data.SimpleClass"");
+        assertTrue( ""Expected SimpleClass class to say it was not an annotation - but it didn't !"", !clazz.isAnnotation());",AnnotationAccessFlagTestCase::testAnnotationClassSaysItIs_2_oe,org.apache.bcel.classfile.AccessFlags,void isAnnotation(final boolean flag),,"public final void isAnnotation(final boolean flag) {
+        setFlag(Const.ACC_ANNOTATION, flag);
+    }"
+bcel_63_1,"        Method searchM = null;
+                searchM = m;
+        final byte[] bytes = searchM.getCode().getCode();
+        int size = 0;
+        assertEquals(bytes.length, size);",InstructionFinderTestCase::testSearchAll_1_oe,org.apache.bcel.generic.InstructionList,getLength(),"/**
+     * @return length of list (Number of instructions, not bytes)
+     */","public int getLength() {
+        return length;
+    }"
+bcel_64_1,"        final String expectedValue = ""Ljava/util/Map<X, java/util/List<Y>>;"";
+        final String actualValue = (Type.getType(""Ljava/util/Map<TX;Ljava/util/List<TY;>;>;"")).getSignature();
+        assertEquals(""Type.getType"", expectedValue, actualValue);",TypeTestCase::testBCEL243_1_oe,org.apache.bcel.generic.MethodGen,getSignature(),,"@Override
+    public String getSignature() {
+        return Type.getMethodSignature(super.getType(), argTypes);
+    }"
+bcel_65_2,"        final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
+        Assert.assertNotNull(ih);",InstructionHandleTestCase::testsetInstructionNull_2_oe,org.apache.bcel.generic.InstructionHandle,void setInstruction( final Instruction i ),"/**
+     * Replace current instruction contained in this handle.
+     * Old instruction is disposed using Instruction.dispose().
+     */","public void setInstruction( final Instruction i ) { // Overridden in BranchHandle TODO could be package-protected?
+        if (i == null) {
+            throw new ClassGenException(""Assigning null to handle"");
+        }
+        if ((this.getClass() != BranchHandle.class) && (i instanceof BranchInstruction)) {
+            throw new ClassGenException(""Assigning branch instruction "" + i + "" to plain handle"");
+        }
+        if (instruction != null) {
+            instruction.dispose();
+        }
+        instruction = i;
+    }"
+bcel_66_1,"        final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
+        Assert.assertNotNull(ih);",InstructionHandleTestCase::testsetInstructionI_1_oe,org.apache.bcel.generic.InstructionHandle,getInstructionHandle( final Instruction i ),"/** Factory method.
+     */","static InstructionHandle getInstructionHandle( final Instruction i ) {
+        return new InstructionHandle(i);
+    }"
+bcel_66_2,"        final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
+        Assert.assertNotNull(ih);",InstructionHandleTestCase::testsetInstructionI_2_oe,org.apache.bcel.generic.InstructionHandle,void setInstruction( final Instruction i ),"/**
+     * Replace current instruction contained in this handle.
+     * Old instruction is disposed using Instruction.dispose().
+     */","public void setInstruction( final Instruction i ) { // Overridden in BranchHandle TODO could be package-protected?
+        if (i == null) {
+            throw new ClassGenException(""Assigning null to handle"");
+        }
+        if ((this.getClass() != BranchHandle.class) && (i instanceof BranchInstruction)) {
+            throw new ClassGenException(""Assigning branch instruction "" + i + "" to plain handle"");
+        }
+        if (instruction != null) {
+            instruction.dispose();
+        }
+        instruction = i;
+    }"
+bcel_67_2,"        final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
+        Assert.assertNotNull(ih);",InstructionHandleTestCase::testsetInstructionnotI_2_oe,org.apache.bcel.generic.InstructionHandle,void setInstruction( final Instruction i ),"/**
+     * Replace current instruction contained in this handle.
+     * Old instruction is disposed using Instruction.dispose().
+     */","public void setInstruction( final Instruction i ) { // Overridden in BranchHandle TODO could be package-protected?
+        if (i == null) {
+            throw new ClassGenException(""Assigning null to handle"");
+        }
+        if ((this.getClass() != BranchHandle.class) && (i instanceof BranchInstruction)) {
+            throw new ClassGenException(""Assigning branch instruction "" + i + "" to plain handle"");
+        }
+        if (instruction != null) {
+            instruction.dispose();
+        }
+        instruction = i;
+    }"
+bcel_68_1,"        final JavaClass jc = getClassFrom(""."", ""HelloWorld"");
+        final AnnotationEntry[] as = jc.getAnnotationEntries();
+        assertTrue(""Should be two AnnotationEntries but found "" + as.length, as.length == 2);",GeneratingAnnotatedClassesTestCase::testGenerateClassLevelAnnotations_1_oe,org.apache.bcel.classfile.JavaClass,getAnnotationEntries(),"/**
+     * @return Annotations on the class
+     * @since 6.0
+     */","public AnnotationEntry[] getAnnotationEntries() {
+        if (annotations == null) {
+            annotations = AnnotationEntry.createAnnotationEntries(getAttributes());
+        }
+
+        return annotations;
+    }"
+bcel_68_2,"        final JavaClass jc = getClassFrom(""."", ""HelloWorld"");
+        final AnnotationEntry[] as = jc.getAnnotationEntries();
+        assertTrue( ""Name of annotation 1 should be LSimpleAnnotation; but it is "" + as[0].getAnnotationType(), as[0].getAnnotationType() .equals(""LSimpleAnnotation;""));",GeneratingAnnotatedClassesTestCase::testGenerateClassLevelAnnotations_2_oe,org.apache.bcel.classfile.AnnotationEntry,getAnnotationType(),"/**
+     * @return the annotation type name
+     */","public String getAnnotationType() {
+        final ConstantUtf8 c = (ConstantUtf8) constantPool.getConstant(typeIndex, Const.CONSTANT_Utf8);
+        return c.getBytes();
+    }"
+bcel_68_3,"        final JavaClass jc = getClassFrom(""."", ""HelloWorld"");
+        final AnnotationEntry[] as = jc.getAnnotationEntries();
+        assertTrue( ""Name of annotation 2 should be LSimpleAnnotation; but it is "" + as[1].getAnnotationType(), as[1].getAnnotationType() .equals(""LSimpleAnnotation;""));",GeneratingAnnotatedClassesTestCase::testGenerateClassLevelAnnotations_3_oe,org.apache.bcel.classfile.AnnotationEntry,getAnnotationType(),"/**
+     * @return the annotation type name
+     */","public String getAnnotationType() {
+        final ConstantUtf8 c = (ConstantUtf8) constantPool.getConstant(typeIndex, Const.CONSTANT_Utf8);
+        return c.getBytes();
+    }"
+bcel_68_4,"        final JavaClass jc = getClassFrom(""."", ""HelloWorld"");
+        final AnnotationEntry[] as = jc.getAnnotationEntries();
+        final ElementValuePair[] vals = as[0].getElementValuePairs();
+        final ElementValuePair nvp = vals[0];
+        assertTrue( ""Name of element in SimpleAnnotation should be 'id' but it is "" + nvp.getNameString(), nvp.getNameString().equals(""id""));",GeneratingAnnotatedClassesTestCase::testGenerateClassLevelAnnotations_4_oe,org.apache.bcel.classfile.ElementValuePair,getNameString(),,"public String getNameString()
+    {
+        final ConstantUtf8 c = (ConstantUtf8) constantPool.getConstant(
+                elementNameIndex, Const.CONSTANT_Utf8);
+        return c.getBytes();
+    }"
+bcel_68_5,"        final JavaClass jc = getClassFrom(""."", ""HelloWorld"");
+        final AnnotationEntry[] as = jc.getAnnotationEntries();
+        final ElementValuePair[] vals = as[0].getElementValuePairs();
+        final ElementValuePair nvp = vals[0];
+        final ElementValue ev = nvp.getValue();
+        assertTrue(""Type of element value should be int but it is "" + ev.getElementValueType(), ev.getElementValueType() == ElementValue.PRIMITIVE_INT);",GeneratingAnnotatedClassesTestCase::testGenerateClassLevelAnnotations_5_oe,org.apache.bcel.classfile.ElementValue,getElementValueType(),,"public int getElementValueType()
+    {
+        return type;
+    }"
+bcel_68_6,"        final JavaClass jc = getClassFrom(""."", ""HelloWorld"");
+        final AnnotationEntry[] as = jc.getAnnotationEntries();
+        final ElementValuePair[] vals = as[0].getElementValuePairs();
+        final ElementValuePair nvp = vals[0];
+        final ElementValue ev = nvp.getValue();
+        assertTrue(""Value of element should be 4 but it is "" + ev.stringifyValue(), ev.stringifyValue().equals(""4""));",GeneratingAnnotatedClassesTestCase::testGenerateClassLevelAnnotations_6_oe,org.apache.bcel.classfile.ElementValue,stringifyValue(),,public abstract String stringifyValue();
+bcel_68_7,"        assertTrue(createTestdataFile(""HelloWorld.class"").delete());",GeneratingAnnotatedClassesTestCase::testGenerateClassLevelAnnotations_7_oe,org.apache.bcel.generic.InstructionList,void delete(final InstructionHandle ih),"/**
+     * Remove instruction from this list. The corresponding Instruction handles must not be reused!
+     *
+     * @param ih
+     *            instruction (handle) to remove
+     */","public void delete(final InstructionHandle ih) throws TargetLostException {
+        remove(ih.getPrev(), ih.getNext());
+    }"
+bcel_69_1,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        int i = cg.getMethods()[0].getAnnotationEntries().length;
+        assertTrue( ""Prior to dumping, main method should have 1 annotation but has "" + i, i == 1);",GeneratingAnnotatedClassesTestCase::testGenerateMethodLevelAnnotations1_1_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_69_2,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        int i = cg.getMethods()[0].getAnnotationEntries().length;
+        final JavaClass jc2 = getClassFrom(""temp1"", ""HelloWorld"");
+        i = jc2.getMethods()[0].getAnnotationEntries().length;
+        assertTrue(""JavaClass should say 1 annotation on main method but says "" + i, i == 1);",GeneratingAnnotatedClassesTestCase::testGenerateMethodLevelAnnotations1_2_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_69_3,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        int i = cg.getMethods()[0].getAnnotationEntries().length;
+        final JavaClass jc2 = getClassFrom(""temp1"", ""HelloWorld"");
+        i = jc2.getMethods()[0].getAnnotationEntries().length;
+        final ClassGen cg2 = new ClassGen(jc2);
+        final Method[] m = cg2.getMethods();
+        i = m[0].getAnnotationEntries().length;
+        assertTrue(""The main 'Method' should have one annotation but has "" + i, i == 1);",GeneratingAnnotatedClassesTestCase::testGenerateMethodLevelAnnotations1_3_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_69_4,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        int i = cg.getMethods()[0].getAnnotationEntries().length;
+        final JavaClass jc2 = getClassFrom(""temp1"", ""HelloWorld"");
+        i = jc2.getMethods()[0].getAnnotationEntries().length;
+        final ClassGen cg2 = new ClassGen(jc2);
+        final Method[] m = cg2.getMethods();
+        i = m[0].getAnnotationEntries().length;
+        final MethodGen mg = new MethodGen(m[0], cg2.getClassName(), cg2
+        i = mg.getAnnotationEntries().length;
+        assertTrue(""The main 'MethodGen' should have one annotation but has "" + i, i == 1);",GeneratingAnnotatedClassesTestCase::testGenerateMethodLevelAnnotations1_4_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_69_5,"        assertTrue(wipe(""temp1"", ""HelloWorld.class""));",GeneratingAnnotatedClassesTestCase::testGenerateMethodLevelAnnotations1_5_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_70_1,"        final JavaClass jc2 = getClassFrom(""temp2"", ""HelloWorld"");
+        final Method mainMethod1 = jc2.getMethods()[0];
+        assertTrue(""The 'Method' should have one annotations but has "" + mainMethod1.getAnnotationEntries().length, mainMethod1 .getAnnotationEntries().length == 1);",GeneratingAnnotatedClassesTestCase::testGenerateMethodLevelAnnotations2_1_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_70_2,"        final JavaClass jc2 = getClassFrom(""temp2"", ""HelloWorld"");
+        final ClassGen cg2 = new ClassGen(jc2);
+        final Method mainMethod1 = jc2.getMethods()[0];
+        final MethodGen mainMethod2 = new MethodGen(mainMethod1, cg2.getClassName(),
+        assertTrue(""The 'MethodGen' should have one annotations but has "" + mainMethod2.getAnnotationEntries().length, mainMethod2 .getAnnotationEntries().length == 1);",GeneratingAnnotatedClassesTestCase::testGenerateMethodLevelAnnotations2_2_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_70_3,"        final JavaClass jc3 = getClassFrom(""temp3"", ""HelloWorld"");
+        final ClassGen cg3 = new ClassGen(jc3);
+        final Method mainMethod3 = cg3.getMethods()[1];
+        final int i = mainMethod3.getAnnotationEntries().length;
+        assertTrue(""The 'Method' should now have two annotations but has "" + i, i == 2);",GeneratingAnnotatedClassesTestCase::testGenerateMethodLevelAnnotations2_3_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_70_4,"        assertTrue(wipe(""temp2"", ""HelloWorld.class""));",GeneratingAnnotatedClassesTestCase::testGenerateMethodLevelAnnotations2_4_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_70_5,"        assertTrue(wipe(""temp3"", ""HelloWorld.class""));",GeneratingAnnotatedClassesTestCase::testGenerateMethodLevelAnnotations2_5_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_71_1,"        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.SimpleAnnotatedClass"");
+        final ClassGen cgen = new ClassGen(jc);
+        final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        assertTrue(""Expected one annotation but found "" + annotations.length, annotations.length == 1);",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_SimpleTypes_1_oe,org.apache.bcel.generic.ClassGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        return annotationList.toArray(new AnnotationEntryGen[annotationList.size()]);
+    }"
+bcel_72_1,"        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.AnnotatedWithEnumClass"");
+        final ClassGen cgen = new ClassGen(jc);
+        final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        assertTrue(""Expected one annotation but found "" + annotations.length, annotations.length == 1);",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_EnumType_1_oe,org.apache.bcel.generic.ClassGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        return annotationList.toArray(new AnnotationEntryGen[annotationList.size()]);
+    }"
+bcel_73_1,"        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.AnnotatedWithCombinedAnnotation"");
+        final ClassGen cgen = new ClassGen(jc);
+        final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        assertTrue(""Expected one annotation but found "" + annotations.length, annotations.length == 1);",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_1_oe,org.apache.bcel.generic.ClassGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        return annotationList.toArray(new AnnotationEntryGen[annotationList.size()]);
+    }"
+bcel_73_2,"        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.AnnotatedWithCombinedAnnotation"");
+        final ClassGen cgen = new ClassGen(jc);
+        final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        final AnnotationEntryGen a = annotations[0];
+        assertTrue(""That annotation should only have one value but has "" + a.getValues().size(), a.getValues().size() == 1);",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_2_oe,org.apache.bcel.generic.InstructionList,size(),"/**
+     * @return length of list (Number of instructions, not bytes)
+     */","public int size() {
+        return length;
+    }"
+bcel_73_3,"        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.AnnotatedWithCombinedAnnotation"");
+        final ClassGen cgen = new ClassGen(jc);
+        final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        final AnnotationEntryGen a = annotations[0];
+        final ElementValuePairGen nvp = a.getValues().get(0);
+        final ElementValueGen value = nvp.getValue();
+        assertTrue(""Value should be ArrayElementValueGen but is "" + value, value instanceof ArrayElementValueGen);",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_3_oe,org.apache.bcel.generic.ElementValuePairGen,getValue(),,"public final ElementValueGen getValue()
+    {
+        return value;
+    }"
+bcel_73_4,"        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.AnnotatedWithCombinedAnnotation"");
+        final ClassGen cgen = new ClassGen(jc);
+        final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        final AnnotationEntryGen a = annotations[0];
+        final ElementValuePairGen nvp = a.getValues().get(0);
+        final ElementValueGen value = nvp.getValue();
+        final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        assertTrue(""Array value should be size one but is "" + arrayValue.getElementValuesSize(), arrayValue .getElementValuesSize() == 1);",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_4_oe,org.apache.bcel.generic.ArrayElementValueGen,getElementValuesSize(),,"public int getElementValuesSize()
+    {
+        return evalues.size();
+    }"
+bcel_73_5,"        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.AnnotatedWithCombinedAnnotation"");
+        final ClassGen cgen = new ClassGen(jc);
+        final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        final AnnotationEntryGen a = annotations[0];
+        final ElementValuePairGen nvp = a.getValues().get(0);
+        final ElementValueGen value = nvp.getValue();
+        final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        assertTrue( ""Value in the array should be AnnotationElementValueGen but is "" + innerValue, innerValue instanceof AnnotationElementValueGen);",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_5_oe,org.apache.bcel.verifier.structurals.LocalVariables,get(final int slotIndex),"/**
+     * Returns the type of the local variable slot index.
+     *
+     * @param slotIndex Slot to look up.
+     * @return the type of the local variable slot index.
+     */","public Type get(final int slotIndex) {
+        return locals[slotIndex];
+    }"
+bcel_73_6,"        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.AnnotatedWithCombinedAnnotation"");
+        final ClassGen cgen = new ClassGen(jc);
+        final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        final AnnotationEntryGen a = annotations[0];
+        final ElementValuePairGen nvp = a.getValues().get(0);
+        final ElementValueGen value = nvp.getValue();
+        final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+        assertTrue(""Should be called L""+PACKAGE_BASE_SIG+""/data/SimpleAnnotation; but is called: "" + innerAnnotationValue.getAnnotation().getTypeName(), innerAnnotationValue.getAnnotation().getTypeSignature().equals( ""L""+PACKAGE_BASE_SIG+""/data/SimpleAnnotation;""));",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_6_oe,org.apache.bcel.generic.AnnotationEntryGen,getTypeSignature(),,"public final String getTypeSignature() {
+        // ConstantClass c = (ConstantClass)cpool.getConstant(typeIndex);
+        final ConstantUtf8 utf8 = (ConstantUtf8) cpool
+                .getConstant(typeIndex/* c.getNameIndex() */);
+        return utf8.getBytes();
+    }"
+bcel_73_7,"        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.AnnotatedWithCombinedAnnotation"");
+        final ClassGen cgen = new ClassGen(jc);
+        final Method[] methods = cgen.getMethods();
+        assertEquals(3, methods.length);",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_7_oe,org.apache.bcel.generic.ClassGen,getMethods(),,"public Method[] getMethods() {
+        return methodList.toArray(new Method[methodList.size()]);
+    }"
+bcel_73_12,"                fail(""unexpected method ""+method.getName());",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_12_oe,org.apache.bcel.generic.NamedAndTyped,getName(),,String getName();
+bcel_74_1,"        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.ComplexAnnotatedClass"");
+        final ClassGen cgen = new ClassGen(jc);
+        final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        assertTrue(""Expected one annotation but found "" + annotations.length, annotations.length == 1);",GeneratingAnnotatedClassesTestCase::testTransformComplexClassToClassGen_1_oe,org.apache.bcel.generic.ClassGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        return annotationList.toArray(new AnnotationEntryGen[annotationList.size()]);
+    }"
+bcel_74_2,"        boolean found = false;
+                    found = true;
+        assertTrue(""Did not find double annotation value with value 33.4"", found);",GeneratingAnnotatedClassesTestCase::testTransformComplexClassToClassGen_2_oe,org.apache.bcel.generic.ElementValueGen,stringifyValue(),,public abstract String stringifyValue();
+bcel_75_1,"        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.SimpleAnnotatedClass"");
+        final ClassGen cgen = new ClassGen(jc);
+        assertTrue(""Should now have two annotations but has "" + cgen.getAnnotationEntries().length, cgen .getAnnotationEntries().length == 2);",GeneratingAnnotatedClassesTestCase::testModifyingClasses1_1_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_75_2,"        assertTrue(wipe(""SimpleAnnotatedClass.class""));",GeneratingAnnotatedClassesTestCase::testModifyingClasses1_2_oe,org.apache.bcel.generic.ClassGen,void addAnnotationEntry(final AnnotationEntryGen a),,"public void addAnnotationEntry(final AnnotationEntryGen a) {
+        annotationList.add(a);
+    }"
+bcel_76_1,"        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.SimpleAnnotatedClass"");
+        final ClassGen cgen = new ClassGen(jc);
+        assertTrue(""Should now have two annotations but has "" + cgen.getAnnotationEntries().length, cgen .getAnnotationEntries().length == 2);",GeneratingAnnotatedClassesTestCase::testModifyingClasses2_1_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_76_2,"        assertTrue(wipe(""SimpleAnnotatedClass.class""));",GeneratingAnnotatedClassesTestCase::testModifyingClasses2_2_oe,org.apache.bcel.classfile.JavaClass,getAnnotationEntries(),"/**
+     * @return Annotations on the class
+     * @since 6.0
+     */","public AnnotationEntry[] getAnnotationEntries() {
+        if (annotations == null) {
+            annotations = AnnotationEntry.createAnnotationEntries(getAttributes());
+        }
+
+        return annotations;
+    }"
+bcel_77_1,"        final SimpleElementValueGen evg = new SimpleElementValueGen(
+        final ElementValuePairGen nvGen = new ElementValuePairGen(""id"", evg,
+        assertTrue( ""Should include string 'id=4' but says: "" + nvGen.toString(), nvGen.toString().contains(""id=4""));",AnnotationGenTestCase::testConstructMutableAnnotation_1_oe,org.apache.bcel.generic.InstructionList,contains(final InstructionHandle i),,"public boolean contains(final InstructionHandle i) {
+        if (i == null) {
+            return false;
+        }
+        for (InstructionHandle ih = start; ih != null; ih = ih.getNext()) {
+            if (ih == i) {
+                return true;
+            }
+        }
+        return false;
+    }"
+bcel_78_1,"        final SimpleElementValueGen evg = new SimpleElementValueGen(
+        final ElementValuePairGen nvGen = new ElementValuePairGen(""id"", evg,
+        assertTrue( ""Should include string 'id=4' but says: "" + nvGen.toString(), nvGen.toString().contains(""id=4""));",AnnotationGenTestCase::testVisibleInvisibleAnnotationGen_1_oe,org.apache.bcel.generic.InstructionList,contains(final InstructionHandle i),,"public boolean contains(final InstructionHandle i) {
+        if (i == null) {
+            return false;
+        }
+        for (InstructionHandle ih = start; ih != null; ih = ih.getNext()) {
+            if (ih == i) {
+                return true;
+            }
+        }
+        return false;
+    }"
+bcel_78_2,                assertTrue(((Annotations) attribute).isRuntimeVisible());,AnnotationGenTestCase::testVisibleInvisibleAnnotationGen_2_oe,org.apache.bcel.generic.AnnotationEntryGen,void isRuntimeVisible(final boolean b),,"private void isRuntimeVisible(final boolean b) {
+        isRuntimeVisible = b;
+    }"
+bcel_78_3,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        final ConstantPoolGen cp = cg.getConstantPool();
+        final ObjectType t = new ObjectType(""SimpleAnnotation"");
+        final List<ElementValuePairGen> elements = new ArrayList<>();
+        final AnnotationEntryGen a = new AnnotationEntryGen(t, elements, true, cp);
+        boolean foundRV = false;
+                foundRV = true;
+        assertTrue(""Should have seen a RuntimeVisibleAnnotation"", foundRV);",AnnotationGenTestCase::testVisibleInvisibleAnnotationGen_3_oe,org.apache.bcel.util.ClassSet,toArray(),,"public JavaClass[] toArray() {
+        final Collection<JavaClass> values = map.values();
+        final JavaClass[] classes = new JavaClass[values.size()];
+        values.toArray(classes);
+        return classes;
+    }"
+bcel_78_4,                assertFalse(((Annotations) attribute).isRuntimeVisible());,AnnotationGenTestCase::testVisibleInvisibleAnnotationGen_4_oe,org.apache.bcel.generic.AnnotationEntryGen,void isRuntimeVisible(final boolean b),,"private void isRuntimeVisible(final boolean b) {
+        isRuntimeVisible = b;
+    }"
+bcel_78_5,"        final ClassGen cg = createClassGen(""HelloWorld"");
+        final ConstantPoolGen cp = cg.getConstantPool();
+        final ObjectType t = new ObjectType(""SimpleAnnotation"");
+        final List<ElementValuePairGen> elements = new ArrayList<>();
+        final AnnotationEntryGen a = new AnnotationEntryGen(t, elements, true, cp);
+        boolean foundRIV = false;
+                foundRIV = true;
+        assertTrue(""Should have seen a RuntimeInvisibleAnnotation"", foundRIV);",AnnotationGenTestCase::testVisibleInvisibleAnnotationGen_5_oe,org.apache.bcel.util.ClassSet,toArray(),,"public JavaClass[] toArray() {
+        final Collection<JavaClass> values = map.values();
+        final JavaClass[] classes = new JavaClass[values.size()];
+        values.toArray(classes);
+        return classes;
+    }"
+bcel_79_1,"        final File tfile = createTestdataFile(""AnnotatedFields.class"");
+        assertTrue(tfile.delete());",FieldAnnotationsTestCase::testFieldAnnotationEntrysReadWrite_1_oe,org.apache.bcel.generic.InstructionList,void delete(final InstructionHandle ih),"/**
+     * Remove instruction from this list. The corresponding Instruction handles must not be reused!
+     *
+     * @param ih
+     *            instruction (handle) to remove
+     */","public void delete(final InstructionHandle ih) throws TargetLostException {
+        remove(ih.getPrev(), ih.getNext());
+    }"
+bcel_80_1,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.AnnotatedFields"");
+        final ClassGen clg = new ClassGen(clazz);
+        Field f = clg.getFields()[0];
+        f = clg.getFields()[1]; // there are two fields in the class, removing
+        assertTrue(""Should be 2 AnnotationEntrys on this field, but there are "" + f.getAnnotationEntries().length, f.getAnnotationEntries().length == 2);",FieldAnnotationsTestCase::testFieldAnnotationModification_1_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_81_2,"        final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
+        Assert.assertNotNull(bh);",BranchHandleTestCase::testsetInstructionNull_2_oe,org.apache.bcel.generic.BranchHandle,void setInstruction( final Instruction i ),"/**
+     * Set new contents. Old instruction is disposed and may not be used anymore.
+     */","@Override // This is only done in order to apply the additional type check; could be merged with super impl.
+    public void setInstruction( final Instruction i ) { // TODO could be package-protected?
+        super.setInstruction(i);
+        if (!(i instanceof BranchInstruction)) {
+            throw new ClassGenException(""Assigning "" + i
+                    + "" to branch handle which is not a branch instruction"");
+        }
+        bi = (BranchInstruction) i;
+    }"
+bcel_82_1,"        final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
+        Assert.assertNotNull(bh);",BranchHandleTestCase::testsetInstructionBI_1_oe,org.apache.bcel.generic.BranchHandle,getBranchHandle( final BranchInstruction i ),"/** Factory method.
+     */","static BranchHandle getBranchHandle( final BranchInstruction i ) {
+        return new BranchHandle(i);
+    }"
+bcel_82_2,"        final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
+        Assert.assertNotNull(bh);",BranchHandleTestCase::testsetInstructionBI_2_oe,org.apache.bcel.generic.BranchHandle,void setInstruction( final Instruction i ),"/**
+     * Set new contents. Old instruction is disposed and may not be used anymore.
+     */","@Override // This is only done in order to apply the additional type check; could be merged with super impl.
+    public void setInstruction( final Instruction i ) { // TODO could be package-protected?
+        super.setInstruction(i);
+        if (!(i instanceof BranchInstruction)) {
+            throw new ClassGenException(""Assigning "" + i
+                    + "" to branch handle which is not a branch instruction"");
+        }
+        bi = (BranchInstruction) i;
+    }"
+bcel_83_2,"        final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
+        Assert.assertNotNull(bh);",BranchHandleTestCase::testsetInstructionnotBI_2_oe,org.apache.bcel.generic.BranchHandle,void setInstruction( final Instruction i ),"/**
+     * Set new contents. Old instruction is disposed and may not be used anymore.
+     */","@Override // This is only done in order to apply the additional type check; could be merged with super impl.
+    public void setInstruction( final Instruction i ) { // TODO could be package-protected?
+        super.setInstruction(i);
+        if (!(i instanceof BranchInstruction)) {
+            throw new ClassGenException(""Assigning "" + i
+                    + "" to branch handle which is not a branch instruction"");
+        }
+        bi = (BranchInstruction) i;
+    }"
+bcel_84_1,"        final JavaClass jc = Repository.lookupClass(Bar.Inner.class);
+        final ClassGen cg = new ClassGen(jc);
+        final MethodGen mg = new MethodGen(cg.getMethodAt(0), cg.getClassName(), cg.getConstantPool());
+        final List<AnnotationEntryGen> firstParamAnnotations = mg.getAnnotationsOnParameter(0);
+        Assert.assertEquals(""Wrong number of annotations in the first parameter"", 1, firstParamAnnotations.size());",MethodGenTestCase::testAnnotationsAreUnpacked_1_oe,org.apache.bcel.generic.InstructionList,size(),"/**
+     * @return length of list (Number of instructions, not bytes)
+     */","public int size() {
+        return length;
+    }"
+bcel_84_2,"        final JavaClass jc = Repository.lookupClass(Bar.Inner.class);
+        final ClassGen cg = new ClassGen(jc);
+        final MethodGen mg = new MethodGen(cg.getMethodAt(0), cg.getClassName(), cg.getConstantPool());
+        final List<AnnotationEntryGen> secondParamAnnotations = mg.getAnnotationsOnParameter(1);
+        Assert.assertEquals(""Wrong number of annotations in the second parameter"", 1, secondParamAnnotations.size());",MethodGenTestCase::testAnnotationsAreUnpacked_2_oe,org.apache.bcel.generic.InstructionList,size(),"/**
+     * @return length of list (Number of instructions, not bytes)
+     */","public int size() {
+        return length;
+    }"
+bcel_85_1,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        Assert.assertEquals(""variable name"", ""a"", lv.getName());",MethodGenTestCase::testRemoveLocalVariable_1_oe,org.apache.bcel.generic.LocalVariableGen,getName(),,"@Override
+    public String getName() {
+        return name;
+    }"
+bcel_85_2,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        final InstructionHandle start = lv.getStart();
+        Assert.assertNotNull(""scope start"", start);",MethodGenTestCase::testRemoveLocalVariable_2_oe,org.apache.bcel.generic.LocalVariableGen,getEnd(),,"public InstructionHandle getEnd() {
+        return end;
+    }"
+bcel_85_3,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        final InstructionHandle end = lv.getEnd();
+        Assert.assertNotNull(""scope end"", end);",MethodGenTestCase::testRemoveLocalVariable_3_oe,org.apache.bcel.generic.LocalVariableGen,getEnd(),,"public InstructionHandle getEnd() {
+        return end;
+    }"
+bcel_85_4,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        final InstructionHandle start = lv.getStart();
+        Assert.assertTrue(""scope start not targeted by the local variable"", Arrays.asList(start.getTargeters()).contains(lv));",MethodGenTestCase::testRemoveLocalVariable_4_oe,org.apache.bcel.generic.InstructionList,contains(final InstructionHandle i),,"public boolean contains(final InstructionHandle i) {
+        if (i == null) {
+            return false;
+        }
+        for (InstructionHandle ih = start; ih != null; ih = ih.getNext()) {
+            if (ih == i) {
+                return true;
+            }
+        }
+        return false;
+    }"
+bcel_85_5,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        final InstructionHandle end = lv.getEnd();
+        Assert.assertTrue(""scope end not targeted by the local variable"", Arrays.asList(end.getTargeters()).contains(lv));",MethodGenTestCase::testRemoveLocalVariable_5_oe,org.apache.bcel.generic.InstructionList,contains(final InstructionHandle i),,"public boolean contains(final InstructionHandle i) {
+        if (i == null) {
+            return false;
+        }
+        for (InstructionHandle ih = start; ih != null; ih = ih.getNext()) {
+            if (ih == i) {
+                return true;
+            }
+        }
+        return false;
+    }"
+bcel_85_6,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        final InstructionHandle start = lv.getStart();
+        Assert.assertFalse(""scope start still targeted by the removed variable"", Arrays.asList(start.getTargeters()).contains(lv));",MethodGenTestCase::testRemoveLocalVariable_6_oe,org.apache.bcel.generic.InstructionList,contains(final InstructionHandle i),,"public boolean contains(final InstructionHandle i) {
+        if (i == null) {
+            return false;
+        }
+        for (InstructionHandle ih = start; ih != null; ih = ih.getNext()) {
+            if (ih == i) {
+                return true;
+            }
+        }
+        return false;
+    }"
+bcel_85_7,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        final InstructionHandle end = lv.getEnd();
+        Assert.assertFalse(""scope end still targeted by the removed variable"", Arrays.asList(end.getTargeters()).contains(lv));",MethodGenTestCase::testRemoveLocalVariable_7_oe,org.apache.bcel.generic.InstructionList,contains(final InstructionHandle i),,"public boolean contains(final InstructionHandle i) {
+        if (i == null) {
+            return false;
+        }
+        for (InstructionHandle ih = start; ih != null; ih = ih.getNext()) {
+            if (ih == i) {
+                return true;
+            }
+        }
+        return false;
+    }"
+bcel_85_8,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        final InstructionHandle start = lv.getStart();
+        Assert.assertNull(""scope start"", lv.getStart());",MethodGenTestCase::testRemoveLocalVariable_8_oe,org.apache.bcel.generic.LocalVariableGen,getStart(),,"public InstructionHandle getStart() {
+        return start;
+    }"
+bcel_85_9,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        final InstructionHandle end = lv.getEnd();
+        Assert.assertNull(""scope end"", lv.getEnd());",MethodGenTestCase::testRemoveLocalVariable_9_oe,org.apache.bcel.generic.LocalVariableGen,getEnd(),,"public InstructionHandle getEnd() {
+        return end;
+    }"
+bcel_86_1,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        Assert.assertEquals(""variable name"", ""a"", lv.getName());",MethodGenTestCase::testRemoveLocalVariables_1_oe,org.apache.bcel.generic.LocalVariableGen,getName(),,"@Override
+    public String getName() {
+        return name;
+    }"
+bcel_86_2,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        final InstructionHandle start = lv.getStart();
+        Assert.assertNotNull(""scope start"", start);",MethodGenTestCase::testRemoveLocalVariables_2_oe,org.apache.bcel.generic.LocalVariableGen,getEnd(),,"public InstructionHandle getEnd() {
+        return end;
+    }"
+bcel_86_3,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        final InstructionHandle end = lv.getEnd();
+        Assert.assertNotNull(""scope end"", end);",MethodGenTestCase::testRemoveLocalVariables_3_oe,org.apache.bcel.generic.LocalVariableGen,getEnd(),,"public InstructionHandle getEnd() {
+        return end;
+    }"
+bcel_86_4,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        final InstructionHandle start = lv.getStart();
+        Assert.assertTrue(""scope start not targeted by the local variable"", Arrays.asList(start.getTargeters()).contains(lv));",MethodGenTestCase::testRemoveLocalVariables_4_oe,org.apache.bcel.generic.InstructionList,contains(final InstructionHandle i),,"public boolean contains(final InstructionHandle i) {
+        if (i == null) {
+            return false;
+        }
+        for (InstructionHandle ih = start; ih != null; ih = ih.getNext()) {
+            if (ih == i) {
+                return true;
+            }
+        }
+        return false;
+    }"
+bcel_86_5,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        final InstructionHandle end = lv.getEnd();
+        Assert.assertTrue(""scope end not targeted by the local variable"", Arrays.asList(end.getTargeters()).contains(lv));",MethodGenTestCase::testRemoveLocalVariables_5_oe,org.apache.bcel.generic.InstructionList,contains(final InstructionHandle i),,"public boolean contains(final InstructionHandle i) {
+        if (i == null) {
+            return false;
+        }
+        for (InstructionHandle ih = start; ih != null; ih = ih.getNext()) {
+            if (ih == i) {
+                return true;
+            }
+        }
+        return false;
+    }"
+bcel_86_6,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        final InstructionHandle start = lv.getStart();
+        Assert.assertFalse(""scope start still targeted by the removed variable"", Arrays.asList(start.getTargeters()).contains(lv));",MethodGenTestCase::testRemoveLocalVariables_6_oe,org.apache.bcel.generic.InstructionList,contains(final InstructionHandle i),,"public boolean contains(final InstructionHandle i) {
+        if (i == null) {
+            return false;
+        }
+        for (InstructionHandle ih = start; ih != null; ih = ih.getNext()) {
+            if (ih == i) {
+                return true;
+            }
+        }
+        return false;
+    }"
+bcel_86_7,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        final InstructionHandle end = lv.getEnd();
+        Assert.assertFalse(""scope end still targeted by the removed variable"", Arrays.asList(end.getTargeters()).contains(lv));",MethodGenTestCase::testRemoveLocalVariables_7_oe,org.apache.bcel.generic.InstructionList,contains(final InstructionHandle i),,"public boolean contains(final InstructionHandle i) {
+        if (i == null) {
+            return false;
+        }
+        for (InstructionHandle ih = start; ih != null; ih = ih.getNext()) {
+            if (ih == i) {
+                return true;
+            }
+        }
+        return false;
+    }"
+bcel_86_8,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        final InstructionHandle start = lv.getStart();
+        Assert.assertNull(""scope start"", lv.getStart());",MethodGenTestCase::testRemoveLocalVariables_8_oe,org.apache.bcel.generic.LocalVariableGen,getStart(),,"public InstructionHandle getStart() {
+        return start;
+    }"
+bcel_86_9,"        final MethodGen mg = getMethod(Foo.class, ""bar"");
+        final LocalVariableGen lv = mg.getLocalVariables()[1];
+        final InstructionHandle end = lv.getEnd();
+        Assert.assertNull(""scope end"", lv.getEnd());",MethodGenTestCase::testRemoveLocalVariables_9_oe,org.apache.bcel.generic.LocalVariableGen,getEnd(),,"public InstructionHandle getEnd() {
+        return end;
+    }"
+bcel_88_1,"        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME + "".data.SimpleClassWithDefaultConstructor"");
+        final ConstantPoolGen cp = new ConstantPoolGen(clazz.getConstantPool());
+                    final String string = instructionHandle.getInstruction().toString(cp.getConstantPool());
+                    Assert.assertNotNull(string);",ConstantPoolTestCase::testConstantToString_1_oe,org.apache.bcel.generic.ConstantPoolGen,getConstantPool(),"/**
+     * @return intermediate constant pool
+     */","public ConstantPool getConstantPool() {
+        return new ConstantPool(constants);
+    }"
+bcel_90_1,"        assertEquals(""generic signature"", ""java.util.Map<X, java.util.List<Y>>"", Utility.signatureToString(""Ljava/util/Map<TX;Ljava/util/List<TY;>;>;""));",UtilityTestCase::testSignatureToStringWithGenerics_1_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }"
+bcel_90_2,"        assertEquals(""generic signature"", ""java.util.Set<? extends java.nio.file.OpenOption>"" , Utility.signatureToString(""Ljava/util/Set<+Ljava/nio/file/OpenOption;>;""));",UtilityTestCase::testSignatureToStringWithGenerics_2_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }"
+bcel_90_3,"        assertEquals(""generic signature"", ""java.nio.file.attribute.FileAttribute<?>[]"", Utility.signatureToString(""[Ljava/nio/file/attribute/FileAttribute<*>;""));",UtilityTestCase::testSignatureToStringWithGenerics_3_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }"
+bcel_90_4,"        assertEquals(""generic signature"", ""boofcv.alg.tracker.tld.TldTracker<boofcv.struct.image.ImageGray<boofcv.struct.image.GrayU8>, boofcv.struct.image.GrayI<boofcv.struct.image.GrayU8>>"", Utility.signatureToString(""Lboofcv/alg/tracker/tld/TldTracker<Lboofcv/struct/image/ImageGray<Lboofcv/struct/image/GrayU8;>;Lboofcv/struct/image/GrayI<Lboofcv/struct/image/GrayU8;>;>;""));",UtilityTestCase::testSignatureToStringWithGenerics_4_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }"
+bcel_90_5,"        assertEquals(""generic signature"", ""java.util.Map<?, ?>"", Utility.signatureToString(""Ljava/util/Map<**>;""));",UtilityTestCase::testSignatureToStringWithGenerics_5_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }"
+bcel_90_6,"        assertEquals(""generic signature"", ""com.jme3.util.IntMap<T>.IntMapIterator"", Utility.signatureToString(""Lcom/jme3/util/IntMap<TT;>.IntMapIterator;""));",UtilityTestCase::testSignatureToStringWithGenerics_6_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }"
+bcel_90_7,"        assertEquals(""type parameters signature"", ""<T extends java.lang.Object>(com.google.common.io.ByteProcessor<T>, int)T"", Utility.signatureToString(""<T:Ljava/lang/Object;>(Lcom/google/common/io/ByteProcessor<TT;>;I)TT;"", false));",UtilityTestCase::testSignatureToStringWithGenerics_7_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }"
+bcel_90_8,"        assertEquals(""type parameters signature"", ""<T extends Object>(com.google.common.io.ByteProcessor<T>, int)T"", Utility.signatureToString(""<T:Ljava/lang/Object;>(Lcom/google/common/io/ByteProcessor<TT;>;I)TT;"", true));",UtilityTestCase::testSignatureToStringWithGenerics_8_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }"
+bcel_90_9,"        assertEquals(""type parameters signature"", ""<M extends java.lang.reflect.AccessibleObject & java.lang.reflect.Member>(M)void"", Utility.signatureToString(""<M:Ljava/lang/reflect/AccessibleObject;:Ljava/lang/reflect/Member;>(TM;)V""));",UtilityTestCase::testSignatureToStringWithGenerics_9_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }"
+bcel_90_10,"        assertEquals(""type parameters signature"", ""<K1 extends K, V1 extends V>()com.google.common.cache.Weigher<K1, V1>"", Utility.signatureToString(""<K1:TK;V1:TV;>()Lcom/google/common/cache/Weigher<TK1;TV1;>;""));",UtilityTestCase::testSignatureToStringWithGenerics_10_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }"
+bcel_90_11,"        assertEquals(""type parameters signature"", ""<K1 extends K, V1 extends V>(com.google.common.cache.Weigher<? super K1, ? super V1>)com.google.common.cache.CacheBuilder<K1, V1>"", Utility.signatureToString(""<K1:TK;V1:TV;>(Lcom/google/common/cache/Weigher<-TK1;-TV1;>;)Lcom/google/common/cache/CacheBuilder<TK1;TV1;>;""));",UtilityTestCase::testSignatureToStringWithGenerics_11_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }"
+bcel_90_12,"        assertEquals(""class signature"", ""<N extends java.lang.Object, E extends java.lang.Object> extends java.lang.Object implements com.google.common.graph.Network<N, E>"", Utility.signatureToString(""<N:Ljava/lang/Object;E:Ljava/lang/Object;>Ljava/lang/Object;Lcom/google/common/graph/Network<TN;TE;>;"", false));",UtilityTestCase::testSignatureToStringWithGenerics_12_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }"
+bcel_90_13,"        assertEquals(""class signature"", ""<K extends Object, V extends Object> extends Object"", Utility.signatureToString(""<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;""));",UtilityTestCase::testSignatureToStringWithGenerics_13_oe,org.apache.bcel.classfile.Utility,signatureToString( final String signature ),"/**
+     * Converts a signature to a string with all class names compacted.
+     * Class, Method and Type signatures are supported.
+     * Enum and Interface signatures are not supported.
+     *
+     * @param  signature signature to convert
+     * @return String containg human readable signature
+     */","public static String signatureToString( final String signature ) {
+        return signatureToString(signature, true);
+    }"
+bcel_91_1,"        final JavaClass java_class = BCELifier.getJavaClass(""Java8Example"");
+        assertNotNull(java_class);",BCELifierTestCase::testStart_1_oe,org.apache.bcel.util.BCELifier,getJavaClass(final String name),,"static JavaClass getJavaClass(final String name) throws ClassNotFoundException, IOException {
+        JavaClass java_class;
+        if ((java_class = Repository.lookupClass(name)) == null) {
+            java_class = new ClassParser(name).parse(); // May throw IOException
+        }
+        return java_class;
+    }"
+bcel_92_1,"        final File outputDir = new File(""target/test-output/html"");
+            Assert.assertTrue(outputDir.isDirectory()); // fail if missing;",Class2HTMLTestCase::testConvertJavaUtil_1_oe,,,,
+bcel_93_1,"        Assert.assertNotNull(ClassPath.SYSTEM_CLASS_PATH.getClassFile(""java.lang.String""));",ClassPathTestCase::testGetClassFile_1_oe,org.apache.bcel.util.ClassPath.AbstractPathEntry,"getClassFile(String name, String suffix)",,"abstract ClassFile getClassFile(String name, String suffix) throws IOException;"
+bcel_94_1,"        Assert.assertNotNull(ClassPath.SYSTEM_CLASS_PATH.getResource(""java/lang/String.class""));",ClassPathTestCase::testGetResource_1_oe,org.apache.bcel.util.ClassPath.AbstractPathEntry,getResource(String name),,abstract URL getResource(String name);
+bcel_96_1,"        final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.MODULES_PATH);
+        Assert.assertFalse(listEntries.isEmpty());",ModularRuntimeImageTestCase::testListJreModules_1_oe,org.apache.bcel.generic.InstructionList,isEmpty(),"/**
+     * Test for empty list.
+     */","public boolean isEmpty() {
+        return start == null;
+    }"
+bcel_96_2,"        final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.MODULES_PATH);
+        Assert.assertTrue(listEntries.toString().indexOf(""/java.base"") > -1);",ModularRuntimeImageTestCase::testListJreModules_2_oe,org.apache.bcel.util.ModularRuntimeImage,list(final Path dirPath),"/**
+     * Lists all entries in the given directory.
+     *
+     * @param dirPath
+     *            directory path.
+     * @return a list of dir entries if an I/O error occurs
+     * @throws IOException
+     *             an I/O error occurs accessing the file system
+     */","public List<Path> list(final Path dirPath) throws IOException {
+        final List<Path> list = new ArrayList<>();
+        try (DirectoryStream<Path> ds = Files.newDirectoryStream(dirPath)) {
+            final Iterator<Path> iterator = ds.iterator();
+            while (iterator.hasNext()) {
+                list.add(iterator.next());
+            }
+        }
+        return list;
+    }"
+bcel_97_1,"        final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.MODULES_PATH + ""/java.base"");
+        Assert.assertFalse(listEntries.isEmpty());",ModularRuntimeImageTestCase::testListJreModule_1_oe,org.apache.bcel.generic.InstructionList,isEmpty(),"/**
+     * Test for empty list.
+     */","public boolean isEmpty() {
+        return start == null;
+    }"
+bcel_97_2,"        final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.MODULES_PATH + ""/java.base"");
+        Assert.assertTrue(listEntries.toString().indexOf(""/java.base"") > -1);",ModularRuntimeImageTestCase::testListJreModule_2_oe,org.apache.bcel.util.ModularRuntimeImage,list(final Path dirPath),"/**
+     * Lists all entries in the given directory.
+     *
+     * @param dirPath
+     *            directory path.
+     * @return a list of dir entries if an I/O error occurs
+     * @throws IOException
+     *             an I/O error occurs accessing the file system
+     */","public List<Path> list(final Path dirPath) throws IOException {
+        final List<Path> list = new ArrayList<>();
+        try (DirectoryStream<Path> ds = Files.newDirectoryStream(dirPath)) {
+            final Iterator<Path> iterator = ds.iterator();
+            while (iterator.hasNext()) {
+                list.add(iterator.next());
+            }
+        }
+        return list;
+    }"
+bcel_98_1,"        final List<Path> listEntries = modularRuntimeImage
+        Assert.assertFalse(listEntries.isEmpty());",ModularRuntimeImageTestCase::testListJreModulePackageDir_1_oe,org.apache.bcel.generic.InstructionList,isEmpty(),"/**
+     * Test for empty list.
+     */","public boolean isEmpty() {
+        return start == null;
+    }"
+bcel_98_2,"        final List<Path> listEntries = modularRuntimeImage
+        Assert.assertTrue(listEntries.toString().indexOf(""/java.base/java/lang/String.class"") > -1);",ModularRuntimeImageTestCase::testListJreModulePackageDir_2_oe,org.apache.bcel.util.ModularRuntimeImage,list(final Path dirPath),"/**
+     * Lists all entries in the given directory.
+     *
+     * @param dirPath
+     *            directory path.
+     * @return a list of dir entries if an I/O error occurs
+     * @throws IOException
+     *             an I/O error occurs accessing the file system
+     */","public List<Path> list(final Path dirPath) throws IOException {
+        final List<Path> list = new ArrayList<>();
+        try (DirectoryStream<Path> ds = Files.newDirectoryStream(dirPath)) {
+            final Iterator<Path> iterator = ds.iterator();
+            while (iterator.hasNext()) {
+                list.add(iterator.next());
+            }
+        }
+        return list;
+    }"
+bcel_99_1,"        final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.PACKAGES_PATH);
+        Assert.assertFalse(listEntries.isEmpty());",ModularRuntimeImageTestCase::testListJrePackages_1_oe,org.apache.bcel.generic.InstructionList,isEmpty(),"/**
+     * Test for empty list.
+     */","public boolean isEmpty() {
+        return start == null;
+    }"
+bcel_99_2,"        final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.PACKAGES_PATH);
+        Assert.assertTrue(listEntries.toString().indexOf(""java.lang"") > -1);",ModularRuntimeImageTestCase::testListJrePackages_2_oe,org.apache.bcel.util.ModularRuntimeImage,list(final Path dirPath),"/**
+     * Lists all entries in the given directory.
+     *
+     * @param dirPath
+     *            directory path.
+     * @return a list of dir entries if an I/O error occurs
+     * @throws IOException
+     *             an I/O error occurs accessing the file system
+     */","public List<Path> list(final Path dirPath) throws IOException {
+        final List<Path> list = new ArrayList<>();
+        try (DirectoryStream<Path> ds = Files.newDirectoryStream(dirPath)) {
+            final Iterator<Path> iterator = ds.iterator();
+            while (iterator.hasNext()) {
+                list.add(iterator.next());
+            }
+        }
+        return list;
+    }"
+bcel_103_1,"        final InstructionHandle[] ihs = (InstructionHandle[])it.next();
+        assertEquals(2, ihs.length);",InstructionFinderTest::testSearch_1_oe,org.apache.bcel.generic.InstructionList,next(),,"@Override
+            public InstructionHandle next() throws NoSuchElementException {
+                if (ih == null) {
+                    throw new NoSuchElementException();
+                }
+                final InstructionHandle i = ih;
+                ih = ih.getNext();
+                return i;
+            }"
+bcel_103_2,"        final InstructionHandle[] ihs = (InstructionHandle[])it.next();
+        assertEquals(ihs[0].getInstruction(), new ILOAD(2));",InstructionFinderTest::testSearch_2_oe,org.apache.bcel.generic.InstructionConst,getInstruction(final int index),"/**
+     * Gets the Instruction.
+     * @param index the index, e.g. {@link Const#RETURN}
+     * @return the entry from the private INSTRUCTIONS table
+     */","public static Instruction getInstruction(final int index) {
+        return INSTRUCTIONS[index];
+    }"
+bcel_103_3,"        final InstructionHandle[] ihs = (InstructionHandle[])it.next();
+        assertEquals(ihs[1].getInstruction(), new IADD());",InstructionFinderTest::testSearch_3_oe,org.apache.bcel.generic.InstructionConst,getInstruction(final int index),"/**
+     * Gets the Instruction.
+     * @param index the index, e.g. {@link Const#RETURN}
+     * @return the entry from the private INSTRUCTIONS table
+     */","public static Instruction getInstruction(final int index) {
+        return INSTRUCTIONS[index];
+    }"
+bcel_106_1,"        final String classname = Collection.class.getName();
+        final Verifier verifier = VerifierFactory.getVerifier(classname);
+        VerificationResult result = verifier.doPass1();
+        assertEquals(""Pass 1 verification of "" + classname + "" failed: "" + result.getMessage(), VerificationResult.VERIFIED_OK, result.getStatus());",VerifierTestCase::testDefaultMethodValidation_1_oe,org.apache.bcel.verifier.VerificationResult,getStatus(),"/**
+     * Returns one of the {@link #VERIFIED_OK}, {@link #VERIFIED_NOTYET},
+     * {@link #VERIFIED_REJECTED} constants.
+     */","public int getStatus() {
+        return numeric;
+    }"
+bcel_106_2,"        final String classname = Collection.class.getName();
+        final Verifier verifier = VerifierFactory.getVerifier(classname);
+        VerificationResult result = verifier.doPass1();
+        result = verifier.doPass2();
+        assertEquals(""Pass 2 verification of "" + classname + "" failed: "" + result.getMessage(), VerificationResult.VERIFIED_OK, result.getStatus());",VerifierTestCase::testDefaultMethodValidation_2_oe,org.apache.bcel.verifier.VerificationResult,getStatus(),"/**
+     * Returns one of the {@link #VERIFIED_OK}, {@link #VERIFIED_NOTYET},
+     * {@link #VERIFIED_REJECTED} constants.
+     */","public int getStatus() {
+        return numeric;
+    }"
+bcel_73_8_1,"                                final Method method0 = method;
+                final int expectedNumberAnnotations0 = 0;
+                final String methodName0= method0.getName();
+                        final AnnotationEntry[] annos0= method0.getAnnotationEntries();
+                        assertEquals(""For ""+methodName0, expectedNumberAnnotations0, annos0.length);",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_8_oe_1_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_73_8_2,"                                final Method method0 = method;
+                final int nExpectedArrayValues0 = 1;
+                        final AnnotationEntry[] annos0= method0.getAnnotationEntries();
+                            assertArrayElementValue(nExpectedArrayValues0, annos0[0]);",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_8_oe_2_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_73_10_1,"                                final Method method0 = method;
+                final int expectedNumberAnnotations0 = 1;
+                final String methodName0= method0.getName();
+                        final AnnotationEntry[] annos0= method0.getAnnotationEntries();
+                        assertEquals(""For ""+methodName0, expectedNumberAnnotations0, annos0.length);",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_10_oe_1_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_73_10_2,"                                final Method method0 = method;
+                final int nExpectedArrayValues0 = 0;
+                        final AnnotationEntry[] annos0= method0.getAnnotationEntries();
+                            assertArrayElementValue(nExpectedArrayValues0, annos0[0]);",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_10_oe_2_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_73_11_1,"                                final Method method0 = method;
+                final int expectedNumberAnnotations0 = 1;
+                final String methodName0= method0.getName();
+                        final AnnotationEntry[] annos0= method0.getAnnotationEntries();
+                        assertEquals(""For ""+methodName0, expectedNumberAnnotations0, annos0.length);",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_11_oe_1_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_73_11_2,"                                final Method method0 = method;
+                final int nExpectedArrayValues0 = 2;
+                        final AnnotationEntry[] annos0= method0.getAnnotationEntries();
+                            assertArrayElementValue(nExpectedArrayValues0, annos0[0]);",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_11_oe_2_oe,org.apache.bcel.generic.FieldGenOrMethodGen,getAnnotationEntries(),,"public AnnotationEntryGen[] getAnnotationEntries() {
+        final AnnotationEntryGen[] annotations = new AnnotationEntryGen[annotationList.size()];
+          annotationList.toArray(annotations);
+          return annotations;
+      }"
+bcel_104_1_1,"                final String classname0 = ""TestReturn01"";
+        final String message0 = ""Verification of a void method that returns an object must fail."";
+        final String testClassname0 = TEST_PACKAGE + classname0;
+                assertFalse(message0, doAllPasses(testClassname0));",VerifierReturnTestCase::testInvalidReturn_1_oe_1_oe,,,,
+bcel_104_2_1,"                final String classname0 = ""TestReturn03"";
+        final String message0 = ""Verification of an int method that returns null must fail."";
+        final String testClassname0 = TEST_PACKAGE + classname0;
+                assertFalse(message0, doAllPasses(testClassname0));",VerifierReturnTestCase::testInvalidReturn_2_oe_1_oe,,,,
+bcel_105_1_1,"                final String classname0 = ""TestReturn02"";
+        final String message0 = ""Verification of a method that returns a newly created object must pass."";
+        final String testClassname0 = TEST_PACKAGE + classname0;
+                assertTrue(message0, doAllPasses(testClassname0));",VerifierReturnTestCase::testValidReturn_1_oe_1_oe,,,,
+bcel_105_2_1,"                final String classname0 = ""TestArray01"";
+        final String message0 = ""Verification of a method that returns an array must pass."";
+        final String testClassname0 = TEST_PACKAGE + classname0;
+                assertTrue(message0, doAllPasses(testClassname0));",VerifierReturnTestCase::testValidReturn_2_oe_1_oe,,,,
+bcel_107_1_1,"                final String classname0 = ""TestLegalInvokeVirtual01"";
+        final String message0 = ""Verification of invokevirtual on method defined in superclass must pass."";
+        final String testClassname0 = TEST_PACKAGE + classname0;
+                assertTrue(message0, doAllPasses(testClassname0));",VerifierInvokeTestCase::testLegalInvokeVirtual_1_oe_1_oe,,,,
+bcel_107_2_1,"                final String classname0 = ""TestLegalInvokeVirtual02"";
+        final String message0 = ""Verification of invokevirtual on method defined in superinterface must pass."";
+        final String testClassname0 = TEST_PACKAGE + classname0;
+                assertTrue(message0, doAllPasses(testClassname0));",VerifierInvokeTestCase::testLegalInvokeVirtual_2_oe_1_oe,,,,
+bcel_108_1_1,"                final String classname0 = ""TestLegalInvokeStatic01"";
+        final String message0 = ""Verification of invokestatic on method defined in superclass must pass."";
+        final String testClassname0 = TEST_PACKAGE + classname0;
+                assertTrue(message0, doAllPasses(testClassname0));",VerifierInvokeTestCase::testLegalInvokeStatic_1_oe_1_oe,,,,
+bcel_109_1_1,"                final String classname0 = ""TestLegalInvokeInterface01"";
+        final String message0 = ""Verification of invokeinterface on method defined in superinterface must pass."";
+        final String testClassname0 = TEST_PACKAGE + classname0;
+                assertTrue(message0, doAllPasses(testClassname0));",VerifierInvokeTestCase::testLegalInvokeInterface_1_oe_1_oe,,,,
+bcel_110_1_1,"                final String classname0 = ""TestLegalInvokeSpecial01"";
+        final String message0 = ""Verification of invokespecial on method defined in superclass must pass."";
+        final String testClassname0 = TEST_PACKAGE + classname0;
+                assertTrue(message0, doAllPasses(testClassname0));",VerifierInvokeTestCase::testLegalInvokeSpecial_1_oe_1_oe,,,,
+bcel_110_2_1,"                final String classname0 = ""TestLegalInvokeSpecial02"";
+        final String message0 = ""Verification of invokespecial on method defined in superclass must pass."";
+        final String testClassname0 = TEST_PACKAGE + classname0;
+                assertTrue(message0, doAllPasses(testClassname0));",VerifierInvokeTestCase::testLegalInvokeSpecial_2_oe_1_oe,,,,
+bcel_111_1_1,"                final String classname0 = ""TestArrayAccess03"";
+        final String message0 = ""Verification of an arraystore instruction on an object must fail."";
+        final String testClassname0 = TEST_PACKAGE + classname0;
+                assertFalse(message0, doAllPasses(testClassname0));",VerifierArrayAccessTestCase::testInvalidArrayAccess_1_oe_1_oe,,,,
+bcel_111_2_1,"                final String classname0 = ""TestArrayAccess04"";
+        final String message0 = ""Verification of an arraystore instruction of an int on an array of references must fail."";
+        final String testClassname0 = TEST_PACKAGE + classname0;
+                assertFalse(message0, doAllPasses(testClassname0));",VerifierArrayAccessTestCase::testInvalidArrayAccess_2_oe_1_oe,,,,
+bcel_112_1_1,"                final String classname0 = ""TestArrayAccess01"";
+        final String message0 = ""Verification of an arraystore instruction on an array that is not compatible with the stored element must pass."";
+        final String testClassname0 = TEST_PACKAGE + classname0;
+                assertTrue(message0, doAllPasses(testClassname0));",VerifierArrayAccessTestCase::testValidArrayAccess_1_oe_1_oe,,,,
+bcel_112_2_1,"                final String classname0 = ""TestArrayAccess02"";
+        final String message0 = ""Verification of an arraystore instruction on an array that is not compatible with the stored element must pass."";
+        final String testClassname0 = TEST_PACKAGE + classname0;
+                assertTrue(message0, doAllPasses(testClassname0));",VerifierArrayAccessTestCase::testValidArrayAccess_2_oe_1_oe,,,,
+bcel_95_1,            Assert.assertNotNull(inputStream);,ClassPathTestCase::testGetResourceAsStream_1_oe,org.apache.bcel.util.ClassPath.AbstractPathEntry,getResourceAsStream(String name),,abstract InputStream getResourceAsStream(String name);
+bcel_100_1,"            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
+            final JavaClass class1 = repository.loadClass(""java.lang.String"");
+            Assert.assertNotNull(class1);",LruCacheClassPathRepositoryTestCase::testCacheEviction_1_oe,org.apache.bcel.util.AbstractClassPathRepository,loadClass(String className),"/**
+     * Finds a JavaClass object by name. If it is already in this Repository, the Repository version is returned.
+     * Otherwise, the Repository's classpath is searched for the class (and it is added to the Repository if found).
+     *
+     * @param className
+     *            the name of the class
+     * @return the JavaClass object
+     * @throws ClassNotFoundException
+     *             if the class is not in the Repository, and could not be found on the classpath
+     */","@Override
+    public JavaClass loadClass(String className) throws ClassNotFoundException {
+        if (className == null || className.isEmpty()) {
+            throw new IllegalArgumentException(""Invalid class name "" + className);
+        }
+        className = className.replace('/', '.'); // Just in case, canonical form
+        final JavaClass clazz = findClass(className);
+        if (clazz != null) {
+            return clazz;
+        }
+        try {
+            return loadClass(_path.getInputStream(className), className);
+        } catch (final IOException e) {
+            throw new ClassNotFoundException(""Exception while looking for class "" + className + "": "" + e, e);
+        }
+    }"
+bcel_100_2,"            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
+            final JavaClass class2 = repository.loadClass(""java.lang.Long"");
+            Assert.assertNotNull(class2);",LruCacheClassPathRepositoryTestCase::testCacheEviction_2_oe,org.apache.bcel.util.AbstractClassPathRepository,loadClass(String className),"/**
+     * Finds a JavaClass object by name. If it is already in this Repository, the Repository version is returned.
+     * Otherwise, the Repository's classpath is searched for the class (and it is added to the Repository if found).
+     *
+     * @param className
+     *            the name of the class
+     * @return the JavaClass object
+     * @throws ClassNotFoundException
+     *             if the class is not in the Repository, and could not be found on the classpath
+     */","@Override
+    public JavaClass loadClass(String className) throws ClassNotFoundException {
+        if (className == null || className.isEmpty()) {
+            throw new IllegalArgumentException(""Invalid class name "" + className);
+        }
+        className = className.replace('/', '.'); // Just in case, canonical form
+        final JavaClass clazz = findClass(className);
+        if (clazz != null) {
+            return clazz;
+        }
+        try {
+            return loadClass(_path.getInputStream(className), className);
+        } catch (final IOException e) {
+            throw new ClassNotFoundException(""Exception while looking for class "" + className + "": "" + e, e);
+        }
+    }"
+bcel_100_3,"            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
+            final JavaClass class1 = repository.loadClass(""java.lang.String"");
+            final JavaClass class3 = repository.loadClass(""java.lang.Integer""); // Evicts class1
+            Assert.assertNotNull(class3);",LruCacheClassPathRepositoryTestCase::testCacheEviction_3_oe,org.apache.bcel.util.AbstractClassPathRepository,loadClass(String className),"/**
+     * Finds a JavaClass object by name. If it is already in this Repository, the Repository version is returned.
+     * Otherwise, the Repository's classpath is searched for the class (and it is added to the Repository if found).
+     *
+     * @param className
+     *            the name of the class
+     * @return the JavaClass object
+     * @throws ClassNotFoundException
+     *             if the class is not in the Repository, and could not be found on the classpath
+     */","@Override
+    public JavaClass loadClass(String className) throws ClassNotFoundException {
+        if (className == null || className.isEmpty()) {
+            throw new IllegalArgumentException(""Invalid class name "" + className);
+        }
+        className = className.replace('/', '.'); // Just in case, canonical form
+        final JavaClass clazz = findClass(className);
+        if (clazz != null) {
+            return clazz;
+        }
+        try {
+            return loadClass(_path.getInputStream(className), className);
+        } catch (final IOException e) {
+            throw new ClassNotFoundException(""Exception while looking for class "" + className + "": "" + e, e);
+        }
+    }"
+bcel_100_4,"            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
+            assertNull(repository.findClass(""java.lang.String""));",LruCacheClassPathRepositoryTestCase::testCacheEviction_4_oe,org.apache.bcel.util.LruCacheClassPathRepository,findClass(final String className),,"@Override
+    public JavaClass findClass(final String className) {
+        return loadedClasses.get(className);
+    }"
+bcel_100_5,"            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
+            final JavaClass class2 = repository.loadClass(""java.lang.Long"");
+            final JavaClass cachedClass2 = repository.findClass(""java.lang.Long"");
+            assertEquals(class2, cachedClass2);",LruCacheClassPathRepositoryTestCase::testCacheEviction_5_oe,org.apache.bcel.util.LruCacheClassPathRepository,findClass(final String className),,"@Override
+    public JavaClass findClass(final String className) {
+        return loadedClasses.get(className);
+    }"
+bcel_101_1,"            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
+            final JavaClass class1 = repository.loadClass(""java.lang.String"");
+            Assert.assertNotNull(class1);",LruCacheClassPathRepositoryTestCase::testLeastRecentlyUsedEviction_1_oe,org.apache.bcel.util.AbstractClassPathRepository,loadClass(String className),"/**
+     * Finds a JavaClass object by name. If it is already in this Repository, the Repository version is returned.
+     * Otherwise, the Repository's classpath is searched for the class (and it is added to the Repository if found).
+     *
+     * @param className
+     *            the name of the class
+     * @return the JavaClass object
+     * @throws ClassNotFoundException
+     *             if the class is not in the Repository, and could not be found on the classpath
+     */","@Override
+    public JavaClass loadClass(String className) throws ClassNotFoundException {
+        if (className == null || className.isEmpty()) {
+            throw new IllegalArgumentException(""Invalid class name "" + className);
+        }
+        className = className.replace('/', '.'); // Just in case, canonical form
+        final JavaClass clazz = findClass(className);
+        if (clazz != null) {
+            return clazz;
+        }
+        try {
+            return loadClass(_path.getInputStream(className), className);
+        } catch (final IOException e) {
+            throw new ClassNotFoundException(""Exception while looking for class "" + className + "": "" + e, e);
+        }
+    }"
+bcel_101_2,"            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
+            final JavaClass class2 = repository.loadClass(""java.lang.Long"");
+            Assert.assertNotNull(class2);",LruCacheClassPathRepositoryTestCase::testLeastRecentlyUsedEviction_2_oe,org.apache.bcel.util.AbstractClassPathRepository,loadClass(String className),"/**
+     * Finds a JavaClass object by name. If it is already in this Repository, the Repository version is returned.
+     * Otherwise, the Repository's classpath is searched for the class (and it is added to the Repository if found).
+     *
+     * @param className
+     *            the name of the class
+     * @return the JavaClass object
+     * @throws ClassNotFoundException
+     *             if the class is not in the Repository, and could not be found on the classpath
+     */","@Override
+    public JavaClass loadClass(String className) throws ClassNotFoundException {
+        if (className == null || className.isEmpty()) {
+            throw new IllegalArgumentException(""Invalid class name "" + className);
+        }
+        className = className.replace('/', '.'); // Just in case, canonical form
+        final JavaClass clazz = findClass(className);
+        if (clazz != null) {
+            return clazz;
+        }
+        try {
+            return loadClass(_path.getInputStream(className), className);
+        } catch (final IOException e) {
+            throw new ClassNotFoundException(""Exception while looking for class "" + className + "": "" + e, e);
+        }
+    }"
+bcel_101_3,"            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
+            final JavaClass class2 = repository.loadClass(""java.lang.Long"");
+            final JavaClass class3 = repository.loadClass(""java.lang.Integer""); // Evicts class2
+            Assert.assertNotNull(class3);",LruCacheClassPathRepositoryTestCase::testLeastRecentlyUsedEviction_3_oe,org.apache.bcel.util.AbstractClassPathRepository,loadClass(String className),"/**
+     * Finds a JavaClass object by name. If it is already in this Repository, the Repository version is returned.
+     * Otherwise, the Repository's classpath is searched for the class (and it is added to the Repository if found).
+     *
+     * @param className
+     *            the name of the class
+     * @return the JavaClass object
+     * @throws ClassNotFoundException
+     *             if the class is not in the Repository, and could not be found on the classpath
+     */","@Override
+    public JavaClass loadClass(String className) throws ClassNotFoundException {
+        if (className == null || className.isEmpty()) {
+            throw new IllegalArgumentException(""Invalid class name "" + className);
+        }
+        className = className.replace('/', '.'); // Just in case, canonical form
+        final JavaClass clazz = findClass(className);
+        if (clazz != null) {
+            return clazz;
+        }
+        try {
+            return loadClass(_path.getInputStream(className), className);
+        } catch (final IOException e) {
+            throw new ClassNotFoundException(""Exception while looking for class "" + className + "": "" + e, e);
+        }
+    }"
+bcel_101_4,"            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
+            assertNull(repository.findClass(""java.lang.Long""));",LruCacheClassPathRepositoryTestCase::testLeastRecentlyUsedEviction_4_oe,org.apache.bcel.util.LruCacheClassPathRepository,findClass(final String className),,"@Override
+    public JavaClass findClass(final String className) {
+        return loadedClasses.get(className);
+    }"
+bcel_101_5,"            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
+            final JavaClass class1 = repository.loadClass(""java.lang.String"");
+            final JavaClass cachedClass1 = repository.findClass(""java.lang.String"");
+            assertEquals(class1, cachedClass1);",LruCacheClassPathRepositoryTestCase::testLeastRecentlyUsedEviction_5_oe,org.apache.bcel.util.LruCacheClassPathRepository,findClass(final String className),,"@Override
+    public JavaClass findClass(final String className) {
+        return loadedClasses.get(className);
+    }"
+bcel_102_1,"            final ClassPathRepository repository = new ClassPathRepository(classPath);
+            Assert.assertEquals(classPath, repository.getClassPath());",ClassPathRepositoryTestCase::testClassPath_1_oe,org.apache.bcel.util.AbstractClassPathRepository,getClassPath(),,"@Override
+    public ClassPath getClassPath() {
+        return _path;
+    }"
+bcel_left_75_9,"                assertParameterAnnotations(method, 0, 1);",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_9_oe,org.apache.bcel.generic.NamedAndTyped,getName(),,String getName();

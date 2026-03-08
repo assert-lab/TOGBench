@@ -144,6 +144,7 @@ public class TestBuilderConfigurationWrapperFactory_OE25Dev {
         conf.addProperty("test2", "42");
         final BuilderConfigurationWrapperFactory factory = new BuilderConfigurationWrapperFactory();
         final HierarchicalConfiguration<?> wrapper = factory.createBuilderConfigurationWrapper(HierarchicalConfiguration.class, builder);
+        // removed other assertion
         assertEquals("Wrong value (2)", 42, wrapper.getInt("test2"));
     }
 
@@ -156,6 +157,8 @@ public class TestBuilderConfigurationWrapperFactory_OE25Dev {
         conf.addProperty("test2", "42");
         final BuilderConfigurationWrapperFactory factory = new BuilderConfigurationWrapperFactory();
         final HierarchicalConfiguration<?> wrapper = factory.createBuilderConfigurationWrapper(HierarchicalConfiguration.class, builder);
+        // removed other assertion
+        // removed other assertion
         assertSame("Wrong root node", conf.getNodeModel().getNodeHandler().getRootNode(), wrapper.getNodeModel().getNodeHandler().getRootNode());
     }
 
@@ -188,6 +191,8 @@ public class TestBuilderConfigurationWrapperFactory_OE25Dev {
 
         src.addEventListener(ConfigurationEvent.ANY, l1);
         src.addEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l2);
+        // removed other assertion
+        // removed other assertion
         final PropertiesConfiguration config = builder.getConfiguration();
         final Collection<EventListener<? super ConfigurationEvent>> listeners = config.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL);
         assertTrue("Registered listener not found", listeners.contains(l1));

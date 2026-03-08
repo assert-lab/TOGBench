@@ -40,102 +40,146 @@ class FacetDefinitionsTest_OE25Dev {
 
     @Test
     void testToPolygon_noNormal_1_oe() {
+        // arrange
         final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS);
 
+        // act
         final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
 
+        // assert
         Assertions.assertSame(TEST_PRECISION, p.getPlane().getPrecision());
     }
 
     @Test
     void testToPolygon_noNormal_3_oe() {
+        // arrange
         final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS);
 
+        // act
         final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(4, p.getVertices().size());
     }
 
     @Test
     void testToPolygon_noNormal_4_oe() {
+        // arrange
         final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS);
 
+        // act
         final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.0, p.getSize(), TEST_EPS);
     }
 
     @Test
     void testToPolygon_withNormal_similarDirection_1_oe() {
+        // arrange
         final Vector3D normal = Vector3D.of(0.1, 0.2, 0.3);
         final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, normal);
 
+        // act
         final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
 
+        // assert
         Assertions.assertSame(TEST_PRECISION, p.getPlane().getPrecision());
     }
 
     @Test
     void testToPolygon_withNormal_similarDirection_3_oe() {
+        // arrange
         final Vector3D normal = Vector3D.of(0.1, 0.2, 0.3);
         final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, normal);
 
+        // act
         final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(4, p.getVertices().size());
     }
 
     @Test
     void testToPolygon_withNormal_similarDirection_4_oe() {
+        // arrange
         final Vector3D normal = Vector3D.of(0.1, 0.2, 0.3);
         final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, normal);
 
+        // act
         final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.0, p.getSize(), TEST_EPS);
     }
 
     @Test
     void testToPolygon_withNormal_differentDirection_1_oe() {
+        // arrange
         final Vector3D normal = Vector3D.of(0.1, 0.2, -0.3);
         final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, normal);
 
+        // act
         final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
 
+        // assert
         Assertions.assertSame(TEST_PRECISION, p.getPlane().getPrecision());
     }
 
     @Test
     void testToPolygon_withNormal_differentDirection_3_oe() {
+        // arrange
         final Vector3D normal = Vector3D.of(0.1, 0.2, -0.3);
         final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, normal);
 
+        // act
         final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(4, p.getVertices().size());
     }
 
     @Test
     void testToPolygon_withNormal_differentDirection_4_oe() {
+        // arrange
         final Vector3D normal = Vector3D.of(0.1, 0.2, -0.3);
         final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, normal);
 
+        // act
         final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.0, p.getSize(), TEST_EPS);
     }
 
     @Test
     void testToPolygon_failure_1_oe() {
+        // arrange
         final SimpleFacetDefinition f = new SimpleFacetDefinition(Arrays.asList(
                 Vector3D.ZERO, Vector3D.ZERO, Vector3D.ZERO));
 
+        // act/assert
         try {
     FacetDefinitions.toPolygon(f, TEST_PRECISION);
     fail("IllegalArgumentException");
@@ -145,19 +189,32 @@ class FacetDefinitionsTest_OE25Dev {
 
 @Test
     void testToPolygon_invalidArgs_1_oe() {
+        // arrange
         final SimpleFacetDefinition f = new SimpleFacetDefinition(Arrays.asList(
                 Vector3D.ZERO, Vector3D.ZERO, Vector3D.ZERO));
 
-        GeometryTestUtils.assertThrowsWithMessage( () -> FacetDefinitions.toPolygon(null, TEST_PRECISION), NullPointerException.class, "Facet cannot be null");
+        // act/assert
+        try {
+    FacetDefinitions.toPolygon(null, TEST_PRECISION);
+    fail("Expected NullPointerException with message: " + "Facet cannot be null");
+} catch (NullPointerException e) {
+}
     }
 
 @Test
     void testToPolygon_invalidArgs_2_oe() {
+        // arrange
         final SimpleFacetDefinition f = new SimpleFacetDefinition(Arrays.asList(
                 Vector3D.ZERO, Vector3D.ZERO, Vector3D.ZERO));
 
+        // act/assert
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage( () -> FacetDefinitions.toPolygon(f, null), NullPointerException.class, "Precision context cannot be null");
+        try {
+    FacetDefinitions.toPolygon(f, null);
+    fail("Expected NullPointerException with message: " + "Precision context cannot be null");
+} catch (NullPointerException e) {
+}
     }
 
 }

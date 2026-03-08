@@ -55,6 +55,7 @@ public class PsdReadTest_OE25Dev extends PsdBaseTest {
             Debug.debug("imageFile", imageFile);
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            // removed other assertion
             final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
             assertNotNull(imageInfo);
     }
@@ -70,7 +71,9 @@ public class PsdReadTest_OE25Dev extends PsdBaseTest {
             Debug.debug("imageFile", imageFile);
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            // removed other assertion
             final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+            // removed other assertion
 
             Imaging.getICCProfile(imageFile);
 

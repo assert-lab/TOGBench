@@ -110,6 +110,7 @@ public class TestBasicConfigurationBuilderEvents_OE25Dev {
         builder.reset();
         builder.resetResult();
         ConfigurationBuilderEvent event = listener.nextEvent(ConfigurationBuilderEvent.RESET);
+        // removed other assertion
         event = listener.nextEvent(ConfigurationBuilderEvent.RESET);
         assertSame("Wrong builder (2)", builder, event.getSource());
     }
@@ -189,6 +190,7 @@ public class TestBasicConfigurationBuilderEvents_OE25Dev {
         final PropertiesConfiguration configuration = builder.getConfiguration();
         listener.nextEvent(ConfigurationBuilderEvent.CONFIGURATION_REQUEST);
         final ConfigurationBuilderResultCreatedEvent event = listener.nextEvent(ConfigurationBuilderResultCreatedEvent.RESULT_CREATED);
+        // removed other assertion
         assertSame("Wrong configuration", configuration, event.getConfiguration());
     }
 

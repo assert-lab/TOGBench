@@ -37,6 +37,7 @@ public class T4_T6_TablesTest_OE25Dev{
       final BitArrayOutputStream bitArrayOutputStream = new BitArrayOutputStream(2309);
       T4_T6_Tables.EOL16.writeBits(bitArrayOutputStream);
 
+      // removed other assertion
       assertEquals("[0, 1]", Arrays.toString(bitArrayOutputStream.toByteArray()));
   }
 

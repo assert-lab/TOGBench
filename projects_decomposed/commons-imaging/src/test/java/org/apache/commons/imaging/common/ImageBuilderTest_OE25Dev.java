@@ -111,6 +111,7 @@ public class ImageBuilderTest_OE25Dev {
         final BufferedImage bImage = imageBuilder.getSubimage(25, 25, 25, 25);
         final int w = bImage.getWidth();
         final int h = bImage.getHeight();
+        // removed other assertion
         assertEquals(h, 25, "Height of subimage does not match");
     }
 
@@ -121,6 +122,8 @@ public class ImageBuilderTest_OE25Dev {
         final BufferedImage bImage = imageBuilder.getSubimage(25, 25, 25, 25);
         final int w = bImage.getWidth();
         final int h = bImage.getHeight();
+        // removed other assertion
+        // removed other assertion
 
         for(int x=25; x<50; x++){
             for(int y=25; y<50; y++){
@@ -138,11 +141,14 @@ public class ImageBuilderTest_OE25Dev {
         final BufferedImage bImage = imageBuilder.getSubimage(25, 25, 25, 25);
         final int w = bImage.getWidth();
         final int h = bImage.getHeight();
+        // removed other assertion
+        // removed other assertion
 
         for(int x=25; x<50; x++){
             for(int y=25; y<50; y++){
                 final int k = bImage.getRGB(x-25, y-25);
                 final int rgb = imageBuilder.getRGB(x, y);
+                // removed other assertion
             }
         }
 
@@ -175,6 +181,7 @@ public class ImageBuilderTest_OE25Dev {
         imageBuilder = new ImageBuilder(100, 100, false );
         bImage = imageBuilder.getBufferedImage();
         model = bImage.getColorModel();
+        // removed other assertion
 
         imageBuilder = new ImageBuilder(100, 100, true, false);
         bImage = imageBuilder.getBufferedImage();
@@ -190,10 +197,12 @@ public class ImageBuilderTest_OE25Dev {
         imageBuilder = new ImageBuilder(100, 100, false );
         bImage = imageBuilder.getBufferedImage();
         model = bImage.getColorModel();
+        // removed other assertion
 
         imageBuilder = new ImageBuilder(100, 100, true, false);
         bImage = imageBuilder.getBufferedImage();
         model = bImage.getColorModel();
+        // removed other assertion
         assertFalse(model.isAlphaPremultiplied(), "Output image has alpha pre-multiplied where not specified");
     }
 
@@ -205,10 +214,13 @@ public class ImageBuilderTest_OE25Dev {
         imageBuilder = new ImageBuilder(100, 100, false );
         bImage = imageBuilder.getBufferedImage();
         model = bImage.getColorModel();
+        // removed other assertion
 
         imageBuilder = new ImageBuilder(100, 100, true, false);
         bImage = imageBuilder.getBufferedImage();
         model = bImage.getColorModel();
+        // removed other assertion
+        // removed other assertion
 
         imageBuilder = new ImageBuilder(100, 100, true, true);
         bImage = imageBuilder.getBufferedImage();
@@ -224,14 +236,18 @@ public class ImageBuilderTest_OE25Dev {
         imageBuilder = new ImageBuilder(100, 100, false );
         bImage = imageBuilder.getBufferedImage();
         model = bImage.getColorModel();
+        // removed other assertion
 
         imageBuilder = new ImageBuilder(100, 100, true, false);
         bImage = imageBuilder.getBufferedImage();
         model = bImage.getColorModel();
+        // removed other assertion
+        // removed other assertion
 
         imageBuilder = new ImageBuilder(100, 100, true, true);
         bImage = imageBuilder.getBufferedImage();
         model = bImage.getColorModel();
+        // removed other assertion
         assertTrue(model.isAlphaPremultiplied(), "Output image does not have alpha pre-multiplied where specified");
     }
 

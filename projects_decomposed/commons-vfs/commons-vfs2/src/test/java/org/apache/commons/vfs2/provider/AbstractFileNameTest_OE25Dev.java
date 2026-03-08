@@ -58,6 +58,7 @@ public class AbstractFileNameTest_OE25Dev {
             }
         };
 
+        // removed other assertion
         Assert.assertEquals("/foo/bar/file%23name.txt", fileName.getFriendlyURI());
     }
 

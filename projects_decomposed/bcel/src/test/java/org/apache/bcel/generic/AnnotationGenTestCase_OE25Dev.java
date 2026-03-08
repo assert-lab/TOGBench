@@ -92,37 +92,52 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
 
     public void testConstructMutableAnnotation_1_oe()
     {
+        // Create the containing class
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
+        // Create the simple primitive value '4' of type 'int'
         final SimpleElementValueGen evg = new SimpleElementValueGen(
                 ElementValueGen.PRIMITIVE_INT, cp, 4);
+        // Give it a name, call it 'id'
         final ElementValuePairGen nvGen = new ElementValuePairGen("id", evg,
                 cp);
+        // Check it looks right
         assertTrue( "Should include string 'id=4' but says: " + nvGen.toString(), nvGen.toString().contains("id=4"));
     }
 
     public void testVisibleInvisibleAnnotationGen_1_oe()
     {
+        // Create the containing class
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
+        // Create the simple primitive value '4' of type 'int'
         final SimpleElementValueGen evg = new SimpleElementValueGen(
                 ElementValueGen.PRIMITIVE_INT, cp, 4);
+        // Give it a name, call it 'id'
         final ElementValuePairGen nvGen = new ElementValuePairGen("id", evg,
                 cp);
+        // Check it looks right
         assertTrue( "Should include string 'id=4' but says: " + nvGen.toString(), nvGen.toString().contains("id=4"));
     }
 
     public void testVisibleInvisibleAnnotationGen_2_oe()
     {
+        // Create the containing class
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
+        // Create the simple primitive value '4' of type 'int'
         final SimpleElementValueGen evg = new SimpleElementValueGen(
                 ElementValueGen.PRIMITIVE_INT, cp, 4);
+        // Give it a name, call it 'id'
         final ElementValuePairGen nvGen = new ElementValuePairGen("id", evg,
                 cp);
+        // Check it looks right
+        // removed other assertion
         final ObjectType t = new ObjectType("SimpleAnnotation");
         final List<ElementValuePairGen> elements = new ArrayList<>();
         elements.add(nvGen);
+        // Build a RV annotation of type 'SimpleAnnotation' with 'id=4' as the
+        // only value :)
         final AnnotationEntryGen a = new AnnotationEntryGen(t, elements, true, cp);
         final List<AnnotationEntryGen> v = new ArrayList<>();
         v.add(a);
@@ -138,15 +153,22 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
 
     public void testVisibleInvisibleAnnotationGen_3_oe()
     {
+        // Create the containing class
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
+        // Create the simple primitive value '4' of type 'int'
         final SimpleElementValueGen evg = new SimpleElementValueGen(
                 ElementValueGen.PRIMITIVE_INT, cp, 4);
+        // Give it a name, call it 'id'
         final ElementValuePairGen nvGen = new ElementValuePairGen("id", evg,
                 cp);
+        // Check it looks right
+        // removed other assertion
         final ObjectType t = new ObjectType("SimpleAnnotation");
         final List<ElementValuePairGen> elements = new ArrayList<>();
         elements.add(nvGen);
+        // Build a RV annotation of type 'SimpleAnnotation' with 'id=4' as the
+        // only value :)
         final AnnotationEntryGen a = new AnnotationEntryGen(t, elements, true, cp);
         final List<AnnotationEntryGen> v = new ArrayList<>();
         v.add(a);
@@ -155,6 +177,7 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
         for (final Attribute attribute : attributes) {
             if (attribute instanceof RuntimeVisibleAnnotations)
             {
+                // removed other assertion
                 foundRV = true;
             }
         }
@@ -163,15 +186,22 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
 
     public void testVisibleInvisibleAnnotationGen_4_oe()
     {
+        // Create the containing class
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
+        // Create the simple primitive value '4' of type 'int'
         final SimpleElementValueGen evg = new SimpleElementValueGen(
                 ElementValueGen.PRIMITIVE_INT, cp, 4);
+        // Give it a name, call it 'id'
         final ElementValuePairGen nvGen = new ElementValuePairGen("id", evg,
                 cp);
+        // Check it looks right
+        // removed other assertion
         final ObjectType t = new ObjectType("SimpleAnnotation");
         final List<ElementValuePairGen> elements = new ArrayList<>();
         elements.add(nvGen);
+        // Build a RV annotation of type 'SimpleAnnotation' with 'id=4' as the
+        // only value :)
         final AnnotationEntryGen a = new AnnotationEntryGen(t, elements, true, cp);
         final List<AnnotationEntryGen> v = new ArrayList<>();
         v.add(a);
@@ -180,9 +210,13 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
         for (final Attribute attribute : attributes) {
             if (attribute instanceof RuntimeVisibleAnnotations)
             {
+                // removed other assertion
                 foundRV = true;
             }
         }
+        // removed other assertion
+        // Build a RIV annotation of type 'SimpleAnnotation' with 'id=4' as the
+        // only value :)
         final AnnotationEntryGen a2 = new AnnotationEntryGen(t, elements, false, cp);
         final List<AnnotationEntryGen> v2 = new ArrayList<>();
         v2.add(a2);
@@ -198,15 +232,22 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
 
     public void testVisibleInvisibleAnnotationGen_5_oe()
     {
+        // Create the containing class
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
+        // Create the simple primitive value '4' of type 'int'
         final SimpleElementValueGen evg = new SimpleElementValueGen(
                 ElementValueGen.PRIMITIVE_INT, cp, 4);
+        // Give it a name, call it 'id'
         final ElementValuePairGen nvGen = new ElementValuePairGen("id", evg,
                 cp);
+        // Check it looks right
+        // removed other assertion
         final ObjectType t = new ObjectType("SimpleAnnotation");
         final List<ElementValuePairGen> elements = new ArrayList<>();
         elements.add(nvGen);
+        // Build a RV annotation of type 'SimpleAnnotation' with 'id=4' as the
+        // only value :)
         final AnnotationEntryGen a = new AnnotationEntryGen(t, elements, true, cp);
         final List<AnnotationEntryGen> v = new ArrayList<>();
         v.add(a);
@@ -215,9 +256,13 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
         for (final Attribute attribute : attributes) {
             if (attribute instanceof RuntimeVisibleAnnotations)
             {
+                // removed other assertion
                 foundRV = true;
             }
         }
+        // removed other assertion
+        // Build a RIV annotation of type 'SimpleAnnotation' with 'id=4' as the
+        // only value :)
         final AnnotationEntryGen a2 = new AnnotationEntryGen(t, elements, false, cp);
         final List<AnnotationEntryGen> v2 = new ArrayList<>();
         v2.add(a2);
@@ -226,6 +271,7 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
         for (final Attribute attribute : attributes2) {
             if (attribute instanceof RuntimeInvisibleAnnotations)
             {
+                // removed other assertion
                 foundRIV = true;
             }
         }

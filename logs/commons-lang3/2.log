@@ -1,0 +1,343 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.commons:commons-lang3 >------------------
+[INFO] Building Apache Commons Lang 3.12.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-lang3 ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-lang3 ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-lang3 ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-lang3 ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-lang3 ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3
+[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772768483398
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-lang3 ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-lang3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 215 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/java/org/apache/commons/lang3/function/FailableDoublePredicate.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/java/org/apache/commons/lang3/function/FailableDoublePredicate.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-lang3 ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-lang3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 337 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/DiffBuilderTest.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/DiffBuilderTest.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest_OE25Dev.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest_OE25Dev.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-lang3 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrBuilderTest.java:1841: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrBuilderTest.java:1891: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrBuilderTest_OE25Dev.java:1841: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrBuilderTest_OE25Dev.java:1891: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.6:prepare-agent (prepare-agent) @ commons-lang3 ---
+[INFO] Skipping JaCoCo execution because property jacoco.skip is set.
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ commons-lang3 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.lang3.builder.JsonToStringStyleTest_OE25Dev
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in org.apache.commons.lang3.builder.JsonToStringStyleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.exception.ContextedExceptionTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.exception.ContextedExceptionTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.HashCodeBuilderTest_OE25Dev
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.lang3.builder.HashCodeBuilderTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.ReflectionToStringBuilderSummaryTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.builder.ReflectionToStringBuilderSummaryTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.reflect.FieldUtilsTest_OE25Dev
+[INFO] Tests run: 110, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s - in org.apache.commons.lang3.reflect.FieldUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.ArchUtilsTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.ArchUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.reflect.ConstructorUtilsTest_OE25Dev
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.lang3.reflect.ConstructorUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.DiffResultTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.lang3.builder.DiffResultTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.RandomUtilsTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.RandomUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.MultiLineToStringStyleTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.lang3.builder.MultiLineToStringStyleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.NoFieldNamesToStringStyleTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.builder.NoFieldNamesToStringStyleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.StringUtilsStartsEndsWithTest_OE25Dev
+[INFO] Tests run: 85, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.lang3.StringUtilsStartsEndsWithTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev
+[INFO] Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.concurrent.ConcurrentUtilsTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.concurrent.ConcurrentUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.SerializationUtilsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.SerializationUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.mutable.MutableLongTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.mutable.MutableLongTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.mutable.MutableByteTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.lang3.mutable.MutableByteTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.CalendarUtilsTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.lang3.time.CalendarUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.CharsetsTestCase_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.CharsetsTestCase_OE25Dev
+[INFO] Running org.apache.commons.lang3.ThreadUtilsTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.lang3.ThreadUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.math.IEEE754rUtilsTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.math.IEEE754rUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.reflect.TypeLiteralTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.lang3.reflect.TypeLiteralTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.StringEscapeUtilsTest_OE25Dev
+[INFO] Tests run: 74, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.lang3.StringEscapeUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.math.NumberUtilsTest_OE25Dev
+[ERROR] Tests run: 499, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.053 s <<< FAILURE! - in org.apache.commons.lang3.math.NumberUtilsTest_OE25Dev
+[ERROR] org.apache.commons.lang3.math.NumberUtilsTest_OE25Dev.testConstants_21_oe  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: java.lang.Long@72d553b3<-1> but was: java.lang.Integer@2ecaa6e3<-1>
+	at org.apache.commons.lang3.math.NumberUtilsTest_OE25Dev.testConstants_21_oe(NumberUtilsTest_OE25Dev.java:3401)
+
+[ERROR] org.apache.commons.lang3.math.NumberUtilsTest_OE25Dev.testConstants_27_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: java.lang.Short@759abe30<-1> but was: java.lang.Integer@2ecaa6e3<-1>
+	at org.apache.commons.lang3.math.NumberUtilsTest_OE25Dev.testConstants_27_oe(NumberUtilsTest_OE25Dev.java:3443)
+
+[ERROR] org.apache.commons.lang3.math.NumberUtilsTest_OE25Dev.testConstants_30_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: java.lang.Byte@4eae6289<-1> but was: java.lang.Integer@2ecaa6e3<-1>
+	at org.apache.commons.lang3.math.NumberUtilsTest_OE25Dev.testConstants_30_oe(NumberUtilsTest_OE25Dev.java:3464)
+
+[INFO] Running org.apache.commons.lang3.exception.ExceptionUtilsTest_OE25Dev
+[INFO] Tests run: 177, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in org.apache.commons.lang3.exception.ExceptionUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.AnnotationUtilsTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.lang3.AnnotationUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.reflect.InheritanceUtilsTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.reflect.InheritanceUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.function.FailableFunctionsTest_OE25Dev
+[INFO] Tests run: 74, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.lang3.function.FailableFunctionsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.WordUtilsTest_OE25Dev
+[INFO] Tests run: 86, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.lang3.text.WordUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.SimpleToStringStyleTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.builder.SimpleToStringStyleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.ArrayUtilsTest_OE25Dev
+[INFO] Tests run: 81, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.lang3.ArrayUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.DateUtilsTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 s - in org.apache.commons.lang3.time.DateUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.event.EventUtilsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.event.EventUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.StringUtilsEmptyBlankTest_OE25Dev
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.lang3.StringUtilsEmptyBlankTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.ConversionTest_OE25Dev
+[INFO] Tests run: 391, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.lang3.ConversionTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.RecursiveToStringStyleTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.builder.RecursiveToStringStyleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.StringUtilsValueOfTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.StringUtilsValueOfTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.DiffTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.builder.DiffTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.mutable.MutableFloatTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.mutable.MutableFloatTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.CharRangeTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.CharRangeTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.translate.UnicodeUnpairedSurrogateRemoverTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.text.translate.UnicodeUnpairedSurrogateRemoverTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.mutable.MutableBooleanTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.mutable.MutableBooleanTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.DefaultToStringStyleTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.builder.DefaultToStringStyleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.CharSetTest_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.CharSetTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.StringUtilsContainsTest_OE25Dev
+[INFO] Tests run: 177, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.lang3.StringUtilsContainsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.StringUtilsTrimStripTest_OE25Dev
+[INFO] Tests run: 104, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.lang3.StringUtilsTrimStripTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.SystemUtilsTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.SystemUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.concurrent.ConstantInitializerTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.concurrent.ConstantInitializerTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.BitFieldTest_OE25Dev
+[INFO] Tests run: 69, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.lang3.BitFieldTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.DateFormatUtilsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.lang3.time.DateFormatUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.CharUtilsTest_OE25Dev
+[INFO] Tests run: 98, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.lang3.CharUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.DateUtilsFragmentTest_OE25Dev
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.lang3.time.DateUtilsFragmentTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.BooleanUtilsTest_OE25Dev
+[INFO] Tests run: 230, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.apache.commons.lang3.BooleanUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.StandardToStringStyleTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.lang3.builder.StandardToStringStyleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.ClassUtilsTest_OE25Dev
+[INFO] Tests run: 587, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in org.apache.commons.lang3.ClassUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.StringUtilsSubstringTest_OE25Dev
+[INFO] Tests run: 199, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.lang3.StringUtilsSubstringTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.tuple.MutableTripleTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.tuple.MutableTripleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.ObjectUtilsTest_OE25Dev
+[INFO] Tests run: 119, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.lang3.ObjectUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.mutable.MutableShortTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.mutable.MutableShortTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.mutable.MutableObjectTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.mutable.MutableObjectTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.CharEncodingTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.lang3.CharEncodingTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.FastTimeZoneTest_OE25Dev
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.time.FastTimeZoneTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.ArrayUtilsAddTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.ArrayUtilsAddTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.tuple.ImmutablePairTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.tuple.ImmutablePairTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.CharSetUtilsTest_OE25Dev
+[INFO] Tests run: 138, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.lang3.CharSetUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.math.FractionTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.math.FractionTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.reflect.TypeUtilsTest_OE25Dev
+[INFO] Tests run: 57, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.lang3.reflect.TypeUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.JavaVersionTest_OE25Dev
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.JavaVersionTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.GmtTimeZoneTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.time.GmtTimeZoneTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.exception.ContextedRuntimeExceptionTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.exception.ContextedRuntimeExceptionTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.StringUtilsIsTest_OE25Dev
+[INFO] Tests run: 112, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.lang3.StringUtilsIsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.tuple.ImmutableTripleTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.lang3.tuple.ImmutableTripleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.RegExUtilsTest_OE25Dev
+[INFO] Tests run: 116, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.lang3.RegExUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.mutable.MutableIntTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.mutable.MutableIntTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.StrLookupTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.text.StrLookupTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.NoClassNameToStringStyleTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.builder.NoClassNameToStringStyleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.RandomStringUtilsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.RandomStringUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.StopWatchTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.time.StopWatchTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.FormattableUtilsTest_OE25Dev
+[INFO] Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.lang3.text.FormattableUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.reflect.MethodUtilsTest_OE25Dev
+[INFO] Tests run: 134, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.apache.commons.lang3.reflect.MethodUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.tuple.MutablePairTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.tuple.MutablePairTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.ClassPathUtilsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.ClassPathUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev
+[ERROR] Tests run: 45, Failures: 10, Errors: 0, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev
+[ERROR] org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_10_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: java.lang.Short@848d9bc<-32768> but was: java.lang.Long@3a66d97e<-32768>
+	at org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_10_oe(DurationUtilsTest_OE25Dev.java:238)
+
+[ERROR] org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_11_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: java.lang.Short@1add3e03<32767> but was: java.lang.Long@d28a235<32767>
+	at org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_11_oe(DurationUtilsTest_OE25Dev.java:244)
+
+[ERROR] org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: java.lang.Integer@2f2d8770<-2147483648> but was: java.lang.Long@742dbac8<-2147483648>
+	at org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_2_oe(DurationUtilsTest_OE25Dev.java:190)
+
+[ERROR] org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: java.lang.Integer@2ce62e27<-2147483648> but was: java.lang.Long@742dbac8<-2147483648>
+	at org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_3_oe(DurationUtilsTest_OE25Dev.java:196)
+
+[ERROR] org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: java.lang.Integer@3538a129<-2147483648> but was: java.lang.Long@742dbac8<-2147483648>
+	at org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_4_oe(DurationUtilsTest_OE25Dev.java:202)
+
+[ERROR] org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_5_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: java.lang.Integer@766db6f9<2147483647> but was: java.lang.Long@6f8fb906<2147483647>
+	at org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_5_oe(DurationUtilsTest_OE25Dev.java:208)
+
+[ERROR] org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_6_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: java.lang.Integer@728535c6<2147483647> but was: java.lang.Long@6f8fb906<2147483647>
+	at org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_6_oe(DurationUtilsTest_OE25Dev.java:214)
+
+[ERROR] org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_7_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: java.lang.Integer@244f356<2147483647> but was: java.lang.Long@6f8fb906<2147483647>
+	at org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_7_oe(DurationUtilsTest_OE25Dev.java:220)
+
+[ERROR] org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_8_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: java.lang.Integer@19855799<-2147483648> but was: java.lang.Long@742dbac8<-2147483648>
+	at org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_8_oe(DurationUtilsTest_OE25Dev.java:226)
+
+[ERROR] org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_9_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: java.lang.Integer@bd09a26<2147483647> but was: java.lang.Long@6f8fb906<2147483647>
+	at org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev.testLongToIntRangeFit_9_oe(DurationUtilsTest_OE25Dev.java:232)
+
+[INFO] Running org.apache.commons.lang3.CharSequenceUtilsTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.CharSequenceUtilsTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   NumberUtilsTest_OE25Dev.testConstants_21_oe:3401 expected: java.lang.Long@72d553b3<-1> but was: java.lang.Integer@2ecaa6e3<-1>
+[ERROR]   NumberUtilsTest_OE25Dev.testConstants_27_oe:3443 expected: java.lang.Short@759abe30<-1> but was: java.lang.Integer@2ecaa6e3<-1>
+[ERROR]   NumberUtilsTest_OE25Dev.testConstants_30_oe:3464 expected: java.lang.Byte@4eae6289<-1> but was: java.lang.Integer@2ecaa6e3<-1>
+[ERROR]   DurationUtilsTest_OE25Dev.testLongToIntRangeFit_10_oe:238 expected: java.lang.Short@848d9bc<-32768> but was: java.lang.Long@3a66d97e<-32768>
+[ERROR]   DurationUtilsTest_OE25Dev.testLongToIntRangeFit_11_oe:244 expected: java.lang.Short@1add3e03<32767> but was: java.lang.Long@d28a235<32767>
+[ERROR]   DurationUtilsTest_OE25Dev.testLongToIntRangeFit_2_oe:190 expected: java.lang.Integer@2f2d8770<-2147483648> but was: java.lang.Long@742dbac8<-2147483648>
+[ERROR]   DurationUtilsTest_OE25Dev.testLongToIntRangeFit_3_oe:196 expected: java.lang.Integer@2ce62e27<-2147483648> but was: java.lang.Long@742dbac8<-2147483648>
+[ERROR]   DurationUtilsTest_OE25Dev.testLongToIntRangeFit_4_oe:202 expected: java.lang.Integer@3538a129<-2147483648> but was: java.lang.Long@742dbac8<-2147483648>
+[ERROR]   DurationUtilsTest_OE25Dev.testLongToIntRangeFit_5_oe:208 expected: java.lang.Integer@766db6f9<2147483647> but was: java.lang.Long@6f8fb906<2147483647>
+[ERROR]   DurationUtilsTest_OE25Dev.testLongToIntRangeFit_6_oe:214 expected: java.lang.Integer@728535c6<2147483647> but was: java.lang.Long@6f8fb906<2147483647>
+[ERROR]   DurationUtilsTest_OE25Dev.testLongToIntRangeFit_7_oe:220 expected: java.lang.Integer@244f356<2147483647> but was: java.lang.Long@6f8fb906<2147483647>
+[ERROR]   DurationUtilsTest_OE25Dev.testLongToIntRangeFit_8_oe:226 expected: java.lang.Integer@19855799<-2147483648> but was: java.lang.Long@742dbac8<-2147483648>
+[ERROR]   DurationUtilsTest_OE25Dev.testLongToIntRangeFit_9_oe:232 expected: java.lang.Integer@bd09a26<2147483647> but was: java.lang.Long@6f8fb906<2147483647>
+[INFO] 
+[ERROR] Tests run: 4512, Failures: 13, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  28.851 s
+[INFO] Finished at: 2026-03-05T21:41:48-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project commons-lang3: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -34,6 +34,7 @@ public class VerifierReturnTestCase_OE25Dev extends AbstractVerifierTestCase {
 
     public void testInvalidReturn_2_oe_1_oe() throws IOException {
         new TestReturn01Creator().create();
+        // removed other assertion
         new TestReturn03Creator().create();
                 final String classname0 = "TestReturn03";
         final String message0 = "Verification of an int method that returns null must fail.";
@@ -49,6 +50,7 @@ public class VerifierReturnTestCase_OE25Dev extends AbstractVerifierTestCase {
     }
 
     public void testValidReturn_2_oe_1_oe() {
+        // removed other assertion
                 final String classname0 = "TestArray01";
         final String message0 = "Verification of a method that returns an array must pass.";
         final String testClassname0 = TEST_PACKAGE + classname0;

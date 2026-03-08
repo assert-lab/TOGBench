@@ -68,6 +68,7 @@ public class WhileTest_OE25Dev extends JexlTestCase {
         jc.set("y", new Integer(1));
 
         final Object o = e.execute(jc);
+        // removed other assertion
         Assert.assertEquals("x is wrong", new Integer(10), jc.get("x"));
     }
 
@@ -79,6 +80,8 @@ public class WhileTest_OE25Dev extends JexlTestCase {
         jc.set("y", new Integer(1));
 
         final Object o = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("y is wrong", new Integer(512), jc.get("y"));
     }
 

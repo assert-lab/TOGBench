@@ -251,6 +251,7 @@ public class VMSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework
         engine.readServerList(
                 new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
         final FTPFile[] files = engine.getFiles();
+        // removed other assertion
                 final FTPFile[] listing0 = files;
         final String name0 = "2-JUN.LIS";
         for (final FTPFile element0 : listing0)
@@ -270,6 +271,8 @@ public class VMSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework
         engine.readServerList(
                 new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
         final FTPFile[] files = engine.getFiles();
+        // removed other assertion
+        // removed other assertion
                 final FTPFile[] listing0 = files;
         final String name0 = "3-JUN.LIS";
         for (final FTPFile element0 : listing0)
@@ -289,6 +292,9 @@ public class VMSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework
         engine.readServerList(
                 new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
         final FTPFile[] files = engine.getFiles();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final FTPFile[] listing0 = files;
         final String name0 = "1-JUN.LIS";
         for (final FTPFile element0 : listing0)
@@ -308,6 +314,10 @@ public class VMSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework
         engine.readServerList(
                 new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
         final FTPFile[] files = engine.getFiles();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final FTPFile[] listing0 = files;
         final String name0 = "1-JUN.LIS;1";
         for (final FTPFile element0 : listing0)
@@ -327,6 +337,7 @@ public class VMSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework
         engine.readServerList(
                 new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
         final FTPFile[] files = engine.getFiles();
+        // removed other assertion
                 final FTPFile[] listing0 = files;
         final String name0 = "1-JUN.LIS;1";
         for (final FTPFile element0 : listing0)
@@ -347,6 +358,8 @@ public class VMSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework
         engine.readServerList(
                 new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
         final FTPFile[] files = engine.getFiles();
+        // removed other assertion
+        // removed other assertion
                 final FTPFile[] listing0 = files;
         final String name0 = "2-JUN.LIS;1";
         for (final FTPFile element0 : listing0)
@@ -367,6 +380,9 @@ public class VMSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework
         engine.readServerList(
                 new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
         final FTPFile[] files = engine.getFiles();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final FTPFile[] listing0 = files;
         final String name0 = "3-JUN.LIS;4";
         for (final FTPFile element0 : listing0)
@@ -387,6 +403,10 @@ public class VMSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework
         engine.readServerList(
                 new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
         final FTPFile[] files = engine.getFiles();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final FTPFile[] listing0 = files;
         final String name0 = "3-JUN.LIS;1";
         for (final FTPFile element0 : listing0)
@@ -406,6 +426,11 @@ public class VMSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework
         engine.readServerList(
                 new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
         final FTPFile[] files = engine.getFiles();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final FTPFile[] listing0 = files;
         final String name0 = "3-JUN.LIS";
         for (final FTPFile element0 : listing0)

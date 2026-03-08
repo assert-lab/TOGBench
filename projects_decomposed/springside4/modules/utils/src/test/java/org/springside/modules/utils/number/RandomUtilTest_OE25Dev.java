@@ -23,6 +23,7 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_2_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
 		assertThat(i).isBetween(0, Integer.MAX_VALUE);
 	}
@@ -31,7 +32,9 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_3_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10);
 		assertThat(i).isBetween(0, 10);
@@ -41,9 +44,12 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_4_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
 		assertThat(i).isBetween(0, 10);
 	}
@@ -52,10 +58,14 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_5_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10, 20);
 		assertThat(i).isBetween(10, 20);
@@ -65,12 +75,17 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_6_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10, 20);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10, 20);
 		assertThat(i).isBetween(10, 20);
 	}
@@ -79,13 +94,19 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_7_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10, 20);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		long l = RandomUtil.nextLong();
 		assertThat(l).isBetween(0L, Long.MAX_VALUE);
@@ -95,15 +116,22 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_8_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10, 20);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		long l = RandomUtil.nextLong();
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom());
 		assertThat(l).isBetween(0L, Long.MAX_VALUE);
 	}
@@ -112,16 +140,24 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_9_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10, 20);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		long l = RandomUtil.nextLong();
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10);
 		assertThat(l).isBetween(0L, 10L);
@@ -131,18 +167,27 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_10_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10, 20);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		long l = RandomUtil.nextLong();
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10);
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10L);
 		assertThat(l).isBetween(0L, 10L);
 	}
@@ -151,19 +196,29 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_11_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10, 20);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		long l = RandomUtil.nextLong();
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10);
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10L);
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10L, 20L);
 		assertThat(l).isBetween(10L, 20L);
@@ -173,21 +228,32 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_12_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10, 20);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		long l = RandomUtil.nextLong();
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10);
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10L);
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10L, 20L);
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10, 20);
 		assertThat(l).isBetween(10L, 20L);
 	}
@@ -196,22 +262,34 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_13_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10, 20);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		long l = RandomUtil.nextLong();
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10);
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10L);
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10L, 20L);
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		double d = RandomUtil.nextDouble();
 		assertThat(d).isBetween(0d, Double.MAX_VALUE);
@@ -221,24 +299,37 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_14_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10, 20);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		long l = RandomUtil.nextLong();
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10);
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10L);
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10L, 20L);
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		double d = RandomUtil.nextDouble();
+		// removed other assertion
 		d = RandomUtil.nextDouble(RandomUtil.threadLocalRandom());
 		assertThat(d).isBetween(0d, Double.MAX_VALUE);
 	}
@@ -247,25 +338,39 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_15_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10, 20);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		long l = RandomUtil.nextLong();
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10);
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10L);
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10L, 20L);
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		double d = RandomUtil.nextDouble();
+		// removed other assertion
 		d = RandomUtil.nextDouble(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		d = RandomUtil.nextDouble(10);
 		assertThat(d).isBetween(0d, 10d);
@@ -275,27 +380,42 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_16_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10, 20);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		long l = RandomUtil.nextLong();
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10);
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10L);
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10L, 20L);
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		double d = RandomUtil.nextDouble();
+		// removed other assertion
 		d = RandomUtil.nextDouble(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		d = RandomUtil.nextDouble(10);
+		// removed other assertion
 		d = RandomUtil.nextDouble(RandomUtil.threadLocalRandom(), 10L);
 		assertThat(d).isBetween(0d, 10d);
 	}
@@ -304,28 +424,44 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_17_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10, 20);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		long l = RandomUtil.nextLong();
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10);
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10L);
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10L, 20L);
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		double d = RandomUtil.nextDouble();
+		// removed other assertion
 		d = RandomUtil.nextDouble(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		d = RandomUtil.nextDouble(10);
+		// removed other assertion
 		d = RandomUtil.nextDouble(RandomUtil.threadLocalRandom(), 10L);
+		// removed other assertion
 
 		d = RandomUtil.nextDouble(10L, 20L);
 		assertThat(d).isBetween(10d, 20d);
@@ -335,30 +471,47 @@ public class RandomUtilTest_OE25Dev {
 	public void randomNumber_18_oe() {
 
 		int i = RandomUtil.nextInt();
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
+		// removed other assertion
 
 		i = RandomUtil.nextInt(10, 20);
+		// removed other assertion
 		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		long l = RandomUtil.nextLong();
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10);
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10L);
+		// removed other assertion
 
 		l = RandomUtil.nextLong(10L, 20L);
+		// removed other assertion
 		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10, 20);
+		// removed other assertion
 
 		double d = RandomUtil.nextDouble();
+		// removed other assertion
 		d = RandomUtil.nextDouble(RandomUtil.threadLocalRandom());
+		// removed other assertion
 
 		d = RandomUtil.nextDouble(10);
+		// removed other assertion
 		d = RandomUtil.nextDouble(RandomUtil.threadLocalRandom(), 10L);
+		// removed other assertion
 
 		d = RandomUtil.nextDouble(10L, 20L);
+		// removed other assertion
 		d = RandomUtil.nextDouble(RandomUtil.threadLocalRandom(), 10, 20);
 		assertThat(d).isBetween(10d, 20d);
 	}
@@ -382,6 +535,7 @@ public class RandomUtilTest_OE25Dev {
 		System.out.println(RandomUtil.randomStringFixLength(RandomUtil.threadLocalRandom(), 5));
 		System.out.println(RandomUtil.randomStringRandomLength(RandomUtil.threadLocalRandom(), 5, 10));
 
+		// removed other assertion
 		assertThat(RandomUtil.randomStringFixLength(RandomUtil.threadLocalRandom(), 5)).hasSize(5);
 	}
 
@@ -393,6 +547,8 @@ public class RandomUtilTest_OE25Dev {
 		System.out.println(RandomUtil.randomStringFixLength(RandomUtil.threadLocalRandom(), 5));
 		System.out.println(RandomUtil.randomStringRandomLength(RandomUtil.threadLocalRandom(), 5, 10));
 
+		// removed other assertion
+		// removed other assertion
 
 		System.out.println(RandomUtil.randomLetterFixLength(5));
 		System.out.println(RandomUtil.randomLetterRandomLength(5, 10));
@@ -411,6 +567,8 @@ public class RandomUtilTest_OE25Dev {
 		System.out.println(RandomUtil.randomStringFixLength(RandomUtil.threadLocalRandom(), 5));
 		System.out.println(RandomUtil.randomStringRandomLength(RandomUtil.threadLocalRandom(), 5, 10));
 
+		// removed other assertion
+		// removed other assertion
 
 		System.out.println(RandomUtil.randomLetterFixLength(5));
 		System.out.println(RandomUtil.randomLetterRandomLength(5, 10));
@@ -418,6 +576,7 @@ public class RandomUtilTest_OE25Dev {
 		System.out.println(RandomUtil.randomLetterFixLength(RandomUtil.threadLocalRandom(), 5));
 		System.out.println(RandomUtil.randomLetterRandomLength(RandomUtil.threadLocalRandom(), 5, 10));
 
+		// removed other assertion
 		assertThat(RandomUtil.randomLetterFixLength(RandomUtil.threadLocalRandom(), 5)).hasSize(5);
 	}
 
@@ -429,6 +588,8 @@ public class RandomUtilTest_OE25Dev {
 		System.out.println(RandomUtil.randomStringFixLength(RandomUtil.threadLocalRandom(), 5));
 		System.out.println(RandomUtil.randomStringRandomLength(RandomUtil.threadLocalRandom(), 5, 10));
 
+		// removed other assertion
+		// removed other assertion
 
 		System.out.println(RandomUtil.randomLetterFixLength(5));
 		System.out.println(RandomUtil.randomLetterRandomLength(5, 10));
@@ -436,6 +597,8 @@ public class RandomUtilTest_OE25Dev {
 		System.out.println(RandomUtil.randomLetterFixLength(RandomUtil.threadLocalRandom(), 5));
 		System.out.println(RandomUtil.randomLetterRandomLength(RandomUtil.threadLocalRandom(), 5, 10));
 
+		// removed other assertion
+		// removed other assertion
 
 		System.out.println(RandomUtil.randomAsciiFixLength(5));
 		System.out.println(RandomUtil.randomAsciiRandomLength(5, 10));
@@ -454,6 +617,8 @@ public class RandomUtilTest_OE25Dev {
 		System.out.println(RandomUtil.randomStringFixLength(RandomUtil.threadLocalRandom(), 5));
 		System.out.println(RandomUtil.randomStringRandomLength(RandomUtil.threadLocalRandom(), 5, 10));
 
+		// removed other assertion
+		// removed other assertion
 
 		System.out.println(RandomUtil.randomLetterFixLength(5));
 		System.out.println(RandomUtil.randomLetterRandomLength(5, 10));
@@ -461,6 +626,8 @@ public class RandomUtilTest_OE25Dev {
 		System.out.println(RandomUtil.randomLetterFixLength(RandomUtil.threadLocalRandom(), 5));
 		System.out.println(RandomUtil.randomLetterRandomLength(RandomUtil.threadLocalRandom(), 5, 10));
 
+		// removed other assertion
+		// removed other assertion
 
 		System.out.println(RandomUtil.randomAsciiFixLength(5));
 		System.out.println(RandomUtil.randomAsciiRandomLength(5, 10));
@@ -468,6 +635,7 @@ public class RandomUtilTest_OE25Dev {
 		System.out.println(RandomUtil.randomAsciiFixLength(RandomUtil.threadLocalRandom(), 5));
 		System.out.println(RandomUtil.randomAsciiRandomLength(RandomUtil.threadLocalRandom(), 5, 10));
 
+		// removed other assertion
 		assertThat(RandomUtil.randomAsciiFixLength(RandomUtil.threadLocalRandom(), 5)).hasSize(5);
 	}
 

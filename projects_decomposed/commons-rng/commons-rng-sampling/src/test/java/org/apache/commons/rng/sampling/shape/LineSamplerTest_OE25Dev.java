@@ -371,6 +371,7 @@ class LineSamplerTest_OE25Dev {
     @Test
     void testNonFiniteVertexCoordinates_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        // A valid line
          double[][] c = new double[][] {
             {0, 1, 2}, {-1, 2, 3}
         };
@@ -380,9 +381,11 @@ class LineSamplerTest_OE25Dev {
     @Test
     void testNonFiniteVertexCoordinates_2_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        // A valid line
          double[][] c = new double[][] {
             {0, 1, 2}, {-1, 2, 3}
         };
+        // removed other assertion
          double[] bad = {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NaN};
         for (int i = 0; i < c.length; i++) {
              int ii = i;

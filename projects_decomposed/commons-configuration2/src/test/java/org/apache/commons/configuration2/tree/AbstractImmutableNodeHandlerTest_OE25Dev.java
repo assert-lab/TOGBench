@@ -198,6 +198,7 @@ public abstract class AbstractImmutableNodeHandlerTest_OE25Dev {
         final NodeHandler<ImmutableNode> handler = createHandler(ROOT_AUTHORS_TREE);
         for (int authorIdx = 0; authorIdx < NodeStructureHelper.authorsLength(); authorIdx++) {
             final ImmutableNode authorNode = nodeForKey(handler.getRootNode(), NodeStructureHelper.author(authorIdx));
+            // removed other assertion
             for (int workIdx = 0; workIdx < NodeStructureHelper.worksLength(authorIdx); workIdx++) {
                 final String workKey = NodeStructureHelper.appendPath(NodeStructureHelper.author(authorIdx), NodeStructureHelper.work(authorIdx, workIdx));
                 final ImmutableNode workNode = nodeForKey(handler.getRootNode(), workKey);
@@ -211,9 +212,11 @@ public abstract class AbstractImmutableNodeHandlerTest_OE25Dev {
         final NodeHandler<ImmutableNode> handler = createHandler(ROOT_AUTHORS_TREE);
         for (int authorIdx = 0; authorIdx < NodeStructureHelper.authorsLength(); authorIdx++) {
             final ImmutableNode authorNode = nodeForKey(handler.getRootNode(), NodeStructureHelper.author(authorIdx));
+            // removed other assertion
             for (int workIdx = 0; workIdx < NodeStructureHelper.worksLength(authorIdx); workIdx++) {
                 final String workKey = NodeStructureHelper.appendPath(NodeStructureHelper.author(authorIdx), NodeStructureHelper.work(authorIdx, workIdx));
                 final ImmutableNode workNode = nodeForKey(handler.getRootNode(), workKey);
+                // removed other assertion
                 for (int personaIdx = 0; personaIdx < NodeStructureHelper.personaeLength(authorIdx, workIdx); personaIdx++) {
                     final String personKey = NodeStructureHelper.appendPath(workKey, NodeStructureHelper.persona(authorIdx, workIdx, personaIdx));
                     final ImmutableNode personNode = nodeForKey(handler.getRootNode(), personKey);
@@ -264,6 +267,7 @@ public abstract class AbstractImmutableNodeHandlerTest_OE25Dev {
         final NodeHandler<ImmutableNode> handler = createHandler(ROOT_PERSONAE_TREE);
         final String name = "Achilles";
         final Set<ImmutableNode> children = new HashSet<>(handler.getChildren(ROOT_PERSONAE_TREE, name));
+        // removed other assertion
         for (final ImmutableNode c : children) {
             assertEquals("Wrong node name", name, c.getNodeName());
     }
@@ -315,6 +319,7 @@ public abstract class AbstractImmutableNodeHandlerTest_OE25Dev {
         };
 
         final List<ImmutableNode> result = handler.getMatchingChildren(handler.getRootNode(), matcher, target);
+        // removed other assertion
         assertSame("Wrong result", target, result.get(0));
     }
 
@@ -333,6 +338,8 @@ public abstract class AbstractImmutableNodeHandlerTest_OE25Dev {
         };
 
         final List<ImmutableNode> result = handler.getMatchingChildren(handler.getRootNode(), matcher, target);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong number of encountered nodes", NodeStructureHelper.authorsLength(), encounteredAuthors.size());
     }
 
@@ -351,6 +358,9 @@ public abstract class AbstractImmutableNodeHandlerTest_OE25Dev {
         };
 
         final List<ImmutableNode> result = handler.getMatchingChildren(handler.getRootNode(), matcher, target);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (int i = 0; i < NodeStructureHelper.authorsLength(); i++) {
             assertTrue("Author not found: " + NodeStructureHelper.author(i), encounteredAuthors.contains(NodeStructureHelper.author(i)));
     }

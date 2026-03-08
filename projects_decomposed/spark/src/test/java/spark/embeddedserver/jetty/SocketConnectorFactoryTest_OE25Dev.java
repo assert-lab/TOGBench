@@ -21,6 +21,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
 
         try {
             SocketConnectorFactory.createSocketConnector(null, "host", 80);
+            // removed other assertion
         } catch(IllegalArgumentException ex) {
             assertEquals("'server' must not be null", ex.getMessage());
     }
@@ -33,6 +34,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
 
         try {
             SocketConnectorFactory.createSocketConnector(server, null, 80);
+            // removed other assertion
         } catch(IllegalArgumentException ex) {
             assertEquals("'host' must not be null", ex.getMessage());
     }
@@ -67,6 +69,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
         int internalPort = Whitebox.getInternalState(serverConnector, "_port");
         Server internalServerConnector = Whitebox.getInternalState(serverConnector, "_server");
 
+        // removed other assertion
         assertEquals("Server Connector Port should be set to the specified port", port, internalPort);
     }
 
@@ -83,6 +86,8 @@ public class SocketConnectorFactoryTest_OE25Dev {
         int internalPort = Whitebox.getInternalState(serverConnector, "_port");
         Server internalServerConnector = Whitebox.getInternalState(serverConnector, "_server");
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Server Connector Server should be set to the specified server", internalServerConnector, server);
     }
 
@@ -91,6 +96,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
 
         try {
             SocketConnectorFactory.createSecureSocketConnector(null, "localhost", 80, null);
+            // removed other assertion
         } catch(IllegalArgumentException ex) {
             assertEquals("'server' must not be null", ex.getMessage());
     }
@@ -103,6 +109,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
 
         try {
             SocketConnectorFactory.createSecureSocketConnector(server, null, 80, null);
+            // removed other assertion
         } catch(IllegalArgumentException ex) {
             assertEquals("'host' must not be null", ex.getMessage());
     }
@@ -115,6 +122,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
 
         try {
             SocketConnectorFactory.createSecureSocketConnector(server, "localhost", 80, null);
+            // removed other assertion
         } catch(IllegalArgumentException ex) {
             assertEquals("'sslStores' must not be null", ex.getMessage());
     }
@@ -161,6 +169,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
         String internalHost = Whitebox.getInternalState(serverConnector, "_host");
         int internalPort = Whitebox.getInternalState(serverConnector, "_port");
 
+        // removed other assertion
         assertEquals("Server Connector Port should be set to the specified port", port, internalPort);
     }
 
@@ -183,6 +192,8 @@ public class SocketConnectorFactoryTest_OE25Dev {
         String internalHost = Whitebox.getInternalState(serverConnector, "_host");
         int internalPort = Whitebox.getInternalState(serverConnector, "_port");
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String, ConnectionFactory> factories = Whitebox.getInternalState(serverConnector, "_factories");
 
@@ -208,9 +219,12 @@ public class SocketConnectorFactoryTest_OE25Dev {
         String internalHost = Whitebox.getInternalState(serverConnector, "_host");
         int internalPort = Whitebox.getInternalState(serverConnector, "_port");
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String, ConnectionFactory> factories = Whitebox.getInternalState(serverConnector, "_factories");
 
+        // removed other assertion
 
         SslConnectionFactory sslConnectionFactory = (SslConnectionFactory) factories.get("ssl");
         SslContextFactory sslContextFactory = sslConnectionFactory.getSslContextFactory();
@@ -237,13 +251,17 @@ public class SocketConnectorFactoryTest_OE25Dev {
         String internalHost = Whitebox.getInternalState(serverConnector, "_host");
         int internalPort = Whitebox.getInternalState(serverConnector, "_port");
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String, ConnectionFactory> factories = Whitebox.getInternalState(serverConnector, "_factories");
 
+        // removed other assertion
 
         SslConnectionFactory sslConnectionFactory = (SslConnectionFactory) factories.get("ssl");
         SslContextFactory sslContextFactory = sslConnectionFactory.getSslContextFactory();
 
+        // removed other assertion
 
         assertEquals("Should return the Truststore file specified",truststoreFile,sslContextFactory.getTrustStoreResource().getFile().getName());
     }

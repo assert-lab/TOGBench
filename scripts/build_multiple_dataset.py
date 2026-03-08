@@ -1,4 +1,4 @@
-# python3 scripts/build_multiple_dataset.py projects_decomposed/jsoup/all_test_methods.csv projects_decomposed/jsoup projects_decomposed/jsoup/dataset_multiple
+# python3 scripts/build_multiple_dataset.py projects_decomposed/bcel/all_test_methods.csv projects_decomposed/bcel projects_decomposed/bcel/dataset_multiple
 #!/usr/bin/env python3
 import csv
 import re

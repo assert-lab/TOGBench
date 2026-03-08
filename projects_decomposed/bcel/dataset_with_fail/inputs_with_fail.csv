@@ -1,0 +1,33 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+bcel_73_12,"    public void testTransformClassToClassGen_ArrayAndAnnotationTypes_12_oe()
+            throws ClassNotFoundException
+    {
+        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.AnnotatedWithCombinedAnnotation"");
+        final ClassGen cgen = new ClassGen(jc);
+        final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        final AnnotationEntryGen a = annotations[0];
+        final ElementValuePairGen nvp = a.getValues().get(0);
+        final ElementValueGen value = nvp.getValue();
+        final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+
+        final Method[] methods = cgen.getMethods();
+        for (final Method method : methods)
+        {
+            final String methodName= method.getName();
+            if(methodName.equals(""<init>""))
+            {
+            }
+            else if(methodName.equals(""methodWithArrayOfZeroAnnotations""))
+            {
+            }
+            else if(methodName.equals(""methodWithArrayOfTwoAnnotations""))
+            {
+            }
+            else
+            {
+                fail(""unexpected method ""+method.getName());
+    }
+    }
+    }",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_12_oe,org.apache.bcel.generic.NamedAndTyped,getName(),,String getName();

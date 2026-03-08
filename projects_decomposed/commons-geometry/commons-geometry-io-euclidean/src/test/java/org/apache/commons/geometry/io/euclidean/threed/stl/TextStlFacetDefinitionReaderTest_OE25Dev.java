@@ -46,71 +46,97 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
 
     @Test
     void testGetSolidName_1_oe() {
+        // act/assert
         Assertions.assertEquals("Test Name", facetReader("solid    Test Name  \r\n").getSolidName());
     }
 
     @Test
     void testGetSolidName_2_oe() {
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals("Test", facetReader("solid    Test  ").getSolidName());
     }
 
     @Test
     void testGetSolidName_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(facetReader("solid    ").getSolidName());
     }
 
     @Test
     void testGetSolidName_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(facetReader("solid").getSolidName());
     }
 
     @Test
     void testClose_1_oe() {
+        // arrange
         final CloseCountReader countReader = new CloseCountReader(new StringReader(""));
         final TextStlFacetDefinitionReader reader = new TextStlFacetDefinitionReader(countReader);
 
+        // act
         reader.close();
 
+        // assert
         Assertions.assertEquals(1, countReader.getCloseCount());
     }
 
     @Test
     void testEmpty_1_oe() {
+        // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid \n" +
                 "endsolid");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
         Assertions.assertNull(reader.getSolidName());
     }
 
     @Test
     void testEmpty_2_oe() {
+        // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid \n" +
                 "endsolid");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertEquals(0, facets.size());
     }
 
     @Test
     void testEmpty_3_oe() {
+        // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid \n" +
                 "endsolid");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(reader.readFacet());
     }
 
     @Test
     void testSingleFacet_1_oe() {
+        // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid test\n" +
                 "facet normal 1 2 3 " +
@@ -122,13 +148,16 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
                 "endfacet " +
                 "endsolid test");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
         Assertions.assertEquals("test", reader.getSolidName());
     }
 
     @Test
     void testSingleFacet_2_oe() {
+        // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid test\n" +
                 "facet normal 1 2 3 " +
@@ -140,14 +169,18 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
                 "endfacet " +
                 "endsolid test");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertEquals(1, facets.size());
     }
 
     @Test
     void testSingleFacet_4_oe() {
+        // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid test\n" +
                 "facet normal 1 2 3 " +
@@ -159,16 +192,22 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
                 "endfacet " +
                 "endsolid test");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertNull(reader.readFacet());
     }
 
     @Test
     void testMultipleFacets_1_oe() {
+        // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid test solid\r\n\n" +
                 "facet normal 1 2 3 " +
@@ -194,13 +233,16 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
                 "endfacet \r\n" +
                 "endsolid test solid");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
         Assertions.assertEquals("test solid", reader.getSolidName());
     }
 
     @Test
     void testMultipleFacets_2_oe() {
+        // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid test solid\r\n\n" +
                 "facet normal 1 2 3 " +
@@ -226,14 +268,18 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
                 "endfacet \r\n" +
                 "endsolid test solid");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertEquals(3, facets.size());
     }
 
     @Test
     void testMultipleFacets_6_oe() {
+        // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid test solid\r\n\n" +
                 "facet normal 1 2 3 " +
@@ -259,18 +305,26 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
                 "endfacet \r\n" +
                 "endsolid test solid");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertNull(reader.readFacet());
     }
 
     @Test
     void testNoName_1_oe() {
+        // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid\n" +
                 "facet normal 1 2 3 " +
@@ -282,13 +336,16 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
                 "endfacet " +
                 "endsolid");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
         Assertions.assertNull(reader.getSolidName());
     }
 
     @Test
     void testNoName_2_oe() {
+        // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid\n" +
                 "facet normal 1 2 3 " +
@@ -300,14 +357,18 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
                 "endfacet " +
                 "endsolid");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertEquals(1, facets.size());
     }
 
     @Test
     void testNoName_4_oe() {
+        // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid\n" +
                 "facet normal 1 2 3 " +
@@ -319,16 +380,22 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
                 "endfacet " +
                 "endsolid");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertNull(reader.readFacet());
     }
 
     @Test
     void testContentEndsEarly_1_oe() {
+        // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid test\n" +
                 "facet normal 1 2 3 " +
@@ -339,13 +406,16 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
                     "endloop " +
                 "endfacet");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
         Assertions.assertEquals("test", reader.getSolidName());
     }
 
     @Test
     void testContentEndsEarly_2_oe() {
+        // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid test\n" +
                 "facet normal 1 2 3 " +
@@ -356,14 +426,18 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
                     "endloop " +
                 "endfacet");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertEquals(1, facets.size());
     }
 
     @Test
     void testContentEndsEarly_4_oe() {
+        // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid test\n" +
                 "facet normal 1 2 3 " +
@@ -374,16 +448,23 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
                     "endloop " +
                 "endfacet");
 
+        // act
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertNull(reader.readFacet());
     }
 
 @Test
     void testParseErrors_2_oe() {
+        // act/assert
+        // removed other assertion
         assertParseError( "solid test\n" + "facet normal 1 2 3 " + "outer loop " + "vertex abc 5 6 " + "vertex 7 8 9 " + "vertex 10 11 12 " + "endloop " + "endfacet " + "endsolid test");
     }
 

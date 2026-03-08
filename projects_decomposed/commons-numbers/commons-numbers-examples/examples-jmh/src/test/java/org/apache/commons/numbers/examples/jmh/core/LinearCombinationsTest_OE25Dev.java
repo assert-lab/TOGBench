@@ -214,6 +214,7 @@ class LinearCombinationsTest_OE25Dev {
             b[i] = bF[i].getNumerator().doubleValue() / bF[i].getDenominator().doubleValue();
         }
 
+        // Ensure "array" and "inline" implementations give the same result.
         final double abSumInline = fun3.value(a[0], b[0],
                                               a[1], b[1],
                                               a[2], b[2]);
@@ -244,11 +245,14 @@ class LinearCombinationsTest_OE25Dev {
             b[i] = bF[i].getNumerator().doubleValue() / bF[i].getDenominator().doubleValue();
         }
 
+        // Ensure "array" and "inline" implementations give the same result.
         final double abSumInline = fun3.value(a[0], b[0],
                                               a[1], b[1],
                                               a[2], b[2]);
         final double abSumArray = fun.value(a, b);
+        // removed other assertion
 
+        // Compare with arbitrary precision computation.
         BigFraction result = BigFraction.ZERO;
         for (int i = 0; i < a.length; i++) {
             result = result.add(aF[i].multiply(bF[i]));
@@ -280,16 +284,20 @@ class LinearCombinationsTest_OE25Dev {
             b[i] = bF[i].getNumerator().doubleValue() / bF[i].getDenominator().doubleValue();
         }
 
+        // Ensure "array" and "inline" implementations give the same result.
         final double abSumInline = fun3.value(a[0], b[0],
                                               a[1], b[1],
                                               a[2], b[2]);
         final double abSumArray = fun.value(a, b);
+        // removed other assertion
 
+        // Compare with arbitrary precision computation.
         BigFraction result = BigFraction.ZERO;
         for (int i = 0; i < a.length; i++) {
             result = result.add(aF[i].multiply(bF[i]));
         }
         final double expected = result.doubleValue();
+        // removed other assertion
 
         final double naive = a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
         Assertions.assertTrue(Math.abs(naive - abSumInline) > 1.5);
@@ -354,6 +362,7 @@ class LinearCombinationsTest_OE25Dev {
                                               scaledA[2], scaledB[2]);
         final double abSumArray = fun.value(scaledA, scaledB);
 
+        // removed other assertion
         Assertions.assertEquals(-1.8551294182586248737720779899, abSumInline, "Expecting exact result");
     }
 
@@ -385,6 +394,8 @@ class LinearCombinationsTest_OE25Dev {
                                               scaledA[2], scaledB[2]);
         final double abSumArray = fun.value(scaledA, scaledB);
 
+        // removed other assertion
+        // removed other assertion
 
         final double naive = scaledA[0] * scaledB[0] + scaledA[1] * scaledB[1] + scaledA[2] * scaledB[2];
         Assertions.assertTrue(Math.abs(naive - abSumInline) > 1.5);
@@ -393,6 +404,7 @@ class LinearCombinationsTest_OE25Dev {
     @ParameterizedTest
     @MethodSource("provideLinearCombination")
     void testArrayVsInline_1_oe(ND fun) {
+        // Assume the instance implements the inline functions
         final TwoD fun2 = (TwoD) fun;
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
@@ -412,6 +424,7 @@ class LinearCombinationsTest_OE25Dev {
             final double v3 = scale * rng.nextDouble();
             final double v4 = scale * rng.nextDouble();
 
+            // One sum.
             sInline = fun2.value(u1, v1, u2, v2);
             sArray = fun.value(new double[] {u1, u2},
                                new double[] {v1, v2});
@@ -422,6 +435,7 @@ class LinearCombinationsTest_OE25Dev {
     @ParameterizedTest
     @MethodSource("provideLinearCombination")
     void testArrayVsInline_2_oe(ND fun) {
+        // Assume the instance implements the inline functions
         final TwoD fun2 = (TwoD) fun;
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
@@ -441,10 +455,13 @@ class LinearCombinationsTest_OE25Dev {
             final double v3 = scale * rng.nextDouble();
             final double v4 = scale * rng.nextDouble();
 
+            // One sum.
             sInline = fun2.value(u1, v1, u2, v2);
             sArray = fun.value(new double[] {u1, u2},
                                new double[] {v1, v2});
+            // removed other assertion
 
+            // Two sums.
             sInline = fun3.value(u1, v1, u2, v2, u3, v3);
             sArray = fun.value(new double[] {u1, u2, u3},
                                new double[] {v1, v2, v3});
@@ -455,6 +472,7 @@ class LinearCombinationsTest_OE25Dev {
     @ParameterizedTest
     @MethodSource("provideLinearCombination")
     void testArrayVsInline_3_oe(ND fun) {
+        // Assume the instance implements the inline functions
         final TwoD fun2 = (TwoD) fun;
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
@@ -474,14 +492,19 @@ class LinearCombinationsTest_OE25Dev {
             final double v3 = scale * rng.nextDouble();
             final double v4 = scale * rng.nextDouble();
 
+            // One sum.
             sInline = fun2.value(u1, v1, u2, v2);
             sArray = fun.value(new double[] {u1, u2},
                                new double[] {v1, v2});
+            // removed other assertion
 
+            // Two sums.
             sInline = fun3.value(u1, v1, u2, v2, u3, v3);
             sArray = fun.value(new double[] {u1, u2, u3},
                                new double[] {v1, v2, v3});
+            // removed other assertion
 
+            // Three sums.
             sInline = fun4.value(u1, v1, u2, v2, u3, v3, u4, v4);
             sArray = fun.value(new double[] {u1, u2, u3, u4},
                                new double[] {v1, v2, v3, v4});
@@ -560,6 +583,7 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
         Assertions.assertEquals(6,fun3.value(a[0][0],b[0][0],a[0][1],b[0][1],a[0][2],b[0][2]));
     }
 
@@ -597,6 +621,8 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(22,fun4.value(a[0][0],b[0][0],a[0][1],b[0][1],a[0][2],b[0][2],a[0][3],b[0][3]));
     }
 
@@ -634,6 +660,9 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(22, fun.value(a[0], b[0]));
     }
 
@@ -671,6 +700,10 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun2.value(a[1][0],b[1][0],a[1][1],b[1][1]));
     }
@@ -709,7 +742,12 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun3.value(a[1][0],b[1][0],a[1][1],b[1][1],a[1][2],b[1][2]));
     }
 
@@ -747,7 +785,13 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun4.value(a[1][0],b[1][0],a[1][1],b[1][1],a[1][2],b[1][2],a[1][3],b[1][3]));
     }
 
@@ -785,7 +829,14 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.NEGATIVE_INFINITY, fun.value(a[1], b[1]));
     }
 
@@ -823,7 +874,15 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(-3,fun2.value(a[2][0],b[2][0],a[2][1],b[2][1]));
     }
@@ -862,8 +921,17 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY,fun3.value(a[2][0],b[2][0],a[2][1],b[2][1],a[2][2],b[2][2]));
     }
 
@@ -901,8 +969,18 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY,fun4.value(a[2][0],b[2][0],a[2][1],b[2][1],a[2][2],b[2][2],a[2][3],b[2][3]));
     }
 
@@ -940,8 +1018,19 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY, fun.value(a[2], b[2]));
     }
 
@@ -979,8 +1068,20 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun2.value(a[3][0],b[3][0],a[3][1],b[3][1]));
     }
@@ -1019,9 +1120,22 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun3.value(a[3][0],b[3][0],a[3][1],b[3][1],a[3][2],b[3][2]));
     }
 
@@ -1059,9 +1173,23 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun4.value(a[3][0],b[3][0],a[3][1],b[3][1],a[3][2],b[3][2],a[3][3],b[3][3]));
     }
 
@@ -1099,9 +1227,24 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.NEGATIVE_INFINITY, fun.value(a[3], b[3]));
     }
 
@@ -1139,9 +1282,25 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Double.POSITIVE_INFINITY,fun2.value(a[4][0],b[4][0],a[4][1],b[4][1]));
     }
@@ -1180,10 +1339,27 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY,fun3.value(a[4][0],b[4][0],a[4][1],b[4][1],a[4][2],b[4][2]));
     }
 
@@ -1221,10 +1397,28 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY,fun4.value(a[4][0],b[4][0],a[4][1],b[4][1],a[4][2],b[4][2],a[4][3],b[4][3]));
     }
 
@@ -1262,10 +1456,29 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY, fun.value(a[4], b[4]));
     }
 
@@ -1303,10 +1516,30 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(-3,fun2.value(a[5][0],b[5][0],a[5][1],b[5][1]));
     }
@@ -1345,11 +1578,32 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY,fun3.value(a[5][0],b[5][0],a[5][1],b[5][1],a[5][2],b[5][2]));
     }
 
@@ -1387,11 +1641,33 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY,fun4.value(a[5][0],b[5][0],a[5][1],b[5][1],a[5][2],b[5][2],a[5][3],b[5][3]));
     }
 
@@ -1429,11 +1705,34 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY, fun.value(a[5], b[5]));
     }
 
@@ -1471,11 +1770,35 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Double.POSITIVE_INFINITY,fun2.value(a[6][0],b[6][0],a[6][1],b[6][1]));
     }
@@ -1514,12 +1837,37 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY,fun3.value(a[6][0],b[6][0],a[6][1],b[6][1],a[6][2],b[6][2]));
     }
 
@@ -1557,12 +1905,38 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.NaN,fun4.value(a[6][0],b[6][0],a[6][1],b[6][1],a[6][2],b[6][2],a[6][3],b[6][3]));
     }
 
@@ -1600,12 +1974,39 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.NaN, fun.value(a[6], b[6]));
     }
 
@@ -1643,12 +2044,40 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Double.NaN,fun2.value(a[7][0],b[7][0],a[7][1],b[7][1]));
     }
@@ -1687,13 +2116,42 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Double.NaN,fun3.value(a[7][0],b[7][0],a[7][1],b[7][1],a[7][2],b[7][2]));
     }
 
@@ -1731,13 +2189,43 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.NaN,fun4.value(a[7][0],b[7][0],a[7][1],b[7][1],a[7][2],b[7][2],a[7][3],b[7][3]));
     }
 
@@ -1775,13 +2263,44 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.NaN, fun.value(a[7], b[7]));
     }
 
@@ -1819,13 +2338,45 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun2.value(a[8][0],b[8][0],a[8][1],b[8][1]));
     }
@@ -1864,14 +2415,47 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun3.value(a[8][0],b[8][0],a[8][1],b[8][1],a[8][2],b[8][2]));
     }
 
@@ -1909,14 +2493,48 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun4.value(a[8][0],b[8][0],a[8][1],b[8][1],a[8][2],b[8][2],a[8][3],b[8][3]));
     }
 
@@ -1954,14 +2572,49 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.NEGATIVE_INFINITY, fun.value(a[8], b[8]));
     }
 
@@ -1999,14 +2652,50 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(-3,fun2.value(a[9][0],b[9][0],a[9][1],b[9][1]));
     }
@@ -2045,15 +2734,52 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY,fun3.value(a[9][0],b[9][0],a[9][1],b[9][1],a[9][2],b[9][2]));
     }
 
@@ -2091,15 +2817,53 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY,fun4.value(a[9][0],b[9][0],a[9][1],b[9][1],a[9][2],b[9][2],a[9][3],b[9][3]));
     }
 
@@ -2137,15 +2901,54 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY, fun.value(a[9], b[9]));
     }
 
@@ -2183,15 +2986,55 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(-Double.MAX_VALUE,fun2.value(a[10][0],b[10][0],a[10][1],b[10][1]));
     }
@@ -2230,16 +3073,57 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(-Double.MAX_VALUE,fun3.value(a[10][0],b[10][0],a[10][1],b[10][1],a[10][2],b[10][2]));
     }
 
@@ -2277,16 +3161,58 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun4.value(a[10][0],b[10][0],a[10][1],b[10][1],a[10][2],b[10][2],a[10][3],b[10][3]));
     }
 
@@ -2324,21 +3250,67 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.NEGATIVE_INFINITY, fun.value(a[10], b[10]));
     }
 
     @Test
     void testOverflow_1_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
@@ -2348,70 +3320,120 @@ class LinearCombinationsTest_OE25Dev {
 
     @Test
     void testOverflow_2_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
         Assertions.assertEquals(0, Math.getExponent(x));
     }
 
     @Test
     void testOverflow_3_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
         Assertions.assertEquals(0, Math.getExponent(y));
     }
 
     @Test
     void testOverflow_4_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
         Assertions.assertEquals(sxxMxy, a1 * b1 + a2 * b2);
     }
 
     @Test
     void testOverflow_5_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
         Assertions.assertTrue(Double.isFinite(sxxMxy));
     }
 
     @Test
     void testOverflow_6_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result.
+        // First demonstrate that Dekker's split will create overflow in the high part.
         final double m = (1 << 27) + 1;
         double c;
         c = a1 * m;
@@ -2427,18 +3449,32 @@ class LinearCombinationsTest_OE25Dev {
 
     @Test
     void testOverflow_7_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result.
+        // First demonstrate that Dekker's split will create overflow in the high part.
         final double m = (1 << 27) + 1;
         double c;
         c = a1 * m;
@@ -2449,23 +3485,38 @@ class LinearCombinationsTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
         Assertions.assertTrue(Double.isFinite(hb1));
     }
 
     @Test
     void testOverflow_8_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result.
+        // First demonstrate that Dekker's split will create overflow in the high part.
         final double m = (1 << 27) + 1;
         double c;
         c = a1 * m;
@@ -2476,23 +3527,39 @@ class LinearCombinationsTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(Double.isFinite(ha2));
     }
 
     @Test
     void testOverflow_9_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result.
+        // First demonstrate that Dekker's split will create overflow in the high part.
         final double m = (1 << 27) + 1;
         double c;
         c = a1 * m;
@@ -2503,23 +3570,40 @@ class LinearCombinationsTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(Double.isFinite(hb2));
     }
 
     @Test
     void testOverflow_10_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result.
+        // First demonstrate that Dekker's split will create overflow in the high part.
         final double m = (1 << 27) + 1;
         double c;
         c = a1 * m;
@@ -2530,23 +3614,42 @@ class LinearCombinationsTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
         Assertions.assertTrue(Math.abs(ha1) > Math.abs(a1));
     }
 
     @Test
     void testOverflow_11_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result.
+        // First demonstrate that Dekker's split will create overflow in the high part.
         final double m = (1 << 27) + 1;
         double c;
         c = a1 * m;
@@ -2557,23 +3660,43 @@ class LinearCombinationsTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
         Assertions.assertTrue(Math.abs(hb1) > Math.abs(b1));
     }
 
     @Test
     void testOverflow_12_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result.
+        // First demonstrate that Dekker's split will create overflow in the high part.
         final double m = (1 << 27) + 1;
         double c;
         c = a1 * m;
@@ -2584,23 +3707,44 @@ class LinearCombinationsTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(Math.abs(ha2) > Math.abs(a2));
     }
 
     @Test
     void testOverflow_13_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result.
+        // First demonstrate that Dekker's split will create overflow in the high part.
         final double m = (1 << 27) + 1;
         double c;
         c = a1 * m;
@@ -2611,23 +3755,45 @@ class LinearCombinationsTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(Math.abs(hb2) > Math.abs(b2));
     }
 
     @Test
     void testOverflow_14_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result.
+        // First demonstrate that Dekker's split will create overflow in the high part.
         final double m = (1 << 27) + 1;
         double c;
         c = a1 * m;
@@ -2638,23 +3804,46 @@ class LinearCombinationsTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY, ha1 * hb1, "Expected split high part to overflow");
     }
 
     @Test
     void testOverflow_15_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result.
+        // First demonstrate that Dekker's split will create overflow in the high part.
         final double m = (1 << 27) + 1;
         double c;
         c = a1 * m;
@@ -2665,23 +3854,47 @@ class LinearCombinationsTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.NEGATIVE_INFINITY, ha2 * hb2, "Expected split high part to overflow");
     }
 
     @Test
     void testOverflow_16_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result.
+        // First demonstrate that Dekker's split will create overflow in the high part.
         final double m = (1 << 27) + 1;
         double c;
         c = a1 * m;
@@ -2692,25 +3905,52 @@ class LinearCombinationsTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // LinearCombination should detect and handle intermediate overflow and return the
+        // high precision result.
         final double expected = Math.scalb(xxMxyHighPrecision, 1022);
         Assertions.assertEquals(expected, LinearCombinations.DotK.DOT_3.value(a1, b1, a2, b2));
     }
 
     @Test
     void testOverflow_17_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result.
+        // First demonstrate that Dekker's split will create overflow in the high part.
         final double m = (1 << 27) + 1;
         double c;
         c = a1 * m;
@@ -2721,25 +3961,53 @@ class LinearCombinationsTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // LinearCombination should detect and handle intermediate overflow and return the
+        // high precision result.
         final double expected = Math.scalb(xxMxyHighPrecision, 1022);
+        // removed other assertion
         Assertions.assertEquals(expected, LinearCombinations.DotK.DOT_3.value(a1, b1, a2, b2, 0, 0));
     }
 
     @Test
     void testOverflow_18_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result.
+        // First demonstrate that Dekker's split will create overflow in the high part.
         final double m = (1 << 27) + 1;
         double c;
         c = a1 * m;
@@ -2750,25 +4018,54 @@ class LinearCombinationsTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // LinearCombination should detect and handle intermediate overflow and return the
+        // high precision result.
         final double expected = Math.scalb(xxMxyHighPrecision, 1022);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(expected, LinearCombinations.DotK.DOT_3.value(a1, b1, a2, b2, 0, 0, 0, 0));
     }
 
     @Test
     void testOverflow_19_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = LinearCombinations.DotK.DOT_3.value(x, x, x, y);
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result.
+        // First demonstrate that Dekker's split will create overflow in the high part.
         final double m = (1 << 27) + 1;
         double c;
         c = a1 * m;
@@ -2779,53 +4076,132 @@ class LinearCombinationsTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // LinearCombination should detect and handle intermediate overflow and return the
+        // high precision result.
         final double expected = Math.scalb(xxMxyHighPrecision, 1022);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(expected, LinearCombinations.DotK.DOT_3.value(new double[] {a1, a2}, new double[] {b1, b2}));
     }
 
     @Test
     void testClip_1_oe() {
+        // min value is not affected
         Assertions.assertEquals(Double.MIN_VALUE, clip(MIN).doubleValue());
     }
 
     @Test
     void testClip_2_oe() {
+        // min value is not affected
+        // removed other assertion
         Assertions.assertEquals(-Double.MIN_VALUE, clip(MIN.negate()).doubleValue());
     }
 
     @Test
     void testClip_3_oe() {
+        // min value is not affected
+        // removed other assertion
+        // removed other assertion
+        // Round-up to min
         Assertions.assertEquals(Double.MIN_VALUE, clip(MIN.divide(new BigDecimal(2))).doubleValue());
     }
 
     @Test
     void testClip_4_oe() {
+        // min value is not affected
+        // removed other assertion
+        // removed other assertion
+        // Round-up to min
+        // removed other assertion
         Assertions.assertEquals(-Double.MIN_VALUE, clip(MIN.negate().divide(new BigDecimal(2))).doubleValue());
     }
 
     @Test
     void testClip_5_oe() {
+        // min value is not affected
+        // removed other assertion
+        // removed other assertion
+        // Round-up to min
+        // removed other assertion
+        // removed other assertion
+        // Round down to zero
         Assertions.assertEquals(0, clip(MIN.divide(new BigDecimal(2.1), MathContext.DECIMAL64)).doubleValue());
     }
 
     @Test
     void testClip_6_oe() {
+        // min value is not affected
+        // removed other assertion
+        // removed other assertion
+        // Round-up to min
+        // removed other assertion
+        // removed other assertion
+        // Round down to zero
+        // removed other assertion
         Assertions.assertEquals(0, clip(MIN.negate().divide(new BigDecimal(2.1), MathContext.DECIMAL64)).doubleValue());
     }
 
     @Test
     void testClip_7_oe() {
+        // min value is not affected
+        // removed other assertion
+        // removed other assertion
+        // Round-up to min
+        // removed other assertion
+        // removed other assertion
+        // Round down to zero
+        // removed other assertion
+        // removed other assertion
+        // It does not matter if BigDecimal is more precise than a sub-normal number
+        // when the output is ultimately rounded to a double.
         Assertions.assertEquals(Double.MIN_VALUE, clip(MIN.multiply(new BigDecimal(1.1))).doubleValue());
     }
 
     @Test
     void testClip_8_oe() {
+        // min value is not affected
+        // removed other assertion
+        // removed other assertion
+        // Round-up to min
+        // removed other assertion
+        // removed other assertion
+        // Round down to zero
+        // removed other assertion
+        // removed other assertion
+        // It does not matter if BigDecimal is more precise than a sub-normal number
+        // when the output is ultimately rounded to a double.
+        // removed other assertion
         Assertions.assertEquals(Double.MIN_VALUE, clip(MIN.multiply(new BigDecimal(1.5))).doubleValue());
     }
 
     @Test
     void testClip_9_oe() {
+        // min value is not affected
+        // removed other assertion
+        // removed other assertion
+        // Round-up to min
+        // removed other assertion
+        // removed other assertion
+        // Round down to zero
+        // removed other assertion
+        // removed other assertion
+        // It does not matter if BigDecimal is more precise than a sub-normal number
+        // when the output is ultimately rounded to a double.
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.MIN_VALUE * 2, clip(MIN.multiply(new BigDecimal(1.6))).doubleValue());
     }
 
@@ -2839,14 +4215,18 @@ class LinearCombinationsTest_OE25Dev {
 
 @Test
     void testSumZero_1_oe() {
+        // Fixed seed for stability
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP, 876543L);
         final int size = 10;
+        // Create random doublets of pairs of numbers that sum to 1 or -1.
         for (int length = 4; length <= 12; length += 4) {
             final double[] a = new double[length];
             final double[] b = new double[length];
             for (int i = 0; i < size; i++) {
+                // Flip-flop above and below zero
                 double sign = 1;
                 for (int k = 0; k < length; k += 4) {
+                    // Create 2 complex cis numbers
                     final double theta1 = rng.nextDouble() * Math.PI / 2;
                     final double theta2 = rng.nextDouble() * Math.PI / 2;
                     a[k + 0] = b[k + 0] = Math.cos(theta1);
@@ -2857,6 +4237,8 @@ class LinearCombinationsTest_OE25Dev {
                     a[k + 1] *= sign;
                     a[k + 2] *= sign;
                     a[k + 3] *= sign;
+                    // Invert second pair.
+                    // The sum of the pairs should be zero +/- floating point error.
                     a[k + 2] = -a[k + 2];
                     a[k + 3] = -a[k + 3];
                     sign = -sign;

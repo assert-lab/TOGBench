@@ -1,0 +1,353 @@
+id,test_prefix,test_name
+commons-validator_46,"public void testValidatorException_oe() {
+        // Create bean to run test on.
+        ValueBean info = new ValueBean();
+        info.setValue(""VALIDATOR"");
+
+        // Construct validator based on the loaded resources 
+        // and the form key
+        Validator validator = new Validator(resources, FORM_KEY);
+        // add the name bean to the validator as a resource 
+        // for the validations to be performed on.
+        validator.setParameter(Validator.BEAN_PARAM, info);
+
+        // Get results of the validation which can throw ValidatorException
+        try {
+            validator.validate();
+            fail(""ValidatorException should occur here!"");
+        } catch (ValidatorException expected) {
+            assertTrue(""VALIDATOR-EXCEPTION"".equals(expected.getMessage()));
+        }
+    }",ExceptionTest::testValidatorException_oe
+commons-validator_65,"public void testNullInputStream_oe() throws Exception {
+
+        try {
+            new ValidatorResources((InputStream)null);
+            fail(""Expected IllegalArgumentException"");
+        } catch(IllegalArgumentException e) {
+            // expected result
+            // System.out.println(""Exception: "" + e);
+        }
+
+    }",ValidatorResourcesTest::testNullInputStream_oe
+commons-validator_97,"public void testCompare_oe() {
+        int sameTime = 124522;
+        int testDate = 20050823;
+        Calendar diffHour    = createCalendar(GMT, testDate, 115922);    // same date, different time
+        Calendar diffMin     = createCalendar(GMT, testDate, 124422);    // same date, different time
+        Calendar diffSec     = createCalendar(GMT, testDate, 124521);    // same date, different time
+
+        Calendar value       = createCalendar(GMT, testDate, sameTime);   // test value
+        Calendar cal20050824 = createCalendar(GMT, 20050824, sameTime);   // +1 day
+        Calendar cal20050822 = createCalendar(GMT, 20050822, sameTime);   // -1 day
+
+        Calendar cal20050830 = createCalendar(GMT, 20050830, sameTime);   // +1 week
+        Calendar cal20050816 = createCalendar(GMT, 20050816, sameTime);   // -1 week
+
+        Calendar cal20050901 = createCalendar(GMT, 20050901, sameTime);   // +1 month
+        Calendar cal20050801 = createCalendar(GMT, 20050801, sameTime);   // same month
+        Calendar cal20050731 = createCalendar(GMT, 20050731, sameTime);   // -1 month
+
+        Calendar cal20051101 = createCalendar(GMT, 20051101, sameTime);   // +1 quarter (Feb Start)
+        Calendar cal20051001 = createCalendar(GMT, 20051001, sameTime);   // +1 quarter
+        Calendar cal20050701 = createCalendar(GMT, 20050701, sameTime);   // same quarter
+        Calendar cal20050630 = createCalendar(GMT, 20050630, sameTime);   // -1 quarter
+
+        Calendar cal20060101 = createCalendar(GMT, 20060101, sameTime);   // +1 year
+        Calendar cal20050101 = createCalendar(GMT, 20050101, sameTime);   // same year
+        Calendar cal20041231 = createCalendar(GMT, 20041231, sameTime);   // -1 year
+
+        assertEquals(""hour GT"", 1, calValidator.compare(value, diffHour, Calendar.HOUR_OF_DAY));
+        assertEquals(""hour EQ"", 0, calValidator.compare(value, diffMin,  Calendar.HOUR_OF_DAY));
+        assertEquals(""mins GT"", 1, calValidator.compare(value, diffMin,  Calendar.MINUTE));
+        assertEquals(""mins EQ"", 0, calValidator.compare(value, diffSec,  Calendar.MINUTE));
+        assertEquals(""secs GT"", 1, calValidator.compare(value, diffSec,  Calendar.SECOND));
+
+        assertEquals(""date LT"", -1, calValidator.compareDates(value, cal20050824)); // +1 day
+        assertEquals(""date EQ"", 0,  calValidator.compareDates(value, diffHour));    // same day, diff hour
+        assertEquals(""date(B)"", 0,  calValidator.compare(value, diffHour, Calendar.DAY_OF_YEAR));    // same day, diff hour
+        assertEquals(""date GT"", 1,  calValidator.compareDates(value, cal20050822)); // -1 day
+
+        assertEquals(""week LT"", -1, calValidator.compareWeeks(value, cal20050830)); // +1 week 
+        assertEquals(""week =1"", 0,  calValidator.compareWeeks(value, cal20050824)); // +1 day
+        assertEquals(""week =2"", 0,  calValidator.compareWeeks(value, cal20050822)); // same week
+        assertEquals(""week =3"", 0,  calValidator.compare(value, cal20050822, Calendar.WEEK_OF_MONTH)); // same week
+        assertEquals(""week =4"", 0,  calValidator.compareWeeks(value, cal20050822)); // -1 day
+        assertEquals(""week GT"", 1,  calValidator.compareWeeks(value, cal20050816)); // -1 week
+
+        assertEquals(""mnth LT"", -1, calValidator.compareMonths(value, cal20050901)); // +1 month 
+        assertEquals(""mnth =1"", 0,  calValidator.compareMonths(value, cal20050830)); // +1 week 
+        assertEquals(""mnth =2"", 0,  calValidator.compareMonths(value, cal20050801)); // same month
+        assertEquals(""mnth =3"", 0,  calValidator.compareMonths(value, cal20050816)); // -1 week
+        assertEquals(""mnth GT"", 1,  calValidator.compareMonths(value, cal20050731)); // -1 month
+
+        assertEquals(""qtrA <1"", -1, calValidator.compareQuarters(value, cal20051101)); // +1 quarter (Feb) 
+        assertEquals(""qtrA <2"", -1, calValidator.compareQuarters(value, cal20051001)); // +1 quarter 
+        assertEquals(""qtrA =1"", 0,  calValidator.compareQuarters(value, cal20050901)); // +1 month 
+        assertEquals(""qtrA =2"", 0,  calValidator.compareQuarters(value, cal20050701)); // same quarter
+        assertEquals(""qtrA =3"", 0,  calValidator.compareQuarters(value, cal20050731)); // -1 month
+        assertEquals(""qtrA GT"", 1,  calValidator.compareQuarters(value, cal20050630)); // -1 quarter
+
+        // Change quarter 1 to start in Feb
+        assertEquals(""qtrB LT"", -1, calValidator.compareQuarters(value, cal20051101, 2)); // +1 quarter (Feb) 
+        assertEquals(""qtrB =1"", 0,  calValidator.compareQuarters(value, cal20051001, 2));  // same quarter 
+        assertEquals(""qtrB =2"", 0,  calValidator.compareQuarters(value, cal20050901, 2)); // +1 month 
+        assertEquals(""qtrB =3"", 1,  calValidator.compareQuarters(value, cal20050701, 2)); // same quarter
+        assertEquals(""qtrB =4"", 1,  calValidator.compareQuarters(value, cal20050731, 2)); // -1 month
+        assertEquals(""qtrB GT"", 1,  calValidator.compareQuarters(value, cal20050630, 2)); // -1 quarter
+
+        assertEquals(""year LT"", -1, calValidator.compareYears(value, cal20060101)); // +1 year 
+        assertEquals(""year EQ"", 0,  calValidator.compareYears(value, cal20050101)); // same year
+        assertEquals(""year GT"", 1,  calValidator.compareYears(value, cal20041231)); // -1 year
+
+        // invalid compare
+        try {
+            calValidator.compare(value, value,  -1);
+            fail(""Invalid Compare field - expected IllegalArgumentException to be thrown"");
+        } catch (IllegalArgumentException e) {
+            assertEquals(""check message"", ""Invalid field: -1"", e.getMessage());
+        }
+    }",CalendarValidatorTest::testCompare_oe
+commons-validator_145,"public void testIsValidISSNConvertSuffix_oe() {
+        try {
+            assertNull(VALIDATOR.convertToEAN13(null, null));
+            fail(""Expected IllegalArgumentException"");
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            assertNull(VALIDATOR.convertToEAN13(null, """"));
+            fail(""Expected IllegalArgumentException"");
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            assertNull(VALIDATOR.convertToEAN13(null, ""0""));
+            fail(""Expected IllegalArgumentException"");
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            assertNull(VALIDATOR.convertToEAN13(null, ""A""));
+            fail(""Expected IllegalArgumentException"");
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            assertNull(VALIDATOR.convertToEAN13(null, ""AA""));
+            fail(""Expected IllegalArgumentException"");
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            assertNull(VALIDATOR.convertToEAN13(null, ""999""));
+            fail(""Expected IllegalArgumentException"");
+        } catch (IllegalArgumentException expected) {
+            
+        }
+    }",ISSNValidatorTest::testIsValidISSNConvertSuffix_oe
+commons-validator_147,"public void testConversionErrors_oe() {
+        String input = null;
+        try {
+            input = ""9780072129519"";
+            VALIDATOR.extractFromEAN13(input);
+            fail(""Expected IllegalArgumentException for '"" + input + ""'"");
+        } catch (IllegalArgumentException e) {
+            // expected result
+        }
+        try {
+            input = ""9791090636071"";
+            VALIDATOR.extractFromEAN13(input);
+            fail(""Expected IllegalArgumentException for '"" + input + ""'"");
+        } catch (IllegalArgumentException e) {
+            // expected result
+        }
+        try {
+            input = ""03178471"";
+            VALIDATOR.extractFromEAN13(input);
+            fail(""Expected IllegalArgumentException for '"" + input + ""'"");
+        } catch (IllegalArgumentException e) {
+            // expected result
+        }
+    }",ISSNValidatorTest::testConversionErrors_oe
+commons-validator_194,"public void testArrayConstructor_oe() {
+        CreditCardValidator ccv = new CreditCardValidator(new CodeValidator[]
+               {CreditCardValidator.VISA_VALIDATOR, CreditCardValidator.AMEX_VALIDATOR});
+        
+        assertTrue(ccv.isValid(VALID_VISA));
+        assertTrue(ccv.isValid(VALID_SHORT_VISA));
+        assertTrue(ccv.isValid(VALID_AMEX));
+        assertFalse(ccv.isValid(VALID_MASTERCARD));
+        assertFalse(ccv.isValid(VALID_DISCOVER));
+
+        assertFalse(ccv.isValid(ERROR_VISA));
+        assertFalse(ccv.isValid(ERROR_SHORT_VISA));
+        assertFalse(ccv.isValid(ERROR_AMEX));
+        assertFalse(ccv.isValid(ERROR_MASTERCARD));
+        assertFalse(ccv.isValid(ERROR_DISCOVER));
+
+        try {
+            new CreditCardValidator((CodeValidator[]) null);
+            fail(""Expected IllegalArgumentException"");
+        } catch(IllegalArgumentException iae) {
+            // expected result
+        }
+    }",CreditCardValidatorTest::testArrayConstructor_oe
+commons-validator_216,"public void testMissingRegex_oe() {
+
+        // Single Regular Expression - null
+        try {
+            new RegexValidator((String)null);
+            fail(""Single Null - expected IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+            assertEquals(""Single Null"", ""Regular expression[0] is missing"", e.getMessage());
+        }
+
+        // Single Regular Expression - Zero Length
+        try {
+            new RegexValidator("""");
+            fail(""Single Zero Length - expected IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+            assertEquals(""Single Zero Length"", ""Regular expression[0] is missing"", e.getMessage());
+        }
+
+        // Multiple Regular Expression - Null array
+        try {
+            new RegexValidator((String[])null);
+            fail(""Null Array - expected IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+            assertEquals(""Null Array"", ""Regular expressions are missing"", e.getMessage());
+        }
+
+        // Multiple Regular Expression - Zero Length array
+        try {
+            new RegexValidator(new String[0]);
+            fail(""Zero Length Array - expected IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+            assertEquals(""Zero Length Array"", ""Regular expressions are missing"", e.getMessage());
+        }
+
+        // Multiple Regular Expression - Array has Null
+        String[] expressions = new String[] {""ABC"", null};
+        try {
+            new RegexValidator(expressions);
+            fail(""Array has Null - expected IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+            assertEquals(""Array has Null"", ""Regular expression[1] is missing"", e.getMessage());
+        }
+
+        // Multiple Regular Expression - Array has Zero Length
+        expressions = new String[] {"""", ""ABC""};
+        try {
+            new RegexValidator(expressions);
+            fail(""Array has Zero Length - expected IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+            assertEquals(""Array has Zero Length"", ""Regular expression[0] is missing"", e.getMessage());
+        }
+    }",RegexValidatorTest::testMissingRegex_oe
+commons-validator_246,"public void testConversionErrors_oe() {
+        ISBNValidator validator = ISBNValidator.getInstance();
+        String input = null;
+        try {
+            input = ""123456789 "";
+            validator.convertToISBN13(input);
+            fail(""Expected IllegalArgumentException for '"" + input + ""'""); 
+        } catch (IllegalArgumentException e) {
+            // expected result
+        }
+        try {
+            input = ""12345678901"";
+            validator.convertToISBN13(input);
+            fail(""Expected IllegalArgumentException for '"" + input + ""'""); 
+        } catch (IllegalArgumentException e) {
+            // expected result
+        }
+        try {
+            input = """";
+            validator.convertToISBN13(input);
+            fail(""Expected IllegalArgumentException for '"" + input + ""'""); 
+        } catch (IllegalArgumentException e) {
+            // expected result
+        }
+        try {
+            input = ""X234567890"";
+            validator.convertToISBN13(input);
+            fail(""Expected IllegalArgumentException for '"" + input + ""'""); 
+        } catch (IllegalArgumentException e) {
+            // expected result
+        }
+    }",ISBNValidatorTest::testConversionErrors_oe
+commons-validator_300,"public void testInvalidLength_oe() {
+        assertFalse(""isValid() Lth 9 "", routine.isValid(""123456789""));
+        assertFalse(""isValid() Lth 11"", routine.isValid(""12345678901""));
+        assertFalse(""isValid() Lth 12"", routine.isValid(""123456789012""));
+        assertFalse(""isValid() Lth 14"", routine.isValid(""12345678901234""));
+
+        try {
+            routine.calculate(""12345678"");
+            fail(""calculate() Lth 8 - expected exception"");
+        } catch (Exception e) {
+            assertEquals(""calculate() Lth 8"", ""Invalid ISBN Length = 8"", e.getMessage());
+        }
+
+        try {
+            routine.calculate(""1234567890"");
+            fail(""calculate() Lth 10 - expected exception"");
+        } catch (Exception e) {
+            assertEquals(""calculate() Lth 10"", ""Invalid ISBN Length = 10"", e.getMessage());
+        }
+
+        try {
+            routine.calculate(""12345678901"");
+            fail(""calculate() Lth 11 - expected exception"");
+        } catch (Exception e) {
+            assertEquals(""calculate() Lth 11"", ""Invalid ISBN Length = 11"", e.getMessage());
+        }
+
+        try {
+            routine.calculate(""1234567890123"");
+            fail(""calculate() Lth 13 - expected exception"");
+        } catch (Exception e) {
+            assertEquals(""calculate() Lth 13"", ""Invalid ISBN Length = 13"", e.getMessage());
+        }
+    }",ISBNCheckDigitTest::testInvalidLength_oe
+commons-validator_308,"public void testMissingCode_oe() {
+
+        // isValid() null
+        assertFalse(""isValid() Null"", routine.isValid(null));
+
+        // isValid() zero length
+        assertFalse(""isValid() Zero Length"", routine.isValid(""""));
+
+        // isValid() length 1
+        // Don't use 0, because that passes for Verhoef (not sure why yet)
+        assertFalse(""isValid() Length 1"", routine.isValid(""9""));
+
+        // calculate() null
+        try {
+            routine.calculate(null);
+            fail(""calculate() Null - expected exception"");
+        } catch (Exception e) {
+            assertEquals(""calculate() Null"", missingMessage, e.getMessage());
+        }
+
+        // calculate() zero length
+        try {
+            routine.calculate("""");
+            fail(""calculate() Zero Length - expected exception"");
+        } catch (Exception e) {
+            assertEquals(""calculate() Zero Length"",  missingMessage, e.getMessage());
+        }
+    }",AbstractCheckDigitTest::testMissingCode_oe
+commons-validator_309,"public void testZeroSum_oe() {
+        
+        assertFalse(""isValid() Zero Sum"", routine.isValid(zeroSum));
+
+        try {
+            routine.calculate(zeroSum);
+            fail(""Zero Sum - expected exception"");
+        } catch (Exception e) {
+            assertEquals(""isValid() Zero Sum"",  ""Invalid code, sum is zero"", e.getMessage());
+        }
+
+    }",AbstractCheckDigitTest::testZeroSum_oe

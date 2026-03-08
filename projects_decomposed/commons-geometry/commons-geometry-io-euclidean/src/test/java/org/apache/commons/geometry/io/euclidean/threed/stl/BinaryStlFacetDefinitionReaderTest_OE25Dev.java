@@ -31,6 +31,8 @@ import org.apache.commons.geometry.euclidean.threed.Vector3D;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
     private static final double TEST_EPS = 1e-10;
@@ -99,6 +101,7 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
     @Test
     void testHeader_zeros_1_oe() throws IOException {
+        // arrange
         final byte[] bytes = new byte[StlConstants.BINARY_HEADER_BYTES + 4];
         out.write(bytes);
 
@@ -106,12 +109,14 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
         System.arraycopy(bytes, 0, expectedHeader, 0, expectedHeader.length);
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // act/assert
             Assertions.assertArrayEquals(expectedHeader, reader.getHeader().array());
     }
     }
 
     @Test
     void testHeader_zeros_2_oe() throws IOException {
+        // arrange
         final byte[] bytes = new byte[StlConstants.BINARY_HEADER_BYTES + 4];
         out.write(bytes);
 
@@ -119,12 +124,15 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
         System.arraycopy(bytes, 0, expectedHeader, 0, expectedHeader.length);
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // act/assert
+            // removed other assertion
             Assertions.assertEquals(0L, reader.getNumTriangles());
     }
     }
 
     @Test
     void testHeader_zeros_3_oe() throws IOException {
+        // arrange
         final byte[] bytes = new byte[StlConstants.BINARY_HEADER_BYTES + 4];
         out.write(bytes);
 
@@ -132,6 +140,9 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
         System.arraycopy(bytes, 0, expectedHeader, 0, expectedHeader.length);
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // act/assert
+            // removed other assertion
+            // removed other assertion
 
             Assertions.assertNull(reader.readFacet());
     }
@@ -139,6 +150,7 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
     @Test
     void testHeader_ones_1_oe() throws IOException {
+        // arrange
         final byte[] bytes = new byte[StlConstants.BINARY_HEADER_BYTES + 4];
         Arrays.fill(bytes, (byte) -1);
         out.write(bytes);
@@ -147,12 +159,14 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
         System.arraycopy(bytes, 0, expectedHeader, 0, expectedHeader.length);
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // act/assert
             Assertions.assertArrayEquals(expectedHeader, reader.getHeader().array());
     }
     }
 
     @Test
     void testHeader_ones_2_oe() throws IOException {
+        // arrange
         final byte[] bytes = new byte[StlConstants.BINARY_HEADER_BYTES + 4];
         Arrays.fill(bytes, (byte) -1);
         out.write(bytes);
@@ -161,66 +175,84 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
         System.arraycopy(bytes, 0, expectedHeader, 0, expectedHeader.length);
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // act/assert
+            // removed other assertion
             Assertions.assertEquals(0xffffffffL, reader.getNumTriangles());
     }
     }
 
     @Test
     void testHeader_shortString_1_oe() throws IOException {
+        // arrange
         out.write(createHeader("Hello!", StandardCharsets.UTF_8, 1));
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // act/assert
             Assertions.assertEquals("Hello!", reader.getHeaderAsString());
     }
     }
 
     @Test
     void testHeader_shortString_2_oe() throws IOException {
+        // arrange
         out.write(createHeader("Hello!", StandardCharsets.UTF_8, 1));
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // act/assert
+            // removed other assertion
             Assertions.assertEquals(1L, reader.getNumTriangles());
     }
     }
 
     @Test
     void testHeader_longString_1_oe() throws IOException {
+        // arrange
         out.write(createHeader(LONG_STRING, StandardCharsets.UTF_8, 8736720));
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // act/assert
             Assertions.assertEquals(LONG_STRING.substring(0,StlConstants.BINARY_HEADER_BYTES),reader.getHeaderAsString());
     }
     }
 
     @Test
     void testHeader_longString_2_oe() throws IOException {
+        // arrange
         out.write(createHeader(LONG_STRING, StandardCharsets.UTF_8, 8736720));
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // act/assert
+            // removed other assertion
             Assertions.assertEquals(8736720L, reader.getNumTriangles());
     }
     }
 
     @Test
     void testHeader_longString_givenCharset_1_oe() throws IOException {
+        // arrange
         out.write(createHeader(LONG_STRING, StandardCharsets.UTF_16, 256));
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // act/assert
             Assertions.assertEquals("A long string that will most definitely",reader.getHeaderAsString(StandardCharsets.UTF_16));
     }
     }
 
     @Test
     void testHeader_longString_givenCharset_2_oe() throws IOException {
+        // arrange
         out.write(createHeader(LONG_STRING, StandardCharsets.UTF_16, 256));
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // act/assert
+            // removed other assertion
             Assertions.assertEquals(256L, reader.getNumTriangles());
     }
     }
 
     @Test
     void testReadFacet_1_oe() throws IOException {
+        // arrange
         out.write(createHeader(2));
 
         out.write(getBytes(Vector3D.of(1, 2, 3)));
@@ -242,6 +274,7 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
     @Test
     void testReadFacet_3_oe() throws IOException {
+        // arrange
         out.write(createHeader(2));
 
         out.write(getBytes(Vector3D.of(1, 2, 3)));
@@ -257,15 +290,18 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
         out.write(getBytes((short) 65535));
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // removed other assertion
 
             final BinaryStlFacetDefinition facet1 = reader.readFacet();
 
+            // removed other assertion
             Assertions.assertEquals(3, facet1.getVertices().size());
     }
     }
 
     @Test
     void testReadFacet_7_oe() throws IOException {
+        // arrange
         out.write(createHeader(2));
 
         out.write(getBytes(Vector3D.of(1, 2, 3)));
@@ -281,9 +317,15 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
         out.write(getBytes((short) 65535));
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // removed other assertion
 
             final BinaryStlFacetDefinition facet1 = reader.readFacet();
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             Assertions.assertEquals(1, facet1.getAttributeValue());
     }
@@ -291,6 +333,7 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
     @Test
     void testReadFacet_9_oe() throws IOException {
+        // arrange
         out.write(createHeader(2));
 
         out.write(getBytes(Vector3D.of(1, 2, 3)));
@@ -306,19 +349,28 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
         out.write(getBytes((short) 65535));
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // removed other assertion
 
             final BinaryStlFacetDefinition facet1 = reader.readFacet();
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
 
             final BinaryStlFacetDefinition facet2 = reader.readFacet();
 
+            // removed other assertion
             Assertions.assertEquals(3, facet2.getVertices().size());
     }
     }
 
     @Test
     void testReadFacet_13_oe() throws IOException {
+        // arrange
         out.write(createHeader(2));
 
         out.write(getBytes(Vector3D.of(1, 2, 3)));
@@ -334,13 +386,25 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
         out.write(getBytes((short) 65535));
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // removed other assertion
 
             final BinaryStlFacetDefinition facet1 = reader.readFacet();
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
 
             final BinaryStlFacetDefinition facet2 = reader.readFacet();
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             Assertions.assertEquals(65535, facet2.getAttributeValue());
     }
@@ -348,6 +412,7 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
     @Test
     void testReadFacet_14_oe() throws IOException {
+        // arrange
         out.write(createHeader(2));
 
         out.write(getBytes(Vector3D.of(1, 2, 3)));
@@ -363,14 +428,27 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
         out.write(getBytes((short) 65535));
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // removed other assertion
 
             final BinaryStlFacetDefinition facet1 = reader.readFacet();
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
 
             final BinaryStlFacetDefinition facet2 = reader.readFacet();
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
 
             Assertions.assertNull(reader.readFacet());
     }
@@ -378,6 +456,7 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
     @Test
     void testReadFacet_stopsWhenTriangleCountReached_1_oe() throws IOException {
+        // arrange
         out.write(createHeader(1));
 
         out.write(getBytes(Vector3D.of(1, 2, 3)));
@@ -399,6 +478,7 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
     @Test
     void testReadFacet_stopsWhenTriangleCountReached_3_oe() throws IOException {
+        // arrange
         out.write(createHeader(1));
 
         out.write(getBytes(Vector3D.of(1, 2, 3)));
@@ -414,15 +494,18 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
         out.write(getBytes((short) 65535));
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // removed other assertion
 
             final BinaryStlFacetDefinition facet = reader.readFacet();
 
+            // removed other assertion
             Assertions.assertEquals(3, facet.getVertices().size());
     }
     }
 
     @Test
     void testReadFacet_stopsWhenTriangleCountReached_7_oe() throws IOException {
+        // arrange
         out.write(createHeader(1));
 
         out.write(getBytes(Vector3D.of(1, 2, 3)));
@@ -438,9 +521,15 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
         out.write(getBytes((short) 65535));
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // removed other assertion
 
             final BinaryStlFacetDefinition facet = reader.readFacet();
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             Assertions.assertEquals(1, facet.getAttributeValue());
     }
@@ -448,6 +537,7 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
     @Test
     void testReadFacet_stopsWhenTriangleCountReached_8_oe() throws IOException {
+        // arrange
         out.write(createHeader(1));
 
         out.write(getBytes(Vector3D.of(1, 2, 3)));
@@ -463,10 +553,17 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
         out.write(getBytes((short) 65535));
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // removed other assertion
 
             final BinaryStlFacetDefinition facet = reader.readFacet();
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
 
             Assertions.assertNull(reader.readFacet());
     }
@@ -474,24 +571,37 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
 @Test
     void testGetHeader_noData_1_oe() throws IOException {
+        // arrange
         out.write(new byte[32]);
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
-            GeometryTestUtils.assertThrowsWithMessage( () -> reader.getHeader(), IllegalStateException.class, "Failed to read STL header: data not available");
+            // act/assert
+            try {
+    reader.getHeader();
+    fail("Expected IllegalStateException with message: " + "Failed to read STL header: data not available");
+} catch (IllegalStateException e) {
+}
     }
     }
 
 @Test
     void testGetHeader_noTriangleCount_1_oe() throws IOException {
+        // arrange
         out.write(new byte[StlConstants.BINARY_HEADER_BYTES]);
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
-            GeometryTestUtils.assertThrowsWithMessage( () -> reader.getHeader(), IllegalStateException.class, "Failed to read STL triangle count: data not available");
+            // act/assert
+            try {
+    reader.getHeader();
+    fail("Expected IllegalStateException with message: " + "Failed to read STL triangle count: data not available");
+} catch (IllegalStateException e) {
+}
     }
     }
 
 @Test
     void testGetHeader_ioException_1_oe() throws IOException {
+        // arrange
         final InputStream failIn = new InputStream() {
             @Override
             public int read() throws IOException {
@@ -500,16 +610,28 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
         };
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(failIn)) {
-            GeometryTestUtils.assertThrowsWithMessage( () -> reader.getHeader(), UncheckedIOException.class, "IOException: read");
+            // act/assert
+            try {
+    reader.getHeader();
+    fail("Expected UncheckedIOException with message: " + "IOException: read");
+} catch (UncheckedIOException e) {
+}
     }
     }
 
 @Test
     void testReadFacet_noData_1_oe() throws IOException {
+        // arrange
         out.write(createHeader(1));
 
+        // act/assert
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
-            GeometryTestUtils.assertThrowsWithMessage( () -> reader.readFacet(), IllegalStateException.class, "Failed to read STL triangle at index 0: data not available");
+            // act/assert
+            try {
+    reader.readFacet();
+    fail("Expected IllegalStateException with message: " + "Failed to read STL triangle at index 0: data not available");
+} catch (IllegalStateException e) {
+}
     }
     }
 

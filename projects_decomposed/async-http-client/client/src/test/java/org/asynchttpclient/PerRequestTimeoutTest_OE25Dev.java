@@ -88,8 +88,11 @@ public class PerRequestTimeoutTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient client = asyncHttpClient()) {
       Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(100).execute();
       Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+      // removed other assertion
     } catch (InterruptedException e) {
+      // removed other assertion
     } catch (ExecutionException e) {
+      // removed other assertion
       checkTimeoutMessage(e.getCause().getMessage(), true);
     } catch (TimeoutException e) {
       fail("Timeout.", e);
@@ -101,8 +104,11 @@ public class PerRequestTimeoutTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient client = asyncHttpClient(config().setReadTimeout(100))) {
       Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
       Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+      // removed other assertion
     } catch (InterruptedException e) {
+      // removed other assertion
     } catch (ExecutionException e) {
+      // removed other assertion
       checkTimeoutMessage(e.getCause().getMessage(), false);
     } catch (TimeoutException e) {
       fail("Timeout.", e);
@@ -114,7 +120,9 @@ public class PerRequestTimeoutTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
       Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(-1).execute();
       Response response = responseFuture.get();
+      // removed other assertion
     } catch (InterruptedException e) {
+      // removed other assertion
     } catch (ExecutionException e) {
       assertTrue(e.getCause() instanceof TimeoutException);
   }
@@ -125,8 +133,11 @@ public class PerRequestTimeoutTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
       Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
       Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+      // removed other assertion
     } catch (InterruptedException e) {
+      // removed other assertion
     } catch (ExecutionException e) {
+      // removed other assertion
       checkTimeoutMessage(e.getCause().getMessage(), true);
     } catch (TimeoutException e) {
       fail("Timeout.", e);
@@ -157,7 +168,10 @@ public class PerRequestTimeoutTest_OE25Dev extends AbstractBasicTest {
         }
       });
       Response response = responseFuture.get();
+      // removed other assertion
+      // removed other assertion
     } catch (InterruptedException e) {
+      // removed other assertion
     } catch (ExecutionException e) {
       logger.info(String.format("\n@%dms Last body part received\n@%dms Connection killed\n %dms difference.", times[0], times[1], (times[1] - times[0])));
       fail("Timeouted on idle.", e);

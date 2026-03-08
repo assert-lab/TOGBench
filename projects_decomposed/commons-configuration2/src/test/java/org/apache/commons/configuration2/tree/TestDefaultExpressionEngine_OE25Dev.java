@@ -543,6 +543,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
     public void testCanonicalKeyWithDuplicates_2_oe() {
         final ImmutableNode tab1 = fetchNode("tables.table(0)");
         final ImmutableNode tab2 = fetchNode("tables.table(1)");
+        // removed other assertion
         assertEquals("Wrong key 2", "tables.table(1)", engine.canonicalKey(tab2, "tables", handler));
     }
 
@@ -560,12 +561,15 @@ public class TestDefaultExpressionEngine_OE25Dev {
     @Test
     public void testNodeKey_2_oe() {
         final ImmutableNode node = root.getChildren().get(0);
+        // removed other assertion
         assertEquals("Parent key not respected", "test.tables", engine.nodeKey(node, "test", handler));
     }
 
     @Test
     public void testNodeKey_3_oe() {
         final ImmutableNode node = root.getChildren().get(0);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Full parent key not taken into account", "a.full.parent.key.tables", engine.nodeKey(node, "a.full.parent.key", handler));
     }
 
@@ -593,6 +597,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
     @Test
     public void testNodeKeyWithEscapedDelimiters_2_oe() {
         final ImmutableNode node = root.getChildren().get(1);
+        // removed other assertion
         assertEquals("Wrong complex escaped key","connection..settings.usr..name",engine.nodeKey(node.getChildren().get(0),engine.nodeKey(node,"",handler),handler));
     }
 
@@ -603,6 +608,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
 
     @Test
     public void testNodeKeyWithRoot_2_oe() {
+        // removed other assertion
         assertEquals("Null name not detected", "test", engine.nodeKey(root, "test", handler));
     }
 
@@ -615,18 +621,24 @@ public class TestDefaultExpressionEngine_OE25Dev {
     @Test
     public void testPrepareAddAttribute_2_oe() {
         final NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0)[@tableSpace]", handler);
+        // removed other assertion
         assertEquals("Wrong name of new node", "tableSpace", data.getNewNodeName());
     }
 
     @Test
     public void testPrepareAddAttribute_3_oe() {
         final NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0)[@tableSpace]", handler);
+        // removed other assertion
+        // removed other assertion
         assertTrue("Attribute not detected", data.isAttribute());
     }
 
     @Test
     public void testPrepareAddAttribute_4_oe() {
         final NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0)[@tableSpace]", handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Path nodes available", data.getPathNodes().isEmpty());
     }
 
@@ -639,12 +651,15 @@ public class TestDefaultExpressionEngine_OE25Dev {
     @Test
     public void testPrepareAddAttributeRoot_2_oe() {
         final NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "[@newAttr]", handler);
+        // removed other assertion
         assertEquals("Wrong name of new node", "newAttr", data.getNewNodeName());
     }
 
     @Test
     public void testPrepareAddAttributeRoot_3_oe() {
         final NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "[@newAttr]", handler);
+        // removed other assertion
+        // removed other assertion
         assertTrue("Attribute not detected", data.isAttribute());
     }
 
@@ -657,24 +672,34 @@ public class TestDefaultExpressionEngine_OE25Dev {
     @Test
     public void testPrepareAddDirectly_2_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
+        // removed other assertion
         assertTrue("Path nodes available", data.getPathNodes().isEmpty());
     }
 
     @Test
     public void testPrepareAddDirectly_3_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong name of new node", "newNode", data.getNewNodeName());
     }
 
     @Test
     public void testPrepareAddDirectly_4_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("New node is an attribute", data.isAttribute());
     }
 
     @Test
     public void testPrepareAddDirectly_5_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         data = engine.prepareAdd(root, "tables.table.fields.field.name", handler);
         assertEquals("Wrong name of new node", "name", data.getNewNodeName());
@@ -683,24 +708,42 @@ public class TestDefaultExpressionEngine_OE25Dev {
     @Test
     public void testPrepareAddDirectly_6_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         data = engine.prepareAdd(root, "tables.table.fields.field.name", handler);
+        // removed other assertion
         assertTrue("Path nodes available", data.getPathNodes().isEmpty());
     }
 
     @Test
     public void testPrepareAddDirectly_7_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         data = engine.prepareAdd(root, "tables.table.fields.field.name", handler);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong parent node", "field", data.getParent().getNodeName());
     }
 
     @Test
     public void testPrepareAddDirectly_8_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         data = engine.prepareAdd(root, "tables.table.fields.field.name", handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final ImmutableNode nd = data.getParent().getChildren().get(0);
         assertEquals("Field has no name node", "name", nd.getNodeName());
     }
@@ -708,9 +751,17 @@ public class TestDefaultExpressionEngine_OE25Dev {
     @Test
     public void testPrepareAddDirectly_9_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         data = engine.prepareAdd(root, "tables.table.fields.field.name", handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final ImmutableNode nd = data.getParent().getChildren().get(0);
+        // removed other assertion
         assertEquals("Incorrect name", "version", nd.getValue());
     }
 
@@ -725,6 +776,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
     public void testPrepareAddWithAlternativeMatcher_2_oe() {
         setUpAlternativeMatcher();
         final NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables_.table._fields__._field.name", handler);
+        // removed other assertion
         assertTrue("Path nodes available", data.getPathNodes().isEmpty());
     }
 
@@ -739,6 +791,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
     public void testPrepareAddWithAlternativeSyntax_2_oe() {
         setUpAlternativeSyntax();
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables/table[0]/test", handler);
+        // removed other assertion
         assertFalse("New node is attribute", data.isAttribute());
     }
 
@@ -746,6 +799,8 @@ public class TestDefaultExpressionEngine_OE25Dev {
     public void testPrepareAddWithAlternativeSyntax_3_oe() {
         setUpAlternativeSyntax();
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables/table[0]/test", handler);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong parent node", tables[0], data.getParent().getChildren().get(0).getValue());
     }
 
@@ -753,6 +808,9 @@ public class TestDefaultExpressionEngine_OE25Dev {
     public void testPrepareAddWithAlternativeSyntax_4_oe() {
         setUpAlternativeSyntax();
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables/table[0]/test", handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         data = engine.prepareAdd(root, "a/complete/new/path@attr", handler);
         assertEquals("Wrong name of new attribute", "attr", data.getNewNodeName());
@@ -762,8 +820,12 @@ public class TestDefaultExpressionEngine_OE25Dev {
     public void testPrepareAddWithAlternativeSyntax_5_oe() {
         setUpAlternativeSyntax();
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables/table[0]/test", handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         data = engine.prepareAdd(root, "a/complete/new/path@attr", handler);
+        // removed other assertion
         checkNodePath(data, "a", "complete", "new", "path");
         assertSame("Root is not parent", root, data.getParent());
     }
@@ -777,18 +839,24 @@ public class TestDefaultExpressionEngine_OE25Dev {
     @Test
     public void testPrepareAddWithIndex_2_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0).tableSpace", handler);
+        // removed other assertion
         assertTrue("Path nodes available", data.getPathNodes().isEmpty());
     }
 
     @Test
     public void testPrepareAddWithIndex_3_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0).tableSpace", handler);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong type of parent node", "table", data.getParent().getNodeName());
     }
 
     @Test
     public void testPrepareAddWithIndex_4_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0).tableSpace", handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final ImmutableNode node = data.getParent().getChildren().get(0);
         assertEquals("Wrong table", tables[0], node.getValue());
     }
@@ -796,7 +864,11 @@ public class TestDefaultExpressionEngine_OE25Dev {
     @Test
     public void testPrepareAddWithIndex_5_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0).tableSpace", handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final ImmutableNode node = data.getParent().getChildren().get(0);
+        // removed other assertion
 
         data = engine.prepareAdd(root, "tables.table(1).fields.field(2).alias", handler);
         assertEquals("Wrong name of new node", "alias", data.getNewNodeName());
@@ -805,18 +877,29 @@ public class TestDefaultExpressionEngine_OE25Dev {
     @Test
     public void testPrepareAddWithIndex_6_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0).tableSpace", handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final ImmutableNode node = data.getParent().getChildren().get(0);
+        // removed other assertion
 
         data = engine.prepareAdd(root, "tables.table(1).fields.field(2).alias", handler);
+        // removed other assertion
         assertEquals("Wrong type of parent node", "field", data.getParent().getNodeName());
     }
 
     @Test
     public void testPrepareAddWithIndex_7_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0).tableSpace", handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final ImmutableNode node = data.getParent().getChildren().get(0);
+        // removed other assertion
 
         data = engine.prepareAdd(root, "tables.table(1).fields.field(2).alias", handler);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong field node", "creationDate", data.getParent().getChildren().get(0).getValue());
     }
 
@@ -829,6 +912,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
     @Test
     public void testPrepareAddWithPath_2_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(1).fields.field(-1).name", handler);
+        // removed other assertion
         checkNodePath(data, "field");
         assertEquals("Wrong type of parent node", "fields", data.getParent().getNodeName());
     }
@@ -836,7 +920,9 @@ public class TestDefaultExpressionEngine_OE25Dev {
     @Test
     public void testPrepareAddWithPath_3_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(1).fields.field(-1).name", handler);
+        // removed other assertion
         checkNodePath(data, "field");
+        // removed other assertion
 
         data = engine.prepareAdd(root, "tables.table(-1).name", handler);
         assertEquals("Wrong name of new node", "name", data.getNewNodeName());
@@ -845,9 +931,12 @@ public class TestDefaultExpressionEngine_OE25Dev {
     @Test
     public void testPrepareAddWithPath_4_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(1).fields.field(-1).name", handler);
+        // removed other assertion
         checkNodePath(data, "field");
+        // removed other assertion
 
         data = engine.prepareAdd(root, "tables.table(-1).name", handler);
+        // removed other assertion
         checkNodePath(data, "table");
         assertEquals("Wrong type of parent node", "tables", data.getParent().getNodeName());
     }
@@ -855,10 +944,14 @@ public class TestDefaultExpressionEngine_OE25Dev {
     @Test
     public void testPrepareAddWithPath_5_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(1).fields.field(-1).name", handler);
+        // removed other assertion
         checkNodePath(data, "field");
+        // removed other assertion
 
         data = engine.prepareAdd(root, "tables.table(-1).name", handler);
+        // removed other assertion
         checkNodePath(data, "table");
+        // removed other assertion
 
         data = engine.prepareAdd(root, "a.complete.new.path", handler);
         assertEquals("Wrong name of new node", "path", data.getNewNodeName());
@@ -867,12 +960,17 @@ public class TestDefaultExpressionEngine_OE25Dev {
     @Test
     public void testPrepareAddWithPath_6_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(1).fields.field(-1).name", handler);
+        // removed other assertion
         checkNodePath(data, "field");
+        // removed other assertion
 
         data = engine.prepareAdd(root, "tables.table(-1).name", handler);
+        // removed other assertion
         checkNodePath(data, "table");
+        // removed other assertion
 
         data = engine.prepareAdd(root, "a.complete.new.path", handler);
+        // removed other assertion
         checkNodePath(data, "a", "complete", "new");
         assertSame("Root is not parent", root, data.getParent());
     }
@@ -894,6 +992,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         engine = new DefaultExpressionEngine(symbols);
 
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0).test", handler);
+        // removed other assertion
         assertFalse("New node is an attribute", data.isAttribute());
     }
 
@@ -904,6 +1003,8 @@ public class TestDefaultExpressionEngine_OE25Dev {
         engine = new DefaultExpressionEngine(symbols);
 
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0).test", handler);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong type of parent node", "table", data.getParent().getNodeName());
     }
 
@@ -914,6 +1015,9 @@ public class TestDefaultExpressionEngine_OE25Dev {
         engine = new DefaultExpressionEngine(symbols);
 
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0).test", handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         data = engine.prepareAdd(root, "a.complete.new.path", handler);
         assertFalse("New node is an attribute", data.isAttribute());

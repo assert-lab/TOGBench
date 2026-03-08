@@ -1,0 +1,84 @@
+id,test_prefix,test_name
+commons-validator_65_101,"public void testNullInputStream_oe_101_oe() throws Exception {
+        try {
+            new ValidatorResources((InputStream)null);
+            fail(""Expected IllegalArgumentException"");
+        } catch(IllegalArgumentException e) {
+            // expected result
+            // System.out.println(""Exception: "" + e);
+        }
+    }
+",ValidatorResourcesTest::testNullInputStream_oe_101_oe
+commons-validator_194_101,"public void testArrayConstructor_oe_101_oe() {
+        try {
+            new CreditCardValidator((CodeValidator[]) null);
+            fail(""Expected IllegalArgumentException"");
+        } catch(IllegalArgumentException iae) {
+            // expected result
+        }
+    }
+",CreditCardValidatorTest::testArrayConstructor_oe_101_oe
+commons-validator_216_101,"public void testMissingRegex_oe_101_oe() {
+        try {
+            new RegexValidator((String)null);
+            fail(""Single Null - expected IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+        }
+    }
+",RegexValidatorTest::testMissingRegex_oe_101_oe
+commons-validator_216_102,"public void testMissingRegex_oe_102_oe() {
+        try {
+            new RegexValidator("""");
+            fail(""Single Zero Length - expected IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+        }
+    }
+",RegexValidatorTest::testMissingRegex_oe_102_oe
+commons-validator_216_103,"public void testMissingRegex_oe_103_oe() {
+        try {
+            new RegexValidator((String[])null);
+            fail(""Null Array - expected IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+        }
+    }
+",RegexValidatorTest::testMissingRegex_oe_103_oe
+commons-validator_216_104,"public void testMissingRegex_oe_104_oe() {
+        try {
+            new RegexValidator(new String[0]);
+            fail(""Zero Length Array - expected IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+        }
+    }
+",RegexValidatorTest::testMissingRegex_oe_104_oe
+commons-validator_300_101,"public void testInvalidLength_oe_101_oe() {
+        try {
+            routine.calculate(""12345678"");
+            fail(""calculate() Lth 8 - expected exception"");
+        } catch (Exception e) {
+        }
+    }
+",ISBNCheckDigitTest::testInvalidLength_oe_101_oe
+commons-validator_300_102,"public void testInvalidLength_oe_102_oe() {
+        try {
+            routine.calculate(""1234567890"");
+            fail(""calculate() Lth 10 - expected exception"");
+        } catch (Exception e) {
+        }
+    }
+",ISBNCheckDigitTest::testInvalidLength_oe_102_oe
+commons-validator_300_103,"public void testInvalidLength_oe_103_oe() {
+        try {
+            routine.calculate(""12345678901"");
+            fail(""calculate() Lth 11 - expected exception"");
+        } catch (Exception e) {
+        }
+    }
+",ISBNCheckDigitTest::testInvalidLength_oe_103_oe
+commons-validator_300_104,"public void testInvalidLength_oe_104_oe() {
+        try {
+            routine.calculate(""1234567890123"");
+            fail(""calculate() Lth 13 - expected exception"");
+        } catch (Exception e) {
+        }
+    }
+",ISBNCheckDigitTest::testInvalidLength_oe_104_oe

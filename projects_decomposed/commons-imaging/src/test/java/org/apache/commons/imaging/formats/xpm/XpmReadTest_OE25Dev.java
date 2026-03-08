@@ -53,6 +53,7 @@ public class XpmReadTest_OE25Dev extends XpmBaseTest {
             Debug.debug("imageFile", imageFile);
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            // removed other assertion
             final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
             assertNotNull(imageInfo);
     }
@@ -68,7 +69,9 @@ public class XpmReadTest_OE25Dev extends XpmBaseTest {
             Debug.debug("imageFile", imageFile);
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            // removed other assertion
             final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+            // removed other assertion
 
             final BufferedImage image = Imaging.getBufferedImage(imageFile);
             assertNotNull(image);

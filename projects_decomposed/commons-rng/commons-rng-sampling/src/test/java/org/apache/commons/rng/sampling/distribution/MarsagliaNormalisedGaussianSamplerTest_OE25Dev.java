@@ -53,6 +53,7 @@ class MarsagliaNormalisedGaussianSamplerTest_OE25Dev {
 
             @Override
             public int next() {
+                // Not used
                 return 0;
             }
 
@@ -60,9 +61,13 @@ class MarsagliaNormalisedGaussianSamplerTest_OE25Dev {
             public double nextDouble() {
                 i++;
                 if (i <= 2) {
+                    // First two samples are one.
+                    // This is outside the unit circle.
                     return 1.0;
                 }
                 if (i <= 4) {
+                    // Next two samples are 0.5.
+                    // The pair lies at the origin.
                     return 0.5;
                 }
                 return value;
@@ -71,6 +76,7 @@ class MarsagliaNormalisedGaussianSamplerTest_OE25Dev {
 
          MarsagliaNormalizedGaussianSampler sampler = new MarsagliaNormalizedGaussianSampler(rng);
 
+        // Compute as per the algorithm
          double x = 2 * value - 1;
          double r2 = x * x + x * x;
          double expected = x * Math.sqrt(-2 * Math.log(r2) / r2);

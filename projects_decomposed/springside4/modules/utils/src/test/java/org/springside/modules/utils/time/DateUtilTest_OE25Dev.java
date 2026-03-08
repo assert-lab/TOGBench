@@ -19,6 +19,7 @@ public class DateUtilTest_OE25Dev {
 	public void isSameDay_2_oe() {
 		Date date1 = new Date(106, 10, 1);
 		Date date2 = new Date(106, 10, 1, 12, 23, 44);
+		// removed other assertion
 
 		Date date3 = new Date(106, 10, 1);
 		assertThat(DateUtil.isSameTime(date1, date3)).isTrue();
@@ -28,8 +29,10 @@ public class DateUtilTest_OE25Dev {
 	public void isSameDay_3_oe() {
 		Date date1 = new Date(106, 10, 1);
 		Date date2 = new Date(106, 10, 1, 12, 23, 44);
+		// removed other assertion
 
 		Date date3 = new Date(106, 10, 1);
+		// removed other assertion
 
 		Date date5 = new Date(106, 10, 2);
 		assertThat(DateUtil.isSameTime(date1, date5)).isFalse();
@@ -39,10 +42,13 @@ public class DateUtilTest_OE25Dev {
 	public void isSameDay_4_oe() {
 		Date date1 = new Date(106, 10, 1);
 		Date date2 = new Date(106, 10, 1, 12, 23, 44);
+		// removed other assertion
 
 		Date date3 = new Date(106, 10, 1);
+		// removed other assertion
 
 		Date date5 = new Date(106, 10, 2);
+		// removed other assertion
 
 		Date date4 = new Date(106, 10, 1, 12, 23, 43);
 		assertThat(DateUtil.isBetween(date3, date1, date2)).isTrue();
@@ -52,12 +58,16 @@ public class DateUtilTest_OE25Dev {
 	public void isSameDay_5_oe() {
 		Date date1 = new Date(106, 10, 1);
 		Date date2 = new Date(106, 10, 1, 12, 23, 44);
+		// removed other assertion
 
 		Date date3 = new Date(106, 10, 1);
+		// removed other assertion
 
 		Date date5 = new Date(106, 10, 2);
+		// removed other assertion
 
 		Date date4 = new Date(106, 10, 1, 12, 23, 43);
+		// removed other assertion
 		assertThat(DateUtil.isBetween(date4, date1, date2)).isTrue();
 	}
 
@@ -65,21 +75,28 @@ public class DateUtilTest_OE25Dev {
 	public void isSameDay_8_oe() {
 		Date date1 = new Date(106, 10, 1);
 		Date date2 = new Date(106, 10, 1, 12, 23, 44);
+		// removed other assertion
 
 		Date date3 = new Date(106, 10, 1);
+		// removed other assertion
 
 		Date date5 = new Date(106, 10, 2);
+		// removed other assertion
 
 		Date date4 = new Date(106, 10, 1, 12, 23, 43);
+		// removed other assertion
+		// removed other assertion
 
 		try {
 			DateUtil.isBetween(null, date1, date2);
+			// removed other assertion
 		} catch (Exception e) {
 
 		}
 
 		try {
 			DateUtil.isBetween(date3, date2, date1);
+			// removed other assertion
 		} catch (Exception e) {
 
 		}
@@ -89,6 +106,7 @@ public class DateUtilTest_OE25Dev {
 
 	@Test
 	public void truncateAndCelling_1_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -120,6 +138,7 @@ public class DateUtilTest_OE25Dev {
 
 	@Test
 	public void truncateAndCelling_2_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -146,11 +165,13 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.endOfYear(date), endYear)).isTrue();
 	}
 
 	@Test
 	public void truncateAndCelling_3_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -177,11 +198,14 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.nextYear(date), nextYear)).isTrue();
 	}
 
 	@Test
 	public void truncateAndCelling_4_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -208,12 +232,16 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(DateUtil.isSameTime(DateUtil.beginOfMonth(date), beginMonth)).isTrue();
 	}
 
 	@Test
 	public void truncateAndCelling_5_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -240,12 +268,17 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.endOfMonth(date), endMonth)).isTrue();
 	}
 
 	@Test
 	public void truncateAndCelling_6_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -272,12 +305,18 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.nextMonth(date), nextMonth)).isTrue();
 	}
 
 	@Test
 	public void truncateAndCelling_7_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -304,13 +343,20 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(DateUtil.isSameTime(DateUtil.beginOfWeek(date), beginWeek)).isTrue();
 	}
 
 	@Test
 	public void truncateAndCelling_8_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -337,13 +383,21 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.endOfWeek(date), endWeek)).isTrue();
 	}
 
 	@Test
 	public void truncateAndCelling_9_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -370,13 +424,22 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.nextWeek(date), nextWeek)).isTrue();
 	}
 
 	@Test
 	public void truncateAndCelling_10_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -403,14 +466,24 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(DateUtil.isSameTime(DateUtil.beginOfDate(date), beginDate)).isTrue();
 	}
 
 	@Test
 	public void truncateAndCelling_11_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -437,14 +510,25 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.endOfDate(date), endDate)).isTrue();
 	}
 
 	@Test
 	public void truncateAndCelling_12_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -471,14 +555,26 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.nextDate(date), nextDate)).isTrue();
 	}
 
 	@Test
 	public void truncateAndCelling_13_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -505,15 +601,28 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(DateUtil.isSameTime(DateUtil.beginOfHour(date), beginHour)).isTrue();
 	}
 
 	@Test
 	public void truncateAndCelling_14_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -540,15 +649,29 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.endOfHour(date), endHour)).isTrue();
 	}
 
 	@Test
 	public void truncateAndCelling_15_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -575,15 +698,30 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.nextHour(date), nextHour)).isTrue();
 	}
 
 	@Test
 	public void truncateAndCelling_16_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -610,16 +748,32 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(DateUtil.isSameTime(DateUtil.beginOfMinute(date), beginMinute)).isTrue();
 	}
 
 	@Test
 	public void truncateAndCelling_17_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -646,16 +800,33 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.endOfMinute(date), endMinute)).isTrue();
 	}
 
 	@Test
 	public void truncateAndCelling_18_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
 
 		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
@@ -682,11 +853,28 @@ public class DateUtilTest_OE25Dev {
 		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
 		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.nextMinute(date), nextMinute)).isTrue();
 	}
 
@@ -729,6 +917,7 @@ public class DateUtilTest_OE25Dev {
 		Date expectDate11 = new Date(106, 10, 8);
 		Date expectDate12 = new Date(106, 9, 25);
 
+		// removed other assertion
 		assertThat(DateUtil.isSameDay(DateUtil.subDays(date, 1), expectDate2)).isTrue();
 	}
 
@@ -750,6 +939,8 @@ public class DateUtilTest_OE25Dev {
 		Date expectDate11 = new Date(106, 10, 8);
 		Date expectDate12 = new Date(106, 9, 25);
 
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(DateUtil.isSameDay(DateUtil.addWeeks(date, 1), expectDate11)).isTrue();
 	}
@@ -772,7 +963,10 @@ public class DateUtilTest_OE25Dev {
 		Date expectDate11 = new Date(106, 10, 8);
 		Date expectDate12 = new Date(106, 9, 25);
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(DateUtil.isSameDay(DateUtil.subWeeks(date, 1), expectDate12)).isTrue();
 	}
 
@@ -794,7 +988,11 @@ public class DateUtilTest_OE25Dev {
 		Date expectDate11 = new Date(106, 10, 8);
 		Date expectDate12 = new Date(106, 9, 25);
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(DateUtil.isSameDay(DateUtil.addMonths(date, 1), expectDate3)).isTrue();
 	}
@@ -817,8 +1015,13 @@ public class DateUtilTest_OE25Dev {
 		Date expectDate11 = new Date(106, 10, 8);
 		Date expectDate12 = new Date(106, 9, 25);
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(DateUtil.isSameDay(DateUtil.subMonths(date, 3), expectDate4)).isTrue();
 	}
 
@@ -840,8 +1043,14 @@ public class DateUtilTest_OE25Dev {
 		Date expectDate11 = new Date(106, 10, 8);
 		Date expectDate12 = new Date(106, 9, 25);
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(DateUtil.isSameTime(DateUtil.addHours(date, 1), expectDate5)).isTrue();
 	}
@@ -864,9 +1073,16 @@ public class DateUtilTest_OE25Dev {
 		Date expectDate11 = new Date(106, 10, 8);
 		Date expectDate12 = new Date(106, 9, 25);
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.subHours(date, 2), expectDate6)).isTrue();
 	}
 
@@ -888,9 +1104,17 @@ public class DateUtilTest_OE25Dev {
 		Date expectDate11 = new Date(106, 10, 8);
 		Date expectDate12 = new Date(106, 9, 25);
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(DateUtil.isSameTime(DateUtil.addMinutes(date, 1), expectDate7)).isTrue();
 	}
@@ -913,10 +1137,19 @@ public class DateUtilTest_OE25Dev {
 		Date expectDate11 = new Date(106, 10, 8);
 		Date expectDate12 = new Date(106, 9, 25);
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.subMinutes(date, 2), expectDate8)).isTrue();
 	}
 
@@ -938,10 +1171,20 @@ public class DateUtilTest_OE25Dev {
 		Date expectDate11 = new Date(106, 10, 8);
 		Date expectDate12 = new Date(106, 9, 25);
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(DateUtil.isSameTime(DateUtil.addSeconds(date, 1), expectDate9)).isTrue();
 	}
@@ -964,11 +1207,22 @@ public class DateUtilTest_OE25Dev {
 		Date expectDate11 = new Date(106, 10, 8);
 		Date expectDate12 = new Date(106, 9, 25);
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.subSeconds(date, 2), expectDate10)).isTrue();
 	}
 
@@ -995,6 +1249,7 @@ public class DateUtilTest_OE25Dev {
 		Date expectedDate5 = new Date(116, 10, 1, 10, 9, 1);
 		Date expectedDate6 = new Date(116, 10, 1, 10, 10, 10);
 
+		// removed other assertion
 		assertThat(DateUtil.isSameDay(DateUtil.setMonths(date, 11), expectedDate2)).isTrue();
 	}
 
@@ -1008,6 +1263,8 @@ public class DateUtilTest_OE25Dev {
 		Date expectedDate5 = new Date(116, 10, 1, 10, 9, 1);
 		Date expectedDate6 = new Date(116, 10, 1, 10, 10, 10);
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(DateUtil.isSameDay(DateUtil.setYears(date, 2017), expectedDate3)).isTrue();
 	}
 
@@ -1021,6 +1278,9 @@ public class DateUtilTest_OE25Dev {
 		Date expectedDate5 = new Date(116, 10, 1, 10, 9, 1);
 		Date expectedDate6 = new Date(116, 10, 1, 10, 10, 10);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(DateUtil.isSameTime(DateUtil.setHours(date, 9), expectedDate4)).isTrue();
 	}
@@ -1035,7 +1295,11 @@ public class DateUtilTest_OE25Dev {
 		Date expectedDate5 = new Date(116, 10, 1, 10, 9, 1);
 		Date expectedDate6 = new Date(116, 10, 1, 10, 10, 10);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.setMinutes(date, 9), expectedDate5)).isTrue();
 	}
 
@@ -1049,19 +1313,27 @@ public class DateUtilTest_OE25Dev {
 		Date expectedDate5 = new Date(116, 10, 1, 10, 9, 1);
 		Date expectedDate6 = new Date(116, 10, 1, 10, 10, 10);
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(DateUtil.isSameTime(DateUtil.setSeconds(date, 10), expectedDate6)).isTrue();
 	}
 
 	@Test
 	public void getDayOfWeek_1_oe() {
+		// 2017-01-09
 		Date date = new Date(117, 0, 9);
 		assertThat(DateUtil.getDayOfWeek(date)).isEqualTo(1);
 	}
 
 	@Test
 	public void getDayOfWeek_2_oe() {
+		// 2017-01-09
 		Date date = new Date(117, 0, 9);
+		// removed other assertion
 
 		Date date2 = new Date(117, 0, 15);
 		assertThat(DateUtil.getDayOfWeek(date2)).isEqualTo(7);
@@ -1069,47 +1341,64 @@ public class DateUtilTest_OE25Dev {
 
 	@Test
 	public void isLeapYear_1_oe() {
+		// 2008-01-09,整除4年, true
 		Date date = new Date(108, 0, 9);
 		assertThat(DateUtil.isLeapYear(date)).isTrue();
 	}
 
 	@Test
 	public void isLeapYear_2_oe() {
+		// 2008-01-09,整除4年, true
 		Date date = new Date(108, 0, 9);
+		// removed other assertion
 
+		// 2000-01-09,整除400年，true
 		date = new Date(100, 0, 9);
 		assertThat(DateUtil.isLeapYear(date)).isTrue();
 	}
 
 	@Test
 	public void isLeapYear_3_oe() {
+		// 2008-01-09,整除4年, true
 		Date date = new Date(108, 0, 9);
+		// removed other assertion
 
+		// 2000-01-09,整除400年，true
 		date = new Date(100, 0, 9);
+		// removed other assertion
 
+		// 1900-01-09，整除100年，false
 		date = new Date(0, 0, 9);
 		assertThat(DateUtil.isLeapYear(date)).isFalse();
 	}
 
 	@Test
 	public void getXXofXX_1_oe() {
+		// 2008-02-09, 整除4年, 闰年
 		Date date = new Date(108, 2, 9);
 		assertThat(DateUtil.getMonthLength(date)).isEqualTo(29);
 	}
 
 	@Test
 	public void getXXofXX_2_oe() {
+		// 2008-02-09, 整除4年, 闰年
 		Date date = new Date(108, 2, 9);
+		// removed other assertion
 
+		// 2009-02-09, 整除4年, 非闰年
 		Date date2 = new Date(109, 2, 9);
 		assertThat(DateUtil.getMonthLength(date2)).isEqualTo(28);
 	}
 
 	@Test
 	public void getXXofXX_3_oe() {
+		// 2008-02-09, 整除4年, 闰年
 		Date date = new Date(108, 2, 9);
+		// removed other assertion
 
+		// 2009-02-09, 整除4年, 非闰年
 		Date date2 = new Date(109, 2, 9);
+		// removed other assertion
 
 		Date date3 = new Date(108, 8, 9);
 		assertThat(DateUtil.getMonthLength(date3)).isEqualTo(31);
@@ -1117,11 +1406,16 @@ public class DateUtilTest_OE25Dev {
 
 	@Test
 	public void getXXofXX_4_oe() {
+		// 2008-02-09, 整除4年, 闰年
 		Date date = new Date(108, 2, 9);
+		// removed other assertion
 
+		// 2009-02-09, 整除4年, 非闰年
 		Date date2 = new Date(109, 2, 9);
+		// removed other assertion
 
 		Date date3 = new Date(108, 8, 9);
+		// removed other assertion
 
 		Date date4 = new Date(109, 11, 30);
 		assertThat(DateUtil.getDayOfYear(date4)).isEqualTo(364);
@@ -1129,13 +1423,19 @@ public class DateUtilTest_OE25Dev {
 
 	@Test
 	public void getXXofXX_5_oe() {
+		// 2008-02-09, 整除4年, 闰年
 		Date date = new Date(108, 2, 9);
+		// removed other assertion
 
+		// 2009-02-09, 整除4年, 非闰年
 		Date date2 = new Date(109, 2, 9);
+		// removed other assertion
 
 		Date date3 = new Date(108, 8, 9);
+		// removed other assertion
 
 		Date date4 = new Date(109, 11, 30);
+		// removed other assertion
 
 		Date date5 = new Date(117, 0, 12);
 		assertThat(DateUtil.getWeekOfMonth(date5)).isEqualTo(3);
@@ -1143,15 +1443,22 @@ public class DateUtilTest_OE25Dev {
 
 	@Test
 	public void getXXofXX_6_oe() {
+		// 2008-02-09, 整除4年, 闰年
 		Date date = new Date(108, 2, 9);
+		// removed other assertion
 
+		// 2009-02-09, 整除4年, 非闰年
 		Date date2 = new Date(109, 2, 9);
+		// removed other assertion
 
 		Date date3 = new Date(108, 8, 9);
+		// removed other assertion
 
 		Date date4 = new Date(109, 11, 30);
+		// removed other assertion
 
 		Date date5 = new Date(117, 0, 12);
+		// removed other assertion
 		assertThat(DateUtil.getWeekOfYear(date5)).isEqualTo(3);
 	}
 

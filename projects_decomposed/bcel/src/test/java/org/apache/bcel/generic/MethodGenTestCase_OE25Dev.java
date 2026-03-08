@@ -98,6 +98,7 @@ public class MethodGenTestCase_OE25Dev {
         final ClassGen cg = new ClassGen(jc);
         final MethodGen mg = new MethodGen(cg.getMethodAt(0), cg.getClassName(), cg.getConstantPool());
         final List<AnnotationEntryGen> firstParamAnnotations = mg.getAnnotationsOnParameter(0);
+        // removed other assertion
         final List<AnnotationEntryGen> secondParamAnnotations = mg.getAnnotationsOnParameter(1);
         Assert.assertEquals("Wrong number of annotations in the second parameter", 1, secondParamAnnotations.size());
     }
@@ -115,6 +116,7 @@ public class MethodGenTestCase_OE25Dev {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
         final LocalVariableGen lv = mg.getLocalVariables()[1];
+        // removed other assertion
         final InstructionHandle start = lv.getStart();
         final InstructionHandle end = lv.getEnd();
         Assert.assertNotNull("scope start", start);
@@ -125,8 +127,10 @@ public class MethodGenTestCase_OE25Dev {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
         final LocalVariableGen lv = mg.getLocalVariables()[1];
+        // removed other assertion
         final InstructionHandle start = lv.getStart();
         final InstructionHandle end = lv.getEnd();
+        // removed other assertion
         Assert.assertNotNull("scope end", end);
     }
 
@@ -135,8 +139,11 @@ public class MethodGenTestCase_OE25Dev {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
         final LocalVariableGen lv = mg.getLocalVariables()[1];
+        // removed other assertion
         final InstructionHandle start = lv.getStart();
         final InstructionHandle end = lv.getEnd();
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue("scope start not targeted by the local variable", Arrays.asList(start.getTargeters()).contains(lv));
     }
 
@@ -145,8 +152,12 @@ public class MethodGenTestCase_OE25Dev {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
         final LocalVariableGen lv = mg.getLocalVariables()[1];
+        // removed other assertion
         final InstructionHandle start = lv.getStart();
         final InstructionHandle end = lv.getEnd();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue("scope end not targeted by the local variable", Arrays.asList(end.getTargeters()).contains(lv));
     }
 
@@ -155,9 +166,15 @@ public class MethodGenTestCase_OE25Dev {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
         final LocalVariableGen lv = mg.getLocalVariables()[1];
+        // removed other assertion
         final InstructionHandle start = lv.getStart();
         final InstructionHandle end = lv.getEnd();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // now let's remove the local variable
         mg.removeLocalVariable(lv);
 
         Assert.assertFalse("scope start still targeted by the removed variable", Arrays.asList(start.getTargeters()).contains(lv));
@@ -168,11 +185,18 @@ public class MethodGenTestCase_OE25Dev {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
         final LocalVariableGen lv = mg.getLocalVariables()[1];
+        // removed other assertion
         final InstructionHandle start = lv.getStart();
         final InstructionHandle end = lv.getEnd();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // now let's remove the local variable
         mg.removeLocalVariable(lv);
 
+        // removed other assertion
         Assert.assertFalse("scope end still targeted by the removed variable", Arrays.asList(end.getTargeters()).contains(lv));
     }
 
@@ -181,11 +205,19 @@ public class MethodGenTestCase_OE25Dev {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
         final LocalVariableGen lv = mg.getLocalVariables()[1];
+        // removed other assertion
         final InstructionHandle start = lv.getStart();
         final InstructionHandle end = lv.getEnd();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // now let's remove the local variable
         mg.removeLocalVariable(lv);
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertNull("scope start", lv.getStart());
     }
 
@@ -194,11 +226,20 @@ public class MethodGenTestCase_OE25Dev {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
         final LocalVariableGen lv = mg.getLocalVariables()[1];
+        // removed other assertion
         final InstructionHandle start = lv.getStart();
         final InstructionHandle end = lv.getEnd();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // now let's remove the local variable
         mg.removeLocalVariable(lv);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertNull("scope end", lv.getEnd());
     }
 
@@ -215,6 +256,7 @@ public class MethodGenTestCase_OE25Dev {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
         final LocalVariableGen lv = mg.getLocalVariables()[1];
+        // removed other assertion
         final InstructionHandle start = lv.getStart();
         final InstructionHandle end = lv.getEnd();
         Assert.assertNotNull("scope start", start);
@@ -225,8 +267,10 @@ public class MethodGenTestCase_OE25Dev {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
         final LocalVariableGen lv = mg.getLocalVariables()[1];
+        // removed other assertion
         final InstructionHandle start = lv.getStart();
         final InstructionHandle end = lv.getEnd();
+        // removed other assertion
         Assert.assertNotNull("scope end", end);
     }
 
@@ -235,8 +279,11 @@ public class MethodGenTestCase_OE25Dev {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
         final LocalVariableGen lv = mg.getLocalVariables()[1];
+        // removed other assertion
         final InstructionHandle start = lv.getStart();
         final InstructionHandle end = lv.getEnd();
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue("scope start not targeted by the local variable", Arrays.asList(start.getTargeters()).contains(lv));
     }
 
@@ -245,8 +292,12 @@ public class MethodGenTestCase_OE25Dev {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
         final LocalVariableGen lv = mg.getLocalVariables()[1];
+        // removed other assertion
         final InstructionHandle start = lv.getStart();
         final InstructionHandle end = lv.getEnd();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue("scope end not targeted by the local variable", Arrays.asList(end.getTargeters()).contains(lv));
     }
 
@@ -255,9 +306,15 @@ public class MethodGenTestCase_OE25Dev {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
         final LocalVariableGen lv = mg.getLocalVariables()[1];
+        // removed other assertion
         final InstructionHandle start = lv.getStart();
         final InstructionHandle end = lv.getEnd();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // now let's remove the local variables
         mg.removeLocalVariables();
 
         Assert.assertFalse("scope start still targeted by the removed variable", Arrays.asList(start.getTargeters()).contains(lv));
@@ -268,11 +325,18 @@ public class MethodGenTestCase_OE25Dev {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
         final LocalVariableGen lv = mg.getLocalVariables()[1];
+        // removed other assertion
         final InstructionHandle start = lv.getStart();
         final InstructionHandle end = lv.getEnd();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // now let's remove the local variables
         mg.removeLocalVariables();
 
+        // removed other assertion
         Assert.assertFalse("scope end still targeted by the removed variable", Arrays.asList(end.getTargeters()).contains(lv));
     }
 
@@ -281,11 +345,19 @@ public class MethodGenTestCase_OE25Dev {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
         final LocalVariableGen lv = mg.getLocalVariables()[1];
+        // removed other assertion
         final InstructionHandle start = lv.getStart();
         final InstructionHandle end = lv.getEnd();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // now let's remove the local variables
         mg.removeLocalVariables();
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertNull("scope start", lv.getStart());
     }
 
@@ -294,11 +366,20 @@ public class MethodGenTestCase_OE25Dev {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
         final LocalVariableGen lv = mg.getLocalVariables()[1];
+        // removed other assertion
         final InstructionHandle start = lv.getStart();
         final InstructionHandle end = lv.getEnd();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // now let's remove the local variables
         mg.removeLocalVariables();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertNull("scope end", lv.getEnd());
     }
 

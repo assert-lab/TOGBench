@@ -211,6 +211,7 @@ public class TestCombinedBeanDeclaration_OE25Dev {
         EasyMock.expect(decl(2).getBeanProperties()).andReturn(props3);
         replay();
         final Map<String, Object> props = cd.getBeanProperties();
+        // removed other assertion
         for (int i = 1; i <= 4; i++) {
             assertEquals("Wrong property", "value" + i, props.get("param" + i));
     }
@@ -282,6 +283,7 @@ public class TestCombinedBeanDeclaration_OE25Dev {
         EasyMock.expect(decl(2).getNestedBeanDeclarations()).andReturn(decls3);
         replay();
         final Map<String, Object> decls = cd.getNestedBeanDeclarations();
+        // removed other assertion
         for (int i = 1; i <= 4; i++) {
             assertEquals("Wrong declaration", "value" + i, decls.get("param" + i));
     }

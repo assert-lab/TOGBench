@@ -467,20 +467,30 @@ public class TestConfigurations_OE25Dev {
         final Configurations configs = new Configurations();
         final String absPath = absolutePath("include-not-found.properties");
         final FileBasedConfigurationBuilder<PropertiesConfiguration> builderFail = configs.propertiesBuilder(absPath);
+        // Expect failure:
         try {
             builderFail.getConfiguration();
+            // removed other assertion
         } catch (final ConfigurationException e) {
+            // Ignore
+            // e.printStackTrace();
         }
+        // Expect failure:
         try {
             configs.properties(absPath);
         } catch (final ConfigurationException e) {
+            // Ignore
+            // e.printStackTrace();
         }
         {
+            // Expect success:
+            // @formatter:off
             final Map<String, Object> map =
                     new Parameters().properties()
                             .setPath(absPath)
                             .setIncludeListener(PropertiesConfiguration.NOOP_INCLUDE_LISTENER)
                             .getParameters();
+            // @formatter:on
             final BasicConfigurationBuilder<PropertiesConfiguration> builderOk = configs.propertiesBuilder(absPath).addParameters(map);
             final PropertiesConfiguration configuration = builderOk.getConfiguration();
             assertEquals("valueA", configuration.getString("keyA"));
@@ -492,28 +502,42 @@ public class TestConfigurations_OE25Dev {
         final Configurations configs = new Configurations();
         final String absPath = absolutePath("include-not-found.properties");
         final FileBasedConfigurationBuilder<PropertiesConfiguration> builderFail = configs.propertiesBuilder(absPath);
+        // Expect failure:
         try {
             builderFail.getConfiguration();
+            // removed other assertion
         } catch (final ConfigurationException e) {
+            // Ignore
+            // e.printStackTrace();
         }
+        // Expect failure:
         try {
             configs.properties(absPath);
         } catch (final ConfigurationException e) {
+            // Ignore
+            // e.printStackTrace();
         }
         {
+            // Expect success:
+            // @formatter:off
             final Map<String, Object> map =
                     new Parameters().properties()
                             .setPath(absPath)
                             .setIncludeListener(PropertiesConfiguration.NOOP_INCLUDE_LISTENER)
                             .getParameters();
+            // @formatter:on
             final BasicConfigurationBuilder<PropertiesConfiguration> builderOk = configs.propertiesBuilder(absPath).addParameters(map);
             final PropertiesConfiguration configuration = builderOk.getConfiguration();
+            // removed other assertion
         }
         {
+            // Expect success:
+            // @formatter:off
             final BasicConfigurationBuilder<PropertiesConfiguration> builderOk = configs.propertiesBuilder(
                     new Parameters().properties()
                         .setPath(absPath)
                         .setIncludeListener(PropertiesConfiguration.NOOP_INCLUDE_LISTENER));
+            // @formatter:on
             final PropertiesConfiguration configuration = builderOk.getConfiguration();
             assertEquals("valueA", configuration.getString("keyA"));
     }

@@ -68,6 +68,39 @@ public class PredicatedListTest_OE25Dev<E> extends AbstractListTest<E> {
     }
 
     @SuppressWarnings("unchecked")
+    public void testIllegalAdd() {
+        final List<E> list = makeTestList();
+        final Integer i = Integer.valueOf(3);
+        try {
+            list.add((E) i);
+            fail("Integer should fail string predicate.");
+        } catch (final IllegalArgumentException e) {
+            // expected
+        }
+        assertTrue("Collection shouldn't contain illegal element",!list.contains(i));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testIllegalAddAll() {
+        final List<E> list = makeTestList();
+        final List<E> elements = new ArrayList<>();
+        elements.add((E) "one");
+        elements.add((E) "two");
+        elements.add((E) Integer.valueOf(3));
+        elements.add((E) "four");
+        try {
+            list.addAll(0, elements);
+            fail("Integer should fail string predicate.");
+        } catch (final IllegalArgumentException e) {
+            // expected
+        }
+        assertTrue("List shouldn't contain illegal element",!list.contains("one"));
+        assertTrue("List shouldn't contain illegal element",!list.contains("two"));
+        assertTrue("List shouldn't contain illegal element",!list.contains(Integer.valueOf(3)));
+        assertTrue("List shouldn't contain illegal element",!list.contains("four"));
+    }
+
+    @SuppressWarnings("unchecked")
     public void testIllegalSet() {
         final List<E> list = makeTestList();
         try {
@@ -76,6 +109,21 @@ public class PredicatedListTest_OE25Dev<E> extends AbstractListTest<E> {
         } catch (final IllegalArgumentException e) {
             // expected
         }
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testLegalAddAll() {
+        final List<E> list = makeTestList();
+        list.add((E) "zero");
+        final List<E> elements = new ArrayList<>();
+        elements.add((E) "one");
+        elements.add((E) "two");
+        elements.add((E) "three");
+        list.addAll(1,elements);
+        assertTrue("List should contain legal element",list.contains("zero"));
+        assertTrue("List should contain legal element",list.contains("one"));
+        assertTrue("List should contain legal element",list.contains("two"));
+        assertTrue("List should contain legal element",list.contains("three"));
     }
 
     @Override

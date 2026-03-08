@@ -51,7 +51,9 @@ public class TestTimeInfo_OE25Dev {
         info.addComment("this is a comment");
         final TimeInfo other = new TimeInfo(packet, returnTime);
         other.addComment("this is a comment");
+        // removed other assertion
         other.addComment("another comment");
+        //Assert.assertFalse(info.equals(other)); // comments not used for equality
 
         final TimeInfo another = new TimeInfo(packet, returnTime, new ArrayList<String>());
         Assert.assertEquals(info, another);
@@ -59,15 +61,25 @@ public class TestTimeInfo_OE25Dev {
 
     @Test
     public void testComputeDetails_1_oe() {
+        // if (origTime > returnTime) // assert destTime >= origTime
         final NtpV3Packet packet = new NtpV3Impl();
         final long returnTimeMillis = System.currentTimeMillis();
 
+        // example
+        // returntime=1370571658178
+        // origTime=  1370571659178
 
+        // originate time as defined in RFC-1305 (t1)
         packet.setOriginateTimeStamp(TimeStamp.getNtpTime(returnTimeMillis + 1000));
+        // Receive Time is time request received by server (t2)
         packet.setReceiveTimeStamp(packet.getOriginateTimeStamp());
+        // Transmit time is time reply sent by server (t3)
         packet.setTransmitTime(packet.getOriginateTimeStamp());
         packet.setReferenceTime(packet.getOriginateTimeStamp());
 
+        //long origTime = packet.getOriginateTimeStamp().getTime();
+        //System.out.println("returntime=" + returnTime);
+        //System.out.println("origTime=  " + origTime);
 
         final TimeInfo info = new TimeInfo(packet, returnTimeMillis);
         info.computeDetails();
@@ -77,74 +89,125 @@ public class TestTimeInfo_OE25Dev {
 
     @Test
     public void testComputeDetails_2_oe() {
+        // if (origTime > returnTime) // assert destTime >= origTime
         final NtpV3Packet packet = new NtpV3Impl();
         final long returnTimeMillis = System.currentTimeMillis();
 
+        // example
+        // returntime=1370571658178
+        // origTime=  1370571659178
 
+        // originate time as defined in RFC-1305 (t1)
         packet.setOriginateTimeStamp(TimeStamp.getNtpTime(returnTimeMillis + 1000));
+        // Receive Time is time request received by server (t2)
         packet.setReceiveTimeStamp(packet.getOriginateTimeStamp());
+        // Transmit time is time reply sent by server (t3)
         packet.setTransmitTime(packet.getOriginateTimeStamp());
         packet.setReferenceTime(packet.getOriginateTimeStamp());
 
+        //long origTime = packet.getOriginateTimeStamp().getTime();
+        //System.out.println("returntime=" + returnTime);
+        //System.out.println("origTime=  " + origTime);
 
         final TimeInfo info = new TimeInfo(packet, returnTimeMillis);
         info.computeDetails();
 
+        // removed other assertion
         Assert.assertEquals(returnTimeMillis, info.getReturnTime());
     }
 
     @Test
     public void testComputeDetails_3_oe() {
+        // if (origTime > returnTime) // assert destTime >= origTime
         final NtpV3Packet packet = new NtpV3Impl();
         final long returnTimeMillis = System.currentTimeMillis();
 
+        // example
+        // returntime=1370571658178
+        // origTime=  1370571659178
 
+        // originate time as defined in RFC-1305 (t1)
         packet.setOriginateTimeStamp(TimeStamp.getNtpTime(returnTimeMillis + 1000));
+        // Receive Time is time request received by server (t2)
         packet.setReceiveTimeStamp(packet.getOriginateTimeStamp());
+        // Transmit time is time reply sent by server (t3)
         packet.setTransmitTime(packet.getOriginateTimeStamp());
         packet.setReferenceTime(packet.getOriginateTimeStamp());
 
+        //long origTime = packet.getOriginateTimeStamp().getTime();
+        //System.out.println("returntime=" + returnTime);
+        //System.out.println("origTime=  " + origTime);
 
         final TimeInfo info = new TimeInfo(packet, returnTimeMillis);
         info.computeDetails();
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(Long.valueOf(500), info.getOffset());
     }
 
     @Test
     public void testComputeDetails_4_oe() {
+        // if (origTime > returnTime) // assert destTime >= origTime
         final NtpV3Packet packet = new NtpV3Impl();
         final long returnTimeMillis = System.currentTimeMillis();
 
+        // example
+        // returntime=1370571658178
+        // origTime=  1370571659178
 
+        // originate time as defined in RFC-1305 (t1)
         packet.setOriginateTimeStamp(TimeStamp.getNtpTime(returnTimeMillis + 1000));
+        // Receive Time is time request received by server (t2)
         packet.setReceiveTimeStamp(packet.getOriginateTimeStamp());
+        // Transmit time is time reply sent by server (t3)
         packet.setTransmitTime(packet.getOriginateTimeStamp());
         packet.setReferenceTime(packet.getOriginateTimeStamp());
 
+        //long origTime = packet.getOriginateTimeStamp().getTime();
+        //System.out.println("returntime=" + returnTime);
+        //System.out.println("origTime=  " + origTime);
 
         final TimeInfo info = new TimeInfo(packet, returnTimeMillis);
         info.computeDetails();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(Long.valueOf(-1000), info.getDelay());
     }
 
     @Test
     public void testComputeDetails_5_oe() {
+        // if (origTime > returnTime) // assert destTime >= origTime
         final NtpV3Packet packet = new NtpV3Impl();
         final long returnTimeMillis = System.currentTimeMillis();
 
+        // example
+        // returntime=1370571658178
+        // origTime=  1370571659178
 
+        // originate time as defined in RFC-1305 (t1)
         packet.setOriginateTimeStamp(TimeStamp.getNtpTime(returnTimeMillis + 1000));
+        // Receive Time is time request received by server (t2)
         packet.setReceiveTimeStamp(packet.getOriginateTimeStamp());
+        // Transmit time is time reply sent by server (t3)
         packet.setTransmitTime(packet.getOriginateTimeStamp());
         packet.setReferenceTime(packet.getOriginateTimeStamp());
 
+        //long origTime = packet.getOriginateTimeStamp().getTime();
+        //System.out.println("returntime=" + returnTime);
+        //System.out.println("origTime=  " + origTime);
 
         final TimeInfo info = new TimeInfo(packet, returnTimeMillis);
         info.computeDetails();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // comments: [Warning: processing time > total network time, Error: OrigTime > DestRcvTime]
         Assert.assertEquals(2, info.getComments().size());
     }
 
@@ -159,6 +222,7 @@ public class TestTimeInfo_OE25Dev {
     public void testAddress_2_oe() throws UnknownHostException {
         final NtpV3Packet packet = new NtpV3Impl();
         final TimeInfo info = new TimeInfo(packet, System.currentTimeMillis());
+        // removed other assertion
         packet.getDatagramPacket().setAddress(InetAddress.getByAddress("loopback", new byte[]{127, 0, 0, 1}));
         Assert.assertNotNull(info.getAddress());
     }
@@ -176,6 +240,7 @@ public class TestTimeInfo_OE25Dev {
         final NtpV3Packet packet = new NtpV3Impl();
         final TimeInfo info = new TimeInfo(packet, 0);
         info.computeDetails();
+        // removed other assertion
         Assert.assertNull(info.getOffset());
     }
 
@@ -184,6 +249,8 @@ public class TestTimeInfo_OE25Dev {
         final NtpV3Packet packet = new NtpV3Impl();
         final TimeInfo info = new TimeInfo(packet, 0);
         info.computeDetails();
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(0L, info.getReturnTime());
     }
 
@@ -192,6 +259,10 @@ public class TestTimeInfo_OE25Dev {
         final NtpV3Packet packet = new NtpV3Impl();
         final TimeInfo info = new TimeInfo(packet, 0);
         info.computeDetails();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // comments: Error: zero orig time -- cannot compute delay/offset
         final List<String> comments = info.getComments();
         Assert.assertEquals(1, comments.size());
     }
@@ -201,7 +272,12 @@ public class TestTimeInfo_OE25Dev {
         final NtpV3Packet packet = new NtpV3Impl();
         final TimeInfo info = new TimeInfo(packet, 0);
         info.computeDetails();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // comments: Error: zero orig time -- cannot compute delay/offset
         final List<String> comments = info.getComments();
+        // removed other assertion
         Assert.assertTrue(comments.get(0).contains("zero orig time"));
     }
 
@@ -211,6 +287,7 @@ public class TestTimeInfo_OE25Dev {
         final long returnTime = System.currentTimeMillis();
         final TimeInfo info = new TimeInfo(packet, returnTime);
 
+        // 1. different return time
         final NtpV3Packet packet2 = new NtpV3Impl();
         Assert.assertEquals(packet, packet2);
     }
@@ -221,7 +298,9 @@ public class TestTimeInfo_OE25Dev {
         final long returnTime = System.currentTimeMillis();
         final TimeInfo info = new TimeInfo(packet, returnTime);
 
+        // 1. different return time
         final NtpV3Packet packet2 = new NtpV3Impl();
+        // removed other assertion
         final TimeInfo info2 = new TimeInfo(packet2, returnTime + 1);
         Assert.assertFalse(info.equals(info2));
     }
@@ -232,9 +311,13 @@ public class TestTimeInfo_OE25Dev {
         final long returnTime = System.currentTimeMillis();
         final TimeInfo info = new TimeInfo(packet, returnTime);
 
+        // 1. different return time
         final NtpV3Packet packet2 = new NtpV3Impl();
+        // removed other assertion
         final TimeInfo info2 = new TimeInfo(packet2, returnTime + 1);
+        // removed other assertion
 
+        // 2. different message / same time
         packet2.setStratum(3);
         packet2.setRootDelay(25);
         final TimeInfo info3 = new TimeInfo(packet2, returnTime);
@@ -247,13 +330,19 @@ public class TestTimeInfo_OE25Dev {
         final long returnTime = System.currentTimeMillis();
         final TimeInfo info = new TimeInfo(packet, returnTime);
 
+        // 1. different return time
         final NtpV3Packet packet2 = new NtpV3Impl();
+        // removed other assertion
         final TimeInfo info2 = new TimeInfo(packet2, returnTime + 1);
+        // removed other assertion
 
+        // 2. different message / same time
         packet2.setStratum(3);
         packet2.setRootDelay(25);
         final TimeInfo info3 = new TimeInfo(packet2, returnTime);
+        // removed other assertion
 
+        // 3. different class
         Object  other = this;
         Assert.assertFalse(info.equals(other));
     }
@@ -264,15 +353,23 @@ public class TestTimeInfo_OE25Dev {
         final long returnTime = System.currentTimeMillis();
         final TimeInfo info = new TimeInfo(packet, returnTime);
 
+        // 1. different return time
         final NtpV3Packet packet2 = new NtpV3Impl();
+        // removed other assertion
         final TimeInfo info2 = new TimeInfo(packet2, returnTime + 1);
+        // removed other assertion
 
+        // 2. different message / same time
         packet2.setStratum(3);
         packet2.setRootDelay(25);
         final TimeInfo info3 = new TimeInfo(packet2, returnTime);
+        // removed other assertion
 
+        // 3. different class
         Object  other = this;
+        // removed other assertion
 
+        // 4. null comparison
         other = null;
         Assert.assertFalse(info.equals(other));
     }

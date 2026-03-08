@@ -75,6 +75,7 @@ public class PaletteEntryForValueTest_OE25Dev {
     public void testIsCovered_2_oe() {
         final Color c0 = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, c0);
+        // removed other assertion
         assertFalse(instance.isCovered(1.0f), "Value 1.0 must not be covered");
     }
 
@@ -82,6 +83,8 @@ public class PaletteEntryForValueTest_OE25Dev {
     public void testIsCovered_3_oe() {
         final Color c0 = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, c0);
+        // removed other assertion
+        // removed other assertion
         instance = new PaletteEntryForValue(Float.NaN, c0);
         assertTrue(instance.isCovered(Float.NaN), "NaN value must be covered");
     }
@@ -90,7 +93,10 @@ public class PaletteEntryForValueTest_OE25Dev {
     public void testIsCovered_4_oe() {
         final Color c0 = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, c0);
+        // removed other assertion
+        // removed other assertion
         instance = new PaletteEntryForValue(Float.NaN, c0);
+        // removed other assertion
         assertFalse(instance.isCovered(1.0f), "Value 1.0 must not be covered");
     }
 
@@ -111,6 +117,7 @@ public class PaletteEntryForValueTest_OE25Dev {
         int a0 = instance.getARGB(0.0f);
         int a1 = instance.getARGB(0.5f);
         final int a2 = instance.getARGB(Float.NaN);
+        // removed other assertion
         assertEquals(0, a1, "Invalid value for target 0.5f");
     }
 
@@ -121,6 +128,8 @@ public class PaletteEntryForValueTest_OE25Dev {
         int a0 = instance.getARGB(0.0f);
         int a1 = instance.getARGB(0.5f);
         final int a2 = instance.getARGB(Float.NaN);
+        // removed other assertion
+        // removed other assertion
         assertEquals(0, a2, "Invalid value for target NaN");
     }
 
@@ -131,6 +140,9 @@ public class PaletteEntryForValueTest_OE25Dev {
         int a0 = instance.getARGB(0.0f);
         int a1 = instance.getARGB(0.5f);
         final int a2 = instance.getARGB(Float.NaN);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         instance = new PaletteEntryForValue(Float.NaN, c0);
         a0 = instance.getARGB(0.0f);
         a1 = instance.getARGB(Float.NaN);
@@ -144,9 +156,13 @@ public class PaletteEntryForValueTest_OE25Dev {
         int a0 = instance.getARGB(0.0f);
         int a1 = instance.getARGB(0.5f);
         final int a2 = instance.getARGB(Float.NaN);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         instance = new PaletteEntryForValue(Float.NaN, c0);
         a0 = instance.getARGB(0.0f);
         a1 = instance.getARGB(Float.NaN);
+        // removed other assertion
         assertEquals(0xff0000ff, a1, "Invalid value for target NaN");
     }
 
@@ -165,6 +181,7 @@ public class PaletteEntryForValueTest_OE25Dev {
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, cTest);
         Color c0 = instance.getColor(0.0f);
         final int a0 = c0.getRGB();
+        // removed other assertion
         c0 = instance.getColor(1f);
         assertNull(c0, "Non-null return for invalid target 1.0f");
     }
@@ -175,7 +192,9 @@ public class PaletteEntryForValueTest_OE25Dev {
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, cTest);
         Color c0 = instance.getColor(0.0f);
         final int a0 = c0.getRGB();
+        // removed other assertion
         c0 = instance.getColor(1f);
+        // removed other assertion
         c0 = instance.getColor(Float.NaN);
         assertNull(c0, "Non-null return for invalid target 1.0f");
     }
@@ -186,8 +205,11 @@ public class PaletteEntryForValueTest_OE25Dev {
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, cTest);
         Color c0 = instance.getColor(0.0f);
         final int a0 = c0.getRGB();
+        // removed other assertion
         c0 = instance.getColor(1f);
+        // removed other assertion
         c0 = instance.getColor(Float.NaN);
+        // removed other assertion
         instance = new PaletteEntryForValue(Float.NaN, cTest);
         c0 = instance.getColor(Float.NaN);
         assertNotNull(c0, "Invalid return for valid target Float.NaN");
@@ -199,10 +221,14 @@ public class PaletteEntryForValueTest_OE25Dev {
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, cTest);
         Color c0 = instance.getColor(0.0f);
         final int a0 = c0.getRGB();
+        // removed other assertion
         c0 = instance.getColor(1f);
+        // removed other assertion
         c0 = instance.getColor(Float.NaN);
+        // removed other assertion
         instance = new PaletteEntryForValue(Float.NaN, cTest);
         c0 = instance.getColor(Float.NaN);
+        // removed other assertion
         c0 = instance.getColor(1.0f);
         assertNull(c0, "Invalid return for invalid valid target 1.0f");
     }

@@ -59,8 +59,10 @@ class IntProviderTest_OE25Dev {
     @Test
     void testNextBoolean_1_oe() {
         for (int i = 0; i < Integer.SIZE; i++) {
+            // Set only a single bit in the source
              int value = 1 << i;
              IntProvider provider = new FlipIntProvider(value);
+            // Test the result for a single pass over the long
             for (int j = 0; j < Integer.SIZE; j++) {
                  boolean expected = i == j;
                  int index = j;

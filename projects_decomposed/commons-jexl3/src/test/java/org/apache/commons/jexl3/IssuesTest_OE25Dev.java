@@ -152,6 +152,7 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new Engine();
         final JexlEvalContext jc = new JexlEvalContext();
         final JexlOptions options = jc.getEngineOptions();
+        // ensure errors will throw
         options.setStrict(true);
         options.setSilent(false);
         try {
@@ -159,6 +160,7 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
             final JexlExpression e = jexl.createExpression(jexlExp);
             jc.set("foo", new Foo());
             /* Object o = */ e.evaluate(jc);
+            // removed other assertion
         } catch (final JexlException.Assignment xparse) {
             final String dbg = xparse.toString();
         } catch (final JexlException xjexl) {
@@ -171,6 +173,7 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new Engine();
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
 
         JexlExpression expr = jexl.createExpression("true//false\n");
@@ -183,10 +186,12 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new Engine();
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
 
         JexlExpression expr = jexl.createExpression("true//false\n");
         Object value = expr.evaluate(ctxt);
+        // removed other assertion
 
         expr = jexl.createExpression("/*true*/false");
         value = expr.evaluate(ctxt);
@@ -198,13 +203,16 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new Engine();
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
 
         JexlExpression expr = jexl.createExpression("true//false\n");
         Object value = expr.evaluate(ctxt);
+        // removed other assertion
 
         expr = jexl.createExpression("/*true*/false");
         value = expr.evaluate(ctxt);
+        // removed other assertion
 
         expr = jexl.createExpression("/*\"true\"*/false");
         value = expr.evaluate(ctxt);
@@ -215,6 +223,8 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
     public void test42_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JxltEngine uel = jexl.createJxltEngine();
+        // ensure errors will throw
+        //jexl.setSilent(false);
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
         options.set(jexl);
@@ -233,6 +243,7 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
         options.set(jexl);
+        // ensure errors will throw
         options.setSilent(false);
 
         ctxt.set("derived", new Derived());
@@ -246,6 +257,7 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
     public void test52base_1_oe() throws Exception {
         final Engine jexl = (Engine) createEngine(false);
         final Uberspect uber = (Uberspect) jexl.getUberspect();
+        // most likely, call will be in an Interpreter, getUberspect
         String[] names = uber.getMethodNames(Another.class);
         Assert.assertTrue("should find methods", names.length > 0);
     }
@@ -254,7 +266,9 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
     public void test52base_2_oe() throws Exception {
         final Engine jexl = (Engine) createEngine(false);
         final Uberspect uber = (Uberspect) jexl.getUberspect();
+        // most likely, call will be in an Interpreter, getUberspect
         String[] names = uber.getMethodNames(Another.class);
+        // removed other assertion
         int found = 0;
         for (final String name : names) {
             if ("foo".equals(name) || "goo".equals(name)) {
@@ -268,13 +282,16 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
     public void test52base_3_oe() throws Exception {
         final Engine jexl = (Engine) createEngine(false);
         final Uberspect uber = (Uberspect) jexl.getUberspect();
+        // most likely, call will be in an Interpreter, getUberspect
         String[] names = uber.getMethodNames(Another.class);
+        // removed other assertion
         int found = 0;
         for (final String name : names) {
             if ("foo".equals(name) || "goo".equals(name)) {
                 found += 1;
             }
         }
+        // removed other assertion
 
         names = uber.getFieldNames(Another.class);
         Assert.assertTrue("should find fields", names.length > 0);
@@ -284,15 +301,19 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
     public void test52base_4_oe() throws Exception {
         final Engine jexl = (Engine) createEngine(false);
         final Uberspect uber = (Uberspect) jexl.getUberspect();
+        // most likely, call will be in an Interpreter, getUberspect
         String[] names = uber.getMethodNames(Another.class);
+        // removed other assertion
         int found = 0;
         for (final String name : names) {
             if ("foo".equals(name) || "goo".equals(name)) {
                 found += 1;
             }
         }
+        // removed other assertion
 
         names = uber.getFieldNames(Another.class);
+        // removed other assertion
         found = 0;
         for (final String name : names) {
             if ("name".equals(name)) {
@@ -329,6 +350,7 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         JexlScript jscript;
 
         jscript = jexl.createScript("dummy.hashCode()");
+        // removed other assertion
         ctxt.set("dummy","abcd");
         Assert.assertEquals(jscript.getSourceText(),Integer.valueOf("abcd".hashCode()),jscript.execute(ctxt));// OK;
     }
@@ -345,7 +367,9 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         JexlScript jscript;
 
         jscript = jexl.createScript("dummy.hashCode()");
+        // removed other assertion
         ctxt.set("dummy","abcd");
+        // removed other assertion
         jscript = jexl.createScript("dummy.hashCode");
         Assert.assertNull(jscript.getSourceText(),jscript.execute(ctxt));// OK;
     }
@@ -362,8 +386,11 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         JexlScript jscript;
 
         jscript = jexl.createScript("dummy.hashCode()");
+        // removed other assertion
         ctxt.set("dummy","abcd");
+        // removed other assertion
         jscript = jexl.createScript("dummy.hashCode");
+        // removed other assertion
         JexlExpression jexpr;
         vars.clear();
         jexpr = jexl.createExpression("dummy.hashCode()");
@@ -382,11 +409,15 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         JexlScript jscript;
 
         jscript = jexl.createScript("dummy.hashCode()");
+        // removed other assertion
         ctxt.set("dummy","abcd");
+        // removed other assertion
         jscript = jexl.createScript("dummy.hashCode");
+        // removed other assertion
         JexlExpression jexpr;
         vars.clear();
         jexpr = jexl.createExpression("dummy.hashCode()");
+        // removed other assertion
         ctxt.set("dummy","abcd");
         Assert.assertEquals(jexpr.toString(),Integer.valueOf("abcd".hashCode()),jexpr.evaluate(ctxt));// OK;
     }
@@ -403,12 +434,17 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         JexlScript jscript;
 
         jscript = jexl.createScript("dummy.hashCode()");
+        // removed other assertion
         ctxt.set("dummy","abcd");
+        // removed other assertion
         jscript = jexl.createScript("dummy.hashCode");
+        // removed other assertion
         JexlExpression jexpr;
         vars.clear();
         jexpr = jexl.createExpression("dummy.hashCode()");
+        // removed other assertion
         ctxt.set("dummy","abcd");
+        // removed other assertion
         jexpr = jexl.createExpression("dummy.hashCode");
         Assert.assertNull(jexpr.toString(), jexpr.evaluate(ctxt)); // OK;
     }
@@ -418,6 +454,7 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = createEngine(false);
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
         final JexlExpression divide = jexl.createExpression("l / r");
         final JexlExpression modulo = jexl.createExpression("l % r");
@@ -432,12 +469,14 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = createEngine(false);
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
         final JexlExpression divide = jexl.createExpression("l / r");
         final JexlExpression modulo = jexl.createExpression("l % r");
 
         ctxt.set("l", java.math.BigInteger.valueOf(7));
         ctxt.set("r", java.math.BigInteger.valueOf(2));
+        // removed other assertion
         Assert.assertTrue(jexl.getArithmetic().equals(1, modulo.evaluate(ctxt)));
     }
 
@@ -446,12 +485,15 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = createEngine(false);
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
         final JexlExpression divide = jexl.createExpression("l / r");
         final JexlExpression modulo = jexl.createExpression("l % r");
 
         ctxt.set("l", java.math.BigInteger.valueOf(7));
         ctxt.set("r", java.math.BigInteger.valueOf(2));
+        // removed other assertion
+        // removed other assertion
 
         ctxt.set("l", java.math.BigDecimal.valueOf(7));
         ctxt.set("r", java.math.BigDecimal.valueOf(2));
@@ -463,15 +505,19 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = createEngine(false);
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
         final JexlExpression divide = jexl.createExpression("l / r");
         final JexlExpression modulo = jexl.createExpression("l % r");
 
         ctxt.set("l", java.math.BigInteger.valueOf(7));
         ctxt.set("r", java.math.BigInteger.valueOf(2));
+        // removed other assertion
+        // removed other assertion
 
         ctxt.set("l", java.math.BigDecimal.valueOf(7));
         ctxt.set("r", java.math.BigDecimal.valueOf(2));
+        // removed other assertion
         Assert.assertTrue(jexl.getArithmetic().equals(1, modulo.evaluate(ctxt)));
     }
 
@@ -480,7 +526,9 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = createEngine(false);
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
+        // ';' is necessary between expressions
         final String[] fexprs = {
             "a=3 b=4",
             "",
@@ -489,9 +537,12 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         for (final String fexpr : fexprs) {
             try {
                 jexl.createScript(fexpr);
+                // removed other assertion
             } catch (final JexlException xany) {
+                // expected to fail in createExpression
             }
         }
+        // ';' is necessary between expressions and only expressions
         final String[] exprs = {
             "if (x) {1} if (y) {2}",
             "if (x) 1 if (y) 2",
@@ -512,6 +563,7 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = createEngine(false);
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
         JexlScript script;
         script = jexl.createScript("'hello world!'//commented");
@@ -523,9 +575,11 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = createEngine(false);
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
         JexlScript script;
         script = jexl.createScript("'hello world!'//commented");
+        // removed other assertion
         script = jexl.createScript("'hello world!';//commented\n'bye...'");
         Assert.assertEquals("bye...", script.execute(ctxt));
     }
@@ -535,10 +589,13 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = createEngine(false);
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
         JexlScript script;
         script = jexl.createScript("'hello world!'//commented");
+        // removed other assertion
         script = jexl.createScript("'hello world!';//commented\n'bye...'");
+        // removed other assertion
         script = jexl.createScript("'hello world!'## commented");
         Assert.assertEquals("hello world!", script.execute(ctxt));
     }
@@ -548,11 +605,15 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = createEngine(false);
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
         JexlScript script;
         script = jexl.createScript("'hello world!'//commented");
+        // removed other assertion
         script = jexl.createScript("'hello world!';//commented\n'bye...'");
+        // removed other assertion
         script = jexl.createScript("'hello world!'## commented");
+        // removed other assertion
         script = jexl.createScript("'hello world!';## commented\n'bye...'");
         Assert.assertEquals("bye...", script.execute(ctxt));
     }
@@ -562,6 +623,7 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = createEngine(false);
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
         for (char v = 'a'; v <= 'z'; ++v) {
             ctxt.set(Character.toString(v), 10);
@@ -570,6 +632,7 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
                 = "(((((((((((((((((((((((((z+y)/x)*w)-v)*u)/t)-s)*r)/q)+p)-o)*n)-m)+l)*k)+j)/i)+h)*g)+f)/e)+d)-c)/b)+a)";
 
         JexlExpression script;
+        // Make sure everything is loaded...
         final long start = System.nanoTime();
         script = jexl.createExpression(input);
         final Object value = script.evaluate(ctxt);
@@ -581,6 +644,7 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = createEngine(false);
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
         for (char v = 'a'; v <= 'z'; ++v) {
             ctxt.set(Character.toString(v), 10);
@@ -589,9 +653,11 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
                 = "(((((((((((((((((((((((((z+y)/x)*w)-v)*u)/t)-s)*r)/q)+p)-o)*n)-m)+l)*k)+j)/i)+h)*g)+f)/e)+d)-c)/b)+a)";
 
         JexlExpression script;
+        // Make sure everything is loaded...
         final long start = System.nanoTime();
         script = jexl.createExpression(input);
         final Object value = script.evaluate(ctxt);
+        // removed other assertion
         final long end = System.nanoTime();
         final double millisec = (end - start) / 1e6;
         final double limit = 200.0; // Allow plenty of slack

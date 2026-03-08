@@ -1,0 +1,1150 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+bean_91_3,"    public void testExceptionThrowFromClone_3_oe() {
+
+        if (BeanUtilsTestCase.isPre14JVM()) {
+            System.out.println(""testExceptionThrowFromClone() skipped on pre 1.4 JVM"");
+            return;
+        }
+
+        try {
+            final Object bean = Jira87BeanFactory.createMappedPropertyBean();
+            final BeanMap map = new BeanMap(bean);
+            map.clone();
+        } catch (final CloneNotSupportedException e) {
+            Throwable cause = null;
+            try {
+                cause = (Throwable)PropertyUtils.getProperty(e, ""cause"");
+            } catch (final Exception e2) {
+            }
+            assertNotNull(""Non-public bean cause null"", cause);
+    }
+    }",BeanMapTestCase::testExceptionThrowFromClone_3_oe,org.apache.commons.beanutils.PropertyUtils,"getProperty(final Object bean, final String name)","/**
+     * <p>Return the value of the specified property of the specified bean,
+     * no matter which property reference format is used, with no
+     * type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be extracted
+     * @param name Possibly indexed and/or nested name of the property
+     *  to be extracted
+     * @return the property value
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#getProperty
+     */","public static Object getProperty(final Object bean, final String name)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        return (PropertyUtilsBean.getInstance().getProperty(bean, name));
+
+    }"
+bean_91_4,"    public void testExceptionThrowFromClone_4_oe() {
+
+        if (BeanUtilsTestCase.isPre14JVM()) {
+            System.out.println(""testExceptionThrowFromClone() skipped on pre 1.4 JVM"");
+            return;
+        }
+
+        try {
+            final Object bean = Jira87BeanFactory.createMappedPropertyBean();
+            final BeanMap map = new BeanMap(bean);
+            map.clone();
+        } catch (final CloneNotSupportedException e) {
+            Throwable cause = null;
+            try {
+                cause = (Throwable)PropertyUtils.getProperty(e, ""cause"");
+            } catch (final Exception e2) {
+            }
+            assertEquals(""Non-public bean cause"", IllegalAccessException.class, cause.getClass());
+    }
+    }",BeanMapTestCase::testExceptionThrowFromClone_4_oe,org.apache.commons.beanutils.PropertyUtils,"getProperty(final Object bean, final String name)","/**
+     * <p>Return the value of the specified property of the specified bean,
+     * no matter which property reference format is used, with no
+     * type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be extracted
+     * @param name Possibly indexed and/or nested name of the property
+     *  to be extracted
+     * @return the property value
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#getProperty
+     */","public static Object getProperty(final Object bean, final String name)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        return (PropertyUtilsBean.getInstance().getProperty(bean, name));
+
+    }"
+bean_91_7,"    public void testExceptionThrowFromClone_7_oe() {
+
+        if (BeanUtilsTestCase.isPre14JVM()) {
+            System.out.println(""testExceptionThrowFromClone() skipped on pre 1.4 JVM"");
+            return;
+        }
+
+        try {
+            final Object bean = Jira87BeanFactory.createMappedPropertyBean();
+            final BeanMap map = new BeanMap(bean);
+            map.clone();
+        } catch (final CloneNotSupportedException e) {
+            Throwable cause = null;
+            try {
+                cause = (Throwable)PropertyUtils.getProperty(e, ""cause"");
+            } catch (final Exception e2) {
+            }
+        }
+
+        try {
+            final BeanMap map = new BeanMap(new BeanThrowingExceptions());
+            map.clone();
+        } catch (final CloneNotSupportedException e) {
+            Throwable cause = null;
+            try {
+                cause = (Throwable)PropertyUtils.getProperty(e, ""cause"");
+            } catch (final Exception e2) {
+            }
+            assertNotNull(""Setter Exception cause null"", cause);
+    }
+    }",BeanMapTestCase::testExceptionThrowFromClone_7_oe,org.apache.commons.beanutils.PropertyUtils,"getProperty(final Object bean, final String name)","/**
+     * <p>Return the value of the specified property of the specified bean,
+     * no matter which property reference format is used, with no
+     * type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be extracted
+     * @param name Possibly indexed and/or nested name of the property
+     *  to be extracted
+     * @return the property value
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#getProperty
+     */","public static Object getProperty(final Object bean, final String name)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        return (PropertyUtilsBean.getInstance().getProperty(bean, name));
+
+    }"
+bean_91_8,"    public void testExceptionThrowFromClone_8_oe() {
+
+        if (BeanUtilsTestCase.isPre14JVM()) {
+            System.out.println(""testExceptionThrowFromClone() skipped on pre 1.4 JVM"");
+            return;
+        }
+
+        try {
+            final Object bean = Jira87BeanFactory.createMappedPropertyBean();
+            final BeanMap map = new BeanMap(bean);
+            map.clone();
+        } catch (final CloneNotSupportedException e) {
+            Throwable cause = null;
+            try {
+                cause = (Throwable)PropertyUtils.getProperty(e, ""cause"");
+            } catch (final Exception e2) {
+            }
+        }
+
+        try {
+            final BeanMap map = new BeanMap(new BeanThrowingExceptions());
+            map.clone();
+        } catch (final CloneNotSupportedException e) {
+            Throwable cause = null;
+            try {
+                cause = (Throwable)PropertyUtils.getProperty(e, ""cause"");
+            } catch (final Exception e2) {
+            }
+            assertEquals(""Setter Exception cause"", IllegalArgumentException.class, cause.getClass());
+    }
+    }",BeanMapTestCase::testExceptionThrowFromClone_8_oe,org.apache.commons.beanutils.PropertyUtils,"getProperty(final Object bean, final String name)","/**
+     * <p>Return the value of the specified property of the specified bean,
+     * no matter which property reference format is used, with no
+     * type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be extracted
+     * @param name Possibly indexed and/or nested name of the property
+     *  to be extracted
+     * @return the property value
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#getProperty
+     */","public static Object getProperty(final Object bean, final String name)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        return (PropertyUtilsBean.getInstance().getProperty(bean, name));
+
+    }"
+bean_92_3,"    public void testExceptionThrowFromClear_3_oe() {
+
+        if (BeanUtilsTestCase.isPre14JVM()) {
+            System.out.println(""testExceptionThrowFromClear() skipped on pre 1.4 JVM"");
+            return;
+        }
+
+        try {
+            final Object bean = Jira87BeanFactory.createMappedPropertyBean();
+            final BeanMap map = new BeanMap(bean);
+            map.clear();
+        } catch (final UnsupportedOperationException e) {
+            Throwable cause = null;
+            try {
+                cause = (Throwable)PropertyUtils.getProperty(e, ""cause"");
+            } catch (final Exception e2) {
+            }
+            assertNotNull(""Cause null"", cause);
+    }
+    }",BeanMapTestCase::testExceptionThrowFromClear_3_oe,org.apache.commons.beanutils.PropertyUtils,"getProperty(final Object bean, final String name)","/**
+     * <p>Return the value of the specified property of the specified bean,
+     * no matter which property reference format is used, with no
+     * type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be extracted
+     * @param name Possibly indexed and/or nested name of the property
+     *  to be extracted
+     * @return the property value
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#getProperty
+     */","public static Object getProperty(final Object bean, final String name)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        return (PropertyUtilsBean.getInstance().getProperty(bean, name));
+
+    }"
+bean_92_4,"    public void testExceptionThrowFromClear_4_oe() {
+
+        if (BeanUtilsTestCase.isPre14JVM()) {
+            System.out.println(""testExceptionThrowFromClear() skipped on pre 1.4 JVM"");
+            return;
+        }
+
+        try {
+            final Object bean = Jira87BeanFactory.createMappedPropertyBean();
+            final BeanMap map = new BeanMap(bean);
+            map.clear();
+        } catch (final UnsupportedOperationException e) {
+            Throwable cause = null;
+            try {
+                cause = (Throwable)PropertyUtils.getProperty(e, ""cause"");
+            } catch (final Exception e2) {
+            }
+            assertEquals(""Cause"", IllegalAccessException.class, cause.getClass());
+    }
+    }",BeanMapTestCase::testExceptionThrowFromClear_4_oe,org.apache.commons.beanutils.PropertyUtils,"getProperty(final Object bean, final String name)","/**
+     * <p>Return the value of the specified property of the specified bean,
+     * no matter which property reference format is used, with no
+     * type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be extracted
+     * @param name Possibly indexed and/or nested name of the property
+     *  to be extracted
+     * @return the property value
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#getProperty
+     */","public static Object getProperty(final Object bean, final String name)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        return (PropertyUtilsBean.getInstance().getProperty(bean, name));
+
+    }"
+bean_93_3,"    public void testExceptionThrowFromPut_3_oe() {
+
+        if (BeanUtilsTestCase.isPre14JVM()) {
+            System.out.println(""testExceptionThrowFromPut() skipped on pre 1.4 JVM"");
+            return;
+        }
+
+        try {
+            final Map<Object, Object> map = new BeanMap(new BeanThrowingExceptions());
+            map.put(""valueThrowingException"", ""value"");
+        } catch (final IllegalArgumentException e) {
+            Throwable cause1 = null;
+            Throwable cause2 = null;
+            try {
+                cause1 = (Throwable)PropertyUtils.getProperty(e, ""cause"");
+                cause2 = (Throwable)PropertyUtils.getProperty(e, ""cause.cause"");
+            } catch (final Exception e2) {
+            }
+            assertNotNull(""Setter exception cause 1 null"", cause1);
+    }
+    }",BeanMapTestCase::testExceptionThrowFromPut_3_oe,org.apache.commons.beanutils.PropertyUtils,"getProperty(final Object bean, final String name)","/**
+     * <p>Return the value of the specified property of the specified bean,
+     * no matter which property reference format is used, with no
+     * type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be extracted
+     * @param name Possibly indexed and/or nested name of the property
+     *  to be extracted
+     * @return the property value
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#getProperty
+     */","public static Object getProperty(final Object bean, final String name)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        return (PropertyUtilsBean.getInstance().getProperty(bean, name));
+
+    }"
+bean_93_4,"    public void testExceptionThrowFromPut_4_oe() {
+
+        if (BeanUtilsTestCase.isPre14JVM()) {
+            System.out.println(""testExceptionThrowFromPut() skipped on pre 1.4 JVM"");
+            return;
+        }
+
+        try {
+            final Map<Object, Object> map = new BeanMap(new BeanThrowingExceptions());
+            map.put(""valueThrowingException"", ""value"");
+        } catch (final IllegalArgumentException e) {
+            Throwable cause1 = null;
+            Throwable cause2 = null;
+            try {
+                cause1 = (Throwable)PropertyUtils.getProperty(e, ""cause"");
+                cause2 = (Throwable)PropertyUtils.getProperty(e, ""cause.cause"");
+            } catch (final Exception e2) {
+            }
+            assertEquals(""Setter exception cause 1"", InvocationTargetException.class, cause1.getClass());
+    }
+    }",BeanMapTestCase::testExceptionThrowFromPut_4_oe,org.apache.commons.beanutils.PropertyUtils,"getProperty(final Object bean, final String name)","/**
+     * <p>Return the value of the specified property of the specified bean,
+     * no matter which property reference format is used, with no
+     * type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be extracted
+     * @param name Possibly indexed and/or nested name of the property
+     *  to be extracted
+     * @return the property value
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#getProperty
+     */","public static Object getProperty(final Object bean, final String name)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        return (PropertyUtilsBean.getInstance().getProperty(bean, name));
+
+    }"
+bean_93_5,"    public void testExceptionThrowFromPut_5_oe() {
+
+        if (BeanUtilsTestCase.isPre14JVM()) {
+            System.out.println(""testExceptionThrowFromPut() skipped on pre 1.4 JVM"");
+            return;
+        }
+
+        try {
+            final Map<Object, Object> map = new BeanMap(new BeanThrowingExceptions());
+            map.put(""valueThrowingException"", ""value"");
+        } catch (final IllegalArgumentException e) {
+            Throwable cause1 = null;
+            Throwable cause2 = null;
+            try {
+                cause1 = (Throwable)PropertyUtils.getProperty(e, ""cause"");
+                cause2 = (Throwable)PropertyUtils.getProperty(e, ""cause.cause"");
+            } catch (final Exception e2) {
+            }
+            assertNotNull(""Setter exception cause 2 null"", cause2);
+    }
+    }",BeanMapTestCase::testExceptionThrowFromPut_5_oe,org.apache.commons.beanutils.PropertyUtils,"getProperty(final Object bean, final String name)","/**
+     * <p>Return the value of the specified property of the specified bean,
+     * no matter which property reference format is used, with no
+     * type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be extracted
+     * @param name Possibly indexed and/or nested name of the property
+     *  to be extracted
+     * @return the property value
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#getProperty
+     */","public static Object getProperty(final Object bean, final String name)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        return (PropertyUtilsBean.getInstance().getProperty(bean, name));
+
+    }"
+bean_93_6,"    public void testExceptionThrowFromPut_6_oe() {
+
+        if (BeanUtilsTestCase.isPre14JVM()) {
+            System.out.println(""testExceptionThrowFromPut() skipped on pre 1.4 JVM"");
+            return;
+        }
+
+        try {
+            final Map<Object, Object> map = new BeanMap(new BeanThrowingExceptions());
+            map.put(""valueThrowingException"", ""value"");
+        } catch (final IllegalArgumentException e) {
+            Throwable cause1 = null;
+            Throwable cause2 = null;
+            try {
+                cause1 = (Throwable)PropertyUtils.getProperty(e, ""cause"");
+                cause2 = (Throwable)PropertyUtils.getProperty(e, ""cause.cause"");
+            } catch (final Exception e2) {
+            }
+            assertEquals(""Setter exception cause 2"", TestException.class, cause2.getClass());
+    }
+    }",BeanMapTestCase::testExceptionThrowFromPut_6_oe,org.apache.commons.beanutils.PropertyUtils,"getProperty(final Object bean, final String name)","/**
+     * <p>Return the value of the specified property of the specified bean,
+     * no matter which property reference format is used, with no
+     * type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be extracted
+     * @param name Possibly indexed and/or nested name of the property
+     *  to be extracted
+     * @return the property value
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#getProperty
+     */","public static Object getProperty(final Object bean, final String name)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        return (PropertyUtilsBean.getInstance().getProperty(bean, name));
+
+    }"
+bean_393_1,"    public void testInitCause_1_oe() {
+        if (isPre14JVM()) {
+            return;
+        }
+        final String parentMsg = ""PARENT-THROWABLE"";
+        final String causeMsg  = ""THROWABLE-CAUSE"";
+        try {
+            initCauseAndThrowException(parentMsg, causeMsg);
+        } catch (final Throwable thrownParent) {
+            assertEquals(""Parent"", parentMsg, thrownParent.getMessage());
+    }
+    }",BeanUtilsTestCase::testInitCause_1_oe,,,,
+bean_545_2,"    public void testCompareOnMissingProperty_2_oe() {
+        try {
+          final BeanComparator<AlphaBean> beanComparator = new BeanComparator<AlphaBean>(""bogusName"");
+          beanComparator.compare(alphaBean2, alphaBean1);
+
+
+        }
+        catch (final Exception e) {
+          assertTrue(""Wrong exception was thrown: "" + e, e.toString().indexOf(""Unknown property"") > -1);
+    }
+    }",BeanComparatorTestCase::testCompareOnMissingProperty_2_oe,org.apache.commons.beanutils.BeanComparator,"compare( final T o1, final T o2 )","/**
+     * Compare two JavaBeans by their shared property.
+     * If {@link #getProperty} is null then the actual objects will be compared.
+     *
+     * @param  o1 Object The first bean to get data from to compare against
+     * @param  o2 Object The second bean to get data from to compare
+     * @return int negative or positive based on order
+     */","public int compare( final T o1, final T o2 ) {
+
+        if ( property == null ) {
+            // compare the actual objects
+            return internalCompare( o1, o2 );
+        }
+
+        try {
+            final Object value1 = PropertyUtils.getProperty( o1, property );
+            final Object value2 = PropertyUtils.getProperty( o2, property );
+            return internalCompare( value1, value2 );
+        }
+        catch ( final IllegalAccessException iae ) {
+            throw new RuntimeException( ""IllegalAccessException: "" + iae.toString() );
+        }
+        catch ( final InvocationTargetException ite ) {
+            throw new RuntimeException( ""InvocationTargetException: "" + ite.toString() );
+        }
+        catch ( final NoSuchMethodException nsme ) {
+            throw new RuntimeException( ""NoSuchMethodException: "" + nsme.toString() );
+        }
+    }"
+bean_737_8,"    public void testGetIndex_8_oe() {
+        String label = null;
+
+        for (int i = 0; i < validProperties.length; i++) {
+            try {
+                label = ""Simple "" + label(validProperties[i], i);
+            } catch (final Throwable t) {
+            }
+        }
+
+        for (int i = 0; i < validIndexProperties.length; i++) {
+            try {
+                label = ""Indexed "" + label(validIndexProperties[i], i);
+            } catch (final Throwable t) {
+            }
+        }
+
+        for (int i = 0; i < validMapProperties.length; i++) {
+            try {
+                label = ""Mapped "" + label(validMapProperties[i], i);
+            } catch (final Throwable t) {
+            }
+        }
+
+        label = ""Missing Index"";
+        try {
+            final int index  = resolver.getIndex(""foo[]"");
+        } catch (final IllegalArgumentException e) {
+            assertEquals(label + "" Error Message"", ""No Index Value"", e.getMessage());
+    }
+    }",DefaultResolverTestCase::testGetIndex_8_oe,org.apache.commons.beanutils.expression.Resolver,getIndex(String expression),"/**
+     * Extract the index value from the property expression or -1.
+     *
+     * @param expression The property expression
+     * @return The index value or -1 if the property is not indexed
+     * @throws IllegalArgumentException If the indexed property is illegally
+     * formed or has an invalid (non-numeric) value
+     */",int getIndex(String expression);
+bean_737_11,"    public void testGetIndex_11_oe() {
+        String label = null;
+
+        for (int i = 0; i < validProperties.length; i++) {
+            try {
+                label = ""Simple "" + label(validProperties[i], i);
+            } catch (final Throwable t) {
+            }
+        }
+
+        for (int i = 0; i < validIndexProperties.length; i++) {
+            try {
+                label = ""Indexed "" + label(validIndexProperties[i], i);
+            } catch (final Throwable t) {
+            }
+        }
+
+        for (int i = 0; i < validMapProperties.length; i++) {
+            try {
+                label = ""Mapped "" + label(validMapProperties[i], i);
+            } catch (final Throwable t) {
+            }
+        }
+
+        label = ""Missing Index"";
+        try {
+            final int index  = resolver.getIndex(""foo[]"");
+        } catch (final IllegalArgumentException e) {
+        } catch (final Throwable t) {
+        }
+
+        label = ""Malformed"";
+        try {
+            final int index  = resolver.getIndex(""foo[12"");
+        } catch (final IllegalArgumentException e) {
+            assertEquals(label + "" Error Message"", ""Missing End Delimiter"", e.getMessage());
+    }
+    }",DefaultResolverTestCase::testGetIndex_11_oe,org.apache.commons.beanutils.expression.Resolver,getIndex(String expression),"/**
+     * Extract the index value from the property expression or -1.
+     *
+     * @param expression The property expression
+     * @return The index value or -1 if the property is not indexed
+     * @throws IllegalArgumentException If the indexed property is illegally
+     * formed or has an invalid (non-numeric) value
+     */",int getIndex(String expression);
+bean_737_14,"    public void testGetIndex_14_oe() {
+        String label = null;
+
+        for (int i = 0; i < validProperties.length; i++) {
+            try {
+                label = ""Simple "" + label(validProperties[i], i);
+            } catch (final Throwable t) {
+            }
+        }
+
+        for (int i = 0; i < validIndexProperties.length; i++) {
+            try {
+                label = ""Indexed "" + label(validIndexProperties[i], i);
+            } catch (final Throwable t) {
+            }
+        }
+
+        for (int i = 0; i < validMapProperties.length; i++) {
+            try {
+                label = ""Mapped "" + label(validMapProperties[i], i);
+            } catch (final Throwable t) {
+            }
+        }
+
+        label = ""Missing Index"";
+        try {
+            final int index  = resolver.getIndex(""foo[]"");
+        } catch (final IllegalArgumentException e) {
+        } catch (final Throwable t) {
+        }
+
+        label = ""Malformed"";
+        try {
+            final int index  = resolver.getIndex(""foo[12"");
+        } catch (final IllegalArgumentException e) {
+        } catch (final Throwable t) {
+        }
+
+        label = ""Malformed"";
+        try {
+            final int index  = resolver.getIndex(""foo[BAR]"");
+        } catch (final IllegalArgumentException e) {
+            assertEquals(label + "" Error Message"", ""Invalid index value 'BAR'"", e.getMessage());
+    }
+    }",DefaultResolverTestCase::testGetIndex_14_oe,org.apache.commons.beanutils.expression.Resolver,getIndex(String expression),"/**
+     * Extract the index value from the property expression or -1.
+     *
+     * @param expression The property expression
+     * @return The index value or -1 if the property is not indexed
+     * @throws IllegalArgumentException If the indexed property is illegally
+     * formed or has an invalid (non-numeric) value
+     */",int getIndex(String expression);
+bean_738_8,"    public void testGetMapKey_8_oe() {
+        String label = null;
+
+        for (int i = 0; i < validProperties.length; i++) {
+            try {
+                label = ""Simple "" + label(validProperties[i], i);
+            } catch (final Throwable t) {
+            }
+        }
+
+        for (int i = 0; i < validIndexProperties.length; i++) {
+            try {
+                label = ""Indexed "" + label(validIndexProperties[i], i);
+            } catch (final Throwable t) {
+            }
+        }
+
+        for (int i = 0; i < validMapProperties.length; i++) {
+            try {
+                label = ""Mapped "" + label(validMapProperties[i], i);
+            } catch (final Throwable t) {
+            }
+        }
+
+        label = ""Malformed"";
+        try {
+            final String key  = resolver.getKey(""foo(bar"");
+        } catch (final IllegalArgumentException e) {
+            assertEquals(label + "" Error Message"", ""Missing End Delimiter"", e.getMessage());
+    }
+    }",DefaultResolverTestCase::testGetMapKey_8_oe,org.apache.commons.beanutils.BaseDynaBeanMapDecorator.MapEntry,getKey(),,"public K getKey() {
+            return key;
+        }"
+bean_767_1,"    public void testInvalidDate_1_oe() {
+
+        converter = new DateLocaleConverter(defaultLocale);
+
+        try {
+            converter.convert(""01/10/2004"", ""dd-MM-yyyy"");
+        } catch (final ConversionException e) {
+            assertEquals(""Parse Error"", ""Error parsing date '01/10/2004' at position=2"", e.getMessage());
+    }
+    }",DateLocaleConverterTestCase::testInvalidDate_1_oe,org.apache.commons.beanutils.Converter,"convert(Class<T> type, Object value)","/**
+     * Convert the specified input object into an output object of the
+     * specified type.
+     *
+     * @param <T> the desired result type
+     * @param type Data type to which this value should be converted
+     * @param value The input value to be converted
+     * @return The converted value
+     *
+     * @throws ConversionException if conversion cannot be performed
+     *  successfully
+     */","public <T> T convert(Class<T> type, Object value);"
+bean_767_2,"    public void testInvalidDate_2_oe() {
+
+        converter = new DateLocaleConverter(defaultLocale);
+
+        try {
+            converter.convert(""01/10/2004"", ""dd-MM-yyyy"");
+        } catch (final ConversionException e) {
+        }
+
+        try {
+            converter.convert(""01-10-2004X"", ""dd-MM-yyyy"");
+        } catch (final ConversionException e) {
+            assertEquals(""Parse Length"", ""Date '01-10-2004X' contains unparsed characters from position=10"", e.getMessage());
+    }
+    }",DateLocaleConverterTestCase::testInvalidDate_2_oe,org.apache.commons.beanutils.Converter,"convert(Class<T> type, Object value)","/**
+     * Convert the specified input object into an output object of the
+     * specified type.
+     *
+     * @param <T> the desired result type
+     * @param type Data type to which this value should be converted
+     * @param value The input value to be converted
+     * @return The converted value
+     *
+     * @throws ConversionException if conversion cannot be performed
+     *  successfully
+     */","public <T> T convert(Class<T> type, Object value);"
+bean_133_5,"    public void testGetSimpleUnknown_5_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean, ""unknown"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            assertEquals(""Unknown property 'unknown' on dynaclass '"" + bean.getDynaClass()+ ""'"",e.getMessage());
+    }
+    }",DynaPropertyUtilsTestCase::testGetSimpleUnknown_5_oe,org.apache.commons.beanutils.WrapDynaBean,getDynaClass(),"/**
+     * Return the <code>DynaClass</code> instance that describes the set of
+     * properties available for this DynaBean.
+     * @return The associated DynaClass
+     */","public DynaClass getDynaClass() {
+
+        if (dynaClass == null) {
+            dynaClass = WrapDynaClass.createDynaClass(instance.getClass());
+        }
+
+        return (this.dynaClass);
+
+    }"
+bean_159_5,"    public void testSetSimpleUnknown_5_oe() {
+
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""unknown"",
+                    newValue);
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            assertEquals(""Unknown property 'unknown' on dynaclass '"" + bean.getDynaClass()+ ""'"",e.getMessage());
+    }
+    }",DynaPropertyUtilsTestCase::testSetSimpleUnknown_5_oe,org.apache.commons.beanutils.WrapDynaBean,getDynaClass(),"/**
+     * Return the <code>DynaClass</code> instance that describes the set of
+     * properties available for this DynaBean.
+     * @return The associated DynaClass
+     */","public DynaClass getDynaClass() {
+
+        if (dynaClass == null) {
+            dynaClass = WrapDynaClass.createDynaClass(instance.getClass());
+        }
+
+        return (this.dynaClass);
+
+    }"
+bean_471_5,"    public void testGetSimpleUnknown_5_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean, ""unknown"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            assertEquals(""Unknown property 'unknown' on class '"" + bean.getClass()+ ""'"",e.getMessage());
+    }
+    }",PropertyUtilsTestCase::testGetSimpleUnknown_5_oe,org.apache.commons.beanutils.PropertyUtils,"getSimpleProperty(final Object bean, final String name)","/**
+     * <p>Return the value of the specified simple property of the specified
+     * bean, with no type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be extracted
+     * @param name Name of the property to be extracted
+     * @return The property value
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws IllegalArgumentException if the property name
+     *  is nested or indexed
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#getSimpleProperty
+     */","public static Object getSimpleProperty(final Object bean, final String name)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        return PropertyUtilsBean.getInstance().getSimpleProperty(bean, name);
+
+    }"
+bean_472_5,"    public void testGetSimpleWriteOnly_5_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean, ""writeOnlyProperty"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            assertEquals(""Property 'writeOnlyProperty' has no getter method in class '"" + bean.getClass()+ ""'"",e.getMessage());
+    }
+    }",PropertyUtilsTestCase::testGetSimpleWriteOnly_5_oe,org.apache.commons.beanutils.PropertyUtils,"getSimpleProperty(final Object bean, final String name)","/**
+     * <p>Return the value of the specified simple property of the specified
+     * bean, with no type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be extracted
+     * @param name Name of the property to be extracted
+     * @return The property value
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws IllegalArgumentException if the property name
+     *  is nested or indexed
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#getSimpleProperty
+     */","public static Object getSimpleProperty(final Object bean, final String name)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        return PropertyUtilsBean.getInstance().getSimpleProperty(bean, name);
+
+    }"
+bean_506_5,"    public void testSetSimpleReadOnly_5_oe() {
+
+        try {
+            final String oldValue = bean.getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""readOnlyProperty"",
+                    newValue);
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            assertEquals(""Property 'readOnlyProperty' has no setter method in class '"" + bean.getClass()+ ""'"",e.getMessage());
+    }
+    }",PropertyUtilsTestCase::testSetSimpleReadOnly_5_oe,org.apache.commons.beanutils.PropertyUtils,"void setSimpleProperty(final Object bean,
+                                         final String name, final Object value)","/**
+     * <p>Set the value of the specified simple property of the specified bean,
+     * with no type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be modified
+     * @param name Name of the property to be modified
+     * @param value Value to which the property should be set
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws IllegalArgumentException if the property name is
+     *  nested or indexed
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#setSimpleProperty
+     */","public static void setSimpleProperty(final Object bean,
+                                         final String name, final Object value)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        PropertyUtilsBean.getInstance().setSimpleProperty(bean, name, value);
+    }"
+bean_509_5,"    public void testSetSimpleUnknown_5_oe() {
+
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""unknown"",
+                    newValue);
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            assertEquals(""Unknown property 'unknown' on class '"" + bean.getClass()+ ""'"",e.getMessage());
+    }
+    }",PropertyUtilsTestCase::testSetSimpleUnknown_5_oe,org.apache.commons.beanutils.PropertyUtils,"void setSimpleProperty(final Object bean,
+                                         final String name, final Object value)","/**
+     * <p>Set the value of the specified simple property of the specified bean,
+     * with no type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be modified
+     * @param name Name of the property to be modified
+     * @param value Value to which the property should be set
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws IllegalArgumentException if the property name is
+     *  nested or indexed
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#setSimpleProperty
+     */","public static void setSimpleProperty(final Object bean,
+                                         final String name, final Object value)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        PropertyUtilsBean.getInstance().setSimpleProperty(bean, name, value);
+    }"
+bean_516_4,"    public void testNestedPropertyKeyOrIndexOnBeanImplementingMap_4_oe() throws Exception {
+        final HashMap<String, Object> map = new HashMap<String, Object>();
+        final HashMap<String, Object> submap = new HashMap<String, Object>();
+        final BetaBean betaBean1 = new BetaBean(""test1"");
+        final BetaBean betaBean2 = new BetaBean(""test2"");
+
+        PropertyUtils.setNestedProperty(map, ""submap"", submap);
+
+        PropertyUtils.setNestedProperty(map, ""submap.beta1"", betaBean1);
+
+        try {
+            PropertyUtils.setNestedProperty(map, ""submap(beta2)"", betaBean2);
+
+        } catch(final IllegalArgumentException ex) {
+            final int index = ex.getMessage().indexOf(
+                    ""Indexed or mapped properties are not supported"");
+            assertTrue(""Unexpected exception message"", index>=0);
+    }
+    }",PropertyUtilsTestCase::testNestedPropertyKeyOrIndexOnBeanImplementingMap_4_oe,org.apache.commons.beanutils.PropertyUtils,"void setNestedProperty(final Object bean,
+                                         final String name, final Object value)","/**
+     * <p>Sets the value of the (possibly nested) property of the specified
+     * name, for the specified bean, with no type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be modified
+     * @param name Possibly nested name of the property to be modified
+     * @param value Value to which the property is to be set
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws IllegalArgumentException if a nested reference to a
+     *  property returns null
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#setNestedProperty
+     */","public static void setNestedProperty(final Object bean,
+                                         final String name, final Object value)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        PropertyUtilsBean.getInstance().setNestedProperty(bean, name, value);
+    }"
+bean_516_6,"    public void testNestedPropertyKeyOrIndexOnBeanImplementingMap_6_oe() throws Exception {
+        final HashMap<String, Object> map = new HashMap<String, Object>();
+        final HashMap<String, Object> submap = new HashMap<String, Object>();
+        final BetaBean betaBean1 = new BetaBean(""test1"");
+        final BetaBean betaBean2 = new BetaBean(""test2"");
+
+        PropertyUtils.setNestedProperty(map, ""submap"", submap);
+
+        PropertyUtils.setNestedProperty(map, ""submap.beta1"", betaBean1);
+
+        try {
+            PropertyUtils.setNestedProperty(map, ""submap(beta2)"", betaBean2);
+
+        } catch(final IllegalArgumentException ex) {
+            final int index = ex.getMessage().indexOf(
+                    ""Indexed or mapped properties are not supported"");
+        }
+
+        try {
+            PropertyUtils.getNestedProperty(map, ""submap[3]"");
+
+        } catch(final IllegalArgumentException ex) {
+            final int index = ex.getMessage().indexOf(
+                    ""Indexed or mapped properties are not supported"");
+            assertTrue(""Unexpected exception message"", index>=0);
+    }
+    }",PropertyUtilsTestCase::testNestedPropertyKeyOrIndexOnBeanImplementingMap_6_oe,org.apache.commons.beanutils.PropertyUtils,"getNestedProperty(final Object bean, final String name)","/**
+     * <p>Return the value of the (possibly nested) property of the specified
+     * name, for the specified bean, with no type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be extracted
+     * @param name Possibly nested name of the property to be extracted
+     * @return the nested property value
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws NestedNullException if a nested reference to a
+     *  property returns null
+     * @throws InvocationTargetException
+     * if the property accessor method throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#getNestedProperty
+     */","public static Object getNestedProperty(final Object bean, final String name)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        return PropertyUtilsBean.getInstance().getNestedProperty(bean, name);
+
+    }"
+bean_519_1,"    public void testExceptionFromInvoke_1_oe() throws Exception {
+        if (BeanUtilsTestCase.isPre14JVM()) {
+            return;
+        }
+        try {
+            PropertyUtils.setSimpleProperty(bean, ""intProperty"",""XXX"");
+        } catch(final IllegalArgumentException t) {
+            final Throwable cause = (Throwable)PropertyUtils.getProperty(t, ""cause"");
+            assertNotNull(""Cause not found"", cause);
+    }
+    }",PropertyUtilsTestCase::testExceptionFromInvoke_1_oe,org.apache.commons.beanutils.PropertyUtils,"getProperty(final Object bean, final String name)","/**
+     * <p>Return the value of the specified property of the specified bean,
+     * no matter which property reference format is used, with no
+     * type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be extracted
+     * @param name Possibly indexed and/or nested name of the property
+     *  to be extracted
+     * @return the property value
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#getProperty
+     */","public static Object getProperty(final Object bean, final String name)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        return (PropertyUtilsBean.getInstance().getProperty(bean, name));
+
+    }"
+bean_519_2,"    public void testExceptionFromInvoke_2_oe() throws Exception {
+        if (BeanUtilsTestCase.isPre14JVM()) {
+            return;
+        }
+        try {
+            PropertyUtils.setSimpleProperty(bean, ""intProperty"",""XXX"");
+        } catch(final IllegalArgumentException t) {
+            final Throwable cause = (Throwable)PropertyUtils.getProperty(t, ""cause"");
+            assertTrue(""Expected cause to be IllegalArgumentException,but was: "" + cause.getClass(),cause instanceof IllegalArgumentException);
+    }
+    }",PropertyUtilsTestCase::testExceptionFromInvoke_2_oe,org.apache.commons.beanutils.PropertyUtils,"getProperty(final Object bean, final String name)","/**
+     * <p>Return the value of the specified property of the specified bean,
+     * no matter which property reference format is used, with no
+     * type conversions.</p>
+     *
+     * <p>For more details see <code>PropertyUtilsBean</code>.</p>
+     *
+     * @param bean Bean whose property is to be extracted
+     * @param name Possibly indexed and/or nested name of the property
+     *  to be extracted
+     * @return the property value
+     *
+     * @throws IllegalAccessException if the caller does not have
+     *  access to the property accessor method
+     * @throws IllegalArgumentException if <code>bean</code> or
+     *  <code>name</code> is null
+     * @throws InvocationTargetException if the property accessor method
+     *  throws an exception
+     * @throws NoSuchMethodException if an accessor method for this
+     *  propety cannot be found
+     * @see PropertyUtilsBean#getProperty
+     */","public static Object getProperty(final Object bean, final String name)
+            throws IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+
+        return (PropertyUtilsBean.getInstance().getProperty(bean, name));
+
+    }"

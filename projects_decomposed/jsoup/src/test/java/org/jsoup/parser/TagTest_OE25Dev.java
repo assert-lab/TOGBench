@@ -33,6 +33,7 @@ public class TagTest_OE25Dev {
     @Test public void equality_2_oe() {
         Tag p1 = Tag.valueOf("p");
         Tag p2 = Tag.valueOf("p");
+        // removed other assertion
         assertSame(p1, p2);
         }
 
@@ -45,6 +46,7 @@ public class TagTest_OE25Dev {
     @Test public void divSemantics_2_oe() {
         Tag div = Tag.valueOf("div");
 
+        // removed other assertion
         assertTrue(div.formatAsBlock());
         }
 
@@ -57,6 +59,7 @@ public class TagTest_OE25Dev {
     @Test public void pSemantics_2_oe() {
         Tag p = Tag.valueOf("p");
 
+        // removed other assertion
         assertFalse(p.formatAsBlock());
         }
 
@@ -67,11 +70,14 @@ public class TagTest_OE25Dev {
 
     @Test public void imgSemantics_2_oe() {
         Tag img = Tag.valueOf("img");
+        // removed other assertion
         assertTrue(img.isSelfClosing());
         }
 
     @Test public void imgSemantics_3_oe() {
         Tag img = Tag.valueOf("img");
+        // removed other assertion
+        // removed other assertion
         assertFalse(img.isBlock());
         }
 
@@ -86,6 +92,7 @@ public class TagTest_OE25Dev {
         Tag foo = Tag.valueOf("FOO"); // not defined
         Tag foo2 = Tag.valueOf("FOO");
 
+        // removed other assertion
         assertTrue(foo.isInline());
         }
 
@@ -93,6 +100,8 @@ public class TagTest_OE25Dev {
         Tag foo = Tag.valueOf("FOO"); // not defined
         Tag foo2 = Tag.valueOf("FOO");
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(foo.formatAsBlock());
         }
 
@@ -117,6 +126,7 @@ public class TagTest_OE25Dev {
         }
 
     @Test public void knownTags_2_oe() {
+        // removed other assertion
         assertFalse(Tag.isKnownTag("explain"));
         }
 

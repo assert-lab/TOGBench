@@ -84,6 +84,7 @@ public class TestConfigurationSet_OE25Dev {
             boolean found = false;
             for (int i = 0; i < properties.length; i++) {
                 if (entry.getKey().equals(properties[i])) {
+                    // removed other assertion
                     found = true;
                 }
             }
@@ -99,9 +100,11 @@ public class TestConfigurationSet_OE25Dev {
             boolean found = false;
             for (int i = 0; i < properties.length; i++) {
                 if (entry.getKey().equals(properties[i])) {
+                    // removed other assertion
                     found = true;
                 }
             }
+            // removed other assertion
             iterator.remove();
         }
         assertTrue("Iterator failed to remove all properties.", set.isEmpty());

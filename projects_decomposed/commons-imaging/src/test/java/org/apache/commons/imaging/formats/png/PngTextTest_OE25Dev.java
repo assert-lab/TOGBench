@@ -123,6 +123,7 @@ public class PngTextTest_OE25Dev extends PngBaseTest {
         FileUtils.writeByteArrayToFile(tempFile, bytes);
 
         final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(bytes);
+        // removed other assertion
 
         final List<PngText> readTexts = imageInfo.getTextChunks();
         assertEquals(readTexts.size(), 3);
@@ -171,8 +172,10 @@ public class PngTextTest_OE25Dev extends PngBaseTest {
         FileUtils.writeByteArrayToFile(tempFile, bytes);
 
         final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(bytes);
+        // removed other assertion
 
         final List<PngText> readTexts = imageInfo.getTextChunks();
+        // removed other assertion
         for (final PngText text : readTexts) {
             if (text.keyword.equals("a")) {
                 assertEquals(text.text, "b");
@@ -223,10 +226,13 @@ public class PngTextTest_OE25Dev extends PngBaseTest {
         FileUtils.writeByteArrayToFile(tempFile, bytes);
 
         final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(bytes);
+        // removed other assertion
 
         final List<PngText> readTexts = imageInfo.getTextChunks();
+        // removed other assertion
         for (final PngText text : readTexts) {
             if (text.keyword.equals("a")) {
+                // removed other assertion
             } else if (text.keyword.equals("c")) {
                 assertEquals(text.text, "d");
     }
@@ -276,11 +282,15 @@ public class PngTextTest_OE25Dev extends PngBaseTest {
         FileUtils.writeByteArrayToFile(tempFile, bytes);
 
         final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(bytes);
+        // removed other assertion
 
         final List<PngText> readTexts = imageInfo.getTextChunks();
+        // removed other assertion
         for (final PngText text : readTexts) {
             if (text.keyword.equals("a")) {
+                // removed other assertion
             } else if (text.keyword.equals("c")) {
+                // removed other assertion
             } else if (text.keyword.equals("e")) {
                 assertEquals(text.text, "f");
     }
@@ -330,12 +340,17 @@ public class PngTextTest_OE25Dev extends PngBaseTest {
         FileUtils.writeByteArrayToFile(tempFile, bytes);
 
         final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(bytes);
+        // removed other assertion
 
         final List<PngText> readTexts = imageInfo.getTextChunks();
+        // removed other assertion
         for (final PngText text : readTexts) {
             if (text.keyword.equals("a")) {
+                // removed other assertion
             } else if (text.keyword.equals("c")) {
+                // removed other assertion
             } else if (text.keyword.equals("e")) {
+                // removed other assertion
             } else {
                 fail("unknown text chunk.");
     }

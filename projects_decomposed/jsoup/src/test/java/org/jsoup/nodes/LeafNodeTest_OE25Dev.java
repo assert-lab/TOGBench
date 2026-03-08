@@ -32,6 +32,7 @@ public class LeafNodeTest_OE25Dev {
 
     @Test
     public void doesNotGetAttributesTooEasily_1_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
         assertTrue(hasAnyAttributes(doc));// should have one - the base uri on the doc;
@@ -39,17 +40,22 @@ public class LeafNodeTest_OE25Dev {
 
     @Test
     public void doesNotGetAttributesTooEasily_2_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
+        // removed other assertion
         Element html = doc.child(0);
         assertFalse(hasAnyAttributes(html));
     }
 
     @Test
     public void doesNotGetAttributesTooEasily_3_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
+        // removed other assertion
         Element html = doc.child(0);
+        // removed other assertion
 
         String s = doc.outerHtml();
         assertFalse(hasAnyAttributes(html));
@@ -57,11 +63,15 @@ public class LeafNodeTest_OE25Dev {
 
     @Test
     public void doesNotGetAttributesTooEasily_4_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
+        // removed other assertion
         Element html = doc.child(0);
+        // removed other assertion
 
         String s = doc.outerHtml();
+        // removed other assertion
 
         Elements els = doc.select("p");
         Element p = els.first();
@@ -70,27 +80,38 @@ public class LeafNodeTest_OE25Dev {
 
     @Test
     public void doesNotGetAttributesTooEasily_5_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
+        // removed other assertion
         Element html = doc.child(0);
+        // removed other assertion
 
         String s = doc.outerHtml();
+        // removed other assertion
 
         Elements els = doc.select("p");
         Element p = els.first();
+        // removed other assertion
         assertFalse(hasAnyAttributes(html));
     }
 
     @Test
     public void doesNotGetAttributesTooEasily_6_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
+        // removed other assertion
         Element html = doc.child(0);
+        // removed other assertion
 
         String s = doc.outerHtml();
+        // removed other assertion
 
         Elements els = doc.select("p");
         Element p = els.first();
+        // removed other assertion
+        // removed other assertion
 
         els = doc.select("p.none");
         assertFalse(hasAnyAttributes(html));
@@ -98,16 +119,23 @@ public class LeafNodeTest_OE25Dev {
 
     @Test
     public void doesNotGetAttributesTooEasily_7_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
+        // removed other assertion
         Element html = doc.child(0);
+        // removed other assertion
 
         String s = doc.outerHtml();
+        // removed other assertion
 
         Elements els = doc.select("p");
         Element p = els.first();
+        // removed other assertion
+        // removed other assertion
 
         els = doc.select("p.none");
+        // removed other assertion
 
         String id = p.id();
         assertEquals("", id);
@@ -115,52 +143,79 @@ public class LeafNodeTest_OE25Dev {
 
     @Test
     public void doesNotGetAttributesTooEasily_8_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
+        // removed other assertion
         Element html = doc.child(0);
+        // removed other assertion
 
         String s = doc.outerHtml();
+        // removed other assertion
 
         Elements els = doc.select("p");
         Element p = els.first();
+        // removed other assertion
+        // removed other assertion
 
         els = doc.select("p.none");
+        // removed other assertion
 
         String id = p.id();
+        // removed other assertion
         assertFalse(p.hasClass("Foobs"));
     }
 
     @Test
     public void doesNotGetAttributesTooEasily_9_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
+        // removed other assertion
         Element html = doc.child(0);
+        // removed other assertion
 
         String s = doc.outerHtml();
+        // removed other assertion
 
         Elements els = doc.select("p");
         Element p = els.first();
+        // removed other assertion
+        // removed other assertion
 
         els = doc.select("p.none");
+        // removed other assertion
 
         String id = p.id();
+        // removed other assertion
+        // removed other assertion
         assertFalse(hasAnyAttributes(html));
     }
 
     @Test
     public void doesNotGetAttributesTooEasily_10_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
+        // removed other assertion
         Element html = doc.child(0);
+        // removed other assertion
 
         String s = doc.outerHtml();
+        // removed other assertion
 
         Elements els = doc.select("p");
         Element p = els.first();
+        // removed other assertion
+        // removed other assertion
 
         els = doc.select("p.none");
+        // removed other assertion
 
         String id = p.id();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         p.addClass("Foobs");
         assertTrue(p.hasClass("Foobs"));
@@ -168,58 +223,94 @@ public class LeafNodeTest_OE25Dev {
 
     @Test
     public void doesNotGetAttributesTooEasily_11_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
+        // removed other assertion
         Element html = doc.child(0);
+        // removed other assertion
 
         String s = doc.outerHtml();
+        // removed other assertion
 
         Elements els = doc.select("p");
         Element p = els.first();
+        // removed other assertion
+        // removed other assertion
 
         els = doc.select("p.none");
+        // removed other assertion
 
         String id = p.id();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         p.addClass("Foobs");
+        // removed other assertion
         assertTrue(hasAnyAttributes(html));
     }
 
     @Test
     public void doesNotGetAttributesTooEasily_12_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
+        // removed other assertion
         Element html = doc.child(0);
+        // removed other assertion
 
         String s = doc.outerHtml();
+        // removed other assertion
 
         Elements els = doc.select("p");
         Element p = els.first();
+        // removed other assertion
+        // removed other assertion
 
         els = doc.select("p.none");
+        // removed other assertion
 
         String id = p.id();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         p.addClass("Foobs");
+        // removed other assertion
+        // removed other assertion
         assertTrue(hasAnyAttributes(p));
     }
 
     @Test
     public void doesNotGetAttributesTooEasily_13_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
+        // removed other assertion
         Element html = doc.child(0);
+        // removed other assertion
 
         String s = doc.outerHtml();
+        // removed other assertion
 
         Elements els = doc.select("p");
         Element p = els.first();
+        // removed other assertion
+        // removed other assertion
 
         els = doc.select("p.none");
+        // removed other assertion
 
         String id = p.id();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         p.addClass("Foobs");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Attributes attributes = p.attributes();
         assertTrue(attributes.hasKey("class"));
@@ -227,67 +318,112 @@ public class LeafNodeTest_OE25Dev {
 
     @Test
     public void doesNotGetAttributesTooEasily_14_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
+        // removed other assertion
         Element html = doc.child(0);
+        // removed other assertion
 
         String s = doc.outerHtml();
+        // removed other assertion
 
         Elements els = doc.select("p");
         Element p = els.first();
+        // removed other assertion
+        // removed other assertion
 
         els = doc.select("p.none");
+        // removed other assertion
 
         String id = p.id();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         p.addClass("Foobs");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Attributes attributes = p.attributes();
+        // removed other assertion
         p.clearAttributes();
         assertFalse(hasAnyAttributes(p));
     }
 
     @Test
     public void doesNotGetAttributesTooEasily_15_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
+        // removed other assertion
         Element html = doc.child(0);
+        // removed other assertion
 
         String s = doc.outerHtml();
+        // removed other assertion
 
         Elements els = doc.select("p");
         Element p = els.first();
+        // removed other assertion
+        // removed other assertion
 
         els = doc.select("p.none");
+        // removed other assertion
 
         String id = p.id();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         p.addClass("Foobs");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Attributes attributes = p.attributes();
+        // removed other assertion
         p.clearAttributes();
+        // removed other assertion
         assertFalse(hasAnyAttributes(html));
     }
 
     @Test
     public void doesNotGetAttributesTooEasily_16_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
+        // removed other assertion
         Element html = doc.child(0);
+        // removed other assertion
 
         String s = doc.outerHtml();
+        // removed other assertion
 
         Elements els = doc.select("p");
         Element p = els.first();
+        // removed other assertion
+        // removed other assertion
 
         els = doc.select("p.none");
+        // removed other assertion
 
         String id = p.id();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         p.addClass("Foobs");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Attributes attributes = p.attributes();
+        // removed other assertion
         p.clearAttributes();
+        // removed other assertion
+        // removed other assertion
         assertFalse(attributes.hasKey("class"));
     }
 

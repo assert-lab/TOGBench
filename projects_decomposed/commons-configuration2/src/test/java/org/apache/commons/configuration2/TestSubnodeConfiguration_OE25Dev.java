@@ -309,6 +309,7 @@ public class TestSubnodeConfiguration_OE25Dev {
     public void testAddProperty_2_oe() {
         setUpSubnodeConfig();
         config.addProperty("[@table-type]", "test");
+        // removed other assertion
 
         parent.addProperty("tables.table(0).fields.field(-1).name", "newField");
         final List<Object> fields = config.getList("fields.field.name");
@@ -319,9 +320,11 @@ public class TestSubnodeConfiguration_OE25Dev {
     public void testAddProperty_3_oe() {
         setUpSubnodeConfig();
         config.addProperty("[@table-type]", "test");
+        // removed other assertion
 
         parent.addProperty("tables.table(0).fields.field(-1).name", "newField");
         final List<Object> fields = config.getList("fields.field.name");
+        // removed other assertion
         assertEquals("Wrong last field", "newField", fields.get(fields.size() - 1));
     }
 
@@ -336,6 +339,7 @@ public class TestSubnodeConfiguration_OE25Dev {
     public void testClone_2_oe() {
         setUpSubnodeConfig();
         final SubnodeConfiguration copy = (SubnodeConfiguration) config.clone();
+        // removed other assertion
         final TrackedNodeModel subModel = (TrackedNodeModel) copy.getModel();
         assertEquals("Wrong selector", SELECTOR, subModel.getSelector());
     }
@@ -344,7 +348,9 @@ public class TestSubnodeConfiguration_OE25Dev {
     public void testClone_3_oe() {
         setUpSubnodeConfig();
         final SubnodeConfiguration copy = (SubnodeConfiguration) config.clone();
+        // removed other assertion
         final TrackedNodeModel subModel = (TrackedNodeModel) copy.getModel();
+        // removed other assertion
         final InMemoryNodeModel parentModel = (InMemoryNodeModel) parent.getModel();
         assertEquals("Wrong parent model", parentModel, subModel.getParentModel());
     }
@@ -353,9 +359,13 @@ public class TestSubnodeConfiguration_OE25Dev {
     public void testClone_4_oe() {
         setUpSubnodeConfig();
         final SubnodeConfiguration copy = (SubnodeConfiguration) config.clone();
+        // removed other assertion
         final TrackedNodeModel subModel = (TrackedNodeModel) copy.getModel();
+        // removed other assertion
         final InMemoryNodeModel parentModel = (InMemoryNodeModel) parent.getModel();
+        // removed other assertion
 
+        // Check whether the track count was increased
         parentModel.untrackNode(SELECTOR);
         parentModel.untrackNode(SELECTOR);
         assertTrue("Wrong finalize flag", subModel.isReleaseTrackedNodeOnFinalize());
@@ -372,6 +382,7 @@ public class TestSubnodeConfiguration_OE25Dev {
     public void testConfiguarationAtNoUpdates_2_oe() {
         setUpSubnodeConfig();
         final HierarchicalConfiguration<ImmutableNode> sub2 = config.configurationAt("fields.field(1)");
+        // removed other assertion
         parent.setProperty("tables.table(0).fields.field(1).name", "otherName");
         assertEquals("Change of parent is visible", NodeStructureHelper.field(0, 1), sub2.getString("name"));
     }
@@ -387,6 +398,7 @@ public class TestSubnodeConfiguration_OE25Dev {
     public void testConfigurationAtWithUpdateSupport_2_oe() {
         setUpSubnodeConfig();
         final SubnodeConfiguration sub2 = (SubnodeConfiguration) config.configurationAt("fields.field(1)", true);
+        // removed other assertion
         assertEquals("Wrong parent", config, sub2.getParent());
     }
 
@@ -401,6 +413,7 @@ public class TestSubnodeConfiguration_OE25Dev {
     public void testGetKeys_2_oe() {
         setUpSubnodeConfig();
         final Set<String> keys = new HashSet<>(ConfigurationAssert.keysToList(config));
+        // removed other assertion
         assertTrue("Key 1 not contained", keys.contains("name"));
     }
 
@@ -408,6 +421,8 @@ public class TestSubnodeConfiguration_OE25Dev {
     public void testGetKeys_3_oe() {
         setUpSubnodeConfig();
         final Set<String> keys = new HashSet<>(ConfigurationAssert.keysToList(config));
+        // removed other assertion
+        // removed other assertion
         assertTrue("Key 2 not contained", keys.contains("fields.field.name"));
     }
 
@@ -428,6 +443,7 @@ public class TestSubnodeConfiguration_OE25Dev {
     @Test
     public void testInitSubNodeConfig_2_oe() {
         setUpSubnodeConfig();
+        // removed other assertion
         assertSame("Wrong parent config", parent, config.getParent());
     }
 
@@ -444,6 +460,7 @@ public class TestSubnodeConfiguration_OE25Dev {
         parent.addProperty("tablespaces.tablespace.name", "default");
         parent.addProperty("tablespaces.tablespace(-1).name", "test");
         parent.addProperty("tables.table(0).tablespace", "${tablespaces.tablespace(0).name}");
+        // removed other assertion
 
         setUpSubnodeConfig();
         assertEquals("Wrong interpolated tablespace in subnode", "default", config.getString("tablespace"));
@@ -466,6 +483,7 @@ public class TestSubnodeConfiguration_OE25Dev {
         parent.addProperty("test.absolute.dir.dir2", "${dir1}");
 
         final Configuration sub = parent.configurationAt("test.absolute.dir");
+        // removed other assertion
         assertEquals("Wrong local interpolation in subnode", "/home/foo/path1", sub.getString("dir2"));
     }
 
@@ -492,6 +510,7 @@ public class TestSubnodeConfiguration_OE25Dev {
     public void testSetExpressionEngine_2_oe() {
         parent.setExpressionEngine(new XPathExpressionEngine());
         setUpSubnodeConfig("tables/table[1]");
+        // removed other assertion
         final Set<String> keys = ConfigurationAssert.keysToSet(config);
         assertEquals("Wrong number of keys", 2, keys.size());
     }
@@ -500,7 +519,9 @@ public class TestSubnodeConfiguration_OE25Dev {
     public void testSetExpressionEngine_3_oe() {
         parent.setExpressionEngine(new XPathExpressionEngine());
         setUpSubnodeConfig("tables/table[1]");
+        // removed other assertion
         final Set<String> keys = ConfigurationAssert.keysToSet(config);
+        // removed other assertion
         assertTrue("Key 1 not contained", keys.contains("name"));
     }
 
@@ -508,7 +529,10 @@ public class TestSubnodeConfiguration_OE25Dev {
     public void testSetExpressionEngine_4_oe() {
         parent.setExpressionEngine(new XPathExpressionEngine());
         setUpSubnodeConfig("tables/table[1]");
+        // removed other assertion
         final Set<String> keys = ConfigurationAssert.keysToSet(config);
+        // removed other assertion
+        // removed other assertion
         assertTrue("Key 2 not contained", keys.contains("fields/field/name"));
     }
 
@@ -516,7 +540,11 @@ public class TestSubnodeConfiguration_OE25Dev {
     public void testSetExpressionEngine_5_oe() {
         parent.setExpressionEngine(new XPathExpressionEngine());
         setUpSubnodeConfig("tables/table[1]");
+        // removed other assertion
         final Set<String> keys = ConfigurationAssert.keysToSet(config);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         config.setExpressionEngine(null);
         assertTrue("Expression engine reset on parent", parent.getExpressionEngine() instanceof XPathExpressionEngine);
     }
@@ -538,6 +566,7 @@ public class TestSubnodeConfiguration_OE25Dev {
         parent.setListDelimiterHandler(handler1);
         setUpSubnodeConfig();
         parent.setListDelimiterHandler(handler2);
+        // removed other assertion
         config.addProperty("newProp", "test1,test2/test3");
         assertEquals("List was incorrectly splitted", "test1,test2", parent.getString("tables.table(0).newProp"));
     }
@@ -549,7 +578,9 @@ public class TestSubnodeConfiguration_OE25Dev {
         parent.setListDelimiterHandler(handler1);
         setUpSubnodeConfig();
         parent.setListDelimiterHandler(handler2);
+        // removed other assertion
         config.addProperty("newProp", "test1,test2/test3");
+        // removed other assertion
         config.setListDelimiterHandler(DisabledListDelimiterHandler.INSTANCE);
         assertEquals("List delimiter changed on parent", handler2, parent.getListDelimiterHandler());
     }
@@ -567,6 +598,7 @@ public class TestSubnodeConfiguration_OE25Dev {
         setUpSubnodeConfig();
         config.setProperty(null, "testTable");
         config.setProperty("name", NodeStructureHelper.table(0) + "_tested");
+        // removed other assertion
         assertEquals("Table name was not changed", NodeStructureHelper.table(0) + "_tested", parent.getString("tables.table(0).name"));
     }
 
@@ -575,6 +607,8 @@ public class TestSubnodeConfiguration_OE25Dev {
         setUpSubnodeConfig();
         config.setProperty(null, "testTable");
         config.setProperty("name", NodeStructureHelper.table(0) + "_tested");
+        // removed other assertion
+        // removed other assertion
 
         parent.setProperty("tables.table(0).fields.field(1).name", "testField");
         assertEquals("Field name was not changed", "testField", config.getString("fields.field(1).name"));

@@ -134,6 +134,7 @@ public class InputStreamTest_OE25Dev extends AbstractBasicTest {
       };
 
       Response resp = c.preparePost(getTargetUrl()).setHeaders(h).setBody(is).execute().get();
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -169,6 +170,8 @@ public class InputStreamTest_OE25Dev extends AbstractBasicTest {
       };
 
       Response resp = c.preparePost(getTargetUrl()).setHeaders(h).setBody(is).execute().get();
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getHeader("X-Param"), "abc");
   }
   }

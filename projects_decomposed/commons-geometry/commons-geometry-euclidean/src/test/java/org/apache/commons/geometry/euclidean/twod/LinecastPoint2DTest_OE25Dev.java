@@ -52,46 +52,61 @@ class LinecastPoint2DTest_OE25Dev {
 
     @Test
     void testProperties_1_oe() {
+        // arrange
         final Vector2D pt = Vector2D.of(1, 1);
         final Vector2D normal = Vector2D.Unit.PLUS_X;
 
         final LinecastPoint2D it = new LinecastPoint2D(pt, normal, X_AXIS);
 
+        // act
         Assertions.assertSame(pt, it.getPoint());
     }
 
     @Test
     void testProperties_2_oe() {
+        // arrange
         final Vector2D pt = Vector2D.of(1, 1);
         final Vector2D normal = Vector2D.Unit.PLUS_X;
 
         final LinecastPoint2D it = new LinecastPoint2D(pt, normal, X_AXIS);
 
+        // act
+        // removed other assertion
         Assertions.assertSame(normal, it.getNormal());
     }
 
     @Test
     void testProperties_3_oe() {
+        // arrange
         final Vector2D pt = Vector2D.of(1, 1);
         final Vector2D normal = Vector2D.Unit.PLUS_X;
 
         final LinecastPoint2D it = new LinecastPoint2D(pt, normal, X_AXIS);
 
+        // act
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(X_AXIS, it.getLine());
     }
 
     @Test
     void testProperties_4_oe() {
+        // arrange
         final Vector2D pt = Vector2D.of(1, 1);
         final Vector2D normal = Vector2D.Unit.PLUS_X;
 
         final LinecastPoint2D it = new LinecastPoint2D(pt, normal, X_AXIS);
 
+        // act
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.0, it.getAbscissa(), TEST_EPS);
     }
 
     @Test
     void testAbscissaOrder_1_oe() {
+        // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
 
         final LinecastPoint2D b = new LinecastPoint2D(Vector2D.of(2, 2), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -99,11 +114,13 @@ class LinecastPoint2DTest_OE25Dev {
         final LinecastPoint2D d = new LinecastPoint2D(Vector2D.of(1, 4), Vector2D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint2D e = new LinecastPoint2D(Vector2D.of(1, 4), Vector2D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
         Assertions.assertEquals(-1, LinecastPoint2D.ABSCISSA_ORDER.compare(a, b));
     }
 
     @Test
     void testAbscissaOrder_2_oe() {
+        // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
 
         final LinecastPoint2D b = new LinecastPoint2D(Vector2D.of(2, 2), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -111,11 +128,14 @@ class LinecastPoint2DTest_OE25Dev {
         final LinecastPoint2D d = new LinecastPoint2D(Vector2D.of(1, 4), Vector2D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint2D e = new LinecastPoint2D(Vector2D.of(1, 4), Vector2D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(1, LinecastPoint2D.ABSCISSA_ORDER.compare(a, c));
     }
 
     @Test
     void testAbscissaOrder_3_oe() {
+        // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
 
         final LinecastPoint2D b = new LinecastPoint2D(Vector2D.of(2, 2), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -123,11 +143,15 @@ class LinecastPoint2DTest_OE25Dev {
         final LinecastPoint2D d = new LinecastPoint2D(Vector2D.of(1, 4), Vector2D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint2D e = new LinecastPoint2D(Vector2D.of(1, 4), Vector2D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, LinecastPoint2D.ABSCISSA_ORDER.compare(a, d));
     }
 
     @Test
     void testAbscissaOrder_4_oe() {
+        // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
 
         final LinecastPoint2D b = new LinecastPoint2D(Vector2D.of(2, 2), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -135,143 +159,198 @@ class LinecastPoint2DTest_OE25Dev {
         final LinecastPoint2D d = new LinecastPoint2D(Vector2D.of(1, 4), Vector2D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint2D e = new LinecastPoint2D(Vector2D.of(1, 4), Vector2D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, LinecastPoint2D.ABSCISSA_ORDER.compare(a, e));
     }
 
     @Test
     void testHashCode_1_oe() {
+        // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D b = new LinecastPoint2D(Vector2D.of(2, 2), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D c = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint2D d = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint2D e = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
 
+        // act
         final int hash = a.hashCode();
 
+        // assert
         Assertions.assertEquals(hash, a.hashCode());
     }
 
     @Test
     void testHashCode_2_oe() {
+        // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D b = new LinecastPoint2D(Vector2D.of(2, 2), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D c = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint2D d = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint2D e = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
 
+        // act
         final int hash = a.hashCode();
 
+        // assert
+        // removed other assertion
 
         Assertions.assertNotEquals(hash, b.hashCode());
     }
 
     @Test
     void testHashCode_3_oe() {
+        // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D b = new LinecastPoint2D(Vector2D.of(2, 2), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D c = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint2D d = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint2D e = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
 
+        // act
         final int hash = a.hashCode();
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(hash, c.hashCode());
     }
 
     @Test
     void testHashCode_4_oe() {
+        // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D b = new LinecastPoint2D(Vector2D.of(2, 2), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D c = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint2D d = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint2D e = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
 
+        // act
         final int hash = a.hashCode();
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(hash, d.hashCode());
     }
 
     @Test
     void testHashCode_5_oe() {
+        // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D b = new LinecastPoint2D(Vector2D.of(2, 2), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D c = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint2D d = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint2D e = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
 
+        // act
         final int hash = a.hashCode();
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(hash, e.hashCode());
     }
 
     @Test
     void testEquals_2_oe() {
+        // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D b = new LinecastPoint2D(Vector2D.of(2, 2), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D c = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint2D d = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint2D e = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertNotEquals(a, b);
     }
 
     @Test
     void testEquals_3_oe() {
+        // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D b = new LinecastPoint2D(Vector2D.of(2, 2), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D c = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint2D d = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint2D e = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(a, c);
     }
 
     @Test
     void testEquals_4_oe() {
+        // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D b = new LinecastPoint2D(Vector2D.of(2, 2), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D c = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint2D d = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint2D e = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(a, d);
     }
 
     @Test
     void testEquals_5_oe() {
+        // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D b = new LinecastPoint2D(Vector2D.of(2, 2), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D c = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint2D d = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint2D e = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(a, e);
     }
 
     @Test
     void testEquals_6_oe() {
+        // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D b = new LinecastPoint2D(Vector2D.of(2, 2), Vector2D.Unit.PLUS_X, X_AXIS);
         final LinecastPoint2D c = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_Y, X_AXIS);
         final LinecastPoint2D d = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, Y_AXIS);
         final LinecastPoint2D e = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(e, a);
     }
 
     @Test
     void testEq_1_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, precision);
@@ -286,11 +365,13 @@ class LinecastPoint2DTest_OE25Dev {
         final LinecastPoint2D e = new LinecastPoint2D(
                 Vector2D.of(1 + 1e-3, 1 + 1e-3), Vector2D.Unit.from(1 + 1e-3, 1e-3), otherLine);
 
+        // act/assert
         Assertions.assertTrue(a.eq(a, precision));
     }
 
     @Test
     void testEq_2_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, precision);
@@ -305,12 +386,15 @@ class LinecastPoint2DTest_OE25Dev {
         final LinecastPoint2D e = new LinecastPoint2D(
                 Vector2D.of(1 + 1e-3, 1 + 1e-3), Vector2D.Unit.from(1 + 1e-3, 1e-3), otherLine);
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertFalse(a.eq(b, precision));
     }
 
     @Test
     void testEq_3_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, precision);
@@ -325,12 +409,16 @@ class LinecastPoint2DTest_OE25Dev {
         final LinecastPoint2D e = new LinecastPoint2D(
                 Vector2D.of(1 + 1e-3, 1 + 1e-3), Vector2D.Unit.from(1 + 1e-3, 1e-3), otherLine);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(a.eq(c, precision));
     }
 
     @Test
     void testEq_4_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, precision);
@@ -345,13 +433,18 @@ class LinecastPoint2DTest_OE25Dev {
         final LinecastPoint2D e = new LinecastPoint2D(
                 Vector2D.of(1 + 1e-3, 1 + 1e-3), Vector2D.Unit.from(1 + 1e-3, 1e-3), otherLine);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(a.eq(d, precision));
     }
 
     @Test
     void testEq_5_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, precision);
@@ -366,22 +459,31 @@ class LinecastPoint2DTest_OE25Dev {
         final LinecastPoint2D e = new LinecastPoint2D(
                 Vector2D.of(1 + 1e-3, 1 + 1e-3), Vector2D.Unit.from(1 + 1e-3, 1e-3), otherLine);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(a.eq(e, precision));
     }
 
     @Test
     void testSortAndFilter_empty_1_oe() {
+        // arrange
         final List<LinecastPoint2D> pts = new ArrayList<>();
 
+        // act
         LinecastPoint2D.sortAndFilter(pts);
 
+        // assert
         Assertions.assertEquals(0, pts.size());
     }
 
     @Test
     void testSortAndFilter_1_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, precision);
@@ -401,13 +503,16 @@ class LinecastPoint2DTest_OE25Dev {
 
         final List<LinecastPoint2D> list = new ArrayList<>(Arrays.asList(d, aDup1, bDup, b, c, a, aDup2));
 
+        // act
         LinecastPoint2D.sortAndFilter(list);
 
+        // assert
         Assertions.assertEquals(4, list.size());
     }
 
     @Test
     void testSortAndFilter_2_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, precision);
@@ -427,14 +532,18 @@ class LinecastPoint2DTest_OE25Dev {
 
         final List<LinecastPoint2D> list = new ArrayList<>(Arrays.asList(d, aDup1, bDup, b, c, a, aDup2));
 
+        // act
         LinecastPoint2D.sortAndFilter(list);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertSame(b, list.get(0));
     }
 
     @Test
     void testSortAndFilter_3_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, precision);
@@ -454,14 +563,19 @@ class LinecastPoint2DTest_OE25Dev {
 
         final List<LinecastPoint2D> list = new ArrayList<>(Arrays.asList(d, aDup1, bDup, b, c, a, aDup2));
 
+        // act
         LinecastPoint2D.sortAndFilter(list);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(a, list.get(1));
     }
 
     @Test
     void testSortAndFilter_4_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, precision);
@@ -481,14 +595,20 @@ class LinecastPoint2DTest_OE25Dev {
 
         final List<LinecastPoint2D> list = new ArrayList<>(Arrays.asList(d, aDup1, bDup, b, c, a, aDup2));
 
+        // act
         LinecastPoint2D.sortAndFilter(list);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(c, list.get(2));
     }
 
     @Test
     void testSortAndFilter_5_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, precision);
@@ -508,9 +628,15 @@ class LinecastPoint2DTest_OE25Dev {
 
         final List<LinecastPoint2D> list = new ArrayList<>(Arrays.asList(d, aDup1, bDup, b, c, a, aDup2));
 
+        // act
         LinecastPoint2D.sortAndFilter(list);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(d, list.get(3));
     }
 

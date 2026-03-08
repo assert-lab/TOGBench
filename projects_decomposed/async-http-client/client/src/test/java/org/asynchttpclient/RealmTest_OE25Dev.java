@@ -83,6 +83,7 @@ public class RealmTest_OE25Dev {
             .setAlgorithm("algo").build();
 
     Realm clone = realm(orig).build();
+    // removed other assertion
     assertEquals(clone.getPassword(), orig.getPassword());
   }
 
@@ -94,6 +95,8 @@ public class RealmTest_OE25Dev {
             .setAlgorithm("algo").build();
 
     Realm clone = realm(orig).build();
+    // removed other assertion
+    // removed other assertion
     assertEquals(clone.getCharset(), orig.getCharset());
   }
 
@@ -105,6 +108,9 @@ public class RealmTest_OE25Dev {
             .setAlgorithm("algo").build();
 
     Realm clone = realm(orig).build();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals(clone.isUsePreemptiveAuth(), orig.isUsePreemptiveAuth());
   }
 
@@ -116,6 +122,10 @@ public class RealmTest_OE25Dev {
             .setAlgorithm("algo").build();
 
     Realm clone = realm(orig).build();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals(clone.getRealmName(), orig.getRealmName());
   }
 
@@ -127,6 +137,11 @@ public class RealmTest_OE25Dev {
             .setAlgorithm("algo").build();
 
     Realm clone = realm(orig).build();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals(clone.getAlgorithm(), orig.getAlgorithm());
   }
 
@@ -138,6 +153,12 @@ public class RealmTest_OE25Dev {
             .setAlgorithm("algo").build();
 
     Realm clone = realm(orig).build();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals(clone.getScheme(), orig.getScheme());
   }
 

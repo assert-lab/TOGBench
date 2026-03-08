@@ -101,6 +101,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
     public void testPragmas_2_oe() throws Exception {
         final JexlContext jc = new MapContext();
         final JexlScript script = JEXL.createScript("#pragma one 1\n#pragma the.very.hard 'truth'\n2;");
+        // removed other assertion
         final Map<String, Object> pragmas = script.getPragmas();
         Assert.assertEquals(2, pragmas.size());
     }
@@ -110,7 +111,9 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
     public void testPragmas_3_oe() throws Exception {
         final JexlContext jc = new MapContext();
         final JexlScript script = JEXL.createScript("#pragma one 1\n#pragma the.very.hard 'truth'\n2;");
+        // removed other assertion
         final Map<String, Object> pragmas = script.getPragmas();
+        // removed other assertion
         Assert.assertEquals(1, pragmas.get("one"));
     }
 
@@ -119,7 +122,10 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
     public void testPragmas_4_oe() throws Exception {
         final JexlContext jc = new MapContext();
         final JexlScript script = JEXL.createScript("#pragma one 1\n#pragma the.very.hard 'truth'\n2;");
+        // removed other assertion
         final Map<String, Object> pragmas = script.getPragmas();
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("truth", pragmas.get("the.very.hard"));
     }
 
@@ -138,6 +144,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         final JxltEngine engine = new JexlBuilder().create().createJxltEngine();
         final JxltEngine.Template tscript = engine.createTemplate("$$ #pragma one 1\n$$ #pragma the.very.hard 'truth'\n2;");
+        // removed other assertion
         final Map<String, Object> pragmas = tscript.getPragmas();
         Assert.assertEquals(2, pragmas.size());
     }
@@ -148,7 +155,9 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         final JxltEngine engine = new JexlBuilder().create().createJxltEngine();
         final JxltEngine.Template tscript = engine.createTemplate("$$ #pragma one 1\n$$ #pragma the.very.hard 'truth'\n2;");
+        // removed other assertion
         final Map<String, Object> pragmas = tscript.getPragmas();
+        // removed other assertion
         Assert.assertEquals(1, pragmas.get("one"));
     }
 
@@ -158,7 +167,10 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         final JxltEngine engine = new JexlBuilder().create().createJxltEngine();
         final JxltEngine.Template tscript = engine.createTemplate("$$ #pragma one 1\n$$ #pragma the.very.hard 'truth'\n2;");
+        // removed other assertion
         final Map<String, Object> pragmas = tscript.getPragmas();
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("truth", pragmas.get("the.very.hard"));
     }
 
@@ -177,6 +189,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         SafeContext jc = new SafeContext();
         jc.set("foo", null);
         final JexlScript script = JEXL.createScript("#pragma jexl.safe true\nfoo.bar;");
+        // removed other assertion
         jc.processPragmas(script.getPragmas());
         Object result = script.execute(jc);
         Assert.assertNull(result);

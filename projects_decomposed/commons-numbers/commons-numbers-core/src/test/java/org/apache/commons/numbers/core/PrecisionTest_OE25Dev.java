@@ -159,11 +159,14 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testEqualsWithRelativeTolerance_2_oe() {
+        // removed other assertion
         Assertions.assertTrue(Precision.equalsWithRelativeTolerance(0d, 1 / Double.NEGATIVE_INFINITY, 0d));
     }
 
     @Test
     void testEqualsWithRelativeTolerance_3_oe() {
+        // removed other assertion
+        // removed other assertion
 
         final double eps = 1e-14;
         Assertions.assertFalse(Precision.equalsWithRelativeTolerance(1.987654687654968, 1.987654687654988, eps));
@@ -171,125 +174,242 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testEqualsWithRelativeTolerance_4_oe() {
+        // removed other assertion
+        // removed other assertion
 
         final double eps = 1e-14;
+        // removed other assertion
         Assertions.assertTrue(Precision.equalsWithRelativeTolerance(1.987654687654968, 1.987654687654987, eps));
     }
 
     @Test
     void testEqualsWithRelativeTolerance_5_oe() {
+        // removed other assertion
+        // removed other assertion
 
         final double eps = 1e-14;
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(Precision.equalsWithRelativeTolerance(1.987654687654968, 1.987654687654948, eps));
     }
 
     @Test
     void testEqualsWithRelativeTolerance_6_oe() {
+        // removed other assertion
+        // removed other assertion
 
         final double eps = 1e-14;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(Precision.equalsWithRelativeTolerance(1.987654687654968, 1.987654687654949, eps));
     }
 
     @Test
     void testEqualsWithRelativeTolerance_7_oe() {
+        // removed other assertion
+        // removed other assertion
 
         final double eps = 1e-14;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(Precision.equalsWithRelativeTolerance(Precision.SAFE_MIN, 0.0, eps));
     }
 
     @Test
     void testEqualsWithRelativeTolerance_8_oe() {
+        // removed other assertion
+        // removed other assertion
 
         final double eps = 1e-14;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertFalse(Precision.equalsWithRelativeTolerance(1.0000000000001e-300, 1e-300, eps));
     }
 
     @Test
     void testEqualsWithRelativeTolerance_9_oe() {
+        // removed other assertion
+        // removed other assertion
 
         final double eps = 1e-14;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(Precision.equalsWithRelativeTolerance(1.00000000000001e-300, 1e-300, eps));
     }
 
     @Test
     void testEqualsWithRelativeTolerance_10_oe() {
+        // removed other assertion
+        // removed other assertion
 
         final double eps = 1e-14;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(Precision.equalsWithRelativeTolerance(Double.NEGATIVE_INFINITY, 1.23, eps));
     }
 
     @Test
     void testEqualsWithRelativeTolerance_11_oe() {
+        // removed other assertion
+        // removed other assertion
 
         final double eps = 1e-14;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(Precision.equalsWithRelativeTolerance(Double.POSITIVE_INFINITY, 1.23, eps));
     }
 
     @Test
     void testEqualsWithRelativeTolerance_12_oe() {
+        // removed other assertion
+        // removed other assertion
 
         final double eps = 1e-14;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(Precision.equalsWithRelativeTolerance(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, eps));
     }
 
     @Test
     void testEqualsWithRelativeTolerance_13_oe() {
+        // removed other assertion
+        // removed other assertion
 
         final double eps = 1e-14;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(Precision.equalsWithRelativeTolerance(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, eps));
     }
 
     @Test
     void testEqualsWithRelativeTolerance_14_oe() {
+        // removed other assertion
+        // removed other assertion
 
         final double eps = 1e-14;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(Precision.equalsWithRelativeTolerance(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, eps));
     }
 
     @Test
     void testEqualsWithRelativeTolerance_15_oe() {
+        // removed other assertion
+        // removed other assertion
 
         final double eps = 1e-14;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(Precision.equalsWithRelativeTolerance(Double.NaN, 1.23, eps));
     }
 
     @Test
     void testEqualsWithRelativeTolerance_16_oe() {
+        // removed other assertion
+        // removed other assertion
 
         final double eps = 1e-14;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(Precision.equalsWithRelativeTolerance(Double.NaN, Double.NaN, eps));
     }
 
@@ -321,6 +441,7 @@ class PrecisionTest_OE25Dev {
         for (int i = 0; i < testArray.length; i++) {
             for (int j = 0; j < testArray.length; j++) {
                 if (i == j) {
+                    // removed other assertion
                     Assertions.assertTrue(Precision.equalsIncludingNaN(testArray[j], testArray[i]));
     }
     }
@@ -338,6 +459,8 @@ class PrecisionTest_OE25Dev {
         for (int i = 0; i < testArray.length; i++) {
             for (int j = 0; j < testArray.length; j++) {
                 if (i == j) {
+                    // removed other assertion
+                    // removed other assertion
                 } else {
                     Assertions.assertFalse(Precision.equalsIncludingNaN(testArray[i], testArray[j]));
     }
@@ -356,7 +479,10 @@ class PrecisionTest_OE25Dev {
         for (int i = 0; i < testArray.length; i++) {
             for (int j = 0; j < testArray.length; j++) {
                 if (i == j) {
+                    // removed other assertion
+                    // removed other assertion
                 } else {
+                    // removed other assertion
                     Assertions.assertFalse(Precision.equalsIncludingNaN(testArray[j], testArray[i]));
     }
     }
@@ -391,6 +517,7 @@ class PrecisionTest_OE25Dev {
         for (int i = 0; i < testArray.length; i++) {
             for (int j = 0; j < testArray.length; j++) {
                 if (i == j) {
+                    // removed other assertion
                     Assertions.assertTrue(Precision.equalsIncludingNaN(testArray[j], testArray[i]));
     }
     }
@@ -408,6 +535,8 @@ class PrecisionTest_OE25Dev {
         for (int i = 0; i < testArray.length; i++) {
             for (int j = 0; j < testArray.length; j++) {
                 if (i == j) {
+                    // removed other assertion
+                    // removed other assertion
                 } else {
                     Assertions.assertFalse(Precision.equalsIncludingNaN(testArray[i], testArray[j]));
     }
@@ -426,7 +555,10 @@ class PrecisionTest_OE25Dev {
         for (int i = 0; i < testArray.length; i++) {
             for (int j = 0; j < testArray.length; j++) {
                 if (i == j) {
+                    // removed other assertion
+                    // removed other assertion
                 } else {
+                    // removed other assertion
                     Assertions.assertFalse(Precision.equalsIncludingNaN(testArray[j], testArray[i]));
     }
     }
@@ -440,21 +572,31 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testCompareToEpsilon_2_oe() {
+        // removed other assertion
         Assertions.assertTrue(Precision.compareTo(152.308, 152.32, .011) < 0);
     }
 
     @Test
     void testCompareToEpsilon_3_oe() {
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(Precision.compareTo(152.33, 152.318, .011) > 0);
     }
 
     @Test
     void testCompareToEpsilon_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, Precision.compareTo(Double.MIN_VALUE, +0.0, Double.MIN_VALUE));
     }
 
     @Test
     void testCompareToEpsilon_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, Precision.compareTo(Double.MIN_VALUE, -0.0, Double.MIN_VALUE));
     }
 
@@ -470,6 +612,7 @@ class PrecisionTest_OE25Dev {
                 final int c = Precision.compareTo(array[j],
                                                   array[j + 1],
                                                   eps);
+                // Check that order is consistent with the comparison function.
                 Assertions.assertNotEquals(1, c);
     }
     }
@@ -487,6 +630,8 @@ class PrecisionTest_OE25Dev {
                 final int c = Precision.compareTo(array[j],
                                                   array[j + 1],
                                                   eps);
+                // Check that order is consistent with the comparison function.
+                // removed other assertion
             }
             Assertions.assertTrue(array[0] == 0.01 || array[0] == 0.02);
     }
@@ -504,7 +649,10 @@ class PrecisionTest_OE25Dev {
                 final int c = Precision.compareTo(array[j],
                                                   array[j + 1],
                                                   eps);
+                // Check that order is consistent with the comparison function.
+                // removed other assertion
             }
+            // removed other assertion
             Assertions.assertTrue(array[1] == 0.01 || array[1] == 0.02);
     }
     }
@@ -521,7 +669,11 @@ class PrecisionTest_OE25Dev {
                 final int c = Precision.compareTo(array[j],
                                                   array[j + 1],
                                                   eps);
+                // Check that order is consistent with the comparison function.
+                // removed other assertion
             }
+            // removed other assertion
+            // removed other assertion
             Assertions.assertEquals(1, array[2], 0d);
     }
     }
@@ -538,7 +690,12 @@ class PrecisionTest_OE25Dev {
                 final int c = Precision.compareTo(array[j],
                                                   array[j + 1],
                                                   eps);
+                // Check that order is consistent with the comparison function.
+                // removed other assertion
             }
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             Assertions.assertEquals(2, array[3], 0d);
     }
     }
@@ -555,7 +712,13 @@ class PrecisionTest_OE25Dev {
                 final int c = Precision.compareTo(array[j],
                                                   array[j + 1],
                                                   eps);
+                // Check that order is consistent with the comparison function.
+                // removed other assertion
             }
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             Assertions.assertTrue(Double.isNaN(array[4]));
     }
     }
@@ -572,7 +735,14 @@ class PrecisionTest_OE25Dev {
                 final int c = Precision.compareTo(array[j],
                                                   array[j + 1],
                                                   eps);
+                // Check that order is consistent with the comparison function.
+                // removed other assertion
             }
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             Assertions.assertTrue(Double.isNaN(array[5]));
     }
     }
@@ -594,6 +764,7 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
                 Assertions.assertEquals(+0, Precision.compareTo(a, a - i * delta, 5));
     }
     }
@@ -605,6 +776,8 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
                 Assertions.assertEquals(-1, Precision.compareTo(a, a + i * delta, 5));
     }
@@ -617,7 +790,10 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
                 Assertions.assertEquals(+1, Precision.compareTo(a, a - i * delta, 5));
     }
     }
@@ -629,7 +805,11 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
+                // removed other assertion
             }
         }
 
@@ -642,10 +822,15 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // removed other assertion
 
         Assertions.assertEquals(-1, Precision.compareTo(-Double.MIN_VALUE, -0.0, 0));
     }
@@ -656,11 +841,17 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(+0, Precision.compareTo(-Double.MIN_VALUE, -0.0, 1));
     }
 
@@ -670,11 +861,18 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1, Precision.compareTo(-Double.MIN_VALUE, +0.0, 0));
     }
 
@@ -684,11 +882,19 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(+0, Precision.compareTo(-Double.MIN_VALUE, +0.0, 1));
     }
 
@@ -698,11 +904,20 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(+1, Precision.compareTo(+Double.MIN_VALUE, -0.0, 0));
     }
@@ -713,12 +928,22 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(+0, Precision.compareTo(+Double.MIN_VALUE, -0.0, 1));
     }
 
@@ -728,12 +953,23 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(+1, Precision.compareTo(+Double.MIN_VALUE, +0.0, 0));
     }
 
@@ -743,12 +979,24 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(+0, Precision.compareTo(+Double.MIN_VALUE, +0.0, 1));
     }
 
@@ -758,12 +1006,25 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(-1, Precision.compareTo(-Double.MIN_VALUE, Double.MIN_VALUE, 0));
     }
@@ -774,13 +1035,27 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(-1, Precision.compareTo(-Double.MIN_VALUE, Double.MIN_VALUE, 1));
     }
 
@@ -790,13 +1065,28 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(+0, Precision.compareTo(-Double.MIN_VALUE, Double.MIN_VALUE, 2));
     }
 
@@ -806,13 +1096,29 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(+0, Precision.compareTo(Double.MAX_VALUE, Double.POSITIVE_INFINITY, 1));
     }
@@ -823,14 +1129,31 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(-1, Precision.compareTo(Double.MAX_VALUE, Double.POSITIVE_INFINITY, 0));
     }
 
@@ -840,14 +1163,32 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(+1, Precision.compareTo(Double.MAX_VALUE, Double.NaN, Integer.MAX_VALUE));
     }
@@ -858,15 +1199,34 @@ class PrecisionTest_OE25Dev {
         double delta = Math.ulp(a);
         for (int i = 0; i <= 10; ++i) {
             if (i <= 5) {
+                // removed other assertion
+                // removed other assertion
             } else {
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(+1, Precision.compareTo(Double.NaN, Double.MAX_VALUE, Integer.MAX_VALUE));
     }
 
@@ -879,33 +1239,51 @@ class PrecisionTest_OE25Dev {
     @Test
     void testRoundDouble_2_oe() {
         double x = 1.234567890;
+        // removed other assertion
         Assertions.assertEquals(1.235, Precision.round(x, 3));
     }
 
     @Test
     void testRoundDouble_3_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.2346, Precision.round(x, 4));
     }
 
     @Test
     void testRoundDouble_4_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
         Assertions.assertEquals(39.25, Precision.round(39.245, 2));
     }
 
     @Test
     void testRoundDouble_5_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
         Assertions.assertEquals(39.24, Precision.round(39.245, 2, RoundingMode.DOWN));
     }
 
     @Test
     void testRoundDouble_6_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
         Assertions.assertEquals(39.25, Precision.round(xx, 2));
@@ -914,100 +1292,225 @@ class PrecisionTest_OE25Dev {
     @Test
     void testRoundDouble_7_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
         Assertions.assertEquals(30.1d, Precision.round(30.095d, 2));
     }
 
     @Test
     void testRoundDouble_8_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
         Assertions.assertEquals(30.1d, Precision.round(30.095d, 1));
     }
 
     @Test
     void testRoundDouble_9_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(33.1d, Precision.round(33.095d, 1));
     }
 
     @Test
     void testRoundDouble_10_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(33.1d, Precision.round(33.095d, 2));
     }
 
     @Test
     void testRoundDouble_11_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(50.09d, Precision.round(50.085d, 2));
     }
 
     @Test
     void testRoundDouble_12_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(50.19d, Precision.round(50.185d, 2));
     }
 
     @Test
     void testRoundDouble_13_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(50.01d, Precision.round(50.005d, 2));
     }
 
     @Test
     void testRoundDouble_14_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(30.01d, Precision.round(30.005d, 2));
     }
 
     @Test
     void testRoundDouble_15_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(30.65d, Precision.round(30.645d, 2));
     }
 
     @Test
     void testRoundDouble_16_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1.24, Precision.round(x, 2, RoundingMode.CEILING));
     }
@@ -1015,66 +1518,189 @@ class PrecisionTest_OE25Dev {
     @Test
     void testRoundDouble_17_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(1.235, Precision.round(x, 3, RoundingMode.CEILING));
     }
 
     @Test
     void testRoundDouble_18_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.2346, Precision.round(x, 4, RoundingMode.CEILING));
     }
 
     @Test
     void testRoundDouble_19_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.23, Precision.round(-x, 2, RoundingMode.CEILING));
     }
 
     @Test
     void testRoundDouble_20_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.234, Precision.round(-x, 3, RoundingMode.CEILING));
     }
 
     @Test
     void testRoundDouble_21_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.2345, Precision.round(-x, 4, RoundingMode.CEILING));
     }
 
     @Test
     void testRoundDouble_22_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1.23, Precision.round(x, 2, RoundingMode.DOWN));
     }
@@ -1082,72 +1708,231 @@ class PrecisionTest_OE25Dev {
     @Test
     void testRoundDouble_23_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(1.234, Precision.round(x, 3, RoundingMode.DOWN));
     }
 
     @Test
     void testRoundDouble_24_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.2345, Precision.round(x, 4, RoundingMode.DOWN));
     }
 
     @Test
     void testRoundDouble_25_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.23, Precision.round(-x, 2, RoundingMode.DOWN));
     }
 
     @Test
     void testRoundDouble_26_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.234, Precision.round(-x, 3, RoundingMode.DOWN));
     }
 
     @Test
     void testRoundDouble_27_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.2345, Precision.round(-x, 4, RoundingMode.DOWN));
     }
 
     @Test
     void testRoundDouble_28_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1.23, Precision.round(x, 2, RoundingMode.FLOOR));
     }
@@ -1155,78 +1940,273 @@ class PrecisionTest_OE25Dev {
     @Test
     void testRoundDouble_29_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(1.234, Precision.round(x, 3, RoundingMode.FLOOR));
     }
 
     @Test
     void testRoundDouble_30_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.2345, Precision.round(x, 4, RoundingMode.FLOOR));
     }
 
     @Test
     void testRoundDouble_31_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.24, Precision.round(-x, 2, RoundingMode.FLOOR));
     }
 
     @Test
     void testRoundDouble_32_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.235, Precision.round(-x, 3, RoundingMode.FLOOR));
     }
 
     @Test
     void testRoundDouble_33_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.2346, Precision.round(-x, 4, RoundingMode.FLOOR));
     }
 
     @Test
     void testRoundDouble_34_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1.23, Precision.round(x, 2, RoundingMode.HALF_DOWN));
     }
@@ -1234,112 +2214,428 @@ class PrecisionTest_OE25Dev {
     @Test
     void testRoundDouble_35_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(1.235, Precision.round(x, 3, RoundingMode.HALF_DOWN));
     }
 
     @Test
     void testRoundDouble_36_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.2346, Precision.round(x, 4, RoundingMode.HALF_DOWN));
     }
 
     @Test
     void testRoundDouble_37_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.23, Precision.round(-x, 2, RoundingMode.HALF_DOWN));
     }
 
     @Test
     void testRoundDouble_38_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.235, Precision.round(-x, 3, RoundingMode.HALF_DOWN));
     }
 
     @Test
     void testRoundDouble_39_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.2346, Precision.round(-x, 4, RoundingMode.HALF_DOWN));
     }
 
     @Test
     void testRoundDouble_40_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.234, Precision.round(1.2345, 3, RoundingMode.HALF_DOWN));
     }
 
     @Test
     void testRoundDouble_41_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.234, Precision.round(-1.2345, 3, RoundingMode.HALF_DOWN));
     }
 
     @Test
     void testRoundDouble_42_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1.23, Precision.round(x, 2, RoundingMode.HALF_EVEN));
     }
@@ -1347,150 +2643,635 @@ class PrecisionTest_OE25Dev {
     @Test
     void testRoundDouble_43_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(1.235, Precision.round(x, 3, RoundingMode.HALF_EVEN));
     }
 
     @Test
     void testRoundDouble_44_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.2346, Precision.round(x, 4, RoundingMode.HALF_EVEN));
     }
 
     @Test
     void testRoundDouble_45_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.23, Precision.round(-x, 2, RoundingMode.HALF_EVEN));
     }
 
     @Test
     void testRoundDouble_46_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.235, Precision.round(-x, 3, RoundingMode.HALF_EVEN));
     }
 
     @Test
     void testRoundDouble_47_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.2346, Precision.round(-x, 4, RoundingMode.HALF_EVEN));
     }
 
     @Test
     void testRoundDouble_48_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.234, Precision.round(1.2345, 3, RoundingMode.HALF_EVEN));
     }
 
     @Test
     void testRoundDouble_49_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.234, Precision.round(-1.2345, 3, RoundingMode.HALF_EVEN));
     }
 
     @Test
     void testRoundDouble_50_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.236, Precision.round(1.2355, 3, RoundingMode.HALF_EVEN));
     }
 
     @Test
     void testRoundDouble_51_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.236, Precision.round(-1.2355, 3, RoundingMode.HALF_EVEN));
     }
 
     @Test
     void testRoundDouble_52_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1.23, Precision.round(x, 2, RoundingMode.HALF_UP));
     }
@@ -1498,128 +3279,588 @@ class PrecisionTest_OE25Dev {
     @Test
     void testRoundDouble_53_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(1.235, Precision.round(x, 3, RoundingMode.HALF_UP));
     }
 
     @Test
     void testRoundDouble_54_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.2346, Precision.round(x, 4, RoundingMode.HALF_UP));
     }
 
     @Test
     void testRoundDouble_55_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.23, Precision.round(-x, 2, RoundingMode.HALF_UP));
     }
 
     @Test
     void testRoundDouble_56_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.235, Precision.round(-x, 3, RoundingMode.HALF_UP));
     }
 
     @Test
     void testRoundDouble_57_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.2346, Precision.round(-x, 4, RoundingMode.HALF_UP));
     }
 
     @Test
     void testRoundDouble_58_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.235, Precision.round(1.2345, 3, RoundingMode.HALF_UP));
     }
 
     @Test
     void testRoundDouble_59_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.235, Precision.round(-1.2345, 3, RoundingMode.HALF_UP));
     }
 
     @Test
     void testRoundDouble_60_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(-1.23, Precision.round(-1.23, 2, RoundingMode.UNNECESSARY));
     }
@@ -1627,38 +3868,165 @@ class PrecisionTest_OE25Dev {
     @Test
     void testRoundDouble_61_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(1.23, Precision.round(1.23, 2, RoundingMode.UNNECESSARY));
     }
 
     @Test
     void testRoundDouble_63_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         try {
             Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
+            // removed other assertion
         } catch (ArithmeticException ex) {
+            // expected
         }
 
         Assertions.assertEquals(1.24, Precision.round(x, 2, RoundingMode.UP));
@@ -1667,289 +4035,1162 @@ class PrecisionTest_OE25Dev {
     @Test
     void testRoundDouble_64_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         try {
             Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
+            // removed other assertion
         } catch (ArithmeticException ex) {
+            // expected
         }
 
+        // removed other assertion
         Assertions.assertEquals(1.235, Precision.round(x, 3, RoundingMode.UP));
     }
 
     @Test
     void testRoundDouble_65_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         try {
             Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
+            // removed other assertion
         } catch (ArithmeticException ex) {
+            // expected
         }
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.2346, Precision.round(x, 4, RoundingMode.UP));
     }
 
     @Test
     void testRoundDouble_66_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         try {
             Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
+            // removed other assertion
         } catch (ArithmeticException ex) {
+            // expected
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.24, Precision.round(-x, 2, RoundingMode.UP));
     }
 
     @Test
     void testRoundDouble_67_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         try {
             Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
+            // removed other assertion
         } catch (ArithmeticException ex) {
+            // expected
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.235, Precision.round(-x, 3, RoundingMode.UP));
     }
 
     @Test
     void testRoundDouble_68_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         try {
             Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
+            // removed other assertion
         } catch (ArithmeticException ex) {
+            // expected
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.2346, Precision.round(-x, 4, RoundingMode.UP));
     }
 
     @Test
     void testRoundDouble_69_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         try {
             Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
+            // removed other assertion
         } catch (ArithmeticException ex) {
+            // expected
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // MATH-151
         Assertions.assertEquals(39.25, Precision.round(39.245, 2, RoundingMode.HALF_UP));
     }
 
     @Test
     void testRoundDouble_70_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         try {
             Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
+            // removed other assertion
         } catch (ArithmeticException ex) {
+            // expected
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // MATH-151
+        // removed other assertion
 
+        // special values
         Assertions.assertEquals(Double.NaN, Precision.round(Double.NaN, 2));
     }
 
     @Test
     void testRoundDouble_71_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         try {
             Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
+            // removed other assertion
         } catch (ArithmeticException ex) {
+            // expected
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // MATH-151
+        // removed other assertion
 
+        // special values
+        // removed other assertion
         Assertions.assertEquals(0.0, Precision.round(0.0, 2));
     }
 
     @Test
     void testRoundDouble_72_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         try {
             Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
+            // removed other assertion
         } catch (ArithmeticException ex) {
+            // expected
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // MATH-151
+        // removed other assertion
 
+        // special values
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY, Precision.round(Double.POSITIVE_INFINITY, 2));
     }
 
     @Test
     void testRoundDouble_73_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         try {
             Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
+            // removed other assertion
         } catch (ArithmeticException ex) {
+            // expected
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // MATH-151
+        // removed other assertion
 
+        // special values
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.NEGATIVE_INFINITY, Precision.round(Double.NEGATIVE_INFINITY, 2));
     }
 
     @Test
     void testRoundDouble_74_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         try {
             Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
+            // removed other assertion
         } catch (ArithmeticException ex) {
+            // expected
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // MATH-151
+        // removed other assertion
 
+        // special values
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // comparison of positive and negative zero is not possible -> always equal thus do string comparison
         Assertions.assertEquals("-0.0", Double.toString(Precision.round(-0.0, 0)));
     }
 
     @Test
     void testRoundDouble_75_oe() {
         double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
         double xx = 39.0;
         xx += 245d / 1000d;
+        // removed other assertion
 
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         try {
             Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
+            // removed other assertion
         } catch (ArithmeticException ex) {
+            // expected
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // MATH-151
+        // removed other assertion
 
+        // special values
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // comparison of positive and negative zero is not possible -> always equal thus do string comparison
+        // removed other assertion
         Assertions.assertEquals("-0.0", Double.toString(Precision.round(-1e-10, 0)));
     }
 
@@ -1976,6 +5217,7 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testIssue721_2_oe() {
+        // removed other assertion
         Assertions.assertEquals(-1022, Math.getExponent(Precision.SAFE_MIN));
     }
 
@@ -1985,6 +5227,9 @@ class PrecisionTest_OE25Dev {
         final double b = Math.nextUp(a);
 
         double diff = Math.abs(a - b);
+        // Because they are adjacent floating point numbers, "a" and "b" are
+        // considered equal even though the allowed error is smaller than
+        // their difference.
         Assertions.assertTrue(Precision.equals(a, b, 0.5 * diff));
     }
 
@@ -1994,9 +5239,15 @@ class PrecisionTest_OE25Dev {
         final double b = Math.nextUp(a);
 
         double diff = Math.abs(a - b);
+        // Because they are adjacent floating point numbers, "a" and "b" are
+        // considered equal even though the allowed error is smaller than
+        // their difference.
+        // removed other assertion
 
         final double c = Math.nextUp(b);
         diff = Math.abs(a - c);
+        // Because "a" and "c" are not adjacent, the tolerance is taken into
+        // account for assessing equality.
         Assertions.assertTrue(Precision.equals(a, c, diff));
     }
 
@@ -2006,9 +5257,16 @@ class PrecisionTest_OE25Dev {
         final double b = Math.nextUp(a);
 
         double diff = Math.abs(a - b);
+        // Because they are adjacent floating point numbers, "a" and "b" are
+        // considered equal even though the allowed error is smaller than
+        // their difference.
+        // removed other assertion
 
         final double c = Math.nextUp(b);
         diff = Math.abs(a - c);
+        // Because "a" and "c" are not adjacent, the tolerance is taken into
+        // account for assessing equality.
+        // removed other assertion
         Assertions.assertFalse(Precision.equals(a, c, Math.nextDown(1.0) * diff));
     }
 
@@ -2018,6 +5276,9 @@ class PrecisionTest_OE25Dev {
         final float b = Math.nextUp(a);
 
         float diff = Math.abs(a - b);
+        // Because they are adjacent floating point numbers, "a" and "b" are
+        // considered equal even though the allowed error is smaller than
+        // their difference.
         Assertions.assertTrue(Precision.equals(a, b, 0.5f * diff));
     }
 
@@ -2027,9 +5288,15 @@ class PrecisionTest_OE25Dev {
         final float b = Math.nextUp(a);
 
         float diff = Math.abs(a - b);
+        // Because they are adjacent floating point numbers, "a" and "b" are
+        // considered equal even though the allowed error is smaller than
+        // their difference.
+        // removed other assertion
 
         final float c = Math.nextUp(b);
         diff = Math.abs(a - c);
+        // Because "a" and "c" are not adjacent, the tolerance is taken into
+        // account for assessing equality.
         Assertions.assertTrue(Precision.equals(a, c, diff));
     }
 
@@ -2039,9 +5306,16 @@ class PrecisionTest_OE25Dev {
         final float b = Math.nextUp(a);
 
         float diff = Math.abs(a - b);
+        // Because they are adjacent floating point numbers, "a" and "b" are
+        // considered equal even though the allowed error is smaller than
+        // their difference.
+        // removed other assertion
 
         final float c = Math.nextUp(b);
         diff = Math.abs(a - c);
+        // Because "a" and "c" are not adjacent, the tolerance is taken into
+        // account for assessing equality.
+        // removed other assertion
         Assertions.assertFalse(Precision.equals(a, c, Math.nextDown(1.0f) * diff));
     }
 
@@ -2050,6 +5324,7 @@ class PrecisionTest_OE25Dev {
         final double afterEpsilon = Math.nextAfter(Precision.EPSILON,
                                                    Double.POSITIVE_INFINITY);
 
+        // a) 1 + EPSILON is equal to 1.
         Assertions.assertEquals(1, 1 + Precision.EPSILON);
     }
 
@@ -2058,7 +5333,10 @@ class PrecisionTest_OE25Dev {
         final double afterEpsilon = Math.nextAfter(Precision.EPSILON,
                                                    Double.POSITIVE_INFINITY);
 
+        // a) 1 + EPSILON is equal to 1.
+        // removed other assertion
 
+        // b) 1 + "the number after EPSILON" is not equal to 1.
         Assertions.assertNotEquals(1, 1 + afterEpsilon, 0.0);
     }
 
@@ -2069,16 +5347,22 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testMath1127_2_oe() {
+        // removed other assertion
         Assertions.assertTrue(Precision.equals(0.0, -0.0, 0));
     }
 
     @Test
     void testMath1127_3_oe() {
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(Precision.equals(2.0f, -2.0f, 1));
     }
 
     @Test
     void testMath1127_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(Precision.equals(0.0f, -0.0f, 0));
     }
 
@@ -2093,6 +5377,7 @@ class PrecisionTest_OE25Dev {
     void testEqualsWithAllowedDelta_1_oe_2_oe() {
                 final EqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
                 Assertions.assertTrue(fun0.equals(153.0000, 153.0625, .0625));
     }
 
@@ -2100,6 +5385,8 @@ class PrecisionTest_OE25Dev {
     void testEqualsWithAllowedDelta_1_oe_3_oe() {
                 final EqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(152.9375, 153.0000, .0625));
     }
 
@@ -2107,6 +5394,9 @@ class PrecisionTest_OE25Dev {
     void testEqualsWithAllowedDelta_1_oe_4_oe() {
                 final EqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(153.0000, 153.0625, .0624));
     }
 
@@ -2114,6 +5404,10 @@ class PrecisionTest_OE25Dev {
     void testEqualsWithAllowedDelta_1_oe_5_oe() {
                 final EqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(152.9374, 153.0000, .0625));
     }
 
@@ -2121,6 +5415,11 @@ class PrecisionTest_OE25Dev {
     void testEqualsWithAllowedDelta_1_oe_6_oe() {
                 final EqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(nanAreEqual0, fun0.equals(Double.NaN, Double.NaN, 1.0));
     }
 
@@ -2128,6 +5427,12 @@ class PrecisionTest_OE25Dev {
     void testEqualsWithAllowedDelta_1_oe_7_oe() {
                 final EqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, 1.0));
     }
 
@@ -2135,6 +5440,13 @@ class PrecisionTest_OE25Dev {
     void testEqualsWithAllowedDelta_1_oe_8_oe() {
                 final EqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, 1.0));
     }
 
@@ -2142,6 +5454,14 @@ class PrecisionTest_OE25Dev {
     void testEqualsWithAllowedDelta_1_oe_9_oe() {
                 final EqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, 1.0));
     }
 
@@ -2156,6 +5476,7 @@ class PrecisionTest_OE25Dev {
     void testEqualsIncludingNaNWithAllowedDelta_1_oe_2_oe() {
                 final EqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
                 Assertions.assertTrue(fun0.equals(153.0000, 153.0625, .0625));
     }
 
@@ -2163,6 +5484,8 @@ class PrecisionTest_OE25Dev {
     void testEqualsIncludingNaNWithAllowedDelta_1_oe_3_oe() {
                 final EqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(152.9375, 153.0000, .0625));
     }
 
@@ -2170,6 +5493,9 @@ class PrecisionTest_OE25Dev {
     void testEqualsIncludingNaNWithAllowedDelta_1_oe_4_oe() {
                 final EqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(153.0000, 153.0625, .0624));
     }
 
@@ -2177,6 +5503,10 @@ class PrecisionTest_OE25Dev {
     void testEqualsIncludingNaNWithAllowedDelta_1_oe_5_oe() {
                 final EqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(152.9374, 153.0000, .0625));
     }
 
@@ -2184,6 +5514,11 @@ class PrecisionTest_OE25Dev {
     void testEqualsIncludingNaNWithAllowedDelta_1_oe_6_oe() {
                 final EqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(nanAreEqual0, fun0.equals(Double.NaN, Double.NaN, 1.0));
     }
 
@@ -2191,6 +5526,12 @@ class PrecisionTest_OE25Dev {
     void testEqualsIncludingNaNWithAllowedDelta_1_oe_7_oe() {
                 final EqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, 1.0));
     }
 
@@ -2198,6 +5539,13 @@ class PrecisionTest_OE25Dev {
     void testEqualsIncludingNaNWithAllowedDelta_1_oe_8_oe() {
                 final EqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, 1.0));
     }
 
@@ -2205,6 +5553,14 @@ class PrecisionTest_OE25Dev {
     void testEqualsIncludingNaNWithAllowedDelta_1_oe_9_oe() {
                 final EqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, 1.0));
     }
 
@@ -2221,6 +5577,7 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
                 Assertions.assertTrue(fun0.equals(1.0, 1 + Math.ulp(1d), 1));
     }
@@ -2230,7 +5587,9 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(1.0, 1 + 2 * Math.ulp(1d), 1));
     }
 
@@ -2239,7 +5598,10 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
                     Assertions.assertTrue(fun0.equals(value0, value0, 1));
@@ -2251,9 +5613,13 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
                     Assertions.assertTrue(fun0.equals(value0, Math.nextUp(value0), 1));
     }
     }
@@ -2263,9 +5629,14 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertFalse(fun0.equals(value0, Math.nextUp(Math.nextUp(value0)), 1));
     }
     }
@@ -2275,9 +5646,15 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertTrue(fun0.equals(value0, Math.nextDown(value0), 1));
     }
     }
@@ -2287,9 +5664,16 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertFalse(fun0.equals(value0, Math.nextDown(Math.nextDown(value0)), 1));
     }
     }
@@ -2299,9 +5683,18 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
                         Assertions.assertFalse(fun0.equals(value0, Math.nextUp(value0), 0));
     }
@@ -2313,10 +5706,20 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
                         Assertions.assertTrue(fun0.equals(value0, Math.nextUp(Math.nextUp(value0)), 2));
     }
     }
@@ -2327,10 +5730,21 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
                         Assertions.assertTrue(fun0.equals(value0, Math.nextDown(Math.nextDown(value0)), 2));
     }
     }
@@ -2341,10 +5755,22 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
@@ -2356,13 +5782,26 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(Double.MAX_VALUE, Double.POSITIVE_INFINITY, 1));
     }
 
@@ -2371,13 +5810,27 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertTrue(fun0.equals(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, 1));
     }
@@ -2387,14 +5840,29 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(-Double.MAX_VALUE, Double.NEGATIVE_INFINITY, 1));
     }
 
@@ -2403,14 +5871,30 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertEquals(nanAreEqual0, fun0.equals(Double.NaN, Double.NaN, 1));
     }
@@ -2420,15 +5904,32 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 Assertions.assertEquals(nanAreEqual0, fun0.equals(Double.NaN, Double.NaN, 0));
     }
 
@@ -2437,15 +5938,33 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Double.NaN, 0, 0));
     }
 
@@ -2454,15 +5973,34 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(0, Double.NaN, 0));
     }
 
@@ -2471,15 +6009,35 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Double.NaN, Double.POSITIVE_INFINITY, 0));
     }
 
@@ -2488,15 +6046,36 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Double.NaN, Double.NEGATIVE_INFINITY, 0));
     }
 
@@ -2505,21 +6084,44 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertFalse(fun0.equals(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, 100000));
     }
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_1_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
@@ -2528,28 +6130,37 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_2_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
                 Assertions.assertTrue(fun0.equals(1.0, 1 + Math.ulp(1d), 1));
     }
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_3_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(1.0, 1 + 2 * Math.ulp(1d), 1));
     }
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_4_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
                     Assertions.assertTrue(fun0.equals(value0, value0, 1));
@@ -2558,60 +6169,96 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_5_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
                     Assertions.assertTrue(fun0.equals(value0, Math.nextUp(value0), 1));
     }
     }
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_6_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertFalse(fun0.equals(value0, Math.nextUp(Math.nextUp(value0)), 1));
     }
     }
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_7_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertTrue(fun0.equals(value0, Math.nextDown(value0), 1));
     }
     }
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_8_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertFalse(fun0.equals(value0, Math.nextDown(Math.nextDown(value0)), 1));
     }
     }
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_9_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
                         Assertions.assertFalse(fun0.equals(value0, Math.nextUp(value0), 0));
     }
@@ -2620,13 +6267,24 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_10_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
                         Assertions.assertTrue(fun0.equals(value0, Math.nextUp(Math.nextUp(value0)), 2));
     }
     }
@@ -2634,13 +6292,25 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_11_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
                         Assertions.assertTrue(fun0.equals(value0, Math.nextDown(Math.nextDown(value0)), 2));
     }
     }
@@ -2648,13 +6318,26 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_12_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
@@ -2663,167 +6346,352 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_13_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(Double.MAX_VALUE, Double.POSITIVE_INFINITY, 1));
     }
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_14_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertTrue(fun0.equals(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, 1));
     }
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_15_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(-Double.MAX_VALUE, Double.NEGATIVE_INFINITY, 1));
     }
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_16_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertEquals(nanAreEqual0, fun0.equals(Double.NaN, Double.NaN, 1));
     }
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_17_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 Assertions.assertEquals(nanAreEqual0, fun0.equals(Double.NaN, Double.NaN, 0));
     }
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_18_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Double.NaN, 0, 0));
     }
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_19_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(0, Double.NaN, 0));
     }
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_20_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Double.NaN, Double.POSITIVE_INFINITY, 0));
     }
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_21_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Double.NaN, Double.NEGATIVE_INFINITY, 0));
     }
 
     @Test
     void testEqualsWithImplicitAllowedUlpsOf1_1_oe_22_oe() {
+        // Use the version without the ulp argument
                 final EqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertFalse(fun0.equals(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, 100000));
     }
@@ -2841,6 +6709,7 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
                 Assertions.assertTrue(fun0.equals(1.0, 1 + Math.ulp(1d), 1));
     }
@@ -2850,7 +6719,9 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(1.0, 1 + 2 * Math.ulp(1d), 1));
     }
 
@@ -2859,7 +6730,10 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
                     Assertions.assertTrue(fun0.equals(value0, value0, 1));
@@ -2871,9 +6745,13 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
                     Assertions.assertTrue(fun0.equals(value0, Math.nextUp(value0), 1));
     }
     }
@@ -2883,9 +6761,14 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertFalse(fun0.equals(value0, Math.nextUp(Math.nextUp(value0)), 1));
     }
     }
@@ -2895,9 +6778,15 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertTrue(fun0.equals(value0, Math.nextDown(value0), 1));
     }
     }
@@ -2907,9 +6796,16 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertFalse(fun0.equals(value0, Math.nextDown(Math.nextDown(value0)), 1));
     }
     }
@@ -2919,9 +6815,18 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
                         Assertions.assertFalse(fun0.equals(value0, Math.nextUp(value0), 0));
     }
@@ -2933,10 +6838,20 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
                         Assertions.assertTrue(fun0.equals(value0, Math.nextUp(Math.nextUp(value0)), 2));
     }
     }
@@ -2947,10 +6862,21 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
                         Assertions.assertTrue(fun0.equals(value0, Math.nextDown(Math.nextDown(value0)), 2));
     }
     }
@@ -2961,10 +6887,22 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
@@ -2976,13 +6914,26 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(Double.MAX_VALUE, Double.POSITIVE_INFINITY, 1));
     }
 
@@ -2991,13 +6942,27 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertTrue(fun0.equals(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, 1));
     }
@@ -3007,14 +6972,29 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(-Double.MAX_VALUE, Double.NEGATIVE_INFINITY, 1));
     }
 
@@ -3023,14 +7003,30 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertEquals(nanAreEqual0, fun0.equals(Double.NaN, Double.NaN, 1));
     }
@@ -3040,15 +7036,32 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 Assertions.assertEquals(nanAreEqual0, fun0.equals(Double.NaN, Double.NaN, 0));
     }
 
@@ -3057,15 +7070,33 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Double.NaN, 0, 0));
     }
 
@@ -3074,15 +7105,34 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(0, Double.NaN, 0));
     }
 
@@ -3091,15 +7141,35 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Double.NaN, Double.POSITIVE_INFINITY, 0));
     }
 
@@ -3108,15 +7178,36 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Double.NaN, Double.NEGATIVE_INFINITY, 0));
     }
 
@@ -3125,15 +7216,37 @@ class PrecisionTest_OE25Dev {
                 final EqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (double value0 : new double[] {153.0, -128.0, 0.0, 1.0}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertFalse(fun0.equals(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, 100000));
     }
@@ -3149,6 +7262,7 @@ class PrecisionTest_OE25Dev {
     void testFloatEqualsWithAllowedDelta_1_oe_2_oe() {
                 final FloatEqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
                 Assertions.assertTrue(fun0.equals(153.0000f, 153.0625f, .0625f));
     }
 
@@ -3156,6 +7270,8 @@ class PrecisionTest_OE25Dev {
     void testFloatEqualsWithAllowedDelta_1_oe_3_oe() {
                 final FloatEqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(152.9375f, 153.0000f, .0625f));
     }
 
@@ -3163,6 +7279,9 @@ class PrecisionTest_OE25Dev {
     void testFloatEqualsWithAllowedDelta_1_oe_4_oe() {
                 final FloatEqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(153.0000f, 153.0625f, .0624f));
     }
 
@@ -3170,6 +7289,10 @@ class PrecisionTest_OE25Dev {
     void testFloatEqualsWithAllowedDelta_1_oe_5_oe() {
                 final FloatEqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(152.9374f, 153.0000f, .0625f));
     }
 
@@ -3177,6 +7300,11 @@ class PrecisionTest_OE25Dev {
     void testFloatEqualsWithAllowedDelta_1_oe_6_oe() {
                 final FloatEqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(nanAreEqual0, fun0.equals(Float.NaN, Float.NaN, 1.0f));
     }
 
@@ -3184,6 +7312,12 @@ class PrecisionTest_OE25Dev {
     void testFloatEqualsWithAllowedDelta_1_oe_7_oe() {
                 final FloatEqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY, 1.0f));
     }
 
@@ -3191,6 +7325,13 @@ class PrecisionTest_OE25Dev {
     void testFloatEqualsWithAllowedDelta_1_oe_8_oe() {
                 final FloatEqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY, 1.0f));
     }
 
@@ -3198,6 +7339,14 @@ class PrecisionTest_OE25Dev {
     void testFloatEqualsWithAllowedDelta_1_oe_9_oe() {
                 final FloatEqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Float.NEGATIVE_INFINITY, Float.POSITIVE_INFINITY, 1.0f));
     }
 
@@ -3212,6 +7361,7 @@ class PrecisionTest_OE25Dev {
     void testFloatEqualsIncludingNaNWithAllowedDelta_1_oe_2_oe() {
                 final FloatEqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
                 Assertions.assertTrue(fun0.equals(153.0000f, 153.0625f, .0625f));
     }
 
@@ -3219,6 +7369,8 @@ class PrecisionTest_OE25Dev {
     void testFloatEqualsIncludingNaNWithAllowedDelta_1_oe_3_oe() {
                 final FloatEqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(152.9375f, 153.0000f, .0625f));
     }
 
@@ -3226,6 +7378,9 @@ class PrecisionTest_OE25Dev {
     void testFloatEqualsIncludingNaNWithAllowedDelta_1_oe_4_oe() {
                 final FloatEqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(153.0000f, 153.0625f, .0624f));
     }
 
@@ -3233,6 +7388,10 @@ class PrecisionTest_OE25Dev {
     void testFloatEqualsIncludingNaNWithAllowedDelta_1_oe_5_oe() {
                 final FloatEqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(152.9374f, 153.0000f, .0625f));
     }
 
@@ -3240,6 +7399,11 @@ class PrecisionTest_OE25Dev {
     void testFloatEqualsIncludingNaNWithAllowedDelta_1_oe_6_oe() {
                 final FloatEqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(nanAreEqual0, fun0.equals(Float.NaN, Float.NaN, 1.0f));
     }
 
@@ -3247,6 +7411,12 @@ class PrecisionTest_OE25Dev {
     void testFloatEqualsIncludingNaNWithAllowedDelta_1_oe_7_oe() {
                 final FloatEqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY, 1.0f));
     }
 
@@ -3254,6 +7424,13 @@ class PrecisionTest_OE25Dev {
     void testFloatEqualsIncludingNaNWithAllowedDelta_1_oe_8_oe() {
                 final FloatEqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY, 1.0f));
     }
 
@@ -3261,6 +7438,14 @@ class PrecisionTest_OE25Dev {
     void testFloatEqualsIncludingNaNWithAllowedDelta_1_oe_9_oe() {
                 final FloatEqualsWithDelta fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Float.NEGATIVE_INFINITY, Float.POSITIVE_INFINITY, 1.0f));
     }
 
@@ -3277,6 +7462,7 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
                 Assertions.assertTrue(fun0.equals(1.0f, 1f + Math.ulp(1f), 1));
     }
@@ -3286,7 +7472,9 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(1.0f, 1f + 2 * Math.ulp(1f), 1));
     }
 
@@ -3295,7 +7483,10 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
                     Assertions.assertTrue(fun0.equals(value0, value0, 1));
@@ -3307,9 +7498,13 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
                     Assertions.assertTrue(fun0.equals(value0, Math.nextUp(value0), 1));
     }
     }
@@ -3319,9 +7514,14 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertFalse(fun0.equals(value0, Math.nextUp(Math.nextUp(value0)), 1));
     }
     }
@@ -3331,9 +7531,15 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertTrue(fun0.equals(value0, Math.nextDown(value0), 1));
     }
     }
@@ -3343,9 +7549,16 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertFalse(fun0.equals(value0, Math.nextDown(Math.nextDown(value0)), 1));
     }
     }
@@ -3355,9 +7568,18 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
                         Assertions.assertFalse(fun0.equals(value0, Math.nextUp(value0), 0));
     }
@@ -3369,10 +7591,20 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
                         Assertions.assertTrue(fun0.equals(value0, Math.nextUp(Math.nextUp(value0)), 2));
     }
     }
@@ -3383,10 +7615,21 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
                         Assertions.assertTrue(fun0.equals(value0, Math.nextDown(Math.nextDown(value0)), 2));
     }
     }
@@ -3397,10 +7640,22 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
@@ -3412,13 +7667,26 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(Float.MAX_VALUE, Float.POSITIVE_INFINITY, 1));
     }
 
@@ -3427,13 +7695,27 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertTrue(fun0.equals(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY, 1));
     }
@@ -3443,14 +7725,29 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(-Float.MAX_VALUE, Float.NEGATIVE_INFINITY, 1));
     }
 
@@ -3459,14 +7756,30 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertEquals(nanAreEqual0, fun0.equals(Float.NaN, Float.NaN, 1));
     }
@@ -3476,15 +7789,32 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 Assertions.assertEquals(nanAreEqual0, fun0.equals(Float.NaN, Float.NaN, 0));
     }
 
@@ -3493,15 +7823,33 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Float.NaN, 0, 0));
     }
 
@@ -3510,15 +7858,34 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(0, Float.NaN, 0));
     }
 
@@ -3527,15 +7894,35 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Float.NaN, Float.POSITIVE_INFINITY, 0));
     }
 
@@ -3544,15 +7931,36 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Float.NaN, Float.NEGATIVE_INFINITY, 0));
     }
 
@@ -3561,21 +7969,44 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equals;
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertFalse(fun0.equals(Float.NEGATIVE_INFINITY, Float.POSITIVE_INFINITY, 100000));
     }
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_1_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
@@ -3584,28 +8015,37 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_2_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
                 Assertions.assertTrue(fun0.equals(1.0f, 1f + Math.ulp(1f), 1));
     }
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_3_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(1.0f, 1f + 2 * Math.ulp(1f), 1));
     }
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_4_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
                     Assertions.assertTrue(fun0.equals(value0, value0, 1));
@@ -3614,60 +8054,96 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_5_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
                     Assertions.assertTrue(fun0.equals(value0, Math.nextUp(value0), 1));
     }
     }
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_6_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertFalse(fun0.equals(value0, Math.nextUp(Math.nextUp(value0)), 1));
     }
     }
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_7_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertTrue(fun0.equals(value0, Math.nextDown(value0), 1));
     }
     }
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_8_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertFalse(fun0.equals(value0, Math.nextDown(Math.nextDown(value0)), 1));
     }
     }
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_9_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
                         Assertions.assertFalse(fun0.equals(value0, Math.nextUp(value0), 0));
     }
@@ -3676,13 +8152,24 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_10_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
                         Assertions.assertTrue(fun0.equals(value0, Math.nextUp(Math.nextUp(value0)), 2));
     }
     }
@@ -3690,13 +8177,25 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_11_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
                         Assertions.assertTrue(fun0.equals(value0, Math.nextDown(Math.nextDown(value0)), 2));
     }
     }
@@ -3704,13 +8203,26 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_12_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
@@ -3719,167 +8231,352 @@ class PrecisionTest_OE25Dev {
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_13_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(Float.MAX_VALUE, Float.POSITIVE_INFINITY, 1));
     }
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_14_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertTrue(fun0.equals(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY, 1));
     }
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_15_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(-Float.MAX_VALUE, Float.NEGATIVE_INFINITY, 1));
     }
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_16_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertEquals(nanAreEqual0, fun0.equals(Float.NaN, Float.NaN, 1));
     }
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_17_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 Assertions.assertEquals(nanAreEqual0, fun0.equals(Float.NaN, Float.NaN, 0));
     }
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_18_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Float.NaN, 0, 0));
     }
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_19_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(0, Float.NaN, 0));
     }
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_20_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Float.NaN, Float.POSITIVE_INFINITY, 0));
     }
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_21_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Float.NaN, Float.NEGATIVE_INFINITY, 0));
     }
 
     @Test
     void testFloatEqualsWithImplicitAllowedUlpsOf1_1_oe_22_oe() {
+        // Use the version without the ulp argument
                 final FloatEqualsWithUlps fun0 = (a, b, ulp) -> Precision.equals(a, b);
         final boolean nanAreEqual0 = false;
         final boolean fixed1Ulp0 = true;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertFalse(fun0.equals(Float.NEGATIVE_INFINITY, Float.POSITIVE_INFINITY, 100000));
     }
@@ -3897,6 +8594,7 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
                 Assertions.assertTrue(fun0.equals(1.0f, 1f + Math.ulp(1f), 1));
     }
@@ -3906,7 +8604,9 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(1.0f, 1f + 2 * Math.ulp(1f), 1));
     }
 
@@ -3915,7 +8615,10 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
                     Assertions.assertTrue(fun0.equals(value0, value0, 1));
@@ -3927,9 +8630,13 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
                     Assertions.assertTrue(fun0.equals(value0, Math.nextUp(value0), 1));
     }
     }
@@ -3939,9 +8646,14 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertFalse(fun0.equals(value0, Math.nextUp(Math.nextUp(value0)), 1));
     }
     }
@@ -3951,9 +8663,15 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertTrue(fun0.equals(value0, Math.nextDown(value0), 1));
     }
     }
@@ -3963,9 +8681,16 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
                     Assertions.assertFalse(fun0.equals(value0, Math.nextDown(Math.nextDown(value0)), 1));
     }
     }
@@ -3975,9 +8700,18 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
                         Assertions.assertFalse(fun0.equals(value0, Math.nextUp(value0), 0));
     }
@@ -3989,10 +8723,20 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
                         Assertions.assertTrue(fun0.equals(value0, Math.nextUp(Math.nextUp(value0)), 2));
     }
     }
@@ -4003,10 +8747,21 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
                         Assertions.assertTrue(fun0.equals(value0, Math.nextDown(Math.nextDown(value0)), 2));
     }
     }
@@ -4017,10 +8772,22 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
@@ -4032,13 +8799,26 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(Float.MAX_VALUE, Float.POSITIVE_INFINITY, 1));
     }
 
@@ -4047,13 +8827,27 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertTrue(fun0.equals(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY, 1));
     }
@@ -4063,14 +8857,29 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 Assertions.assertTrue(fun0.equals(-Float.MAX_VALUE, Float.NEGATIVE_INFINITY, 1));
     }
 
@@ -4079,14 +8888,30 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertEquals(nanAreEqual0, fun0.equals(Float.NaN, Float.NaN, 1));
     }
@@ -4096,15 +8921,32 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 Assertions.assertEquals(nanAreEqual0, fun0.equals(Float.NaN, Float.NaN, 0));
     }
 
@@ -4113,15 +8955,33 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Float.NaN, 0, 0));
     }
 
@@ -4130,15 +8990,34 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(0, Float.NaN, 0));
     }
 
@@ -4147,15 +9026,35 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Float.NaN, Float.POSITIVE_INFINITY, 0));
     }
 
@@ -4164,15 +9063,36 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertFalse(fun0.equals(Float.NaN, Float.NEGATIVE_INFINITY, 0));
     }
 
@@ -4181,15 +9101,37 @@ class PrecisionTest_OE25Dev {
                 final FloatEqualsWithUlps fun0 = Precision::equalsIncludingNaN;
         final boolean nanAreEqual0 = true;
         final boolean fixed1Ulp0 = false;
+        // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
                 for (float value0 : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    // This test is conditional
                     if (!fixed1Ulp0) {
+                        // removed other assertion
+                        // removed other assertion
+                        // removed other assertion
                     }
                 }
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
         
                 Assertions.assertFalse(fun0.equals(Float.NEGATIVE_INFINITY, Float.POSITIVE_INFINITY, 100000));
     }

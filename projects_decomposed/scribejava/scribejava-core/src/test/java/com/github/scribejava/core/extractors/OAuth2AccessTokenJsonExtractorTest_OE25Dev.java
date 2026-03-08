@@ -80,6 +80,7 @@ public class OAuth2AccessTokenJsonExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             token = extractor.extract(response);
         }
+        // removed other assertion
         assertEquals("s1", token.getScope());
     }
 
@@ -92,6 +93,8 @@ public class OAuth2AccessTokenJsonExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             token = extractor.extract(response);
         }
+        // removed other assertion
+        // removed other assertion
 
         final String responseBody2 = "{ \"access_token\":\"I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T5X\", "
                 + "\"token_type\":\"example\","
@@ -112,6 +115,8 @@ public class OAuth2AccessTokenJsonExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             token = extractor.extract(response);
         }
+        // removed other assertion
+        // removed other assertion
 
         final String responseBody2 = "{ \"access_token\":\"I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T5X\", "
                 + "\"token_type\":\"example\","
@@ -120,6 +125,7 @@ public class OAuth2AccessTokenJsonExtractorTest_OE25Dev {
         try (Response response = ok(responseBody2)) {
             token2 = extractor.extract(response);
         }
+        // removed other assertion
         assertEquals("s1 s2", token2.getScope());
     }
 
@@ -132,6 +138,8 @@ public class OAuth2AccessTokenJsonExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             token = extractor.extract(response);
         }
+        // removed other assertion
+        // removed other assertion
 
         final String responseBody2 = "{ \"access_token\":\"I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T5X\", "
                 + "\"token_type\":\"example\","
@@ -140,6 +148,8 @@ public class OAuth2AccessTokenJsonExtractorTest_OE25Dev {
         try (Response response = ok(responseBody2)) {
             token2 = extractor.extract(response);
         }
+        // removed other assertion
+        // removed other assertion
 
         final String responseBody3 = "{ \"access_token\":\"I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T6X\", "
                 + "\"token_type\":\"example\","
@@ -161,6 +171,8 @@ public class OAuth2AccessTokenJsonExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             token = extractor.extract(response);
         }
+        // removed other assertion
+        // removed other assertion
 
         final String responseBody2 = "{ \"access_token\":\"I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T5X\", "
                 + "\"token_type\":\"example\","
@@ -169,6 +181,8 @@ public class OAuth2AccessTokenJsonExtractorTest_OE25Dev {
         try (Response response = ok(responseBody2)) {
             token2 = extractor.extract(response);
         }
+        // removed other assertion
+        // removed other assertion
 
         final String responseBody3 = "{ \"access_token\":\"I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T6X\", "
                 + "\"token_type\":\"example\","
@@ -178,6 +192,7 @@ public class OAuth2AccessTokenJsonExtractorTest_OE25Dev {
         try (Response response = ok(responseBody3)) {
             token3 = extractor.extract(response);
         }
+        // removed other assertion
         assertEquals("s3 s4", token3.getScope());
     }
 
@@ -190,6 +205,8 @@ public class OAuth2AccessTokenJsonExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             token = extractor.extract(response);
         }
+        // removed other assertion
+        // removed other assertion
 
         final String responseBody2 = "{ \"access_token\":\"I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T5X\", "
                 + "\"token_type\":\"example\","
@@ -198,6 +215,8 @@ public class OAuth2AccessTokenJsonExtractorTest_OE25Dev {
         try (Response response = ok(responseBody2)) {
             token2 = extractor.extract(response);
         }
+        // removed other assertion
+        // removed other assertion
 
         final String responseBody3 = "{ \"access_token\":\"I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T6X\", "
                 + "\"token_type\":\"example\","
@@ -207,6 +226,8 @@ public class OAuth2AccessTokenJsonExtractorTest_OE25Dev {
         try (Response response = ok(responseBody3)) {
             token3 = extractor.extract(response);
         }
+        // removed other assertion
+        // removed other assertion
         assertEquals("refresh_token1", token3.getRefreshToken());
     }
 

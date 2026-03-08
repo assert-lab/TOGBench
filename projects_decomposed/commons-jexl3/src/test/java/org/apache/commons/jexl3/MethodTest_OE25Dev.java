@@ -364,37 +364,49 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     @Test
     public void testInvoke_2_oe() throws Exception {
         Functor func = new Functor();
+        // removed other assertion
         Assert.assertEquals(Integer.valueOf(42), JEXL.invokeMethod(func, "PLUS20", Integer.valueOf(22)));
     }
 
     @Test
     public void testInvoke_8_oe() throws Exception {
         Functor func = new Functor();
+        // removed other assertion
+        // removed other assertion
         try {
             JEXL.invokeMethod(func, "nonExistentMethod");
+            // removed other assertion
         } catch (final Exception xj0) {
+            // ignore
         }
         try {
             JEXL.invokeMethod(func, "NPEIfNull", (Object[]) null);
+            // removed other assertion
         } catch (final Exception xj0) {
+            // ignore
         }
 
         Object result;
         try {
             result = JEXL.invokeMethod(func, "over", "foo", 42);
+            // removed other assertion
         } catch (final Exception xj0) {
+            // ignore
             result = xj0;
         }
 
         try {
             result = JEXL.invokeMethod(func, "over", null, null);
+            // removed other assertion
         } catch (final Exception xj0) {
+            // ignore
             result = xj0;
         }
 
         func = new FunctorOver();
         try {
             result = JEXL.invokeMethod(func, "over", null, null);
+            // removed other assertion
         } catch (final Exception xj0) {
             Assert.fail("method should not have thrown!");
     }
@@ -402,23 +414,30 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testAmbiguousInvoke_1_oe() throws Exception {
+        // JEXL-299
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
+        // basic call works
         result = JEXL.invokeMethod(func, "over", "foo", 42);
         Assert.assertEquals("foo + 42", result);
     }
 
     @Test
     public void testAmbiguousInvoke_3_oe() throws Exception {
+        // JEXL-299
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
+        // basic call works
         result = JEXL.invokeMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // ambiguous call fails
         try {
             JEXL.invokeMethod(func, "over", "not null", null);
+            // removed other assertion
         } catch (final JexlException.Method xinvoke) {
             Assert.assertEquals("over(String, Object)", xinvoke.getMethodSignature());
     }
@@ -426,19 +445,27 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testAmbiguousInvoke_5_oe() throws Exception {
+        // JEXL-299
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
+        // basic call works
         result = JEXL.invokeMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // ambiguous call fails
         try {
             JEXL.invokeMethod(func, "over", "not null", null);
+            // removed other assertion
         } catch (final JexlException.Method xinvoke) {
+            // removed other assertion
         }
 
+        // another ambiguous call fails
         try {
             final String[] arg2 = new String[]{"more", "than", "one"};
             JEXL.invokeMethod(func, "over", "not null", arg2);
+            // removed other assertion
         } catch (final JexlException.Method xinvoke) {
             Assert.assertEquals("over(String, String[])", xinvoke.getMethodSignature());
     }
@@ -446,39 +473,52 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testTryFailed_1_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
+        // tryInvoke
         final JexlMethod method = uber.getMethod(func, "over", "foo", 42);
         Assert.assertNotNull(method);
     }
 
     @Test
     public void testTryFailed_2_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
+        // tryInvoke
         final JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.tryInvoke("over", func, "foo", 42);
         Assert.assertEquals("foo + 42", result);
     }
 
     @Test
     public void testTryFailed_4_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
+        // tryInvoke
         final JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.tryInvoke("over", func, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.tryInvoke("over", func, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
             Assert.assertEquals(UnsupportedOperationException.class, xfail.getCause().getClass());
     }
@@ -486,17 +526,25 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testTryFailed_5_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
+        // tryInvoke
         final JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.tryInvoke("over", func, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.tryInvoke("over", func, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
@@ -507,43 +555,62 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testTryFailed_6_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
+        // tryInvoke
         final JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.tryInvoke("over", func, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.tryInvoke("over", func, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
         final JexlPropertySet setter = uber.getPropertySet(func, "under", "42");
         result = setter.tryInvoke(func, "under", "42");
+        // removed other assertion
         Assert.assertEquals("42", result);
     }
 
     @Test
     public void testTryFailed_7_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
+        // tryInvoke
         final JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.tryInvoke("over", func, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.tryInvoke("over", func, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
         final JexlPropertySet setter = uber.getPropertySet(func, "under", "42");
         result = setter.tryInvoke(func, "under", "42");
+        // removed other assertion
+        // removed other assertion
 
         final JexlPropertyGet getter = uber.getPropertyGet(func, "under");
         result = getter.tryInvoke(func, "under");
@@ -552,53 +619,77 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testTryFailed_8_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
+        // tryInvoke
         final JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.tryInvoke("over", func, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.tryInvoke("over", func, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
         final JexlPropertySet setter = uber.getPropertySet(func, "under", "42");
         result = setter.tryInvoke(func, "under", "42");
+        // removed other assertion
+        // removed other assertion
 
         final JexlPropertyGet getter = uber.getPropertyGet(func, "under");
         result = getter.tryInvoke(func, "under");
+        // removed other assertion
         Assert.assertEquals("42", result);
     }
 
     @Test
     public void testTryFailed_10_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
+        // tryInvoke
         final JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.tryInvoke("over", func, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.tryInvoke("over", func, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
         final JexlPropertySet setter = uber.getPropertySet(func, "under", "42");
         result = setter.tryInvoke(func, "under", "42");
+        // removed other assertion
+        // removed other assertion
 
         final JexlPropertyGet getter = uber.getPropertyGet(func, "under");
         result = getter.tryInvoke(func, "under");
+        // removed other assertion
+        // removed other assertion
 
         func.setKill(true);
         try {
             /*result = */setter.tryInvoke(func, "under", "42");
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
             Assert.assertEquals(UnsupportedOperationException.class, xfail.getCause().getClass());
     }
@@ -606,30 +697,44 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testTryFailed_11_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
+        // tryInvoke
         final JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.tryInvoke("over", func, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.tryInvoke("over", func, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
         final JexlPropertySet setter = uber.getPropertySet(func, "under", "42");
         result = setter.tryInvoke(func, "under", "42");
+        // removed other assertion
+        // removed other assertion
 
         final JexlPropertyGet getter = uber.getPropertyGet(func, "under");
         result = getter.tryInvoke(func, "under");
+        // removed other assertion
+        // removed other assertion
 
         func.setKill(true);
         try {
             /*result = */setter.tryInvoke(func, "under", "42");
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
+            // removed other assertion
         }
         func.setKill(false);
         result = setter.tryInvoke(func, "under", "-42");
@@ -638,37 +743,53 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testTryFailed_13_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
+        // tryInvoke
         final JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.tryInvoke("over", func, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.tryInvoke("over", func, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
         final JexlPropertySet setter = uber.getPropertySet(func, "under", "42");
         result = setter.tryInvoke(func, "under", "42");
+        // removed other assertion
+        // removed other assertion
 
         final JexlPropertyGet getter = uber.getPropertyGet(func, "under");
         result = getter.tryInvoke(func, "under");
+        // removed other assertion
+        // removed other assertion
 
         func.setKill(true);
         try {
             /*result = */setter.tryInvoke(func, "under", "42");
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
+            // removed other assertion
         }
         func.setKill(false);
         result = setter.tryInvoke(func, "under", "-42");
+        // removed other assertion
 
         func.setKill(true);
         try {
             /*result = */getter.tryInvoke(func, "under");
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
             Assert.assertEquals(UnsupportedOperationException.class, xfail.getCause().getClass());
     }
@@ -676,38 +797,55 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testTryFailed_14_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
+        // tryInvoke
         final JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.tryInvoke("over", func, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.tryInvoke("over", func, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
         final JexlPropertySet setter = uber.getPropertySet(func, "under", "42");
         result = setter.tryInvoke(func, "under", "42");
+        // removed other assertion
+        // removed other assertion
 
         final JexlPropertyGet getter = uber.getPropertyGet(func, "under");
         result = getter.tryInvoke(func, "under");
+        // removed other assertion
+        // removed other assertion
 
         func.setKill(true);
         try {
             /*result = */setter.tryInvoke(func, "under", "42");
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
+            // removed other assertion
         }
         func.setKill(false);
         result = setter.tryInvoke(func, "under", "-42");
+        // removed other assertion
 
         func.setKill(true);
         try {
             /*result = */getter.tryInvoke(func, "under");
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
@@ -717,80 +855,114 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testTryFailed_15_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
+        // tryInvoke
         final JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.tryInvoke("over", func, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.tryInvoke("over", func, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
         final JexlPropertySet setter = uber.getPropertySet(func, "under", "42");
         result = setter.tryInvoke(func, "under", "42");
+        // removed other assertion
+        // removed other assertion
 
         final JexlPropertyGet getter = uber.getPropertyGet(func, "under");
         result = getter.tryInvoke(func, "under");
+        // removed other assertion
+        // removed other assertion
 
         func.setKill(true);
         try {
             /*result = */setter.tryInvoke(func, "under", "42");
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
+            // removed other assertion
         }
         func.setKill(false);
         result = setter.tryInvoke(func, "under", "-42");
+        // removed other assertion
 
         func.setKill(true);
         try {
             /*result = */getter.tryInvoke(func, "under");
+            // removed other assertion
         } catch (final JexlException.TryFailed xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
         result = getter.tryInvoke(func, "under");
+        // removed other assertion
         Assert.assertEquals("-42", result);
     }
 
     @Test
     public void testTryFailedScript_1_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
         final JexlScript method = JEXL.createScript("(x, y)->{ func.over(x, y) }");
+        // tryInvoke
+        //JexlMethod method = uber.getMethod(func, "over", "foo", 42);
         Assert.assertNotNull(method);
     }
 
     @Test
     public void testTryFailedScript_2_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
         final JexlScript method = JEXL.createScript("(x, y)->{ func.over(x, y) }");
+        // tryInvoke
+        //JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.execute(ctxt, "foo", 42);
         Assert.assertEquals("foo + 42", result);
     }
 
     @Test
     public void testTryFailedScript_4_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
         final JexlScript method = JEXL.createScript("(x, y)->{ func.over(x, y) }");
+        // tryInvoke
+        //JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.execute(ctxt, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.execute(ctxt, "foo", 42);
+            // removed other assertion
         } catch (final JexlException xfail) {
             Assert.assertEquals(UnsupportedOperationException.class, xfail.getCause().getClass());
     }
@@ -798,43 +970,64 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testTryFailedScript_5_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
         final JexlScript method = JEXL.createScript("(x, y)->{ func.over(x, y) }");
+        // tryInvoke
+        //JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.execute(ctxt, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.execute(ctxt, "foo", 42);
+            // removed other assertion
         } catch (final JexlException xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
         final JexlScript setter = JEXL.createScript("(x)->{ func.under = x }");
+        //JexlPropertySet setter = uber.getPropertySet(func, "under", "42");
         result = setter.execute(ctxt, "42");
         Assert.assertEquals("42", result);
     }
 
     @Test
     public void testTryFailedScript_6_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
         final JexlScript method = JEXL.createScript("(x, y)->{ func.over(x, y) }");
+        // tryInvoke
+        //JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.execute(ctxt, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.execute(ctxt, "foo", 42);
+            // removed other assertion
         } catch (final JexlException xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
         final JexlScript setter = JEXL.createScript("(x)->{ func.under = x }");
+        //JexlPropertySet setter = uber.getPropertySet(func, "under", "42");
         result = setter.execute(ctxt, "42");
+        // removed other assertion
 
         final JexlScript getter = JEXL.createScript("func.under");
         Assert.assertEquals("42", result);
@@ -842,28 +1035,41 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testTryFailedScript_8_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
         final JexlScript method = JEXL.createScript("(x, y)->{ func.over(x, y) }");
+        // tryInvoke
+        //JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.execute(ctxt, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.execute(ctxt, "foo", 42);
+            // removed other assertion
         } catch (final JexlException xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
         final JexlScript setter = JEXL.createScript("(x)->{ func.under = x }");
+        //JexlPropertySet setter = uber.getPropertySet(func, "under", "42");
         result = setter.execute(ctxt, "42");
+        // removed other assertion
 
         final JexlScript getter = JEXL.createScript("func.under");
+        // removed other assertion
 
         func.setKill(true);
         try {
             /*result = */setter.execute(ctxt, "42");
+            // removed other assertion
         } catch (final JexlException xfail) {
             Assert.assertEquals(UnsupportedOperationException.class, xfail.getCause().getClass());
     }
@@ -871,29 +1077,43 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testTryFailedScript_9_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
         final JexlScript method = JEXL.createScript("(x, y)->{ func.over(x, y) }");
+        // tryInvoke
+        //JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.execute(ctxt, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.execute(ctxt, "foo", 42);
+            // removed other assertion
         } catch (final JexlException xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
         final JexlScript setter = JEXL.createScript("(x)->{ func.under = x }");
+        //JexlPropertySet setter = uber.getPropertySet(func, "under", "42");
         result = setter.execute(ctxt, "42");
+        // removed other assertion
 
         final JexlScript getter = JEXL.createScript("func.under");
+        // removed other assertion
 
         func.setKill(true);
         try {
             /*result = */setter.execute(ctxt, "42");
+            // removed other assertion
         } catch (final JexlException xfail) {
+            // removed other assertion
         }
         func.setKill(false);
         result = setter.execute(ctxt, "-42");
@@ -902,36 +1122,52 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testTryFailedScript_11_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
         final JexlScript method = JEXL.createScript("(x, y)->{ func.over(x, y) }");
+        // tryInvoke
+        //JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.execute(ctxt, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.execute(ctxt, "foo", 42);
+            // removed other assertion
         } catch (final JexlException xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
         final JexlScript setter = JEXL.createScript("(x)->{ func.under = x }");
+        //JexlPropertySet setter = uber.getPropertySet(func, "under", "42");
         result = setter.execute(ctxt, "42");
+        // removed other assertion
 
         final JexlScript getter = JEXL.createScript("func.under");
+        // removed other assertion
 
         func.setKill(true);
         try {
             /*result = */setter.execute(ctxt, "42");
+            // removed other assertion
         } catch (final JexlException xfail) {
+            // removed other assertion
         }
         func.setKill(false);
         result = setter.execute(ctxt, "-42");
+        // removed other assertion
 
         func.setKill(true);
         try {
             /*result = */getter.execute(ctxt);
+            // removed other assertion
         } catch (final JexlException xfail) {
             Assert.assertEquals(UnsupportedOperationException.class, xfail.getCause().getClass());
     }
@@ -939,37 +1175,54 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testTryFailedScript_12_oe() throws Exception {
+        // JEXL-257
         final Functor func = new Functor();
         final JexlContext ctxt = new MapContext();
         ctxt.set("func", func);
         Object result;
         final JexlUberspect uber = JEXL.getUberspect();
         final JexlScript method = JEXL.createScript("(x, y)->{ func.over(x, y) }");
+        // tryInvoke
+        //JexlMethod method = uber.getMethod(func, "over", "foo", 42);
+        // removed other assertion
+        // tryInvoke succeeds
         result = method.execute(ctxt, "foo", 42);
+        // removed other assertion
+        // tryInvoke fails
         func.setKill(true);
         try {
             /*result = */method.execute(ctxt, "foo", 42);
+            // removed other assertion
         } catch (final JexlException xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
         final JexlScript setter = JEXL.createScript("(x)->{ func.under = x }");
+        //JexlPropertySet setter = uber.getPropertySet(func, "under", "42");
         result = setter.execute(ctxt, "42");
+        // removed other assertion
 
         final JexlScript getter = JEXL.createScript("func.under");
+        // removed other assertion
 
         func.setKill(true);
         try {
             /*result = */setter.execute(ctxt, "42");
+            // removed other assertion
         } catch (final JexlException xfail) {
+            // removed other assertion
         }
         func.setKill(false);
         result = setter.execute(ctxt, "-42");
+        // removed other assertion
 
         func.setKill(true);
         try {
             /*result = */getter.execute(ctxt);
+            // removed other assertion
         } catch (final JexlException xfail) {
+            // removed other assertion
         }
 
         func.setKill(false);
@@ -1002,6 +1255,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
         JexlExpression e = JEXL.createExpression("ten()");
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("plus10(10)");
         o = e.evaluate(jc);
@@ -1019,9 +1273,11 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
         JexlExpression e = JEXL.createExpression("ten()");
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("plus10(10)");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("plus10(ten())");
         o = e.evaluate(jc);
@@ -1039,12 +1295,15 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
         JexlExpression e = JEXL.createExpression("ten()");
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("plus10(10)");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("plus10(ten())");
         o = e.evaluate(jc);
+        // removed other assertion
 
         jc.set("pi", new Double(Math.PI));
         e = JEXL.createExpression("math:cos(pi)");
@@ -1063,16 +1322,20 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
         JexlExpression e = JEXL.createExpression("ten()");
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("plus10(10)");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("plus10(ten())");
         o = e.evaluate(jc);
+        // removed other assertion
 
         jc.set("pi", new Double(Math.PI));
         e = JEXL.createExpression("math:cos(pi)");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("cx:ratio(10) + cx:ratio(20)");
         o = e.evaluate(jc);
@@ -1102,6 +1365,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         final JexlEvalContext jc = new EnhancedContext(funcs);
 
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("func:plus10(10)");
         o = e.evaluate(jc);
@@ -1118,9 +1382,11 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         final JexlEvalContext jc = new EnhancedContext(funcs);
 
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("func:plus10(10)");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("func:plus10(func:ten())");
         o = e.evaluate(jc);
@@ -1137,12 +1403,15 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         final JexlEvalContext jc = new EnhancedContext(funcs);
 
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("func:plus10(10)");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("func:plus10(func:ten())");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("FUNC:PLUS20(10)");
         o = e.evaluate(jc);
@@ -1159,15 +1428,19 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         final JexlEvalContext jc = new EnhancedContext(funcs);
 
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("func:plus10(10)");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("func:plus10(func:ten())");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("FUNC:PLUS20(10)");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("FUNC:PLUS20(FUNC:TWENTY())");
         o = e.evaluate(jc);
@@ -1188,40 +1461,54 @@ public class MethodTest_OE25Dev extends JexlTestCase {
             for (int i = 0; i < 2; ++i) {
                 e = JEXL.createExpression("func:exec([1, 2])");
                 o = e.evaluate(jc);
+                // removed other assertion
 
                 e = JEXL.createExpression("func:exec(1, 2)");
                 o = e.evaluate(jc);
+                // removed other assertion
 
                 e = JEXL.createExpression("func:exec([10.0, 20.0])");
                 o = e.evaluate(jc);
+                // removed other assertion
 
                 e = JEXL.createExpression("func:exec('1', 2)");
                 o = e.evaluate(jc);
+                // removed other assertion
 
+                // no way to differentiate between a single arg call with an array and a vararg call with same args
+                // removed other assertion
                 e = JEXL.createExpression("func:exec(['1', '2'])");
                 o = e.evaluate(jc);
+                // removed other assertion
                 e = JEXL.createExpression("func:exec('1', '2')");
                 o = e.evaluate(jc);
+                // removed other assertion
 
                 e = JEXL.createExpression("func:exec(true, [1, 2])");
                 o = e.evaluate(jc);
+                // removed other assertion
 
                 e = JEXL.createExpression("func:exec(true, 1, 2)");
                 o = e.evaluate(jc);
+                // removed other assertion
 
                 e = JEXL.createExpression("func:exec(true, ['1', '2'])");
                 o = e.evaluate(jc);
+                // removed other assertion
 
                 e = JEXL.createExpression("func:exec(true, '1', '2')");
                 o = e.evaluate(jc);
+                // removed other assertion
 
                 e = JEXL.createExpression("func:execute(true, '1', '2')");
                 o = e.evaluate(jc);
                 c = func.execute(Boolean.TRUE, "1", "2");
+                // removed other assertion
 
                 e = JEXL.createExpression("func:execute([true])");
                 o = e.evaluate(jc);
                 c = func.execute(new boolean[]{true});
+                // removed other assertion
             }
         } catch (final JexlException xjexl) {
             Assert.fail(xjexl.toString());
@@ -1245,6 +1532,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         context.set("plus", plus);
         JexlScript forty2 = JEXL.createScript("plus(4, 2) * plus(4, 3)");
         Object o = forty2.execute(context);
+        // removed other assertion
 
         final Map<String, Object> foo = new HashMap<String, Object>();
         foo.put("plus", plus);
@@ -1261,12 +1549,14 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         context.set("plus", plus);
         JexlScript forty2 = JEXL.createScript("plus(4, 2) * plus(4, 3)");
         Object o = forty2.execute(context);
+        // removed other assertion
 
         final Map<String, Object> foo = new HashMap<String, Object>();
         foo.put("plus", plus);
         context.set("foo", foo);
         forty2 = JEXL.createScript("foo.plus(4, 2) * foo.plus(4, 3)");
         o = forty2.execute(context);
+        // removed other assertion
 
         context = new ScriptContext(foo);
         forty2 = JEXL.createScript("script:plus(4, 2) * script:plus(4, 3)");
@@ -1281,16 +1571,19 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         context.set("plus", plus);
         JexlScript forty2 = JEXL.createScript("plus(4, 2) * plus(4, 3)");
         Object o = forty2.execute(context);
+        // removed other assertion
 
         final Map<String, Object> foo = new HashMap<String, Object>();
         foo.put("plus", plus);
         context.set("foo", foo);
         forty2 = JEXL.createScript("foo.plus(4, 2) * foo.plus(4, 3)");
         o = forty2.execute(context);
+        // removed other assertion
 
         context = new ScriptContext(foo);
         forty2 = JEXL.createScript("script:plus(4, 2) * script:plus(4, 3)");
         o = forty2.execute(context);
+        // removed other assertion
 
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlMethod mplus = new JexlMethod() {
@@ -1309,12 +1602,14 @@ public class MethodTest_OE25Dev extends JexlTestCase {
                         return invoke(obj, params);
                     }
                 } catch (final Exception xany) {
+                    // ignore and fail by returning this
                 }
                 return this;
             }
 
             @Override
             public boolean tryFailed(final Object rval) {
+                // this is the marker for failure
                 return rval == this;
             }
 
@@ -1342,16 +1637,19 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         context.set("plus", plus);
         JexlScript forty2 = JEXL.createScript("plus(4, 2) * plus(4, 3)");
         Object o = forty2.execute(context);
+        // removed other assertion
 
         final Map<String, Object> foo = new HashMap<String, Object>();
         foo.put("plus", plus);
         context.set("foo", foo);
         forty2 = JEXL.createScript("foo.plus(4, 2) * foo.plus(4, 3)");
         o = forty2.execute(context);
+        // removed other assertion
 
         context = new ScriptContext(foo);
         forty2 = JEXL.createScript("script:plus(4, 2) * script:plus(4, 3)");
         o = forty2.execute(context);
+        // removed other assertion
 
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlMethod mplus = new JexlMethod() {
@@ -1370,12 +1668,14 @@ public class MethodTest_OE25Dev extends JexlTestCase {
                         return invoke(obj, params);
                     }
                 } catch (final Exception xany) {
+                    // ignore and fail by returning this
                 }
                 return this;
             }
 
             @Override
             public boolean tryFailed(final Object rval) {
+                // this is the marker for failure
                 return rval == this;
             }
 
@@ -1393,6 +1693,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         foo.put("PLUS", mplus);
         forty2 = JEXL.createScript("script:PLUS(4, 2) * script:PLUS(4, 3)");
         o = forty2.execute(context);
+        // removed other assertion
 
         context.set("foo.bar", foo);
         forty2 = JEXL.createScript("foo.'bar'.PLUS(4, 2) * foo.bar.PLUS(4, 3)");
@@ -1417,6 +1718,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         JexlScript bar = JEXL.createScript("functor:get('drink')");
         Object o;
         o = bar.execute(context);
+        // removed other assertion
         context.set("base", "gin");
         o = bar.execute(context);
         Assert.assertEquals("Wrong choice", "gin fizz", o);
@@ -1429,9 +1731,12 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         JexlScript bar = JEXL.createScript("functor:get('drink')");
         Object o;
         o = bar.execute(context);
+        // removed other assertion
         context.set("base", "gin");
         o = bar.execute(context);
+        // removed other assertion
 
+        // despite being called twice, the functor is created only once.
         context.set("base", "wine");
         bar = JEXL.createScript("var glass = functor:get('drink'); base = 'gin'; functor:get('drink')");
         o = bar.execute(context);
@@ -1440,6 +1745,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testVariousFunctionLocation_1_oe() throws Exception {
+        // see JEXL-190
         final Map<String, Object> vars = new HashMap<String, Object>();
         final Map<String,Object> funcs = new HashMap<String,Object>();
         funcs.put(null, new ZSpace());
@@ -1454,6 +1760,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testVariousFunctionLocation_2_oe() throws Exception {
+        // see JEXL-190
         final Map<String, Object> vars = new HashMap<String, Object>();
         final Map<String,Object> funcs = new HashMap<String,Object>();
         funcs.put(null, new ZSpace());
@@ -1463,7 +1770,9 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         final String z41 = "z(41)";
         final JexlScript callz41 = jexl.createScript(z41);
         Object onovar = callz41.execute(zjc);
+        // removed other assertion
 
+        // override z() with global var
         final JexlScript z241 = jexl.createScript("(x)->{ return x + 241}");
         vars.put("z", z241);
         final Object oglobal = callz41.execute(zjc);
@@ -1472,6 +1781,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testVariousFunctionLocation_3_oe() throws Exception {
+        // see JEXL-190
         final Map<String, Object> vars = new HashMap<String, Object>();
         final Map<String,Object> funcs = new HashMap<String,Object>();
         funcs.put(null, new ZSpace());
@@ -1481,10 +1791,14 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         final String z41 = "z(41)";
         final JexlScript callz41 = jexl.createScript(z41);
         Object onovar = callz41.execute(zjc);
+        // removed other assertion
 
+        // override z() with global var
         final JexlScript z241 = jexl.createScript("(x)->{ return x + 241}");
         vars.put("z", z241);
         final Object oglobal = callz41.execute(zjc);
+        // removed other assertion
+        // clear global and execute again
         vars.remove("z");
         onovar = callz41.execute(zjc);
         Assert.assertEquals(222, onovar);
@@ -1492,6 +1806,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testVariousFunctionLocation_4_oe() throws Exception {
+        // see JEXL-190
         final Map<String, Object> vars = new HashMap<String, Object>();
         final Map<String,Object> funcs = new HashMap<String,Object>();
         funcs.put(null, new ZSpace());
@@ -1501,13 +1816,19 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         final String z41 = "z(41)";
         final JexlScript callz41 = jexl.createScript(z41);
         Object onovar = callz41.execute(zjc);
+        // removed other assertion
 
+        // override z() with global var
         final JexlScript z241 = jexl.createScript("(x)->{ return x + 241}");
         vars.put("z", z241);
         final Object oglobal = callz41.execute(zjc);
+        // removed other assertion
+        // clear global and execute again
         vars.remove("z");
         onovar = callz41.execute(zjc);
+        // removed other assertion
 
+        // override z() with local var
         final String slocal = "var z = (x)->{ return x + 141}; z(1)";
         final JexlScript jlocal = jexl.createScript(slocal);
         final Object olocal = jlocal.execute(zjc);
@@ -1516,6 +1837,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testVariousFunctionLocation_5_oe() throws Exception {
+        // see JEXL-190
         final Map<String, Object> vars = new HashMap<String, Object>();
         final Map<String,Object> funcs = new HashMap<String,Object>();
         funcs.put(null, new ZSpace());
@@ -1525,22 +1847,31 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         final String z41 = "z(41)";
         final JexlScript callz41 = jexl.createScript(z41);
         Object onovar = callz41.execute(zjc);
+        // removed other assertion
 
+        // override z() with global var
         final JexlScript z241 = jexl.createScript("(x)->{ return x + 241}");
         vars.put("z", z241);
         final Object oglobal = callz41.execute(zjc);
+        // removed other assertion
+        // clear global and execute again
         vars.remove("z");
         onovar = callz41.execute(zjc);
+        // removed other assertion
 
+        // override z() with local var
         final String slocal = "var z = (x)->{ return x + 141}; z(1)";
         final JexlScript jlocal = jexl.createScript(slocal);
         final Object olocal = jlocal.execute(zjc);
+        // removed other assertion
 
+        // and now try the context, the null namespace and the arithmetic
         Assert.assertEquals(42, jexl.createScript("zz(2)").execute(zjc));
     }
 
     @Test
     public void testVariousFunctionLocation_6_oe() throws Exception {
+        // see JEXL-190
         final Map<String, Object> vars = new HashMap<String, Object>();
         final Map<String,Object> funcs = new HashMap<String,Object>();
         funcs.put(null, new ZSpace());
@@ -1550,22 +1881,32 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         final String z41 = "z(41)";
         final JexlScript callz41 = jexl.createScript(z41);
         Object onovar = callz41.execute(zjc);
+        // removed other assertion
 
+        // override z() with global var
         final JexlScript z241 = jexl.createScript("(x)->{ return x + 241}");
         vars.put("z", z241);
         final Object oglobal = callz41.execute(zjc);
+        // removed other assertion
+        // clear global and execute again
         vars.remove("z");
         onovar = callz41.execute(zjc);
+        // removed other assertion
 
+        // override z() with local var
         final String slocal = "var z = (x)->{ return x + 141}; z(1)";
         final JexlScript jlocal = jexl.createScript(slocal);
         final Object olocal = jlocal.execute(zjc);
+        // removed other assertion
 
+        // and now try the context, the null namespace and the arithmetic
+        // removed other assertion
         Assert.assertEquals(42, jexl.createScript("zzz(3)").execute(zjc));
     }
 
     @Test
     public void testVariousFunctionLocation_7_oe() throws Exception {
+        // see JEXL-190
         final Map<String, Object> vars = new HashMap<String, Object>();
         final Map<String,Object> funcs = new HashMap<String,Object>();
         funcs.put(null, new ZSpace());
@@ -1575,17 +1916,27 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         final String z41 = "z(41)";
         final JexlScript callz41 = jexl.createScript(z41);
         Object onovar = callz41.execute(zjc);
+        // removed other assertion
 
+        // override z() with global var
         final JexlScript z241 = jexl.createScript("(x)->{ return x + 241}");
         vars.put("z", z241);
         final Object oglobal = callz41.execute(zjc);
+        // removed other assertion
+        // clear global and execute again
         vars.remove("z");
         onovar = callz41.execute(zjc);
+        // removed other assertion
 
+        // override z() with local var
         final String slocal = "var z = (x)->{ return x + 141}; z(1)";
         final JexlScript jlocal = jexl.createScript(slocal);
         final Object olocal = jlocal.execute(zjc);
+        // removed other assertion
 
+        // and now try the context, the null namespace and the arithmetic
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(42, jexl.createScript("zzzz(4)").execute(zjc));
     }
 
@@ -1600,6 +1951,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     public void testCallVarArgMethod_2_oe() throws Exception {
         final VarArgs test = new VarArgs();
         asserter.setVariable("test", test);
+        // removed other assertion
         asserter.assertExpression("test.callInts(1)", test.callInts(1));
     }
 
@@ -1607,6 +1959,8 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     public void testCallVarArgMethod_3_oe() throws Exception {
         final VarArgs test = new VarArgs();
         asserter.setVariable("test", test);
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("test.callInts(1,2,3,4,5)", test.callInts(1, 2, 3, 4, 5));
     }
 
@@ -1614,6 +1968,9 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     public void testCallVarArgMethod_4_oe() throws Exception {
         final VarArgs test = new VarArgs();
         asserter.setVariable("test", test);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("test.concat(['1', '2', '3'])", test.concat(new String[]{"1", "2", "3"}));
     }
 
@@ -1621,6 +1978,10 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     public void testCallVarArgMethod_5_oe() throws Exception {
         final VarArgs test = new VarArgs();
         asserter.setVariable("test", test);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("test.concat('1', '2', '3')", test.concat("1", "2", "3"));
     }
 
@@ -1628,6 +1989,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     public void testCallMixedVarArgMethod_2_oe() throws Exception {
         final VarArgs test = new VarArgs();
         asserter.setVariable("test", test);
+        // removed other assertion
         asserter.assertExpression("test.callMixed(1)", test.callMixed(1));
     }
 
@@ -1635,6 +1997,11 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     public void testCallMixedVarArgMethod_4_oe() throws Exception {
         final VarArgs test = new VarArgs();
         asserter.setVariable("test", test);
+        // removed other assertion
+        // removed other assertion
+        // Java and JEXL equivalent behavior: 'Mixed:-999' expected
+        //{
+        // removed other assertion
         asserter.assertExpression("test.callMixed(1, null)", "Mixed:-999");
     }
 
@@ -1642,6 +2009,13 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     public void testCallMixedVarArgMethod_5_oe() throws Exception {
         final VarArgs test = new VarArgs();
         asserter.setVariable("test", test);
+        // removed other assertion
+        // removed other assertion
+        // Java and JEXL equivalent behavior: 'Mixed:-999' expected
+        //{
+        // removed other assertion
+        // removed other assertion
+        //}
         asserter.assertExpression("test.callMixed(1,2)", test.callMixed(1, 2));
     }
 
@@ -1649,6 +2023,14 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     public void testCallMixedVarArgMethod_6_oe() throws Exception {
         final VarArgs test = new VarArgs();
         asserter.setVariable("test", test);
+        // removed other assertion
+        // removed other assertion
+        // Java and JEXL equivalent behavior: 'Mixed:-999' expected
+        //{
+        // removed other assertion
+        // removed other assertion
+        //}
+        // removed other assertion
         asserter.assertExpression("test.callMixed(1,2,3,4,5)", test.callMixed(1, 2, 3, 4, 5));
     }
 
@@ -1656,6 +2038,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     public void testCallJexlVarArgMethod_2_oe() throws Exception {
         final VarArgs test = new VarArgs();
         asserter.setVariable("test", test);
+        // removed other assertion
         asserter.assertExpression("test.callMixed('jexl')", "jexl:0");
     }
 
@@ -1663,6 +2046,11 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     public void testCallJexlVarArgMethod_4_oe() throws Exception {
         final VarArgs test = new VarArgs();
         asserter.setVariable("test", test);
+        // removed other assertion
+        // removed other assertion
+        // Java and JEXL equivalent behavior: 'jexl:-1000' expected
+        //{
+        // removed other assertion
         asserter.assertExpression("test.callMixed('jexl', null)", "jexl:-1000");
     }
 
@@ -1670,6 +2058,13 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     public void testCallJexlVarArgMethod_5_oe() throws Exception {
         final VarArgs test = new VarArgs();
         asserter.setVariable("test", test);
+        // removed other assertion
+        // removed other assertion
+        // Java and JEXL equivalent behavior: 'jexl:-1000' expected
+        //{
+        // removed other assertion
+        // removed other assertion
+        //}
         asserter.assertExpression("test.callMixed('jexl', 2)", test.callMixed("jexl", 2));
     }
 
@@ -1677,11 +2072,20 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     public void testCallJexlVarArgMethod_6_oe() throws Exception {
         final VarArgs test = new VarArgs();
         asserter.setVariable("test", test);
+        // removed other assertion
+        // removed other assertion
+        // Java and JEXL equivalent behavior: 'jexl:-1000' expected
+        //{
+        // removed other assertion
+        // removed other assertion
+        //}
+        // removed other assertion
         asserter.assertExpression("test.callMixed('jexl',2,3,4,5)", test.callMixed("jexl", 2, 3, 4, 5));
     }
 
 @Test
     public void testMethod_1_oe() throws Exception {
+        // tests a simple method expression
         asserter.setVariable("foo", new Foo());
         asserter.assertExpression("foo.bar()", METHOD_STRING);
     }
@@ -1701,24 +2105,34 @@ public class MethodTest_OE25Dev extends JexlTestCase {
 @Test
     public void testStringMethods_2_oe() throws Exception {
         asserter.setVariable("foo", "abcdef");
+        // removed other assertion
         asserter.assertExpression("foo.substring(0,(size(foo)-3))", "abc");
     }
 
 @Test
     public void testStringMethods_3_oe() throws Exception {
         asserter.setVariable("foo", "abcdef");
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("foo.substring(0,size(foo)-3)", "abc");
     }
 
 @Test
     public void testStringMethods_4_oe() throws Exception {
         asserter.setVariable("foo", "abcdef");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("foo.substring(0,foo.length()-3)", "abc");
     }
 
 @Test
     public void testStringMethods_5_oe() throws Exception {
         asserter.setVariable("foo", "abcdef");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("foo.substring(0, 1+1)", "ab");
     }
 

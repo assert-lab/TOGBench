@@ -55,6 +55,7 @@ public class Http5FilesCacheTestCase_OE25Dev extends TestCase {
         final FileSystemManager fileSystemManager = VFS.getManager();
 
         final FileObject noQueryFile = fileSystemManager.resolveFile(noQueryStringUrl);
+        // removed other assertion
 
         final FileObject queryFile = fileSystemManager.resolveFile(queryStringUrl);
         Assert.assertEquals(queryStringUrl,queryFile.getURL().toExternalForm());// failed for VFS-426;
@@ -69,8 +70,10 @@ public class Http5FilesCacheTestCase_OE25Dev extends TestCase {
         final FileSystemManager fileSystemManager = VFS.getManager();
 
         final FileObject noQueryFile = fileSystemManager.resolveFile(noQueryStringUrl);
+        // removed other assertion
 
         final FileObject queryFile = fileSystemManager.resolveFile(queryStringUrl);
+        // removed other assertion
         final FileObject queryFile2 = fileSystemManager.resolveFile(queryStringUrl2);
         Assert.assertEquals(queryStringUrl2, queryFile2.getURL().toExternalForm()); // failed for VFS-426;
     }

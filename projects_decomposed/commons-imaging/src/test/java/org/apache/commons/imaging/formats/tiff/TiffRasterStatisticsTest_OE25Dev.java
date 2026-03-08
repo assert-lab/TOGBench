@@ -91,6 +91,7 @@ public class TiffRasterStatisticsTest_OE25Dev {
 
     @Test
     public void testGetCountOfSamples_2_oe() {
+        // removed other assertion
         assertEquals(width * height - 2, stat1.getCountOfSamples());
     }
 
@@ -101,6 +102,7 @@ public class TiffRasterStatisticsTest_OE25Dev {
 
     @Test
     public void testGetCountOfNulls_2_oe() {
+        // removed other assertion
         assertEquals(1, stat1.getCountOfNulls());
     }
 
@@ -111,6 +113,7 @@ public class TiffRasterStatisticsTest_OE25Dev {
 
     @Test
     public void testGetMinValue_2_oe() {
+        // removed other assertion
         assertEquals(0, stat1.getMinValue());
     }
 
@@ -121,6 +124,7 @@ public class TiffRasterStatisticsTest_OE25Dev {
 
     @Test
     public void testGetMaxValue_2_oe() {
+        // removed other assertion
         assertEquals(width * height - 2, stat1.getMaxValue());
     }
 
@@ -131,6 +135,7 @@ public class TiffRasterStatisticsTest_OE25Dev {
 
     @Test
     public void testGetMeanValue_2_oe() {
+        // removed other assertion
 
         final float[] zero = new float[100];
         Arrays.fill(zero, 10);
@@ -146,6 +151,7 @@ public class TiffRasterStatisticsTest_OE25Dev {
 
     @Test
     public void testIsAnExcludedValueSet_2_oe() {
+        // removed other assertion
         assertTrue(stat1.isAnExcludedValueSet());
     }
 
@@ -156,6 +162,7 @@ public class TiffRasterStatisticsTest_OE25Dev {
 
     @Test
     public void testGetExcludedValue_2_oe() {
+        // removed other assertion
         assertEquals(width * height - 1, stat1.getExcludedValue());
     }
 

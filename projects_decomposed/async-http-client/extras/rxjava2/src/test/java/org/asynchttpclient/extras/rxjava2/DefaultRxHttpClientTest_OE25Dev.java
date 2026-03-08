@@ -103,10 +103,13 @@ public class DefaultRxHttpClientTest_OE25Dev {
 
   @Test
   public void usesVanillaAsyncHandler_1_oe() {
+    // given
     given(handlerSupplier.get()).willReturn(handler);
 
+    // when
     underTest.prepare(request, handlerSupplier).subscribe();
 
+    // then
     then(asyncHttpClient).should().executeRequest(eq(request), handlerCaptor.capture());
     final AsyncHandler<Object> bridge = handlerCaptor.getValue();
     assertThat(bridge, is(not(instanceOf(ProgressAsyncHandler.class))));
@@ -116,8 +119,10 @@ public class DefaultRxHttpClientTest_OE25Dev {
   public void usesProgressAsyncHandler_1_oe() {
     given(handlerSupplier.get()).willReturn(progressHandler);
 
+    // when
     underTest.prepare(request, handlerSupplier).subscribe();
 
+    // then
     then(asyncHttpClient).should().executeRequest(eq(request), handlerCaptor.capture());
     final AsyncHandler<Object> bridge = handlerCaptor.getValue();
     assertThat(bridge, is(instanceOf(ProgressAsyncHandler.class)));
@@ -131,6 +136,7 @@ public class DefaultRxHttpClientTest_OE25Dev {
     /* when */
     underTest.prepare(request, handlerSupplier).subscribe().dispose();
 
+    // then
     then(asyncHttpClient).should().executeRequest(eq(request), handlerCaptor.capture());
     final AsyncHandler<Object> bridge = handlerCaptor.getValue();
     then(responseFuture).should().cancel(true);
@@ -140,21 +146,28 @@ public class DefaultRxHttpClientTest_OE25Dev {
 
 @Test
   public void emitsNullPointerExceptionWhenNullHandlerIsSupplied_1_oe() {
+    // given
     given(handlerSupplier.get()).willReturn(null);
     final TestObserver<Object> subscriber = new TestObserver<>();
 
+    // when
     underTest.prepare(request, handlerSupplier).subscribe(subscriber);
 
+    // then
     subscriber.assertTerminated();
   }
 
 @Test
   public void emitsNullPointerExceptionWhenNullHandlerIsSupplied_2_oe() {
+    // given
     given(handlerSupplier.get()).willReturn(null);
     final TestObserver<Object> subscriber = new TestObserver<>();
 
+    // when
     underTest.prepare(request, handlerSupplier).subscribe(subscriber);
 
+    // then
+    // removed other assertion
     subscriber.assertNoValues();
   }
 

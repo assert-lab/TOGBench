@@ -22,6 +22,12 @@ import org.junit.Test;
 
 public abstract class AbstractClosureTest_OE25Dev {
 
+    @Test
+    public void closureSanityTests() throws Exception {
+        final Closure<?> closure = generateClosure();
+        Assert.assertNotNull(closure);
+    }
+
     /**
      * @return a closure for general sanity tests.
      */

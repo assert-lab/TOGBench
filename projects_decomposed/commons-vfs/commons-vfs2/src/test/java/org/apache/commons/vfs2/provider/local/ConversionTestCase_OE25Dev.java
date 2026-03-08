@@ -51,6 +51,7 @@ public class ConversionTestCase_OE25Dev {
     public void testFileNameWithCharacters_2_oe() throws URISyntaxException, IOException {
         final File file = new File("target", "+# %&.txt");
         final String fileURL = file.toURI().toURL().toExternalForm();
+        // removed other assertion
         assertEquals(file.getAbsoluteFile(), new File(new URL(fileURL).toURI().getPath()));
     }
 
@@ -67,6 +68,7 @@ public class ConversionTestCase_OE25Dev {
     public void testFileNameWithSpaces_2_oe() throws URISyntaxException, IOException {
         final File file = new File("target", "a name.txt");
         final String fileURL = file.toURI().toURL().toExternalForm();
+        // removed other assertion
         assertEquals(file.getAbsoluteFile(), new File(new URL(fileURL).toURI().getPath()));
     }
 
@@ -75,6 +77,8 @@ public class ConversionTestCase_OE25Dev {
     public void testFileNameWithSpaces_3_oe() throws URISyntaxException, IOException {
         final File file = new File("target", "a name.txt");
         final String fileURL = file.toURI().toURL().toExternalForm();
+        // removed other assertion
+        // removed other assertion
 
         final FileSystemManager manager = VFS.getManager();
         final FileObject fo = manager.resolveFile(fileURL);

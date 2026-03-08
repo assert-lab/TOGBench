@@ -161,6 +161,7 @@ public class TestReloadingFileBasedConfigurationBuilder_OE25Dev {
         final long refreshDelay = 60000L;
         params.setReloadingRefreshDelay(refreshDelay);
         final FileHandlerReloadingDetector detector = (FileHandlerReloadingDetector) builder.createReloadingDetector(handler, params);
+        // removed other assertion
         assertEquals("Wrong refresh delay", refreshDelay, detector.getRefreshDelay());
     }
 
@@ -195,6 +196,7 @@ public class TestReloadingFileBasedConfigurationBuilder_OE25Dev {
         final ReloadingFileBasedConfigurationBuilder<PropertiesConfiguration> builder = new ReloadingFileBasedConfigurationBuilder<>(
             PropertiesConfiguration.class, params);
         final PropertiesConfiguration conf = builder.getConfiguration();
+        // removed other assertion
         assertTrue("Not empty", conf.isEmpty());
     }
 
@@ -226,6 +228,8 @@ public class TestReloadingFileBasedConfigurationBuilder_OE25Dev {
         final ReloadingFileBasedConfigurationBuilderTestImpl builder = new ReloadingFileBasedConfigurationBuilderTestImpl(detector);
         builder.getConfiguration();
         final ReloadingDetector ctrlDetector = builder.getReloadingController().getDetector();
+        // removed other assertion
+        // removed other assertion
         assertSame("Wrong file handler", builder.getFileHandler(), builder.getHandlerForDetector());
     }
 
@@ -261,6 +265,7 @@ public class TestReloadingFileBasedConfigurationBuilder_OE25Dev {
         final PropertiesConfiguration config1 = builder.getConfiguration();
         builder.getReloadingController().checkForReloading(null);
         final PropertiesConfiguration config2 = builder.getConfiguration();
+        // removed other assertion
         assertFalse("Still in reloading state", builder.getReloadingController().isInReloadingState());
     }
 

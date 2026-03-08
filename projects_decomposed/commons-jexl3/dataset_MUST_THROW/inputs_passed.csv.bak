@@ -1,0 +1,29 @@
+id,test_prefix,test_name
+commons-jexl3_406_101,"@Test
+    public void testForEachContinueBroken_oe_101_oe() throws Exception {
+        try {
+            final JexlScript e = JEXL.createScript(""var rr = 0; continue;"");
+            Assert.fail(""continue is out of loop!"");
+        } catch (final JexlException.Parsing xparse) {
+            final String str = xparse.detailedMessage();
+        }
+    }
+",ForEachTest::testForEachContinueBroken_oe_101_oe
+commons-jexl3_595_101,"@Test
+    public void testEmptyContext_oe_101_oe() {
+        try {
+            JexlEngine.EMPTY_CONTEXT.set(""nope"", 42);
+            Assert.fail(""empty context should be readonly"");
+        } catch(UnsupportedOperationException xun) {
+        }
+    }
+",MiscIntrospectionTest::testEmptyContext_oe_101_oe
+commons-jexl3_597_101,"@Test
+    public void testArrayListWrapper_oe_101_oe() {
+        try {
+            new ArrayListWrapper(1);
+            Assert.fail(""non-array wrap?"");
+        } catch(IllegalArgumentException xil) {
+        }
+    }
+",MiscIntrospectionTest::testArrayListWrapper_oe_101_oe

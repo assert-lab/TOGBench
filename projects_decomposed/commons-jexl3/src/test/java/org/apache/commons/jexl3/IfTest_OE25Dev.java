@@ -162,6 +162,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
     public void testIfElseIfExpression_2_oe() throws Exception {
         final JexlScript e = JEXL.createScript("if (x == 1) { 10; } else if (x == 2) 20  else 30", "x");
         Object o = e.execute(null, 1);
+        // removed other assertion
         o = e.execute(null, 2);
         Assert.assertEquals(20, o);
     }
@@ -170,7 +171,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
     public void testIfElseIfExpression_3_oe() throws Exception {
         final JexlScript e = JEXL.createScript("if (x == 1) { 10; } else if (x == 2) 20  else 30", "x");
         Object o = e.execute(null, 1);
+        // removed other assertion
         o = e.execute(null, 2);
+        // removed other assertion
         o = e.execute(null, 4);
         Assert.assertEquals(30, o);
     }
@@ -190,6 +193,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
                 "if (x == 1) return 10; if (x == 2)  return 20; else if (x == 3) return 30  else { return 40 }",
                 "x");
         Object o = e.execute(null, 1);
+        // removed other assertion
         o = e.execute(null, 2);
         Assert.assertEquals(20, o);
     }
@@ -200,7 +204,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
                 "if (x == 1) return 10; if (x == 2)  return 20; else if (x == 3) return 30  else { return 40 }",
                 "x");
         Object o = e.execute(null, 1);
+        // removed other assertion
         o = e.execute(null, 2);
+        // removed other assertion
         o = e.execute(null, 3);
         Assert.assertEquals(30, o);
     }
@@ -211,8 +217,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
                 "if (x == 1) return 10; if (x == 2)  return 20; else if (x == 3) return 30  else { return 40 }",
                 "x");
         Object o = e.execute(null, 1);
+        // removed other assertion
         o = e.execute(null, 2);
+        // removed other assertion
         o = e.execute(null, 3);
+        // removed other assertion
         o = e.execute(null, 4);
         Assert.assertEquals(40, o);
     }
@@ -232,6 +241,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
                 "if (x == 1) return 10;  if (x == 2) return 20  else if (x == 3) return 30; else return 40;",
                 "x");
         Object o = e.execute(null, 1);
+        // removed other assertion
         o = e.execute(null, 2);
         Assert.assertEquals(20, o);
     }
@@ -242,7 +252,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
                 "if (x == 1) return 10;  if (x == 2) return 20  else if (x == 3) return 30; else return 40;",
                 "x");
         Object o = e.execute(null, 1);
+        // removed other assertion
         o = e.execute(null, 2);
+        // removed other assertion
         o = e.execute(null, 3);
         Assert.assertEquals(30, o);
     }
@@ -253,8 +265,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
                 "if (x == 1) return 10;  if (x == 2) return 20  else if (x == 3) return 30; else return 40;",
                 "x");
         Object o = e.execute(null, 1);
+        // removed other assertion
         o = e.execute(null, 2);
+        // removed other assertion
         o = e.execute(null, 3);
+        // removed other assertion
         o = e.execute(null, 4);
         Assert.assertEquals(40, o);
     }
@@ -299,6 +314,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression e = jexl.createExpression("x.y.z = foo ?'bar':'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
@@ -316,10 +332,12 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression e = jexl.createExpression("x.y.z = foo ?'bar':'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
             Assert.assertEquals("Should be quux", "quux", o);
     }
@@ -334,11 +352,14 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression e = jexl.createExpression("x.y.z = foo ?'bar':'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -360,11 +381,14 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression e = jexl.createExpression("x.y.z = foo ?'bar':'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -373,6 +397,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
             Assert.assertEquals("Should be quux", "quux", o);
     }
@@ -387,11 +412,14 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression e = jexl.createExpression("x.y.z = foo ?'bar':'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -400,7 +428,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -422,11 +452,14 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression e = jexl.createExpression("x.y.z = foo ?'bar':'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -435,7 +468,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -444,6 +479,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
             Assert.assertEquals("Should be quux", "quux", o);
     }
@@ -458,11 +494,14 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression e = jexl.createExpression("x.y.z = foo ?'bar':'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -471,7 +510,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -480,7 +521,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.TRUE);
@@ -502,11 +545,14 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression e = jexl.createExpression("x.y.z = foo ?'bar':'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -515,7 +561,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -524,7 +572,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.TRUE);
@@ -533,6 +583,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
             Assert.assertEquals("Should be bar", "bar", o);
     }
@@ -546,6 +597,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
@@ -562,10 +614,12 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
             Assert.assertEquals("Should be quux", "quux", o);
     }
@@ -579,11 +633,14 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
             Assert.assertEquals("Should be quux", "quux", o);
     }
@@ -597,12 +654,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -623,12 +684,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -637,6 +702,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
             Assert.assertEquals("Should be quux", "quux", o);
     }
@@ -650,12 +716,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -664,7 +734,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
             Assert.assertEquals("Should be quux", "quux", o);
     }
@@ -678,12 +750,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -692,8 +768,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -714,12 +793,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -728,8 +811,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -738,6 +824,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
             Assert.assertEquals("Should be quux", "quux", o);
     }
@@ -751,12 +838,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -765,8 +856,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -775,7 +869,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
             Assert.assertEquals("Should be false", false, o);
     }
@@ -789,12 +885,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -803,8 +903,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -813,8 +916,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -835,12 +941,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -849,8 +959,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -859,8 +972,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -869,6 +985,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
             Assert.assertEquals("Should be quux", "quux", o);
     }
@@ -882,12 +999,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -896,8 +1017,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -906,8 +1030,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -916,7 +1043,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
             Assert.assertTrue("Should be NaN", Double.isNaN((Double) o));
     }
@@ -930,12 +1059,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -944,8 +1077,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -954,8 +1090,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -964,8 +1103,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "");
@@ -986,12 +1128,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -1000,8 +1146,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -1010,8 +1159,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -1020,8 +1172,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "");
@@ -1030,6 +1185,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
             Assert.assertEquals("Should be quux", "quux", o);
     }
@@ -1043,12 +1199,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -1057,8 +1217,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -1067,8 +1230,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -1077,8 +1243,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "");
@@ -1087,7 +1256,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
             Assert.assertEquals("Should be empty string", "", o);
     }
@@ -1101,12 +1272,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -1115,8 +1290,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -1125,8 +1303,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -1135,8 +1316,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "");
@@ -1145,8 +1329,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "false");
@@ -1167,12 +1354,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -1181,8 +1372,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -1191,8 +1385,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -1201,8 +1398,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "");
@@ -1211,8 +1411,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "false");
@@ -1221,6 +1424,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
             Assert.assertEquals("Should be quux", "quux", o);
     }
@@ -1234,12 +1438,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -1248,8 +1456,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -1258,8 +1469,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -1268,8 +1482,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "");
@@ -1278,8 +1495,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "false");
@@ -1288,7 +1508,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
             Assert.assertEquals("Should be 'false'", "false", o);
     }
@@ -1302,12 +1524,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -1316,8 +1542,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -1326,8 +1555,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -1336,8 +1568,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "");
@@ -1346,8 +1581,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "false");
@@ -1356,8 +1594,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", 0d);
@@ -1378,12 +1619,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -1392,8 +1637,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -1402,8 +1650,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -1412,8 +1663,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "");
@@ -1422,8 +1676,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "false");
@@ -1432,8 +1689,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", 0d);
@@ -1442,6 +1702,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
             Assert.assertEquals("Should be quux", "quux", o);
     }
@@ -1455,12 +1716,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -1469,8 +1734,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -1479,8 +1747,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -1489,8 +1760,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "");
@@ -1499,8 +1773,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "false");
@@ -1509,8 +1786,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", 0d);
@@ -1519,7 +1799,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
             Assert.assertEquals("Should be 0", 0.d, o);
     }
@@ -1533,12 +1815,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -1547,8 +1833,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -1557,8 +1846,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -1567,8 +1859,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "");
@@ -1577,8 +1872,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "false");
@@ -1587,8 +1885,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", 0d);
@@ -1597,8 +1898,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", 0);
@@ -1619,12 +1923,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -1633,8 +1941,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -1643,8 +1954,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -1653,8 +1967,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "");
@@ -1663,8 +1980,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "false");
@@ -1673,8 +1993,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", 0d);
@@ -1683,8 +2006,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", 0);
@@ -1693,6 +2019,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
             Assert.assertEquals("Should be quux", "quux", o);
     }
@@ -1706,12 +2033,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -1720,8 +2051,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -1730,8 +2064,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -1740,8 +2077,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "");
@@ -1750,8 +2090,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "false");
@@ -1760,8 +2103,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", 0d);
@@ -1770,8 +2116,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", 0);
@@ -1780,7 +2129,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
             Assert.assertEquals("Should be 0", 0, o);
     }
@@ -1794,12 +2145,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -1808,8 +2163,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -1818,8 +2176,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -1828,8 +2189,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "");
@@ -1838,8 +2202,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "false");
@@ -1848,8 +2215,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", 0d);
@@ -1858,8 +2228,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", 0);
@@ -1868,8 +2241,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "bar");
@@ -1890,12 +2266,16 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlExpression f = JEXL.createExpression("foo??'quux'");
         Object o;
 
+        // undefined foo
         for (int l = 0; l < 4; ++l) {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", null);
@@ -1904,8 +2284,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Boolean.FALSE);
@@ -1914,8 +2297,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", Double.NaN);
@@ -1924,8 +2310,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "");
@@ -1934,8 +2323,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "false");
@@ -1944,8 +2336,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", 0d);
@@ -1954,8 +2349,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", 0);
@@ -1964,8 +2362,11 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
+            // removed other assertion
             o = f.evaluate(jc);
+            // removed other assertion
         }
 
         jc.set("foo", "bar");
@@ -1974,6 +2375,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
             options.setStrict((l & 1) == 0);
             options.setSilent((l & 2) != 0);
             o = e.evaluate(jc);
+            // removed other assertion
             o = jc.get("x.y.z");
             Assert.assertEquals("Should be bar", "bar", o);
     }
@@ -1994,6 +2396,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlEvalContext jc = new JexlEvalContext();
         final JexlExpression xtrue = JEXL.createExpression("x??true");
         o = xtrue.evaluate(jc);
+        // removed other assertion
         jc.set("x", false);
         o = xtrue.evaluate(jc);
         Assert.assertEquals("Should be false", false, o);
@@ -2005,8 +2408,10 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlEvalContext jc = new JexlEvalContext();
         final JexlExpression xtrue = JEXL.createExpression("x??true");
         o = xtrue.evaluate(jc);
+        // removed other assertion
         jc.set("x", false);
         o = xtrue.evaluate(jc);
+        // removed other assertion
         final JexlExpression yone = JEXL.createExpression("y??1");
         o = yone.evaluate(jc);
         Assert.assertEquals("Should be 1", 1, o);
@@ -2018,10 +2423,13 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlEvalContext jc = new JexlEvalContext();
         final JexlExpression xtrue = JEXL.createExpression("x??true");
         o = xtrue.evaluate(jc);
+        // removed other assertion
         jc.set("x", false);
         o = xtrue.evaluate(jc);
+        // removed other assertion
         final JexlExpression yone = JEXL.createExpression("y??1");
         o = yone.evaluate(jc);
+        // removed other assertion
         jc.set("y", 0);
         o = yone.evaluate(jc);
         Assert.assertEquals("Should be 0", 0, o);
@@ -2042,6 +2450,7 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlEvalContext jc = new JexlEvalContext();
         final JexlScript xtrue = JEXL.createScript("x??true");
         o = xtrue.execute(jc);
+        // removed other assertion
         jc.set("x", false);
         o = xtrue.execute(jc);
         Assert.assertEquals("Should be false", false, o);
@@ -2053,8 +2462,10 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlEvalContext jc = new JexlEvalContext();
         final JexlScript xtrue = JEXL.createScript("x??true");
         o = xtrue.execute(jc);
+        // removed other assertion
         jc.set("x", false);
         o = xtrue.execute(jc);
+        // removed other assertion
         final JexlScript yone = JEXL.createScript("y??1");
         o = yone.execute(jc);
         Assert.assertEquals("Should be 1", 1, o);
@@ -2066,10 +2477,13 @@ public class IfTest_OE25Dev extends JexlTestCase {
         final JexlEvalContext jc = new JexlEvalContext();
         final JexlScript xtrue = JEXL.createScript("x??true");
         o = xtrue.execute(jc);
+        // removed other assertion
         jc.set("x", false);
         o = xtrue.execute(jc);
+        // removed other assertion
         final JexlScript yone = JEXL.createScript("y??1");
         o = yone.execute(jc);
+        // removed other assertion
         jc.set("y", 0);
         o = yone.execute(jc);
         Assert.assertEquals("Should be 0", 0, o);
@@ -2085,7 +2499,9 @@ public class IfTest_OE25Dev extends JexlTestCase {
         options.setSilent(false);
         try {
            o = e.evaluate(jc);
+           // removed other assertion
         } catch (final JexlException xjexl) {
+           // OK
            Assert.assertTrue(xjexl.toString().contains("quux"));
     }
     }

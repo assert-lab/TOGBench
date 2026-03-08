@@ -121,6 +121,7 @@ public class TestConfigurationNodePointer_OE25Dev extends AbstractXPathTest {
         final ImmutableNode n2 = new ImmutableNode.Builder().name("n2").create();
         final NodePointer p1 = new ConfigurationNodePointer<>(pointer, n1, handler);
         final NodePointer p2 = new ConfigurationNodePointer<>(pointer, n2, handler);
+        // removed other assertion
         assertEquals("Incorrect symmetric order", 0, pointer.compareChildNodePointers(p2, p1));
     }
 
@@ -135,6 +136,7 @@ public class TestConfigurationNodePointer_OE25Dev extends AbstractXPathTest {
     public void testCompareChildNodePointersChildren_2_oe() {
         final NodePointer p1 = new ConfigurationNodePointer<>(pointer, root.getChildren().get(1), handler);
         final NodePointer p2 = new ConfigurationNodePointer<>(pointer, root.getChildren().get(3), handler);
+        // removed other assertion
         assertEquals("Incorrect symmetric order", 1, pointer.compareChildNodePointers(p2, p1));
     }
 

@@ -126,6 +126,7 @@ public class TestMapConfiguration_OE25Dev extends TestAbstractConfiguration {
         config.addProperty(keyValue, 42);
         final MapConfiguration clone = (MapConfiguration) config.clone();
         clone.setProperty(keyValue, 43);
+        // removed other assertion
         assertEquals("Wrong interpolation in clone", "The answer is 43.", clone.getString(keyAnswer));
     }
 
@@ -142,6 +143,7 @@ public class TestMapConfiguration_OE25Dev extends TestAbstractConfiguration {
         final MapConfiguration config = (MapConfiguration) getConfiguration();
         config.addEventListener(ConfigurationEvent.ANY, new EventListenerTestImpl(config));
         final MapConfiguration copy = (MapConfiguration) config.clone();
+        // removed other assertion
 
         config.addProperty("cloneTest", Boolean.TRUE);
         assertFalse("Map not decoupled", copy.containsKey("cloneTest"));
@@ -152,8 +154,10 @@ public class TestMapConfiguration_OE25Dev extends TestAbstractConfiguration {
         final MapConfiguration config = (MapConfiguration) getConfiguration();
         config.addEventListener(ConfigurationEvent.ANY, new EventListenerTestImpl(config));
         final MapConfiguration copy = (MapConfiguration) config.clone();
+        // removed other assertion
 
         config.addProperty("cloneTest", Boolean.TRUE);
+        // removed other assertion
         copy.clearProperty("key1");
         assertEquals("Map not decoupled (2)", "value1", config.getString("key1"));
     }

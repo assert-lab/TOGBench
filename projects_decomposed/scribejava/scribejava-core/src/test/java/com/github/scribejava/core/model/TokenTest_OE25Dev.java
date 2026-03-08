@@ -19,6 +19,7 @@ public class TokenTest_OE25Dev {
         final Token expected = new OAuth1AccessToken("access", "secret");
         final Token actual = new OAuth1AccessToken("access", "secret");
 
+        // removed other assertion
         assertEquals(actual, actual);
     }
 
@@ -49,6 +50,7 @@ public class TokenTest_OE25Dev {
     public void shouldNotBeEqualToNullOrOtherObjects_2_oe() {
         final Token expected = new OAuth1AccessToken("access", "secret", "response");
 
+        // removed other assertion
         assertNotSame(expected, new Object());
     }
 
@@ -63,6 +65,7 @@ public class TokenTest_OE25Dev {
     public void shouldReturnUrlParam_2_oe() {
         final Token actual = new OAuth1AccessToken("acccess", "secret",
                 "user_id=3107154759&screen_name=someuser&empty=&=");
+        // removed other assertion
         assertEquals("3107154759", actual.getParameter("user_id"));
     }
 
@@ -70,6 +73,8 @@ public class TokenTest_OE25Dev {
     public void shouldReturnUrlParam_3_oe() {
         final Token actual = new OAuth1AccessToken("acccess", "secret",
                 "user_id=3107154759&screen_name=someuser&empty=&=");
+        // removed other assertion
+        // removed other assertion
         assertEquals(null, actual.getParameter("empty"));
     }
 
@@ -77,6 +82,9 @@ public class TokenTest_OE25Dev {
     public void shouldReturnUrlParam_4_oe() {
         final Token actual = new OAuth1AccessToken("acccess", "secret",
                 "user_id=3107154759&screen_name=someuser&empty=&=");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(null, actual.getParameter(null));
     }
 

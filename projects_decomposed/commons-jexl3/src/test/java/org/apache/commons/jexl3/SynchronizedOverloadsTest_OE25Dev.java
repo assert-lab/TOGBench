@@ -86,6 +86,7 @@ public class SynchronizedOverloadsTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new SynchronizedArithmetic(monitor, true)).create();
         final JexlScript js0 = jexl.createScript("x['four'] = 4; var t = 0.0; for(var z: x) { t += z; }; call(t, (y)->{return y});", "x");
         Object t = js0.execute(jc, foo);
+        // removed other assertion
         Assert.assertTrue(monitor.isBalanced());
     }
 
@@ -100,6 +101,8 @@ public class SynchronizedOverloadsTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new SynchronizedArithmetic(monitor, true)).create();
         final JexlScript js0 = jexl.createScript("x['four'] = 4; var t = 0.0; for(var z: x) { t += z; }; call(t, (y)->{return y});", "x");
         Object t = js0.execute(jc, foo);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(2, monitor.getCount());
     }
 
@@ -114,6 +117,9 @@ public class SynchronizedOverloadsTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new SynchronizedArithmetic(monitor, true)).create();
         final JexlScript js0 = jexl.createScript("x['four'] = 4; var t = 0.0; for(var z: x) { t += z; }; call(t, (y)->{return y});", "x");
         Object t = js0.execute(jc, foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         t = js0.execute(jc, foo);
         Assert.assertEquals(10.0d, t);
     }
@@ -129,7 +135,11 @@ public class SynchronizedOverloadsTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new SynchronizedArithmetic(monitor, true)).create();
         final JexlScript js0 = jexl.createScript("x['four'] = 4; var t = 0.0; for(var z: x) { t += z; }; call(t, (y)->{return y});", "x");
         Object t = js0.execute(jc, foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         t = js0.execute(jc, foo);
+        // removed other assertion
         Assert.assertTrue(monitor.isBalanced());
     }
 
@@ -144,7 +154,12 @@ public class SynchronizedOverloadsTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new SynchronizedArithmetic(monitor, true)).create();
         final JexlScript js0 = jexl.createScript("x['four'] = 4; var t = 0.0; for(var z: x) { t += z; }; call(t, (y)->{return y});", "x");
         Object t = js0.execute(jc, foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         t = js0.execute(jc, foo);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(4, monitor.getCount());
     }
 

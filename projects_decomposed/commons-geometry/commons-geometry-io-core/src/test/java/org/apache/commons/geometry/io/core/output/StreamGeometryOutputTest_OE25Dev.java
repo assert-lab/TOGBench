@@ -28,73 +28,103 @@ class StreamGeometryOutputTest_OE25Dev {
 
     @Test
     void testCtor_stream_1_oe() {
+        // act
         final StreamGeometryOutput out = new StreamGeometryOutput(byteStream);
 
+        // assert
         Assertions.assertNull(out.getFileName());
     }
 
     @Test
     void testCtor_stream_2_oe() {
+        // act
         final StreamGeometryOutput out = new StreamGeometryOutput(byteStream);
 
+        // assert
+        // removed other assertion
         Assertions.assertNull(out.getCharset());
     }
 
     @Test
     void testCtor_stream_3_oe() {
+        // act
         final StreamGeometryOutput out = new StreamGeometryOutput(byteStream);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(byteStream, out.getOutputStream());
     }
 
     @Test
     void testCtor_streamAndFileName_1_oe() {
+        // act
         final StreamGeometryOutput out = new StreamGeometryOutput(byteStream, "test.txt");
 
+        // assert
         Assertions.assertEquals("test.txt", out.getFileName());
     }
 
     @Test
     void testCtor_streamAndFileName_2_oe() {
+        // act
         final StreamGeometryOutput out = new StreamGeometryOutput(byteStream, "test.txt");
 
+        // assert
+        // removed other assertion
         Assertions.assertNull(out.getCharset());
     }
 
     @Test
     void testCtor_streamAndFileName_3_oe() {
+        // act
         final StreamGeometryOutput out = new StreamGeometryOutput(byteStream, "test.txt");
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(byteStream, out.getOutputStream());
     }
 
     @Test
     void testCtor_allArgs_1_oe() {
+        // act
         final StreamGeometryOutput out = new StreamGeometryOutput(byteStream, "test.txt", StandardCharsets.UTF_16);
 
+        // assert
         Assertions.assertEquals("test.txt", out.getFileName());
     }
 
     @Test
     void testCtor_allArgs_2_oe() {
+        // act
         final StreamGeometryOutput out = new StreamGeometryOutput(byteStream, "test.txt", StandardCharsets.UTF_16);
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(StandardCharsets.UTF_16, out.getCharset());
     }
 
     @Test
     void testCtor_allArgs_3_oe() {
+        // act
         final StreamGeometryOutput out = new StreamGeometryOutput(byteStream, "test.txt", StandardCharsets.UTF_16);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(byteStream, out.getOutputStream());
     }
 
     @Test
     void testToString_1_oe() {
+        // arrange
         final StreamGeometryOutput out = new StreamGeometryOutput(byteStream, "abc.txt");
 
+        // act
         final String result = out.toString();
 
+        // assert
         Assertions.assertEquals("StreamGeometryOutput[fileName= abc.txt]", result);
     }
 

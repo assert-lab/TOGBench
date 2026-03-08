@@ -522,6 +522,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         nodes.add(NodeStructureHelper.createFieldNode("lastLogin"));
         nodes.add(NodeStructureHelper.createFieldNode("language"));
         config.addNodes("tables.table(0).fields", nodes);
+        // removed other assertion
         assertEquals("birthDate", config.getString("tables.table(0).fields.field(5).name"));
     }
 
@@ -532,6 +533,8 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         nodes.add(NodeStructureHelper.createFieldNode("lastLogin"));
         nodes.add(NodeStructureHelper.createFieldNode("language"));
         config.addNodes("tables.table(0).fields", nodes);
+        // removed other assertion
+        // removed other assertion
         assertEquals("lastLogin", config.getString("tables.table(0).fields.field(6).name"));
     }
 
@@ -542,6 +545,9 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         nodes.add(NodeStructureHelper.createFieldNode("lastLogin"));
         nodes.add(NodeStructureHelper.createFieldNode("language"));
         config.addNodes("tables.table(0).fields", nodes);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("language", config.getString("tables.table(0).fields.field(7).name"));
     }
 
@@ -558,6 +564,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         final AbstractHierarchicalConfigurationTestImpl configDest = new AbstractHierarchicalConfigurationTestImpl(new InMemoryNodeModel());
         configDest.addProperty("test", "TEST");
         final Collection<ImmutableNode> nodes = getRootNode().getChildren();
+        // removed other assertion
         configDest.addNodes("newNodes", nodes);
         for (int i = 0; i < NodeStructureHelper.tablesLength(); i++) {
             final String keyTab = "newNodes.tables.table(" + i + ").";
@@ -570,9 +577,11 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         final AbstractHierarchicalConfigurationTestImpl configDest = new AbstractHierarchicalConfigurationTestImpl(new InMemoryNodeModel());
         configDest.addProperty("test", "TEST");
         final Collection<ImmutableNode> nodes = getRootNode().getChildren();
+        // removed other assertion
         configDest.addNodes("newNodes", nodes);
         for (int i = 0; i < NodeStructureHelper.tablesLength(); i++) {
             final String keyTab = "newNodes.tables.table(" + i + ").";
+            // removed other assertion
             for (int j = 0; j < NodeStructureHelper.fieldsLength(i); j++) {
                 assertEquals("Invalid field " + j + " in table " + i,NodeStructureHelper.field(i,j),configDest.getString(keyTab + "fields.field(" + j + ").name"));
     }
@@ -596,6 +605,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         nodes.add(newNode);
         config.addNodes("database.connection.settings", nodes);
 
+        // removed other assertion
         assertEquals("Pwd node not found", "tiger", config.getString("database.connection.settings.usr[@pwd]"));
     }
 
@@ -610,6 +620,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testAddProperty_2_oe() {
         config.addProperty("tables.table(0).fields.field(-1).name", "phone");
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
         assertTrue(prop instanceof Collection);
     }
 
@@ -617,6 +628,8 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testAddProperty_3_oe() {
         config.addProperty("tables.table(0).fields.field(-1).name", "phone");
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
         assertEquals(6, ((Collection<?>) prop).size());
     }
 
@@ -624,6 +637,9 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testAddProperty_4_oe() {
         config.addProperty("tables.table(0).fields.field(-1).name", "phone");
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(0).fields.field.name", "fax");
         prop = config.getProperty("tables.table.fields.field(5).name");
@@ -634,9 +650,13 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testAddProperty_5_oe() {
         config.addProperty("tables.table(0).fields.field(-1).name", "phone");
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(0).fields.field.name", "fax");
         prop = config.getProperty("tables.table.fields.field(5).name");
+        // removed other assertion
         assertTrue(prop instanceof List);
     }
 
@@ -644,9 +664,14 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testAddProperty_6_oe() {
         config.addProperty("tables.table(0).fields.field(-1).name", "phone");
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(0).fields.field.name", "fax");
         prop = config.getProperty("tables.table.fields.field(5).name");
+        // removed other assertion
+        // removed other assertion
         final List<?> list = (List<?>) prop;
         assertEquals("phone", list.get(0));
     }
@@ -655,10 +680,16 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testAddProperty_7_oe() {
         config.addProperty("tables.table(0).fields.field(-1).name", "phone");
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(0).fields.field.name", "fax");
         prop = config.getProperty("tables.table.fields.field(5).name");
+        // removed other assertion
+        // removed other assertion
         final List<?> list = (List<?>) prop;
+        // removed other assertion
         assertEquals("fax", list.get(1));
     }
 
@@ -666,10 +697,17 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testAddProperty_8_oe() {
         config.addProperty("tables.table(0).fields.field(-1).name", "phone");
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(0).fields.field.name", "fax");
         prop = config.getProperty("tables.table.fields.field(5).name");
+        // removed other assertion
+        // removed other assertion
         final List<?> list = (List<?>) prop;
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(-1).name", "config");
         prop = config.getProperty("tables.table.name");
@@ -680,13 +718,21 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testAddProperty_9_oe() {
         config.addProperty("tables.table(0).fields.field(-1).name", "phone");
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(0).fields.field.name", "fax");
         prop = config.getProperty("tables.table.fields.field(5).name");
+        // removed other assertion
+        // removed other assertion
         final List<?> list = (List<?>) prop;
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(-1).name", "config");
         prop = config.getProperty("tables.table.name");
+        // removed other assertion
         assertTrue(prop instanceof Collection);
     }
 
@@ -694,13 +740,22 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testAddProperty_10_oe() {
         config.addProperty("tables.table(0).fields.field(-1).name", "phone");
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(0).fields.field.name", "fax");
         prop = config.getProperty("tables.table.fields.field(5).name");
+        // removed other assertion
+        // removed other assertion
         final List<?> list = (List<?>) prop;
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(-1).name", "config");
         prop = config.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
         assertEquals(3, ((Collection<?>) prop).size());
     }
 
@@ -708,13 +763,23 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testAddProperty_11_oe() {
         config.addProperty("tables.table(0).fields.field(-1).name", "phone");
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(0).fields.field.name", "fax");
         prop = config.getProperty("tables.table.fields.field(5).name");
+        // removed other assertion
+        // removed other assertion
         final List<?> list = (List<?>) prop;
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(-1).name", "config");
         prop = config.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         config.addProperty("tables.table(2).fields.field(0).name", "cid");
         config.addProperty("tables.table(2).fields.field(-1).name", "confName");
         prop = config.getProperty("tables.table(2).fields.field.name");
@@ -725,16 +790,27 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testAddProperty_12_oe() {
         config.addProperty("tables.table(0).fields.field(-1).name", "phone");
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(0).fields.field.name", "fax");
         prop = config.getProperty("tables.table.fields.field(5).name");
+        // removed other assertion
+        // removed other assertion
         final List<?> list = (List<?>) prop;
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(-1).name", "config");
         prop = config.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         config.addProperty("tables.table(2).fields.field(0).name", "cid");
         config.addProperty("tables.table(2).fields.field(-1).name", "confName");
         prop = config.getProperty("tables.table(2).fields.field.name");
+        // removed other assertion
         assertTrue(prop instanceof Collection);
     }
 
@@ -742,16 +818,28 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testAddProperty_13_oe() {
         config.addProperty("tables.table(0).fields.field(-1).name", "phone");
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(0).fields.field.name", "fax");
         prop = config.getProperty("tables.table.fields.field(5).name");
+        // removed other assertion
+        // removed other assertion
         final List<?> list = (List<?>) prop;
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(-1).name", "config");
         prop = config.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         config.addProperty("tables.table(2).fields.field(0).name", "cid");
         config.addProperty("tables.table(2).fields.field(-1).name", "confName");
         prop = config.getProperty("tables.table(2).fields.field.name");
+        // removed other assertion
+        // removed other assertion
         assertEquals(2, ((Collection<?>) prop).size());
     }
 
@@ -759,16 +847,29 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testAddProperty_14_oe() {
         config.addProperty("tables.table(0).fields.field(-1).name", "phone");
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(0).fields.field.name", "fax");
         prop = config.getProperty("tables.table.fields.field(5).name");
+        // removed other assertion
+        // removed other assertion
         final List<?> list = (List<?>) prop;
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(-1).name", "config");
         prop = config.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         config.addProperty("tables.table(2).fields.field(0).name", "cid");
         config.addProperty("tables.table(2).fields.field(-1).name", "confName");
         prop = config.getProperty("tables.table(2).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("confName", config.getProperty("tables.table(2).fields.field(1).name"));
     }
 
@@ -776,16 +877,30 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testAddProperty_15_oe() {
         config.addProperty("tables.table(0).fields.field(-1).name", "phone");
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(0).fields.field.name", "fax");
         prop = config.getProperty("tables.table.fields.field(5).name");
+        // removed other assertion
+        // removed other assertion
         final List<?> list = (List<?>) prop;
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(-1).name", "config");
         prop = config.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         config.addProperty("tables.table(2).fields.field(0).name", "cid");
         config.addProperty("tables.table(2).fields.field(-1).name", "confName");
         prop = config.getProperty("tables.table(2).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("connection.user", "scott");
         config.addProperty("connection.passwd", "tiger");
@@ -796,19 +911,34 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testAddProperty_16_oe() {
         config.addProperty("tables.table(0).fields.field(-1).name", "phone");
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(0).fields.field.name", "fax");
         prop = config.getProperty("tables.table.fields.field(5).name");
+        // removed other assertion
+        // removed other assertion
         final List<?> list = (List<?>) prop;
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("tables.table(-1).name", "config");
         prop = config.getProperty("tables.table.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         config.addProperty("tables.table(2).fields.field(0).name", "cid");
         config.addProperty("tables.table(2).fields.field(-1).name", "confName");
         prop = config.getProperty("tables.table(2).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.addProperty("connection.user", "scott");
         config.addProperty("connection.passwd", "tiger");
+        // removed other assertion
 
         final DefaultConfigurationKey key = createConfigurationKey();
         key.append("tables").append("table").appendIndex(0);
@@ -832,6 +962,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         final String key = "list.delimiter.value";
         config.addProperty(key + ".escaped", "3\\,1415");
         config.addProperty(key + ".elements", "3,1415");
+        // removed other assertion
         assertEquals("Wrong list property", "3", config.getString(key + ".elements"));
     }
 
@@ -852,6 +983,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     @Test
     public void testClearProperty_2_oe() {
         config.clearProperty("tables.table(0).fields.field(0).name");
+        // removed other assertion
         config.clearProperty("tables.table(0).name");
         assertFalse(config.containsKey("tables.table(0).name"));
     }
@@ -859,21 +991,30 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     @Test
     public void testClearProperty_3_oe() {
         config.clearProperty("tables.table(0).fields.field(0).name");
+        // removed other assertion
         config.clearProperty("tables.table(0).name");
+        // removed other assertion
         assertEquals("firstName", config.getProperty("tables.table(0).fields.field(1).name"));
     }
 
     @Test
     public void testClearProperty_4_oe() {
         config.clearProperty("tables.table(0).fields.field(0).name");
+        // removed other assertion
         config.clearProperty("tables.table(0).name");
+        // removed other assertion
+        // removed other assertion
         assertEquals("documents", config.getProperty("tables.table.name"));
     }
 
     @Test
     public void testClearProperty_5_oe() {
         config.clearProperty("tables.table(0).fields.field(0).name");
+        // removed other assertion
         config.clearProperty("tables.table(0).name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         config.clearProperty("tables.table");
         assertEquals("documents", config.getProperty("tables.table.name"));
     }
@@ -881,8 +1022,13 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     @Test
     public void testClearProperty_6_oe() {
         config.clearProperty("tables.table(0).fields.field(0).name");
+        // removed other assertion
         config.clearProperty("tables.table(0).name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         config.clearProperty("tables.table");
+        // removed other assertion
 
         config.addProperty("test", "first");
         config.addProperty("test.level", "second");
@@ -893,12 +1039,18 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     @Test
     public void testClearProperty_7_oe() {
         config.clearProperty("tables.table(0).fields.field(0).name");
+        // removed other assertion
         config.clearProperty("tables.table(0).name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         config.clearProperty("tables.table");
+        // removed other assertion
 
         config.addProperty("test", "first");
         config.addProperty("test.level", "second");
         config.clearProperty("test");
+        // removed other assertion
         assertFalse(config.containsKey("test"));
     }
 
@@ -911,6 +1063,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     @Test
     public void testClearTree_2_oe() {
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
         config.clearTree("tables.table(0).fields.field(3)");
         prop = config.getProperty("tables.table(0).fields.field.name");
         assertNotNull(prop);
@@ -919,24 +1072,33 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     @Test
     public void testClearTree_3_oe() {
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
         config.clearTree("tables.table(0).fields.field(3)");
         prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
         assertTrue(prop instanceof Collection);
     }
 
     @Test
     public void testClearTree_4_oe() {
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
         config.clearTree("tables.table(0).fields.field(3)");
         prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
         assertEquals(4, ((Collection<?>) prop).size());
     }
 
     @Test
     public void testClearTree_5_oe() {
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
         config.clearTree("tables.table(0).fields.field(3)");
         prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.clearTree("tables.table(0).fields");
         assertNull(config.getProperty("tables.table(0).fields.field.name"));
@@ -945,10 +1107,15 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     @Test
     public void testClearTree_6_oe() {
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
         config.clearTree("tables.table(0).fields.field(3)");
         prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.clearTree("tables.table(0).fields");
+        // removed other assertion
         prop = config.getProperty("tables.table.fields.field.name");
         assertNotNull(prop);
     }
@@ -956,33 +1123,54 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     @Test
     public void testClearTree_7_oe() {
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
         config.clearTree("tables.table(0).fields.field(3)");
         prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.clearTree("tables.table(0).fields");
+        // removed other assertion
         prop = config.getProperty("tables.table.fields.field.name");
+        // removed other assertion
         assertTrue(prop instanceof Collection);
     }
 
     @Test
     public void testClearTree_8_oe() {
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
         config.clearTree("tables.table(0).fields.field(3)");
         prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.clearTree("tables.table(0).fields");
+        // removed other assertion
         prop = config.getProperty("tables.table.fields.field.name");
+        // removed other assertion
+        // removed other assertion
         assertEquals(NodeStructureHelper.fieldsLength(1), ((Collection<?>) prop).size());
     }
 
     @Test
     public void testClearTree_9_oe() {
         Object prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
         config.clearTree("tables.table(0).fields.field(3)");
         prop = config.getProperty("tables.table(0).fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.clearTree("tables.table(0).fields");
+        // removed other assertion
         prop = config.getProperty("tables.table.fields.field.name");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.clearTree("tables.table(1)");
         assertNull(config.getProperty("tables.table.fields.field.name"));
@@ -991,6 +1179,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     @Test
     public void testClearTreeComplex_1_oe() {
         final int count = 5;
+        // create the structure
         for (int idx = 0; idx < count; idx++) {
             config.addProperty("indexList.index(-1)[@default]", Boolean.FALSE);
             config.addProperty("indexList.index[@name]", "test" + idx);
@@ -1002,12 +1191,15 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     @Test
     public void testClearTreeComplex_2_oe() {
         final int count = 5;
+        // create the structure
         for (int idx = 0; idx < count; idx++) {
             config.addProperty("indexList.index(-1)[@default]", Boolean.FALSE);
             config.addProperty("indexList.index[@name]", "test" + idx);
             config.addProperty("indexList.index.dir", "testDir" + idx);
         }
+        // removed other assertion
 
+        // Remove a sub tree
         boolean found = false;
         for (int idx = 0; true; idx++) {
             final String name = config.getString("indexList.index(" + idx + ")[@name]");
@@ -1023,12 +1215,15 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     @Test
     public void testClearTreeComplex_3_oe() {
         final int count = 5;
+        // create the structure
         for (int idx = 0; idx < count; idx++) {
             config.addProperty("indexList.index(-1)[@default]", Boolean.FALSE);
             config.addProperty("indexList.index[@name]", "test" + idx);
             config.addProperty("indexList.index.dir", "testDir" + idx);
         }
+        // removed other assertion
 
+        // Remove a sub tree
         boolean found = false;
         for (int idx = 0; true; idx++) {
             final String name = config.getString("indexList.index(" + idx + ")[@name]");
@@ -1036,6 +1231,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
                 break;
             }
             if ("test3".equals(name)) {
+                // removed other assertion
                 config.clearTree("indexList.index(" + idx + ")");
                 found = true;
             }
@@ -1046,12 +1242,15 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     @Test
     public void testClearTreeComplex_4_oe() {
         final int count = 5;
+        // create the structure
         for (int idx = 0; idx < count; idx++) {
             config.addProperty("indexList.index(-1)[@default]", Boolean.FALSE);
             config.addProperty("indexList.index[@name]", "test" + idx);
             config.addProperty("indexList.index.dir", "testDir" + idx);
         }
+        // removed other assertion
 
+        // Remove a sub tree
         boolean found = false;
         for (int idx = 0; true; idx++) {
             final String name = config.getString("indexList.index(" + idx + ")[@name]");
@@ -1059,22 +1258,27 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
                 break;
             }
             if ("test3".equals(name)) {
+                // removed other assertion
                 config.clearTree("indexList.index(" + idx + ")");
                 found = true;
             }
         }
+        // removed other assertion
         assertEquals("Wrong number of nodes after remove", count - 2, config.getMaxIndex("indexList.index[@name]"));
     }
 
     @Test
     public void testClearTreeComplex_5_oe() {
         final int count = 5;
+        // create the structure
         for (int idx = 0; idx < count; idx++) {
             config.addProperty("indexList.index(-1)[@default]", Boolean.FALSE);
             config.addProperty("indexList.index[@name]", "test" + idx);
             config.addProperty("indexList.index.dir", "testDir" + idx);
         }
+        // removed other assertion
 
+        // Remove a sub tree
         boolean found = false;
         for (int idx = 0; true; idx++) {
             final String name = config.getString("indexList.index(" + idx + ")[@name]");
@@ -1082,22 +1286,28 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
                 break;
             }
             if ("test3".equals(name)) {
+                // removed other assertion
                 config.clearTree("indexList.index(" + idx + ")");
                 found = true;
             }
         }
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong number of dir nodes after remove", count - 2, config.getMaxIndex("indexList.index.dir"));
     }
 
     @Test
     public void testClearTreeComplex_6_oe() {
         final int count = 5;
+        // create the structure
         for (int idx = 0; idx < count; idx++) {
             config.addProperty("indexList.index(-1)[@default]", Boolean.FALSE);
             config.addProperty("indexList.index[@name]", "test" + idx);
             config.addProperty("indexList.index.dir", "testDir" + idx);
         }
+        // removed other assertion
 
+        // Remove a sub tree
         boolean found = false;
         for (int idx = 0; true; idx++) {
             final String name = config.getString("indexList.index(" + idx + ")[@name]");
@@ -1105,11 +1315,16 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
                 break;
             }
             if ("test3".equals(name)) {
+                // removed other assertion
                 config.clearTree("indexList.index(" + idx + ")");
                 found = true;
             }
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Verify
         for (int idx = 0; true; idx++) {
             final String name = config.getString("indexList.index(" + idx + ")[@name]");
             if (name == null) {
@@ -1136,6 +1351,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         config.addProperty("a.b.c.d", "d");
         config.addProperty("a.b.c.d.e", "e");
         config.clearTree("a.b.c");
+        // removed other assertion
         assertFalse("Sub property not removed", config.containsKey("a.b.c.d"));
     }
 
@@ -1164,6 +1380,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         config.addProperty(keyValue, 42);
         final Configuration clone = (Configuration) config.clone();
         clone.setProperty(keyValue, 43);
+        // removed other assertion
         assertEquals("Wrong interpolation in clone", "The answer is 43.", clone.getString(keyAnswer));
     }
 
@@ -1182,37 +1399,58 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
 
     @Test
     public void testContainsKey_2_oe() {
+        // removed other assertion
         assertTrue(config.containsKey("tables.table(1).name"));
     }
 
     @Test
     public void testContainsKey_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertFalse(config.containsKey("tables.table(2).name"));
     }
 
     @Test
     public void testContainsKey_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(config.containsKey("tables.table(0).fields.field.name"));
     }
 
     @Test
     public void testContainsKey_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse(config.containsKey("tables.table(0).fields.field"));
     }
 
     @Test
     public void testContainsKey_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         config.clearTree("tables.table(0).fields");
         assertFalse(config.containsKey("tables.table(0).fields.field.name"));
     }
 
     @Test
     public void testContainsKey_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         config.clearTree("tables.table(0).fields");
+        // removed other assertion
 
         assertTrue(config.containsKey("tables.table.fields.field.name"));
     }
@@ -1234,6 +1472,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
             keys.add(it.next());
         }
 
+        // removed other assertion
         assertTrue(keys.contains("tables.table.name"));
     }
 
@@ -1244,6 +1483,8 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
             keys.add(it.next());
         }
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(keys.contains("tables.table.fields.field.name"));
     }
 
@@ -1287,6 +1528,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         config.addProperty("order.key1", "value1");
         config.addProperty("order.key2", "value2");
         final Iterator<String> it = config.getKeys("order.key1");
+        // removed other assertion
         assertEquals("1st key", "order.key1", it.next());
     }
 
@@ -1306,36 +1548,64 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
 
     @Test
     public void testGetMaxIndex_2_oe() {
+        // removed other assertion
         assertEquals(NodeStructureHelper.fieldsLength(1) - 1, config.getMaxIndex("tables.table(1).fields.field"));
     }
 
     @Test
     public void testGetMaxIndex_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, config.getMaxIndex("tables.table"));
     }
 
     @Test
     public void testGetMaxIndex_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, config.getMaxIndex("tables.table.name"));
     }
 
     @Test
     public void testGetMaxIndex_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0, config.getMaxIndex("tables.table(0).name"));
     }
 
     @Test
     public void testGetMaxIndex_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0, config.getMaxIndex("tables.table(1).fields.field(1)"));
     }
 
     @Test
     public void testGetMaxIndex_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(-1, config.getMaxIndex("tables.table(2).fields"));
     }
 
     @Test
     public void testGetMaxIndex_8_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final int maxIdx = config.getMaxIndex("tables.table(0).fields.field.name");
         for (int i = 0; i <= maxIdx; i++) {
@@ -1360,6 +1630,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         config.setSynchronizer(sync);
         final NodeModel<ImmutableNode> model = config.getNodeModel();
 
+        // removed other assertion
         final ImmutableNode rootNode = model.getNodeHandler().getRootNode();
         assertEquals("Wrong number of children of root node", 1, rootNode.getChildren().size());
     }
@@ -1370,7 +1641,9 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         config.setSynchronizer(sync);
         final NodeModel<ImmutableNode> model = config.getNodeModel();
 
+        // removed other assertion
         final ImmutableNode rootNode = model.getNodeHandler().getRootNode();
+        // removed other assertion
         assertTrue("Wrong children of root node", rootNode.getChildren().contains(NodeStructureHelper.ROOT_TABLES_TREE));
     }
 
@@ -1407,6 +1680,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         config.addProperty("test.absolute.dir.dir3", "${base.dir}/path3");
         final Configuration sub = config.subset("test.absolute.dir");
         for (int i = 1; i < 4; i++) {
+            // removed other assertion
             assertEquals("Wrong interpolation in subnode", "/home/foo/path" + i, sub.getString("dir" + i));
     }
     }
@@ -1465,6 +1739,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         final ImmutableNode nodeTabName = NodeStructureHelper.nodeForKey(getRootNode(), "tables/table(0)/name");
         final NodeHandler<ImmutableNode> handler = config.getModel().getNodeHandler();
         config.nodeKey(nodeTabName, cache, handler);
+        // removed other assertion
         assertEquals("Wrong entry (1)", "tables(0).table(0).name(0)", cache.get(nodeTabName));
     }
 
@@ -1474,6 +1749,8 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         final ImmutableNode nodeTabName = NodeStructureHelper.nodeForKey(getRootNode(), "tables/table(0)/name");
         final NodeHandler<ImmutableNode> handler = config.getModel().getNodeHandler();
         config.nodeKey(nodeTabName, cache, handler);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong entry (2)", "tables(0).table(0)", cache.get(handler.getParent(nodeTabName)));
     }
 
@@ -1483,6 +1760,9 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         final ImmutableNode nodeTabName = NodeStructureHelper.nodeForKey(getRootNode(), "tables/table(0)/name");
         final NodeHandler<ImmutableNode> handler = config.getModel().getNodeHandler();
         config.nodeKey(nodeTabName, cache, handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong entry (3)", "tables(0)", cache.get(handler.getParent(handler.getParent(nodeTabName))));
     }
 
@@ -1492,6 +1772,10 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         final ImmutableNode nodeTabName = NodeStructureHelper.nodeForKey(getRootNode(), "tables/table(0)/name");
         final NodeHandler<ImmutableNode> handler = config.getModel().getNodeHandler();
         config.nodeKey(nodeTabName, cache, handler);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong root entry", "", cache.get(getRootNode()));
     }
 
@@ -1517,6 +1801,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
         final Map<ImmutableNode, String> cache = new HashMap<>();
         final ImmutableNode nodeTabName = NodeStructureHelper.nodeForKey(getRootNode(), "tables/table(0)/name");
         final ImmutableNode nodeFldName = NodeStructureHelper.nodeForKey(getRootNode(), "tables/table(0)/fields/field(1)/name");
+        // removed other assertion
         assertEquals("Wrong key (2)", "tables(0).table(0).fields(0).field(1).name(0)", config.nodeKey(nodeFldName, cache, config.getModel().getNodeHandler()));
     }
 
@@ -1535,6 +1820,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     @Test
     public void testResolveNodeKey_2_oe() {
         final List<ImmutableNode> nodes = config.resolveNodeKey(getRootNode(), "tables.table.name", config.getModel().getNodeHandler());
+        // removed other assertion
         for (int i = 0; i < NodeStructureHelper.tablesLength(); i++) {
             assertEquals("Wrong node value at " + i, NodeStructureHelper.table(i), nodes.get(i).getValue());
     }
@@ -1556,6 +1842,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     @Test
     public void testSetExpressionEngine_2_oe() {
         config.setExpressionEngine(null);
+        // removed other assertion
         assertSame("Default engine is not used", DefaultExpressionEngine.INSTANCE, config.getExpressionEngine());
     }
 
@@ -1570,6 +1857,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testSetProperty_2_oe() {
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
         config.setProperty("tables.table(0).name", "resources");
+        // removed other assertion
         config.setProperty("tables.table.name", "tab1,tab2");
         assertEquals("tab1", config.getString("tables.table(0).name"));
     }
@@ -1578,7 +1866,9 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testSetProperty_3_oe() {
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
         config.setProperty("tables.table(0).name", "resources");
+        // removed other assertion
         config.setProperty("tables.table.name", "tab1,tab2");
+        // removed other assertion
         assertEquals("tab2", config.getString("tables.table(1).name"));
     }
 
@@ -1586,7 +1876,10 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testSetProperty_4_oe() {
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
         config.setProperty("tables.table(0).name", "resources");
+        // removed other assertion
         config.setProperty("tables.table.name", "tab1,tab2");
+        // removed other assertion
+        // removed other assertion
 
         config.setProperty("test.items.item", new int[] {2, 4, 8, 16});
         assertEquals(3, config.getMaxIndex("test.items.item"));
@@ -1596,9 +1889,13 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testSetProperty_5_oe() {
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
         config.setProperty("tables.table(0).name", "resources");
+        // removed other assertion
         config.setProperty("tables.table.name", "tab1,tab2");
+        // removed other assertion
+        // removed other assertion
 
         config.setProperty("test.items.item", new int[] {2, 4, 8, 16});
+        // removed other assertion
         assertEquals(8, config.getInt("test.items.item(2)"));
     }
 
@@ -1606,9 +1903,14 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testSetProperty_6_oe() {
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
         config.setProperty("tables.table(0).name", "resources");
+        // removed other assertion
         config.setProperty("tables.table.name", "tab1,tab2");
+        // removed other assertion
+        // removed other assertion
 
         config.setProperty("test.items.item", new int[] {2, 4, 8, 16});
+        // removed other assertion
+        // removed other assertion
         config.setProperty("test.items.item(2)", Integer.valueOf(6));
         assertEquals(6, config.getInt("test.items.item(2)"));
     }
@@ -1617,10 +1919,16 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testSetProperty_7_oe() {
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
         config.setProperty("tables.table(0).name", "resources");
+        // removed other assertion
         config.setProperty("tables.table.name", "tab1,tab2");
+        // removed other assertion
+        // removed other assertion
 
         config.setProperty("test.items.item", new int[] {2, 4, 8, 16});
+        // removed other assertion
+        // removed other assertion
         config.setProperty("test.items.item(2)", Integer.valueOf(6));
+        // removed other assertion
         config.setProperty("test.items.item(2)", new int[] {7, 9, 11});
         assertEquals(5, config.getMaxIndex("test.items.item"));
     }
@@ -1629,11 +1937,18 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testSetProperty_8_oe() {
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
         config.setProperty("tables.table(0).name", "resources");
+        // removed other assertion
         config.setProperty("tables.table.name", "tab1,tab2");
+        // removed other assertion
+        // removed other assertion
 
         config.setProperty("test.items.item", new int[] {2, 4, 8, 16});
+        // removed other assertion
+        // removed other assertion
         config.setProperty("test.items.item(2)", Integer.valueOf(6));
+        // removed other assertion
         config.setProperty("test.items.item(2)", new int[] {7, 9, 11});
+        // removed other assertion
 
         config.setProperty("test", Boolean.TRUE);
         config.setProperty("test.items", "01/01/05");
@@ -1644,14 +1959,22 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testSetProperty_9_oe() {
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
         config.setProperty("tables.table(0).name", "resources");
+        // removed other assertion
         config.setProperty("tables.table.name", "tab1,tab2");
+        // removed other assertion
+        // removed other assertion
 
         config.setProperty("test.items.item", new int[] {2, 4, 8, 16});
+        // removed other assertion
+        // removed other assertion
         config.setProperty("test.items.item(2)", Integer.valueOf(6));
+        // removed other assertion
         config.setProperty("test.items.item(2)", new int[] {7, 9, 11});
+        // removed other assertion
 
         config.setProperty("test", Boolean.TRUE);
         config.setProperty("test.items", "01/01/05");
+        // removed other assertion
         assertTrue(config.getBoolean("test"));
     }
 
@@ -1659,14 +1982,23 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testSetProperty_10_oe() {
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
         config.setProperty("tables.table(0).name", "resources");
+        // removed other assertion
         config.setProperty("tables.table.name", "tab1,tab2");
+        // removed other assertion
+        // removed other assertion
 
         config.setProperty("test.items.item", new int[] {2, 4, 8, 16});
+        // removed other assertion
+        // removed other assertion
         config.setProperty("test.items.item(2)", Integer.valueOf(6));
+        // removed other assertion
         config.setProperty("test.items.item(2)", new int[] {7, 9, 11});
+        // removed other assertion
 
         config.setProperty("test", Boolean.TRUE);
         config.setProperty("test.items", "01/01/05");
+        // removed other assertion
+        // removed other assertion
         assertEquals("01/01/05", config.getProperty("test.items"));
     }
 
@@ -1674,14 +2006,24 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testSetProperty_11_oe() {
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
         config.setProperty("tables.table(0).name", "resources");
+        // removed other assertion
         config.setProperty("tables.table.name", "tab1,tab2");
+        // removed other assertion
+        // removed other assertion
 
         config.setProperty("test.items.item", new int[] {2, 4, 8, 16});
+        // removed other assertion
+        // removed other assertion
         config.setProperty("test.items.item(2)", Integer.valueOf(6));
+        // removed other assertion
         config.setProperty("test.items.item(2)", new int[] {7, 9, 11});
+        // removed other assertion
 
         config.setProperty("test", Boolean.TRUE);
         config.setProperty("test.items", "01/01/05");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.setProperty("test.items.item", Integer.valueOf(42));
         assertEquals(0, config.getMaxIndex("test.items.item"));
@@ -1691,16 +2033,27 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     public void testSetProperty_12_oe() {
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
         config.setProperty("tables.table(0).name", "resources");
+        // removed other assertion
         config.setProperty("tables.table.name", "tab1,tab2");
+        // removed other assertion
+        // removed other assertion
 
         config.setProperty("test.items.item", new int[] {2, 4, 8, 16});
+        // removed other assertion
+        // removed other assertion
         config.setProperty("test.items.item(2)", Integer.valueOf(6));
+        // removed other assertion
         config.setProperty("test.items.item(2)", new int[] {7, 9, 11});
+        // removed other assertion
 
         config.setProperty("test", Boolean.TRUE);
         config.setProperty("test.items", "01/01/05");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         config.setProperty("test.items.item", Integer.valueOf(42));
+        // removed other assertion
         assertEquals(42, config.getInt("test.items.item"));
     }
 

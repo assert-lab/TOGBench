@@ -38,16 +38,22 @@ public class TelnetOptionTest_OE25Dev extends TestCase
 
     public void testisValidOption_2_oe()
     {
+        // removed other assertion
         assertTrue(TelnetOption.isValidOption(91));
     }
 
     public void testisValidOption_3_oe()
     {
+        // removed other assertion
+        // removed other assertion
         assertTrue(TelnetOption.isValidOption(255));
     }
 
     public void testisValidOption_4_oe()
     {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!TelnetOption.isValidOption(256));
     }
 
@@ -58,11 +64,14 @@ public class TelnetOptionTest_OE25Dev extends TestCase
 
     public void testGetOption_2_oe()
     {
+        // removed other assertion
         assertEquals(TelnetOption.getOption(91), "UNASSIGNED");
     }
 
     public void testGetOption_3_oe()
     {
+        // removed other assertion
+        // removed other assertion
         assertEquals(TelnetOption.getOption(255), "Extended-Options-List");
     }
 

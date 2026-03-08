@@ -76,6 +76,7 @@ public class BodyAvailabilityTest_OE25Dev {
     public void testPost_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/hello", BODY_CONTENT);
         LOGGER.info(response.body);
+        // removed other assertion
         Assert.assertTrue(response.body.contains(BODY_CONTENT));
     }
 
@@ -83,6 +84,8 @@ public class BodyAvailabilityTest_OE25Dev {
     public void testPost_3_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/hello", BODY_CONTENT);
         LOGGER.info(response.body);
+        // removed other assertion
+        // removed other assertion
 
         Assert.assertEquals(BODY_CONTENT, beforeBody);
     }
@@ -91,7 +94,10 @@ public class BodyAvailabilityTest_OE25Dev {
     public void testPost_4_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/hello", BODY_CONTENT);
         LOGGER.info(response.body);
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assert.assertEquals(BODY_CONTENT, routeBody);
     }
 
@@ -99,7 +105,11 @@ public class BodyAvailabilityTest_OE25Dev {
     public void testPost_5_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/hello", BODY_CONTENT);
         LOGGER.info(response.body);
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(BODY_CONTENT, afterBody);
     }
 

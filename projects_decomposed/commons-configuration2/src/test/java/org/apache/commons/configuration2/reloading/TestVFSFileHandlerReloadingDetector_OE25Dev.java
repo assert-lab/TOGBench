@@ -112,6 +112,7 @@ public class TestVFSFileHandlerReloadingDetector_OE25Dev {
     public void testGetRefreshDelay_2_oe() throws Exception {
         final long delay = 20130325L;
         final VFSFileHandlerReloadingDetector strategy = new VFSFileHandlerReloadingDetector(null, delay);
+        // removed other assertion
         assertEquals("Wrong refresh delay", delay, strategy.getRefreshDelay());
     }
 
@@ -123,6 +124,8 @@ public class TestVFSFileHandlerReloadingDetector_OE25Dev {
         strategy.getFileHandler().setFile(file);
         strategy.getFileHandler().setFileSystem(new VFSFileSystem());
         final long modificationDate = strategy.getLastModificationDate();
+        // Workaround OpenJDK 8 and 9 bug JDK-8177809
+        // https://bugs.openjdk.java.net/browse/JDK-8177809
         final long expectedMillis = Files.getLastModifiedTime(file.toPath()).toMillis();
         assertEquals("Wrong modification date", expectedMillis, modificationDate);
     }

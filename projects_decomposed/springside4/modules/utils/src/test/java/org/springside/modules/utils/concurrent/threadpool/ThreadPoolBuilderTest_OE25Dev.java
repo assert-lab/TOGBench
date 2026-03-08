@@ -23,18 +23,24 @@ public class ThreadPoolBuilderTest_OE25Dev {
 	@Test
 	public void fixPool_2_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.fixedPool().build();
+		// removed other assertion
 		assertThat(singlePool.getMaximumPoolSize()).isEqualTo(1);
 	}
 
 	@Test
 	public void fixPool_3_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.fixedPool().build();
+		// removed other assertion
+		// removed other assertion
 		assertThat(singlePool.getQueue()).isInstanceOf(LinkedBlockingQueue.class);
 	}
 
 	@Test
 	public void fixPool_4_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.fixedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ThreadPoolExecutor fixPoolWithUnlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).build();
@@ -44,18 +50,27 @@ public class ThreadPoolBuilderTest_OE25Dev {
 	@Test
 	public void fixPool_5_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.fixedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ThreadPoolExecutor fixPoolWithUnlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).build();
+		// removed other assertion
 		assertThat(fixPoolWithUnlimitQueue.getMaximumPoolSize()).isEqualTo(10);
 	}
 
 	@Test
 	public void fixPool_6_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.fixedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ThreadPoolExecutor fixPoolWithUnlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).build();
+		// removed other assertion
+		// removed other assertion
 		fixPoolWithUnlimitQueue.shutdown();
 
 		ThreadPoolExecutor fixPoolWithlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).setQueueSize(100)
@@ -67,14 +82,20 @@ public class ThreadPoolBuilderTest_OE25Dev {
 	@Test
 	public void fixPool_7_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.fixedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ThreadPoolExecutor fixPoolWithUnlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).build();
+		// removed other assertion
+		// removed other assertion
 		fixPoolWithUnlimitQueue.shutdown();
 
 		ThreadPoolExecutor fixPoolWithlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).setQueueSize(100)
 				.setThreadFactory(ThreadPoolUtil.buildThreadFactory("kaka")).build();
 
+		// removed other assertion
 		Thread thread = fixPoolWithlimitQueue.getThreadFactory().newThread(new Runnable() {
 			@Override
 			public void run() {
@@ -86,19 +107,26 @@ public class ThreadPoolBuilderTest_OE25Dev {
 	@Test
 	public void fixPool_8_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.fixedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ThreadPoolExecutor fixPoolWithUnlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).build();
+		// removed other assertion
+		// removed other assertion
 		fixPoolWithUnlimitQueue.shutdown();
 
 		ThreadPoolExecutor fixPoolWithlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).setQueueSize(100)
 				.setThreadFactory(ThreadPoolUtil.buildThreadFactory("kaka")).build();
 
+		// removed other assertion
 		Thread thread = fixPoolWithlimitQueue.getThreadFactory().newThread(new Runnable() {
 			@Override
 			public void run() {
 			}
 		});
+		// removed other assertion
 
 		fixPoolWithlimitQueue.shutdown();
 
@@ -115,19 +143,26 @@ public class ThreadPoolBuilderTest_OE25Dev {
 	@Test
 	public void fixPool_9_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.fixedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ThreadPoolExecutor fixPoolWithUnlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).build();
+		// removed other assertion
+		// removed other assertion
 		fixPoolWithUnlimitQueue.shutdown();
 
 		ThreadPoolExecutor fixPoolWithlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).setQueueSize(100)
 				.setThreadFactory(ThreadPoolUtil.buildThreadFactory("kaka")).build();
 
+		// removed other assertion
 		Thread thread = fixPoolWithlimitQueue.getThreadFactory().newThread(new Runnable() {
 			@Override
 			public void run() {
 			}
 		});
+		// removed other assertion
 
 		fixPoolWithlimitQueue.shutdown();
 
@@ -138,25 +173,33 @@ public class ThreadPoolBuilderTest_OE25Dev {
 			public void run() {
 			}
 		});
+		// removed other assertion
 		assertThat(thread2.isDaemon()).isFalse();
 	}
 
 	@Test
 	public void fixPool_10_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.fixedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ThreadPoolExecutor fixPoolWithUnlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).build();
+		// removed other assertion
+		// removed other assertion
 		fixPoolWithUnlimitQueue.shutdown();
 
 		ThreadPoolExecutor fixPoolWithlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).setQueueSize(100)
 				.setThreadFactory(ThreadPoolUtil.buildThreadFactory("kaka")).build();
 
+		// removed other assertion
 		Thread thread = fixPoolWithlimitQueue.getThreadFactory().newThread(new Runnable() {
 			@Override
 			public void run() {
 			}
 		});
+		// removed other assertion
 
 		fixPoolWithlimitQueue.shutdown();
 
@@ -167,6 +210,8 @@ public class ThreadPoolBuilderTest_OE25Dev {
 			public void run() {
 			}
 		});
+		// removed other assertion
+		// removed other assertion
 		fixPoolWithNamePrefix.shutdown();
 
 		ThreadPoolExecutor fixPoolWithNamePrefixAndDaemon = ThreadPoolBuilder.fixedPool().setPoolSize(10)
@@ -182,19 +227,26 @@ public class ThreadPoolBuilderTest_OE25Dev {
 	@Test
 	public void fixPool_11_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.fixedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ThreadPoolExecutor fixPoolWithUnlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).build();
+		// removed other assertion
+		// removed other assertion
 		fixPoolWithUnlimitQueue.shutdown();
 
 		ThreadPoolExecutor fixPoolWithlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).setQueueSize(100)
 				.setThreadFactory(ThreadPoolUtil.buildThreadFactory("kaka")).build();
 
+		// removed other assertion
 		Thread thread = fixPoolWithlimitQueue.getThreadFactory().newThread(new Runnable() {
 			@Override
 			public void run() {
 			}
 		});
+		// removed other assertion
 
 		fixPoolWithlimitQueue.shutdown();
 
@@ -205,6 +257,8 @@ public class ThreadPoolBuilderTest_OE25Dev {
 			public void run() {
 			}
 		});
+		// removed other assertion
+		// removed other assertion
 		fixPoolWithNamePrefix.shutdown();
 
 		ThreadPoolExecutor fixPoolWithNamePrefixAndDaemon = ThreadPoolBuilder.fixedPool().setPoolSize(10)
@@ -214,6 +268,7 @@ public class ThreadPoolBuilderTest_OE25Dev {
 			public void run() {
 			}
 		});
+		// removed other assertion
 		assertThat(thread3.isDaemon()).isTrue();
 	}
 
@@ -226,24 +281,34 @@ public class ThreadPoolBuilderTest_OE25Dev {
 	@Test
 	public void cachedPool_2_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.cachedPool().build();
+		// removed other assertion
 		assertThat(singlePool.getMaximumPoolSize()).isEqualTo(Integer.MAX_VALUE);
 	}
 
 	@Test
 	public void cachedPool_3_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.cachedPool().build();
+		// removed other assertion
+		// removed other assertion
 		assertThat(singlePool.getKeepAliveTime(TimeUnit.SECONDS)).isEqualTo(10);
 	}
 
 	@Test
 	public void cachedPool_4_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.cachedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(singlePool.getQueue()).isInstanceOf(SynchronousQueue.class);
 	}
 
 	@Test
 	public void cachedPool_5_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.cachedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ThreadPoolExecutor sizeablePool = ThreadPoolBuilder.cachedPool().setMinSize(10).setMaxSize(100)
@@ -254,30 +319,48 @@ public class ThreadPoolBuilderTest_OE25Dev {
 	@Test
 	public void cachedPool_6_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.cachedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ThreadPoolExecutor sizeablePool = ThreadPoolBuilder.cachedPool().setMinSize(10).setMaxSize(100)
 				.setKeepAliveSecs(20).build();
+		// removed other assertion
 		assertThat(sizeablePool.getMaximumPoolSize()).isEqualTo(100);
 	}
 
 	@Test
 	public void cachedPool_7_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.cachedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ThreadPoolExecutor sizeablePool = ThreadPoolBuilder.cachedPool().setMinSize(10).setMaxSize(100)
 				.setKeepAliveSecs(20).build();
+		// removed other assertion
+		// removed other assertion
 		assertThat(sizeablePool.getKeepAliveTime(TimeUnit.SECONDS)).isEqualTo(20);
 	}
 
 	@Test
 	public void cachedPool_8_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.cachedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ThreadPoolExecutor sizeablePool = ThreadPoolBuilder.cachedPool().setMinSize(10).setMaxSize(100)
 				.setKeepAliveSecs(20).build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		sizeablePool.shutdown();
 
 		ThreadPoolExecutor fixPoolWithNamePrefix = ThreadPoolBuilder.cachedPool().setThreadNamePrefix("cachedPool")
@@ -300,12 +383,15 @@ public class ThreadPoolBuilderTest_OE25Dev {
 	@Test
 	public void scheduledPool_2_oe() {
 		ScheduledThreadPoolExecutor singlePool = ThreadPoolBuilder.scheduledPool().build();
+		// removed other assertion
 		assertThat(singlePool.getMaximumPoolSize()).isEqualTo(Integer.MAX_VALUE);
 	}
 
 	@Test
 	public void scheduledPool_3_oe() {
 		ScheduledThreadPoolExecutor singlePool = ThreadPoolBuilder.scheduledPool().build();
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ScheduledThreadPoolExecutor sizeablePool = ThreadPoolBuilder.scheduledPool().setPoolSize(2).build();
@@ -315,18 +401,25 @@ public class ThreadPoolBuilderTest_OE25Dev {
 	@Test
 	public void scheduledPool_4_oe() {
 		ScheduledThreadPoolExecutor singlePool = ThreadPoolBuilder.scheduledPool().build();
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ScheduledThreadPoolExecutor sizeablePool = ThreadPoolBuilder.scheduledPool().setPoolSize(2).build();
+		// removed other assertion
 		assertThat(sizeablePool.getMaximumPoolSize()).isEqualTo(Integer.MAX_VALUE);
 	}
 
 	@Test
 	public void scheduledPool_5_oe() {
 		ScheduledThreadPoolExecutor singlePool = ThreadPoolBuilder.scheduledPool().build();
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ScheduledThreadPoolExecutor sizeablePool = ThreadPoolBuilder.scheduledPool().setPoolSize(2).build();
+		// removed other assertion
+		// removed other assertion
 		sizeablePool.shutdown();
 
 		ThreadPoolExecutor fixPoolWithNamePrefix = ThreadPoolBuilder.scheduledPool()
@@ -348,24 +441,34 @@ public class ThreadPoolBuilderTest_OE25Dev {
 	@Test
 	public void quequablePool_2_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.queuableCachedPool().build();
+		// removed other assertion
 		assertThat(singlePool.getMaximumPoolSize()).isEqualTo(Integer.MAX_VALUE);
 	}
 
 	@Test
 	public void quequablePool_3_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.queuableCachedPool().build();
+		// removed other assertion
+		// removed other assertion
 		assertThat(singlePool.getKeepAliveTime(TimeUnit.SECONDS)).isEqualTo(10);
 	}
 
 	@Test
 	public void quequablePool_4_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.queuableCachedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(singlePool.getQueue()).isInstanceOf(ControllableQueue.class);
 	}
 
 	@Test
 	public void quequablePool_5_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.queuableCachedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ThreadPoolExecutor sizeablePool = ThreadPoolBuilder.queuableCachedPool().setMinSize(10).setMaxSize(100)
@@ -376,30 +479,48 @@ public class ThreadPoolBuilderTest_OE25Dev {
 	@Test
 	public void quequablePool_6_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.queuableCachedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ThreadPoolExecutor sizeablePool = ThreadPoolBuilder.queuableCachedPool().setMinSize(10).setMaxSize(100)
 				.setKeepAliveSecs(20).build();
+		// removed other assertion
 		assertThat(sizeablePool.getMaximumPoolSize()).isEqualTo(100);
 	}
 
 	@Test
 	public void quequablePool_7_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.queuableCachedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ThreadPoolExecutor sizeablePool = ThreadPoolBuilder.queuableCachedPool().setMinSize(10).setMaxSize(100)
 				.setKeepAliveSecs(20).build();
+		// removed other assertion
+		// removed other assertion
 		assertThat(sizeablePool.getKeepAliveTime(TimeUnit.SECONDS)).isEqualTo(20);
 	}
 
 	@Test
 	public void quequablePool_8_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.queuableCachedPool().build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		singlePool.shutdown();
 
 		ThreadPoolExecutor sizeablePool = ThreadPoolBuilder.queuableCachedPool().setMinSize(10).setMaxSize(100)
 				.setKeepAliveSecs(20).build();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		sizeablePool.shutdown();
 
 		ThreadPoolExecutor fixPoolWithNamePrefix = ThreadPoolBuilder.queuableCachedPool()

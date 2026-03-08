@@ -1,0 +1,1553 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+scribejava_1_1,        assertNotNull(callback.getResponse());,OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_1_oe,com.github.scribejava.core.model.OAuthResponseException,getResponse(),,"public Response getResponse() {
+        return response;
+    }"
+scribejava_1_2,        assertNull(callback.getThrowable());,OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_2_oe,com.github.scribejava.httpclient.ning.OAuthAsyncCompletionHandler,onCompleted(com.ning.http.client.Response ningResponse),,"@Override
+    public T onCompleted(com.ning.http.client.Response ningResponse) {
+        try {
+            final Map<String, String> headersMap = new HashMap<>();
+
+            for (Map.Entry<String, List<String>> header : ningResponse.getHeaders().entrySet()) {
+                final StringBuilder value = new StringBuilder();
+                for (String str : header.getValue()) {
+                    value.append(str);
+                }
+                headersMap.put(header.getKey(), value.toString());
+            }
+
+            final Response response = new Response(ningResponse.getStatusCode(), ningResponse.getStatusText(),
+                    headersMap, ningResponse.getResponseBodyAsStream());
+
+            @SuppressWarnings(""unchecked"")
+            final T t = converter == null ? (T) response : converter.convert(response);
+            if (callback != null) {
+                callback.onCompleted(t);
+            }
+            return t;
+        } catch (IOException | RuntimeException e) {
+            onThrowable(e);
+            return null;
+        }
+    }"
+scribejava_1_3,"        assertEquals(""All good"", callback.getResponse());",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_3_oe,com.github.scribejava.core.model.OAuthResponseException,getResponse(),,"public Response getResponse() {
+        return response;
+    }"
+scribejava_2_1,        assertNull(callback.getResponse());,OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_1_oe,com.github.scribejava.core.model.OAuthResponseException,getResponse(),,"public Response getResponse() {
+        return response;
+    }"
+scribejava_2_2,        assertNotNull(callback.getThrowable());,OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_2_oe,com.github.scribejava.httpclient.ning.OAuthAsyncCompletionHandler,onCompleted(com.ning.http.client.Response ningResponse),,"@Override
+    public T onCompleted(com.ning.http.client.Response ningResponse) {
+        try {
+            final Map<String, String> headersMap = new HashMap<>();
+
+            for (Map.Entry<String, List<String>> header : ningResponse.getHeaders().entrySet()) {
+                final StringBuilder value = new StringBuilder();
+                for (String str : header.getValue()) {
+                    value.append(str);
+                }
+                headersMap.put(header.getKey(), value.toString());
+            }
+
+            final Response response = new Response(ningResponse.getStatusCode(), ningResponse.getStatusText(),
+                    headersMap, ningResponse.getResponseBodyAsStream());
+
+            @SuppressWarnings(""unchecked"")
+            final T t = converter == null ? (T) response : converter.convert(response);
+            if (callback != null) {
+                callback.onCompleted(t);
+            }
+            return t;
+        } catch (IOException | RuntimeException e) {
+            onThrowable(e);
+            return null;
+        }
+    }"
+scribejava_2_3,        assertTrue(callback.getThrowable() instanceof OAuthException);,OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_3_oe,com.github.scribejava.httpclient.ning.OAuthAsyncCompletionHandler,onCompleted(com.ning.http.client.Response ningResponse),,"@Override
+    public T onCompleted(com.ning.http.client.Response ningResponse) {
+        try {
+            final Map<String, String> headersMap = new HashMap<>();
+
+            for (Map.Entry<String, List<String>> header : ningResponse.getHeaders().entrySet()) {
+                final StringBuilder value = new StringBuilder();
+                for (String str : header.getValue()) {
+                    value.append(str);
+                }
+                headersMap.put(header.getKey(), value.toString());
+            }
+
+            final Response response = new Response(ningResponse.getStatusCode(), ningResponse.getStatusText(),
+                    headersMap, ningResponse.getResponseBodyAsStream());
+
+            @SuppressWarnings(""unchecked"")
+            final T t = converter == null ? (T) response : converter.convert(response);
+            if (callback != null) {
+                callback.onCompleted(t);
+            }
+            return t;
+        } catch (IOException | RuntimeException e) {
+            onThrowable(e);
+            return null;
+        }
+    }"
+scribejava_4_1,"        final MockWebServer server = new MockWebServer();
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(""POST"", recordedRequest.getMethod());",AbstractClientTest::shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_1_oe,com.github.scribejava.httpclient.ning.NingHttpClient,void close(),,"@Override
+    public void close() {
+        client.close();
+    }"
+scribejava_4_2,"        final MockWebServer server = new MockWebServer();
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(HttpClient.DEFAULT_CONTENT_TYPE, recordedRequest.getHeader(HttpClient.CONTENT_TYPE));",AbstractClientTest::shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_2_oe,com.github.scribejava.core.model.Response,getHeader(String name),"/**
+     * Obtains a single HTTP Header value, or null if undefined
+     *
+     * @param name the header name.
+     *
+     * @return header value or null.
+     */","public String getHeader(String name) {
+        return headers.get(name);
+    }"
+scribejava_10_1,"        final String expectedResponseBody = ""response body for test shouldCallCallback"";
+        final TestCallback callback = new TestCallback();
+        assertEquals(expectedResponseBody, callback.getResponse().getBody());",AbstractClientTest::shouldCallCallback_1_oe,com.github.scribejava.core.model.Response,getBody(),"/**
+     * Returns the response body as a string, closing the stream that backs it. Idempotent.
+     *
+     * @return body as string
+     * @throws IOException IO Exception
+     */","public String getBody() throws IOException {
+        return body == null ? parseBodyContents() : body;
+    }"
+scribejava_12_1,"        final String plain = ""this is a test &^"";
+        final String encoded = ""this%20is%20a%20test%20%26%5E"";
+        assertEquals(encoded, OAuthEncoder.encode(plain));",OAuthEncoderTest::shouldPercentEncodeString_1_oe,com.github.scribejava.core.utils.OAuthEncoder,encode(String plain),,"public static String encode(String plain) {
+        Preconditions.checkNotNull(plain, ""Cannot encode null object"");
+        String encoded;
+        try {
+            encoded = URLEncoder.encode(plain, CHARSET);
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Charset not found while encoding string: "" + CHARSET, uee);
+        }
+        for (Map.Entry<String, String> rule : ENCODING_RULES.entrySet()) {
+            encoded = applyRule(encoded, rule.getKey(), rule.getValue());
+        }
+        return encoded;
+    }"
+scribejava_13_1,"        final String encoded = ""this+is+a+test+%26%5E"";
+        final String plain = ""this is a test &^"";
+        assertEquals(plain, OAuthEncoder.decode(encoded));",OAuthEncoderTest::shouldFormURLDecodeString_1_oe,com.github.scribejava.core.utils.OAuthEncoder,decode(String encoded),,"public static String decode(String encoded) {
+        Preconditions.checkNotNull(encoded, ""Cannot decode null object"");
+        try {
+            return URLDecoder.decode(encoded, CHARSET);
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Charset not found while decoding string: "" + CHARSET, uee);
+        }
+    }"
+scribejava_14_1,"        final String plain = ""!*'();:@&=+$,/?#[]"";
+        final String encoded = ""%21%2A%27%28%29%3B%3A%40%26%3D%2B%24%2C%2F%3F%23%5B%5D"";
+        assertEquals(encoded, OAuthEncoder.encode(plain));",OAuthEncoderTest::shouldPercentEncodeAllSpecialCharacters_1_oe,com.github.scribejava.core.utils.OAuthEncoder,encode(String plain),,"public static String encode(String plain) {
+        Preconditions.checkNotNull(plain, ""Cannot encode null object"");
+        String encoded;
+        try {
+            encoded = URLEncoder.encode(plain, CHARSET);
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Charset not found while encoding string: "" + CHARSET, uee);
+        }
+        for (Map.Entry<String, String> rule : ENCODING_RULES.entrySet()) {
+            encoded = applyRule(encoded, rule.getKey(), rule.getValue());
+        }
+        return encoded;
+    }"
+scribejava_14_2,"        final String plain = ""!*'();:@&=+$,/?#[]"";
+        final String encoded = ""%21%2A%27%28%29%3B%3A%40%26%3D%2B%24%2C%2F%3F%23%5B%5D"";
+        assertEquals(plain, OAuthEncoder.decode(encoded));",OAuthEncoderTest::shouldPercentEncodeAllSpecialCharacters_2_oe,com.github.scribejava.core.utils.OAuthEncoder,decode(String encoded),,"public static String decode(String encoded) {
+        Preconditions.checkNotNull(encoded, ""Cannot decode null object"");
+        try {
+            return URLDecoder.decode(encoded, CHARSET);
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Charset not found while decoding string: "" + CHARSET, uee);
+        }
+    }"
+scribejava_15_1,"        final String plain = ""abcde123456-._~"";
+        final String encoded = plain;
+        assertEquals(encoded, OAuthEncoder.encode(plain));",OAuthEncoderTest::shouldNotPercentEncodeReservedCharacters_1_oe,com.github.scribejava.core.utils.OAuthEncoder,encode(String plain),,"public static String encode(String plain) {
+        Preconditions.checkNotNull(plain, ""Cannot encode null object"");
+        String encoded;
+        try {
+            encoded = URLEncoder.encode(plain, CHARSET);
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Charset not found while encoding string: "" + CHARSET, uee);
+        }
+        for (Map.Entry<String, String> rule : ENCODING_RULES.entrySet()) {
+            encoded = applyRule(encoded, rule.getKey(), rule.getValue());
+        }
+        return encoded;
+    }"
+scribejava_16_1,"        final String[] sources = {""Ladies + Gentlemen"", ""An encoded string!"", ""Dogs, Cats & Mice""};
+        final String[] encoded = {""Ladies%20%2B%20Gentlemen"", ""An%20encoded%20string%21"",
+            assertEquals(encoded[i], OAuthEncoder.encode(sources[i]));",OAuthEncoderTest::shouldPercentEncodeCorrectlyTwitterCodingExamples_1_oe,com.github.scribejava.core.utils.OAuthEncoder,encode(String plain),,"public static String encode(String plain) {
+        Preconditions.checkNotNull(plain, ""Cannot encode null object"");
+        String encoded;
+        try {
+            encoded = URLEncoder.encode(plain, CHARSET);
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Charset not found while encoding string: "" + CHARSET, uee);
+        }
+        for (Map.Entry<String, String> rule : ENCODING_RULES.entrySet()) {
+            encoded = applyRule(encoded, rule.getKey(), rule.getValue());
+        }
+        return encoded;
+    }"
+scribejava_17_1,"        final String value = ""expected"";
+        final InputStream is = new ByteArrayInputStream(value.getBytes());
+        final String decoded = StreamUtils.getStreamContents(is);
+        assertEquals(""expected"", decoded);",StreamUtilsTest::shouldCorrectlyDecodeAStream_1_oe,com.github.scribejava.core.utils.StreamUtils,getStreamContents(InputStream is),"/**
+     * Returns the stream contents as an UTF-8 encoded string
+     *
+     * @param is input stream
+     * @return string contents
+     * @throws java.io.IOException in any. SocketTimeout in example
+     */","public static String getStreamContents(InputStream is) throws IOException {
+        Preconditions.checkNotNull(is, ""Cannot get String from a null object"");
+        final char[] buffer = new char[0x10000];
+        final StringBuilder out = new StringBuilder();
+        try (Reader in = new InputStreamReader(is, ""UTF-8"")) {
+            int read;
+            do {
+                read = in.read(buffer, 0, buffer.length);
+                if (read > 0) {
+                    out.append(buffer, 0, read);
+                }
+            } while (read >= 0);
+        }
+        return out.toString();
+    }"
+scribejava_18_1,"        final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
+        assertEquals(PKCECodeChallengeMethod.S256, pkce.getCodeChallengeMethod());",PKCECodeChallengeMethodTest::testGeneratingPKCE_1_oe,com.github.scribejava.core.pkce.PKCE,getCodeChallengeMethod(),,"public PKCECodeChallengeMethod getCodeChallengeMethod() {
+        return codeChallengeMethod;
+    }"
+scribejava_18_2,"        final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
+        assertEquals(""dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk"", pkce.getCodeVerifier());",PKCECodeChallengeMethodTest::testGeneratingPKCE_2_oe,com.github.scribejava.core.pkce.PKCE,getCodeVerifier(),,"public String getCodeVerifier() {
+        return codeVerifier;
+    }"
+scribejava_18_3,"        final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
+        assertEquals(""E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM"", pkce.getCodeChallenge());",PKCECodeChallengeMethodTest::testGeneratingPKCE_3_oe,com.github.scribejava.core.pkce.PKCE,getCodeChallenge(),,"public String getCodeChallenge() {
+        return codeChallenge;
+    }"
+scribejava_19_1,"        final String expected = ""GET&http%3A%2F%2Fexample.com&oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback""
+        final String baseString = extractor.extract(request);
+        assertEquals(expected, baseString);",BaseStringExtractorTest::shouldExtractBaseStringFromOAuthRequest_1_oe,com.github.scribejava.core.extractors.TokenExtractor,extract(Response response),"/**
+     * Extracts the concrete type of token from the contents of an Http Response
+     *
+     * @param response the whole response
+     * @return OAuth access token
+     * @throws java.io.IOException in case of troubles while getting body from the response
+     */","T extract(Response response) throws IOException, OAuthException;"
+scribejava_20_1,"        final String expected = ""GET&http%3A%2F%2Fexample.com&oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback""
+        final String baseString = extractor.extract(requestPort80);
+        assertEquals(expected, baseString);",BaseStringExtractorTest::shouldExcludePort80_1_oe,com.github.scribejava.core.extractors.TokenExtractor,extract(Response response),"/**
+     * Extracts the concrete type of token from the contents of an Http Response
+     *
+     * @param response the whole response
+     * @return OAuth access token
+     * @throws java.io.IOException in case of troubles while getting body from the response
+     */","T extract(Response response) throws IOException, OAuthException;"
+scribejava_21_1,"        final String expected = ""GET&http%3A%2F%2Fexample.com%2Ftest&oauth_callback%3Dhttp%253A%252F%252Fexample""
+        final String baseString = extractor.extract(requestPort80v2);
+        assertEquals(expected, baseString);",BaseStringExtractorTest::shouldExcludePort80v2_1_oe,com.github.scribejava.core.extractors.TokenExtractor,extract(Response response),"/**
+     * Extracts the concrete type of token from the contents of an Http Response
+     *
+     * @param response the whole response
+     * @return OAuth access token
+     * @throws java.io.IOException in case of troubles while getting body from the response
+     */","T extract(Response response) throws IOException, OAuthException;"
+scribejava_22_1,"        final String expected = ""GET&http%3A%2F%2Fexample.com%3A8080&oauth_callback%3Dhttp%253A%252F%252Fexample""
+        final String baseString = extractor.extract(requestPort8080);
+        assertEquals(expected, baseString);",BaseStringExtractorTest::shouldIncludePort8080_1_oe,com.github.scribejava.core.extractors.TokenExtractor,extract(Response response),"/**
+     * Extracts the concrete type of token from the contents of an Http Response
+     *
+     * @param response the whole response
+     * @return OAuth access token
+     * @throws java.io.IOException in case of troubles while getting body from the response
+     */","T extract(Response response) throws IOException, OAuthException;"
+scribejava_23_1,"        final String expected = ""GET&https%3A%2F%2Fexample.com&oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback""
+        final String baseString = extractor.extract(requestPort443);
+        assertEquals(expected, baseString);",BaseStringExtractorTest::shouldExcludePort443_1_oe,com.github.scribejava.core.extractors.TokenExtractor,extract(Response response),"/**
+     * Extracts the concrete type of token from the contents of an Http Response
+     *
+     * @param response the whole response
+     * @return OAuth access token
+     * @throws java.io.IOException in case of troubles while getting body from the response
+     */","T extract(Response response) throws IOException, OAuthException;"
+scribejava_24_1,"        final String expected = ""GET&https%3A%2F%2Fexample.com%2Ftest&oauth_callback%3Dhttp%253A%252F%252Fexample""
+        final String baseString = extractor.extract(requestPort443v2);
+        assertEquals(expected, baseString);",BaseStringExtractorTest::shouldExcludePort443v2_1_oe,com.github.scribejava.core.extractors.TokenExtractor,extract(Response response),"/**
+     * Extracts the concrete type of token from the contents of an Http Response
+     *
+     * @param response the whole response
+     * @return OAuth access token
+     * @throws java.io.IOException in case of troubles while getting body from the response
+     */","T extract(Response response) throws IOException, OAuthException;"
+scribejava_25_1,"        final String expected = ""GET&http%3A%2F%2Fexample.com&body%3Dthis%2520param%2520has%2520whitespace""
+        assertEquals(expected, extractor.extract(request));",BaseStringExtractorTest::shouldProperlyEncodeSpaces_1_oe,com.github.scribejava.core.extractors.TokenExtractor,extract(Response response),"/**
+     * Extracts the concrete type of token from the contents of an Http Response
+     *
+     * @param response the whole response
+     * @return OAuth access token
+     * @throws java.io.IOException in case of troubles while getting body from the response
+     */","T extract(Response response) throws IOException, OAuthException;"
+scribejava_26_1,"        final String header = extractor.extract(request);
+        final String oauth = ""OAuth "";
+        assertTrue(header.startsWith(oauth));",HeaderExtractorTest::shouldExtractStandardHeader_1_oe,com.github.scribejava.core.extractors.TokenExtractor,extract(Response response),"/**
+     * Extracts the concrete type of token from the contents of an Http Response
+     *
+     * @param response the whole response
+     * @return OAuth access token
+     * @throws java.io.IOException in case of troubles while getting body from the response
+     */","T extract(Response response) throws IOException, OAuthException;"
+scribejava_26_2,"        final String header = extractor.extract(request);
+        final String callback = ""oauth_callback=\""http%3A%2F%2Fexample%2Fcallback\"""";
+        assertTrue(header.contains(callback));",HeaderExtractorTest::shouldExtractStandardHeader_2_oe,com.github.scribejava.core.model.ParameterList,contains(Parameter param),,"public boolean contains(Parameter param) {
+        return params.contains(param);
+    }"
+scribejava_26_3,"        final String header = extractor.extract(request);
+        final String signature = ""oauth_signature=\""OAuth-Signature\"""";
+        assertTrue(header.contains(signature));",HeaderExtractorTest::shouldExtractStandardHeader_3_oe,com.github.scribejava.core.model.ParameterList,contains(Parameter param),,"public boolean contains(Parameter param) {
+        return params.contains(param);
+    }"
+scribejava_26_4,"        final String header = extractor.extract(request);
+        final String key = ""oauth_consumer_key=\""AS%23%24%5E%2A%40%26\"""";
+        assertTrue(header.contains(key));",HeaderExtractorTest::shouldExtractStandardHeader_4_oe,com.github.scribejava.core.model.ParameterList,contains(Parameter param),,"public boolean contains(Parameter param) {
+        return params.contains(param);
+    }"
+scribejava_26_5,"        final String header = extractor.extract(request);
+        final String timestamp = ""oauth_timestamp=\""123456\"""";
+        assertTrue(header.contains(timestamp));",HeaderExtractorTest::shouldExtractStandardHeader_5_oe,com.github.scribejava.core.model.ParameterList,contains(Parameter param),,"public boolean contains(Parameter param) {
+        return params.contains(param);
+    }"
+scribejava_39_2,"        final MultipartPayload mP = new MultipartPayload();
+        assertEquals("""", MultipartUtils.getPayload(mP).toString());",MultipartUtilsTest::testEmptyMultipartPayload_2_oe,com.github.scribejava.core.httpclient.multipart.MultipartUtils,getPayload(MultipartPayload multipartPayload),,"public static ByteArrayOutputStream getPayload(MultipartPayload multipartPayload) throws IOException {
+        final ByteArrayOutputStream os = new ByteArrayOutputStream();
+
+        final String preamble = multipartPayload.getPreamble();
+        if (preamble != null) {
+            os.write((preamble + ""\r\n"").getBytes());
+        }
+        final List<BodyPartPayload> bodyParts = multipartPayload.getBodyParts();
+        if (!bodyParts.isEmpty()) {
+            final String boundary = multipartPayload.getBoundary();
+            final byte[] startBoundary = (""--"" + boundary + ""\r\n"").getBytes();
+
+            for (BodyPartPayload bodyPart : bodyParts) {
+                os.write(startBoundary);
+
+                final Map<String, String> bodyPartHeaders = bodyPart.getHeaders();
+                if (bodyPartHeaders != null) {
+                    for (Map.Entry<String, String> header : bodyPartHeaders.entrySet()) {
+                        os.write((header.getKey() + "": "" + header.getValue() + ""\r\n"").getBytes());
+                    }
+                }
+
+                os.write(""\r\n"".getBytes());
+                if (bodyPart instanceof MultipartPayload) {
+                    getPayload((MultipartPayload) bodyPart).writeTo(os);
+                } else if (bodyPart instanceof ByteArrayBodyPartPayload) {
+                    final ByteArrayBodyPartPayload byteArrayBodyPart = (ByteArrayBodyPartPayload) bodyPart;
+                    os.write(byteArrayBodyPart.getPayload(), byteArrayBodyPart.getOff(), byteArrayBodyPart.getLen());
+                } else {
+                    throw new AssertionError(bodyPart.getClass());
+                }
+                os.write(""\r\n"".getBytes()); //CRLF for the next (starting or closing) boundary
+            }
+
+            os.write((""--"" + boundary + ""--"").getBytes());
+            final String epilogue = multipartPayload.getEpilogue();
+            if (epilogue != null) {
+                os.write((""\r\n"" + epilogue).getBytes());
+            }
+
+        }
+        return os;
+    }"
+scribejava_41_1,"        final StringBuilder headersString = new StringBuilder();
+        assertEquals(""Content-Type: multipart/form-data; boundary=\""simple-boundary\""\r\n"", headersString.toString());",MultipartUtilsTest::testCRLFMultipartPayload_1_oe,com.github.scribejava.core.revoke.TokenTypeHint,getValue(),,"public String getValue() {
+        return value;
+    }"
+scribejava_41_2,"        final MultipartPayload mP = new MultipartPayload(""simple-boundary"");
+        assertEquals(""--simple-boundary\r\n"" + ""\r\n"" + ""It does NOT end with a linebreak."" + ""\r\n--simple-boundary\r\n"" + ""\r\n"" + ""It does end with a \\r linebreak.\r"" + ""\r\n--simple-boundary\r\n"" + ""\r\n"" + ""It does end with a \\n linebreak.\n"" + ""\r\n--simple-boundary\r\n"" + ""\r\n"" + ""It does end with a \\r\\n linebreak.\r\n"" + ""\r\n--simple-boundary\r\n"" + ""\r\n"" + ""the last one"" + ""\r\n--simple-boundary--"",MultipartUtils.getPayload(mP).toString());",MultipartUtilsTest::testCRLFMultipartPayload_2_oe,com.github.scribejava.core.httpclient.multipart.MultipartUtils,getPayload(MultipartPayload multipartPayload),,"public static ByteArrayOutputStream getPayload(MultipartPayload multipartPayload) throws IOException {
+        final ByteArrayOutputStream os = new ByteArrayOutputStream();
+
+        final String preamble = multipartPayload.getPreamble();
+        if (preamble != null) {
+            os.write((preamble + ""\r\n"").getBytes());
+        }
+        final List<BodyPartPayload> bodyParts = multipartPayload.getBodyParts();
+        if (!bodyParts.isEmpty()) {
+            final String boundary = multipartPayload.getBoundary();
+            final byte[] startBoundary = (""--"" + boundary + ""\r\n"").getBytes();
+
+            for (BodyPartPayload bodyPart : bodyParts) {
+                os.write(startBoundary);
+
+                final Map<String, String> bodyPartHeaders = bodyPart.getHeaders();
+                if (bodyPartHeaders != null) {
+                    for (Map.Entry<String, String> header : bodyPartHeaders.entrySet()) {
+                        os.write((header.getKey() + "": "" + header.getValue() + ""\r\n"").getBytes());
+                    }
+                }
+
+                os.write(""\r\n"".getBytes());
+                if (bodyPart instanceof MultipartPayload) {
+                    getPayload((MultipartPayload) bodyPart).writeTo(os);
+                } else if (bodyPart instanceof ByteArrayBodyPartPayload) {
+                    final ByteArrayBodyPartPayload byteArrayBodyPart = (ByteArrayBodyPartPayload) bodyPart;
+                    os.write(byteArrayBodyPart.getPayload(), byteArrayBodyPart.getOff(), byteArrayBodyPart.getLen());
+                } else {
+                    throw new AssertionError(bodyPart.getClass());
+                }
+                os.write(""\r\n"".getBytes()); //CRLF for the next (starting or closing) boundary
+            }
+
+            os.write((""--"" + boundary + ""--"").getBytes());
+            final String epilogue = multipartPayload.getEpilogue();
+            if (epilogue != null) {
+                os.write((""\r\n"" + epilogue).getBytes());
+            }
+
+        }
+        return os;
+    }"
+scribejava_43_1,"        final StringBuilder headersString = new StringBuilder();
+        assertEquals(""Content-Type: multipart/mixed; boundary=\""unique-boundary-1\""\r\n"", headersString.toString());",MultipartUtilsTest::testComplexMultipartPayload_1_oe,com.github.scribejava.core.revoke.TokenTypeHint,getValue(),,"public String getValue() {
+        return value;
+    }"
+scribejava_44_1,        assertNull(MultipartUtils.parseBoundaryFromHeader(null));,MultipartUtilsTest::testParseBoundaryFromHeader_1_oe,com.github.scribejava.core.httpclient.multipart.MultipartUtils,parseBoundaryFromHeader(String contentTypeHeader),,"public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }"
+scribejava_44_9,"        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundar=0aA'()+_, -./:=? ""));",MultipartUtilsTest::testParseBoundaryFromHeader_9_oe,com.github.scribejava.core.httpclient.multipart.MultipartUtils,parseBoundaryFromHeader(String contentTypeHeader),,"public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }"
+scribejava_44_10,"        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; ""));",MultipartUtilsTest::testParseBoundaryFromHeader_10_oe,com.github.scribejava.core.httpclient.multipart.MultipartUtils,parseBoundaryFromHeader(String contentTypeHeader),,"public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }"
+scribejava_44_11,"        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;""));",MultipartUtilsTest::testParseBoundaryFromHeader_11_oe,com.github.scribejava.core.httpclient.multipart.MultipartUtils,parseBoundaryFromHeader(String contentTypeHeader),,"public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }"
+scribejava_44_12,"        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype""));",MultipartUtilsTest::testParseBoundaryFromHeader_12_oe,com.github.scribejava.core.httpclient.multipart.MultipartUtils,parseBoundaryFromHeader(String contentTypeHeader),,"public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }"
+scribejava_44_13,"        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundary=""));",MultipartUtilsTest::testParseBoundaryFromHeader_13_oe,com.github.scribejava.core.httpclient.multipart.MultipartUtils,parseBoundaryFromHeader(String contentTypeHeader),,"public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }"
+scribejava_44_19,"        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundary=""));",MultipartUtilsTest::testParseBoundaryFromHeader_19_oe,com.github.scribejava.core.httpclient.multipart.MultipartUtils,parseBoundaryFromHeader(String contentTypeHeader),,"public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }"
+scribejava_44_20,"        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundary=\""\""""));",MultipartUtilsTest::testParseBoundaryFromHeader_20_oe,com.github.scribejava.core.httpclient.multipart.MultipartUtils,parseBoundaryFromHeader(String contentTypeHeader),,"public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }"
+scribejava_44_21,"        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundary=;123""));",MultipartUtilsTest::testParseBoundaryFromHeader_21_oe,com.github.scribejava.core.httpclient.multipart.MultipartUtils,parseBoundaryFromHeader(String contentTypeHeader),,"public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }"
+scribejava_44_22,"        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundary=\""\""123""));",MultipartUtilsTest::testParseBoundaryFromHeader_22_oe,com.github.scribejava.core.httpclient.multipart.MultipartUtils,parseBoundaryFromHeader(String contentTypeHeader),,"public static String parseBoundaryFromHeader(String contentTypeHeader) {
+        if (contentTypeHeader == null) {
+            return null;
+        }
+        final Matcher matcher = BOUNDARY_FROM_HEADER_REGEXP.matcher(contentTypeHeader);
+        return matcher.find() ? matcher.group(1) : null;
+    }"
+scribejava_45_1,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        final OAuth2AccessToken token = service.getAccessTokenPasswordGrant(""user1"", ""password1"");
+        assertNotNull(token);",OAuth20ServiceTest::shouldProduceCorrectRequestSync_1_oe,com.github.scribejava.core.oauth.OAuth20Service,"getAccessTokenPasswordGrant(String username, String password)",,"public OAuth2AccessToken getAccessTokenPasswordGrant(String username, String password)
+            throws IOException, InterruptedException, ExecutionException {
+        final OAuthRequest request = createAccessTokenPasswordGrantRequest(username, password, null);
+
+        return sendAccessTokenRequestSync(request);
+    }"
+scribejava_45_2,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        final OAuth2AccessToken token = service.getAccessTokenPasswordGrant(""user1"", ""password1"");
+        final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
+        assertEquals(OAuth20ServiceUnit.TOKEN, response.get(OAuthConstants.ACCESS_TOKEN).asText());",OAuth20ServiceTest::shouldProduceCorrectRequestSync_2_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_45_3,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        final OAuth2AccessToken token = service.getAccessTokenPasswordGrant(""user1"", ""password1"");
+        final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
+        assertEquals(OAuth20ServiceUnit.EXPIRES, response.get(""expires_in"").asInt());",OAuth20ServiceTest::shouldProduceCorrectRequestSync_3_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_45_4,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        final OAuth2AccessToken token = service.getAccessTokenPasswordGrant(""user1"", ""password1"");
+        final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
+        final String authorize = Base64.encode(
+        assertEquals(OAuthConstants.BASIC + ' ' + authorize, response.get(OAuthConstants.HEADER).asText());",OAuth20ServiceTest::shouldProduceCorrectRequestSync_4_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_45_5,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        final OAuth2AccessToken token = service.getAccessTokenPasswordGrant(""user1"", ""password1"");
+        final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
+        assertEquals(""user1"", response.get(""query-username"").asText());",OAuth20ServiceTest::shouldProduceCorrectRequestSync_5_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_45_6,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        final OAuth2AccessToken token = service.getAccessTokenPasswordGrant(""user1"", ""password1"");
+        final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
+        assertEquals(""password1"", response.get(""query-password"").asText());",OAuth20ServiceTest::shouldProduceCorrectRequestSync_6_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_45_7,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        final OAuth2AccessToken token = service.getAccessTokenPasswordGrant(""user1"", ""password1"");
+        final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
+        assertEquals(""password"", response.get(""query-grant_type"").asText());",OAuth20ServiceTest::shouldProduceCorrectRequestSync_7_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_46_1,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        final OAuth2AccessToken token = service.getAccessTokenPasswordGrantAsync(""user1"", ""password1"").get();
+        assertNotNull(token);",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_1_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_46_2,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        final OAuth2AccessToken token = service.getAccessTokenPasswordGrantAsync(""user1"", ""password1"").get();
+        final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
+        assertEquals(OAuth20ServiceUnit.TOKEN, response.get(OAuthConstants.ACCESS_TOKEN).asText());",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_2_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_46_3,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        final OAuth2AccessToken token = service.getAccessTokenPasswordGrantAsync(""user1"", ""password1"").get();
+        final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
+        assertEquals(OAuth20ServiceUnit.EXPIRES, response.get(""expires_in"").asInt());",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_3_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_46_4,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        final OAuth2AccessToken token = service.getAccessTokenPasswordGrantAsync(""user1"", ""password1"").get();
+        final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
+        final String authorize = Base64.encode(
+        assertEquals(OAuthConstants.BASIC + ' ' + authorize, response.get(OAuthConstants.HEADER).asText());",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_4_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_46_5,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        final OAuth2AccessToken token = service.getAccessTokenPasswordGrantAsync(""user1"", ""password1"").get();
+        final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
+        assertEquals(""user1"", response.get(""query-username"").asText());",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_5_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_46_6,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        final OAuth2AccessToken token = service.getAccessTokenPasswordGrantAsync(""user1"", ""password1"").get();
+        final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
+        assertEquals(""password1"", response.get(""query-password"").asText());",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_6_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_46_7,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        final OAuth2AccessToken token = service.getAccessTokenPasswordGrantAsync(""user1"", ""password1"").get();
+        final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
+        assertEquals(""password"", response.get(""query-grant_type"").asText());",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_7_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_47_1,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        assertEquals(""SplxlOB"", authorization.getCode());",OAuth20ServiceTest::testOAuthExtractAuthorization_1_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
+        return code;
+    }"
+scribejava_47_2,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        assertEquals(""xyz"", authorization.getState());",OAuth20ServiceTest::testOAuthExtractAuthorization_2_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
+        return state;
+    }"
+scribejava_47_3,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        assertEquals(""SplxlOB"", authorization.getCode());",OAuth20ServiceTest::testOAuthExtractAuthorization_3_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
+        return code;
+    }"
+scribejava_47_4,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        assertEquals(""xyz"", authorization.getState());",OAuth20ServiceTest::testOAuthExtractAuthorization_4_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
+        return state;
+    }"
+scribejava_47_5,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        assertEquals(""SplxlOB"", authorization.getCode());",OAuth20ServiceTest::testOAuthExtractAuthorization_5_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
+        return code;
+    }"
+scribejava_47_6,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        assertEquals(""xyz"", authorization.getState());",OAuth20ServiceTest::testOAuthExtractAuthorization_6_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
+        return state;
+    }"
+scribejava_47_7,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
+        assertEquals(""SplxlOB"", authorization.getCode());",OAuth20ServiceTest::testOAuthExtractAuthorization_7_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
+        return code;
+    }"
+scribejava_47_8,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
+        assertEquals(""xyz"", authorization.getState());",OAuth20ServiceTest::testOAuthExtractAuthorization_8_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
+        return state;
+    }"
+scribejava_47_9,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state="");
+        assertEquals(""SplxlOB"", authorization.getCode());",OAuth20ServiceTest::testOAuthExtractAuthorization_9_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
+        return code;
+    }"
+scribejava_47_10,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state="");
+        assertEquals(null, authorization.getState());",OAuth20ServiceTest::testOAuthExtractAuthorization_10_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
+        return state;
+    }"
+scribejava_47_11,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state="");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB"");
+        assertEquals(""SplxlOB"", authorization.getCode());",OAuth20ServiceTest::testOAuthExtractAuthorization_11_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
+        return code;
+    }"
+scribejava_47_12,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state="");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB"");
+        assertEquals(null, authorization.getState());",OAuth20ServiceTest::testOAuthExtractAuthorization_12_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
+        return state;
+    }"
+scribejava_47_13,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state="");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code="");
+        assertEquals(null, authorization.getCode());",OAuth20ServiceTest::testOAuthExtractAuthorization_13_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
+        return code;
+    }"
+scribejava_47_14,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state="");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code="");
+        assertEquals(null, authorization.getState());",OAuth20ServiceTest::testOAuthExtractAuthorization_14_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
+        return state;
+    }"
+scribejava_47_15,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state="");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code="");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code"");
+        assertEquals(null, authorization.getCode());",OAuth20ServiceTest::testOAuthExtractAuthorization_15_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
+        return code;
+    }"
+scribejava_47_16,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state="");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code="");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code"");
+        assertEquals(null, authorization.getState());",OAuth20ServiceTest::testOAuthExtractAuthorization_16_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
+        return state;
+    }"
+scribejava_47_17,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state="");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code="");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?"");
+        assertEquals(null, authorization.getCode());",OAuth20ServiceTest::testOAuthExtractAuthorization_17_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
+        return code;
+    }"
+scribejava_47_18,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state="");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code="");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?"");
+        assertEquals(null, authorization.getState());",OAuth20ServiceTest::testOAuthExtractAuthorization_18_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
+        return state;
+    }"
+scribejava_47_19,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state="");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code="");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb"");
+        assertEquals(null, authorization.getCode());",OAuth20ServiceTest::testOAuthExtractAuthorization_19_oe,com.github.scribejava.core.model.OAuth2Authorization,getCode(),,"public String getCode() {
+        return code;
+    }"
+scribejava_47_20,"        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state="");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code="");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?"");
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb"");
+        assertEquals(null, authorization.getState());",OAuth20ServiceTest::testOAuthExtractAuthorization_20_oe,com.github.scribejava.core.model.OAuth2Authorization,getState(),,"public String getState() {
+        return state;
+    }"
+scribejava_48_1,"        assertEquals(2, getRequest.getQueryStringParams().size());",RequestTest::shouldGetQueryStringParameters_1_oe,com.github.scribejava.core.model.ParameterList,size(),,"public int size() {
+        return params.size();
+    }"
+scribejava_48_2,"        final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
+        assertEquals(0, postRequest.getQueryStringParams().size());",RequestTest::shouldGetQueryStringParameters_2_oe,com.github.scribejava.core.model.ParameterList,size(),,"public int size() {
+        return params.size();
+    }"
+scribejava_48_3,"        assertTrue(getRequest.getQueryStringParams().contains(new Parameter(""qsparam"", ""value"")));",RequestTest::shouldGetQueryStringParameters_3_oe,com.github.scribejava.core.model.ParameterList,contains(Parameter param),,"public boolean contains(Parameter param) {
+        return params.contains(param);
+    }"
+scribejava_49_1,"        final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
+        assertEquals(""param=value&param%20with%20spaces=value%20with%20spaces"",new String(postRequest.getByteArrayPayload()));",RequestTest::shouldSetBodyParamsAndAddContentLength_1_oe,com.github.scribejava.core.model.OAuthRequest,getByteArrayPayload(),"/**
+     * @return the body of the request (set in {@link #setPayload(byte[])} or in
+     * {@link #addBodyParameter(java.lang.String, java.lang.String)} )
+     */","public byte[] getByteArrayPayload() {
+        if (byteArrayPayload != null) {
+            return byteArrayPayload;
+        }
+        final String body = bodyParams.asFormUrlEncodedString();
+        try {
+            return body.getBytes(getCharset());
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Unsupported Charset: "" + getCharset(), uee);
+        }
+    }"
+scribejava_50_1,"        final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
+        assertEquals(""PAYLOAD"", postRequest.getStringPayload());",RequestTest::shouldSetPayloadAndHeaders_1_oe,com.github.scribejava.core.model.OAuthRequest,getStringPayload(),"/**
+     * Returns the body of the request (set in {@link #setPayload(java.lang.String)})
+     *
+     * @return form encoded string
+     */","public String getStringPayload() {
+        return stringPayload;
+    }"
+scribejava_51_1,"        final OAuthRequest request = new OAuthRequest(Verb.GET, ""http://example.com?one=val"");
+        assertEquals(3, request.getQueryStringParams().size());",RequestTest::shouldAllowAddingQuerystringParametersAfterCreation_1_oe,com.github.scribejava.core.model.ParameterList,size(),,"public int size() {
+        return params.size();
+    }"
+scribejava_52_1,"        final OAuthRequest request = new OAuthRequest(Verb.GET, ""http://example.com?one=val"");
+        assertEquals(""http://example.com?one=val&two=other%20val&more=params"", request.getCompleteUrl());",RequestTest::shouldReturnTheCompleteUrl_1_oe,com.github.scribejava.core.model.OAuthRequest,getCompleteUrl(),"/**
+     * Returns the complete url (host + resource + encoded querystring parameters).
+     *
+     * @return the complete url.
+     */","public String getCompleteUrl() {
+        return querystringParams.appendTo(url);
+    }"
+scribejava_53_1,"        assertTrue(getRequest.getQueryStringParams().contains(new Parameter(""other param"", ""value with spaces"")));",RequestTest::shouldHandleQueryStringSpaceEncodingProperly_1_oe,com.github.scribejava.core.model.ParameterList,contains(Parameter param),,"public boolean contains(Parameter param) {
+        return params.contains(param);
+    }"
+scribejava_54_1,"        final String requestBody = ""~/!@#$%^&*( )_+//\r\n%2F&amp;"";
+        final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
+        assertEquals(requestBody, postRequest.getStringPayload());",RequestTest::shouldNotEncodeInStringPayload_1_oe,com.github.scribejava.core.model.OAuthRequest,getStringPayload(),"/**
+     * Returns the body of the request (set in {@link #setPayload(java.lang.String)})
+     *
+     * @return form encoded string
+     */","public String getStringPayload() {
+        return stringPayload;
+    }"
+scribejava_55_1,"        final byte[] requestBody = ""~/!@#$%^&*( )_+//\r\n%2F&amp;"".getBytes();
+        final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
+        assertArrayEquals(requestBody, postRequest.getByteArrayPayload());",RequestTest::shouldNotEncodeInByteBodyPayload_1_oe,com.github.scribejava.core.model.OAuthRequest,getByteArrayPayload(),"/**
+     * @return the body of the request (set in {@link #setPayload(byte[])} or in
+     * {@link #addBodyParameter(java.lang.String, java.lang.String)} )
+     */","public byte[] getByteArrayPayload() {
+        if (byteArrayPayload != null) {
+            return byteArrayPayload;
+        }
+        final String body = bodyParams.asFormUrlEncodedString();
+        try {
+            return body.getBytes(getCharset());
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Unsupported Charset: "" + getCharset(), uee);
+        }
+    }"
+scribejava_56_1,"        final String expectedRequestBody = ""~%2F%21%40%23%24%25%5E%26%2A%28%20%29_%2B%2F%2F%0D%0A%252F%26amp%3Bname=""
+        final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
+        assertArrayEquals(expectedRequestBody.getBytes(), postRequest.getByteArrayPayload());",RequestTest::shouldEncodeInBodyParamsPayload_1_oe,com.github.scribejava.core.model.OAuthRequest,getByteArrayPayload(),"/**
+     * @return the body of the request (set in {@link #setPayload(byte[])} or in
+     * {@link #addBodyParameter(java.lang.String, java.lang.String)} )
+     */","public byte[] getByteArrayPayload() {
+        if (byteArrayPayload != null) {
+            return byteArrayPayload;
+        }
+        final String body = bodyParams.asFormUrlEncodedString();
+        try {
+            return body.getBytes(getCharset());
+        } catch (UnsupportedEncodingException uee) {
+            throw new OAuthException(""Unsupported Charset: "" + getCharset(), uee);
+        }
+    }"
+scribejava_57_1,"        assertEquals(5, request.getOauthParameters().size());",OAuthRequestTest::shouldAddOAuthParamters_1_oe,com.github.scribejava.core.model.ParameterList,size(),,"public int size() {
+        return params.size();
+    }"
+scribejava_58_1,        assertTrue(request.getHeaders().isEmpty());,OAuthRequestTest::shouldNotSentHeaderTwice_1_oe,com.github.scribejava.core.model.OAuth1Token,isEmpty(),"/**
+     * @return true if the token is empty (oauth_token = """", oauth_token_secret = """")
+     */","public boolean isEmpty() {
+        return """".equals(token) && """".equals(tokenSecret);
+    }"
+scribejava_58_2,"        assertEquals(1, request.getHeaders().size());",OAuthRequestTest::shouldNotSentHeaderTwice_2_oe,com.github.scribejava.core.model.ParameterList,size(),,"public int size() {
+        return params.size();
+    }"
+scribejava_58_3,"        assertTrue(request.getHeaders().containsKey(""HEADER-NAME""));",OAuthRequestTest::shouldNotSentHeaderTwice_3_oe,com.github.scribejava.core.model.Response,getHeaders(),"/**
+     * Obtains a {@link Map} containing the HTTP Response Headers
+     *
+     * @return headers
+     */","public Map<String, String> getHeaders() {
+        return headers;
+    }"
+scribejava_58_4,"        assertTrue(request.getHeaders().containsKey(""header-name""));",OAuthRequestTest::shouldNotSentHeaderTwice_4_oe,com.github.scribejava.core.model.Response,getHeaders(),"/**
+     * Obtains a {@link Map} containing the HTTP Response Headers
+     *
+     * @return headers
+     */","public Map<String, String> getHeaders() {
+        return headers;
+    }"
+scribejava_58_5,"        assertTrue(request.getHeaders().containsKey(""Header-Name""));",OAuthRequestTest::shouldNotSentHeaderTwice_5_oe,com.github.scribejava.core.model.Response,getHeaders(),"/**
+     * Obtains a {@link Map} containing the HTTP Response Headers
+     *
+     * @return headers
+     */","public Map<String, String> getHeaders() {
+        return headers;
+    }"
+scribejava_58_6,"        assertEquals(""last"", request.getHeaders().get(""HEADER-NAME""));",OAuthRequestTest::shouldNotSentHeaderTwice_6_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_58_7,"        assertEquals(""last"", request.getHeaders().get(""header-name""));",OAuthRequestTest::shouldNotSentHeaderTwice_7_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_58_8,"        assertEquals(""last"", request.getHeaders().get(""Header-Name""));",OAuthRequestTest::shouldNotSentHeaderTwice_8_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_59_1,"        final String url = ""http://www.example.com"";
+        Assert.assertEquals(url, params.appendTo(url));",ParameterListTest::shouldAppendNothingToQuerystringIfGivenEmptyMap_1_oe,com.github.scribejava.core.model.ParameterList,appendTo(String url),,"public String appendTo(String url) {
+        Preconditions.checkNotNull(url, ""Cannot append to null URL"");
+        final String queryString = asFormUrlEncodedString();
+        if (queryString.equals(EMPTY_STRING)) {
+            return url;
+        } else {
+            return url
+                    + (url.indexOf(QUERY_STRING_SEPARATOR) == -1 ? QUERY_STRING_SEPARATOR : PARAM_SEPARATOR)
+                    + queryString;
+        }
+    }"
+scribejava_60_1,"        String url = ""http://www.example.com"";
+        final String expectedUrl = ""http://www.example.com?param1=value1&param2=value%20with%20spaces"";
+        url = params.appendTo(url);
+        Assert.assertEquals(expectedUrl, url);",ParameterListTest::shouldAppendParametersToSimpleUrl_1_oe,com.github.scribejava.core.model.ParameterList,appendTo(String url),,"public String appendTo(String url) {
+        Preconditions.checkNotNull(url, ""Cannot append to null URL"");
+        final String queryString = asFormUrlEncodedString();
+        if (queryString.equals(EMPTY_STRING)) {
+            return url;
+        } else {
+            return url
+                    + (url.indexOf(QUERY_STRING_SEPARATOR) == -1 ? QUERY_STRING_SEPARATOR : PARAM_SEPARATOR)
+                    + queryString;
+        }
+    }"
+scribejava_61_1,"        String url = ""http://www.example.com?already=present"";
+        final String expectedUrl = ""http://www.example.com?already=present&param1=value1&param2=value%20with%20spaces"";
+        url = params.appendTo(url);
+        Assert.assertEquals(expectedUrl, url);",ParameterListTest::shouldAppendParametersToUrlWithQuerystring_1_oe,com.github.scribejava.core.model.ParameterList,appendTo(String url),,"public String appendTo(String url) {
+        Preconditions.checkNotNull(url, ""Cannot append to null URL"");
+        final String queryString = asFormUrlEncodedString();
+        if (queryString.equals(EMPTY_STRING)) {
+            return url;
+        } else {
+            return url
+                    + (url.indexOf(QUERY_STRING_SEPARATOR) == -1 ? QUERY_STRING_SEPARATOR : PARAM_SEPARATOR)
+                    + queryString;
+        }
+    }"
+scribejava_62_1,"        Assert.assertEquals(""a_param=v3&param1=v1&param2=v4&param6=v2"", params.sort().asFormUrlEncodedString());",ParameterListTest::shouldProperlySortParameters_1_oe,com.github.scribejava.core.model.ParameterList,asFormUrlEncodedString(),,"public String asFormUrlEncodedString() {
+        if (params.isEmpty()) {
+            return EMPTY_STRING;
+        }
+
+        final StringBuilder builder = new StringBuilder();
+        for (Parameter p : params) {
+            builder.append(PARAM_SEPARATOR).append(p.asUrlEncodedPair());
+        }
+        return builder.substring(1);
+    }"
+scribejava_63_1,"        Assert.assertEquals(""a_param=v3&param1=v1&param1=v4&param6=v2"", params.sort().asFormUrlEncodedString());",ParameterListTest::shouldProperlySortParametersWithTheSameName_1_oe,com.github.scribejava.core.model.ParameterList,asFormUrlEncodedString(),,"public String asFormUrlEncodedString() {
+        if (params.isEmpty()) {
+            return EMPTY_STRING;
+        }
+
+        final StringBuilder builder = new StringBuilder();
+        for (Parameter p : params) {
+            builder.append(PARAM_SEPARATOR).append(p.asUrlEncodedPair());
+        }
+        return builder.substring(1);
+    }"
+scribejava_64_1,"        assertNotSame(params, params.sort());",ParameterListTest::shouldNotModifyTheOriginalParameterList_1_oe,com.github.scribejava.core.model.ParameterList,sort(),,"public ParameterList sort() {
+        final ParameterList sorted = new ParameterList(params);
+        Collections.sort(sorted.getParams());
+        return sorted;
+    }"
+scribejava_65_1,"        final Token expected = new OAuth1AccessToken(""access"", ""secret"");
+        final Token actual = new OAuth1AccessToken(""access"", ""secret"");
+        assertEquals(expected, actual);",TokenTest::shouldTestEqualityBasedOnTokenAndSecret_1_oe,,,,
+scribejava_65_2,"        final Token actual = new OAuth1AccessToken(""access"", ""secret"");
+        assertEquals(actual, actual);",TokenTest::shouldTestEqualityBasedOnTokenAndSecret_2_oe,,,,
+scribejava_66_1,"        final Token expected = new OAuth1AccessToken(""access"", ""secret"", ""raw_string"");
+        final Token actual = new OAuth1AccessToken(""access"", ""secret"", ""different_raw_string"");
+        assertEquals(expected, actual);",TokenTest::shouldNotDependOnRawString_1_oe,,,,
+scribejava_67_1,"        final Token expected = new OAuth1AccessToken(""access"", ""secret"");
+        final Token actual = new OAuth1AccessToken(""access"", ""secret"");
+        assertEquals(expected.hashCode(), actual.hashCode());",TokenTest::shouldReturnSameHashCodeForEqualObjects_1_oe,,,,
+scribejava_68_1,"        final Token expected = new OAuth1AccessToken(""access"", ""secret"", ""response"");
+        assertNotSame(expected, null);",TokenTest::shouldNotBeEqualToNullOrOtherObjects_1_oe,,,,
+scribejava_68_2,"        final Token expected = new OAuth1AccessToken(""access"", ""secret"", ""response"");
+        assertNotSame(expected, new Object());",TokenTest::shouldNotBeEqualToNullOrOtherObjects_2_oe,,,,
+scribejava_69_1,"        final Token actual = new OAuth1AccessToken(""acccess"", ""secret"",
+        assertEquals(""someuser"", actual.getParameter(""screen_name""));",TokenTest::shouldReturnUrlParam_1_oe,com.github.scribejava.core.model.Token,getParameter(String parameter),,"public String getParameter(String parameter) {
+        String value = null;
+        for (String str : rawResponse.split(""&"")) {
+            if (str.startsWith(parameter + '=')) {
+                final String[] part = str.split(""="");
+                if (part.length > 1) {
+                    value = part[1].trim();
+                }
+                break;
+            }
+        }
+        return value;
+    }"
+scribejava_69_2,"        final Token actual = new OAuth1AccessToken(""acccess"", ""secret"",
+        assertEquals(""3107154759"", actual.getParameter(""user_id""));",TokenTest::shouldReturnUrlParam_2_oe,com.github.scribejava.core.model.Token,getParameter(String parameter),,"public String getParameter(String parameter) {
+        String value = null;
+        for (String str : rawResponse.split(""&"")) {
+            if (str.startsWith(parameter + '=')) {
+                final String[] part = str.split(""="");
+                if (part.length > 1) {
+                    value = part[1].trim();
+                }
+                break;
+            }
+        }
+        return value;
+    }"
+scribejava_69_3,"        final Token actual = new OAuth1AccessToken(""acccess"", ""secret"",
+        assertEquals(null, actual.getParameter(""empty""));",TokenTest::shouldReturnUrlParam_3_oe,com.github.scribejava.core.model.Token,getParameter(String parameter),,"public String getParameter(String parameter) {
+        String value = null;
+        for (String str : rawResponse.split(""&"")) {
+            if (str.startsWith(parameter + '=')) {
+                final String[] part = str.split(""="");
+                if (part.length > 1) {
+                    value = part[1].trim();
+                }
+                break;
+            }
+        }
+        return value;
+    }"
+scribejava_69_4,"        final Token actual = new OAuth1AccessToken(""acccess"", ""secret"",
+        assertEquals(null, actual.getParameter(null));",TokenTest::shouldReturnUrlParam_4_oe,com.github.scribejava.core.model.Token,getParameter(String parameter),,"public String getParameter(String parameter) {
+        String value = null;
+        for (String str : rawResponse.split(""&"")) {
+            if (str.startsWith(parameter + '=')) {
+                final String[] part = str.split(""="");
+                if (part.length > 1) {
+                    value = part[1].trim();
+                }
+                break;
+            }
+        }
+        return value;
+    }"
+scribejava_70_1,        assertTrue(Java8Base64.isAvailable());,Base64Test::allImplementationsAreAvailable_1_oe,com.github.scribejava.core.base64.Java8Base64,isAvailable(),,"static boolean isAvailable() {
+        try {
+            Class.forName(""java.util.Base64"", false, Java8Base64.class.getClassLoader());
+            return true;
+        } catch (ClassNotFoundException cnfE) {
+            return false;
+        }
+    }"
+scribejava_70_2,        assertTrue(CommonsCodecBase64.isAvailable());,Base64Test::allImplementationsAreAvailable_2_oe,com.github.scribejava.core.base64.CommonsCodecBase64,isAvailable(),,"static boolean isAvailable() {
+        try {
+            Class.forName(""org.apache.commons.codec.binary.Base64"", false, CommonsCodecBase64.class.getClassLoader());
+            return true;
+        } catch (ClassNotFoundException cnfE) {
+            return false;
+        }
+    }"
+scribejava_70_3,        assertTrue(JaxbBase64.isAvailable());,Base64Test::allImplementationsAreAvailable_3_oe,com.github.scribejava.core.base64.JaxbBase64,isAvailable(),,"static boolean isAvailable() {
+        try {
+            Class.forName(""jakarta.xml.bind.DatatypeConverter"", false, JaxbBase64.class.getClassLoader());
+            return true;
+        } catch (ClassNotFoundException cnfE) {
+            return false;
+        }
+    }"
+scribejava_70_4,        assertTrue(Jaxb230Base64.isAvailable());,Base64Test::allImplementationsAreAvailable_4_oe,com.github.scribejava.core.base64.Jaxb230Base64,isAvailable(),,"static boolean isAvailable() {
+        try {
+            Class.forName(""javax.xml.bind.DatatypeConverter"", false, Jaxb230Base64.class.getClassLoader());
+            return true;
+        } catch (ClassNotFoundException cnfE) {
+            return false;
+        }
+    }"
+scribejava_71_1,"        final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
+        assertEquals(helloWorldEncoded, java8Base64.internalEncode(helloWorldBytes));",Base64Test::testEncode_1_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_2,"        final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
+        assertEquals(helloWorldTwoLinesEncoded, java8Base64.internalEncode(helloWorldTwoLinesBytes));",Base64Test::testEncode_2_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_3,"        final String helloWorldTwoLinesAndNewLineEncoded = ""SGVsbG8gV29ybGQNClNlY29uZCBMaW5lDQo="";
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,java8Base64.internalEncode(helloWorldTwoLinesAndNewLineBytes));",Base64Test::testEncode_3_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_4,"        final String helloWorldDifferentCharsEncoded = ""YDEyMzQ1Njc4OTAtPX4hQCMkJV4mKigpXyvRkdCBIuKEljs6P3F3ZXJ0eXVpb3B""
+        assertEquals(helloWorldDifferentCharsEncoded, java8Base64.internalEncode(helloWorldDifferentCharsBytes));",Base64Test::testEncode_4_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_5,"        final String str = ""MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAMPQ5BCMxlUq2TYy""
+        assertEquals(str, java8Base64.internalEncode(bytes));",Base64Test::testEncode_5_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_6,"        final String allBytesStr = ""gIGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp+goaKjpKWmp6ipqqusra6vsLGys7S1tre4ubq7vL2""
+        assertEquals(allBytesStr, java8Base64.internalEncode(allBytes));",Base64Test::testEncode_6_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_7,"        final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
+        assertEquals(helloWorldEncoded, commonsCodecBase64.internalEncode(helloWorldBytes));",Base64Test::testEncode_7_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_8,"        final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
+        assertEquals(helloWorldTwoLinesEncoded, commonsCodecBase64.internalEncode(helloWorldTwoLinesBytes));",Base64Test::testEncode_8_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_9,"        final String helloWorldTwoLinesAndNewLineEncoded = ""SGVsbG8gV29ybGQNClNlY29uZCBMaW5lDQo="";
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,commonsCodecBase64.internalEncode(helloWorldTwoLinesAndNewLineBytes));",Base64Test::testEncode_9_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_10,"        final String helloWorldDifferentCharsEncoded = ""YDEyMzQ1Njc4OTAtPX4hQCMkJV4mKigpXyvRkdCBIuKEljs6P3F3ZXJ0eXVpb3B""
+        assertEquals(helloWorldDifferentCharsEncoded, commonsCodecBase64.internalEncode(helloWorldDifferentCharsBytes));",Base64Test::testEncode_10_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_11,"        final String str = ""MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAMPQ5BCMxlUq2TYy""
+        assertEquals(str, commonsCodecBase64.internalEncode(bytes));",Base64Test::testEncode_11_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_12,"        final String allBytesStr = ""gIGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp+goaKjpKWmp6ipqqusra6vsLGys7S1tre4ubq7vL2""
+        assertEquals(allBytesStr, commonsCodecBase64.internalEncode(allBytes));",Base64Test::testEncode_12_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_13,"        final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
+        assertEquals(helloWorldEncoded, jaxbBase64.internalEncode(helloWorldBytes));",Base64Test::testEncode_13_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_14,"        final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
+        assertEquals(helloWorldTwoLinesEncoded, jaxbBase64.internalEncode(helloWorldTwoLinesBytes));",Base64Test::testEncode_14_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_15,"        final String helloWorldTwoLinesAndNewLineEncoded = ""SGVsbG8gV29ybGQNClNlY29uZCBMaW5lDQo="";
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded, jaxbBase64.internalEncode(helloWorldTwoLinesAndNewLineBytes));",Base64Test::testEncode_15_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_16,"        final String helloWorldDifferentCharsEncoded = ""YDEyMzQ1Njc4OTAtPX4hQCMkJV4mKigpXyvRkdCBIuKEljs6P3F3ZXJ0eXVpb3B""
+        assertEquals(helloWorldDifferentCharsEncoded, jaxbBase64.internalEncode(helloWorldDifferentCharsBytes));",Base64Test::testEncode_16_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_17,"        final String str = ""MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAMPQ5BCMxlUq2TYy""
+        assertEquals(str, jaxbBase64.internalEncode(bytes));",Base64Test::testEncode_17_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_18,"        final String allBytesStr = ""gIGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp+goaKjpKWmp6ipqqusra6vsLGys7S1tre4ubq7vL2""
+        assertEquals(allBytesStr, jaxbBase64.internalEncode(allBytes));",Base64Test::testEncode_18_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_19,"        final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
+        assertEquals(helloWorldEncoded, jaxb230Base64.internalEncode(helloWorldBytes));",Base64Test::testEncode_19_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_20,"        final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
+        assertEquals(helloWorldTwoLinesEncoded, jaxb230Base64.internalEncode(helloWorldTwoLinesBytes));",Base64Test::testEncode_20_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_21,"        final String helloWorldTwoLinesAndNewLineEncoded = ""SGVsbG8gV29ybGQNClNlY29uZCBMaW5lDQo="";
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxb230Base64.internalEncode(helloWorldTwoLinesAndNewLineBytes));",Base64Test::testEncode_21_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_22,"        final String helloWorldDifferentCharsEncoded = ""YDEyMzQ1Njc4OTAtPX4hQCMkJV4mKigpXyvRkdCBIuKEljs6P3F3ZXJ0eXVpb3B""
+        assertEquals(helloWorldDifferentCharsEncoded, jaxb230Base64.internalEncode(helloWorldDifferentCharsBytes));",Base64Test::testEncode_22_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_23,"        final String str = ""MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAMPQ5BCMxlUq2TYy""
+        assertEquals(str, jaxb230Base64.internalEncode(bytes));",Base64Test::testEncode_23_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_71_24,"        final String allBytesStr = ""gIGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp+goaKjpKWmp6ipqqusra6vsLGys7S1tre4ubq7vL2""
+        assertEquals(allBytesStr, jaxb230Base64.internalEncode(allBytes));",Base64Test::testEncode_24_oe,com.github.scribejava.core.base64.Base64,internalEncode(byte[] bytes),,protected abstract String internalEncode(byte[] bytes);
+scribejava_72_1,"        final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
+        assertEquals(helloWorldEncoded, java8Base64.internalEncodeUrlWithoutPadding(helloWorldBytes));",Base64Test::testEncodeUrlWithoutPadding_1_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_2,"        final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
+        assertEquals(helloWorldTwoLinesEncoded, java8Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));",Base64Test::testEncodeUrlWithoutPadding_2_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_3,"        final String helloWorldTwoLinesAndNewLineEncoded = ""SGVsbG8gV29ybGQNClNlY29uZCBMaW5lDQo"";
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,java8Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));",Base64Test::testEncodeUrlWithoutPadding_3_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_4,"        final String helloWorldDifferentCharsEncoded = ""YDEyMzQ1Njc4OTAtPX4hQCMkJV4mKigpXyvRkdCBIuKEljs6P3F3ZXJ0eXVpb3B""
+        assertEquals(helloWorldDifferentCharsEncoded,java8Base64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));",Base64Test::testEncodeUrlWithoutPadding_4_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_5,"        final String str = ""MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAMPQ5BCMxlUq2TYy""
+        assertEquals(str, java8Base64.internalEncodeUrlWithoutPadding(bytes));",Base64Test::testEncodeUrlWithoutPadding_5_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_6,"        final String allBytesStr = ""gIGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp-goaKjpKWmp6ipqqusra6vsLGys7S1tre4ubq7vL2""
+        assertEquals(allBytesStr, java8Base64.internalEncodeUrlWithoutPadding(allBytes));",Base64Test::testEncodeUrlWithoutPadding_6_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_7,"        final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
+        assertEquals(helloWorldEncoded, commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldBytes));",Base64Test::testEncodeUrlWithoutPadding_7_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_8,"        final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
+        assertEquals(helloWorldTwoLinesEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));",Base64Test::testEncodeUrlWithoutPadding_8_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_9,"        final String helloWorldTwoLinesAndNewLineEncoded = ""SGVsbG8gV29ybGQNClNlY29uZCBMaW5lDQo"";
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));",Base64Test::testEncodeUrlWithoutPadding_9_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_10,"        final String helloWorldDifferentCharsEncoded = ""YDEyMzQ1Njc4OTAtPX4hQCMkJV4mKigpXyvRkdCBIuKEljs6P3F3ZXJ0eXVpb3B""
+        assertEquals(helloWorldDifferentCharsEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));",Base64Test::testEncodeUrlWithoutPadding_10_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_11,"        final String str = ""MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAMPQ5BCMxlUq2TYy""
+        assertEquals(str, commonsCodecBase64.internalEncodeUrlWithoutPadding(bytes));",Base64Test::testEncodeUrlWithoutPadding_11_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_12,"        final String allBytesStr = ""gIGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp-goaKjpKWmp6ipqqusra6vsLGys7S1tre4ubq7vL2""
+        assertEquals(allBytesStr, commonsCodecBase64.internalEncodeUrlWithoutPadding(allBytes));",Base64Test::testEncodeUrlWithoutPadding_12_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_13,"        final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
+        assertEquals(helloWorldEncoded, jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldBytes));",Base64Test::testEncodeUrlWithoutPadding_13_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_14,"        final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
+        assertEquals(helloWorldTwoLinesEncoded, jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));",Base64Test::testEncodeUrlWithoutPadding_14_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_15,"        final String helloWorldTwoLinesAndNewLineEncoded = ""SGVsbG8gV29ybGQNClNlY29uZCBMaW5lDQo"";
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));",Base64Test::testEncodeUrlWithoutPadding_15_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_16,"        final String helloWorldDifferentCharsEncoded = ""YDEyMzQ1Njc4OTAtPX4hQCMkJV4mKigpXyvRkdCBIuKEljs6P3F3ZXJ0eXVpb3B""
+        assertEquals(helloWorldDifferentCharsEncoded,jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));",Base64Test::testEncodeUrlWithoutPadding_16_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_17,"        final String str = ""MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAMPQ5BCMxlUq2TYy""
+        assertEquals(str, jaxbBase64.internalEncodeUrlWithoutPadding(bytes));",Base64Test::testEncodeUrlWithoutPadding_17_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_18,"        final String allBytesStr = ""gIGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp-goaKjpKWmp6ipqqusra6vsLGys7S1tre4ubq7vL2""
+        assertEquals(allBytesStr, jaxbBase64.internalEncodeUrlWithoutPadding(allBytes));",Base64Test::testEncodeUrlWithoutPadding_18_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_19,"        final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
+        assertEquals(helloWorldEncoded, jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldBytes));",Base64Test::testEncodeUrlWithoutPadding_19_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_20,"        final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
+        assertEquals(helloWorldTwoLinesEncoded, jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));",Base64Test::testEncodeUrlWithoutPadding_20_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_21,"        final String helloWorldTwoLinesAndNewLineEncoded = ""SGVsbG8gV29ybGQNClNlY29uZCBMaW5lDQo"";
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));",Base64Test::testEncodeUrlWithoutPadding_21_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_22,"        final String helloWorldDifferentCharsEncoded = ""YDEyMzQ1Njc4OTAtPX4hQCMkJV4mKigpXyvRkdCBIuKEljs6P3F3ZXJ0eXVpb3B""
+        assertEquals(helloWorldDifferentCharsEncoded,jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));",Base64Test::testEncodeUrlWithoutPadding_22_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_23,"        final String str = ""MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAMPQ5BCMxlUq2TYy""
+        assertEquals(str, jaxb230Base64.internalEncodeUrlWithoutPadding(bytes));",Base64Test::testEncodeUrlWithoutPadding_23_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_72_24,"        final String allBytesStr = ""gIGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp-goaKjpKWmp6ipqqusra6vsLGys7S1tre4ubq7vL2""
+        assertEquals(allBytesStr, jaxb230Base64.internalEncodeUrlWithoutPadding(allBytes));",Base64Test::testEncodeUrlWithoutPadding_24_oe,com.github.scribejava.core.base64.Base64,internalEncodeUrlWithoutPadding(byte[] bytes),,protected abstract String internalEncodeUrlWithoutPadding(byte[] bytes);
+scribejava_73_1,"        final String expected = ""1000"";
+        assertEquals(expected, service.getTimestampInSeconds());",TimestampServiceTest::shouldReturnTimestampInSeconds_1_oe,com.github.scribejava.core.services.TimestampService,getTimestampInSeconds(),"/**
+     * Returns the unix epoch timestamp in seconds
+     *
+     * @return timestamp
+     */",String getTimestampInSeconds();
+scribejava_74_1,"        final String expected = ""1042"";
+        assertEquals(expected, service.getNonce());",TimestampServiceTest::shouldReturnNonce_1_oe,com.github.scribejava.core.services.TimestampService,getNonce(),"/**
+     * Returns a nonce (unique value for each request)
+     *
+     * @return nonce
+     */",String getNonce();
+scribejava_75_1,"        final String expected = ""HMAC-SHA1"";
+        assertEquals(expected, service.getSignatureMethod());",HMACSha1SignatureServiceTest::shouldReturnSignatureMethodString_1_oe,com.github.scribejava.core.services.HMACSha1SignatureService,getSignatureMethod(),"/**
+     * {@inheritDoc}
+     */","@Override
+    public String getSignatureMethod() {
+        return METHOD;
+    }"
+scribejava_76_1,"        final String apiSecret = ""api secret"";
+        final String tokenSecret = ""token secret"";
+        final String baseString = ""base string"";
+        final String signature = ""uGymw2KHOTWI699YEaoi5xyLT50="";
+        assertEquals(signature, service.getSignature(baseString, apiSecret, tokenSecret));",HMACSha1SignatureServiceTest::shouldReturnSignature_1_oe,com.github.scribejava.core.oauth.OAuth10aService,"getSignature(OAuthRequest request, String tokenSecret)",,"private String getSignature(OAuthRequest request, String tokenSecret) {
+        log(""generating signature..."");
+        final String baseString = api.getBaseStringExtractor().extract(request);
+        final String signature = api.getSignatureService().getSignature(baseString, getApiSecret(), tokenSecret);
+
+        if (isDebug()) {
+            log(""base string is: %s"", baseString);
+            log(""signature is: %s"", signature);
+        }
+        return signature;
+    }"
+scribejava_77_1,"        final String expected = ""RSA-SHA1"";
+        assertEquals(expected, service.getSignatureMethod());",RSASha1SignatureServiceTest::shouldReturnSignatureMethodString_1_oe,com.github.scribejava.core.services.HMACSha1SignatureService,getSignatureMethod(),"/**
+     * {@inheritDoc}
+     */","@Override
+    public String getSignatureMethod() {
+        return METHOD;
+    }"
+scribejava_78_1,"        final String apiSecret = ""api secret"";
+        final String tokenSecret = ""token secret"";
+        final String baseString = ""base string"";
+        final String signature = ""LUNRzQAlpdNyM9mLXm96Va6g/qVNnEAb7p7K1KM0g8IopOFQJPoOO7cvppgt7w3QyhijWJnCmvqXaaIAGrqvd""
+        assertEquals(signature, service.getSignature(baseString, apiSecret, tokenSecret));",RSASha1SignatureServiceTest::shouldReturnSignature_1_oe,com.github.scribejava.core.oauth.OAuth10aService,"getSignature(OAuthRequest request, String tokenSecret)",,"private String getSignature(OAuthRequest request, String tokenSecret) {
+        log(""generating signature..."");
+        final String baseString = api.getBaseStringExtractor().extract(request);
+        final String signature = api.getSignatureService().getSignature(baseString, getApiSecret(), tokenSecret);
+
+        if (isDebug()) {
+            log(""base string is: %s"", baseString);
+            log(""signature is: %s"", signature);
+        }
+        return signature;
+    }"
+scribejava_80_1,        assertNull(callback.getResponse());,OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_1_oe,com.github.scribejava.core.model.OAuthResponseException,getResponse(),,"public Response getResponse() {
+        return response;
+    }"
+scribejava_80_2,        assertNotNull(callback.getThrowable());,OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_2_oe,com.github.scribejava.httpclient.okhttp.OAuthAsyncCompletionHandler,"void onResponse(Call call, okhttp3.Response okHttpResponse)",,"@Override
+    public void onResponse(Call call, okhttp3.Response okHttpResponse) {
+        try {
+
+            final Response response = OkHttpHttpClient.convertResponse(okHttpResponse);
+            try {
+                @SuppressWarnings(""unchecked"")
+                final T t = converter == null ? (T) response : converter.convert(response);
+                okHttpFuture.setResult(t);
+                if (callback != null) {
+                    callback.onCompleted(t);
+                }
+            } catch (IOException | RuntimeException e) {
+                okHttpFuture.setException(e);
+                if (callback != null) {
+                    callback.onThrowable(e);
+                }
+            }
+        } finally {
+            okHttpFuture.finish();
+        }
+    }"
+scribejava_80_3,        assertTrue(callback.getThrowable() instanceof IOException);,OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_3_oe,com.github.scribejava.httpclient.okhttp.OAuthAsyncCompletionHandler,"void onResponse(Call call, okhttp3.Response okHttpResponse)",,"@Override
+    public void onResponse(Call call, okhttp3.Response okHttpResponse) {
+        try {
+
+            final Response response = OkHttpHttpClient.convertResponse(okHttpResponse);
+            try {
+                @SuppressWarnings(""unchecked"")
+                final T t = converter == null ? (T) response : converter.convert(response);
+                okHttpFuture.setResult(t);
+                if (callback != null) {
+                    callback.onCompleted(t);
+                }
+            } catch (IOException | RuntimeException e) {
+                okHttpFuture.setException(e);
+                if (callback != null) {
+                    callback.onThrowable(e);
+                }
+            }
+        } finally {
+            okHttpFuture.finish();
+        }
+    }"
+scribejava_80_4,"    fail(""ExecutionException"");",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_4_oe,com.github.scribejava.core.httpclient.HttpClient,"execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
+            byte[] bodyContents)",,"Response execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
+            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException;"
+scribejava_81_4,"    fail(""ExecutionException"");",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_4_oe,com.github.scribejava.core.httpclient.HttpClient,"execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
+            byte[] bodyContents)",,"Response execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
+            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException;"
+scribejava_82_1,        assertNull(callback.getResponse());,OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_1_oe,com.github.scribejava.core.model.OAuthResponseException,getResponse(),,"public Response getResponse() {
+        return response;
+    }"
+scribejava_82_2,        assertNotNull(callback.getThrowable());,OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_2_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,cancel(boolean mayInterruptIfRunning),,"@Override
+    public boolean cancel(boolean mayInterruptIfRunning) {
+        return false;
+    }"
+scribejava_82_3,        assertTrue(callback.getThrowable() instanceof IOException);,OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_3_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,cancel(boolean mayInterruptIfRunning),,"@Override
+    public boolean cancel(boolean mayInterruptIfRunning) {
+        return false;
+    }"
+scribejava_82_4,"    fail(""ExecutionException"");",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_4_oe,com.github.scribejava.core.httpclient.HttpClient,"execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
+            byte[] bodyContents)",,"Response execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
+            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException;"
+scribejava_83_1,        assertNull(callback.getResponse());,OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_1_oe,com.github.scribejava.core.model.OAuthResponseException,getResponse(),,"public Response getResponse() {
+        return response;
+    }"
+scribejava_83_2,        assertNotNull(callback.getThrowable());,OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_2_oe,com.github.scribejava.httpclient.okhttp.OAuthAsyncCompletionHandler,"void onFailure(Call call, IOException exception)",,"@Override
+    public void onFailure(Call call, IOException exception) {
+        try {
+            okHttpFuture.setException(exception);
+            if (callback != null) {
+                callback.onThrowable(exception);
+            }
+        } finally {
+            okHttpFuture.finish();
+        }
+    }"
+scribejava_83_3,        assertTrue(callback.getThrowable() instanceof IOException);,OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_3_oe,com.github.scribejava.httpclient.okhttp.OAuthAsyncCompletionHandler,"void onFailure(Call call, IOException exception)",,"@Override
+    public void onFailure(Call call, IOException exception) {
+        try {
+            okHttpFuture.setException(exception);
+            if (callback != null) {
+                callback.onThrowable(exception);
+            }
+        } finally {
+            okHttpFuture.finish();
+        }
+    }"
+scribejava_83_4,"    fail(""ExecutionException"");",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_4_oe,com.github.scribejava.core.httpclient.HttpClient,"execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
+            byte[] bodyContents)",,"Response execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
+            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException;"
+scribejava_90_1,"        final OAuthRequest request = new OAuthRequest(Verb.GET, URL);
+        assertEquals(""96127f5ca29a8351399e94bbd284ab16"", findParam(request.getQueryStringParams(), ""sig""));",OdnoklassnikiServiceTest::testSigGeneration_1_oe,com.github.scribejava.core.model.OAuthRequest,getQueryStringParams(),"/**
+     * Get a {@link ParameterList} with the query string parameters.
+     *
+     * @return a {@link ParameterList} containing the query string parameters.
+     * @throws OAuthException if the request URL is not valid.
+     */","public ParameterList getQueryStringParams() {
+        try {
+            final ParameterList result = new ParameterList();
+            final String queryString = new URL(url).getQuery();
+            result.addQuerystring(queryString);
+            result.addAll(querystringParams);
+            return result;
+        } catch (MalformedURLException mue) {
+            throw new OAuthException(""Malformed URL"", mue);
+        }
+    }"
+scribejava_91_1,"    fail(""OAuth2AccessTokenErrorResponse"");",FitBitJsonTokenExtractorTest::testErrorExtraction_1_oe,com.github.scribejava.core.httpclient.HttpClient,"execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
+            byte[] bodyContents)",,"Response execute(String userAgent, Map<String, String> headers, Verb httpVerb, String completeUrl,
+            byte[] bodyContents) throws InterruptedException, ExecutionException, IOException;"
+scribejava_91_2,"        assertSame(OAuth2Error.INVALID_GRANT, thrown.getError());",FitBitJsonTokenExtractorTest::testErrorExtraction_2_oe,com.github.scribejava.core.model.OAuth2AccessTokenErrorResponse,getError(),,"public OAuth2Error getError() {
+        return error;
+    }"
+scribejava_91_3,"        assertEquals(ERROR_DESCRIPTION, thrown.getErrorDescription());",FitBitJsonTokenExtractorTest::testErrorExtraction_3_oe,com.github.scribejava.core.model.OAuth2AccessTokenErrorResponse,getErrorDescription(),,"public String getErrorDescription() {
+        return errorDescription;
+    }"
+scribejava_27_1,"        final OAuth2AccessToken extracted;
+            extracted = extractor.extract(response);
+        assertEquals(""166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE"",extracted.getAccessToken());",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromOAuthStandardResponse_1_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
+        return accessToken;
+    }"
+scribejava_28_1,"        final OAuth2AccessToken extracted;
+            extracted = extractor.extract(response);
+        assertEquals(""166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE"",extracted.getAccessToken());",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresParam_1_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
+        return accessToken;
+    }"
+scribejava_28_2,"        final OAuth2AccessToken extracted;
+            extracted = extractor.extract(response);
+        assertEquals(Integer.valueOf(5108), extracted.getExpiresIn());",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresParam_2_oe,com.github.scribejava.core.model.OAuth2AccessToken,getExpiresIn(),,"public Integer getExpiresIn() {
+        return expiresIn;
+    }"
+scribejava_29_1,"        final OAuth2AccessToken extracted;
+            extracted = extractor.extract(response);
+        assertEquals(""166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE"",extracted.getAccessToken());",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresAndRefreshParam_1_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
+        return accessToken;
+    }"
+scribejava_29_2,"        final OAuth2AccessToken extracted;
+            extracted = extractor.extract(response);
+        assertEquals(Integer.valueOf(5108), extracted.getExpiresIn());",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresAndRefreshParam_2_oe,com.github.scribejava.core.model.OAuth2AccessToken,getExpiresIn(),,"public Integer getExpiresIn() {
+        return expiresIn;
+    }"
+scribejava_29_3,"        final OAuth2AccessToken extracted;
+            extracted = extractor.extract(response);
+        assertEquals(""bearer"", extracted.getTokenType());",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresAndRefreshParam_3_oe,com.github.scribejava.core.model.OAuth2AccessToken,getTokenType(),,"public String getTokenType() {
+        return tokenType;
+    }"
+scribejava_29_4,"        final OAuth2AccessToken extracted;
+            extracted = extractor.extract(response);
+        assertEquals(""166942940015970"", extracted.getRefreshToken());",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresAndRefreshParam_4_oe,com.github.scribejava.core.model.OAuth2AccessToken,getRefreshToken(),,"public String getRefreshToken() {
+        return refreshToken;
+    }"
+scribejava_30_1,"        final OAuth2AccessToken extracted;
+            extracted = extractor.extract(response);
+        assertEquals(""foo1234"", extracted.getAccessToken());",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithManyParameters_1_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
+        return accessToken;
+    }"
+scribejava_31_1,"        final OAuth1Token extracted;
+            extracted = extractor.extract(response);
+        assertEquals(""hh5s93j4hdidpola"", extracted.getToken());",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromOAuthStandardResponse_1_oe,com.github.scribejava.core.model.OAuth1Token,getToken(),,"public String getToken() {
+        return token;
+    }"
+scribejava_31_2,"        final OAuth1Token extracted;
+            extracted = extractor.extract(response);
+        assertEquals(""hdhd0244k9j7ao03"", extracted.getTokenSecret());",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromOAuthStandardResponse_2_oe,com.github.scribejava.core.model.OAuth1Token,getTokenSecret(),,"public String getTokenSecret() {
+        return tokenSecret;
+    }"
+scribejava_32_1,"        final OAuth1Token extracted;
+            extracted = extractor.extract(response);
+        assertEquals(""hh5s93j4hdidpola"", extracted.getTokenSecret());",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromInvertedOAuthStandardResponse_1_oe,com.github.scribejava.core.model.OAuth1Token,getTokenSecret(),,"public String getTokenSecret() {
+        return tokenSecret;
+    }"
+scribejava_32_2,"        final OAuth1Token extracted;
+            extracted = extractor.extract(response);
+        assertEquals(""hdhd0244k9j7ao03"", extracted.getToken());",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromInvertedOAuthStandardResponse_2_oe,com.github.scribejava.core.model.OAuth1Token,getToken(),,"public String getToken() {
+        return token;
+    }"
+scribejava_33_1,"        final OAuth1Token extracted;
+            extracted = extractor.extract(response);
+        assertEquals(""hh5s93j4hdidpola"", extracted.getToken());",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromResponseWithCallbackConfirmed_1_oe,com.github.scribejava.core.model.OAuth1Token,getToken(),,"public String getToken() {
+        return token;
+    }"
+scribejava_33_2,"        final OAuth1Token extracted;
+            extracted = extractor.extract(response);
+        assertEquals(""hdhd0244k9j7ao03"", extracted.getTokenSecret());",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromResponseWithCallbackConfirmed_2_oe,com.github.scribejava.core.model.OAuth1Token,getTokenSecret(),,"public String getTokenSecret() {
+        return tokenSecret;
+    }"
+scribejava_34_1,"        final OAuth1Token extracted;
+            extracted = extractor.extract(response);
+        assertEquals(""hh5s93j4hdidpola"", extracted.getToken());",OAuth1AccessTokenExtractorTest::shouldExtractTokenWithEmptySecret_1_oe,com.github.scribejava.core.model.OAuth1Token,getToken(),,"public String getToken() {
+        return token;
+    }"
+scribejava_34_2,"        final OAuth1Token extracted;
+            extracted = extractor.extract(response);
+        assertEquals("""", extracted.getTokenSecret());",OAuth1AccessTokenExtractorTest::shouldExtractTokenWithEmptySecret_2_oe,com.github.scribejava.core.model.OAuth1Token,getTokenSecret(),,"public String getTokenSecret() {
+        return tokenSecret;
+    }"
+scribejava_35_1,"        final OAuth2AccessToken token;
+            token = extractor.extract(response);
+        assertEquals(""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T3X"", token.getAccessToken());",OAuth2AccessTokenJsonExtractorTest::shouldParseResponse_1_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
+        return accessToken;
+    }"
+scribejava_36_1,"        final OAuth2AccessToken token;
+            token = extractor.extract(response);
+        assertEquals(""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X"", token.getAccessToken());",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_1_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
+        return accessToken;
+    }"
+scribejava_36_2,"        final OAuth2AccessToken token;
+            token = extractor.extract(response);
+        assertEquals(""s1"", token.getScope());",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_2_oe,com.github.scribejava.core.model.OAuth2AccessToken,getScope(),,"public String getScope() {
+        return scope;
+    }"
+scribejava_36_3,"        final OAuth2AccessToken token2;
+            token2 = extractor.extract(response);
+        assertEquals(""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T5X"", token2.getAccessToken());",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_3_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
+        return accessToken;
+    }"
+scribejava_36_4,"        final OAuth2AccessToken token2;
+            token2 = extractor.extract(response);
+        assertEquals(""s1 s2"", token2.getScope());",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_4_oe,com.github.scribejava.core.model.OAuth2AccessToken,getScope(),,"public String getScope() {
+        return scope;
+    }"
+scribejava_36_5,"        final OAuth2AccessToken token3;
+            token3 = extractor.extract(response);
+        assertEquals(""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T6X"", token3.getAccessToken());",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_5_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
+        return accessToken;
+    }"
+scribejava_36_6,"        final OAuth2AccessToken token3;
+            token3 = extractor.extract(response);
+        assertEquals(""s3 s4"", token3.getScope());",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_6_oe,com.github.scribejava.core.model.OAuth2AccessToken,getScope(),,"public String getScope() {
+        return scope;
+    }"
+scribejava_36_7,"        final OAuth2AccessToken token3;
+            token3 = extractor.extract(response);
+        assertEquals(""refresh_token1"", token3.getRefreshToken());",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_7_oe,com.github.scribejava.core.model.OAuth2AccessToken,getRefreshToken(),,"public String getRefreshToken() {
+        return refreshToken;
+    }"
+scribejava_38_1,"        final OAuth2AccessToken token;
+            token = extractor.extract(response);
+        assertEquals(""I0122HKLEM2/MV3ABKFTDT3T5X"", token.getAccessToken());",OAuth2AccessTokenJsonExtractorTest::testEscapedJsonInResponse_1_oe,com.github.scribejava.core.model.OAuth2AccessToken,getAccessToken(),,"public String getAccessToken() {
+        return accessToken;
+    }"
+scribejava_left_59_1,"            final OAuth2AccessTokenErrorResponse oaer = assertThrows(OAuth2AccessTokenErrorResponse.class, new ThrowingRunnable() { @Override public void run() throws Throwable { extractor.extract(response); } });",OAuth2AccessTokenJsonExtractorTest::shouldThrowExceptionIfResponseIsError_1_oe,com.github.scribejava.core.extractors.TokenExtractor,extract(Response response),"/**
+     * Extracts the concrete type of token from the contents of an Http Response
+     *
+     * @param response the whole response
+     * @return OAuth access token
+     * @throws java.io.IOException in case of troubles while getting body from the response
+     */","T extract(Response response) throws IOException, OAuthException;"

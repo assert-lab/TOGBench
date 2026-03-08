@@ -1,0 +1,51 @@
+id,test_prefix,test_name
+jsoup_398,"@Test
+    public void chompBalancedThrowIllegalArgumentException_oe() {
+        try {
+            TokenQueue tq = new TokenQueue(""unbalanced(something(or another)) else"");
+            tq.consumeTo(""("");
+            tq.chompBalanced('(', '+');
+            fail(""should have thrown IllegalArgumentException"");
+        } catch (IllegalArgumentException expected) {
+            assertEquals(""Did not find balanced marker at 'something(or another)) else'"", expected.getMessage());
+        }
+    }",TokenQueueTest::chompBalancedThrowIllegalArgumentException_oe
+jsoup_657,"@Test
+    public void testChildThrowsIndexOutOfBoundsOnMissing_oe() {
+        Document doc = Jsoup.parse(""<div><p>One</p><p>Two</p></div>"");
+        Element div = doc.select(""div"").first();
+
+        assertEquals(2, div.children().size());
+        assertEquals(""One"", div.child(0).text());
+
+        try {
+            div.child(3);
+            fail(""Should throw index out of bounds"");
+        } catch (IndexOutOfBoundsException e) {
+        }
+    }",ElementTest::testChildThrowsIndexOutOfBoundsOnMissing_oe
+jsoup_659,"@Test
+    public void insertChildrenArgumentValidation_oe() {
+        Document doc = Jsoup.parse(""<div id=1>Text <p>One</p> Text <p>Two</p></div><div id=2></div>"");
+        Element div1 = doc.select(""div"").get(0);
+        Element div2 = doc.select(""div"").get(1);
+        List<Node> children = div1.childNodes();
+
+        try {
+            div2.insertChildren(6, children);
+            fail();
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            div2.insertChildren(-5, children);
+            fail();
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            div2.insertChildren(0, (Collection<? extends Node>) null);
+            fail();
+        } catch (IllegalArgumentException e) {
+        }
+    }",ElementTest::insertChildrenArgumentValidation_oe

@@ -113,12 +113,15 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
     @Test
     public void testAcceptCannotRead_2_oe() throws FileSystemException {
 
+        // removed other assertion
         Assert.assertFalse(CanReadFileFilter.CANNOT_READ.accept(readOnlyFileInfo));
     }
 
     @Test
     public void testAcceptCannotRead_3_oe() throws FileSystemException {
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(CanReadFileFilter.CANNOT_READ.accept(notExistingFileInfo));
     }
 
@@ -131,12 +134,15 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
     @Test
     public void testAcceptCanRead_2_oe() throws FileSystemException {
 
+        // removed other assertion
         Assert.assertTrue(CanReadFileFilter.CAN_READ.accept(readOnlyFileInfo));
     }
 
     @Test
     public void testAcceptCanRead_3_oe() throws FileSystemException {
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(CanReadFileFilter.CAN_READ.accept(notExistingFileInfo));
     }
 
@@ -149,12 +155,15 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
     @Test
     public void testAcceptReadOnly_2_oe() throws FileSystemException {
 
+        // removed other assertion
         Assert.assertTrue(CanReadFileFilter.READ_ONLY.accept(readOnlyFileInfo));
     }
 
     @Test
     public void testAcceptReadOnly_3_oe() throws FileSystemException {
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(CanReadFileFilter.READ_ONLY.accept(notExistingFileInfo));
     }
 
@@ -163,7 +172,9 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
 
         FileObject[] files;
 
+        // CAN_READ Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CAN_READ));
+        // removed other assertion
         Assert.assertEquals(2, files.length);
     }
 
@@ -172,8 +183,12 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
 
         FileObject[] files;
 
+        // CAN_READ Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CAN_READ));
+        // removed other assertion
+        // removed other assertion
 
+        // CANNOT_READ Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CANNOT_READ));
         Assert.assertTrue(files == null || files.length == 0);
     }
@@ -183,11 +198,18 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
 
         FileObject[] files;
 
+        // CAN_READ Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CAN_READ));
+        // removed other assertion
+        // removed other assertion
 
+        // CANNOT_READ Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CANNOT_READ));
+        // removed other assertion
 
+        // READ_ONLY Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.READ_ONLY));
+        // removed other assertion
         Assert.assertEquals(2, files.length);
     }
 
@@ -196,6 +218,7 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
 
         FileObject[] files;
 
+        // CAN_READ Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CAN_READ));
         assertContains(files, READONLY, WRITABLE);
     }
@@ -205,10 +228,16 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
 
         FileObject[] files;
 
+        // CAN_READ Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CAN_READ));
+        // removed other assertion
+        // removed other assertion
 
+        // CANNOT_READ Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CANNOT_READ));
+        // removed other assertion
 
+        // READ_ONLY Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.READ_ONLY));
         assertContains(files, READONLY, WRITABLE);
     }

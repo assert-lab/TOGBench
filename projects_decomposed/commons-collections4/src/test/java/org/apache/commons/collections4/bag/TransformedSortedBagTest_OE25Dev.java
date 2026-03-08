@@ -48,6 +48,36 @@ public class TransformedSortedBagTest_OE25Dev<T> extends AbstractSortedBagTest<T
         return TransformedSortedBag.transformingSortedBag(new TreeBag<T>(), (Transformer<T, T>) TransformedCollectionTest.NOOP_TRANSFORMER);
     }
 
+    @SuppressWarnings("unchecked")
+    public void testTransformedBag() {
+        final SortedBag<T> bag = TransformedSortedBag.transformingSortedBag(new TreeBag<T>(), (Transformer<T, T>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(0, bag.size());
+        final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
+        for (int i = 0; i < els.length; i++) {
+            bag.add((T) els[i]);
+            assertEquals(i + 1, bag.size());
+            assertEquals(true, bag.contains(Integer.valueOf((String) els[i])));
+        }
+
+        assertEquals(true, bag.remove(Integer.valueOf((String) els[0])));
+
+    }
+
+    public void testTransformedBag_decorateTransform() {
+        final Bag<Object> originalBag = new TreeBag<>();
+        final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
+        for (final Object el : els) {
+            originalBag.add(el);
+        }
+        final Bag<?> bag = TransformedBag.transformedBag(originalBag, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(els.length, bag.size());
+        for (final Object el : els) {
+            assertEquals(true, bag.contains(Integer.valueOf((String) el)));
+        }
+
+        assertEquals(true, bag.remove(Integer.valueOf((String) els[0])));
+    }
+
     @Override
     public String getCompatibilityVersion() {
         return "4";

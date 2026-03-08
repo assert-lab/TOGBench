@@ -30,6 +30,7 @@ public class FuzzFixesTest_OE25Dev {
 
     @Test
     public void blankAbsAttr_1_oe() {
+        // https://github.com/jhy/jsoup/issues/1541
         String html = "b<bodY abs: abs:abs: abs:abs:abs>";
         Document doc = Jsoup.parse(html);
         assertNotNull(doc);
@@ -37,6 +38,7 @@ public class FuzzFixesTest_OE25Dev {
 
     @Test
     public void bookmark_1_oe() {
+        // https://github.com/jhy/jsoup/issues/1576
         String html = "<?a<U<P<A ";
         Document doc = Jsoup.parse(html);
         assertNotNull(doc);
@@ -44,8 +46,10 @@ public class FuzzFixesTest_OE25Dev {
 
     @Test
     public void bookmark_2_oe() {
+        // https://github.com/jhy/jsoup/issues/1576
         String html = "<?a<U<P<A ";
         Document doc = Jsoup.parse(html);
+        // removed other assertion
 
         Document xmlDoc = Parser.xmlParser().parseInput(html, "");
         assertNotNull(xmlDoc);

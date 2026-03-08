@@ -36,6 +36,7 @@ public class TestImageReadException_OE25Dev {
     @Test
     public void testCreateExceptionWithMessage_2_oe() {
         final ImageReadException exception = new ImageReadException("imaging");
+        // removed other assertion
         assertNull(exception.getCause());
     }
 
@@ -48,6 +49,7 @@ public class TestImageReadException_OE25Dev {
     @Test
     public void testCreateExceptionWithMessageAndCause_2_oe() {
         final ImageReadException exception = new ImageReadException("imaging", new Exception("cause"));
+        // removed other assertion
         assertNotNull(exception.getCause());
     }
 

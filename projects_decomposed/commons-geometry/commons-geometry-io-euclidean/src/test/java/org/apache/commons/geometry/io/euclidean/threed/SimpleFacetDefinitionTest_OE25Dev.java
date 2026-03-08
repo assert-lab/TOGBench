@@ -47,22 +47,31 @@ class SimpleFacetDefinitionTest_OE25Dev {
 
     @Test
     void testProperties_verticesOnly_1_oe() {
+        // act
         final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS));
 
+        // assert
         Assertions.assertEquals(FACET_PTS, f.getVertices());
     }
 
     @Test
     void testProperties_verticesOnly_2_oe() {
+        // act
         final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS));
 
+        // assert
+        // removed other assertion
         Assertions.assertNotSame(FACET_PTS, f.getVertices());
     }
 
     @Test
     void testProperties_verticesOnly_3_oe() {
+        // act
         final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         final List<Vector3D> vertices = f.getVertices();
         final Vector3D toAdd = FACET_PTS.get(0);
@@ -75,39 +84,56 @@ class SimpleFacetDefinitionTest_OE25Dev {
 
     @Test
     void testProperties_verticesOnly_4_oe() {
+        // act
         final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         final List<Vector3D> vertices = f.getVertices();
         final Vector3D toAdd = FACET_PTS.get(0);
+        // removed other assertion
 
         Assertions.assertNull(f.getNormal());
     }
 
     @Test
     void testProperties_verticesAndNormal_1_oe() {
+        // arrange
         final Vector3D normal = Vector3D.ZERO; // invalid normal is accepted
 
+        // act
         final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS), normal);
 
+        // assert
         Assertions.assertEquals(FACET_PTS, f.getVertices());
     }
 
     @Test
     void testProperties_verticesAndNormal_2_oe() {
+        // arrange
         final Vector3D normal = Vector3D.ZERO; // invalid normal is accepted
 
+        // act
         final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS), normal);
 
+        // assert
+        // removed other assertion
         Assertions.assertNotSame(FACET_PTS, f.getVertices());
     }
 
     @Test
     void testProperties_verticesAndNormal_3_oe() {
+        // arrange
         final Vector3D normal = Vector3D.ZERO; // invalid normal is accepted
 
+        // act
         final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS), normal);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         final List<Vector3D> vertices = f.getVertices();
         final Vector3D toAdd = FACET_PTS.get(0);
@@ -120,65 +146,101 @@ class SimpleFacetDefinitionTest_OE25Dev {
 
     @Test
     void testProperties_verticesAndNormal_4_oe() {
+        // arrange
         final Vector3D normal = Vector3D.ZERO; // invalid normal is accepted
 
+        // act
         final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS), normal);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         final List<Vector3D> vertices = f.getVertices();
         final Vector3D toAdd = FACET_PTS.get(0);
+        // removed other assertion
 
         Assertions.assertSame(normal, f.getNormal());
     }
 
 @Test
     void testCtor_invalidArgs_1_oe() {
+        // arrange
         final Vector3D normal = Vector3D.ZERO;
         final List<Vector3D> invalid = Arrays.asList(Vector3D.ZERO, Vector3D.Unit.PLUS_X);
 
         final String verticesNull = "Facet vertex list cannot be null";
         final String vertexCountMsg = "Facet vertex list must contain at least 3 points; found 2";
 
-        GeometryTestUtils.assertThrowsWithMessage( () -> new SimpleFacetDefinition(null), NullPointerException.class, verticesNull);
+        // act/assert
+        try {
+    new SimpleFacetDefinition(null);
+    fail("Expected NullPointerException with message: " + verticesNull);
+} catch (NullPointerException e) {
+}
     }
 
 @Test
     void testCtor_invalidArgs_2_oe() {
+        // arrange
         final Vector3D normal = Vector3D.ZERO;
         final List<Vector3D> invalid = Arrays.asList(Vector3D.ZERO, Vector3D.Unit.PLUS_X);
 
         final String verticesNull = "Facet vertex list cannot be null";
         final String vertexCountMsg = "Facet vertex list must contain at least 3 points; found 2";
 
+        // act/assert
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage( () -> new SimpleFacetDefinition(null, normal), NullPointerException.class, verticesNull);
+        try {
+    new SimpleFacetDefinition(null, normal);
+    fail("Expected NullPointerException with message: " + verticesNull);
+} catch (NullPointerException e) {
+}
     }
 
 @Test
     void testCtor_invalidArgs_3_oe() {
+        // arrange
         final Vector3D normal = Vector3D.ZERO;
         final List<Vector3D> invalid = Arrays.asList(Vector3D.ZERO, Vector3D.Unit.PLUS_X);
 
         final String verticesNull = "Facet vertex list cannot be null";
         final String vertexCountMsg = "Facet vertex list must contain at least 3 points; found 2";
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage( () -> new SimpleFacetDefinition(invalid), IllegalArgumentException.class, vertexCountMsg);
+        try {
+    new SimpleFacetDefinition(invalid);
+    fail("Expected IllegalArgumentException with message: " + vertexCountMsg);
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testCtor_invalidArgs_4_oe() {
+        // arrange
         final Vector3D normal = Vector3D.ZERO;
         final List<Vector3D> invalid = Arrays.asList(Vector3D.ZERO, Vector3D.Unit.PLUS_X);
 
         final String verticesNull = "Facet vertex list cannot be null";
         final String vertexCountMsg = "Facet vertex list must contain at least 3 points; found 2";
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage( () -> new SimpleFacetDefinition(invalid, normal), IllegalArgumentException.class, vertexCountMsg);
+        try {
+    new SimpleFacetDefinition(invalid, normal);
+    fail("Expected IllegalArgumentException with message: " + vertexCountMsg);
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

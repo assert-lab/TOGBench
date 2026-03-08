@@ -255,6 +255,7 @@ public class ProxyTest_OE25Dev extends AbstractBasicTest {
   @Test
   public void testNonProxyHost_1_oe() {
 
+    // // should avoid, it's in non-proxy hosts
     Request req = get("http://somewhere.com/foo").build();
     ProxyServer proxyServer = proxyServer("localhost", 1234).setNonProxyHost("somewhere.com").build();
     assertTrue(proxyServer.isIgnoredForHost(req.getUri().getHost()));
@@ -263,8 +264,12 @@ public class ProxyTest_OE25Dev extends AbstractBasicTest {
   @Test
   public void testNonProxyHost_2_oe() {
 
+    // // should avoid, it's in non-proxy hosts
     Request req = get("http://somewhere.com/foo").build();
     ProxyServer proxyServer = proxyServer("localhost", 1234).setNonProxyHost("somewhere.com").build();
+    // removed other assertion
+    //
+    // // should avoid, it's in non-proxy hosts (with "*")
     req = get("http://sub.somewhere.com/foo").build();
     proxyServer = proxyServer("localhost", 1234).setNonProxyHost("*.somewhere.com").build();
     assertTrue(proxyServer.isIgnoredForHost(req.getUri().getHost()));
@@ -273,11 +278,17 @@ public class ProxyTest_OE25Dev extends AbstractBasicTest {
   @Test
   public void testNonProxyHost_3_oe() {
 
+    // // should avoid, it's in non-proxy hosts
     Request req = get("http://somewhere.com/foo").build();
     ProxyServer proxyServer = proxyServer("localhost", 1234).setNonProxyHost("somewhere.com").build();
+    // removed other assertion
+    //
+    // // should avoid, it's in non-proxy hosts (with "*")
     req = get("http://sub.somewhere.com/foo").build();
     proxyServer = proxyServer("localhost", 1234).setNonProxyHost("*.somewhere.com").build();
+    // removed other assertion
 
+    // should use it
     req = get("http://sub.somewhere.com/foo").build();
     proxyServer = proxyServer("localhost", 1234).setNonProxyHost("*.somewhere.com").build();
     assertTrue(proxyServer.isIgnoredForHost(req.getUri().getHost()));
@@ -292,6 +303,7 @@ public class ProxyTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient client = asyncHttpClient(config().setProxyServer(configProxy))) {
       String target = "http://localhost:1234/";
       client.prepareGet(target).setProxyServer(requestProxy).execute().get();
+      // removed other assertion
     } catch (Throwable e) {
       assertNotNull(e.getCause());
   }
@@ -306,7 +318,9 @@ public class ProxyTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient client = asyncHttpClient(config().setProxyServer(configProxy))) {
       String target = "http://localhost:1234/";
       client.prepareGet(target).setProxyServer(requestProxy).execute().get();
+      // removed other assertion
     } catch (Throwable e) {
+      // removed other assertion
       assertEquals(e.getCause().getClass(), ConnectException.class);
   }
   }
@@ -327,6 +341,7 @@ public class ProxyTest_OE25Dev extends AbstractBasicTest {
       String target = "http://localhost:1234/";
       Future<Response> f = client.prepareGet(target).setProxyServer(proxyServer("localhost", port1)).execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -337,6 +352,8 @@ public class ProxyTest_OE25Dev extends AbstractBasicTest {
       String target = "http://localhost:1234/";
       Future<Response> f = client.prepareGet(target).setProxyServer(proxyServer("localhost", port1)).execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getHeader("target"), "/");
   }
   }
@@ -357,6 +374,7 @@ public class ProxyTest_OE25Dev extends AbstractBasicTest {
       String target = "http://localhost:1234/";
       Future<Response> f = client.prepareGet(target).execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -367,6 +385,8 @@ public class ProxyTest_OE25Dev extends AbstractBasicTest {
       String target = "http://localhost:1234/";
       Future<Response> f = client.prepareGet(target).execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getHeader("target"), "/");
   }
   }
@@ -387,6 +407,7 @@ public class ProxyTest_OE25Dev extends AbstractBasicTest {
       String target = "http://localhost:1234/";
       Future<Response> f = client.prepareGet(target).setProxyServer(proxyServer("localhost", port1)).execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -397,6 +418,8 @@ public class ProxyTest_OE25Dev extends AbstractBasicTest {
       String target = "http://localhost:1234/";
       Future<Response> f = client.prepareGet(target).setProxyServer(proxyServer("localhost", port1)).execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getHeader("target"), "/");
   }
   }
@@ -421,6 +444,7 @@ public class ProxyTest_OE25Dev extends AbstractBasicTest {
       String target = "http://localhost:" + port1 + "/";
       Future<Response> f = client.prepareGet(target).setProxyServer(proxy).execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -433,6 +457,8 @@ public class ProxyTest_OE25Dev extends AbstractBasicTest {
       String target = "http://localhost:" + port1 + "/";
       Future<Response> f = client.prepareGet(target).setProxyServer(proxy).execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getHeader("target"), "/");
   }
   }

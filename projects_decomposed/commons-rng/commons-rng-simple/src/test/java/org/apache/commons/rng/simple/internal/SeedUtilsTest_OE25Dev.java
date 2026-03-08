@@ -65,6 +65,7 @@ class SeedUtilsTest_OE25Dev {
             int observed = 0;
             for (int j = 0; j < 8; j++) {
                  int digit = sample & 0xf;
+                // removed other assertion
                 observed |= 1 << digit;
                 samples[j][digit]++;
                 sample >>>= 4;
@@ -74,6 +75,7 @@ class SeedUtilsTest_OE25Dev {
          ChiSquareTest chiSquareTest = new ChiSquareTest();
          double[] expected = new double[16];
         Arrays.fill(expected, 1.0 / 16);
+        // Pass if we cannot reject null hypothesis that distributions are the same.
         for (int j = 0; j < 8; j++) {
             Assertions.assertFalse(chiSquareTest.chiSquareTest(expected,samples[j],0.001),"Not uniform in digit " + j);
     }
@@ -85,6 +87,7 @@ class SeedUtilsTest_OE25Dev {
          long[][] samples = new long[16][16];
         for (int i = 0; i < 1000; i++) {
             long sample = SeedUtils.createLongHexPermutation(rng);
+            // Check lower 32-bits
             long observed = 0;
             for (int j = 0; j < 8; j++) {
                  int digit = (int) (sample & 0xfL);
@@ -99,13 +102,16 @@ class SeedUtilsTest_OE25Dev {
          long[][] samples = new long[16][16];
         for (int i = 0; i < 1000; i++) {
             long sample = SeedUtils.createLongHexPermutation(rng);
+            // Check lower 32-bits
             long observed = 0;
             for (int j = 0; j < 8; j++) {
                  int digit = (int) (sample & 0xfL);
+                // removed other assertion
                 observed |= 1 << digit;
                 samples[j][digit]++;
                 sample >>>= 4;
             }
+            // Check upper 32-bits
             observed = 0;
             for (int j = 8; j < 16; j++) {
                  int digit = (int) (sample & 0xfL);
@@ -120,16 +126,20 @@ class SeedUtilsTest_OE25Dev {
          long[][] samples = new long[16][16];
         for (int i = 0; i < 1000; i++) {
             long sample = SeedUtils.createLongHexPermutation(rng);
+            // Check lower 32-bits
             long observed = 0;
             for (int j = 0; j < 8; j++) {
                  int digit = (int) (sample & 0xfL);
+                // removed other assertion
                 observed |= 1 << digit;
                 samples[j][digit]++;
                 sample >>>= 4;
             }
+            // Check upper 32-bits
             observed = 0;
             for (int j = 8; j < 16; j++) {
                  int digit = (int) (sample & 0xfL);
+                // removed other assertion
                 observed |= 1 << digit;
                 samples[j][digit]++;
                 sample >>>= 4;
@@ -139,6 +149,7 @@ class SeedUtilsTest_OE25Dev {
          ChiSquareTest chiSquareTest = new ChiSquareTest();
          double[] expected = new double[16];
         Arrays.fill(expected, 1.0 / 16);
+        // Pass if we cannot reject null hypothesis that distributions are the same.
         for (int j = 0; j < 16; j++) {
             Assertions.assertFalse(chiSquareTest.chiSquareTest(expected,samples[j],0.001),"Not uniform in digit " + j);
     }

@@ -85,6 +85,7 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
       Future<Response> future = client.post(new InputStreamBodyGenerator(new ByteArrayInputStream(MY_MESSAGE.getBytes())));
 
       Response response = future.get();
+      // removed other assertion
       assertEquals(response.getResponseBody(), MY_MESSAGE);
   }
   }
@@ -119,6 +120,7 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
       Future<Response> future = client.post(new InputStreamBodyGenerator(new ByteArrayInputStream(MY_MESSAGE.getBytes())), new AppendableBodyConsumer(s));
 
       Response response = future.get();
+      // removed other assertion
       assertEquals(s.toString(), MY_MESSAGE);
   }
   }
@@ -151,6 +153,7 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
       Future<Response> future = client.post(new InputStreamBodyGenerator(new ByteArrayInputStream(MY_MESSAGE.getBytes())), new OutputStreamBodyConsumer(o));
 
       Response response = future.get();
+      // removed other assertion
       assertEquals(o.toString(), MY_MESSAGE);
   }
   }
@@ -175,6 +178,7 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
       Future<Response> future = client.post(new InputStreamBodyGenerator(new ByteArrayInputStream(MY_MESSAGE.getBytes())), new OutputStreamBodyConsumer(o));
 
       Response response = future.get();
+      // removed other assertion
       assertEquals(o.toString(), MY_MESSAGE);
   }
   }
@@ -239,6 +243,7 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
         Future<Response> future = derived.post(generator, consumer);
 
         Response response = future.get();
+        // removed other assertion
         assertEquals(o.toString(), MY_MESSAGE);
   }
   }
@@ -253,6 +258,8 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
 
       public void onStatus(Uri uri, int statusCode, String statusText) {
         try {
+          // removed other assertion
+          // removed other assertion
         } catch (Error e) {
           errors.add(e);
           throw e;
@@ -261,6 +268,10 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
 
       public void onHeaders(Uri uri, HttpHeaders headers) {
         try {
+          // removed other assertion
+          // removed other assertion
+          // removed other assertion
+          // removed other assertion
         } catch (Error e) {
           errors.add(e);
           throw e;
@@ -269,6 +280,8 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
 
       public void onCompleted(Uri uri, int statusCode, String statusText) {
         try {
+          // removed other assertion
+          // removed other assertion
         } catch (Error e) {
           errors.add(e);
           throw e;
@@ -277,6 +290,10 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
 
       public void onBytesSent(Uri uri, long amount, long current, long total) {
         try {
+          // removed other assertion
+          // FIXME Netty bug, see
+          // https://github.com/netty/netty/issues/1855
+          // assertEquals(total, MY_MESSAGE.getBytes().length);
         } catch (Error e) {
           errors.add(e);
           throw e;
@@ -285,6 +302,8 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
 
       public void onBytesReceived(Uri uri, long amount, long current, long total) {
         try {
+          // removed other assertion
+          // removed other assertion
         } catch (Error e) {
           errors.add(e);
           throw e;
@@ -325,6 +344,8 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
 
       public void onStatus(Uri uri, int statusCode, String statusText) {
         try {
+          // removed other assertion
+          // removed other assertion
         } catch (Error e) {
           errors.add(e);
           throw e;
@@ -333,6 +354,10 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
 
       public void onHeaders(Uri uri, HttpHeaders headers) {
         try {
+          // removed other assertion
+          // removed other assertion
+          // removed other assertion
+          // removed other assertion
         } catch (Error e) {
           errors.add(e);
           throw e;
@@ -341,6 +366,8 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
 
       public void onCompleted(Uri uri, int statusCode, String statusText) {
         try {
+          // removed other assertion
+          // removed other assertion
         } catch (Error e) {
           errors.add(e);
           throw e;
@@ -349,6 +376,10 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
 
       public void onBytesSent(Uri uri, long amount, long current, long total) {
         try {
+          // removed other assertion
+          // FIXME Netty bug, see
+          // https://github.com/netty/netty/issues/1855
+          // assertEquals(total, MY_MESSAGE.getBytes().length);
         } catch (Error e) {
           errors.add(e);
           throw e;
@@ -357,6 +388,8 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
 
       public void onBytesReceived(Uri uri, long amount, long current, long total) {
         try {
+          // removed other assertion
+          // removed other assertion
         } catch (Error e) {
           errors.add(e);
           throw e;
@@ -384,6 +417,7 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
         throw errors.get(0);
       }
 
+      // removed other assertion
       assertEquals(o.toString(), MY_MESSAGE);
   }
   }
@@ -428,6 +462,7 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
       String body = response.getResponseBody();
       String contentType = response.getHeader("X-Content-Type");
 
+      // removed other assertion
 
       String boundary = contentType.substring(contentType.lastIndexOf("=") + 1);
 
@@ -443,9 +478,11 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
       String body = response.getResponseBody();
       String contentType = response.getHeader("X-Content-Type");
 
+      // removed other assertion
 
       String boundary = contentType.substring(contentType.lastIndexOf("=") + 1);
 
+      // removed other assertion
       assertTrue(body.trim().endsWith("--" + boundary + "--"));
   }
   }
@@ -458,9 +495,12 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
       String body = response.getResponseBody();
       String contentType = response.getHeader("X-Content-Type");
 
+      // removed other assertion
 
       String boundary = contentType.substring(contentType.lastIndexOf("=") + 1);
 
+      // removed other assertion
+      // removed other assertion
       assertTrue(body.contains("Content-Disposition:"));
   }
   }
@@ -473,9 +513,13 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
       String body = response.getResponseBody();
       String contentType = response.getHeader("X-Content-Type");
 
+      // removed other assertion
 
       String boundary = contentType.substring(contentType.lastIndexOf("=") + 1);
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertTrue(body.contains("Content-Type: application/test"));
   }
   }
@@ -488,9 +532,14 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
       String body = response.getResponseBody();
       String contentType = response.getHeader("X-Content-Type");
 
+      // removed other assertion
 
       String boundary = contentType.substring(contentType.lastIndexOf("=") + 1);
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertTrue(body.contains("name=\"baPart"));
   }
   }
@@ -503,9 +552,15 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
       String body = response.getResponseBody();
       String contentType = response.getHeader("X-Content-Type");
 
+      // removed other assertion
 
       String boundary = contentType.substring(contentType.lastIndexOf("=") + 1);
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertTrue(body.contains("filename=\"fileName"));
   }
   }
@@ -530,6 +585,7 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
       String body = response.getResponseBody();
       String contentType = response.getHeader("X-Content-Type");
 
+      // removed other assertion
 
       String boundary = contentType.substring(contentType.lastIndexOf("=") + 1);
 
@@ -545,9 +601,11 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
       String body = response.getResponseBody();
       String contentType = response.getHeader("X-Content-Type");
 
+      // removed other assertion
 
       String boundary = contentType.substring(contentType.lastIndexOf("=") + 1);
 
+      // removed other assertion
       assertTrue(body.trim().endsWith("--" + boundary + "--"));
   }
   }
@@ -560,9 +618,12 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
       String body = response.getResponseBody();
       String contentType = response.getHeader("X-Content-Type");
 
+      // removed other assertion
 
       String boundary = contentType.substring(contentType.lastIndexOf("=") + 1);
 
+      // removed other assertion
+      // removed other assertion
       assertTrue(body.contains("Content-Disposition:"));
   }
   }
@@ -575,9 +636,13 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
       String body = response.getResponseBody();
       String contentType = response.getHeader("X-Content-Type");
 
+      // removed other assertion
 
       String boundary = contentType.substring(contentType.lastIndexOf("=") + 1);
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertTrue(body.contains("Content-Type: application/test"));
   }
   }
@@ -590,9 +655,14 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
       String body = response.getResponseBody();
       String contentType = response.getHeader("X-Content-Type");
 
+      // removed other assertion
 
       String boundary = contentType.substring(contentType.lastIndexOf("=") + 1);
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertTrue(body.contains("name=\"baPart"));
   }
   }
@@ -605,9 +675,15 @@ public class SimpleAsyncHttpClientTest_OE25Dev extends AbstractBasicTest {
       String body = response.getResponseBody();
       String contentType = response.getHeader("X-Content-Type");
 
+      // removed other assertion
 
       String boundary = contentType.substring(contentType.lastIndexOf("=") + 1);
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertTrue(body.contains("filename=\"fileName"));
   }
   }

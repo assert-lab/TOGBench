@@ -417,14 +417,19 @@ class MarsagliaTsangWangDiscreteSamplerTest_OE25Dev {
 
     @Test
     void testOffsetSamples_1_oe() {
+        // This is filled with probabilities to hit all edge cases in the fill procedure.
+        // The probabilities must have a digit from each of the 5 possible.
          int[] prob = new int[6];
         prob[0] = 1;
         prob[1] = 1 + 1 << 6;
         prob[2] = 1 + 1 << 12;
         prob[3] = 1 + 1 << 18;
         prob[4] = 1 + 1 << 24;
+        // Ensure probabilities sum to 2^30
         prob[5] = (1 << 30) - (prob[0] + prob[1] + prob[2] + prob[3] + prob[4]);
 
+        // To hit all samples requires integers that are under the look-up table limits.
+        // So compute the limits here.
         int n1 = 0;
         int n2 = 0;
         int n3 = 0;
@@ -441,6 +446,7 @@ class MarsagliaTsangWangDiscreteSamplerTest_OE25Dev {
          int t3 = t2 + (n3 << 12);
          int t4 = t3 + (n4 << 6);
 
+        // Create values under the limits and bit shift by 2 to reverse what the sampler does.
          int[] values = new int[] {0, t1, t2, t3, t4, 0xffffffff};
         for (int i = 0; i < values.length; i++) {
             values[i] <<= 2;
@@ -450,6 +456,7 @@ class MarsagliaTsangWangDiscreteSamplerTest_OE25Dev {
          UniformRandomProvider rng2 = new FixedSequenceIntProvider(values);
          UniformRandomProvider rng3 = new FixedSequenceIntProvider(values);
 
+        // Create offsets to force storage as 8, 16, or 32-bit
          int offset1 = 1;
          int offset2 = 1 << 8;
          int offset3 = 1 << 16;
@@ -463,6 +470,7 @@ class MarsagliaTsangWangDiscreteSamplerTest_OE25Dev {
          SharedStateDiscreteSampler sampler3 = MarsagliaTsangWangDiscreteSampler.Enumerated.of(rng3, p3);
 
         for (int i = 0; i < values.length; i++) {
+            // Remove offsets
              int s1 = sampler1.sample() - offset1;
              int s2 = sampler2.sample() - offset2;
              int s3 = sampler3.sample() - offset3;
@@ -472,14 +480,19 @@ class MarsagliaTsangWangDiscreteSamplerTest_OE25Dev {
 
     @Test
     void testOffsetSamples_2_oe() {
+        // This is filled with probabilities to hit all edge cases in the fill procedure.
+        // The probabilities must have a digit from each of the 5 possible.
          int[] prob = new int[6];
         prob[0] = 1;
         prob[1] = 1 + 1 << 6;
         prob[2] = 1 + 1 << 12;
         prob[3] = 1 + 1 << 18;
         prob[4] = 1 + 1 << 24;
+        // Ensure probabilities sum to 2^30
         prob[5] = (1 << 30) - (prob[0] + prob[1] + prob[2] + prob[3] + prob[4]);
 
+        // To hit all samples requires integers that are under the look-up table limits.
+        // So compute the limits here.
         int n1 = 0;
         int n2 = 0;
         int n3 = 0;
@@ -496,6 +509,7 @@ class MarsagliaTsangWangDiscreteSamplerTest_OE25Dev {
          int t3 = t2 + (n3 << 12);
          int t4 = t3 + (n4 << 6);
 
+        // Create values under the limits and bit shift by 2 to reverse what the sampler does.
          int[] values = new int[] {0, t1, t2, t3, t4, 0xffffffff};
         for (int i = 0; i < values.length; i++) {
             values[i] <<= 2;
@@ -505,6 +519,7 @@ class MarsagliaTsangWangDiscreteSamplerTest_OE25Dev {
          UniformRandomProvider rng2 = new FixedSequenceIntProvider(values);
          UniformRandomProvider rng3 = new FixedSequenceIntProvider(values);
 
+        // Create offsets to force storage as 8, 16, or 32-bit
          int offset1 = 1;
          int offset2 = 1 << 8;
          int offset3 = 1 << 16;
@@ -518,25 +533,31 @@ class MarsagliaTsangWangDiscreteSamplerTest_OE25Dev {
          SharedStateDiscreteSampler sampler3 = MarsagliaTsangWangDiscreteSampler.Enumerated.of(rng3, p3);
 
         for (int i = 0; i < values.length; i++) {
+            // Remove offsets
              int s1 = sampler1.sample() - offset1;
              int s2 = sampler2.sample() - offset2;
              int s3 = sampler3.sample() - offset3;
+            // removed other assertion
             Assertions.assertEquals(s1, s3, "Offset Sample 1 and 3 do not match");
     }
     }
 
     @Test
     void testRealProbabilityDistributionSamples_1_oe() {
+        // These do not have to sum to 1
          double[] probabilities = new double[11];
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create();
         for (int i = 0; i < probabilities.length; i++) {
             probabilities[i] = rng.nextDouble();
         }
 
+        // First test the table is completely filled to 2^30
          UniformRandomProvider dummyRng = new FixedSequenceIntProvider(new int[] {0xffffffff});
          SharedStateDiscreteSampler dummySampler = MarsagliaTsangWangDiscreteSampler.Enumerated.of(dummyRng, probabilities);
+        // This will throw if the table is incomplete as it hits the upper limit
         dummySampler.sample();
 
+        // Do a test of the actual sampler
          SharedStateDiscreteSampler sampler = MarsagliaTsangWangDiscreteSampler.Enumerated.of(rng, probabilities);
 
          int numberOfSamples = 10000;
@@ -546,6 +567,7 @@ class MarsagliaTsangWangDiscreteSamplerTest_OE25Dev {
         }
 
          ChiSquareTest chiSquareTest = new ChiSquareTest();
+        // Pass if we cannot reject null hypothesis that the distributions are the same.
         Assertions.assertFalse(chiSquareTest.chiSquareTest(probabilities, samples, 0.001));
     }
 
@@ -622,32 +644,56 @@ class MarsagliaTsangWangDiscreteSamplerTest_OE25Dev {
     @Test
     void testCreateBinomialDistributionWithSmallestP0ValueAndHighestProbabilityOfSuccess_1_oe() {
          UniformRandomProvider rng = new FixedRNG();
+        // p(0) = Math.exp(trials * Math.log(1-p))
+        // p(0) will be smaller as Math.log(1-p) is more negative, which occurs when p is
+        // larger.
+        // Since the sampler uses inversion the largest value for p is 0.5.
+        // At the extreme for p = 0.5:
+        // trials = Math.log(p(0)) / Math.log(1-p)
+        // = Math.log(Double.MIN_VALUE) / Math.log(0.5)
+        // = 1074
          int trials = (int) Math.floor(Math.log(Double.MIN_VALUE) / Math.log(0.5));
          double p = 0.5;
+        // Validate set-up
         Assertions.assertEquals(Double.MIN_VALUE, getBinomialP0(trials, p), 0, "Invalid test set-up for p(0)");
     }
 
     @Test
     void testCreateBinomialDistributionWithSmallestP0ValueAndHighestProbabilityOfSuccess_2_oe() {
          UniformRandomProvider rng = new FixedRNG();
+        // p(0) = Math.exp(trials * Math.log(1-p))
+        // p(0) will be smaller as Math.log(1-p) is more negative, which occurs when p is
+        // larger.
+        // Since the sampler uses inversion the largest value for p is 0.5.
+        // At the extreme for p = 0.5:
+        // trials = Math.log(p(0)) / Math.log(1-p)
+        // = Math.log(Double.MIN_VALUE) / Math.log(0.5)
+        // = 1074
          int trials = (int) Math.floor(Math.log(Double.MIN_VALUE) / Math.log(0.5));
          double p = 0.5;
+        // Validate set-up
+        // removed other assertion
         Assertions.assertEquals(0, getBinomialP0(trials + 1, p), 0, "Invalid test set-up for p(0)");
     }
 
     @Test
     void testCreateBinomialDistributionThrowsWhenP0IsZero_1_oe() {
          UniformRandomProvider rng = new FixedRNG();
+        // As above but increase the trials so p(0) should be zero
          int trials = 1 + (int) Math.floor(Math.log(Double.MIN_VALUE) / Math.log(0.5));
          double p = 0.5;
+        // Validate set-up
         Assertions.assertEquals(0, getBinomialP0(trials, p), 0, "Invalid test set-up for p(0)");
     }
 
     @Test
     void testCreateBinomialDistributionThrowsWhenP0IsZero_2_oe() {
          UniformRandomProvider rng = new FixedRNG();
+        // As above but increase the trials so p(0) should be zero
          int trials = 1 + (int) Math.floor(Math.log(Double.MIN_VALUE) / Math.log(0.5));
          double p = 0.5;
+        // Validate set-up
+        // removed other assertion
         try {
     MarsagliaTsangWangDiscreteSampler.Binomial.of(rng, trials, p);
     fail("IllegalArgumentException");
@@ -658,19 +704,39 @@ class MarsagliaTsangWangDiscreteSamplerTest_OE25Dev {
     @Test
     void testCreateBinomialDistributionWithLargestTrialsAndSmallestProbabilityOfSuccess_1_oe() {
          UniformRandomProvider rng = new FixedRNG();
+        // p(0) = Math.exp(trials * Math.log(1-p))
+        // p(0) will be smaller as Math.log(1-p) is more negative, which occurs when p is
+        // larger.
+        // Since the sampler uses inversion the largest value for p is 0.5.
+        // At the extreme for trials = 2^16-1:
+        // p = 1 - Math.exp(Math.log(p(0)) / trials)
+        // = 1 - Math.exp(Math.log(Double.MIN_VALUE) / trials)
+        // = 0.011295152668039599
          int trials = (1 << 16) - 1;
         double p = 1 - Math.exp(Math.log(Double.MIN_VALUE) / trials);
 
+        // Validate set-up
         Assertions.assertEquals(Double.MIN_VALUE, getBinomialP0(trials, p), 0, "Invalid test set-up for p(0)");
     }
 
     @Test
     void testCreateBinomialDistributionWithLargestTrialsAndSmallestProbabilityOfSuccess_2_oe() {
          UniformRandomProvider rng = new FixedRNG();
+        // p(0) = Math.exp(trials * Math.log(1-p))
+        // p(0) will be smaller as Math.log(1-p) is more negative, which occurs when p is
+        // larger.
+        // Since the sampler uses inversion the largest value for p is 0.5.
+        // At the extreme for trials = 2^16-1:
+        // p = 1 - Math.exp(Math.log(p(0)) / trials)
+        // = 1 - Math.exp(Math.log(Double.MIN_VALUE) / trials)
+        // = 0.011295152668039599
          int trials = (1 << 16) - 1;
         double p = 1 - Math.exp(Math.log(Double.MIN_VALUE) / trials);
 
+        // Validate set-up
+        // removed other assertion
 
+        // Search for larger p until Math.nextUp(p) produces 0
         double upper = p * 2;
         Assertions.assertEquals(0, getBinomialP0(trials, upper), 0, "Invalid test set-up for p(0)");
     }
@@ -678,11 +744,23 @@ class MarsagliaTsangWangDiscreteSamplerTest_OE25Dev {
     @Test
     void testCreateBinomialDistributionWithLargestTrialsAndSmallestProbabilityOfSuccess_3_oe() {
          UniformRandomProvider rng = new FixedRNG();
+        // p(0) = Math.exp(trials * Math.log(1-p))
+        // p(0) will be smaller as Math.log(1-p) is more negative, which occurs when p is
+        // larger.
+        // Since the sampler uses inversion the largest value for p is 0.5.
+        // At the extreme for trials = 2^16-1:
+        // p = 1 - Math.exp(Math.log(p(0)) / trials)
+        // = 1 - Math.exp(Math.log(Double.MIN_VALUE) / trials)
+        // = 0.011295152668039599
          int trials = (1 << 16) - 1;
         double p = 1 - Math.exp(Math.log(Double.MIN_VALUE) / trials);
 
+        // Validate set-up
+        // removed other assertion
 
+        // Search for larger p until Math.nextUp(p) produces 0
         double upper = p * 2;
+        // removed other assertion
 
         double lower = p;
         while (Double.doubleToRawLongBits(lower) + 1 < Double.doubleToRawLongBits(upper)) {
@@ -695,17 +773,30 @@ class MarsagliaTsangWangDiscreteSamplerTest_OE25Dev {
         }
         p = lower;
 
+        // Re-validate
         Assertions.assertEquals(Double.MIN_VALUE, getBinomialP0(trials, p), 0, "Invalid test set-up for p(0)");
     }
 
     @Test
     void testCreateBinomialDistributionWithLargestTrialsAndSmallestProbabilityOfSuccess_4_oe() {
          UniformRandomProvider rng = new FixedRNG();
+        // p(0) = Math.exp(trials * Math.log(1-p))
+        // p(0) will be smaller as Math.log(1-p) is more negative, which occurs when p is
+        // larger.
+        // Since the sampler uses inversion the largest value for p is 0.5.
+        // At the extreme for trials = 2^16-1:
+        // p = 1 - Math.exp(Math.log(p(0)) / trials)
+        // = 1 - Math.exp(Math.log(Double.MIN_VALUE) / trials)
+        // = 0.011295152668039599
          int trials = (1 << 16) - 1;
         double p = 1 - Math.exp(Math.log(Double.MIN_VALUE) / trials);
 
+        // Validate set-up
+        // removed other assertion
 
+        // Search for larger p until Math.nextUp(p) produces 0
         double upper = p * 2;
+        // removed other assertion
 
         double lower = p;
         while (Double.doubleToRawLongBits(lower) + 1 < Double.doubleToRawLongBits(upper)) {
@@ -718,6 +809,8 @@ class MarsagliaTsangWangDiscreteSamplerTest_OE25Dev {
         }
         p = lower;
 
+        // Re-validate
+        // removed other assertion
         Assertions.assertEquals(0, getBinomialP0(trials, Math.nextUp(p)), 0, "Invalid test set-up for p(0)");
     }
 
@@ -739,7 +832,9 @@ class MarsagliaTsangWangDiscreteSamplerTest_OE25Dev {
          double p = 0;
          DiscreteSampler sampler = MarsagliaTsangWangDiscreteSampler.Binomial.of(rng, trials, p);
         for (int i = 0; i < 5; i++) {
+            // removed other assertion
         }
+        // Hit the toString() method
         Assertions.assertTrue(sampler.toString().contains("Binomial"));
     }
 
@@ -761,7 +856,9 @@ class MarsagliaTsangWangDiscreteSamplerTest_OE25Dev {
          double p = 1;
          DiscreteSampler sampler = MarsagliaTsangWangDiscreteSampler.Binomial.of(rng, trials, p);
         for (int i = 0; i < 5; i++) {
+            // removed other assertion
         }
+        // Hit the toString() method
         Assertions.assertTrue(sampler.toString().contains("Binomial"));
     }
 

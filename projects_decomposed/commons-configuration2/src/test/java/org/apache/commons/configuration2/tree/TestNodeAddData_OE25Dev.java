@@ -86,6 +86,7 @@ public class TestNodeAddData_OE25Dev {
         pathNodes.add(PATH_NODE_NAME);
         final NodeAddData<ImmutableNode> data = new NodeAddData<>(parentNode, TEST_NODENAME, false, pathNodes);
         pathNodes.add("anotherNode");
+        // removed other assertion
         assertEquals("Wrong path node", PATH_NODE_NAME, data.getPathNodes().get(0));
     }
 

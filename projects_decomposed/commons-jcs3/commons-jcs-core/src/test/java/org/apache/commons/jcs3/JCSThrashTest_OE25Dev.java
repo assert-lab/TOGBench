@@ -270,6 +270,7 @@ public class JCSThrashTest_OE25Dev
         final String value = "value";
         final String key = "key";
 
+        // Make sure the element is not found
         assertEquals( 0, getListSize() );
     }
 
@@ -279,6 +280,8 @@ public class JCSThrashTest_OE25Dev
         final String value = "value";
         final String key = "key";
 
+        // Make sure the element is not found
+        // removed other assertion
 
         assertNull( jcs.get( key ) );
     }
@@ -289,11 +292,16 @@ public class JCSThrashTest_OE25Dev
         final String value = "value";
         final String key = "key";
 
+        // Make sure the element is not found
+        // removed other assertion
 
+        // removed other assertion
 
         jcs.put( key, value );
 
+        // Get the element
         LOG.info( "jcs.getStats(): " + jcs.getStatistics() );
+        // removed other assertion
         assertNotNull( jcs.get( key ) );
     }
 
@@ -303,11 +311,17 @@ public class JCSThrashTest_OE25Dev
         final String value = "value";
         final String key = "key";
 
+        // Make sure the element is not found
+        // removed other assertion
 
+        // removed other assertion
 
         jcs.put( key, value );
 
+        // Get the element
         LOG.info( "jcs.getStats(): " + jcs.getStatistics() );
+        // removed other assertion
+        // removed other assertion
         assertEquals( value, jcs.get( key ) );
     }
 
@@ -315,6 +329,7 @@ public class JCSThrashTest_OE25Dev
         throws Exception
     {
         jcs.put( "key1", "value1" );
+        // removed other assertion
 
         jcs.remove( "key1" );
         assertEquals( 0, getListSize() );

@@ -187,6 +187,7 @@ public class OS400FTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramew
         final FTPFileEntryParser parser = new OS400FTPEntryParser(conf);
 
         final FTPFile f = parser.parseFTPEntry("ZFTPDEV 9069 05/20/15 15:36:52 *STMF /DRV/AUDWRKSHET/AUDWRK0204232015114625.PDF");
+        // removed other assertion
         assertNotNull("Could not parse timestamp.", f.getTimestamp());
     }
 
@@ -197,6 +198,8 @@ public class OS400FTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramew
         final FTPFileEntryParser parser = new OS400FTPEntryParser(conf);
 
         final FTPFile f = parser.parseFTPEntry("ZFTPDEV 9069 05/20/15 15:36:52 *STMF /DRV/AUDWRKSHET/AUDWRK0204232015114625.PDF");
+        // removed other assertion
+        // removed other assertion
         assertFalse("Should not have been a directory.", f.isDirectory());
     }
 
@@ -207,6 +210,9 @@ public class OS400FTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramew
         final FTPFileEntryParser parser = new OS400FTPEntryParser(conf);
 
         final FTPFile f = parser.parseFTPEntry("ZFTPDEV 9069 05/20/15 15:36:52 *STMF /DRV/AUDWRKSHET/AUDWRK0204232015114625.PDF");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("ZFTPDEV", f.getUser());
     }
 
@@ -217,6 +223,10 @@ public class OS400FTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramew
         final FTPFileEntryParser parser = new OS400FTPEntryParser(conf);
 
         final FTPFile f = parser.parseFTPEntry("ZFTPDEV 9069 05/20/15 15:36:52 *STMF /DRV/AUDWRKSHET/AUDWRK0204232015114625.PDF");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("AUDWRK0204232015114625.PDF", f.getName());
     }
 
@@ -227,6 +237,11 @@ public class OS400FTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramew
         final FTPFileEntryParser parser = new OS400FTPEntryParser(conf);
 
         final FTPFile f = parser.parseFTPEntry("ZFTPDEV 9069 05/20/15 15:36:52 *STMF /DRV/AUDWRKSHET/AUDWRK0204232015114625.PDF");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(9069, f.getSize());
     }
 
@@ -237,6 +252,12 @@ public class OS400FTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramew
         final FTPFileEntryParser parser = new OS400FTPEntryParser(conf);
 
         final FTPFile f = parser.parseFTPEntry("ZFTPDEV 9069 05/20/15 15:36:52 *STMF /DRV/AUDWRKSHET/AUDWRK0204232015114625.PDF");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, 2015);

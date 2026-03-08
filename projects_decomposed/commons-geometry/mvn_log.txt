@@ -1,0 +1,144 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-geometry-core:jar:1.0
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ org.apache.commons:commons-geometry-parent:1.0, /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/pom.xml, line 232, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-geometry-parent:pom:1.0
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ line 232, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Apache Commons Geometry                                            [pom]
+[INFO] Apache Commons Geometry Core                                       [jar]
+[INFO] Apache Commons Geometry Euclidean                                  [jar]
+[INFO] Apache Commons Geometry Spherical                                  [jar]
+[INFO] Apache Commons Geometry IO Core                                    [jar]
+[INFO] Apache Commons Geometry IO Euclidean                               [jar]
+[INFO] 
+[INFO] -------------< org.apache.commons:commons-geometry-parent >-------------
+[INFO] Building Apache Commons Geometry 1.0                               [1/6]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-geometry-parent ---
+[INFO] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-geometry-parent ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-geometry-parent ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-geometry-parent ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-geometry-parent ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-geometry-parent ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-geometry-parent ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-parent ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry
+[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772595139608
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-geometry-parent ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-geometry-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --------------< org.apache.commons:commons-geometry-core >--------------
+[INFO] Building Apache Commons Geometry Core 1.0                          [2/6]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-geometry-core ---
+[INFO] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-geometry-core ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-geometry-core ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-geometry-core ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-geometry-core ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-geometry-core ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-geometry-core ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-core ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core
+[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772595139945
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-geometry-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-geometry-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 43 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-geometry-core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-geometry-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-geometry-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 29 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/target/test-classes
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-geometry-core ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-geometry-core ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M7:test (default-test) @ commons-geometry-core ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Apache Commons Geometry 1.0:
+[INFO] 
+[INFO] Apache Commons Geometry ............................ SUCCESS [  0.803 s]
+[INFO] Apache Commons Geometry Core ....................... FAILURE [  1.286 s]
+[INFO] Apache Commons Geometry Euclidean .................. SKIPPED
+[INFO] Apache Commons Geometry Spherical .................. SKIPPED
+[INFO] Apache Commons Geometry IO Core .................... SKIPPED
+[INFO] Apache Commons Geometry IO Euclidean ............... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.160 s
+[INFO] Finished at: 2026-03-03T21:32:21-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project commons-geometry-core: No tests matching pattern "*_OE25Dev#*_oe" were executed! (Set -Dsurefire.failIfNoSpecifiedTests=false to ignore this error.) -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :commons-geometry-core

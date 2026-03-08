@@ -61,6 +61,7 @@ public class RemoteCacheServerAttributesUnitTest_OE25Dev
     {
         final RemoteCacheServerAttributes attributes = new RemoteCacheServerAttributes();
         attributes.setRemoteTypeName( "LOCAL" );
+        // removed other assertion
         assertEquals( "Wrong name", "LOCAL", attributes.getRemoteTypeName() );
     }
 
@@ -75,6 +76,7 @@ public class RemoteCacheServerAttributesUnitTest_OE25Dev
     {
         final RemoteCacheServerAttributes attributes = new RemoteCacheServerAttributes();
         attributes.setRemoteTypeName( "CLUSTER" );
+        // removed other assertion
         assertEquals( "Wrong name", "CLUSTER", attributes.getRemoteTypeName() );
     }
 

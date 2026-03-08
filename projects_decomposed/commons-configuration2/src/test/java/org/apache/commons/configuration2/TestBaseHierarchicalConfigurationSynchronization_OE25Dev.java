@@ -242,6 +242,7 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
         @SuppressWarnings("unchecked") // clone retains the type
         final HierarchicalConfiguration<ImmutableNode> copy = (HierarchicalConfiguration<ImmutableNode>) conf2.clone();
         final HierarchicalConfiguration<ImmutableNode> sub2 = copy.configurationAt("element2.subelement", true);
+        // This must not cause a validate operation on sub1, but on sub2
         copy.clearTree("element2");
         assertTrue("Sub2 not detached", isDetached(sub2));
     }
@@ -254,7 +255,9 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
         @SuppressWarnings("unchecked") // clone retains the type
         final HierarchicalConfiguration<ImmutableNode> copy = (HierarchicalConfiguration<ImmutableNode>) conf2.clone();
         final HierarchicalConfiguration<ImmutableNode> sub2 = copy.configurationAt("element2.subelement", true);
+        // This must not cause a validate operation on sub1, but on sub2
         copy.clearTree("element2");
+        // removed other assertion
         assertFalse("Sub 1 was detached", isDetached(sub));
     }
 
@@ -309,6 +312,7 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
         final HierarchicalConfiguration<ImmutableNode> sub = config.configurationAt("element2", true);
         final HierarchicalConfiguration<ImmutableNode> subsub = sub.configurationAt("subelement", true);
         config.clearTree("element2.subelement");
+        // removed other assertion
         assertTrue("Sub2 still attached", isDetached(subsub));
     }
 
@@ -327,6 +331,7 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
         final HierarchicalConfiguration<ImmutableNode> subsub = sub.configurationAt("subelement", true);
         final HierarchicalConfiguration<ImmutableNode> sub2 = config.configurationAt("element2.subelement", true);
         sub.clearTree("subelement");
+        // removed other assertion
         assertTrue("Subsub still attached", isDetached(subsub));
     }
 

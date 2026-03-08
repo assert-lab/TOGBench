@@ -120,6 +120,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
         jc.set("list", new Object[]{2, 3});
             jc.set("x", new Integer(1));
         final Object o = exs0.execute(jc);
+            // removed other assertion
             Assert.assertEquals("x is wrong", new Integer(6), jc.get("x"));
     }
 
@@ -178,6 +179,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
     public void testForEachContinueBroken_2_oe() throws Exception {
         try {
             final JexlScript e = JEXL.createScript("var rr = 0; continue;");
+            // removed other assertion
         } catch (final JexlException.Parsing xparse) {
             final String str = xparse.detailedMessage();
             Assert.assertTrue(str.contains("continue"));
@@ -188,6 +190,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
     public void testForEachBreakBroken_2_oe() throws Exception {
         try {
             final JexlScript e = JEXL.createScript("if (true) { break; }");
+            // removed other assertion
         } catch (final JexlException.Parsing xparse) {
             final String str = xparse.detailedMessage();
             Assert.assertTrue(str.contains("break"));

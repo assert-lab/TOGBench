@@ -72,16 +72,20 @@ class BoundarySourceBoundsBuilder3DTest_OE25Dev {
 
     @Test
     void testGetBounds_noBoundaries_1_oe() {
+        // arrange
         final BoundarySource3D src = BoundarySource3D.of(new ArrayList<>());
         final BoundarySourceBoundsBuilder3D builder = new BoundarySourceBoundsBuilder3D();
 
+        // act
         final Bounds3D b = builder.getBounds(src);
 
+        // assert
         Assertions.assertNull(b);
     }
 
     @Test
     void testGetBounds_singleFiniteBoundary_1_oe() {
+        // arrange
         final ConvexPolygon3D poly = Planes.convexPolygonFromVertices(Arrays.asList(
                 Vector3D.of(1, 1, 1),
                 Vector3D.of(1, 0, 2),
@@ -90,8 +94,10 @@ class BoundarySourceBoundsBuilder3DTest_OE25Dev {
         final BoundarySource3D src = BoundarySource3D.of(poly);
         final BoundarySourceBoundsBuilder3D builder = new BoundarySourceBoundsBuilder3D();
 
+        // act
         final Bounds3D b = builder.getBounds(src);
 
+        // assert
         checkBounds(b, Vector3D.of(1, 0, 1), Vector3D.of(3, 4, 5));
         for (final Vector3D pt : poly.getVertices()) {
             Assertions.assertTrue(b.contains(pt));
@@ -100,18 +106,22 @@ class BoundarySourceBoundsBuilder3DTest_OE25Dev {
 
     @Test
     void testGetBounds_singleInfiniteBoundary_1_oe() {
+        // arrange
         final PlaneConvexSubset boundary = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION)
                 .span();
         final BoundarySource3D src = BoundarySource3D.of(boundary);
         final BoundarySourceBoundsBuilder3D builder = new BoundarySourceBoundsBuilder3D();
 
+        // act
         final Bounds3D b = builder.getBounds(src);
 
+        // assert
         Assertions.assertNull(b);
     }
 
     @Test
     void testGetBounds_mixedFiniteAndInfiniteBoundaries_1_oe() {
+        // arrange
         final PlaneConvexSubset inf = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION)
                 .span()
                 .split(Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Y, TEST_PRECISION))
@@ -135,8 +145,10 @@ class BoundarySourceBoundsBuilder3DTest_OE25Dev {
         final BoundarySource3D src = BoundarySource3D.of(poly1, poly2, inf, poly3);
         final BoundarySourceBoundsBuilder3D builder = new BoundarySourceBoundsBuilder3D();
 
+        // act
         final Bounds3D b = builder.getBounds(src);
 
+        // assert
         Assertions.assertNull(b);
     }
 

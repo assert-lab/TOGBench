@@ -38,6 +38,7 @@ public class HtmlTreeBuilderTest_OE25Dev {
 
     @Test public void nonnullAssertions_2_oe() throws NoSuchMethodException {
         Method parseMethod = TreeBuilder.class.getDeclaredMethod("parse", Reader.class, String.class, Parser.class);
+        // removed other assertion
         Annotation[] declaredAnnotations = parseMethod.getDeclaredAnnotations();
         boolean seen = false;
         for (Annotation annotation : declaredAnnotations) {
@@ -45,6 +46,7 @@ public class HtmlTreeBuilderTest_OE25Dev {
                 seen = true;
         }
 
+        // would need to rework this if/when that annotation moves from the method to the class / package.
         assertTrue(seen);
         }
 

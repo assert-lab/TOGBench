@@ -63,6 +63,51 @@ public class SingletonIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         return true;
     }
 
+    public void testIterator() {
+        final Iterator<E> iter = makeObject();
+        assertTrue("Iterator has a first item", iter.hasNext());
+
+        final E iterValue = iter.next();
+        assertEquals("Iteration value is correct", testValue, iterValue);
+
+        assertTrue("Iterator should now be empty", !iter.hasNext());
+
+        try {
+            iter.next();
+        } catch (final Exception e) {
+            assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testSingletonIteratorRemove() {
+        final ResettableIterator<E> iter = new SingletonIterator<>((E) "xyzzy");
+        assertTrue(iter.hasNext());
+        assertEquals("xyzzy",iter.next());
+        iter.remove();
+        iter.reset();
+        assertTrue(! iter.hasNext());
+    }
+
+    public void testReset() {
+        final ResettableIterator<E> it = makeObject();
+
+        assertEquals(true, it.hasNext());
+        assertEquals(testValue, it.next());
+        assertEquals(false, it.hasNext());
+
+        it.reset();
+
+        assertEquals(true, it.hasNext());
+        assertEquals(testValue, it.next());
+        assertEquals(false, it.hasNext());
+
+        it.reset();
+        it.reset();
+
+        assertEquals(true, it.hasNext());
+    }
+
     public void testIterator_1_oe() {
         final Iterator<E> iter = makeObject();
         assertTrue("Iterator has a first item", iter.hasNext());

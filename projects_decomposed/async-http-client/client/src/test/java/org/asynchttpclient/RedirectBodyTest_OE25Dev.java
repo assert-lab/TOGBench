@@ -90,6 +90,7 @@ public class RedirectBodyTest_OE25Dev extends AbstractBasicTest {
       String contentType = "text/plain; charset=UTF-8";
 
       Response response = c.preparePost(getTargetUrl()).setHeader(CONTENT_TYPE, contentType).setBody(body).setHeader("X-REDIRECT", "301").execute().get(TIMEOUT, TimeUnit.SECONDS);
+      // removed other assertion
       assertNull(receivedContentType);
   }
   }
@@ -112,6 +113,7 @@ public class RedirectBodyTest_OE25Dev extends AbstractBasicTest {
       String contentType = "text/plain; charset=UTF-8";
 
       Response response = c.preparePost(getTargetUrl()).setHeader(CONTENT_TYPE, contentType).setBody(body).setHeader("X-REDIRECT", "302").execute().get(TIMEOUT, TimeUnit.SECONDS);
+      // removed other assertion
       assertNull(receivedContentType);
   }
   }
@@ -134,6 +136,7 @@ public class RedirectBodyTest_OE25Dev extends AbstractBasicTest {
       String contentType = "text/plain; charset=UTF-8";
 
       Response response = c.preparePost(getTargetUrl()).setHeader(CONTENT_TYPE, contentType).setBody(body).setHeader("X-REDIRECT", "302").execute().get(TIMEOUT, TimeUnit.SECONDS);
+      // removed other assertion
       assertEquals(receivedContentType, contentType);
   }
   }
@@ -156,6 +159,7 @@ public class RedirectBodyTest_OE25Dev extends AbstractBasicTest {
       String contentType = "text/plain; charset=UTF-8";
 
       Response response = c.preparePost(getTargetUrl()).setHeader(CONTENT_TYPE, contentType).setBody(body).setHeader("X-REDIRECT", "307").execute().get(TIMEOUT, TimeUnit.SECONDS);
+      // removed other assertion
       assertEquals(receivedContentType, contentType);
   }
   }

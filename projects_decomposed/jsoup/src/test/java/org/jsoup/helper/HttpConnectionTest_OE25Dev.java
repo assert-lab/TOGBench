@@ -34,6 +34,7 @@ public class HttpConnectionTest_OE25Dev {
 
     @Test public void canCreateEmptyConnection_2_oe() throws Exception {
         HttpConnection con = new HttpConnection();
+        // removed other assertion
         try {
      URL url = con.request().url();
     fail("IllegalArgumentException");
@@ -90,6 +91,7 @@ public class HttpConnectionTest_OE25Dev {
         headers.put("Connection", "keep-alive");
         headers.put("Host", "http://example.com");
         con.headers(headers);
+        // removed other assertion
         assertEquals("keep-alive", con.request().header("Connection"));
         }
 
@@ -100,6 +102,8 @@ public class HttpConnectionTest_OE25Dev {
         headers.put("Connection", "keep-alive");
         headers.put("Host", "http://example.com");
         con.headers(headers);
+        // removed other assertion
+        // removed other assertion
         assertEquals("http://example.com", con.request().header("Host"));
         }
 
@@ -129,6 +133,7 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("Accept", "Everything");
         req.addHeader("Foo", "Bar");
 
+        // removed other assertion
         assertTrue(req.hasHeader("ACCEpt"));
         }
 
@@ -138,6 +143,8 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("Accept", "Everything");
         req.addHeader("Foo", "Bar");
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Something, Everything", req.header("accept"));
         }
 
@@ -147,6 +154,9 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("Accept", "Everything");
         req.addHeader("Foo", "Bar");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(req.hasHeader("fOO"));
         }
 
@@ -156,6 +166,10 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("Accept", "Everything");
         req.addHeader("Foo", "Bar");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Bar", req.header("foo"));
         }
 
@@ -165,6 +179,11 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("Accept", "Everything");
         req.addHeader("Foo", "Bar");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         List<String> accept = req.headers("accept");
         assertEquals(2, accept.size());
@@ -176,8 +195,14 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("Accept", "Everything");
         req.addHeader("Foo", "Bar");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         List<String> accept = req.headers("accept");
+        // removed other assertion
         assertEquals("Something", accept.get(0));
         }
 
@@ -187,8 +212,15 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("Accept", "Everything");
         req.addHeader("Foo", "Bar");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         List<String> accept = req.headers("accept");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Everything", accept.get(1));
         }
 
@@ -198,8 +230,16 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("Accept", "Everything");
         req.addHeader("Foo", "Bar");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         List<String> accept = req.headers("accept");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Map<String, List<String>> headers = req.multiHeaders();
         assertEquals(accept, headers.get("Accept"));
@@ -211,10 +251,19 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("Accept", "Everything");
         req.addHeader("Foo", "Bar");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         List<String> accept = req.headers("accept");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Map<String, List<String>> headers = req.multiHeaders();
+        // removed other assertion
         assertEquals("Bar", headers.get("Foo").get(0));
         }
 
@@ -224,10 +273,20 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("Accept", "Everything");
         req.addHeader("Foo", "Bar");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         List<String> accept = req.headers("accept");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Map<String, List<String>> headers = req.multiHeaders();
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(req.hasHeader("Accept"));
         }
@@ -238,11 +297,22 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("Accept", "Everything");
         req.addHeader("Foo", "Bar");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         List<String> accept = req.headers("accept");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Map<String, List<String>> headers = req.multiHeaders();
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue(req.hasHeaderWithValue("accept", "Something"));
         }
 
@@ -252,11 +322,23 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("Accept", "Everything");
         req.addHeader("Foo", "Bar");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         List<String> accept = req.headers("accept");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Map<String, List<String>> headers = req.multiHeaders();
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(req.hasHeaderWithValue("accept", "Everything"));
         }
 
@@ -266,11 +348,24 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("Accept", "Everything");
         req.addHeader("Foo", "Bar");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         List<String> accept = req.headers("accept");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Map<String, List<String>> headers = req.multiHeaders();
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(req.hasHeaderWithValue("accept", "Something for nothing"));
         }
 
@@ -280,11 +375,25 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("Accept", "Everything");
         req.addHeader("Foo", "Bar");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         List<String> accept = req.headers("accept");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Map<String, List<String>> headers = req.multiHeaders();
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         req.removeHeader("accept");
         headers = req.multiHeaders();
@@ -297,14 +406,29 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("Accept", "Everything");
         req.addHeader("Foo", "Bar");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         List<String> accept = req.headers("accept");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Map<String, List<String>> headers = req.multiHeaders();
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         req.removeHeader("accept");
         headers = req.multiHeaders();
+        // removed other assertion
         assertFalse(req.hasHeader("Accept"));
         }
 
@@ -314,18 +438,35 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("Accept", "Everything");
         req.addHeader("Foo", "Bar");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         List<String> accept = req.headers("accept");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Map<String, List<String>> headers = req.multiHeaders();
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         req.removeHeader("accept");
         headers = req.multiHeaders();
+        // removed other assertion
+        // removed other assertion
         assertNull(headers.get("Accept"));
         }
 
     @Test public void ignoresEmptySetCookies_1_oe() {
+        // prep http response header map
         Map<String, List<String>> headers = new HashMap<>();
         headers.put("Set-Cookie", Collections.emptyList());
         HttpConnection.Response res = new HttpConnection.Response();
@@ -334,6 +475,7 @@ public class HttpConnectionTest_OE25Dev {
         }
 
     @Test public void ignoresEmptyCookieNameAndVals_1_oe() {
+        // prep http response header map
         Map<String, List<String>> headers = new HashMap<>();
         List<String> cookieStrings = new ArrayList<>();
         cookieStrings.add(null);
@@ -350,6 +492,7 @@ public class HttpConnectionTest_OE25Dev {
         }
 
     @Test public void ignoresEmptyCookieNameAndVals_2_oe() {
+        // prep http response header map
         Map<String, List<String>> headers = new HashMap<>();
         List<String> cookieStrings = new ArrayList<>();
         cookieStrings.add(null);
@@ -362,10 +505,12 @@ public class HttpConnectionTest_OE25Dev {
         headers.put("Set-Cookie", cookieStrings);
         HttpConnection.Response res = new HttpConnection.Response();
         res.processResponseHeaders(headers);
+        // removed other assertion
         assertEquals("", res.cookie("one"));
         }
 
     @Test public void ignoresEmptyCookieNameAndVals_3_oe() {
+        // prep http response header map
         Map<String, List<String>> headers = new HashMap<>();
         List<String> cookieStrings = new ArrayList<>();
         cookieStrings.add(null);
@@ -378,10 +523,13 @@ public class HttpConnectionTest_OE25Dev {
         headers.put("Set-Cookie", cookieStrings);
         HttpConnection.Response res = new HttpConnection.Response();
         res.processResponseHeaders(headers);
+        // removed other assertion
+        // removed other assertion
         assertEquals("", res.cookie("two"));
         }
 
     @Test public void ignoresEmptyCookieNameAndVals_4_oe() {
+        // prep http response header map
         Map<String, List<String>> headers = new HashMap<>();
         List<String> cookieStrings = new ArrayList<>();
         cookieStrings.add(null);
@@ -394,10 +542,14 @@ public class HttpConnectionTest_OE25Dev {
         headers.put("Set-Cookie", cookieStrings);
         HttpConnection.Response res = new HttpConnection.Response();
         res.processResponseHeaders(headers);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("", res.cookie("three"));
         }
 
     @Test public void ignoresEmptyCookieNameAndVals_5_oe() {
+        // prep http response header map
         Map<String, List<String>> headers = new HashMap<>();
         List<String> cookieStrings = new ArrayList<>();
         cookieStrings.add(null);
@@ -410,6 +562,10 @@ public class HttpConnectionTest_OE25Dev {
         headers.put("Set-Cookie", cookieStrings);
         HttpConnection.Response res = new HttpConnection.Response();
         res.processResponseHeaders(headers);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("data", res.cookie("four"));
         }
 
@@ -433,6 +589,7 @@ public class HttpConnectionTest_OE25Dev {
 
     @Test public void userAgent_2_oe() {
         Connection con = HttpConnection.connect("http://example.com/");
+        // removed other assertion
         con.userAgent("Mozilla");
         assertEquals("Mozilla", con.request().header("User-Agent"));
         }
@@ -444,6 +601,7 @@ public class HttpConnectionTest_OE25Dev {
 
     @Test public void timeout_2_oe() {
         Connection con = HttpConnection.connect("http://example.com/");
+        // removed other assertion
         con.timeout(1000);
         assertEquals(1000, con.request().timeout());
         }
@@ -461,6 +619,7 @@ public class HttpConnectionTest_OE25Dev {
 
     @Test public void method_2_oe() {
         Connection con = HttpConnection.connect("http://example.com/");
+        // removed other assertion
         con.method(Connection.Method.POST);
         assertEquals(Connection.Method.POST, con.request().method());
         }
@@ -490,6 +649,7 @@ public class HttpConnectionTest_OE25Dev {
         Object[] data =  values.toArray();
         Connection.KeyVal one = (Connection.KeyVal) data[0];
         Connection.KeyVal two = (Connection.KeyVal) data[1];
+        // removed other assertion
         assertEquals("Val", one.value());
         }
 
@@ -500,6 +660,8 @@ public class HttpConnectionTest_OE25Dev {
         Object[] data =  values.toArray();
         Connection.KeyVal one = (Connection.KeyVal) data[0];
         Connection.KeyVal two = (Connection.KeyVal) data[1];
+        // removed other assertion
+        // removed other assertion
         assertEquals("Foo", two.key());
         }
 
@@ -510,6 +672,9 @@ public class HttpConnectionTest_OE25Dev {
         Object[] data =  values.toArray();
         Connection.KeyVal one = (Connection.KeyVal) data[0];
         Connection.KeyVal two = (Connection.KeyVal) data[1];
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("bar", two.value());
         }
 
@@ -526,16 +691,22 @@ public class HttpConnectionTest_OE25Dev {
 
     @Test public void inputStream_2_oe() {
         Connection.KeyVal kv = HttpConnection.KeyVal.create("file", "thumb.jpg", ParseTest.inputStreamFrom("Check"));
+        // removed other assertion
         assertEquals("thumb.jpg", kv.value());
         }
 
     @Test public void inputStream_3_oe() {
         Connection.KeyVal kv = HttpConnection.KeyVal.create("file", "thumb.jpg", ParseTest.inputStreamFrom("Check"));
+        // removed other assertion
+        // removed other assertion
         assertTrue(kv.hasInputStream());
         }
 
     @Test public void inputStream_4_oe() {
         Connection.KeyVal kv = HttpConnection.KeyVal.create("file", "thumb.jpg", ParseTest.inputStreamFrom("Check"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         kv = HttpConnection.KeyVal.create("one", "two");
         assertEquals("one", kv.key());
@@ -543,15 +714,24 @@ public class HttpConnectionTest_OE25Dev {
 
     @Test public void inputStream_5_oe() {
         Connection.KeyVal kv = HttpConnection.KeyVal.create("file", "thumb.jpg", ParseTest.inputStreamFrom("Check"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         kv = HttpConnection.KeyVal.create("one", "two");
+        // removed other assertion
         assertEquals("two", kv.value());
         }
 
     @Test public void inputStream_6_oe() {
         Connection.KeyVal kv = HttpConnection.KeyVal.create("file", "thumb.jpg", ParseTest.inputStreamFrom("Check"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         kv = HttpConnection.KeyVal.create("one", "two");
+        // removed other assertion
+        // removed other assertion
         assertFalse(kv.hasInputStream());
         }
 
@@ -585,6 +765,7 @@ public class HttpConnectionTest_OE25Dev {
             con.execute();
         } catch (IllegalArgumentException e) {
             threw = true;
+            // removed other assertion
         }
         assertTrue(threw);
         }
@@ -602,6 +783,7 @@ public class HttpConnectionTest_OE25Dev {
         String puny = "https://www.xn--0zwm56d.xn--0zwm56d/foo.html?bar";
 
         Connection con = Jsoup.connect(idn);
+        // removed other assertion
 
         HttpConnection.Request req = new HttpConnection.Request();
         req.url(new URL(idn));
@@ -635,6 +817,7 @@ public class HttpConnectionTest_OE25Dev {
             Jsoup.connect("jsoup.org/test");
         } catch (IllegalArgumentException e) {
             threw = true;
+            // removed other assertion
         }
         assertTrue(threw);
         }
@@ -660,6 +843,7 @@ public class HttpConnectionTest_OE25Dev {
         res.header("content-type", "text/html");
         res.header("refErrer", "http://example.com");
 
+        // removed other assertion
         assertTrue(res.hasHeader("accept-encoding"));
     }
 
@@ -672,6 +856,8 @@ public class HttpConnectionTest_OE25Dev {
         res.header("content-type", "text/html");
         res.header("refErrer", "http://example.com");
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(res.hasHeader("accept-Encoding"));
     }
 
@@ -684,6 +870,9 @@ public class HttpConnectionTest_OE25Dev {
         res.header("content-type", "text/html");
         res.header("refErrer", "http://example.com");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(res.hasHeader("ACCEPT-ENCODING"));
     }
 
@@ -696,6 +885,10 @@ public class HttpConnectionTest_OE25Dev {
         res.header("content-type", "text/html");
         res.header("refErrer", "http://example.com");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("gzip", res.header("accept-Encoding"));
     }
@@ -709,7 +902,12 @@ public class HttpConnectionTest_OE25Dev {
         res.header("content-type", "text/html");
         res.header("refErrer", "http://example.com");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("gzip", res.header("ACCEPT-ENCODING"));
     }
 
@@ -722,7 +920,13 @@ public class HttpConnectionTest_OE25Dev {
         res.header("content-type", "text/html");
         res.header("refErrer", "http://example.com");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("text/html", res.header("Content-Type"));
     }
 
@@ -735,7 +939,14 @@ public class HttpConnectionTest_OE25Dev {
         res.header("content-type", "text/html");
         res.header("refErrer", "http://example.com");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("http://example.com", res.header("Referrer"));
     }
 
@@ -748,7 +959,15 @@ public class HttpConnectionTest_OE25Dev {
         res.header("content-type", "text/html");
         res.header("refErrer", "http://example.com");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         res.removeHeader("Content-Type");
         assertFalse(res.hasHeader("content-type"));
@@ -763,9 +982,18 @@ public class HttpConnectionTest_OE25Dev {
         res.header("content-type", "text/html");
         res.header("refErrer", "http://example.com");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         res.removeHeader("Content-Type");
+        // removed other assertion
 
         res.removeHeader("ACCEPT-ENCODING");
         assertFalse(res.hasHeader("Accept-Encoding"));
@@ -780,11 +1008,21 @@ public class HttpConnectionTest_OE25Dev {
         res.header("content-type", "text/html");
         res.header("refErrer", "http://example.com");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         res.removeHeader("Content-Type");
+        // removed other assertion
 
         res.removeHeader("ACCEPT-ENCODING");
+        // removed other assertion
 
         res.header("ACCEPT-ENCODING", "deflate");
         assertEquals("deflate", res.header("Accept-Encoding"));
@@ -799,13 +1037,24 @@ public class HttpConnectionTest_OE25Dev {
         res.header("content-type", "text/html");
         res.header("refErrer", "http://example.com");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         res.removeHeader("Content-Type");
+        // removed other assertion
 
         res.removeHeader("ACCEPT-ENCODING");
+        // removed other assertion
 
         res.header("ACCEPT-ENCODING", "deflate");
+        // removed other assertion
         assertEquals("deflate", res.header("accept-Encoding"));
     }
 

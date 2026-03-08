@@ -81,6 +81,8 @@ class FactorialDoubleTest_OE25Dev {
 
     @Test
     void testCompareDirectWithoutCache_1_oe() {
+        // This test shows that delegating to the "Gamma" class will also lead to a
+        // less accurate result.
 
         final int max = 100;
         final FactorialDouble f = FactorialDouble.create();
@@ -114,13 +116,16 @@ class FactorialDoubleTest_OE25Dev {
 
     @Test
     void testZeroCache_1_oe() {
+        // Ensure that no exception is thrown.
         final FactorialDouble f = FactorialDouble.create().withCache(0);
         Assertions.assertEquals(1, f.value(0));
     }
 
     @Test
     void testZeroCache_2_oe() {
+        // Ensure that no exception is thrown.
         final FactorialDouble f = FactorialDouble.create().withCache(0);
+        // removed other assertion
         Assertions.assertEquals(1, f.value(1));
     }
 

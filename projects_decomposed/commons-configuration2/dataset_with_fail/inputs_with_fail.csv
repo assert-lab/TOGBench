@@ -1,0 +1,123 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+conf_392_3,"    @Test
+    public void testGetStringWithDefaults_3_oe() {
+        final BaseConfiguration defaults = new BaseConfiguration();
+        defaults.addProperty(""default"", ""default string"");
+
+        final CompositeConfiguration c = new CompositeConfiguration(defaults);
+        c.setThrowExceptionOnMissing(cc.isThrowExceptionOnMissing());
+        c.addProperty(""string"", ""test string"");
+
+        try {
+            c.getString(""XXX"");
+        } catch (final NoSuchElementException e) {
+        } catch (final Exception e) {
+            fail(""Should throw NoSuchElementException exception, not "" + e);
+    }
+    }",TestCompositeConfiguration::testGetStringWithDefaults_3_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getString(final String key, final String defaultValue)",,"@Override
+    public String getString(final String key, final String defaultValue) {
+        return config.getString(makePath(key), defaultValue);
+    }"
+conf_809_6,"    @Test
+    public void testClearTreeComplex_6_oe() {
+        final int count = 5;
+        for (int idx = 0; idx < count; idx++) {
+            config.addProperty(""indexList.index(-1)[@default]"", Boolean.FALSE);
+            config.addProperty(""indexList.index[@name]"", ""test"" + idx);
+            config.addProperty(""indexList.index.dir"", ""testDir"" + idx);
+        }
+
+        boolean found = false;
+        for (int idx = 0; true; idx++) {
+            final String name = config.getString(""indexList.index("" + idx + "")[@name]"");
+            if (name == null) {
+                break;
+            }
+            if (""test3"".equals(name)) {
+                config.clearTree(""indexList.index("" + idx + "")"");
+                found = true;
+            }
+        }
+
+        for (int idx = 0; true; idx++) {
+            final String name = config.getString(""indexList.index("" + idx + "")[@name]"");
+            if (name == null) {
+                break;
+            }
+            if (""test3"".equals(name)) {
+                fail(""Key was not removed!"");
+    }
+    }
+    }",TestAbstractHierarchicalConfiguration::testClearTreeComplex_6_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getString(final String key, final String defaultValue)",,"@Override
+    public String getString(final String key, final String defaultValue) {
+        return config.getString(makePath(key), defaultValue);
+    }"
+conf_1774_2,"    @Test
+    public void testGetDescriptors_2_oe() {
+        final DynaProperty pd[] = bean.getDynaClass().getDynaProperties();
+        final int count[] = new int[properties.length];
+        for (final DynaProperty element : pd) {
+            final String name = element.getName();
+            for (int j = 0; j < properties.length; j++) {
+                if (name.equals(properties[j])) {
+                    count[j]++;
+                }
+            }
+        }
+
+        for (int j = 0; j < properties.length; j++) {
+            if (count[j] < 0) {
+                fail(""Missing property "" + properties[j]);
+    }
+    }
+    }",TestConfigurationDynaBean::testGetDescriptors_2_oe,org.apache.commons.configuration2.CombinedConfiguration.ConfigData,getName(),"/**
+         * Returns the configuration's name.
+         *
+         * @return the name
+         */","public String getName() {
+            return name;
+        }"
+conf_1774_3,"    @Test
+    public void testGetDescriptors_3_oe() {
+        final DynaProperty pd[] = bean.getDynaClass().getDynaProperties();
+        final int count[] = new int[properties.length];
+        for (final DynaProperty element : pd) {
+            final String name = element.getName();
+            for (int j = 0; j < properties.length; j++) {
+                if (name.equals(properties[j])) {
+                    count[j]++;
+                }
+            }
+        }
+
+        for (int j = 0; j < properties.length; j++) {
+            if (count[j] < 0) {
+            } else if (count[j] > 1) {
+                fail(""Duplicate property "" + properties[j]);
+    }
+    }
+    }",TestConfigurationDynaBean::testGetDescriptors_3_oe,org.apache.commons.configuration2.CombinedConfiguration.ConfigData,getName(),"/**
+         * Returns the configuration's name.
+         *
+         * @return the name
+         */","public String getName() {
+            return name;
+        }"
+conf_1776_2,"    @Test
+    public void testGetMappedArguments_2_oe() {
+        try {
+            final Object value = bean.get(""mappedProperty"", ""unknown"");
+        } catch (final Throwable t) {
+            fail(""Threw "" + t + "" instead of returning null"");
+    }
+    }",TestConfigurationDynaBean::testGetMappedArguments_2_oe,org.apache.commons.configuration2.ConfigurationMap,get(final Object key),"/**
+     * Returns the value of the specified key. The key is converted to a string and then passed to the underlying
+     * configuration.
+     *
+     * @param key the key
+     * @return the value of this key
+     * @see java.util.Map#get(java.lang.Object)
+     */","@Override
+    public Object get(final Object key) {
+        return configuration.getProperty(String.valueOf(key));
+    }"

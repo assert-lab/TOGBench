@@ -125,6 +125,7 @@ public class TestConstantLookup_OE25Dev {
     public void testLookupNonStringFromCache_2_oe() {
         final String var = KeyEvent.class.getName() + ".VK_ESCAPE";
         final Object expected = KeyEvent.VK_ESCAPE;
+        // removed other assertion
         assertEquals("Wrong result of 2nd lookup", expected, lookup.lookup(var));
     }
 

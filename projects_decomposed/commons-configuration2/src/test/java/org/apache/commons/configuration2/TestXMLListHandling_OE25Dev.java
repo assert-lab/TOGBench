@@ -182,6 +182,7 @@ public class TestXMLListHandling_OE25Dev {
     @Test
     public void testMixedList_2_oe() throws ConfigurationException {
         final List<String> expected = Arrays.asList("foo", "blah", "bar", "baz");
+        // removed other assertion
         final String xml = saveToString();
 
         final XMLConfiguration c2 = readFromString(xml);

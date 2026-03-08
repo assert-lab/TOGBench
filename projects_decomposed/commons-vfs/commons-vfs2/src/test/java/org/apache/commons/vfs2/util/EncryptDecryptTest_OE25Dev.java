@@ -49,6 +49,7 @@ public class EncryptDecryptTest_OE25Dev {
 
         final Cryptor cryptor = CryptorFactory.getCryptor();
         final String encrypted = cryptor.encrypt(source);
+        // removed other assertion
 
         final String decrypted = cryptor.decrypt(encrypted);
         assertEquals(source, decrypted);

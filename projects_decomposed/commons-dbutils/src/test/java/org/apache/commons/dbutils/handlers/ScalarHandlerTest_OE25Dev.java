@@ -32,6 +32,7 @@ public class ScalarHandlerTest_OE25Dev extends BaseTestCase {
     public void testHandle_2_oe() throws SQLException {
         ResultSetHandler<String> h = new ScalarHandler<String>();
         Object results = h.handle(this.rs);
+        // removed other assertion
         assertEquals("1", results);
     }
 
@@ -44,6 +45,7 @@ public class ScalarHandlerTest_OE25Dev extends BaseTestCase {
     public void testColumnIndexHandle_2_oe() throws SQLException {
         ResultSetHandler<String> h = new ScalarHandler<String>(2);
         Object results = h.handle(this.rs);
+        // removed other assertion
         assertEquals("2", results);
     }
 
@@ -56,6 +58,7 @@ public class ScalarHandlerTest_OE25Dev extends BaseTestCase {
     public void testColumnNameHandle_2_oe() throws SQLException {
         ResultSetHandler<Integer> h = new ScalarHandler<Integer>("intTest");
         Object results = h.handle(this.rs);
+        // removed other assertion
         assertEquals(Integer.valueOf(1), results);
     }
 

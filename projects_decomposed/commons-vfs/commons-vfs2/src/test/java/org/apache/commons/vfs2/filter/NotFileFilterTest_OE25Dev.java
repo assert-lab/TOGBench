@@ -42,6 +42,7 @@ public class NotFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileSelectInfo any = createFileSelectInfo(new File("test1.txt"));
 
+        // removed other assertion
         Assert.assertTrue(new NotFileFilter(FalseFileFilter.FALSE).accept(any));
     }
 

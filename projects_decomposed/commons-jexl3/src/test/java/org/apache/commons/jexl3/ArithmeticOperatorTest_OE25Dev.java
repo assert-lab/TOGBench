@@ -279,6 +279,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 
         script = jexl.createScript("1 .. 3");
         result = script.execute(null);
+        // removed other assertion
         Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
         Assert.assertEquals(Integer.valueOf(1), ii.next());
     }
@@ -294,7 +295,11 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 
         script = jexl.createScript("1 .. 3");
         result = script.execute(null);
+        // removed other assertion
         Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         script = jexl.createScript("(4 - 3) .. (9 / 3)");
         result = script.execute(null);
@@ -312,10 +317,15 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 
         script = jexl.createScript("1 .. 3");
         result = script.execute(null);
+        // removed other assertion
         Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         script = jexl.createScript("(4 - 3) .. (9 / 3)");
         result = script.execute(null);
+        // removed other assertion
         ii = ((Iterable<Integer>) result).iterator();
         Assert.assertEquals(Integer.valueOf(1), ii.next());
     }
@@ -331,12 +341,21 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 
         script = jexl.createScript("1 .. 3");
         result = script.execute(null);
+        // removed other assertion
         Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         script = jexl.createScript("(4 - 3) .. (9 / 3)");
         result = script.execute(null);
+        // removed other assertion
         ii = ((Iterable<Integer>) result).iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // sum of 1, 2, 3
         script = jexl.createScript("var x = 0; for(var y : ((5 - 4) .. (12 / 4))) { x = x + y }; x");
         result = script.execute(null);
         Assert.assertEquals(Integer.valueOf(6), result);
@@ -353,14 +372,24 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 
         script = jexl.createScript("1 .. 3");
         result = script.execute(null);
+        // removed other assertion
         Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         script = jexl.createScript("(4 - 3) .. (9 / 3)");
         result = script.execute(null);
+        // removed other assertion
         ii = ((Iterable<Integer>) result).iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // sum of 1, 2, 3
         script = jexl.createScript("var x = 0; for(var y : ((5 - 4) .. (12 / 4))) { x = x + y }; x");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("calc:sum(1 .. 3)");
         result = script.execute(null);
@@ -378,17 +407,28 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 
         script = jexl.createScript("1 .. 3");
         result = script.execute(null);
+        // removed other assertion
         Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         script = jexl.createScript("(4 - 3) .. (9 / 3)");
         result = script.execute(null);
+        // removed other assertion
         ii = ((Iterable<Integer>) result).iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // sum of 1, 2, 3
         script = jexl.createScript("var x = 0; for(var y : ((5 - 4) .. (12 / 4))) { x = x + y }; x");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("calc:sum(1 .. 3)");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("calc:sum(-3 .. 3)");
         result = script.execute(null);
@@ -412,7 +452,9 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
         final JexlScript expr0 = jexl.createScript("date.yyyy = 1969; date.MM=7; date.dd=20; ", "date");
         Object value0 = expr0.execute(jc, d);
+        // removed other assertion
         value0 = d;
+        //d = new Date();
         Assert.assertEquals(1969, jexl.createScript("date.yyyy", "date").execute(jc, value0));
     }
 
@@ -423,7 +465,10 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
         final JexlScript expr0 = jexl.createScript("date.yyyy = 1969; date.MM=7; date.dd=20; ", "date");
         Object value0 = expr0.execute(jc, d);
+        // removed other assertion
         value0 = d;
+        //d = new Date();
+        // removed other assertion
         Assert.assertEquals(7, jexl.createScript("date.MM", "date").execute(jc, value0));
     }
 
@@ -434,7 +479,11 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
         final JexlScript expr0 = jexl.createScript("date.yyyy = 1969; date.MM=7; date.dd=20; ", "date");
         Object value0 = expr0.execute(jc, d);
+        // removed other assertion
         value0 = d;
+        //d = new Date();
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(20, jexl.createScript("date.dd", "date").execute(jc, value0));
     }
 
@@ -467,6 +516,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
         Object value10 = expr0.execute(jc, x0, y0);
         final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         Object value11 = expr0.execute(jc, x1, y1);
         final Object value21 = expr0.execute(jc, x1, y1);
         Assert.assertEquals(value11, value21);
@@ -485,8 +535,10 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
         Object value10 = expr0.execute(jc, x0, y0);
         final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         Object value11 = expr0.execute(jc, x1, y1);
         final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
         Assert.assertEquals(value10, value20);
     }
@@ -504,9 +556,12 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
         Object value10 = expr0.execute(jc, x0, y0);
         final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         Object value11 = expr0.execute(jc, x1, y1);
         final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
         Assert.assertEquals(value11, value21);
     }
@@ -524,10 +579,14 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
         Object value10 = expr0.execute(jc, x0, y0);
         final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         Object value11 = expr0.execute(jc, x1, y1);
         final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
         Assert.assertEquals(value10, value20);
     }
@@ -545,11 +604,16 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
         Object value10 = expr0.execute(jc, x0, y0);
         final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         Object value11 = expr0.execute(jc, x1, y1);
         final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
         Assert.assertEquals(value11, value21);
     }
@@ -567,12 +631,18 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
         Object value10 = expr0.execute(jc, x0, y0);
         final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         Object value11 = expr0.execute(jc, x1, y1);
         final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
 
         JexlScript expr1 = jexl.createScript("format(x, y)", "x", "y");
         value10 = expr1.execute(jc, x0, y0);
@@ -592,15 +662,22 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
         Object value10 = expr0.execute(jc, x0, y0);
         final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         Object value11 = expr0.execute(jc, x1, y1);
         final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
 
         JexlScript expr1 = jexl.createScript("format(x, y)", "x", "y");
         value10 = expr1.execute(jc, x0, y0);
+        // removed other assertion
         Object s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
         Assert.assertEquals("Wed 20 Aug 1969", s0);
     }
@@ -618,16 +695,24 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
         Object value10 = expr0.execute(jc, x0, y0);
         final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         Object value11 = expr0.execute(jc, x1, y1);
         final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
 
         JexlScript expr1 = jexl.createScript("format(x, y)", "x", "y");
         value10 = expr1.execute(jc, x0, y0);
+        // removed other assertion
         Object s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
+        // removed other assertion
         jc.setLocale(Locale.FRANCE);
         s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
         Assert.assertEquals("mer. 20 ao\u00fbt 1969", s0);
@@ -646,18 +731,27 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
         Object value10 = expr0.execute(jc, x0, y0);
         final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         Object value11 = expr0.execute(jc, x1, y1);
         final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
 
         JexlScript expr1 = jexl.createScript("format(x, y)", "x", "y");
         value10 = expr1.execute(jc, x0, y0);
+        // removed other assertion
         Object s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
+        // removed other assertion
         jc.setLocale(Locale.FRANCE);
         s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
+        // removed other assertion
 
         expr1 = jexl.createScript("format(now(), y)", "y");
         final Object n0 = expr1.execute(jc, y0);
@@ -677,21 +771,31 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
         Object value10 = expr0.execute(jc, x0, y0);
         final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         Object value11 = expr0.execute(jc, x1, y1);
         final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
 
         JexlScript expr1 = jexl.createScript("format(x, y)", "x", "y");
         value10 = expr1.execute(jc, x0, y0);
+        // removed other assertion
         Object s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
+        // removed other assertion
         jc.setLocale(Locale.FRANCE);
         s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
+        // removed other assertion
 
         expr1 = jexl.createScript("format(now(), y)", "y");
         final Object n0 = expr1.execute(jc, y0);
+        // removed other assertion
         expr1 = jexl.createScript("now().format(y)", "y");
         final Object n1 = expr1.execute(jc, y0);
         Assert.assertNotNull(n0);
@@ -710,23 +814,34 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
         Object value10 = expr0.execute(jc, x0, y0);
         final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         Object value11 = expr0.execute(jc, x1, y1);
         final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
 
         JexlScript expr1 = jexl.createScript("format(x, y)", "x", "y");
         value10 = expr1.execute(jc, x0, y0);
+        // removed other assertion
         Object s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
+        // removed other assertion
         jc.setLocale(Locale.FRANCE);
         s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
+        // removed other assertion
 
         expr1 = jexl.createScript("format(now(), y)", "y");
         final Object n0 = expr1.execute(jc, y0);
+        // removed other assertion
         expr1 = jexl.createScript("now().format(y)", "y");
         final Object n1 = expr1.execute(jc, y0);
+        // removed other assertion
         Assert.assertEquals(n0, n1);
     }
 
@@ -765,6 +880,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         StringWriter strw = new StringWriter();
         expr0.evaluate(jc, strw, x0, y0);
         String strws = strw.toString();
+        // removed other assertion
 
         expr0 = jxlt.createTemplate("${calc:sum(x .. y)}", "x", "y");
         strw = new StringWriter();
@@ -789,11 +905,13 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         StringWriter strw = new StringWriter();
         expr0.evaluate(jc, strw, x0, y0);
         String strws = strw.toString();
+        // removed other assertion
 
         expr0 = jxlt.createTemplate("${calc:sum(x .. y)}", "x", "y");
         strw = new StringWriter();
         expr0.evaluate(jc, strw, 1, 3);
         strws = strw.toString();
+        // removed other assertion
 
         final JxltEngine.Template expr1 = jxlt.createTemplate("${jexl:include(s, x, y)}", "s", "x", "y");
         strw = new StringWriter();
@@ -818,16 +936,19 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         StringWriter strw = new StringWriter();
         expr0.evaluate(jc, strw, x0, y0);
         String strws = strw.toString();
+        // removed other assertion
 
         expr0 = jxlt.createTemplate("${calc:sum(x .. y)}", "x", "y");
         strw = new StringWriter();
         expr0.evaluate(jc, strw, 1, 3);
         strws = strw.toString();
+        // removed other assertion
 
         final JxltEngine.Template expr1 = jxlt.createTemplate("${jexl:include(s, x, y)}", "s", "x", "y");
         strw = new StringWriter();
         expr1.evaluate(jc, strw, expr0, 1, 3);
         strws = strw.toString();
+        // removed other assertion
 
         expr0 = jxlt.createTemplate("${now().format(y)}", "y");
         strw = new StringWriter();
@@ -845,12 +966,15 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testRegexp_2_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
         asserter.assertExpression("str !~ 'ABC.*'", Boolean.TRUE);
     }
 
 @Test
     public void testRegexp_3_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", "abc.*");
         asserter.setVariable("nomatch", ".*123");
         asserter.assertExpression("str =~ match", Boolean.TRUE);
@@ -859,32 +983,50 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testRegexp_4_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", "abc.*");
         asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
         asserter.assertExpression("str !~ match", Boolean.FALSE);
     }
 
 @Test
     public void testRegexp_5_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", "abc.*");
         asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("str !~ nomatch", Boolean.TRUE);
     }
 
 @Test
     public void testRegexp_6_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", "abc.*");
         asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("str =~ nomatch", Boolean.FALSE);
     }
 
 @Test
     public void testRegexp_7_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", "abc.*");
         asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", new StringBuilder("abc.*"));
         asserter.setVariable("nomatch", new StringBuilder(".*123"));
         asserter.assertExpression("str =~ match", Boolean.TRUE);
@@ -893,40 +1035,74 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testRegexp_8_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", "abc.*");
         asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", new StringBuilder("abc.*"));
         asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
         asserter.assertExpression("str !~ match", Boolean.FALSE);
     }
 
 @Test
     public void testRegexp_9_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", "abc.*");
         asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", new StringBuilder("abc.*"));
         asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("str !~ nomatch", Boolean.TRUE);
     }
 
 @Test
     public void testRegexp_10_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", "abc.*");
         asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", new StringBuilder("abc.*"));
         asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("str =~ nomatch", Boolean.FALSE);
     }
 
 @Test
     public void testRegexp_11_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", "abc.*");
         asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", new StringBuilder("abc.*"));
         asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
         asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
         asserter.assertExpression("str =~ match", Boolean.TRUE);
@@ -935,84 +1111,186 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testRegexp_12_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", "abc.*");
         asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", new StringBuilder("abc.*"));
         asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
         asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
+        // removed other assertion
         asserter.assertExpression("str !~ match", Boolean.FALSE);
     }
 
 @Test
     public void testRegexp_13_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", "abc.*");
         asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", new StringBuilder("abc.*"));
         asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
         asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("str !~ nomatch", Boolean.TRUE);
     }
 
 @Test
     public void testRegexp_14_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", "abc.*");
         asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", new StringBuilder("abc.*"));
         asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
         asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("str =~ nomatch", Boolean.FALSE);
     }
 
 @Test
     public void testRegexp_15_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", "abc.*");
         asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", new StringBuilder("abc.*"));
         asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
         asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // check the in/not-in variant
         asserter.assertExpression("'a' =~ ['a','b','c','d','e','f']", Boolean.TRUE);
     }
 
 @Test
     public void testRegexp_16_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", "abc.*");
         asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", new StringBuilder("abc.*"));
         asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
         asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // check the in/not-in variant
+        // removed other assertion
         asserter.assertExpression("'a' !~ ['a','b','c','d','e','f']", Boolean.FALSE);
     }
 
 @Test
     public void testRegexp_17_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", "abc.*");
         asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", new StringBuilder("abc.*"));
         asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
         asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // check the in/not-in variant
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("'z' =~ ['a','b','c','d','e','f']", Boolean.FALSE);
     }
 
 @Test
     public void testRegexp_18_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", "abc.*");
         asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", new StringBuilder("abc.*"));
         asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
         asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // check the in/not-in variant
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("'z' !~ ['a','b','c','d','e','f']", Boolean.TRUE);
     }
 
@@ -1025,18 +1303,24 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testRegexp2_2_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
         asserter.assertExpression("str !~ ~/ABC.*/", Boolean.TRUE);
     }
 
 @Test
     public void testRegexp2_3_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("str =~ ~/abc\\d{3}/", Boolean.TRUE);
     }
 
 @Test
     public void testRegexp2_4_oe() throws Exception {
         asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("str", "4/6");
         asserter.assertExpression("str =~ ~/\\d\\/\\d/", Boolean.TRUE);
     }
@@ -1050,12 +1334,15 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testStartsEndsWithString_2_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
         asserter.assertExpression("x =$ 'foo'", Boolean.FALSE);
     }
 
 @Test
     public void testStartsEndsWithString_3_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
         asserter.assertExpression("x =^ 'foo'", Boolean.FALSE);
     }
@@ -1063,7 +1350,10 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testStartsEndsWithString_4_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
+        // removed other assertion
         asserter.assertExpression("x =$ 'foo'", Boolean.TRUE);
     }
 
@@ -1076,12 +1366,15 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testStartsEndsWithStringDot_2_oe() throws Exception {
         asserter.setVariable("x.y", "foobar");
+        // removed other assertion
         asserter.assertExpression("x.y =$ 'foo'", Boolean.FALSE);
     }
 
 @Test
     public void testStartsEndsWithStringDot_3_oe() throws Exception {
         asserter.setVariable("x.y", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x.y", "barfoo");
         asserter.assertExpression("x.y =^ 'foo'", Boolean.FALSE);
     }
@@ -1089,7 +1382,10 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testStartsEndsWithStringDot_4_oe() throws Exception {
         asserter.setVariable("x.y", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x.y", "barfoo");
+        // removed other assertion
         asserter.assertExpression("x.y =$ 'foo'", Boolean.TRUE);
     }
 
@@ -1102,12 +1398,15 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testNotStartsEndsWithString_2_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
         asserter.assertExpression("x !$ 'foo'", Boolean.TRUE);
     }
 
 @Test
     public void testNotStartsEndsWithString_3_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
         asserter.assertExpression("x !^ 'foo'", Boolean.TRUE);
     }
@@ -1115,7 +1414,10 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testNotStartsEndsWithString_4_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
+        // removed other assertion
         asserter.assertExpression("x !$ 'foo'", Boolean.FALSE);
     }
 
@@ -1128,12 +1430,15 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testNotStartsEndsWithStringDot_2_oe() throws Exception {
         asserter.setVariable("x.y", "foobar");
+        // removed other assertion
         asserter.assertExpression("x.y !$ 'foo'", Boolean.TRUE);
     }
 
 @Test
     public void testNotStartsEndsWithStringDot_3_oe() throws Exception {
         asserter.setVariable("x.y", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x.y", "barfoo");
         asserter.assertExpression("x.y !^ 'foo'", Boolean.TRUE);
     }
@@ -1141,7 +1446,10 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testNotStartsEndsWithStringDot_4_oe() throws Exception {
         asserter.setVariable("x.y", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x.y", "barfoo");
+        // removed other assertion
         asserter.assertExpression("x.y !$ 'foo'", Boolean.FALSE);
     }
 
@@ -1154,12 +1462,15 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testStartsEndsWithStringBuilder_2_oe() throws Exception {
         asserter.setVariable("x", new StringBuilder("foobar"));
+        // removed other assertion
         asserter.assertExpression("x =$ 'foo'", Boolean.FALSE);
     }
 
 @Test
     public void testStartsEndsWithStringBuilder_3_oe() throws Exception {
         asserter.setVariable("x", new StringBuilder("foobar"));
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", new StringBuilder("barfoo"));
         asserter.assertExpression("x =^ 'foo'", Boolean.FALSE);
     }
@@ -1167,7 +1478,10 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testStartsEndsWithStringBuilder_4_oe() throws Exception {
         asserter.setVariable("x", new StringBuilder("foobar"));
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", new StringBuilder("barfoo"));
+        // removed other assertion
         asserter.assertExpression("x =$ 'foo'", Boolean.TRUE);
     }
 
@@ -1180,12 +1494,15 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testNotStartsEndsWithStringBuilder_2_oe() throws Exception {
         asserter.setVariable("x", new StringBuilder("foobar"));
+        // removed other assertion
         asserter.assertExpression("x !$ 'foo'", Boolean.TRUE);
     }
 
 @Test
     public void testNotStartsEndsWithStringBuilder_3_oe() throws Exception {
         asserter.setVariable("x", new StringBuilder("foobar"));
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", new StringBuilder("barfoo"));
         asserter.assertExpression("x !^ 'foo'", Boolean.TRUE);
     }
@@ -1193,12 +1510,16 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testNotStartsEndsWithStringBuilder_4_oe() throws Exception {
         asserter.setVariable("x", new StringBuilder("foobar"));
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", new StringBuilder("barfoo"));
+        // removed other assertion
         asserter.assertExpression("x !$ 'foo'", Boolean.FALSE);
     }
 
 @Test
     public void testMatch_1_oe() throws Exception {
+        // check in/not-in on array, list, map, set and duck-type collection
         final int[] ai = {2, 4, 42, 54};
         final List<Integer> al = new ArrayList<Integer>();
         for (final int i : ai) {
@@ -1225,6 +1546,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 
 @Test
     public void testMatch_2_oe() throws Exception {
+        // check in/not-in on array, list, map, set and duck-type collection
         final int[] ai = {2, 4, 42, 54};
         final List<Integer> al = new ArrayList<Integer>();
         for (final int i : ai) {
@@ -1244,6 +1566,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
             asserter.setVariable("container", var);
             for (final int x : ai) {
                 asserter.setVariable("x", x);
+                // removed other assertion
             }
             asserter.setVariable("x", 169);
             asserter.assertExpression("x !~ container", Boolean.TRUE);
@@ -1259,12 +1582,15 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testStartsEndsWith_2_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
         asserter.assertExpression("x =$ 'foo'", Boolean.FALSE);
     }
 
 @Test
     public void testStartsEndsWith_3_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
         asserter.assertExpression("x =^ 'foo'", Boolean.FALSE);
     }
@@ -1272,14 +1598,21 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testStartsEndsWith_4_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
+        // removed other assertion
         asserter.assertExpression("x =$ 'foo'", Boolean.TRUE);
     }
 
 @Test
     public void testStartsEndsWith_5_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
 
         final int[] ai = {2, 4, 42, 54};
         final IterableContainer ic = new IterableContainer(ai);
@@ -1290,55 +1623,90 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testStartsEndsWith_6_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
 
         final int[] ai = {2, 4, 42, 54};
         final IterableContainer ic = new IterableContainer(ai);
         asserter.setVariable("x", ic);
+        // removed other assertion
         asserter.assertExpression("x =$ 54", Boolean.TRUE);
     }
 
 @Test
     public void testStartsEndsWith_7_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
 
         final int[] ai = {2, 4, 42, 54};
         final IterableContainer ic = new IterableContainer(ai);
         asserter.setVariable("x", ic);
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("x =^ 4", Boolean.FALSE);
     }
 
 @Test
     public void testStartsEndsWith_8_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
 
         final int[] ai = {2, 4, 42, 54};
         final IterableContainer ic = new IterableContainer(ai);
         asserter.setVariable("x", ic);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("x =$ 42", Boolean.FALSE);
     }
 
 @Test
     public void testStartsEndsWith_9_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
 
         final int[] ai = {2, 4, 42, 54};
         final IterableContainer ic = new IterableContainer(ai);
         asserter.setVariable("x", ic);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("x =^ [2, 4]", Boolean.TRUE);
     }
 
 @Test
     public void testStartsEndsWith_10_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
 
         final int[] ai = {2, 4, 42, 54};
         final IterableContainer ic = new IterableContainer(ai);
         asserter.setVariable("x", ic);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("x =^ [42, 54]", Boolean.TRUE);
     }
 
@@ -1351,12 +1719,15 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testNotStartsEndsWith_2_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
         asserter.assertExpression("x !$ 'foo'", Boolean.TRUE);
     }
 
 @Test
     public void testNotStartsEndsWith_3_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
         asserter.assertExpression("x !^ 'foo'", Boolean.TRUE);
     }
@@ -1364,14 +1735,21 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testNotStartsEndsWith_4_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
+        // removed other assertion
         asserter.assertExpression("x !$ 'foo'", Boolean.FALSE);
     }
 
 @Test
     public void testNotStartsEndsWith_5_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
 
         final int[] ai = {2, 4, 42, 54};
         final IterableContainer ic = new IterableContainer(ai);
@@ -1382,55 +1760,90 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 @Test
     public void testNotStartsEndsWith_6_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
 
         final int[] ai = {2, 4, 42, 54};
         final IterableContainer ic = new IterableContainer(ai);
         asserter.setVariable("x", ic);
+        // removed other assertion
         asserter.assertExpression("x !$ 54", Boolean.FALSE);
     }
 
 @Test
     public void testNotStartsEndsWith_7_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
 
         final int[] ai = {2, 4, 42, 54};
         final IterableContainer ic = new IterableContainer(ai);
         asserter.setVariable("x", ic);
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("x !^ 4", Boolean.TRUE);
     }
 
 @Test
     public void testNotStartsEndsWith_8_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
 
         final int[] ai = {2, 4, 42, 54};
         final IterableContainer ic = new IterableContainer(ai);
         asserter.setVariable("x", ic);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("x !$ 42", Boolean.TRUE);
     }
 
 @Test
     public void testNotStartsEndsWith_9_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
 
         final int[] ai = {2, 4, 42, 54};
         final IterableContainer ic = new IterableContainer(ai);
         asserter.setVariable("x", ic);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("x !^ [2, 4]", Boolean.FALSE);
     }
 
 @Test
     public void testNotStartsEndsWith_10_oe() throws Exception {
         asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
 
         final int[] ai = {2, 4, 42, 54};
         final IterableContainer ic = new IterableContainer(ai);
         asserter.setVariable("x", ic);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("x !^ [42, 54]", Boolean.FALSE);
     }
 

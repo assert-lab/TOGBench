@@ -57,6 +57,7 @@ public class AsserterTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("foo", new Foo());
         asserter.setVariable("person", "James");
 
+        // removed other assertion
         asserter.assertExpression("size(person)", new Integer(5));
     }
 
@@ -67,6 +68,8 @@ public class AsserterTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("foo", new Foo());
         asserter.setVariable("person", "James");
 
+        // removed other assertion
+        // removed other assertion
 
         asserter.assertExpression("foo.getCount()", new Integer(5));
     }
@@ -78,7 +81,10 @@ public class AsserterTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("foo", new Foo());
         asserter.setVariable("person", "James");
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         asserter.assertExpression("foo.count", new Integer(5));
     }
 

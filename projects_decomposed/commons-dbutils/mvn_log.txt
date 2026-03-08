@@ -1,161 +1,156 @@
-[[1;34mINFO[m] Scanning for projects...
-[[1;33mWARNING[m] 
-[[1;33mWARNING[m] Some problems were encountered while building the effective model for commons-dbutils:commons-dbutils:jar:1.7
-[[1;33mWARNING[m] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ line 283, column 15
-[[1;33mWARNING[m] 
-[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
-[[1;33mWARNING[m] 
-[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
-[[1;33mWARNING[m] 
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m------------------< [0;36mcommons-dbutils:commons-dbutils[0;1m >-------------------[m
-[[1;34mINFO[m] [1mBuilding Apache Commons DbUtils 1.7[m
-[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:3.0.0:clean[m [1m(default-clean)[m @ [36mcommons-dbutils[0;1m ---[m
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:1.4.1:enforce[m [1m(enforce-maven-3)[m @ [36mcommons-dbutils[0;1m ---[m
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mbuild-helper-maven-plugin:1.10:parse-version[m [1m(parse-version)[m @ [36mcommons-dbutils[0;1m ---[m
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-antrun-plugin:1.8:run[m [1m(javadoc.resources)[m @ [36mcommons-dbutils[0;1m ---[m
-[[1;34mINFO[m] Executing tasks
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< commons-dbutils:commons-dbutils >-------------------
+[INFO] Building Apache Commons DbUtils 1.7
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ commons-dbutils ---
+[INFO] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven-3) @ commons-dbutils ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.10:parse-version (parse-version) @ commons-dbutils ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-dbutils ---
+[INFO] Executing tasks
 
 main:
-     [copy] Copying 2 files to /media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/FSE_USER-artifacts-nov-10/evosuite-artifacts/commons-dbutils-1.7/target/apidocs/META-INF
-[[1;34mINFO[m] Executed tasks
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-remote-resources-plugin:1.5:process[m [1m(default)[m @ [36mcommons-dbutils[0;1m ---[m
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mbuildnumber-maven-plugin:1.4:create[m [1m(default)[m @ [36mcommons-dbutils[0;1m ---[m
-[[1;34mINFO[m] Executing: /bin/sh -c cd '/media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/FSE_USER-artifacts-nov-10/evosuite-artifacts/commons-dbutils-1.7' && 'git' 'rev-parse' '--verify' 'HEAD'
-[[1;34mINFO[m] Working directory: /media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/FSE_USER-artifacts-nov-10/evosuite-artifacts/commons-dbutils-1.7
-[[1;34mINFO[m] Storing buildNumber: 39bd86547e0dd838ac893e58d157fa054ccd295b at timestamp: 1674845321463
-[[1;34mINFO[m] Storing buildScmBranch: main
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.7:resources[m [1m(default-resources)[m @ [36mcommons-dbutils[0;1m ---[m
-[[1;34mINFO[m] Using 'iso-8859-1' encoding to copy filtered resources.
-[[1;34mINFO[m] Copying 2 resources
-[[1;34mINFO[m] Copying 2 resources to META-INF
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.5.1:compile[m [1m(default-compile)[m @ [36mcommons-dbutils[0;1m ---[m
-[[1;34mINFO[m] Changes detected - recompiling the module!
-[[1;34mINFO[m] Compiling 46 source files to /media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/FSE_USER-artifacts-nov-10/evosuite-artifacts/commons-dbutils-1.7/target/classes
-[[1;34mINFO[m] /media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/FSE_USER-artifacts-nov-10/evosuite-artifacts/commons-dbutils-1.7/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java: /media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/FSE_USER-artifacts-nov-10/evosuite-artifacts/commons-dbutils-1.7/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java uses unchecked or unsafe operations.
-[[1;34mINFO[m] /media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/FSE_USER-artifacts-nov-10/evosuite-artifacts/commons-dbutils-1.7/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java: Recompile with -Xlint:unchecked for details.
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-bundle-plugin:3.0.1:manifest[m [1m(bundle-manifest)[m @ [36mcommons-dbutils[0;1m ---[m
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32manimal-sniffer-maven-plugin:1.15:check[m [1m(checkAPIcompatibility)[m @ [36mcommons-dbutils[0;1m ---[m
-[[1;34mINFO[m] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.7:testResources[m [1m(default-testResources)[m @ [36mcommons-dbutils[0;1m ---[m
-[[1;34mINFO[m] Using 'iso-8859-1' encoding to copy filtered resources.
-[[1;34mINFO[m] skip non existing resourceDirectory /media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/FSE_USER-artifacts-nov-10/evosuite-artifacts/commons-dbutils-1.7/src/test/resources
-[[1;34mINFO[m] Copying 2 resources to META-INF
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.5.1:testCompile[m [1m(default-testCompile)[m @ [36mcommons-dbutils[0;1m ---[m
-[[1;34mINFO[m] Changes detected - recompiling the module!
-[[1;34mINFO[m] Compiling 76 source files to /media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/FSE_USER-artifacts-nov-10/evosuite-artifacts/commons-dbutils-1.7/target/test-classes
-[[1;34mINFO[m] /media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/FSE_USER-artifacts-nov-10/evosuite-artifacts/commons-dbutils-1.7/src/test/java/org/apache/commons/dbutils/QueryRunner_ESTest.java: Some input files use or override a deprecated API.
-[[1;34mINFO[m] /media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/FSE_USER-artifacts-nov-10/evosuite-artifacts/commons-dbutils-1.7/src/test/java/org/apache/commons/dbutils/QueryRunner_ESTest.java: Recompile with -Xlint:deprecation for details.
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mevosuite-maven-plugin:1.0.6:prepare[m [1m(default)[m @ [36mcommons-dbutils[0;1m ---[m
-[[1;34mINFO[m] Preparing EvoSuite tests for execution
-[[1;34mINFO[m] Analyzing test folder: /media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/FSE_USER-artifacts-nov-10/evosuite-artifacts/commons-dbutils-1.7/target/test-classes
-[[1;34mINFO[m] Found 38 EvoSuite scaffolding files
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.17:test[m [1m(default-test)[m @ [36mcommons-dbutils[0;1m ---[m
-[[1;34mINFO[m] Surefire report directory: /media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/FSE_USER-artifacts-nov-10/evosuite-artifacts/commons-dbutils-1.7/target/surefire-reports
-
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
-Executing org.evosuite.runtime.InitializingListener
-Running org.apache.commons.dbutils.BaseResultSetHandler_ESTest
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.108 sec - in org.apache.commons.dbutils.BaseResultSetHandler_ESTest
-Running org.apache.commons.dbutils.QueryRunner_ESTest
-Tests run: 101, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.02 sec - in org.apache.commons.dbutils.QueryRunner_ESTest
-Running org.apache.commons.dbutils.ResultSetIterator_ESTest
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 sec - in org.apache.commons.dbutils.ResultSetIterator_ESTest
-Running org.apache.commons.dbutils.StatementConfiguration_ESTest
-Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec - in org.apache.commons.dbutils.StatementConfiguration_ESTest
-Running org.apache.commons.dbutils.BeanProcessor_ESTest
-Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.111 sec - in org.apache.commons.dbutils.BeanProcessor_ESTest
-Running org.apache.commons.dbutils.OutParameter_ESTest
-Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.commons.dbutils.OutParameter_ESTest
-Running org.apache.commons.dbutils.ProxyFactory_ESTest
-Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec - in org.apache.commons.dbutils.ProxyFactory_ESTest
-Running org.apache.commons.dbutils.BasicRowProcessor_ESTest
-Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec - in org.apache.commons.dbutils.BasicRowProcessor_ESTest
-Running org.apache.commons.dbutils.AbstractQueryRunner_ESTest
-Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 sec - in org.apache.commons.dbutils.AbstractQueryRunner_ESTest
-Running org.apache.commons.dbutils.GenerousBeanProcessor_ESTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec - in org.apache.commons.dbutils.GenerousBeanProcessor_ESTest
-Running org.apache.commons.dbutils.QueryLoader_ESTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec - in org.apache.commons.dbutils.QueryLoader_ESTest
-Running org.apache.commons.dbutils.DbUtils_ESTest
-Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.112 sec - in org.apache.commons.dbutils.DbUtils_ESTest
-Running org.apache.commons.dbutils.handlers.KeyedHandler_ESTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.KeyedHandler_ESTest
-Running org.apache.commons.dbutils.handlers.MapListHandler_ESTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.MapListHandler_ESTest
-Running org.apache.commons.dbutils.handlers.BeanMapHandler_ESTest
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.BeanMapHandler_ESTest
-Running org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandler_ESTest
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandler_ESTest
-Running org.apache.commons.dbutils.handlers.properties.DatePropertyHandler_ESTest
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.properties.DatePropertyHandler_ESTest
-Running org.apache.commons.dbutils.handlers.ArrayListHandler_ESTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.ArrayListHandler_ESTest
-Running org.apache.commons.dbutils.handlers.MapHandler_ESTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.MapHandler_ESTest
-Running org.apache.commons.dbutils.handlers.ArrayHandler_ESTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.ArrayHandler_ESTest
-Running org.apache.commons.dbutils.handlers.columns.BooleanColumnHandler_ESTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.BooleanColumnHandler_ESTest
-Running org.apache.commons.dbutils.handlers.columns.SQLXMLColumnHandler_ESTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.SQLXMLColumnHandler_ESTest
-Running org.apache.commons.dbutils.handlers.columns.LongColumnHandler_ESTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.dbutils.handlers.columns.LongColumnHandler_ESTest
-Running org.apache.commons.dbutils.handlers.columns.StringColumnHandler_ESTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.StringColumnHandler_ESTest
-Running org.apache.commons.dbutils.handlers.columns.IntegerColumnHandler_ESTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.IntegerColumnHandler_ESTest
-Running org.apache.commons.dbutils.handlers.columns.FloatColumnHandler_ESTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.FloatColumnHandler_ESTest
-Running org.apache.commons.dbutils.handlers.columns.ByteColumnHandler_ESTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.ByteColumnHandler_ESTest
-Running org.apache.commons.dbutils.handlers.columns.TimestampColumnHandler_ESTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.TimestampColumnHandler_ESTest
-Running org.apache.commons.dbutils.handlers.columns.DoubleColumnHandler_ESTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.DoubleColumnHandler_ESTest
-Running org.apache.commons.dbutils.handlers.columns.ShortColumnHandler_ESTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.ShortColumnHandler_ESTest
-Running org.apache.commons.dbutils.handlers.BeanListHandler_ESTest
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.BeanListHandler_ESTest
-Running org.apache.commons.dbutils.handlers.BeanHandler_ESTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.BeanHandler_ESTest
-Running org.apache.commons.dbutils.handlers.ColumnListHandler_ESTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.ColumnListHandler_ESTest
-Running org.apache.commons.dbutils.handlers.AbstractListHandler_ESTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.AbstractListHandler_ESTest
-Running org.apache.commons.dbutils.handlers.ScalarHandler_ESTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.ScalarHandler_ESTest
-Running org.apache.commons.dbutils.handlers.AbstractKeyedHandler_ESTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.AbstractKeyedHandler_ESTest
-Running org.apache.commons.dbutils.wrappers.StringTrimmedResultSet_ESTest
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.wrappers.StringTrimmedResultSet_ESTest
-Running org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSet_ESTest
-Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSet_ESTest
-
-Results :
-
-Tests run: 479, Failures: 0, Errors: 0, Skipped: 0
-
-[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
-[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
-[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
-[[1;34mINFO[m] Total time:  6.459 s
-[[1;34mINFO[m] Finished at: 2023-01-27T13:48:47-05:00
-[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (default) @ commons-dbutils ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-dbutils ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils
+[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772595137647
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-dbutils ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ commons-dbutils ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 46 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java uses unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:3.0.1:manifest (bundle-manifest) @ commons-dbutils ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.15:check (checkAPIcompatibility) @ commons-dbutils ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ commons-dbutils ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ commons-dbutils ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 80 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSetTest_OE25Dev.java:[873,9] no suitable method found for assertEquals(java.lang.Object,float,double)
+    method junit.framework.Assert.assertEquals(java.lang.String,java.lang.Object,java.lang.Object) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.Assert.assertEquals(java.lang.String,java.lang.String,java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to double)
+    method junit.framework.Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to float)
+    method junit.framework.Assert.assertEquals(java.lang.String,long,long) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.Assert.assertEquals(java.lang.String,boolean,boolean) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.Assert.assertEquals(java.lang.String,byte,byte) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.Assert.assertEquals(java.lang.String,char,char) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.Assert.assertEquals(java.lang.String,short,short) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.Assert.assertEquals(java.lang.String,int,int) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.TestCase.assertEquals(java.lang.String,java.lang.Object,java.lang.Object) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.TestCase.assertEquals(java.lang.String,java.lang.String,java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.TestCase.assertEquals(double,double,double) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to double)
+    method junit.framework.TestCase.assertEquals(float,float,float) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to float)
+    method junit.framework.TestCase.assertEquals(java.lang.String,long,long) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.TestCase.assertEquals(java.lang.String,boolean,boolean) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.TestCase.assertEquals(java.lang.String,byte,byte) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.TestCase.assertEquals(java.lang.String,char,char) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.TestCase.assertEquals(java.lang.String,short,short) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+    method junit.framework.TestCase.assertEquals(java.lang.String,int,int) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.448 s
+[INFO] Finished at: 2026-03-03T21:32:18-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.5.1:testCompile (default-testCompile) on project commons-dbutils: Compilation failure
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSetTest_OE25Dev.java:[873,9] no suitable method found for assertEquals(java.lang.Object,float,double)
+[ERROR]     method junit.framework.Assert.assertEquals(java.lang.String,java.lang.Object,java.lang.Object) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.Assert.assertEquals(java.lang.String,java.lang.String,java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.Assert.assertEquals(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to double)
+[ERROR]     method junit.framework.Assert.assertEquals(float,float,float) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to float)
+[ERROR]     method junit.framework.Assert.assertEquals(java.lang.String,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.Assert.assertEquals(java.lang.String,boolean,boolean) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.Assert.assertEquals(java.lang.String,byte,byte) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.Assert.assertEquals(java.lang.String,char,char) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.Assert.assertEquals(java.lang.String,short,short) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.Assert.assertEquals(java.lang.String,int,int) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.TestCase.assertEquals(java.lang.String,java.lang.Object,java.lang.Object) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.TestCase.assertEquals(java.lang.String,java.lang.String,java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.TestCase.assertEquals(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to double)
+[ERROR]     method junit.framework.TestCase.assertEquals(float,float,float) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to float)
+[ERROR]     method junit.framework.TestCase.assertEquals(java.lang.String,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.TestCase.assertEquals(java.lang.String,boolean,boolean) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.TestCase.assertEquals(java.lang.String,byte,byte) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.TestCase.assertEquals(java.lang.String,char,char) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.TestCase.assertEquals(java.lang.String,short,short) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR]     method junit.framework.TestCase.assertEquals(java.lang.String,int,int) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

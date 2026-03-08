@@ -81,6 +81,21 @@ public class UnmodifiableBidiMapTest_OE25Dev<K, V> extends AbstractBidiMapTest<K
 
     //-----------------------------------------------------------------------
 
+    public void testUnmodifiable() {
+        assertTrue(makeObject() instanceof Unmodifiable);
+        assertTrue(makeFullMap() instanceof Unmodifiable);
+    }
+
+    public void testDecorateFactory() {
+        final BidiMap<K, V> map = makeFullMap();
+        assertSame(map, UnmodifiableBidiMap.unmodifiableBidiMap(map));
+
+        try {
+            UnmodifiableBidiMap.unmodifiableBidiMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
     public void testUnmodifiable_1_oe() {
         assertTrue(makeObject() instanceof Unmodifiable);
     }
@@ -92,6 +107,13 @@ public class UnmodifiableBidiMapTest_OE25Dev<K, V> extends AbstractBidiMapTest<K
     public void testDecorateFactory_1_oe() {
         final BidiMap<K, V> map = makeFullMap();
         assertSame(map, UnmodifiableBidiMap.unmodifiableBidiMap(map));
+    }
+
+public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableBidiMap.unmodifiableBidiMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
     }
 
 }

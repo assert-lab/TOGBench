@@ -146,6 +146,7 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
                 .body(ResponseBody.create(new byte[0], MediaType.get("text/plain")))
                 .build();
         handler.onResponse(call, response);
+        // removed other assertion
         assertNotNull(callback.getThrowable());
     }
 
@@ -163,6 +164,8 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
                 .body(ResponseBody.create(new byte[0], MediaType.get("text/plain")))
                 .build();
         handler.onResponse(call, response);
+        // removed other assertion
+        // removed other assertion
         assertTrue(callback.getThrowable() instanceof IOException);
     }
 
@@ -180,6 +183,10 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
                 .body(ResponseBody.create(new byte[0], MediaType.get("text/plain")))
                 .build();
         handler.onResponse(call, response);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
         try {
     new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } }.execute();
     fail("ExecutionException");
@@ -201,6 +208,10 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
                 .body(ResponseBody.create(new byte[0], MediaType.get("text/plain")))
                 .build();
         handler.onResponse(call, response);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
         try {
     new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } }.execute();
     fail("ExecutionException");
@@ -223,6 +234,7 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
         call.enqueue(handler);
 
         future.cancel(true);
+        // removed other assertion
         assertNotNull(callback.getThrowable());
     }
 
@@ -232,6 +244,8 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
         call.enqueue(handler);
 
         future.cancel(true);
+        // removed other assertion
+        // removed other assertion
         assertTrue(callback.getThrowable() instanceof IOException);
     }
 
@@ -241,6 +255,10 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
         call.enqueue(handler);
 
         future.cancel(true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
         try {
     new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } }.execute();
     fail("ExecutionException");
@@ -263,6 +281,7 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
         call.enqueue(handler);
 
         handler.onFailure(call, new IOException());
+        // removed other assertion
         assertNotNull(callback.getThrowable());
     }
 
@@ -272,6 +291,8 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
         call.enqueue(handler);
 
         handler.onFailure(call, new IOException());
+        // removed other assertion
+        // removed other assertion
         assertTrue(callback.getThrowable() instanceof IOException);
     }
 
@@ -281,6 +302,10 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
         call.enqueue(handler);
 
         handler.onFailure(call, new IOException());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
         try {
     new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } }.execute();
     fail("ExecutionException");

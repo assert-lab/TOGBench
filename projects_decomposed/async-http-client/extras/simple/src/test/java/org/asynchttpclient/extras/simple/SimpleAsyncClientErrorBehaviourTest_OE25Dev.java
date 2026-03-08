@@ -68,6 +68,7 @@ public class SimpleAsyncClientErrorBehaviourTest_OE25Dev extends AbstractBasicTe
 
       System.out.println("waiting for response");
       Response response = future.get();
+      // removed other assertion
       assertEquals(o.toString(), "");
   }
   }
@@ -82,6 +83,8 @@ public class SimpleAsyncClientErrorBehaviourTest_OE25Dev extends AbstractBasicTe
 
       System.out.println("waiting for response");
       Response response = future.get();
+      // removed other assertion
+      // removed other assertion
       assertTrue(response.getResponseBody().startsWith("<html>"));
   }
   }
@@ -110,6 +113,7 @@ public class SimpleAsyncClientErrorBehaviourTest_OE25Dev extends AbstractBasicTe
 
       System.out.println("waiting for response");
       Response response = future.get();
+      // removed other assertion
       assertEquals(o.toString(), "");
   }
   }
@@ -124,6 +128,8 @@ public class SimpleAsyncClientErrorBehaviourTest_OE25Dev extends AbstractBasicTe
 
       System.out.println("waiting for response");
       Response response = future.get();
+      // removed other assertion
+      // removed other assertion
       assertEquals(response.getResponseBody(), "");
   }
   }

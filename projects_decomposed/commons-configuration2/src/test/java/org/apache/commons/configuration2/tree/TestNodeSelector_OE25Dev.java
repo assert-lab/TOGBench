@@ -184,6 +184,7 @@ public class TestNodeSelector_OE25Dev {
     public void testSelectSingleKeySuccess_2_oe() {
         final NodeSelector selector = new NodeSelector("tables.table(0).name");
         final ImmutableNode target = selector.select(root, resolver, handler);
+        // removed other assertion
         assertEquals("Wrong value", NodeStructureHelper.table(0), target.getValue());
     }
 
@@ -232,6 +233,7 @@ public class TestNodeSelector_OE25Dev {
         final String key2 = "anotherSelectionKey";
         final NodeSelector selector = new NodeSelector(KEY).subSelector(key2);
         final String s = selector.toString();
+        // removed other assertion
         assertThat(s, containsString(key2));
     }
 

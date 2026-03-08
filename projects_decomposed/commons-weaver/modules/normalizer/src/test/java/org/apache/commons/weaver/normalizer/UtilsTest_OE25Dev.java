@@ -73,56 +73,122 @@ public class UtilsTest_OE25Dev {
 
     @Test
     public void testValidatePackageName_2_oe() {
+        // removed other assertion
         assertEquals("", Utils.validatePackageName("    "));
     }
 
     @Test
     public void testValidatePackageName_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals("foo", Utils.validatePackageName("foo"));
     }
 
     @Test
     public void testValidatePackageName_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("foo/bar", Utils.validatePackageName("foo.bar"));
     }
 
     @Test
     public void testValidatePackageName_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("foo/bar", Utils.validatePackageName("foo/bar"));
     }
 
     @Test
     public void testValidatePackageName_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("foo/bar/baz", Utils.validatePackageName("foo.bar.baz"));
     }
 
     @Test
     public void testValidatePackageName_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("foo/bar/baz", Utils.validatePackageName("foo.bar/baz"));
     }
 
     @Test
     public void testValidatePackageName_8_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("foo/bar/baz", Utils.validatePackageName("foo/bar.baz"));
     }
 
     @Test
     public void testValidatePackageName_9_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("foo/bar/baz", Utils.validatePackageName("foo/bar/baz"));
     }
 
     @Test
     public void testValidatePackageName_10_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("$foo", Utils.validatePackageName("$foo"));
     }
 
     @Test
     public void testValidatePackageName_11_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("_foo", Utils.validatePackageName("_foo"));
     }
 
     @Test
     public void testValidatePackageName_12_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("foo2", Utils.validatePackageName("foo2"));
     }
 
@@ -133,21 +199,31 @@ public class UtilsTest_OE25Dev {
 
 @Test
     public void testParseTypes_2_oe() {
+        // removed other assertion
         assertContainsInOrder( Utils.parseTypes("java.lang.Number,java.lang.String,java.util.Map", getClass().getClassLoader()), Number.class, String.class, Map.class);
     }
 
 @Test
     public void testParseTypes_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertContainsInOrder( Utils.parseTypes("java.lang.Number, java.lang.String, java.util.Map", getClass().getClassLoader()), Number.class, String.class, Map.class);
     }
 
 @Test
     public void testParseTypes_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertContainsInOrder( Utils.parseTypes("java/lang/Number, java/lang/String, java/util/Map", getClass().getClassLoader()), Number.class, String.class, Map.class);
     }
 
 @Test
     public void testParseTypes_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertContainsInOrder( Utils.parseTypes("java.lang.Number,\njava.lang.String,\njava.util.Map", getClass().getClassLoader()), Number.class, String.class, Map.class);
     }
 

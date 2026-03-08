@@ -240,6 +240,7 @@ public class TestDefaultConversionHandler_OE25Dev {
     public void testToArrayObject_2_oe() {
         final List<String> src = Arrays.asList(VAR, "100");
         final Integer[] array = (Integer[]) handler.toArray(src, Integer.class, createInterpolator());
+        // removed other assertion
         assertEquals("Wrong element (1)", Integer.valueOf(REPLACEMENT), array[0]);
     }
 
@@ -247,6 +248,8 @@ public class TestDefaultConversionHandler_OE25Dev {
     public void testToArrayObject_3_oe() {
         final List<String> src = Arrays.asList(VAR, "100");
         final Integer[] array = (Integer[]) handler.toArray(src, Integer.class, createInterpolator());
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong element (2)", Integer.valueOf(src.get(1)), array[1]);
     }
 
@@ -261,6 +264,7 @@ public class TestDefaultConversionHandler_OE25Dev {
     public void testToArrayPrimitiveOtherType_2_oe() {
         final List<String> src = Arrays.asList(VAR, "100");
         final int[] array = (int[]) handler.toArray(src, Integer.TYPE, createInterpolator());
+        // removed other assertion
         assertEquals("Wrong element (2)", Integer.parseInt(src.get(1)), array[1]);
     }
 
@@ -282,6 +286,7 @@ public class TestDefaultConversionHandler_OE25Dev {
     public void testToArrayPrimitiveWrapperType_2_oe() {
         final Integer[] src = {0, 1, 2, 4, 8, 16, 32, 64, 128};
         final int[] array = (int[]) handler.toArray(src, Integer.TYPE, createInterpolator());
+        // removed other assertion
         for (int i = 0; i < src.length; i++) {
             assertEquals("Wrong element at " + i, src[i].intValue(), array[i]);
     }
@@ -296,30 +301,45 @@ public class TestDefaultConversionHandler_OE25Dev {
     @Test
     public void testToCalendarWithDefaultFormat_2_oe() {
         final Calendar cal = handler.to("2013-08-19 21:17:22", Calendar.class, null);
+        // removed other assertion
         assertEquals("Wrong month", Calendar.AUGUST, cal.get(Calendar.MONTH));
     }
 
     @Test
     public void testToCalendarWithDefaultFormat_3_oe() {
         final Calendar cal = handler.to("2013-08-19 21:17:22", Calendar.class, null);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong year", 2013, cal.get(Calendar.YEAR));
     }
 
     @Test
     public void testToCalendarWithDefaultFormat_4_oe() {
         final Calendar cal = handler.to("2013-08-19 21:17:22", Calendar.class, null);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong hour", 21, cal.get(Calendar.HOUR_OF_DAY));
     }
 
     @Test
     public void testToCalendarWithDefaultFormat_5_oe() {
         final Calendar cal = handler.to("2013-08-19 21:17:22", Calendar.class, null);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong minute", 17, cal.get(Calendar.MINUTE));
     }
 
     @Test
     public void testToCalendarWithDefaultFormat_6_oe() {
         final Calendar cal = handler.to("2013-08-19 21:17:22", Calendar.class, null);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong second", 22, cal.get(Calendar.SECOND));
     }
 
@@ -350,6 +370,7 @@ public class TestDefaultConversionHandler_OE25Dev {
         final Object[] src = {VAR, "100"};
         final List<Integer> col = new ArrayList<>(src.length);
         handler.toCollection(src, Integer.class, createInterpolator(), col);
+        // removed other assertion
         assertEquals("Wrong element (1)", Integer.parseInt(REPLACEMENT), col.get(0).intValue());
     }
 
@@ -358,6 +379,8 @@ public class TestDefaultConversionHandler_OE25Dev {
         final Object[] src = {VAR, "100"};
         final List<Integer> col = new ArrayList<>(src.length);
         handler.toCollection(src, Integer.class, createInterpolator(), col);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong element (2)", Integer.parseInt(src[1].toString()), col.get(1).intValue());
     }
 
@@ -376,6 +399,7 @@ public class TestDefaultConversionHandler_OE25Dev {
         final Date dt = handler.to("19.08.2013", Date.class, null);
         final Calendar cal = Calendar.getInstance();
         cal.setTime(dt);
+        // removed other assertion
         assertEquals("Wrong month", Calendar.AUGUST, cal.get(Calendar.MONTH));
     }
 
@@ -385,6 +409,8 @@ public class TestDefaultConversionHandler_OE25Dev {
         final Date dt = handler.to("19.08.2013", Date.class, null);
         final Calendar cal = Calendar.getInstance();
         cal.setTime(dt);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong year", 2013, cal.get(Calendar.YEAR));
     }
 

@@ -67,6 +67,73 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
         return true;
     }
 
+    public void testIterator() {
+        final ListIterator<E> iter = makeObject();
+        assertTrue( "Iterator should have next item", iter.hasNext() );
+        assertTrue( "Iterator should have no previous item", !iter.hasPrevious() );
+        assertEquals( "Iteration next index", 0, iter.nextIndex() );
+        assertEquals( "Iteration previous index", -1, iter.previousIndex() );
+
+        Object iterValue = iter.next();
+        assertEquals( "Iteration value is correct", testValue, iterValue );
+
+        assertTrue( "Iterator should have no next item", !iter.hasNext() );
+        assertTrue( "Iterator should have previous item", iter.hasPrevious() );
+        assertEquals( "Iteration next index", 1, iter.nextIndex() );
+        assertEquals( "Iteration previous index", 0, iter.previousIndex() );
+
+        iterValue = iter.previous();
+        assertEquals( "Iteration value is correct", testValue, iterValue );
+
+        assertTrue( "Iterator should have next item", iter.hasNext() );
+        assertTrue( "Iterator should have no previous item", !iter.hasPrevious() );
+        assertEquals( "Iteration next index", 0, iter.nextIndex() );
+        assertEquals( "Iteration previous index", -1, iter.previousIndex() );
+
+        iterValue = iter.next();
+        assertEquals( "Iteration value is correct", testValue, iterValue );
+
+        assertTrue( "Iterator should have no next item", !iter.hasNext() );
+        assertTrue( "Iterator should have previous item", iter.hasPrevious() );
+        assertEquals( "Iteration next index", 1, iter.nextIndex() );
+        assertEquals( "Iteration previous index", 0, iter.previousIndex() );
+
+        try {
+            iter.next();
+        } catch (final Exception e) {
+          assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
+        }
+        iter.previous();
+        try {
+            iter.previous();
+        } catch (final Exception e) {
+          assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
+        }
+    }
+
+    public void testReset() {
+        final ResettableListIterator<E> it = makeObject();
+
+        assertEquals(true, it.hasNext());
+        assertEquals(false, it.hasPrevious());
+        assertEquals(testValue, it.next());
+        assertEquals(false, it.hasNext());
+        assertEquals(true, it.hasPrevious());
+
+        it.reset();
+
+        assertEquals(true, it.hasNext());
+        assertEquals(false, it.hasPrevious());
+        assertEquals(testValue, it.next());
+        assertEquals(false, it.hasNext());
+        assertEquals(true, it.hasPrevious());
+
+        it.reset();
+        it.reset();
+
+        assertEquals(true, it.hasNext());
+    }
+
     public void testIterator_1_oe() {
         final ListIterator<E> iter = makeObject();
         assertTrue( "Iterator should have next item", iter.hasNext() );

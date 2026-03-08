@@ -36,7 +36,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core
-[INFO] Storing buildNumber: 53df724e8c4d67547212d860dfed689b7c447fa6 at timestamp: 1772566622929
+[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772768433166
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-geometry-core ---
@@ -57,7 +57,7 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-geometry-core ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 47 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/target/test-classes
+[INFO] Compiling 29 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/target/test-classes
 [INFO] 
 [INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-geometry-core ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
@@ -66,51 +66,16 @@ main:
 [INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/target/jacoco.exec
 [INFO] 
 [INFO] --- maven-surefire-plugin:3.0.0-M7:test (default-test) @ commons-geometry-core ---
-[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.geometry.core.SizedTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.25 s - in org.apache.commons.geometry.core.SizedTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.core.partitioning.AbstractConvexHyperplaneBoundedRegionTest_OE25Dev
-[INFO] Tests run: 86, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.459 s - in org.apache.commons.geometry.core.partitioning.AbstractConvexHyperplaneBoundedRegionTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.core.partitioning.SplitTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.geometry.core.partitioning.SplitTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.core.partitioning.AbstractHyperplaneTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.geometry.core.partitioning.AbstractHyperplaneTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.core.partitioning.BoundaryListTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.geometry.core.partitioning.BoundaryListTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.core.partitioning.bsp.AbstractBSPTreeMergeOperatorTest_OE25Dev
-[INFO] Tests run: 134, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.288 s - in org.apache.commons.geometry.core.partitioning.bsp.AbstractBSPTreeMergeOperatorTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.core.partitioning.bsp.RegionCutBoundaryTest_OE25Dev
-[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 s - in org.apache.commons.geometry.core.partitioning.bsp.RegionCutBoundaryTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeTest_OE25Dev
-[INFO] Tests run: 362, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.528 s - in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.core.partitioning.bsp.AbstractPartitionedRegionBuilderTest_OE25Dev
-[INFO] Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.255 s - in org.apache.commons.geometry.core.partitioning.bsp.AbstractPartitionedRegionBuilderTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.core.partitioning.bsp.AbstractBSPTreeTest_OE25Dev
-[INFO] Tests run: 295, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.219 s - in org.apache.commons.geometry.core.partitioning.bsp.AbstractBSPTreeTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.core.internal.IteratorTransformTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.geometry.core.internal.IteratorTransformTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.core.internal.GeometryInternalErrorTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.geometry.core.internal.GeometryInternalErrorTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.core.internal.HyperplaneSubsetsTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.geometry.core.internal.HyperplaneSubsetsTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.core.internal.SimpleTupleFormatTest_OE25Dev
-[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.apache.commons.geometry.core.internal.SimpleTupleFormatTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.core.EmbeddingTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.geometry.core.EmbeddingTest_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 1077, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  25.234 s
-[INFO] Finished at: 2026-03-03T13:37:24-06:00
+[INFO] Total time:  16.327 s
+[INFO] Finished at: 2026-03-05T21:40:45-06:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project commons-geometry-core: No tests matching pattern "*_OE25Dev#*_oe" were executed! (Set -Dsurefire.failIfNoSpecifiedTests=false to ignore this error.) -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

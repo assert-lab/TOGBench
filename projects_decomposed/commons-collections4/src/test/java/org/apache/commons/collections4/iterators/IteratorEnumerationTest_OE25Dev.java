@@ -31,6 +31,27 @@ import static org.junit.Assert.*;
 public class IteratorEnumerationTest_OE25Dev {
 
     @Test
+    public void testEnumeration() {
+        final Iterator<String> iterator = Arrays.asList("a", "b", "c").iterator();
+        final IteratorEnumeration<String> enumeration = new IteratorEnumeration<>(iterator);
+
+        assertEquals(iterator, enumeration.getIterator());
+
+        assertTrue(enumeration.hasMoreElements());
+        assertEquals("a", enumeration.nextElement());
+        assertEquals("b", enumeration.nextElement());
+        assertEquals("c", enumeration.nextElement());
+        assertFalse(enumeration.hasMoreElements());
+
+        try {
+            enumeration.nextElement();
+            fail("NoSuchElementException expected");
+        } catch (final NoSuchElementException e) {
+            // expected
+        }
+    }
+
+    @Test
     public void testEnumeration_1_oe() {
         final Iterator<String> iterator = Arrays.asList("a", "b", "c").iterator();
         final IteratorEnumeration<String> enumeration = new IteratorEnumeration<>(iterator);

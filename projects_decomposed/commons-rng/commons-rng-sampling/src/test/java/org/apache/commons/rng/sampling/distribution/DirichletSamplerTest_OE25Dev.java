@@ -272,11 +272,14 @@ class DirichletSamplerTest_OE25Dev {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
          DirichletSampler sampler1 = DirichletSampler.symmetric(rng, 2, 1.0);
          DirichletSampler sampler2 = DirichletSampler.of(rng, 0.5, 1, 1.5);
+        // removed other assertion
         Assertions.assertTrue(sampler2.toString().toLowerCase().contains("dirichlet"));
     }
 
     @Test
     void testInvalidSampleIsIgnored_1_oe_1_oe() {
+        // An RNG implementation which should create zero samples from the underlying
+        // exponential sampler for an initial sequence.
          UniformRandomProvider rng = new SplitMix64(0L) {
             private int i;
 
@@ -286,6 +289,7 @@ class DirichletSamplerTest_OE25Dev {
             }
         };
 
+        // Alpha=1 will use an exponential sampler
          DirichletSampler sampler = DirichletSampler.symmetric(rng, 2, 1.0);
                  int k0 = 2;
          double[] x0 = sampler.sample();
@@ -294,6 +298,8 @@ class DirichletSamplerTest_OE25Dev {
 
     @Test
     void testInvalidSampleIsIgnored_1_oe_2_oe() {
+        // An RNG implementation which should create zero samples from the underlying
+        // exponential sampler for an initial sequence.
          UniformRandomProvider rng = new SplitMix64(0L) {
             private int i;
 
@@ -303,10 +309,14 @@ class DirichletSamplerTest_OE25Dev {
             }
         };
 
+        // Alpha=1 will use an exponential sampler
          DirichletSampler sampler = DirichletSampler.symmetric(rng, 2, 1.0);
                  int k0 = 2;
          double[] x0 = sampler.sample();
+        // removed other assertion
+                // There are always at least 2 categories
                 double sum0 = x0[0] + x0[1];
+                // Sum the rest
                 for (int i0 = 2; i0 < x0.length; i0++) {
                     sum0 += x0[i0];
                 }

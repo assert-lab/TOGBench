@@ -41,6 +41,7 @@ public class PropertyHandlerTest_OE25Dev {
     public void testServiceLoaderFindsMultipleRegistries_1_oe() {
         boolean found = false;
         for (PropertyHandler handler : loader) {
+            // this class is defined outside of the main classes of dbutils
             if (handler instanceof TestPropertyHandler) {
                 found = true;
             }

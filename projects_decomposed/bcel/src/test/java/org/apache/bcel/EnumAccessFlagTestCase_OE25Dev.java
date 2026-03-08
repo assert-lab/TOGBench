@@ -37,6 +37,7 @@ public class EnumAccessFlagTestCase_OE25Dev extends AbstractTestCase
     public void testEnumClassSaysItIs_2_oe() throws ClassNotFoundException
     {
         JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.SimpleEnum");
+        // removed other assertion
         clazz = getTestClass(PACKAGE_BASE_NAME+".data.SimpleClass");
         assertTrue( "Expected SimpleClass class to say it was not an enum - but it didn't !", !clazz.isEnum());
     }

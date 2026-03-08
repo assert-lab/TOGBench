@@ -151,6 +151,7 @@ public class MultipleHeaderTest_OE25Dev extends AbstractBasicTest {
       }).get(3, TimeUnit.SECONDS);
 
       if (!latch.await(2, TimeUnit.SECONDS)) {
+        // removed other assertion
       }
       assertNotNull(xffHeaders[0]);
   }
@@ -191,7 +192,9 @@ public class MultipleHeaderTest_OE25Dev extends AbstractBasicTest {
       }).get(3, TimeUnit.SECONDS);
 
       if (!latch.await(2, TimeUnit.SECONDS)) {
+        // removed other assertion
       }
+      // removed other assertion
       assertNotNull(xffHeaders[1]);
   }
   }
@@ -231,8 +234,13 @@ public class MultipleHeaderTest_OE25Dev extends AbstractBasicTest {
       }).get(3, TimeUnit.SECONDS);
 
       if (!latch.await(2, TimeUnit.SECONDS)) {
+        // removed other assertion
       }
+      // removed other assertion
+      // removed other assertion
       try {
+        // removed other assertion
+        // removed other assertion
       } catch (AssertionError ex) {
         assertEquals(xffHeaders[1], "abc");
   }
@@ -274,9 +282,15 @@ public class MultipleHeaderTest_OE25Dev extends AbstractBasicTest {
       }).get(3, TimeUnit.SECONDS);
 
       if (!latch.await(2, TimeUnit.SECONDS)) {
+        // removed other assertion
       }
+      // removed other assertion
+      // removed other assertion
       try {
+        // removed other assertion
+        // removed other assertion
       } catch (AssertionError ex) {
+        // removed other assertion
         assertEquals(xffHeaders[0], "def");
   }
   }
@@ -363,6 +377,7 @@ public class MultipleHeaderTest_OE25Dev extends AbstractBasicTest {
       }).get(3, TimeUnit.SECONDS);
 
       if (!latch.await(2, TimeUnit.SECONDS)) {
+        // removed other assertion
       }
       assertNotNull(clHeaders[0]);
   }
@@ -406,7 +421,9 @@ public class MultipleHeaderTest_OE25Dev extends AbstractBasicTest {
       }).get(3, TimeUnit.SECONDS);
 
       if (!latch.await(2, TimeUnit.SECONDS)) {
+        // removed other assertion
       }
+      // removed other assertion
       assertNotNull(clHeaders[1]);
   }
   }
@@ -449,9 +466,15 @@ public class MultipleHeaderTest_OE25Dev extends AbstractBasicTest {
       }).get(3, TimeUnit.SECONDS);
 
       if (!latch.await(2, TimeUnit.SECONDS)) {
+        // removed other assertion
       }
+      // removed other assertion
+      // removed other assertion
 
+      // We can predict the order
       try {
+        // removed other assertion
+        // removed other assertion
       } catch (Throwable ex) {
         assertEquals(clHeaders[0], "1");
   }
@@ -496,10 +519,17 @@ public class MultipleHeaderTest_OE25Dev extends AbstractBasicTest {
       }).get(3, TimeUnit.SECONDS);
 
       if (!latch.await(2, TimeUnit.SECONDS)) {
+        // removed other assertion
       }
+      // removed other assertion
+      // removed other assertion
 
+      // We can predict the order
       try {
+        // removed other assertion
+        // removed other assertion
       } catch (Throwable ex) {
+        // removed other assertion
         assertEquals(clHeaders[1], "2");
   }
   }

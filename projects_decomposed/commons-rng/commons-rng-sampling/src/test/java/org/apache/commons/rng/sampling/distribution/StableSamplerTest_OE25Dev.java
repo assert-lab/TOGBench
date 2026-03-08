@@ -1402,6 +1402,9 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testAlphaTooCloseToZeroThrows_1_oe() {
+        // The realistic range for alpha is not Double.MIN_VALUE.
+        // The number 1 - alpha must not be 1.
+        // This is valid
          UniformRandomProvider rng = new SplitMix64(0L);
         StableSampler s = StableSampler.of(rng, SMALLEST_ALPHA, VALID_BETA, VALID_GAMMA, VALID_DELTA);
         Assertions.assertNotNull(s);
@@ -1409,42 +1412,67 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testAlphaTooCloseToZeroThrows_2_oe() {
+        // The realistic range for alpha is not Double.MIN_VALUE.
+        // The number 1 - alpha must not be 1.
+        // This is valid
          UniformRandomProvider rng = new SplitMix64(0L);
         StableSampler s = StableSampler.of(rng, SMALLEST_ALPHA, VALID_BETA, VALID_GAMMA, VALID_DELTA);
+        // removed other assertion
 
+        // Smaller than this is still above zero but 1 - alpha == 1
          double alphaTooSmall = SMALLEST_ALPHA / 2;
         Assertions.assertNotEquals(0.0, alphaTooSmall, "Expected alpha to be positive");
     }
 
     @Test
     void testAlphaTooCloseToZeroThrows_3_oe() {
+        // The realistic range for alpha is not Double.MIN_VALUE.
+        // The number 1 - alpha must not be 1.
+        // This is valid
          UniformRandomProvider rng = new SplitMix64(0L);
         StableSampler s = StableSampler.of(rng, SMALLEST_ALPHA, VALID_BETA, VALID_GAMMA, VALID_DELTA);
+        // removed other assertion
 
+        // Smaller than this is still above zero but 1 - alpha == 1
          double alphaTooSmall = SMALLEST_ALPHA / 2;
+        // removed other assertion
         Assertions.assertEquals(1.0, 1 - alphaTooSmall, "Expected rounding to 1");
     }
 
     @Test
     void testTauLimits_1_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
         Assertions.assertEquals(0.0, CMSStableSampler.getTau(2, beta));
     }
 
     @Test
     void testTauLimits_2_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
         Assertions.assertEquals(0.0, CMSStableSampler.getTau(0, beta));
     }
 
     @Test
     void testTauLimits_3_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
@@ -1454,47 +1482,79 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testTauLimits_4_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
 
+            // Symmetric
             Assertions.assertEquals(tau, CMSStableSampler.getTau(2 - alpha, beta));
     }
     }
 
     @Test
     void testTauLimits_5_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
 
+            // Symmetric
+            // removed other assertion
         }
 
+        // alpha -> 1: tau -> beta / (pi / 2) = 0.6366
          double limit = beta / PI_2;
         Assertions.assertEquals(limit, CMSStableSampler.getTau(1, beta));
     }
 
     @Test
     void testTauLimits_6_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
 
+            // Symmetric
+            // removed other assertion
         }
 
+        // alpha -> 1: tau -> beta / (pi / 2) = 0.6366
          double limit = beta / PI_2;
+        // removed other assertion
         for (double alpha : new double[] {1.01, 1 + 1e-6, 1, 1 - 1e-6, 0.99}) {
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
@@ -1504,195 +1564,387 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testTauLimits_7_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
 
+            // Symmetric
+            // removed other assertion
         }
 
+        // alpha -> 1: tau -> beta / (pi / 2) = 0.6366
          double limit = beta / PI_2;
+        // removed other assertion
         for (double alpha : new double[] {1.01, 1 + 1e-6, 1, 1 - 1e-6, 0.99}) {
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
+            // Approach the limit
             Assertions.assertEquals(limit, tau, Math.abs(1 - alpha) + 1e-15);
     }
     }
 
     @Test
     void testTauLimits_8_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
 
+            // Symmetric
+            // removed other assertion
         }
 
+        // alpha -> 1: tau -> beta / (pi / 2) = 0.6366
          double limit = beta / PI_2;
+        // removed other assertion
         for (double alpha : new double[] {1.01, 1 + 1e-6, 1, 1 - 1e-6, 0.99}) {
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
+            // Approach the limit
+            // removed other assertion
         }
 
+        // It can be zero if beta is zero or close to zero when alpha != 1.
+        // This requires we check tau==0 instead of beta==0 to switch to
+        // a beta = 0 sampler.
         Assertions.assertEquals(0.0, CMSStableSampler.getTau(1.3, 0.0));
     }
 
     @Test
     void testTauLimits_9_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
 
+            // Symmetric
+            // removed other assertion
         }
 
+        // alpha -> 1: tau -> beta / (pi / 2) = 0.6366
          double limit = beta / PI_2;
+        // removed other assertion
         for (double alpha : new double[] {1.01, 1 + 1e-6, 1, 1 - 1e-6, 0.99}) {
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
+            // Approach the limit
+            // removed other assertion
         }
 
+        // It can be zero if beta is zero or close to zero when alpha != 1.
+        // This requires we check tau==0 instead of beta==0 to switch to
+        // a beta = 0 sampler.
+        // removed other assertion
         Assertions.assertEquals(0.0, CMSStableSampler.getTau(1.5, Double.MIN_VALUE));
     }
 
     @Test
     void testTauLimits_10_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
 
+            // Symmetric
+            // removed other assertion
         }
 
+        // alpha -> 1: tau -> beta / (pi / 2) = 0.6366
          double limit = beta / PI_2;
+        // removed other assertion
         for (double alpha : new double[] {1.01, 1 + 1e-6, 1, 1 - 1e-6, 0.99}) {
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
+            // Approach the limit
+            // removed other assertion
         }
 
+        // It can be zero if beta is zero or close to zero when alpha != 1.
+        // This requires we check tau==0 instead of beta==0 to switch to
+        // a beta = 0 sampler.
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(0.0, CMSStableSampler.getTau(1.0, Double.MIN_VALUE));
     }
 
     @Test
     void testTauLimits_11_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
 
+            // Symmetric
+            // removed other assertion
         }
 
+        // alpha -> 1: tau -> beta / (pi / 2) = 0.6366
          double limit = beta / PI_2;
+        // removed other assertion
         for (double alpha : new double[] {1.01, 1 + 1e-6, 1, 1 - 1e-6, 0.99}) {
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
+            // Approach the limit
+            // removed other assertion
         }
 
+        // It can be zero if beta is zero or close to zero when alpha != 1.
+        // This requires we check tau==0 instead of beta==0 to switch to
+        // a beta = 0 sampler.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // The sign of beta determines the sign of tau.
         Assertions.assertEquals(0.5, CMSStableSampler.getTau(1.5, beta));
     }
 
     @Test
     void testTauLimits_12_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
 
+            // Symmetric
+            // removed other assertion
         }
 
+        // alpha -> 1: tau -> beta / (pi / 2) = 0.6366
          double limit = beta / PI_2;
+        // removed other assertion
         for (double alpha : new double[] {1.01, 1 + 1e-6, 1, 1 - 1e-6, 0.99}) {
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
+            // Approach the limit
+            // removed other assertion
         }
 
+        // It can be zero if beta is zero or close to zero when alpha != 1.
+        // This requires we check tau==0 instead of beta==0 to switch to
+        // a beta = 0 sampler.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // The sign of beta determines the sign of tau.
+        // removed other assertion
         Assertions.assertEquals(0.5, CMSStableSampler.getTau(0.5, beta));
     }
 
     @Test
     void testTauLimits_13_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
 
+            // Symmetric
+            // removed other assertion
         }
 
+        // alpha -> 1: tau -> beta / (pi / 2) = 0.6366
          double limit = beta / PI_2;
+        // removed other assertion
         for (double alpha : new double[] {1.01, 1 + 1e-6, 1, 1 - 1e-6, 0.99}) {
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
+            // Approach the limit
+            // removed other assertion
         }
 
+        // It can be zero if beta is zero or close to zero when alpha != 1.
+        // This requires we check tau==0 instead of beta==0 to switch to
+        // a beta = 0 sampler.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // The sign of beta determines the sign of tau.
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-0.5, CMSStableSampler.getTau(1.5, -beta));
     }
 
     @Test
     void testTauLimits_14_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
 
+            // Symmetric
+            // removed other assertion
         }
 
+        // alpha -> 1: tau -> beta / (pi / 2) = 0.6366
          double limit = beta / PI_2;
+        // removed other assertion
         for (double alpha : new double[] {1.01, 1 + 1e-6, 1, 1 - 1e-6, 0.99}) {
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
+            // Approach the limit
+            // removed other assertion
         }
 
+        // It can be zero if beta is zero or close to zero when alpha != 1.
+        // This requires we check tau==0 instead of beta==0 to switch to
+        // a beta = 0 sampler.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // The sign of beta determines the sign of tau.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-0.5, CMSStableSampler.getTau(0.5, -beta));
     }
 
     @Test
     void testTauLimits_15_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
 
+            // Symmetric
+            // removed other assertion
         }
 
+        // alpha -> 1: tau -> beta / (pi / 2) = 0.6366
          double limit = beta / PI_2;
+        // removed other assertion
         for (double alpha : new double[] {1.01, 1 + 1e-6, 1, 1 - 1e-6, 0.99}) {
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
+            // Approach the limit
+            // removed other assertion
         }
 
+        // It can be zero if beta is zero or close to zero when alpha != 1.
+        // This requires we check tau==0 instead of beta==0 to switch to
+        // a beta = 0 sampler.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // The sign of beta determines the sign of tau.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Check monototic at the transition point to switch to a different computation.
          double tau1 = CMSStableSampler.getTau(Math.nextDown(1.5), 1);
          double tau2 = CMSStableSampler.getTau(1.5, 1);
          double tau3 = CMSStableSampler.getTau(Math.nextUp(1.5), 1);
@@ -1701,118 +1953,245 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testTauLimits_16_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
 
+            // Symmetric
+            // removed other assertion
         }
 
+        // alpha -> 1: tau -> beta / (pi / 2) = 0.6366
          double limit = beta / PI_2;
+        // removed other assertion
         for (double alpha : new double[] {1.01, 1 + 1e-6, 1, 1 - 1e-6, 0.99}) {
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
+            // Approach the limit
+            // removed other assertion
         }
 
+        // It can be zero if beta is zero or close to zero when alpha != 1.
+        // This requires we check tau==0 instead of beta==0 to switch to
+        // a beta = 0 sampler.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // The sign of beta determines the sign of tau.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Check monototic at the transition point to switch to a different computation.
          double tau1 = CMSStableSampler.getTau(Math.nextDown(1.5), 1);
          double tau2 = CMSStableSampler.getTau(1.5, 1);
          double tau3 = CMSStableSampler.getTau(Math.nextUp(1.5), 1);
+        // removed other assertion
         Assertions.assertTrue(tau2 > tau3);
     }
 
     @Test
     void testTauLimits_17_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
 
+            // Symmetric
+            // removed other assertion
         }
 
+        // alpha -> 1: tau -> beta / (pi / 2) = 0.6366
          double limit = beta / PI_2;
+        // removed other assertion
         for (double alpha : new double[] {1.01, 1 + 1e-6, 1, 1 - 1e-6, 0.99}) {
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
+            // Approach the limit
+            // removed other assertion
         }
 
+        // It can be zero if beta is zero or close to zero when alpha != 1.
+        // This requires we check tau==0 instead of beta==0 to switch to
+        // a beta = 0 sampler.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // The sign of beta determines the sign of tau.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Check monototic at the transition point to switch to a different computation.
          double tau1 = CMSStableSampler.getTau(Math.nextDown(1.5), 1);
          double tau2 = CMSStableSampler.getTau(1.5, 1);
          double tau3 = CMSStableSampler.getTau(Math.nextUp(1.5), 1);
+        // removed other assertion
+        // removed other assertion
+        // Test symmetry at the transition
         Assertions.assertEquals(tau1, CMSStableSampler.getTau(2 - Math.nextDown(1.5), 1));
     }
 
     @Test
     void testTauLimits_18_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
 
+            // Symmetric
+            // removed other assertion
         }
 
+        // alpha -> 1: tau -> beta / (pi / 2) = 0.6366
          double limit = beta / PI_2;
+        // removed other assertion
         for (double alpha : new double[] {1.01, 1 + 1e-6, 1, 1 - 1e-6, 0.99}) {
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
+            // Approach the limit
+            // removed other assertion
         }
 
+        // It can be zero if beta is zero or close to zero when alpha != 1.
+        // This requires we check tau==0 instead of beta==0 to switch to
+        // a beta = 0 sampler.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // The sign of beta determines the sign of tau.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Check monototic at the transition point to switch to a different computation.
          double tau1 = CMSStableSampler.getTau(Math.nextDown(1.5), 1);
          double tau2 = CMSStableSampler.getTau(1.5, 1);
          double tau3 = CMSStableSampler.getTau(Math.nextUp(1.5), 1);
+        // removed other assertion
+        // removed other assertion
+        // Test symmetry at the transition
+        // removed other assertion
         Assertions.assertEquals(tau2, CMSStableSampler.getTau(0.5, 1));
     }
 
     @Test
     void testTauLimits_19_oe() {
+        // At the limit of beta, tau ranges from 2/pi to 0 as alpha moves away from 1.
          double beta = 1;
 
+        // alpha -> 2: tau -> 0
+        // alpha -> 0: tau -> 0
+        // removed other assertion
+        // removed other assertion
 
+        // Full range over 0 to 2.
         for (int i = 0; i <= 512; i++) {
+            // This is a power of 2 so the symmetric test uses an exact mirror
              double alpha = (double) i / 256;
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
 
+            // Symmetric
+            // removed other assertion
         }
 
+        // alpha -> 1: tau -> beta / (pi / 2) = 0.6366
          double limit = beta / PI_2;
+        // removed other assertion
         for (double alpha : new double[] {1.01, 1 + 1e-6, 1, 1 - 1e-6, 0.99}) {
              double tau = CMSStableSampler.getTau(alpha, beta);
              double expected = getTauOriginal(alpha, beta);
+            // removed other assertion
+            // Approach the limit
+            // removed other assertion
         }
 
+        // It can be zero if beta is zero or close to zero when alpha != 1.
+        // This requires we check tau==0 instead of beta==0 to switch to
+        // a beta = 0 sampler.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // The sign of beta determines the sign of tau.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Check monototic at the transition point to switch to a different computation.
          double tau1 = CMSStableSampler.getTau(Math.nextDown(1.5), 1);
          double tau2 = CMSStableSampler.getTau(1.5, 1);
          double tau3 = CMSStableSampler.getTau(Math.nextUp(1.5), 1);
+        // removed other assertion
+        // removed other assertion
+        // Test symmetry at the transition
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(tau3, CMSStableSampler.getTau(2 - Math.nextUp(1.5), 1));
     }
 
     @Test
     void testA2IsNotZero_1_oe() {
+        // The extreme limit of the angle phiby2. This is ignored by the sampler
+        // as it can result in cancellation of terms and invalid results.
          double p0 = getU(Long.MIN_VALUE);
         Assertions.assertEquals(-PI_4, p0);
     }
 
     @Test
     void testA2IsNotZero_2_oe() {
+        // The extreme limit of the angle phiby2. This is ignored by the sampler
+        // as it can result in cancellation of terms and invalid results.
          double p0 = getU(Long.MIN_VALUE);
+        // removed other assertion
 
+        // These are the limits to generate (-pi/4, pi/4)
          double p1 = getU(Long.MIN_VALUE + (1 << 10));
          double p2 = getU(Long.MAX_VALUE);
         Assertions.assertNotEquals(-PI_4, p1);
@@ -1820,39 +2199,67 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testA2IsNotZero_3_oe() {
+        // The extreme limit of the angle phiby2. This is ignored by the sampler
+        // as it can result in cancellation of terms and invalid results.
          double p0 = getU(Long.MIN_VALUE);
+        // removed other assertion
 
+        // These are the limits to generate (-pi/4, pi/4)
          double p1 = getU(Long.MIN_VALUE + (1 << 10));
          double p2 = getU(Long.MAX_VALUE);
+        // removed other assertion
         Assertions.assertNotEquals(PI_4, p2);
     }
 
     @Test
     void testA2IsNotZero_4_oe() {
+        // The extreme limit of the angle phiby2. This is ignored by the sampler
+        // as it can result in cancellation of terms and invalid results.
          double p0 = getU(Long.MIN_VALUE);
+        // removed other assertion
 
+        // These are the limits to generate (-pi/4, pi/4)
          double p1 = getU(Long.MIN_VALUE + (1 << 10));
          double p2 = getU(Long.MAX_VALUE);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-PI_4 + PI_4 * DU, p1);
     }
 
     @Test
     void testA2IsNotZero_5_oe() {
+        // The extreme limit of the angle phiby2. This is ignored by the sampler
+        // as it can result in cancellation of terms and invalid results.
          double p0 = getU(Long.MIN_VALUE);
+        // removed other assertion
 
+        // These are the limits to generate (-pi/4, pi/4)
          double p1 = getU(Long.MIN_VALUE + (1 << 10));
          double p2 = getU(Long.MAX_VALUE);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(PI_4 - PI_4 * DU, p2);
     }
 
     @Test
     void testA2IsNotZero_6_oe() {
+        // The extreme limit of the angle phiby2. This is ignored by the sampler
+        // as it can result in cancellation of terms and invalid results.
          double p0 = getU(Long.MIN_VALUE);
+        // removed other assertion
 
+        // These are the limits to generate (-pi/4, pi/4)
          double p1 = getU(Long.MIN_VALUE + (1 << 10));
          double p2 = getU(Long.MAX_VALUE);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         for (double phiby2 : new double[] {p1, p2}) {
+            // phiby2 in (-pi/4, pi/4)
+            // a in (-1, 1)
              double a = phiby2 * SpecialMath.tan2(phiby2);
             Assertions.assertEquals(Math.copySign(Math.nextDown(1.0), phiby2), a);
     }
@@ -1860,36 +2267,64 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testA2IsNotZero_7_oe() {
+        // The extreme limit of the angle phiby2. This is ignored by the sampler
+        // as it can result in cancellation of terms and invalid results.
          double p0 = getU(Long.MIN_VALUE);
+        // removed other assertion
 
+        // These are the limits to generate (-pi/4, pi/4)
          double p1 = getU(Long.MIN_VALUE + (1 << 10));
          double p2 = getU(Long.MAX_VALUE);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         for (double phiby2 : new double[] {p1, p2}) {
+            // phiby2 in (-pi/4, pi/4)
+            // a in (-1, 1)
              double a = phiby2 * SpecialMath.tan2(phiby2);
+            // removed other assertion
              double da = a * a;
              double a2 = 1 - da;
+            // The number is close to but not equal to zero
             Assertions.assertNotEquals(0.0, a2);
     }
     }
 
     @Test
     void testA2IsNotZero_8_oe() {
+        // The extreme limit of the angle phiby2. This is ignored by the sampler
+        // as it can result in cancellation of terms and invalid results.
          double p0 = getU(Long.MIN_VALUE);
+        // removed other assertion
 
+        // These are the limits to generate (-pi/4, pi/4)
          double p1 = getU(Long.MIN_VALUE + (1 << 10));
          double p2 = getU(Long.MAX_VALUE);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         for (double phiby2 : new double[] {p1, p2}) {
+            // phiby2 in (-pi/4, pi/4)
+            // a in (-1, 1)
              double a = phiby2 * SpecialMath.tan2(phiby2);
+            // removed other assertion
              double da = a * a;
              double a2 = 1 - da;
+            // The number is close to but not equal to zero
+            // removed other assertion
+            // The minimum value of a2 is 2.220E-16 = 2^-52
             Assertions.assertEquals(0x1.0p-52, a2);
     }
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_1_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
@@ -1898,257 +2333,1445 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testZIsNotAlwaysAboveZero_2_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
         Assertions.assertEquals(-PI_4 + DU * PI_4, getU(x0));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_3_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(PI_4 - DU * PI_4, getU(x1));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_4_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
         Assertions.assertEquals(0.0, computeNumerator(0.859375, 1, x00));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_5_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
         Assertions.assertTrue(0.0 > computeNumerator(0.9375, 1, x00));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_6_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
         Assertions.assertTrue(0.0 > computeNumerator(1.90625, 1, x00));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_7_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
         Assertions.assertTrue(0.0 < computeNumerator(0.859375, 1, x0));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_8_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
+        // removed other assertion
         Assertions.assertTrue(0.0 < computeNumerator(0.9375, 1, x0));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_9_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(0.0 < computeNumerator(1.90625, 1, x0));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_10_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // WARNING:
+        // Even when u is not at the limit floating point error can still create
+        // a bad numerator. This is rare but shows we must still detect this edge
+        // case.
         Assertions.assertTrue(0.0 > computeNumerator(0.828125, 1, x0));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_11_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // WARNING:
+        // Even when u is not at the limit floating point error can still create
+        // a bad numerator. This is rare but shows we must still detect this edge
+        // case.
+        // removed other assertion
         Assertions.assertTrue(0.0 > computeNumerator(1.291015625, -1, x1));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_12_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // WARNING:
+        // Even when u is not at the limit floating point error can still create
+        // a bad numerator. This is rare but shows we must still detect this edge
+        // case.
+        // removed other assertion
+        // removed other assertion
 
+        // beta=0 case the numerator reduces to b2:
+        // b2 = 1 - tan^2((1-alpha) * phi/2)
+        // requires tan(x)=1; x=pi/4.
+        // Note: tan(x) = x * SpecialMath.tan2(x) returns +/-1 for u = +/-pi/4.
         Assertions.assertEquals(-1, SpecialMath.tan2(getU(x00)) * getU(x00));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_13_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // WARNING:
+        // Even when u is not at the limit floating point error can still create
+        // a bad numerator. This is rare but shows we must still detect this edge
+        // case.
+        // removed other assertion
+        // removed other assertion
 
+        // beta=0 case the numerator reduces to b2:
+        // b2 = 1 - tan^2((1-alpha) * phi/2)
+        // requires tan(x)=1; x=pi/4.
+        // Note: tan(x) = x * SpecialMath.tan2(x) returns +/-1 for u = +/-pi/4.
+        // removed other assertion
+        // Using the next value in the range this is not an issue.
+        // The beta=0 sampler does not have to check for z=0.
         Assertions.assertTrue(-1 < SpecialMath.tan2(getU(x0)) * getU(x0));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_14_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // WARNING:
+        // Even when u is not at the limit floating point error can still create
+        // a bad numerator. This is rare but shows we must still detect this edge
+        // case.
+        // removed other assertion
+        // removed other assertion
 
+        // beta=0 case the numerator reduces to b2:
+        // b2 = 1 - tan^2((1-alpha) * phi/2)
+        // requires tan(x)=1; x=pi/4.
+        // Note: tan(x) = x * SpecialMath.tan2(x) returns +/-1 for u = +/-pi/4.
+        // removed other assertion
+        // Using the next value in the range this is not an issue.
+        // The beta=0 sampler does not have to check for z=0.
+        // removed other assertion
         Assertions.assertTrue(1 > SpecialMath.tan2(getU(x1)) * getU(x1));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_15_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // WARNING:
+        // Even when u is not at the limit floating point error can still create
+        // a bad numerator. This is rare but shows we must still detect this edge
+        // case.
+        // removed other assertion
+        // removed other assertion
 
+        // beta=0 case the numerator reduces to b2:
+        // b2 = 1 - tan^2((1-alpha) * phi/2)
+        // requires tan(x)=1; x=pi/4.
+        // Note: tan(x) = x * SpecialMath.tan2(x) returns +/-1 for u = +/-pi/4.
+        // removed other assertion
+        // Using the next value in the range this is not an issue.
+        // The beta=0 sampler does not have to check for z=0.
+        // removed other assertion
+        // removed other assertion
+        // Use alpha=2 so 1-alpha (eps) is at the limit
          double beta = 0;
         Assertions.assertEquals(0.0, computeNumerator(2, beta, x00));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_16_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // WARNING:
+        // Even when u is not at the limit floating point error can still create
+        // a bad numerator. This is rare but shows we must still detect this edge
+        // case.
+        // removed other assertion
+        // removed other assertion
 
+        // beta=0 case the numerator reduces to b2:
+        // b2 = 1 - tan^2((1-alpha) * phi/2)
+        // requires tan(x)=1; x=pi/4.
+        // Note: tan(x) = x * SpecialMath.tan2(x) returns +/-1 for u = +/-pi/4.
+        // removed other assertion
+        // Using the next value in the range this is not an issue.
+        // The beta=0 sampler does not have to check for z=0.
+        // removed other assertion
+        // removed other assertion
+        // Use alpha=2 so 1-alpha (eps) is at the limit
          double beta = 0;
+        // removed other assertion
         Assertions.assertTrue(0.0 < computeNumerator(2, beta, x0));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_17_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // WARNING:
+        // Even when u is not at the limit floating point error can still create
+        // a bad numerator. This is rare but shows we must still detect this edge
+        // case.
+        // removed other assertion
+        // removed other assertion
 
+        // beta=0 case the numerator reduces to b2:
+        // b2 = 1 - tan^2((1-alpha) * phi/2)
+        // requires tan(x)=1; x=pi/4.
+        // Note: tan(x) = x * SpecialMath.tan2(x) returns +/-1 for u = +/-pi/4.
+        // removed other assertion
+        // Using the next value in the range this is not an issue.
+        // The beta=0 sampler does not have to check for z=0.
+        // removed other assertion
+        // removed other assertion
+        // Use alpha=2 so 1-alpha (eps) is at the limit
          double beta = 0;
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(0.0 < computeNumerator(2, beta, x1));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_18_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // WARNING:
+        // Even when u is not at the limit floating point error can still create
+        // a bad numerator. This is rare but shows we must still detect this edge
+        // case.
+        // removed other assertion
+        // removed other assertion
 
+        // beta=0 case the numerator reduces to b2:
+        // b2 = 1 - tan^2((1-alpha) * phi/2)
+        // requires tan(x)=1; x=pi/4.
+        // Note: tan(x) = x * SpecialMath.tan2(x) returns +/-1 for u = +/-pi/4.
+        // removed other assertion
+        // Using the next value in the range this is not an issue.
+        // The beta=0 sampler does not have to check for z=0.
+        // removed other assertion
+        // removed other assertion
+        // Use alpha=2 so 1-alpha (eps) is at the limit
          double beta = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(0.0 < computeNumerator(Math.nextDown(2), beta, x0));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_19_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // WARNING:
+        // Even when u is not at the limit floating point error can still create
+        // a bad numerator. This is rare but shows we must still detect this edge
+        // case.
+        // removed other assertion
+        // removed other assertion
 
+        // beta=0 case the numerator reduces to b2:
+        // b2 = 1 - tan^2((1-alpha) * phi/2)
+        // requires tan(x)=1; x=pi/4.
+        // Note: tan(x) = x * SpecialMath.tan2(x) returns +/-1 for u = +/-pi/4.
+        // removed other assertion
+        // Using the next value in the range this is not an issue.
+        // The beta=0 sampler does not have to check for z=0.
+        // removed other assertion
+        // removed other assertion
+        // Use alpha=2 so 1-alpha (eps) is at the limit
          double beta = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(0.0 < computeNumerator(Math.nextDown(2), beta, x1));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_20_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // WARNING:
+        // Even when u is not at the limit floating point error can still create
+        // a bad numerator. This is rare but shows we must still detect this edge
+        // case.
+        // removed other assertion
+        // removed other assertion
 
+        // beta=0 case the numerator reduces to b2:
+        // b2 = 1 - tan^2((1-alpha) * phi/2)
+        // requires tan(x)=1; x=pi/4.
+        // Note: tan(x) = x * SpecialMath.tan2(x) returns +/-1 for u = +/-pi/4.
+        // removed other assertion
+        // Using the next value in the range this is not an issue.
+        // The beta=0 sampler does not have to check for z=0.
+        // removed other assertion
+        // removed other assertion
+        // Use alpha=2 so 1-alpha (eps) is at the limit
          double beta = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // alpha=1 case the numerator reduces to:
+        // 1 + 2 * phi/2 * tau
+        // A zero numerator requires:
+        // 2 * phiby2 * tau = -1
+        //
+        // tau = 2 * beta / pi
+        // phiby2 = -pi / (2 * 2 * beta)
+        // beta = 1 => phiby2 = -pi/4
+        // beta = -1 => phiby2 = pi/4
+        // The alpha=1 sampler does not have to check for z=0 if phiby2 excludes -pi/4.
          double alpha = 1;
         Assertions.assertEquals(0.0, computeNumerator(alpha, 1, x00));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_21_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // WARNING:
+        // Even when u is not at the limit floating point error can still create
+        // a bad numerator. This is rare but shows we must still detect this edge
+        // case.
+        // removed other assertion
+        // removed other assertion
 
+        // beta=0 case the numerator reduces to b2:
+        // b2 = 1 - tan^2((1-alpha) * phi/2)
+        // requires tan(x)=1; x=pi/4.
+        // Note: tan(x) = x * SpecialMath.tan2(x) returns +/-1 for u = +/-pi/4.
+        // removed other assertion
+        // Using the next value in the range this is not an issue.
+        // The beta=0 sampler does not have to check for z=0.
+        // removed other assertion
+        // removed other assertion
+        // Use alpha=2 so 1-alpha (eps) is at the limit
          double beta = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // alpha=1 case the numerator reduces to:
+        // 1 + 2 * phi/2 * tau
+        // A zero numerator requires:
+        // 2 * phiby2 * tau = -1
+        //
+        // tau = 2 * beta / pi
+        // phiby2 = -pi / (2 * 2 * beta)
+        // beta = 1 => phiby2 = -pi/4
+        // beta = -1 => phiby2 = pi/4
+        // The alpha=1 sampler does not have to check for z=0 if phiby2 excludes -pi/4.
          double alpha = 1;
+        // removed other assertion
+        // Next value of u computes above zero
         Assertions.assertTrue(0.0 < computeNumerator(alpha, 1, x0));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_22_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // WARNING:
+        // Even when u is not at the limit floating point error can still create
+        // a bad numerator. This is rare but shows we must still detect this edge
+        // case.
+        // removed other assertion
+        // removed other assertion
 
+        // beta=0 case the numerator reduces to b2:
+        // b2 = 1 - tan^2((1-alpha) * phi/2)
+        // requires tan(x)=1; x=pi/4.
+        // Note: tan(x) = x * SpecialMath.tan2(x) returns +/-1 for u = +/-pi/4.
+        // removed other assertion
+        // Using the next value in the range this is not an issue.
+        // The beta=0 sampler does not have to check for z=0.
+        // removed other assertion
+        // removed other assertion
+        // Use alpha=2 so 1-alpha (eps) is at the limit
          double beta = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // alpha=1 case the numerator reduces to:
+        // 1 + 2 * phi/2 * tau
+        // A zero numerator requires:
+        // 2 * phiby2 * tau = -1
+        //
+        // tau = 2 * beta / pi
+        // phiby2 = -pi / (2 * 2 * beta)
+        // beta = 1 => phiby2 = -pi/4
+        // beta = -1 => phiby2 = pi/4
+        // The alpha=1 sampler does not have to check for z=0 if phiby2 excludes -pi/4.
          double alpha = 1;
+        // removed other assertion
+        // Next value of u computes above zero
+        // removed other assertion
         Assertions.assertTrue(0.0 < computeNumerator(alpha, -1, x1));
     }
 
     @Test
     void testZIsNotAlwaysAboveZero_23_oe() {
+        // A long is used to create phi/2:
+        // The next to limit values for the phi/2
          long x00 = Long.MIN_VALUE;
          long x0 = Long.MIN_VALUE + (1 << 10);
          long x1 = Long.MAX_VALUE;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // General case numerator:
+        // b2 + 2 * phiby2 * bb * tau
+        // To generate 0 numerator requires:
+        // b2 == -2 * phiby2 * bb * tau
+        //
+        // The expansion of the terms is:
+        // 1 - tan^2(eps * phi/2)
+        // == -phi * tan2(eps * phi/2) *        beta
+        //                               -----------------------
+        //                               tan2(eps * pi/2) * pi/2
+        //
+        // == -2 * phi * tan2(eps * phi/2) * beta
+        //    -----------------------------------
+        //          pi * tan2(eps * pi/2)
+        //
+        // == -2 * phi * tan(eps * phi/2) / (eps * phi/2) * beta
+        //    --------------------------------------------------
+        //          pi * tan(eps * pi/2) / (eps * pi/2)
+        //
+        // if phi/2 = pi/4, x = eps * phi/2:
+        // == -2 * pi/4 * tan(x) / (x) * beta
+        //    ---------------------------------
+        //          pi * tan(2x) / (2x)
+        //
+        // This is a known double-angle identity for tan:
+        // 1 - tan^2(x) == -2 tan(x) * beta
+        //                 ---------
+        //                  tan(2x)
+        // Thus if |beta|=1 with opposite sign to phi, and |phi|=pi/2
+        // the numerator is zero for all alpha.
+        // This is not true due to floating-point
+        // error but the following cases are known to exhibit the result.
 
+        // removed other assertion
+        // Even worse to have negative as the log(-ve) = nan
+        // removed other assertion
+        // removed other assertion
 
+        // As phi reduces in magnitude the equality fails.
+        // The numerator=0 can often be corrected
+        // with the next random variate from the range limit.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // WARNING:
+        // Even when u is not at the limit floating point error can still create
+        // a bad numerator. This is rare but shows we must still detect this edge
+        // case.
+        // removed other assertion
+        // removed other assertion
 
+        // beta=0 case the numerator reduces to b2:
+        // b2 = 1 - tan^2((1-alpha) * phi/2)
+        // requires tan(x)=1; x=pi/4.
+        // Note: tan(x) = x * SpecialMath.tan2(x) returns +/-1 for u = +/-pi/4.
+        // removed other assertion
+        // Using the next value in the range this is not an issue.
+        // The beta=0 sampler does not have to check for z=0.
+        // removed other assertion
+        // removed other assertion
+        // Use alpha=2 so 1-alpha (eps) is at the limit
          double beta = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // alpha=1 case the numerator reduces to:
+        // 1 + 2 * phi/2 * tau
+        // A zero numerator requires:
+        // 2 * phiby2 * tau = -1
+        //
+        // tau = 2 * beta / pi
+        // phiby2 = -pi / (2 * 2 * beta)
+        // beta = 1 => phiby2 = -pi/4
+        // beta = -1 => phiby2 = pi/4
+        // The alpha=1 sampler does not have to check for z=0 if phiby2 excludes -pi/4.
          double alpha = 1;
+        // removed other assertion
+        // Next value of u computes above zero
+        // removed other assertion
+        // removed other assertion
+        // beta < 1 => u < 0
+        // beta > -1 => u > 1
+        // z=0 not possible with any other beta
         Assertions.assertTrue(0.0 < computeNumerator(alpha, Math.nextUp(-1), x00));
     }
 
@@ -2158,7 +3781,9 @@ class StableSamplerTest_OE25Dev {
 
          double[] alphas = {2, 1.5, 1 + 1e-6, 1, 1 - 1e-6, 0.5, 0.01, 1e-10, SMALLEST_ALPHA};
         for ( double alpha : alphas) {
+            // Finite z
             for ( double z : zs) {
+                // The result may be infinite, but not NaN
                 Assertions.assertNotEquals(Double.NaN, computeD(alpha, z));
     }
     }
@@ -2170,12 +3795,19 @@ class StableSamplerTest_OE25Dev {
 
          double[] alphas = {2, 1.5, 1 + 1e-6, 1, 1 - 1e-6, 0.5, 0.01, 1e-10, SMALLEST_ALPHA};
         for ( double alpha : alphas) {
+            // Finite z
             for ( double z : zs) {
+                // The result may be infinite, but not NaN
+                // removed other assertion
             }
 
+            // May be invalid with z=0 or z=inf as some combinations multiply the
+            // infinity by 0 to create NaN.
 
+            // When z=0, log(z) = -inf, d = d2(sign(1-alpha) * -inf) * -inf
              double d0 = computeD(alpha, 0);
             if (alpha < 1) {
+                // d2(-inf) * -inf = 0 * -inf = NaN
                 Assertions.assertEquals(Double.NaN, d0);
     }
     }
@@ -2187,13 +3819,22 @@ class StableSamplerTest_OE25Dev {
 
          double[] alphas = {2, 1.5, 1 + 1e-6, 1, 1 - 1e-6, 0.5, 0.01, 1e-10, SMALLEST_ALPHA};
         for ( double alpha : alphas) {
+            // Finite z
             for ( double z : zs) {
+                // The result may be infinite, but not NaN
+                // removed other assertion
             }
 
+            // May be invalid with z=0 or z=inf as some combinations multiply the
+            // infinity by 0 to create NaN.
 
+            // When z=0, log(z) = -inf, d = d2(sign(1-alpha) * -inf) * -inf
              double d0 = computeD(alpha, 0);
             if (alpha < 1) {
+                // d2(-inf) * -inf = 0 * -inf = NaN
+                // removed other assertion
             } else if (alpha == 1) {
+                // d2(0 * -inf) -> NaN
                 Assertions.assertEquals(Double.NaN, d0);
     }
     }
@@ -2205,14 +3846,26 @@ class StableSamplerTest_OE25Dev {
 
          double[] alphas = {2, 1.5, 1 + 1e-6, 1, 1 - 1e-6, 0.5, 0.01, 1e-10, SMALLEST_ALPHA};
         for ( double alpha : alphas) {
+            // Finite z
             for ( double z : zs) {
+                // The result may be infinite, but not NaN
+                // removed other assertion
             }
 
+            // May be invalid with z=0 or z=inf as some combinations multiply the
+            // infinity by 0 to create NaN.
 
+            // When z=0, log(z) = -inf, d = d2(sign(1-alpha) * -inf) * -inf
              double d0 = computeD(alpha, 0);
             if (alpha < 1) {
+                // d2(-inf) * -inf = 0 * -inf = NaN
+                // removed other assertion
             } else if (alpha == 1) {
+                // d2(0 * -inf) -> NaN
+                // removed other assertion
             } else {
+                // alpha > 1
+                // d2(inf) * -inf = -inf
                 Assertions.assertEquals(Double.NEGATIVE_INFINITY, d0);
     }
     }
@@ -2224,18 +3877,33 @@ class StableSamplerTest_OE25Dev {
 
          double[] alphas = {2, 1.5, 1 + 1e-6, 1, 1 - 1e-6, 0.5, 0.01, 1e-10, SMALLEST_ALPHA};
         for ( double alpha : alphas) {
+            // Finite z
             for ( double z : zs) {
+                // The result may be infinite, but not NaN
+                // removed other assertion
             }
 
+            // May be invalid with z=0 or z=inf as some combinations multiply the
+            // infinity by 0 to create NaN.
 
+            // When z=0, log(z) = -inf, d = d2(sign(1-alpha) * -inf) * -inf
              double d0 = computeD(alpha, 0);
             if (alpha < 1) {
+                // d2(-inf) * -inf = 0 * -inf = NaN
+                // removed other assertion
             } else if (alpha == 1) {
+                // d2(0 * -inf) -> NaN
+                // removed other assertion
             } else {
+                // alpha > 1
+                // d2(inf) * -inf = -inf
+                // removed other assertion
             }
 
+            // When z=inf, log(z) = inf, d = d2(sign(1-alpha) * inf) * inf
              double di = computeD(alpha, Double.POSITIVE_INFINITY);
             if (alpha < 1) {
+                // d2(inf) * inf = inf
                 Assertions.assertEquals(Double.POSITIVE_INFINITY, di);
     }
     }
@@ -2247,19 +3915,36 @@ class StableSamplerTest_OE25Dev {
 
          double[] alphas = {2, 1.5, 1 + 1e-6, 1, 1 - 1e-6, 0.5, 0.01, 1e-10, SMALLEST_ALPHA};
         for ( double alpha : alphas) {
+            // Finite z
             for ( double z : zs) {
+                // The result may be infinite, but not NaN
+                // removed other assertion
             }
 
+            // May be invalid with z=0 or z=inf as some combinations multiply the
+            // infinity by 0 to create NaN.
 
+            // When z=0, log(z) = -inf, d = d2(sign(1-alpha) * -inf) * -inf
              double d0 = computeD(alpha, 0);
             if (alpha < 1) {
+                // d2(-inf) * -inf = 0 * -inf = NaN
+                // removed other assertion
             } else if (alpha == 1) {
+                // d2(0 * -inf) -> NaN
+                // removed other assertion
             } else {
+                // alpha > 1
+                // d2(inf) * -inf = -inf
+                // removed other assertion
             }
 
+            // When z=inf, log(z) = inf, d = d2(sign(1-alpha) * inf) * inf
              double di = computeD(alpha, Double.POSITIVE_INFINITY);
             if (alpha < 1) {
+                // d2(inf) * inf = inf
+                // removed other assertion
             } else if (alpha == 1) {
+                // d2(0 * inf) -> NaN
                 Assertions.assertEquals(Double.NaN, di);
     }
     }
@@ -2271,20 +3956,40 @@ class StableSamplerTest_OE25Dev {
 
          double[] alphas = {2, 1.5, 1 + 1e-6, 1, 1 - 1e-6, 0.5, 0.01, 1e-10, SMALLEST_ALPHA};
         for ( double alpha : alphas) {
+            // Finite z
             for ( double z : zs) {
+                // The result may be infinite, but not NaN
+                // removed other assertion
             }
 
+            // May be invalid with z=0 or z=inf as some combinations multiply the
+            // infinity by 0 to create NaN.
 
+            // When z=0, log(z) = -inf, d = d2(sign(1-alpha) * -inf) * -inf
              double d0 = computeD(alpha, 0);
             if (alpha < 1) {
+                // d2(-inf) * -inf = 0 * -inf = NaN
+                // removed other assertion
             } else if (alpha == 1) {
+                // d2(0 * -inf) -> NaN
+                // removed other assertion
             } else {
+                // alpha > 1
+                // d2(inf) * -inf = -inf
+                // removed other assertion
             }
 
+            // When z=inf, log(z) = inf, d = d2(sign(1-alpha) * inf) * inf
              double di = computeD(alpha, Double.POSITIVE_INFINITY);
             if (alpha < 1) {
+                // d2(inf) * inf = inf
+                // removed other assertion
             } else if (alpha == 1) {
+                // d2(0 * inf) -> NaN
+                // removed other assertion
             } else {
+                // alpha > 1
+                // d2(-inf) * inf = 0 * inf = NaN
                 Assertions.assertEquals(Double.NaN, di);
     }
     }
@@ -2292,6 +3997,12 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testSinAlphaPhiMinusAtanZeta_1_oe() {
+        // Note sin(alpha * phi + atan(-zeta)) is zero when:
+        // alpha * phi = -atan(-zeta)
+        // tan(-alpha * phi) = -zeta
+        //                   = beta * tan(alpha * pi / 2)
+        // beta = tan(-alpha * phi) / tan(alpha * pi / 2)
+        // Find a case where the result is zero...
         for (double alpha : new double[] {0.25, 0.125}) {
             for (double phi : new double[] {PI_4, PI_4 / 2}) {
                 double beta = Math.tan(-alpha * phi) / Math.tan(alpha * PI_2);
@@ -2304,18 +4015,26 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_1_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
         Assertions.assertEquals(cosPi2, Math.cos(-PI_2));
     }
 
     @Test
     void testCosPhiMinusAlphaPhiXi_2_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
         Assertions.assertTrue(cosPi2 > 0);
     }
 
     @Test
     void testSinAlphaPhi_1_oe() {
+        // Smallest non-zero phi.
+        // getU creates in the domain (-pi/4, pi/4) so double the angle.
         for ( double phi : new double[] {getU(-1) * 2, getU(1 << 10) * 2}) {
              double x = Math.sin(SMALLEST_ALPHA * phi);
             Assertions.assertNotEquals(0.0, x);
@@ -2324,34 +4043,61 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testSinAlphaPhi_2_oe() {
+        // Smallest non-zero phi.
+        // getU creates in the domain (-pi/4, pi/4) so double the angle.
         for ( double phi : new double[] {getU(-1) * 2, getU(1 << 10) * 2}) {
              double x = Math.sin(SMALLEST_ALPHA * phi);
+            // removed other assertion
+            // Value is actually:
             Assertions.assertEquals(1.9361559566769725E-32, Math.abs(x));
     }
     }
 
     @Test
     void testExpM1_1_oe() {
+        // Test monotonic at the switch point
         Assertions.assertEquals(d2(0.5), d2b(0.5));
     }
 
     @Test
     void testExpM1_2_oe() {
+        // Test monotonic at the switch point
+        // removed other assertion
+        // When positive x -> 0 the value smaller bigger.
         Assertions.assertTrue(d2(Math.nextDown(0.5)) <= d2b(0.5));
     }
 
     @Test
     void testExpM1_3_oe() {
+        // Test monotonic at the switch point
+        // removed other assertion
+        // When positive x -> 0 the value smaller bigger.
+        // removed other assertion
         Assertions.assertEquals(d2(-0.5), d2b(-0.5));
     }
 
     @Test
     void testExpM1_4_oe() {
+        // Test monotonic at the switch point
+        // removed other assertion
+        // When positive x -> 0 the value smaller bigger.
+        // removed other assertion
+        // removed other assertion
+        // When negative x -> 0 the value gets bigger.
         Assertions.assertTrue(d2(-Math.nextDown(0.5)) >= d2b(-0.5));
     }
 
     @Test
     void testExpM1_5_oe() {
+        // Test monotonic at the switch point
+        // removed other assertion
+        // When positive x -> 0 the value smaller bigger.
+        // removed other assertion
+        // removed other assertion
+        // When negative x -> 0 the value gets bigger.
+        // removed other assertion
+        // Potentially the next power of 2 could be used based on ULP errors but
+        // the switch is not monotonic.
         Assertions.assertFalse(d2(Math.nextDown(0.25)) <= d2b(0.25));
     }
 
@@ -2365,6 +4111,7 @@ class StableSamplerTest_OE25Dev {
     @Test
     void testD2_2_oe() {
         for ( double x : new double[] {Double.MAX_VALUE, Math.log(Double.MAX_VALUE), 10, 5, 1, 0.5, 0.1, 0.05, 0.01}) {
+            // removed other assertion
             Assertions.assertEquals(Math.expm1(-x) / -x, SpecialMath.d2(-x), 1e-15);
     }
     }
@@ -2372,70 +4119,124 @@ class StableSamplerTest_OE25Dev {
     @Test
     void testD2_3_oe() {
         for ( double x : new double[] {Double.MAX_VALUE, Math.log(Double.MAX_VALUE), 10, 5, 1, 0.5, 0.1, 0.05, 0.01}) {
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Negative infinity computes without correction
         Assertions.assertEquals(0.0, Math.expm1(Double.NEGATIVE_INFINITY) / Double.NEGATIVE_INFINITY);
     }
 
     @Test
     void testD2_4_oe() {
         for ( double x : new double[] {Double.MAX_VALUE, Math.log(Double.MAX_VALUE), 10, 5, 1, 0.5, 0.1, 0.05, 0.01}) {
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Negative infinity computes without correction
+        // removed other assertion
         Assertions.assertEquals(0.0, SpecialMath.d2(Double.NEGATIVE_INFINITY));
     }
 
     @Test
     void testD2_5_oe() {
         for ( double x : new double[] {Double.MAX_VALUE, Math.log(Double.MAX_VALUE), 10, 5, 1, 0.5, 0.1, 0.05, 0.01}) {
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Negative infinity computes without correction
+        // removed other assertion
+        // removed other assertion
 
+        // NaN is returned (i.e. no correction)
         Assertions.assertEquals(Double.NaN, SpecialMath.d2(Double.NaN));
     }
 
     @Test
     void testD2_6_oe() {
         for ( double x : new double[] {Double.MAX_VALUE, Math.log(Double.MAX_VALUE), 10, 5, 1, 0.5, 0.1, 0.05, 0.01}) {
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Negative infinity computes without correction
+        // removed other assertion
+        // removed other assertion
 
+        // NaN is returned (i.e. no correction)
+        // removed other assertion
 
+        // Edge cases for z=0 or z==inf require correction
         Assertions.assertEquals(Double.NaN, Math.expm1(0) / 0.0);
     }
 
     @Test
     void testD2_7_oe() {
         for ( double x : new double[] {Double.MAX_VALUE, Math.log(Double.MAX_VALUE), 10, 5, 1, 0.5, 0.1, 0.05, 0.01}) {
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Negative infinity computes without correction
+        // removed other assertion
+        // removed other assertion
 
+        // NaN is returned (i.e. no correction)
+        // removed other assertion
 
+        // Edge cases for z=0 or z==inf require correction
+        // removed other assertion
         Assertions.assertEquals(Double.NaN, Math.expm1(Double.POSITIVE_INFINITY) / Double.POSITIVE_INFINITY);
     }
 
     @Test
     void testD2_8_oe() {
         for ( double x : new double[] {Double.MAX_VALUE, Math.log(Double.MAX_VALUE), 10, 5, 1, 0.5, 0.1, 0.05, 0.01}) {
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Negative infinity computes without correction
+        // removed other assertion
+        // removed other assertion
 
+        // NaN is returned (i.e. no correction)
+        // removed other assertion
 
+        // Edge cases for z=0 or z==inf require correction
+        // removed other assertion
+        // removed other assertion
+        // Corrected in the special function
         Assertions.assertEquals(1.0, SpecialMath.d2(0.0));
     }
 
     @Test
     void testD2_9_oe() {
         for ( double x : new double[] {Double.MAX_VALUE, Math.log(Double.MAX_VALUE), 10, 5, 1, 0.5, 0.1, 0.05, 0.01}) {
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Negative infinity computes without correction
+        // removed other assertion
+        // removed other assertion
 
+        // NaN is returned (i.e. no correction)
+        // removed other assertion
 
+        // Edge cases for z=0 or z==inf require correction
+        // removed other assertion
+        // removed other assertion
+        // Corrected in the special function
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY, SpecialMath.d2(Double.POSITIVE_INFINITY));
     }
 
     @Test
     void testTan2_1_oe() {
+        // Test the value of tan(x) when the angle is generated in the open interval (-pi/4, pi/4)
         for ( long x : new long[] {Long.MIN_VALUE + (1 << 10), Long.MAX_VALUE}) {
              double phiby2 = getU(x);
             Assertions.assertEquals(PI_4 - DU * PI_4, Math.abs(phiby2));
@@ -2444,29 +4245,42 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testTan2_2_oe() {
+        // Test the value of tan(x) when the angle is generated in the open interval (-pi/4, pi/4)
         for ( long x : new long[] {Long.MIN_VALUE + (1 << 10), Long.MAX_VALUE}) {
              double phiby2 = getU(x);
+            // removed other assertion
              double a = phiby2 * SpecialMath.tan2(phiby2);
+            // Check this is not 1
             Assertions.assertNotEquals(1, Math.abs(a));
     }
     }
 
     @Test
     void testTan2_3_oe() {
+        // Test the value of tan(x) when the angle is generated in the open interval (-pi/4, pi/4)
         for ( long x : new long[] {Long.MIN_VALUE + (1 << 10), Long.MAX_VALUE}) {
              double phiby2 = getU(x);
+            // removed other assertion
              double a = phiby2 * SpecialMath.tan2(phiby2);
+            // Check this is not 1
+            // removed other assertion
             Assertions.assertTrue(Math.abs(a) < 1.0);
     }
     }
 
     @Test
     void testTan2_4_oe() {
+        // Test the value of tan(x) when the angle is generated in the open interval (-pi/4, pi/4)
         for ( long x : new long[] {Long.MIN_VALUE + (1 << 10), Long.MAX_VALUE}) {
              double phiby2 = getU(x);
+            // removed other assertion
              double a = phiby2 * SpecialMath.tan2(phiby2);
+            // Check this is not 1
+            // removed other assertion
+            // removed other assertion
         }
 
+        // At pi/4 the function reverts to Math.tan(x) / x. Test through the transition.
          double pi = Math.PI;
         for ( double x : new double[] {pi, pi / 2, pi / 3.99, pi / 4, pi / 4.01, pi / 8, pi / 16}) {
              double y = Math.tan(x) / x;
@@ -2476,16 +4290,27 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testTan2_5_oe() {
+        // Test the value of tan(x) when the angle is generated in the open interval (-pi/4, pi/4)
         for ( long x : new long[] {Long.MIN_VALUE + (1 << 10), Long.MAX_VALUE}) {
              double phiby2 = getU(x);
+            // removed other assertion
              double a = phiby2 * SpecialMath.tan2(phiby2);
+            // Check this is not 1
+            // removed other assertion
+            // removed other assertion
         }
 
+        // At pi/4 the function reverts to Math.tan(x) / x. Test through the transition.
          double pi = Math.PI;
         for ( double x : new double[] {pi, pi / 2, pi / 3.99, pi / 4, pi / 4.01, pi / 8, pi / 16}) {
              double y = Math.tan(x) / x;
+            // removed other assertion
         }
 
+        // Test this closely matches the JDK tan function.
+        // Test uniformly between 0 and pi / 4.
+        // Count the errors with the ULP difference.
+        // Get max ULP and mean ULP. Do this for both tan(x) and tan(x)/x functions.
          UniformRandomProvider rng = RandomSource.XO_RO_SHI_RO_128_PP.create(0x1647816481684L);
         int count = 0;
         long ulp = 0;
@@ -2497,6 +4322,7 @@ class StableSamplerTest_OE25Dev {
             count++;
              double tanx = Math.tan(x);
              double tan2x = SpecialMath.tan2(x);
+            // Test tan(x)
             double y = x * tan2x;
             if (y != tanx) {
                  long u = Math.abs(Double.doubleToRawLongBits(tanx) - Double.doubleToRawLongBits(y));
@@ -2504,6 +4330,8 @@ class StableSamplerTest_OE25Dev {
                     max = u;
                 }
                 ulp += u;
+                // Within 4 ulp. Note tan(x) is within 1 ulp of the result. So this
+                // is max 5 ulp from the result.
                 Assertions.assertEquals(tanx, y, 4 * Math.ulp(tanx));
     }
     }
@@ -2511,16 +4339,27 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testTan2_6_oe() {
+        // Test the value of tan(x) when the angle is generated in the open interval (-pi/4, pi/4)
         for ( long x : new long[] {Long.MIN_VALUE + (1 << 10), Long.MAX_VALUE}) {
              double phiby2 = getU(x);
+            // removed other assertion
              double a = phiby2 * SpecialMath.tan2(phiby2);
+            // Check this is not 1
+            // removed other assertion
+            // removed other assertion
         }
 
+        // At pi/4 the function reverts to Math.tan(x) / x. Test through the transition.
          double pi = Math.PI;
         for ( double x : new double[] {pi, pi / 2, pi / 3.99, pi / 4, pi / 4.01, pi / 8, pi / 16}) {
              double y = Math.tan(x) / x;
+            // removed other assertion
         }
 
+        // Test this closely matches the JDK tan function.
+        // Test uniformly between 0 and pi / 4.
+        // Count the errors with the ULP difference.
+        // Get max ULP and mean ULP. Do this for both tan(x) and tan(x)/x functions.
          UniformRandomProvider rng = RandomSource.XO_RO_SHI_RO_128_PP.create(0x1647816481684L);
         int count = 0;
         long ulp = 0;
@@ -2532,6 +4371,7 @@ class StableSamplerTest_OE25Dev {
             count++;
              double tanx = Math.tan(x);
              double tan2x = SpecialMath.tan2(x);
+            // Test tan(x)
             double y = x * tan2x;
             if (y != tanx) {
                  long u = Math.abs(Double.doubleToRawLongBits(tanx) - Double.doubleToRawLongBits(y));
@@ -2539,7 +4379,11 @@ class StableSamplerTest_OE25Dev {
                     max = u;
                 }
                 ulp += u;
+                // Within 4 ulp. Note tan(x) is within 1 ulp of the result. So this
+                // is max 5 ulp from the result.
+                // removed other assertion
             }
+            // Test tan(x) / x
             y = tanx / x;
             if (y != tan2x) {
                  long u = Math.abs(Double.doubleToRawLongBits(tan2x) - Double.doubleToRawLongBits(y));
@@ -2547,6 +4391,7 @@ class StableSamplerTest_OE25Dev {
                     max2 = u;
                 }
                 ulp2 += u;
+                // Within 3 ulp.
                 Assertions.assertEquals(y, tan2x, 3 * Math.ulp(y));
     }
     }
@@ -2554,16 +4399,27 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testTan2_7_oe() {
+        // Test the value of tan(x) when the angle is generated in the open interval (-pi/4, pi/4)
         for ( long x : new long[] {Long.MIN_VALUE + (1 << 10), Long.MAX_VALUE}) {
              double phiby2 = getU(x);
+            // removed other assertion
              double a = phiby2 * SpecialMath.tan2(phiby2);
+            // Check this is not 1
+            // removed other assertion
+            // removed other assertion
         }
 
+        // At pi/4 the function reverts to Math.tan(x) / x. Test through the transition.
          double pi = Math.PI;
         for ( double x : new double[] {pi, pi / 2, pi / 3.99, pi / 4, pi / 4.01, pi / 8, pi / 16}) {
              double y = Math.tan(x) / x;
+            // removed other assertion
         }
 
+        // Test this closely matches the JDK tan function.
+        // Test uniformly between 0 and pi / 4.
+        // Count the errors with the ULP difference.
+        // Get max ULP and mean ULP. Do this for both tan(x) and tan(x)/x functions.
          UniformRandomProvider rng = RandomSource.XO_RO_SHI_RO_128_PP.create(0x1647816481684L);
         int count = 0;
         long ulp = 0;
@@ -2575,6 +4431,7 @@ class StableSamplerTest_OE25Dev {
             count++;
              double tanx = Math.tan(x);
              double tan2x = SpecialMath.tan2(x);
+            // Test tan(x)
             double y = x * tan2x;
             if (y != tanx) {
                  long u = Math.abs(Double.doubleToRawLongBits(tanx) - Double.doubleToRawLongBits(y));
@@ -2582,7 +4439,11 @@ class StableSamplerTest_OE25Dev {
                     max = u;
                 }
                 ulp += u;
+                // Within 4 ulp. Note tan(x) is within 1 ulp of the result. So this
+                // is max 5 ulp from the result.
+                // removed other assertion
             }
+            // Test tan(x) / x
             y = tanx / x;
             if (y != tan2x) {
                  long u = Math.abs(Double.doubleToRawLongBits(tan2x) - Double.doubleToRawLongBits(y));
@@ -2590,23 +4451,41 @@ class StableSamplerTest_OE25Dev {
                     max2 = u;
                 }
                 ulp2 += u;
+                // Within 3 ulp.
+                // removed other assertion
             }
         }
+        // Mean (max) ULP is very low
+        // 2^30 random samples in [0, pi / 4)
+        //          tan(x)                    tan(x) / x
+        // tan4283  93436.25534446817         201185 : 68313.16171793547         128079
+        // tan4288c     0.5905972588807344         4 :     0.4047176940366626         3
         Assertions.assertTrue((double) ulp / count < 0.6, "Mean ULP to tan(x) is too high");
     }
 
     @Test
     void testTan2_8_oe() {
+        // Test the value of tan(x) when the angle is generated in the open interval (-pi/4, pi/4)
         for ( long x : new long[] {Long.MIN_VALUE + (1 << 10), Long.MAX_VALUE}) {
              double phiby2 = getU(x);
+            // removed other assertion
              double a = phiby2 * SpecialMath.tan2(phiby2);
+            // Check this is not 1
+            // removed other assertion
+            // removed other assertion
         }
 
+        // At pi/4 the function reverts to Math.tan(x) / x. Test through the transition.
          double pi = Math.PI;
         for ( double x : new double[] {pi, pi / 2, pi / 3.99, pi / 4, pi / 4.01, pi / 8, pi / 16}) {
              double y = Math.tan(x) / x;
+            // removed other assertion
         }
 
+        // Test this closely matches the JDK tan function.
+        // Test uniformly between 0 and pi / 4.
+        // Count the errors with the ULP difference.
+        // Get max ULP and mean ULP. Do this for both tan(x) and tan(x)/x functions.
          UniformRandomProvider rng = RandomSource.XO_RO_SHI_RO_128_PP.create(0x1647816481684L);
         int count = 0;
         long ulp = 0;
@@ -2618,6 +4497,7 @@ class StableSamplerTest_OE25Dev {
             count++;
              double tanx = Math.tan(x);
              double tan2x = SpecialMath.tan2(x);
+            // Test tan(x)
             double y = x * tan2x;
             if (y != tanx) {
                  long u = Math.abs(Double.doubleToRawLongBits(tanx) - Double.doubleToRawLongBits(y));
@@ -2625,7 +4505,11 @@ class StableSamplerTest_OE25Dev {
                     max = u;
                 }
                 ulp += u;
+                // Within 4 ulp. Note tan(x) is within 1 ulp of the result. So this
+                // is max 5 ulp from the result.
+                // removed other assertion
             }
+            // Test tan(x) / x
             y = tanx / x;
             if (y != tan2x) {
                  long u = Math.abs(Double.doubleToRawLongBits(tan2x) - Double.doubleToRawLongBits(y));
@@ -2633,23 +4517,42 @@ class StableSamplerTest_OE25Dev {
                     max2 = u;
                 }
                 ulp2 += u;
+                // Within 3 ulp.
+                // removed other assertion
             }
         }
+        // Mean (max) ULP is very low
+        // 2^30 random samples in [0, pi / 4)
+        //          tan(x)                    tan(x) / x
+        // tan4283  93436.25534446817         201185 : 68313.16171793547         128079
+        // tan4288c     0.5905972588807344         4 :     0.4047176940366626         3
+        // removed other assertion
         Assertions.assertTrue((double) ulp2 / count < 0.45, "Mean ULP to tan(x) / x is too high");
     }
 
     @Test
     void testTan2_9_oe() {
+        // Test the value of tan(x) when the angle is generated in the open interval (-pi/4, pi/4)
         for ( long x : new long[] {Long.MIN_VALUE + (1 << 10), Long.MAX_VALUE}) {
              double phiby2 = getU(x);
+            // removed other assertion
              double a = phiby2 * SpecialMath.tan2(phiby2);
+            // Check this is not 1
+            // removed other assertion
+            // removed other assertion
         }
 
+        // At pi/4 the function reverts to Math.tan(x) / x. Test through the transition.
          double pi = Math.PI;
         for ( double x : new double[] {pi, pi / 2, pi / 3.99, pi / 4, pi / 4.01, pi / 8, pi / 16}) {
              double y = Math.tan(x) / x;
+            // removed other assertion
         }
 
+        // Test this closely matches the JDK tan function.
+        // Test uniformly between 0 and pi / 4.
+        // Count the errors with the ULP difference.
+        // Get max ULP and mean ULP. Do this for both tan(x) and tan(x)/x functions.
          UniformRandomProvider rng = RandomSource.XO_RO_SHI_RO_128_PP.create(0x1647816481684L);
         int count = 0;
         long ulp = 0;
@@ -2661,6 +4564,7 @@ class StableSamplerTest_OE25Dev {
             count++;
              double tanx = Math.tan(x);
              double tan2x = SpecialMath.tan2(x);
+            // Test tan(x)
             double y = x * tan2x;
             if (y != tanx) {
                  long u = Math.abs(Double.doubleToRawLongBits(tanx) - Double.doubleToRawLongBits(y));
@@ -2668,7 +4572,11 @@ class StableSamplerTest_OE25Dev {
                     max = u;
                 }
                 ulp += u;
+                // Within 4 ulp. Note tan(x) is within 1 ulp of the result. So this
+                // is max 5 ulp from the result.
+                // removed other assertion
             }
+            // Test tan(x) / x
             y = tanx / x;
             if (y != tan2x) {
                  long u = Math.abs(Double.doubleToRawLongBits(tan2x) - Double.doubleToRawLongBits(y));
@@ -2676,23 +4584,44 @@ class StableSamplerTest_OE25Dev {
                     max2 = u;
                 }
                 ulp2 += u;
+                // Within 3 ulp.
+                // removed other assertion
             }
         }
+        // Mean (max) ULP is very low
+        // 2^30 random samples in [0, pi / 4)
+        //          tan(x)                    tan(x) / x
+        // tan4283  93436.25534446817         201185 : 68313.16171793547         128079
+        // tan4288c     0.5905972588807344         4 :     0.4047176940366626         3
+        // removed other assertion
+        // removed other assertion
+        // If the value is under 1 then the sampler will break due to cancellation errors.
         Assertions.assertEquals(1.0, SpecialMath.tan2(0.0), "Must be exact tan(x) / x at x=0");
     }
 
     @Test
     void testTan2_10_oe() {
+        // Test the value of tan(x) when the angle is generated in the open interval (-pi/4, pi/4)
         for ( long x : new long[] {Long.MIN_VALUE + (1 << 10), Long.MAX_VALUE}) {
              double phiby2 = getU(x);
+            // removed other assertion
              double a = phiby2 * SpecialMath.tan2(phiby2);
+            // Check this is not 1
+            // removed other assertion
+            // removed other assertion
         }
 
+        // At pi/4 the function reverts to Math.tan(x) / x. Test through the transition.
          double pi = Math.PI;
         for ( double x : new double[] {pi, pi / 2, pi / 3.99, pi / 4, pi / 4.01, pi / 8, pi / 16}) {
              double y = Math.tan(x) / x;
+            // removed other assertion
         }
 
+        // Test this closely matches the JDK tan function.
+        // Test uniformly between 0 and pi / 4.
+        // Count the errors with the ULP difference.
+        // Get max ULP and mean ULP. Do this for both tan(x) and tan(x)/x functions.
          UniformRandomProvider rng = RandomSource.XO_RO_SHI_RO_128_PP.create(0x1647816481684L);
         int count = 0;
         long ulp = 0;
@@ -2704,6 +4633,7 @@ class StableSamplerTest_OE25Dev {
             count++;
              double tanx = Math.tan(x);
              double tan2x = SpecialMath.tan2(x);
+            // Test tan(x)
             double y = x * tan2x;
             if (y != tanx) {
                  long u = Math.abs(Double.doubleToRawLongBits(tanx) - Double.doubleToRawLongBits(y));
@@ -2711,7 +4641,11 @@ class StableSamplerTest_OE25Dev {
                     max = u;
                 }
                 ulp += u;
+                // Within 4 ulp. Note tan(x) is within 1 ulp of the result. So this
+                // is max 5 ulp from the result.
+                // removed other assertion
             }
+            // Test tan(x) / x
             y = tanx / x;
             if (y != tan2x) {
                  long u = Math.abs(Double.doubleToRawLongBits(tan2x) - Double.doubleToRawLongBits(y));
@@ -2719,23 +4653,45 @@ class StableSamplerTest_OE25Dev {
                     max2 = u;
                 }
                 ulp2 += u;
+                // Within 3 ulp.
+                // removed other assertion
             }
         }
+        // Mean (max) ULP is very low
+        // 2^30 random samples in [0, pi / 4)
+        //          tan(x)                    tan(x) / x
+        // tan4283  93436.25534446817         201185 : 68313.16171793547         128079
+        // tan4288c     0.5905972588807344         4 :     0.4047176940366626         3
+        // removed other assertion
+        // removed other assertion
+        // If the value is under 1 then the sampler will break due to cancellation errors.
+        // removed other assertion
         Assertions.assertEquals(4 / Math.PI, SpecialMath.tan2(PI_4), Math.ulp(4 / Math.PI));
     }
 
     @Test
     void testTan2_11_oe() {
+        // Test the value of tan(x) when the angle is generated in the open interval (-pi/4, pi/4)
         for ( long x : new long[] {Long.MIN_VALUE + (1 << 10), Long.MAX_VALUE}) {
              double phiby2 = getU(x);
+            // removed other assertion
              double a = phiby2 * SpecialMath.tan2(phiby2);
+            // Check this is not 1
+            // removed other assertion
+            // removed other assertion
         }
 
+        // At pi/4 the function reverts to Math.tan(x) / x. Test through the transition.
          double pi = Math.PI;
         for ( double x : new double[] {pi, pi / 2, pi / 3.99, pi / 4, pi / 4.01, pi / 8, pi / 16}) {
              double y = Math.tan(x) / x;
+            // removed other assertion
         }
 
+        // Test this closely matches the JDK tan function.
+        // Test uniformly between 0 and pi / 4.
+        // Count the errors with the ULP difference.
+        // Get max ULP and mean ULP. Do this for both tan(x) and tan(x)/x functions.
          UniformRandomProvider rng = RandomSource.XO_RO_SHI_RO_128_PP.create(0x1647816481684L);
         int count = 0;
         long ulp = 0;
@@ -2747,6 +4703,7 @@ class StableSamplerTest_OE25Dev {
             count++;
              double tanx = Math.tan(x);
              double tan2x = SpecialMath.tan2(x);
+            // Test tan(x)
             double y = x * tan2x;
             if (y != tanx) {
                  long u = Math.abs(Double.doubleToRawLongBits(tanx) - Double.doubleToRawLongBits(y));
@@ -2754,7 +4711,11 @@ class StableSamplerTest_OE25Dev {
                     max = u;
                 }
                 ulp += u;
+                // Within 4 ulp. Note tan(x) is within 1 ulp of the result. So this
+                // is max 5 ulp from the result.
+                // removed other assertion
             }
+            // Test tan(x) / x
             y = tanx / x;
             if (y != tan2x) {
                  long u = Math.abs(Double.doubleToRawLongBits(tan2x) - Double.doubleToRawLongBits(y));
@@ -2762,23 +4723,46 @@ class StableSamplerTest_OE25Dev {
                     max2 = u;
                 }
                 ulp2 += u;
+                // Within 3 ulp.
+                // removed other assertion
             }
         }
+        // Mean (max) ULP is very low
+        // 2^30 random samples in [0, pi / 4)
+        //          tan(x)                    tan(x) / x
+        // tan4283  93436.25534446817         201185 : 68313.16171793547         128079
+        // tan4288c     0.5905972588807344         4 :     0.4047176940366626         3
+        // removed other assertion
+        // removed other assertion
+        // If the value is under 1 then the sampler will break due to cancellation errors.
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.0, PI_4 * SpecialMath.tan2(PI_4), Math.ulp(1.0));
     }
 
     @Test
     void testTan2_12_oe() {
+        // Test the value of tan(x) when the angle is generated in the open interval (-pi/4, pi/4)
         for ( long x : new long[] {Long.MIN_VALUE + (1 << 10), Long.MAX_VALUE}) {
              double phiby2 = getU(x);
+            // removed other assertion
              double a = phiby2 * SpecialMath.tan2(phiby2);
+            // Check this is not 1
+            // removed other assertion
+            // removed other assertion
         }
 
+        // At pi/4 the function reverts to Math.tan(x) / x. Test through the transition.
          double pi = Math.PI;
         for ( double x : new double[] {pi, pi / 2, pi / 3.99, pi / 4, pi / 4.01, pi / 8, pi / 16}) {
              double y = Math.tan(x) / x;
+            // removed other assertion
         }
 
+        // Test this closely matches the JDK tan function.
+        // Test uniformly between 0 and pi / 4.
+        // Count the errors with the ULP difference.
+        // Get max ULP and mean ULP. Do this for both tan(x) and tan(x)/x functions.
          UniformRandomProvider rng = RandomSource.XO_RO_SHI_RO_128_PP.create(0x1647816481684L);
         int count = 0;
         long ulp = 0;
@@ -2790,6 +4774,7 @@ class StableSamplerTest_OE25Dev {
             count++;
              double tanx = Math.tan(x);
              double tan2x = SpecialMath.tan2(x);
+            // Test tan(x)
             double y = x * tan2x;
             if (y != tanx) {
                  long u = Math.abs(Double.doubleToRawLongBits(tanx) - Double.doubleToRawLongBits(y));
@@ -2797,7 +4782,11 @@ class StableSamplerTest_OE25Dev {
                     max = u;
                 }
                 ulp += u;
+                // Within 4 ulp. Note tan(x) is within 1 ulp of the result. So this
+                // is max 5 ulp from the result.
+                // removed other assertion
             }
+            // Test tan(x) / x
             y = tanx / x;
             if (y != tan2x) {
                  long u = Math.abs(Double.doubleToRawLongBits(tan2x) - Double.doubleToRawLongBits(y));
@@ -2805,23 +4794,48 @@ class StableSamplerTest_OE25Dev {
                     max2 = u;
                 }
                 ulp2 += u;
+                // Within 3 ulp.
+                // removed other assertion
             }
         }
+        // Mean (max) ULP is very low
+        // 2^30 random samples in [0, pi / 4)
+        //          tan(x)                    tan(x) / x
+        // tan4283  93436.25534446817         201185 : 68313.16171793547         128079
+        // tan4288c     0.5905972588807344         4 :     0.4047176940366626         3
+        // removed other assertion
+        // removed other assertion
+        // If the value is under 1 then the sampler will break due to cancellation errors.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // If this is above 1 then the sampler will break. Test at the switch point pi/4.
         Assertions.assertTrue(1.0 >= PI_4 * SpecialMath.tan2(PI_4));
     }
 
     @Test
     void testTan2_13_oe() {
+        // Test the value of tan(x) when the angle is generated in the open interval (-pi/4, pi/4)
         for ( long x : new long[] {Long.MIN_VALUE + (1 << 10), Long.MAX_VALUE}) {
              double phiby2 = getU(x);
+            // removed other assertion
              double a = phiby2 * SpecialMath.tan2(phiby2);
+            // Check this is not 1
+            // removed other assertion
+            // removed other assertion
         }
 
+        // At pi/4 the function reverts to Math.tan(x) / x. Test through the transition.
          double pi = Math.PI;
         for ( double x : new double[] {pi, pi / 2, pi / 3.99, pi / 4, pi / 4.01, pi / 8, pi / 16}) {
              double y = Math.tan(x) / x;
+            // removed other assertion
         }
 
+        // Test this closely matches the JDK tan function.
+        // Test uniformly between 0 and pi / 4.
+        // Count the errors with the ULP difference.
+        // Get max ULP and mean ULP. Do this for both tan(x) and tan(x)/x functions.
          UniformRandomProvider rng = RandomSource.XO_RO_SHI_RO_128_PP.create(0x1647816481684L);
         int count = 0;
         long ulp = 0;
@@ -2833,6 +4847,7 @@ class StableSamplerTest_OE25Dev {
             count++;
              double tanx = Math.tan(x);
              double tan2x = SpecialMath.tan2(x);
+            // Test tan(x)
             double y = x * tan2x;
             if (y != tanx) {
                  long u = Math.abs(Double.doubleToRawLongBits(tanx) - Double.doubleToRawLongBits(y));
@@ -2840,7 +4855,11 @@ class StableSamplerTest_OE25Dev {
                     max = u;
                 }
                 ulp += u;
+                // Within 4 ulp. Note tan(x) is within 1 ulp of the result. So this
+                // is max 5 ulp from the result.
+                // removed other assertion
             }
+            // Test tan(x) / x
             y = tanx / x;
             if (y != tan2x) {
                  long u = Math.abs(Double.doubleToRawLongBits(tan2x) - Double.doubleToRawLongBits(y));
@@ -2848,23 +4867,49 @@ class StableSamplerTest_OE25Dev {
                     max2 = u;
                 }
                 ulp2 += u;
+                // Within 3 ulp.
+                // removed other assertion
             }
         }
+        // Mean (max) ULP is very low
+        // 2^30 random samples in [0, pi / 4)
+        //          tan(x)                    tan(x) / x
+        // tan4283  93436.25534446817         201185 : 68313.16171793547         128079
+        // tan4288c     0.5905972588807344         4 :     0.4047176940366626         3
+        // removed other assertion
+        // removed other assertion
+        // If the value is under 1 then the sampler will break due to cancellation errors.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // If this is above 1 then the sampler will break. Test at the switch point pi/4.
+        // removed other assertion
         Assertions.assertTrue(1.0 >= PI_4 * SpecialMath.tan2(Math.nextDown(PI_4)));
     }
 
     @Test
     void testTan2_14_oe() {
+        // Test the value of tan(x) when the angle is generated in the open interval (-pi/4, pi/4)
         for ( long x : new long[] {Long.MIN_VALUE + (1 << 10), Long.MAX_VALUE}) {
              double phiby2 = getU(x);
+            // removed other assertion
              double a = phiby2 * SpecialMath.tan2(phiby2);
+            // Check this is not 1
+            // removed other assertion
+            // removed other assertion
         }
 
+        // At pi/4 the function reverts to Math.tan(x) / x. Test through the transition.
          double pi = Math.PI;
         for ( double x : new double[] {pi, pi / 2, pi / 3.99, pi / 4, pi / 4.01, pi / 8, pi / 16}) {
              double y = Math.tan(x) / x;
+            // removed other assertion
         }
 
+        // Test this closely matches the JDK tan function.
+        // Test uniformly between 0 and pi / 4.
+        // Count the errors with the ULP difference.
+        // Get max ULP and mean ULP. Do this for both tan(x) and tan(x)/x functions.
          UniformRandomProvider rng = RandomSource.XO_RO_SHI_RO_128_PP.create(0x1647816481684L);
         int count = 0;
         long ulp = 0;
@@ -2876,6 +4921,7 @@ class StableSamplerTest_OE25Dev {
             count++;
              double tanx = Math.tan(x);
              double tan2x = SpecialMath.tan2(x);
+            // Test tan(x)
             double y = x * tan2x;
             if (y != tanx) {
                  long u = Math.abs(Double.doubleToRawLongBits(tanx) - Double.doubleToRawLongBits(y));
@@ -2883,7 +4929,11 @@ class StableSamplerTest_OE25Dev {
                     max = u;
                 }
                 ulp += u;
+                // Within 4 ulp. Note tan(x) is within 1 ulp of the result. So this
+                // is max 5 ulp from the result.
+                // removed other assertion
             }
+            // Test tan(x) / x
             y = tanx / x;
             if (y != tan2x) {
                  long u = Math.abs(Double.doubleToRawLongBits(tan2x) - Double.doubleToRawLongBits(y));
@@ -2891,13 +4941,31 @@ class StableSamplerTest_OE25Dev {
                     max2 = u;
                 }
                 ulp2 += u;
+                // Within 3 ulp.
+                // removed other assertion
             }
         }
+        // Mean (max) ULP is very low
+        // 2^30 random samples in [0, pi / 4)
+        //          tan(x)                    tan(x) / x
+        // tan4283  93436.25534446817         201185 : 68313.16171793547         128079
+        // tan4288c     0.5905972588807344         4 :     0.4047176940366626         3
+        // removed other assertion
+        // removed other assertion
+        // If the value is under 1 then the sampler will break due to cancellation errors.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // If this is above 1 then the sampler will break. Test at the switch point pi/4.
+        // removed other assertion
+        // removed other assertion
+        // Monotonic function at the transition
         Assertions.assertTrue(SpecialMath.tan2(Math.nextUp(PI_4)) >= SpecialMath.tan2(PI_4));
     }
 
     @Test
     void testSamplesWithAlphaNot1_1_oe() {
+        // Use non-extreme parameters. beta and u are negated so use non-redundant values
          double[] alphas = {0.3, 0.9, 1.1, 1.5};
          double[] betas = {-1, -0.5, -0.3, 0};
          double[] ws = {0.1, 1, 3};
@@ -2920,6 +4988,7 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testSamplesWithAlphaNot1_2_oe() {
+        // Use non-extreme parameters. beta and u are negated so use non-redundant values
          double[] alphas = {0.3, 0.9, 1.1, 1.5};
          double[] betas = {-1, -0.5, -0.3, 0};
          double[] ws = {0.1, 1, 3};
@@ -2933,6 +5002,8 @@ class StableSamplerTest_OE25Dev {
                     for ( double u : us) {
                          double x = sampleCMS(alpha, beta, w, u);
                          double y = sampleWeronAlphaNot1(alpha, beta, w, u);
+                        // removed other assertion
+                        // Test symmetry
                          double z = sampleCMS(alpha, -beta, w, 1 - u);
                         Assertions.assertEquals(x, -z, 0.0);
     }
@@ -2943,6 +5014,7 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testSamplesWithAlpha1_1_oe() {
+        // Use non-extreme parameters. beta and u are negated so use non-redundant values
          double[] betas = {-1, -0.5, -0.3, 0};
          double[] ws = {0.1, 1, 3};
          double[] us = {0.1, 0.25, 0.5, 0.8};
@@ -2963,6 +5035,7 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testSamplesWithAlpha1_2_oe() {
+        // Use non-extreme parameters. beta and u are negated so use non-redundant values
          double[] betas = {-1, -0.5, -0.3, 0};
          double[] ws = {0.1, 1, 3};
          double[] us = {0.1, 0.25, 0.5, 0.8};
@@ -2975,6 +5048,8 @@ class StableSamplerTest_OE25Dev {
                 for ( double u : us) {
                      double x = sampleCMS(alpha, beta, w, u);
                      double y = sampleWeronAlpha1(beta, w, u);
+                    // removed other assertion
+                    // Test symmetry
                      double z = sampleCMS(alpha, -beta, w, 1 - u);
                     Assertions.assertEquals(x, -z, 0.0);
     }
@@ -2989,13 +5064,20 @@ class StableSamplerTest_OE25Dev {
          double[] us = {0.1, 0.25, 0.5, 0.8};
          int steps = 30;
 
+        // Start with alpha not close to 0. The value 0.0625 is a power of 2 so is scaled
+        // exactly by dividing by 2. With 30 steps this ranges from 2^-4 to 2^-34 leaving alpha:
+        // 1.0625 -> 1.0000000000582077 or
+        // 0.9375 -> 0.9999999999417923.
         for (double deltaStart : new double[] {-0.0625, 0.0625}) {
+            // As alpha approaches 1 the value should approach the value when alpha=0.
+            // Count the number of times it get further away with a change of alpha.
             int cmsCount = 0;
             int weronCount = 0;
 
             for ( double beta : betas) {
                 for ( double w : ws) {
                     for ( double u : us) {
+                        // CMS formulas
                         double x0 = sampleCMS(1, beta, w, u);
                         Assertions.assertTrue(Double.isFinite(x0), "Target must be finite");
     }
@@ -3011,15 +5093,24 @@ class StableSamplerTest_OE25Dev {
          double[] us = {0.1, 0.25, 0.5, 0.8};
          int steps = 30;
 
+        // Start with alpha not close to 0. The value 0.0625 is a power of 2 so is scaled
+        // exactly by dividing by 2. With 30 steps this ranges from 2^-4 to 2^-34 leaving alpha:
+        // 1.0625 -> 1.0000000000582077 or
+        // 0.9375 -> 0.9999999999417923.
         for (double deltaStart : new double[] {-0.0625, 0.0625}) {
+            // As alpha approaches 1 the value should approach the value when alpha=0.
+            // Count the number of times it get further away with a change of alpha.
             int cmsCount = 0;
             int weronCount = 0;
 
             for ( double beta : betas) {
                 for ( double w : ws) {
                     for ( double u : us) {
+                        // CMS formulas
                         double x0 = sampleCMS(1, beta, w, u);
+                        // removed other assertion
 
+                        // Sample should approach x0 as alpha approaches 1
                         double delta = deltaStart;
                         double dx = Math.abs(x0 - sampleCMS(1 + delta, beta, w, u));
                         for (int i = 0; i < steps; i++) {
@@ -3031,6 +5122,7 @@ class StableSamplerTest_OE25Dev {
                             dx = dx2;
                         }
 
+                        // Weron formulas
                         x0 = sampleWeronAlpha1(beta, w, u);
                         Assertions.assertTrue(Double.isFinite(x0), "Target must be finite");
     }
@@ -3046,15 +5138,24 @@ class StableSamplerTest_OE25Dev {
          double[] us = {0.1, 0.25, 0.5, 0.8};
          int steps = 30;
 
+        // Start with alpha not close to 0. The value 0.0625 is a power of 2 so is scaled
+        // exactly by dividing by 2. With 30 steps this ranges from 2^-4 to 2^-34 leaving alpha:
+        // 1.0625 -> 1.0000000000582077 or
+        // 0.9375 -> 0.9999999999417923.
         for (double deltaStart : new double[] {-0.0625, 0.0625}) {
+            // As alpha approaches 1 the value should approach the value when alpha=0.
+            // Count the number of times it get further away with a change of alpha.
             int cmsCount = 0;
             int weronCount = 0;
 
             for ( double beta : betas) {
                 for ( double w : ws) {
                     for ( double u : us) {
+                        // CMS formulas
                         double x0 = sampleCMS(1, beta, w, u);
+                        // removed other assertion
 
+                        // Sample should approach x0 as alpha approaches 1
                         double delta = deltaStart;
                         double dx = Math.abs(x0 - sampleCMS(1 + delta, beta, w, u));
                         for (int i = 0; i < steps; i++) {
@@ -3066,8 +5167,11 @@ class StableSamplerTest_OE25Dev {
                             dx = dx2;
                         }
 
+                        // Weron formulas
                         x0 = sampleWeronAlpha1(beta, w, u);
+                        // removed other assertion
 
+                        // Sample should approach x0 as alpha approaches 1
                         delta = deltaStart;
                         dx = Math.abs(x0 - sampleWeronAlphaNot1(1 + delta, beta, w, u));
                         for (int i = 0; i < steps; i++) {
@@ -3082,6 +5186,7 @@ class StableSamplerTest_OE25Dev {
                 }
             }
 
+            // The CMS formala monotonically converges
             Assertions.assertEquals(0, cmsCount);
     }
     }
@@ -3093,15 +5198,24 @@ class StableSamplerTest_OE25Dev {
          double[] us = {0.1, 0.25, 0.5, 0.8};
          int steps = 30;
 
+        // Start with alpha not close to 0. The value 0.0625 is a power of 2 so is scaled
+        // exactly by dividing by 2. With 30 steps this ranges from 2^-4 to 2^-34 leaving alpha:
+        // 1.0625 -> 1.0000000000582077 or
+        // 0.9375 -> 0.9999999999417923.
         for (double deltaStart : new double[] {-0.0625, 0.0625}) {
+            // As alpha approaches 1 the value should approach the value when alpha=0.
+            // Count the number of times it get further away with a change of alpha.
             int cmsCount = 0;
             int weronCount = 0;
 
             for ( double beta : betas) {
                 for ( double w : ws) {
                     for ( double u : us) {
+                        // CMS formulas
                         double x0 = sampleCMS(1, beta, w, u);
+                        // removed other assertion
 
+                        // Sample should approach x0 as alpha approaches 1
                         double delta = deltaStart;
                         double dx = Math.abs(x0 - sampleCMS(1 + delta, beta, w, u));
                         for (int i = 0; i < steps; i++) {
@@ -3113,8 +5227,11 @@ class StableSamplerTest_OE25Dev {
                             dx = dx2;
                         }
 
+                        // Weron formulas
                         x0 = sampleWeronAlpha1(beta, w, u);
+                        // removed other assertion
 
+                        // Sample should approach x0 as alpha approaches 1
                         delta = deltaStart;
                         dx = Math.abs(x0 - sampleWeronAlphaNot1(1 + delta, beta, w, u));
                         for (int i = 0; i < steps; i++) {
@@ -3129,68 +5246,134 @@ class StableSamplerTest_OE25Dev {
                 }
             }
 
+            // The CMS formala monotonically converges
+            // removed other assertion
+            // The weron formula does not monotonically converge
+            // (difference to the target can be bigger when alpha moves closer to 1).
             Assertions.assertTrue(weronCount > 200);
     }
     }
 
     @Test
     void testExtremeInputsToSample_1_oe() {
+        // Demonstrate instability when w = 0
         Assertions.assertEquals(Double.NaN, sampleCMS(1.3, 0.7, 0, 0.25));
     }
 
     @Test
     void testExtremeInputsToSample_2_oe() {
+        // Demonstrate instability when w = 0
+        // removed other assertion
         Assertions.assertTrue(Double.isFinite(sampleCMS(1.3, 0.7, SMALL_W, 0.25)));
     }
 
     @Test
     void testExtremeInputsToSample_3_oe() {
+        // Demonstrate instability when w = 0
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when u -> 0 or 1, and |beta| = 1
         Assertions.assertEquals(Double.NaN, sampleCMS(1.1, 1.0, 0.1, 0));
     }
 
     @Test
     void testExtremeInputsToSample_4_oe() {
+        // Demonstrate instability when w = 0
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when u -> 0 or 1, and |beta| = 1
+        // removed other assertion
         Assertions.assertTrue(Double.isFinite(sampleCMS(1.1, 1.0, 0.1, DU)));
     }
 
     @Test
     void testExtremeInputsToSample_5_oe() {
+        // Demonstrate instability when w = 0
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when u -> 0 or 1, and |beta| = 1
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when alpha -> 0
 
+        // Small alpha does not tolerate very small w.
         Assertions.assertEquals(Double.NaN, sampleCMS(0.01, 0.7, SMALL_W, 0.5));
     }
 
     @Test
     void testExtremeInputsToSample_6_oe() {
+        // Demonstrate instability when w = 0
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when u -> 0 or 1, and |beta| = 1
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when alpha -> 0
 
+        // Small alpha does not tolerate very small w.
+        // removed other assertion
 
+        // Very small alpha does not tolerate u approaching 0 or 1 (depending on the
+        // skew)
         Assertions.assertEquals(Double.NaN, sampleCMS(1e-5, 0.7, 1.0, 1e-4));
     }
 
     @Test
     void testExtremeInputsToSample_7_oe() {
+        // Demonstrate instability when w = 0
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when u -> 0 or 1, and |beta| = 1
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when alpha -> 0
 
+        // Small alpha does not tolerate very small w.
+        // removed other assertion
 
+        // Very small alpha does not tolerate u approaching 0 or 1 (depending on the
+        // skew)
+        // removed other assertion
         Assertions.assertEquals(Double.NaN, sampleCMS(1e-5, -0.7, 1.0, 1 - 1e-4));
     }
 
     @Test
     void testExtremeInputsToSample_8_oe() {
+        // Demonstrate instability when w = 0
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when u -> 0 or 1, and |beta| = 1
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when alpha -> 0
 
+        // Small alpha does not tolerate very small w.
+        // removed other assertion
 
+        // Very small alpha does not tolerate u approaching 0 or 1 (depending on the
+        // skew)
+        // removed other assertion
+        // removed other assertion
 
          double[] alphas = {Math.nextDown(2), 1.3, 1.1, Math.nextUp(1), 1, Math.nextDown(1), 0.7, 0.1, 0.05, 0.01, 0x1.0p-16};
          double[] betas = {1, 0.9, 0.001, 0};
+        // Avoid zero for the exponential sample.
+        // Test the smallest non-zero sample from the ArhensDieter exponential sampler,
+        // and the largest sample.
          double[] ws = {0, SMALL_W, 0.001, 1, 10, LARGE_W};
+        // The algorithm requires a uniform deviate in (0, 1).
+        // Use extremes of the 2^53 dyadic rationals in (0, 1) up to the symmetry limit
+        // (i.e. 0.5).
          double[] us = {DU, 2 * DU, 0.0001, 0.5 - DU, 0.5};
 
         int nan1 = 0;
@@ -3198,8 +5381,11 @@ class StableSamplerTest_OE25Dev {
         for ( double alpha : alphas) {
             for ( double beta : betas) {
                 if (alpha == 1 && beta == 0) {
+                    // Ignore the Cauchy case
                     continue;
                 }
+                // Get the support of the distribution. This is not -> +/-infinity
+                // when alpha < 1 and beta = +/-1.
                  double[] support = getSupport(alpha, beta);
                  double lower = support[0];
                  double upper = support[1];
@@ -3211,6 +5397,7 @@ class StableSamplerTest_OE25Dev {
                         if (Double.isNaN(x1)) {
                             nan1++;
                         }
+                        // The edge-case corrected Weron formula should not fail
                         Assertions.assertNotEquals(Double.NaN, x2);
     }
     }
@@ -3220,14 +5407,33 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testExtremeInputsToSample_9_oe() {
+        // Demonstrate instability when w = 0
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when u -> 0 or 1, and |beta| = 1
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when alpha -> 0
 
+        // Small alpha does not tolerate very small w.
+        // removed other assertion
 
+        // Very small alpha does not tolerate u approaching 0 or 1 (depending on the
+        // skew)
+        // removed other assertion
+        // removed other assertion
 
          double[] alphas = {Math.nextDown(2), 1.3, 1.1, Math.nextUp(1), 1, Math.nextDown(1), 0.7, 0.1, 0.05, 0.01, 0x1.0p-16};
          double[] betas = {1, 0.9, 0.001, 0};
+        // Avoid zero for the exponential sample.
+        // Test the smallest non-zero sample from the ArhensDieter exponential sampler,
+        // and the largest sample.
          double[] ws = {0, SMALL_W, 0.001, 1, 10, LARGE_W};
+        // The algorithm requires a uniform deviate in (0, 1).
+        // Use extremes of the 2^53 dyadic rationals in (0, 1) up to the symmetry limit
+        // (i.e. 0.5).
          double[] us = {DU, 2 * DU, 0.0001, 0.5 - DU, 0.5};
 
         int nan1 = 0;
@@ -3235,8 +5441,11 @@ class StableSamplerTest_OE25Dev {
         for ( double alpha : alphas) {
             for ( double beta : betas) {
                 if (alpha == 1 && beta == 0) {
+                    // Ignore the Cauchy case
                     continue;
                 }
+                // Get the support of the distribution. This is not -> +/-infinity
+                // when alpha < 1 and beta = +/-1.
                  double[] support = getSupport(alpha, beta);
                  double lower = support[0];
                  double upper = support[1];
@@ -3248,7 +5457,11 @@ class StableSamplerTest_OE25Dev {
                         if (Double.isNaN(x1)) {
                             nan1++;
                         }
+                        // The edge-case corrected Weron formula should not fail
+                        // removed other assertion
 
+                        // Check symmetry of each formula.
+                        // Use a delta of zero to allow equality of 0.0 and -0.0.
                         Assertions.assertEquals(x1, 0.0 - sampleCMS(alpha, -beta, w, 1 - u), 0.0);
     }
     }
@@ -3258,14 +5471,33 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testExtremeInputsToSample_10_oe() {
+        // Demonstrate instability when w = 0
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when u -> 0 or 1, and |beta| = 1
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when alpha -> 0
 
+        // Small alpha does not tolerate very small w.
+        // removed other assertion
 
+        // Very small alpha does not tolerate u approaching 0 or 1 (depending on the
+        // skew)
+        // removed other assertion
+        // removed other assertion
 
          double[] alphas = {Math.nextDown(2), 1.3, 1.1, Math.nextUp(1), 1, Math.nextDown(1), 0.7, 0.1, 0.05, 0.01, 0x1.0p-16};
          double[] betas = {1, 0.9, 0.001, 0};
+        // Avoid zero for the exponential sample.
+        // Test the smallest non-zero sample from the ArhensDieter exponential sampler,
+        // and the largest sample.
          double[] ws = {0, SMALL_W, 0.001, 1, 10, LARGE_W};
+        // The algorithm requires a uniform deviate in (0, 1).
+        // Use extremes of the 2^53 dyadic rationals in (0, 1) up to the symmetry limit
+        // (i.e. 0.5).
          double[] us = {DU, 2 * DU, 0.0001, 0.5 - DU, 0.5};
 
         int nan1 = 0;
@@ -3273,8 +5505,11 @@ class StableSamplerTest_OE25Dev {
         for ( double alpha : alphas) {
             for ( double beta : betas) {
                 if (alpha == 1 && beta == 0) {
+                    // Ignore the Cauchy case
                     continue;
                 }
+                // Get the support of the distribution. This is not -> +/-infinity
+                // when alpha < 1 and beta = +/-1.
                  double[] support = getSupport(alpha, beta);
                  double lower = support[0];
                  double upper = support[1];
@@ -3286,7 +5521,12 @@ class StableSamplerTest_OE25Dev {
                         if (Double.isNaN(x1)) {
                             nan1++;
                         }
+                        // The edge-case corrected Weron formula should not fail
+                        // removed other assertion
 
+                        // Check symmetry of each formula.
+                        // Use a delta of zero to allow equality of 0.0 and -0.0.
+                        // removed other assertion
                         Assertions.assertEquals(x2, 0.0 - sampleWeron(alpha, -beta, w, 1 - u), 0.0);
     }
     }
@@ -3296,14 +5536,33 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testExtremeInputsToSample_11_oe() {
+        // Demonstrate instability when w = 0
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when u -> 0 or 1, and |beta| = 1
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when alpha -> 0
 
+        // Small alpha does not tolerate very small w.
+        // removed other assertion
 
+        // Very small alpha does not tolerate u approaching 0 or 1 (depending on the
+        // skew)
+        // removed other assertion
+        // removed other assertion
 
          double[] alphas = {Math.nextDown(2), 1.3, 1.1, Math.nextUp(1), 1, Math.nextDown(1), 0.7, 0.1, 0.05, 0.01, 0x1.0p-16};
          double[] betas = {1, 0.9, 0.001, 0};
+        // Avoid zero for the exponential sample.
+        // Test the smallest non-zero sample from the ArhensDieter exponential sampler,
+        // and the largest sample.
          double[] ws = {0, SMALL_W, 0.001, 1, 10, LARGE_W};
+        // The algorithm requires a uniform deviate in (0, 1).
+        // Use extremes of the 2^53 dyadic rationals in (0, 1) up to the symmetry limit
+        // (i.e. 0.5).
          double[] us = {DU, 2 * DU, 0.0001, 0.5 - DU, 0.5};
 
         int nan1 = 0;
@@ -3311,8 +5570,11 @@ class StableSamplerTest_OE25Dev {
         for ( double alpha : alphas) {
             for ( double beta : betas) {
                 if (alpha == 1 && beta == 0) {
+                    // Ignore the Cauchy case
                     continue;
                 }
+                // Get the support of the distribution. This is not -> +/-infinity
+                // when alpha < 1 and beta = +/-1.
                  double[] support = getSupport(alpha, beta);
                  double lower = support[0];
                  double upper = support[1];
@@ -3324,9 +5586,18 @@ class StableSamplerTest_OE25Dev {
                         if (Double.isNaN(x1)) {
                             nan1++;
                         }
+                        // The edge-case corrected Weron formula should not fail
+                        // removed other assertion
 
+                        // Check symmetry of each formula.
+                        // Use a delta of zero to allow equality of 0.0 and -0.0.
+                        // removed other assertion
+                        // removed other assertion
 
                         if (Double.isInfinite(x1) && x1 != x2) {
+                            // Check the Weron correction for extreme samples.
+                            // The result should be at the correct *finite* support bounds.
+                            // Note: This applies when alpha < 1 and beta = +/-1.
                             Assertions.assertTrue(lower <= x2 && x2 <= upper);
     }
     }
@@ -3337,14 +5608,33 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testExtremeInputsToSample_12_oe() {
+        // Demonstrate instability when w = 0
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when u -> 0 or 1, and |beta| = 1
+        // removed other assertion
+        // removed other assertion
 
+        // Demonstrate instability when alpha -> 0
 
+        // Small alpha does not tolerate very small w.
+        // removed other assertion
 
+        // Very small alpha does not tolerate u approaching 0 or 1 (depending on the
+        // skew)
+        // removed other assertion
+        // removed other assertion
 
          double[] alphas = {Math.nextDown(2), 1.3, 1.1, Math.nextUp(1), 1, Math.nextDown(1), 0.7, 0.1, 0.05, 0.01, 0x1.0p-16};
          double[] betas = {1, 0.9, 0.001, 0};
+        // Avoid zero for the exponential sample.
+        // Test the smallest non-zero sample from the ArhensDieter exponential sampler,
+        // and the largest sample.
          double[] ws = {0, SMALL_W, 0.001, 1, 10, LARGE_W};
+        // The algorithm requires a uniform deviate in (0, 1).
+        // Use extremes of the 2^53 dyadic rationals in (0, 1) up to the symmetry limit
+        // (i.e. 0.5).
          double[] us = {DU, 2 * DU, 0.0001, 0.5 - DU, 0.5};
 
         int nan1 = 0;
@@ -3352,8 +5642,11 @@ class StableSamplerTest_OE25Dev {
         for ( double alpha : alphas) {
             for ( double beta : betas) {
                 if (alpha == 1 && beta == 0) {
+                    // Ignore the Cauchy case
                     continue;
                 }
+                // Get the support of the distribution. This is not -> +/-infinity
+                // when alpha < 1 and beta = +/-1.
                  double[] support = getSupport(alpha, beta);
                  double lower = support[0];
                  double upper = support[1];
@@ -3365,25 +5658,43 @@ class StableSamplerTest_OE25Dev {
                         if (Double.isNaN(x1)) {
                             nan1++;
                         }
+                        // The edge-case corrected Weron formula should not fail
+                        // removed other assertion
 
+                        // Check symmetry of each formula.
+                        // Use a delta of zero to allow equality of 0.0 and -0.0.
+                        // removed other assertion
+                        // removed other assertion
 
                         if (Double.isInfinite(x1) && x1 != x2) {
+                            // Check the Weron correction for extreme samples.
+                            // The result should be at the correct *finite* support bounds.
+                            // Note: This applies when alpha < 1 and beta = +/-1.
+                            // removed other assertion
                         }
                     }
                 }
             }
         }
 
+        // The CMS algorithm is expected to fail some cases
         Assertions.assertNotEquals(0, nan1);
     }
 
     @Test
     void testSamplesWithZBelow0_2_oe() {
+        // Call the CMS algorithm with u->1; phi/2 -> pi/4.
+        // The value with all bits set generates phi/2 -> pi/4.
+        // Add a long to create a big value for w of 5.
+        // The parameters create cancellation in the numerator of z to create a negative z.
          long[] longs = {Long.MAX_VALUE, -6261465550279131136L};
 
          double phiby2 = PI_4 - PI_4 * DU;
          double w = 5.0;
+        // removed other assertion
 
+        // The alpha parameter has been identified via a search with beta=-1.
+        // See testZIsNotAlwaysAboveZero()
          double alpha = 1.291015625;
          double beta = -1;
         Assertions.assertTrue(0.0 > computeNumerator(alpha, beta, Long.MAX_VALUE));
@@ -3391,14 +5702,24 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testSamplesWithZBelow0_3_oe() {
+        // Call the CMS algorithm with u->1; phi/2 -> pi/4.
+        // The value with all bits set generates phi/2 -> pi/4.
+        // Add a long to create a big value for w of 5.
+        // The parameters create cancellation in the numerator of z to create a negative z.
          long[] longs = {Long.MAX_VALUE, -6261465550279131136L};
 
          double phiby2 = PI_4 - PI_4 * DU;
          double w = 5.0;
+        // removed other assertion
 
+        // The alpha parameter has been identified via a search with beta=-1.
+        // See testZIsNotAlwaysAboveZero()
          double alpha = 1.291015625;
          double beta = -1;
+        // removed other assertion
 
+        // z will be negative. Repeat computation assumed to be performed by the sampler.
+        // This ensures the test should be updated if the sampler implementation changes.
          double eps = 1 - alpha;
          double tau = CMSStableSampler.getTau(alpha, beta);
          double a = phiby2 * SpecialMath.tan2(phiby2);
@@ -3416,14 +5737,24 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testSamplesWithZBelow0_4_oe() {
+        // Call the CMS algorithm with u->1; phi/2 -> pi/4.
+        // The value with all bits set generates phi/2 -> pi/4.
+        // Add a long to create a big value for w of 5.
+        // The parameters create cancellation in the numerator of z to create a negative z.
          long[] longs = {Long.MAX_VALUE, -6261465550279131136L};
 
          double phiby2 = PI_4 - PI_4 * DU;
          double w = 5.0;
+        // removed other assertion
 
+        // The alpha parameter has been identified via a search with beta=-1.
+        // See testZIsNotAlwaysAboveZero()
          double alpha = 1.291015625;
          double beta = -1;
+        // removed other assertion
 
+        // z will be negative. Repeat computation assumed to be performed by the sampler.
+        // This ensures the test should be updated if the sampler implementation changes.
          double eps = 1 - alpha;
          double tau = CMSStableSampler.getTau(alpha, beta);
          double a = phiby2 * SpecialMath.tan2(phiby2);
@@ -3436,23 +5767,30 @@ class StableSamplerTest_OE25Dev {
          double b2 = 1 - db;
          double b2p = 1 + db;
          double z = a2p * (b2 + 2 * phiby2 * bb * tau) / (w * a2 * b2p);
+        // removed other assertion
 
          StableSampler sampler = StableSampler.of(createRngWithSequence(longs), alpha, beta);
+        // It should not be NaN or infinite
         Assertions.assertTrue(Double.isFinite(sampler.sample()), "Sampler did not recover");
     }
 
     @Test
     void testSamplesWithZInfinite_2_oe() {
+        // Call the CMS algorithm with w=0 (and phi/2 is not extreme).
          long[] longs = {Long.MIN_VALUE >>> 1, 0};
 
+        // removed other assertion
 
         for ( double alpha : new double[] {0.789, 1, 1.23}) {
+            // Test all directions
             for ( double beta : new double[] {-0.56, 0, 0.56}) {
+                // Ignore Cauchy case which does not use the exponential deviate
                 if (alpha == 1 && beta == 0) {
                     continue;
                 }
                  StableSampler sampler = StableSampler.of(createRngWithSequence(longs), alpha, beta);
                  double x = sampler.sample();
+                // It should not be NaN
                 Assertions.assertFalse(Double.isNaN(x), "Sampler did not recover");
     }
     }
@@ -3460,18 +5798,26 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testSamplesWithZInfinite_3_oe() {
+        // Call the CMS algorithm with w=0 (and phi/2 is not extreme).
          long[] longs = {Long.MIN_VALUE >>> 1, 0};
 
+        // removed other assertion
 
         for ( double alpha : new double[] {0.789, 1, 1.23}) {
+            // Test all directions
             for ( double beta : new double[] {-0.56, 0, 0.56}) {
+                // Ignore Cauchy case which does not use the exponential deviate
                 if (alpha == 1 && beta == 0) {
                     continue;
                 }
                  StableSampler sampler = StableSampler.of(createRngWithSequence(longs), alpha, beta);
                  double x = sampler.sample();
+                // It should not be NaN
+                // removed other assertion
                 if (beta != 0) {
+                    // The sample is extreme so should be at a limit of the support
                     if (alpha < 0) {
+                        // Effectively +/- infinity
                         Assertions.assertEquals(Math.copySign(Double.POSITIVE_INFINITY, beta), x);
     }
     }
@@ -3481,19 +5827,29 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testSamplesWithZInfinite_4_oe() {
+        // Call the CMS algorithm with w=0 (and phi/2 is not extreme).
          long[] longs = {Long.MIN_VALUE >>> 1, 0};
 
+        // removed other assertion
 
         for ( double alpha : new double[] {0.789, 1, 1.23}) {
+            // Test all directions
             for ( double beta : new double[] {-0.56, 0, 0.56}) {
+                // Ignore Cauchy case which does not use the exponential deviate
                 if (alpha == 1 && beta == 0) {
                     continue;
                 }
                  StableSampler sampler = StableSampler.of(createRngWithSequence(longs), alpha, beta);
                  double x = sampler.sample();
+                // It should not be NaN
+                // removed other assertion
                 if (beta != 0) {
+                    // The sample is extreme so should be at a limit of the support
                     if (alpha < 0) {
+                        // Effectively +/- infinity
+                        // removed other assertion
                     } else if (alpha > 1) {
+                        // At the distribution mean
                          double[] support = getSupport(alpha, beta);
                          double mu = support[2];
                         Assertions.assertEquals(mu, x);
@@ -3505,8 +5861,17 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testAlpha1SamplesWithExtremePhi_2_oe() {
+        // The numerator is:
+        // 1 + 2 * phiby2 * tau
+        // tau = beta / pi/2 when alpha=1
+        //     = +/-2 / pi when alpha=1, beta = +/-1
+        // This should not create zero if phi/2 is not pi/4.
+        // Test the limits of phi/2 to check samples are finite.
 
+        // Add a long to create an ordinary value for w of 1.0.
+        // u -> -pi/4
          long[] longs1 = {Long.MIN_VALUE + (1 << 10), 2703662416942444033L};
+        // removed other assertion
          StableSampler sampler1 = StableSampler.of(createRngWithSequence(longs1), 1.0, 1.0);
          double x1 = sampler1.sample();
         Assertions.assertTrue(Double.isFinite(x1), "Sampler did not recover");
@@ -3514,12 +5879,24 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testAlpha1SamplesWithExtremePhi_4_oe() {
+        // The numerator is:
+        // 1 + 2 * phiby2 * tau
+        // tau = beta / pi/2 when alpha=1
+        //     = +/-2 / pi when alpha=1, beta = +/-1
+        // This should not create zero if phi/2 is not pi/4.
+        // Test the limits of phi/2 to check samples are finite.
 
+        // Add a long to create an ordinary value for w of 1.0.
+        // u -> -pi/4
          long[] longs1 = {Long.MIN_VALUE + (1 << 10), 2703662416942444033L};
+        // removed other assertion
          StableSampler sampler1 = StableSampler.of(createRngWithSequence(longs1), 1.0, 1.0);
          double x1 = sampler1.sample();
+        // removed other assertion
 
+        // u -> pi/4
          long[] longs2 = {Long.MAX_VALUE, 2703662416942444033L};
+        // removed other assertion
          StableSampler sampler2 = StableSampler.of(createRngWithSequence(longs2), 1.0, -1.0);
          double x2 = sampler2.sample();
         Assertions.assertTrue(Double.isFinite(x2), "Sampler did not recover");
@@ -3527,119 +5904,293 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testAlpha1SamplesWithExtremePhi_5_oe() {
+        // The numerator is:
+        // 1 + 2 * phiby2 * tau
+        // tau = beta / pi/2 when alpha=1
+        //     = +/-2 / pi when alpha=1, beta = +/-1
+        // This should not create zero if phi/2 is not pi/4.
+        // Test the limits of phi/2 to check samples are finite.
 
+        // Add a long to create an ordinary value for w of 1.0.
+        // u -> -pi/4
          long[] longs1 = {Long.MIN_VALUE + (1 << 10), 2703662416942444033L};
+        // removed other assertion
          StableSampler sampler1 = StableSampler.of(createRngWithSequence(longs1), 1.0, 1.0);
          double x1 = sampler1.sample();
+        // removed other assertion
 
+        // u -> pi/4
          long[] longs2 = {Long.MAX_VALUE, 2703662416942444033L};
+        // removed other assertion
          StableSampler sampler2 = StableSampler.of(createRngWithSequence(longs2), 1.0, -1.0);
          double x2 = sampler2.sample();
+        // removed other assertion
 
+        // Sample should be a reflection
         Assertions.assertEquals(x1, -x2);
     }
 
     @Test
     void testRandomDeviatesUandW_1_oe() {
+        // Extremes of the uniform deviate generated using the same method as the sampler
          double d = DU * PI_4;
+        // Test in (-pi/4, pi/4)
         Assertions.assertNotEquals(-PI_4, getU(createRngWithSequence(Long.MIN_VALUE)));
     }
 
     @Test
     void testRandomDeviatesUandW_2_oe() {
+        // Extremes of the uniform deviate generated using the same method as the sampler
          double d = DU * PI_4;
+        // Test in (-pi/4, pi/4)
+        // removed other assertion
         Assertions.assertEquals(-PI_4 + d, getU(createRngWithSequence(Long.MIN_VALUE + (1 << 10))));
     }
 
     @Test
     void testRandomDeviatesUandW_3_oe() {
+        // Extremes of the uniform deviate generated using the same method as the sampler
          double d = DU * PI_4;
+        // Test in (-pi/4, pi/4)
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-PI_4 / 2, getU(createRngWithSequence(Long.MIN_VALUE >> 1)));
     }
 
     @Test
     void testRandomDeviatesUandW_4_oe() {
+        // Extremes of the uniform deviate generated using the same method as the sampler
          double d = DU * PI_4;
+        // Test in (-pi/4, pi/4)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-d, getU(createRngWithSequence(-1)));
     }
 
     @Test
     void testRandomDeviatesUandW_5_oe() {
+        // Extremes of the uniform deviate generated using the same method as the sampler
          double d = DU * PI_4;
+        // Test in (-pi/4, pi/4)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0.0, getU(createRngWithSequence(0)));
     }
 
     @Test
     void testRandomDeviatesUandW_6_oe() {
+        // Extremes of the uniform deviate generated using the same method as the sampler
          double d = DU * PI_4;
+        // Test in (-pi/4, pi/4)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(d, getU(createRngWithSequence(1 << 10)));
     }
 
     @Test
     void testRandomDeviatesUandW_7_oe() {
+        // Extremes of the uniform deviate generated using the same method as the sampler
          double d = DU * PI_4;
+        // Test in (-pi/4, pi/4)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(PI_4 / 2, getU(createRngWithSequence(Long.MIN_VALUE >>> 1)));
     }
 
     @Test
     void testRandomDeviatesUandW_8_oe() {
+        // Extremes of the uniform deviate generated using the same method as the sampler
          double d = DU * PI_4;
+        // Test in (-pi/4, pi/4)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(PI_4 - d, getU(createRngWithSequence(Long.MAX_VALUE)));
     }
 
     @Test
     void testRandomDeviatesUandW_9_oe() {
+        // Extremes of the uniform deviate generated using the same method as the sampler
          double d = DU * PI_4;
+        // Test in (-pi/4, pi/4)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Extremes of the exponential sampler
         Assertions.assertEquals(0,ZigguratSampler.Exponential.of(createRngWithSequence(0L)).sample());
     }
 
     @Test
     void testRandomDeviatesUandW_10_oe() {
+        // Extremes of the uniform deviate generated using the same method as the sampler
          double d = DU * PI_4;
+        // Test in (-pi/4, pi/4)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Extremes of the exponential sampler
+        // removed other assertion
         Assertions.assertEquals(SMALL_W,ZigguratSampler.Exponential.of(createRngWithSequence(3)).sample());
     }
 
     @Test
     void testRandomDeviatesUandW_11_oe() {
+        // Extremes of the uniform deviate generated using the same method as the sampler
          double d = DU * PI_4;
+        // Test in (-pi/4, pi/4)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Extremes of the exponential sampler
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0.5,ZigguratSampler.Exponential.of(createRngWithSequence(1446480648965178882L)).sample());
     }
 
     @Test
     void testRandomDeviatesUandW_12_oe() {
+        // Extremes of the uniform deviate generated using the same method as the sampler
          double d = DU * PI_4;
+        // Test in (-pi/4, pi/4)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Extremes of the exponential sampler
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.0,ZigguratSampler.Exponential.of(createRngWithSequence(2703662416942444033L)).sample());
     }
 
     @Test
     void testRandomDeviatesUandW_13_oe() {
+        // Extremes of the uniform deviate generated using the same method as the sampler
          double d = DU * PI_4;
+        // Test in (-pi/4, pi/4)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Extremes of the exponential sampler
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(2.5,ZigguratSampler.Exponential.of(createRngWithSequence(6092639261715210240L)).sample());
     }
 
     @Test
     void testRandomDeviatesUandW_14_oe() {
+        // Extremes of the uniform deviate generated using the same method as the sampler
          double d = DU * PI_4;
+        // Test in (-pi/4, pi/4)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Extremes of the exponential sampler
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(5.0,ZigguratSampler.Exponential.of(createRngWithSequence(-6261465550279131136L)).sample());
     }
 
     @Test
     void testRandomDeviatesUandW_15_oe() {
+        // Extremes of the uniform deviate generated using the same method as the sampler
          double d = DU * PI_4;
+        // Test in (-pi/4, pi/4)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Extremes of the exponential sampler
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(TAIL_W,ZigguratSampler.Exponential.of(createRngWithSequence(-1,-1,0)).sample());
     }
 
     @Test
     void testRandomDeviatesUandW_16_oe() {
+        // Extremes of the uniform deviate generated using the same method as the sampler
          double d = DU * PI_4;
+        // Test in (-pi/4, pi/4)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Extremes of the exponential sampler
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(3 * TAIL_W,ZigguratSampler.Exponential.of(createRngWithSequence(-1,-1,-1,-1,-1,-1,0)).sample(),1e-14);
     }
 
@@ -3650,18 +6201,31 @@ class StableSamplerTest_OE25Dev {
             for ( double beta : new double[] {-0.43, 0.23}) {
                 for ( double gamma : new double[] {0.78, 1, 1.23}) {
                     for ( double delta : new double[] {-0.43, 0, 0.23}) {
+                        // The sampler generates u then w.
+                        // If u is not -pi/4 then only a single long is used.
+                        // This can be reversed around 0 by reversing the upper 54-bits.
+                        // w will use 1 long only for fast lookup and then additional longs
+                        // for edge of the ziggurat sampling. Fast look-up is always used
+                        // when the lowest 8-bits create a value below 252.
 
+                        // Use the same random source for two samplers.
                          UniformRandomProvider rng1 = RandomSource.KISS.create(seed);
                          UniformRandomProvider rng2 = RandomSource.KISS.create(seed);
 
+                        // RNG which will not return 0 for every other long.
                          UniformRandomProvider forward = new SplitMix64(0) {
                             private int i;
                             @Override
                             public long nextLong() {
+                                // Manipulate alternate longs
                                 if ((i++ & 0x1) == 0) {
+                                    // This must not be Long.MIN_VALUE.
+                                    // So set the lowest bit of the upper 54-bits.
                                      long x = rng1.nextLong() >>> 10 | 1L;
+                                    // Shift back
                                     return x << 10;
                                 }
+                                // For the exponential sample ensure the lowest 8-bits are < 252.
                                 long x;
                                 do {
                                     x = rng1.nextLong();
@@ -3670,15 +6234,21 @@ class StableSamplerTest_OE25Dev {
                             }
                         };
 
+                        // RNG which will not return 0 for every other long but this long is reversed.
                          UniformRandomProvider reverse = new SplitMix64(0) {
                             private  long upper = 1L << 54;
                             private int i;
                             @Override
                             public long nextLong() {
+                                // Manipulate alternate longs
                                 if ((i++ & 0x1) == 0) {
+                                    // This must not be Long.MIN_VALUE.
+                                    // So set the lowest bit of the upper 54-bits.
                                      long x = rng2.nextLong() >>> 10 | 1L;
+                                    // Reverse then shift back
                                     return (upper - x) << 10;
                                 }
+                                // For the exponential sample ensure the lowest 8-bits are < 252.
                                 long x;
                                 do {
                                     x = rng2.nextLong();
@@ -3688,6 +6258,7 @@ class StableSamplerTest_OE25Dev {
                         };
 
                          StableSampler s1 = StableSampler.of(forward, alpha, beta, gamma, delta);
+                        // Since mirroring applies before the shift of delta this must be negated too
                          StableSampler s2 = StableSampler.of(reverse, alpha, -beta, gamma, -delta);
                         for (int i = 0; i < 100; i++) {
                             Assertions.assertEquals(s1.sample(), -s2.sample());
@@ -3708,6 +6279,7 @@ class StableSamplerTest_OE25Dev {
         for ( double gamma : new double[] {0.78, 1, 1.23}) {
             for ( double delta : new double[] {-0.43, 0, 0.23}) {
                  StableSampler s1 = StableSampler.of(rng1, alpha, beta, gamma, delta);
+                // Since mirroring applies before the shift of delta this must be negated too
                  StableSampler s2 = StableSampler.of(rng2, alpha, -beta, gamma, -delta);
                 for (int i = 0; i < 100; i++) {
                     Assertions.assertEquals(s1.sample(), -s2.sample());
@@ -3741,38 +6313,65 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testImplementationsMatch_1_oe() {
+        // Avoid extreme samples. Do this by manipulating the output of nextLong.
+        // Generation of the random deviate u uses the top 54-bits of the long.
+        // Unset a high bit to ensure getU cannot approach pi/4.
+        // Set a low bit to ensure getU cannot approach -pi/4.
          long unsetHighBit = ~(1L << 54);
          long setLowBit = 1L << 53;
          double hi = getU(Long.MAX_VALUE & unsetHighBit);
          double lo = getU(Long.MIN_VALUE | setLowBit);
+        // The limits are roughly pi/4 and -pi/4
         Assertions.assertEquals(PI_4, hi, 2e-3);
     }
 
     @Test
     void testImplementationsMatch_2_oe() {
+        // Avoid extreme samples. Do this by manipulating the output of nextLong.
+        // Generation of the random deviate u uses the top 54-bits of the long.
+        // Unset a high bit to ensure getU cannot approach pi/4.
+        // Set a low bit to ensure getU cannot approach -pi/4.
          long unsetHighBit = ~(1L << 54);
          long setLowBit = 1L << 53;
          double hi = getU(Long.MAX_VALUE & unsetHighBit);
          double lo = getU(Long.MIN_VALUE | setLowBit);
+        // The limits are roughly pi/4 and -pi/4
+        // removed other assertion
         Assertions.assertEquals(-PI_4, lo, 2e-3);
     }
 
     @Test
     void testImplementationsMatch_3_oe() {
+        // Avoid extreme samples. Do this by manipulating the output of nextLong.
+        // Generation of the random deviate u uses the top 54-bits of the long.
+        // Unset a high bit to ensure getU cannot approach pi/4.
+        // Set a low bit to ensure getU cannot approach -pi/4.
          long unsetHighBit = ~(1L << 54);
          long setLowBit = 1L << 53;
          double hi = getU(Long.MAX_VALUE & unsetHighBit);
          double lo = getU(Long.MIN_VALUE | setLowBit);
+        // The limits are roughly pi/4 and -pi/4
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0.0, lo + hi, 1e-3);
     }
 
     @Test
     void testImplementationsMatch_4_oe() {
+        // Avoid extreme samples. Do this by manipulating the output of nextLong.
+        // Generation of the random deviate u uses the top 54-bits of the long.
+        // Unset a high bit to ensure getU cannot approach pi/4.
+        // Set a low bit to ensure getU cannot approach -pi/4.
          long unsetHighBit = ~(1L << 54);
          long setLowBit = 1L << 53;
          double hi = getU(Long.MAX_VALUE & unsetHighBit);
          double lo = getU(Long.MIN_VALUE | setLowBit);
+        // The limits are roughly pi/4 and -pi/4
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Setting a bit ensure the exponential sampler cannot be zero
          UniformRandomProvider rng = createRngWithSequence(setLowBit);
          double w = ZigguratSampler.Exponential.of(rng).sample();
         Assertions.assertNotEquals(0.0, w);
@@ -3780,25 +6379,48 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testImplementationsMatch_5_oe() {
+        // Avoid extreme samples. Do this by manipulating the output of nextLong.
+        // Generation of the random deviate u uses the top 54-bits of the long.
+        // Unset a high bit to ensure getU cannot approach pi/4.
+        // Set a low bit to ensure getU cannot approach -pi/4.
          long unsetHighBit = ~(1L << 54);
          long setLowBit = 1L << 53;
          double hi = getU(Long.MAX_VALUE & unsetHighBit);
          double lo = getU(Long.MIN_VALUE | setLowBit);
+        // The limits are roughly pi/4 and -pi/4
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Setting a bit ensure the exponential sampler cannot be zero
          UniformRandomProvider rng = createRngWithSequence(setLowBit);
          double w = ZigguratSampler.Exponential.of(rng).sample();
+        // removed other assertion
+        // This is the actual value; it is small but not extreme.
         Assertions.assertEquals(0.0036959349092519837, w);
     }
 
     @Test
     void testImplementationsMatch_6_oe() {
+        // Avoid extreme samples. Do this by manipulating the output of nextLong.
+        // Generation of the random deviate u uses the top 54-bits of the long.
+        // Unset a high bit to ensure getU cannot approach pi/4.
+        // Set a low bit to ensure getU cannot approach -pi/4.
          long unsetHighBit = ~(1L << 54);
          long setLowBit = 1L << 53;
          double hi = getU(Long.MAX_VALUE & unsetHighBit);
          double lo = getU(Long.MIN_VALUE | setLowBit);
+        // The limits are roughly pi/4 and -pi/4
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Setting a bit ensure the exponential sampler cannot be zero
          UniformRandomProvider rng = createRngWithSequence(setLowBit);
          double w = ZigguratSampler.Exponential.of(rng).sample();
+        // removed other assertion
+        // This is the actual value; it is small but not extreme.
+        // removed other assertion
 
          RandomSource source = RandomSource.XO_RO_SHI_RO_128_SS;
          long seed = 0x83762b3daf1c43L;
@@ -3819,6 +6441,7 @@ class StableSamplerTest_OE25Dev {
             }
         };
 
+        // Not too close to alpha=1
          double[] alphas = {0.3, 0.5, 1.2, 1.5};
          double[] betas = {-0.5, -0.3, -0.1, 0};
 
@@ -3828,6 +6451,9 @@ class StableSamplerTest_OE25Dev {
         for ( double alpha : alphas) {
             for ( double beta : betas) {
                  Supplier<String> msg = () -> String.format("alpha=%s, beta=%s", alpha, beta);
+                // WARNING:
+                // Created by direct access to package-private constructor.
+                // This is for testing only as these do not validate the parameters.
                 StableSampler s1;
                 StableSampler s2;
                 if (beta == 0) {
@@ -3849,14 +6475,22 @@ class StableSamplerTest_OE25Dev {
     @Test
     void testWeronImplementationEdgeCase_2_oe() {
         double alpha = 0.25;
+        // Solved in testSinAlphaPhiMinusAtanZeta()
         double beta = -0.48021693505171;
+        // Require phi = PI_4.
+        // This is the equivalent of phi/2 = pi/5
          long x = Long.MIN_VALUE >>> 1;
          long[] longs = new long[] {
+            // phi/2=pi/5, w=0
             x, 0,
+            // phi/2=pi/5, w=large
             x, -1, -1, -1, -1, -1, -1, -1, -1, 0,
+            // phi/2=pi/5, w=1
             x, 2703662416942444033L,
         };
 
+        // Validate series
+        // removed other assertion
 
          double zeta = -beta * Math.tan(alpha * PI_2);
         Assertions.assertEquals(0.0, alpha * PI_4 + Math.atan(-zeta));
@@ -3865,57 +6499,93 @@ class StableSamplerTest_OE25Dev {
     @Test
     void testWeronImplementationEdgeCase_3_oe() {
         double alpha = 0.25;
+        // Solved in testSinAlphaPhiMinusAtanZeta()
         double beta = -0.48021693505171;
+        // Require phi = PI_4.
+        // This is the equivalent of phi/2 = pi/5
          long x = Long.MIN_VALUE >>> 1;
          long[] longs = new long[] {
+            // phi/2=pi/5, w=0
             x, 0,
+            // phi/2=pi/5, w=large
             x, -1, -1, -1, -1, -1, -1, -1, -1, 0,
+            // phi/2=pi/5, w=1
             x, 2703662416942444033L,
         };
 
+        // Validate series
+        // removed other assertion
 
          double zeta = -beta * Math.tan(alpha * PI_2);
+        // removed other assertion
 
          UniformRandomProvider rng = createRngWithSequence(longs);
          StableSampler sampler = new WeronStableSampler(rng, alpha, beta);
+        // zeta is the offset used to shift the 1-parameterization to the
+        // 0-parameterization. This is returned when other terms multiply to zero.
         Assertions.assertEquals(zeta, sampler.sample());
     }
 
     @Test
     void testWeronImplementationEdgeCase_4_oe() {
         double alpha = 0.25;
+        // Solved in testSinAlphaPhiMinusAtanZeta()
         double beta = -0.48021693505171;
+        // Require phi = PI_4.
+        // This is the equivalent of phi/2 = pi/5
          long x = Long.MIN_VALUE >>> 1;
          long[] longs = new long[] {
+            // phi/2=pi/5, w=0
             x, 0,
+            // phi/2=pi/5, w=large
             x, -1, -1, -1, -1, -1, -1, -1, -1, 0,
+            // phi/2=pi/5, w=1
             x, 2703662416942444033L,
         };
 
+        // Validate series
+        // removed other assertion
 
          double zeta = -beta * Math.tan(alpha * PI_2);
+        // removed other assertion
 
          UniformRandomProvider rng = createRngWithSequence(longs);
          StableSampler sampler = new WeronStableSampler(rng, alpha, beta);
+        // zeta is the offset used to shift the 1-parameterization to the
+        // 0-parameterization. This is returned when other terms multiply to zero.
+        // removed other assertion
         Assertions.assertEquals(zeta, sampler.sample());
     }
 
     @Test
     void testWeronImplementationEdgeCase_5_oe() {
         double alpha = 0.25;
+        // Solved in testSinAlphaPhiMinusAtanZeta()
         double beta = -0.48021693505171;
+        // Require phi = PI_4.
+        // This is the equivalent of phi/2 = pi/5
          long x = Long.MIN_VALUE >>> 1;
          long[] longs = new long[] {
+            // phi/2=pi/5, w=0
             x, 0,
+            // phi/2=pi/5, w=large
             x, -1, -1, -1, -1, -1, -1, -1, -1, 0,
+            // phi/2=pi/5, w=1
             x, 2703662416942444033L,
         };
 
+        // Validate series
+        // removed other assertion
 
          double zeta = -beta * Math.tan(alpha * PI_2);
+        // removed other assertion
 
          UniformRandomProvider rng = createRngWithSequence(longs);
          StableSampler sampler = new WeronStableSampler(rng, alpha, beta);
+        // zeta is the offset used to shift the 1-parameterization to the
+        // 0-parameterization. This is returned when other terms multiply to zero.
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(zeta, sampler.sample());
     }
 
@@ -3949,11 +6619,19 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testAlphaTooCloseToZeroThrows_4_oe_1_oe() {
+        // The realistic range for alpha is not Double.MIN_VALUE.
+        // The number 1 - alpha must not be 1.
+        // This is valid
          UniformRandomProvider rng = new SplitMix64(0L);
         StableSampler s = StableSampler.of(rng, SMALLEST_ALPHA, VALID_BETA, VALID_GAMMA, VALID_DELTA);
+        // removed other assertion
 
+        // Smaller than this is still above zero but 1 - alpha == 1
          double alphaTooSmall = SMALLEST_ALPHA / 2;
+        // removed other assertion
+        // removed other assertion
 
+        // Because alpha is effectively zero this will throw
                  double alpha0 = alphaTooSmall;
          double beta0 = VALID_BETA;
          double gamma0 = VALID_GAMMA;
@@ -4122,28 +6800,60 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_3_oe_1_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -4153,30 +6863,63 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_3_oe_2_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -4184,30 +6927,64 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_3_oe_3_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -4216,31 +6993,66 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_3_oe_4_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -4248,32 +7060,69 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_3_oe_5_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -4283,34 +7132,72 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_3_oe_6_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -4318,34 +7205,73 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_3_oe_7_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -4354,35 +7280,75 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_3_oe_8_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -4390,28 +7356,61 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_4_oe_1_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -4421,30 +7420,64 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_4_oe_2_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -4452,30 +7485,65 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_4_oe_3_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -4484,31 +7552,67 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_4_oe_4_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -4516,32 +7620,70 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_4_oe_5_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -4551,34 +7693,73 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_4_oe_6_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -4586,34 +7767,74 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_4_oe_7_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -4622,35 +7843,76 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_4_oe_8_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -4658,31 +7920,65 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_5_oe_1_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -4692,33 +7988,68 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_5_oe_2_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -4726,33 +8057,69 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_5_oe_3_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -4761,34 +8128,71 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_5_oe_4_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -4796,35 +8200,74 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_5_oe_5_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -4834,37 +8277,77 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_5_oe_6_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -4872,37 +8355,78 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_5_oe_7_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -4911,38 +8435,80 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_5_oe_8_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -4950,31 +8516,66 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_6_oe_1_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -4984,33 +8585,69 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_6_oe_2_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -5018,33 +8655,70 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_6_oe_3_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -5053,34 +8727,72 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_6_oe_4_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -5088,35 +8800,75 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_6_oe_5_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -5126,37 +8878,78 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_6_oe_6_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -5164,37 +8957,79 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_6_oe_7_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -5203,38 +9038,81 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_6_oe_8_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -5242,36 +9120,73 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_7_oe_1_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -5281,38 +9196,76 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_7_oe_2_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -5320,38 +9273,77 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_7_oe_3_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -5360,39 +9352,79 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_7_oe_4_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -5400,40 +9432,82 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_7_oe_5_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -5443,42 +9517,85 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_7_oe_6_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -5486,42 +9603,86 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_7_oe_7_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -5530,43 +9691,88 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_7_oe_8_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -5574,36 +9780,74 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_8_oe_1_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -5613,38 +9857,77 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_8_oe_2_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -5652,38 +9935,78 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_8_oe_3_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -5692,39 +10015,80 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_8_oe_4_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -5732,40 +10096,83 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_8_oe_5_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -5775,42 +10182,86 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_8_oe_6_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -5818,42 +10269,87 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_8_oe_7_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -5862,43 +10358,89 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_8_oe_8_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -5906,39 +10448,78 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_9_oe_1_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -5948,41 +10529,81 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_9_oe_2_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -5990,41 +10611,82 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_9_oe_3_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -6033,42 +10695,84 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_9_oe_4_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -6076,43 +10780,87 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_9_oe_5_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -6122,45 +10870,90 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_9_oe_6_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -6168,45 +10961,91 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_9_oe_7_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -6215,46 +11054,93 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_9_oe_8_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -6262,39 +11148,79 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_10_oe_1_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -6304,41 +11230,82 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_10_oe_2_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -6346,41 +11313,83 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_10_oe_3_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -6389,42 +11398,85 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_10_oe_4_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -6432,43 +11484,88 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_10_oe_5_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -6478,45 +11575,91 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_10_oe_6_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -6524,45 +11667,92 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_10_oe_7_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -6571,46 +11761,94 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_10_oe_8_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -6618,45 +11856,87 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_11_oe_1_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // Enumerate alpha
         for (int i = 0; i <= 1023; i++)  {
              double alpha = (double) i / 1023;
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -6666,47 +11946,90 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_11_oe_2_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // Enumerate alpha
         for (int i = 0; i <= 1023; i++)  {
              double alpha = (double) i / 1023;
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -6714,47 +12037,91 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_11_oe_3_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // Enumerate alpha
         for (int i = 0; i <= 1023; i++)  {
              double alpha = (double) i / 1023;
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -6763,48 +12130,93 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_11_oe_4_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // Enumerate alpha
         for (int i = 0; i <= 1023; i++)  {
              double alpha = (double) i / 1023;
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -6812,49 +12224,96 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_11_oe_5_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // Enumerate alpha
         for (int i = 0; i <= 1023; i++)  {
              double alpha = (double) i / 1023;
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -6864,51 +12323,99 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_11_oe_6_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // Enumerate alpha
         for (int i = 0; i <= 1023; i++)  {
              double alpha = (double) i / 1023;
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -6916,51 +12423,100 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_11_oe_7_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // Enumerate alpha
         for (int i = 0; i <= 1023; i++)  {
              double alpha = (double) i / 1023;
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -6969,52 +12525,102 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_11_oe_8_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // Enumerate alpha
         for (int i = 0; i <= 1023; i++)  {
              double alpha = (double) i / 1023;
             for ( long x : xs) {
                                  double alpha0 = alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -7022,45 +12628,88 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_12_oe_1_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // Enumerate alpha
         for (int i = 0; i <= 1023; i++)  {
              double alpha = (double) i / 1023;
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -7070,47 +12719,91 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_12_oe_2_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // Enumerate alpha
         for (int i = 0; i <= 1023; i++)  {
              double alpha = (double) i / 1023;
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -7118,47 +12811,92 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_12_oe_3_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // Enumerate alpha
         for (int i = 0; i <= 1023; i++)  {
              double alpha = (double) i / 1023;
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -7167,48 +12905,94 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_12_oe_4_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // Enumerate alpha
         for (int i = 0; i <= 1023; i++)  {
              double alpha = (double) i / 1023;
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -7216,49 +13000,97 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_12_oe_5_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // Enumerate alpha
         for (int i = 0; i <= 1023; i++)  {
              double alpha = (double) i / 1023;
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
@@ -7268,51 +13100,100 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_12_oe_6_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // Enumerate alpha
         for (int i = 0; i <= 1023; i++)  {
              double alpha = (double) i / 1023;
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -7320,51 +13201,101 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_12_oe_7_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // Enumerate alpha
         for (int i = 0; i <= 1023; i++)  {
              double alpha = (double) i / 1023;
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
                         Assertions.assertTrue(value0 <= PI_2);
     }
@@ -7373,52 +13304,103 @@ class StableSamplerTest_OE25Dev {
 
     @Test
     void testCosPhiMinusAlphaPhiXi_12_oe_8_oe() {
+        // This is the extreme of cos(x) that should be used
          double cosPi2 = Math.cos(PI_2);
+        // The function is symmetric
+        // removed other assertion
+        // As pi is an approximation then the cos value is not exactly 0
+        // removed other assertion
 
          UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_SS.create();
 
+        // The term is mirrored around 1 so use extremes between 1 and 0
          double[] alphas = {1, Math.nextDown(1), 0.99, 0.5, 0.1, 0.05, 0.01, DU};
+        // Longs to generate extremes for the angle phi. This is mirrored
+        // by negation is the assert method so use values to create phi in [0, pi/2).
          long[] xs = {0, 1 << 10, Long.MIN_VALUE >>> 1, Long.MAX_VALUE};
         for ( double alpha : alphas) {
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
+        // Random alpha
         for (int i = 0; i < 1000; i++) {
              double alpha = rng.nextDouble();
             for ( long x : xs) {
+                // removed other assertion
+                // removed other assertion
             }
             for (int j = 0; j < 1000; j++) {
                  long x = rng.nextLong();
+                // removed other assertion
+                // removed other assertion
             }
         }
 
+        // Enumerate alpha
         for (int i = 0; i <= 1023; i++)  {
              double alpha = (double) i / 1023;
             for ( long x : xs) {
+                // removed other assertion
                                  double alpha0 = 2 - alpha;
                  long x0 = x;
+                // Update for symmetry around alpha0 = 1
                          double eps0 = 1 - alpha0;
                          double meps10 = 1 - eps0;
                 
+                        // zeta = -beta0 * tan(alpha0 * pi / 2)
+                        // xi = atan(-zeta) / alpha0
+                        // Compute phi0 - alpha0 * (phi0 + xi).
+                        // This value0 must be in (-pi/2, pi/2).
+                        // The term expands to:
+                        // phi0 - alpha0 * (phi0 + xi)
+                        // = phi0 - alpha0 * phi0 - atan(-zeta)
+                        // = (1-alpha0) * phi0 - atan(-zeta)
+                        // When beta0 = +/-1,
+                        // atanZeta = +/-alpha0 * pi/2  if alpha0 < 1
+                        // atanZeta = +/-(2-alpha0) * pi/2  if alpha0 > 1
+                        // alpha0=1 => always +/-pi/2
+                        // alpha0=0,2 => always +/-phi0
+                        // Values in between use the addition:
+                        // (1-alpha0) * phi0 +/- alpha0 * pi/2
+                        // Since (1-alpha0) is exact and alpha0 = 1 - (1-alpha0) the addition
+                        // cannot exceed pi/2.
                 
+                        // Avoid the round trip using tan and arctan when beta0 is +/- 1
+                        // zeta = -beta0 * Math.tan(alpha0 * pi / 2);
+                        // atan(-zeta) = alpha0 * pi / 2
                 
                          double alphaPi20;
                         if (meps10 > 1) {
+                            // Avoid calling tan outside the domain limit [-pi/2, pi/2].
                             alphaPi20 = -(2 - meps10) * PI_2;
                         } else {
                             alphaPi20 = meps10 * PI_2;
                         }
                 
+                        // Compute eps0 * phi0 +/- alpha0 * pi / 2
+                        // Test it is in the interval (-pi/2, pi/2)
                         double phi0 = getU(x0) * 2;
                         double value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                 
+                        // Mirror the deviate
                         phi0 = -phi0;
                         value0 = eps0 * phi0 + alphaPi20;
+                        // removed other assertion
+                        // removed other assertion
                         value0 = eps0 * phi0 - alphaPi20;
+                        // removed other assertion
                         Assertions.assertTrue(value0 >= -PI_2);
     }
     }
@@ -7426,6 +13408,10 @@ class StableSamplerTest_OE25Dev {
 
 @Test
     void testSamplesWithZBelow0_1_oe() {
+        // Call the CMS algorithm with u->1; phi/2 -> pi/4.
+        // The value with all bits set generates phi/2 -> pi/4.
+        // Add a long to create a big value for w of 5.
+        // The parameters create cancellation in the numerator of z to create a negative z.
          long[] longs = {Long.MAX_VALUE, -6261465550279131136L};
 
          double phiby2 = PI_4 - PI_4 * DU;
@@ -7435,6 +13421,7 @@ class StableSamplerTest_OE25Dev {
 
 @Test
     void testSamplesWithZInfinite_1_oe() {
+        // Call the CMS algorithm with w=0 (and phi/2 is not extreme).
          long[] longs = {Long.MIN_VALUE >>> 1, 0};
 
         assertUWSequence(new double[] { PI_4 / 2, 0, }, longs);
@@ -7442,18 +13429,37 @@ class StableSamplerTest_OE25Dev {
 
 @Test
     void testAlpha1SamplesWithExtremePhi_1_oe() {
+        // The numerator is:
+        // 1 + 2 * phiby2 * tau
+        // tau = beta / pi/2 when alpha=1
+        //     = +/-2 / pi when alpha=1, beta = +/-1
+        // This should not create zero if phi/2 is not pi/4.
+        // Test the limits of phi/2 to check samples are finite.
 
+        // Add a long to create an ordinary value for w of 1.0.
+        // u -> -pi/4
          long[] longs1 = {Long.MIN_VALUE + (1 << 10), 2703662416942444033L};
         assertUWSequence(new double[] { -PI_4 + PI_4 * DU, 1.0, }, longs1);
     }
 
 @Test
     void testAlpha1SamplesWithExtremePhi_3_oe() {
+        // The numerator is:
+        // 1 + 2 * phiby2 * tau
+        // tau = beta / pi/2 when alpha=1
+        //     = +/-2 / pi when alpha=1, beta = +/-1
+        // This should not create zero if phi/2 is not pi/4.
+        // Test the limits of phi/2 to check samples are finite.
 
+        // Add a long to create an ordinary value for w of 1.0.
+        // u -> -pi/4
          long[] longs1 = {Long.MIN_VALUE + (1 << 10), 2703662416942444033L};
+        // removed other assertion
          StableSampler sampler1 = StableSampler.of(createRngWithSequence(longs1), 1.0, 1.0);
          double x1 = sampler1.sample();
+        // removed other assertion
 
+        // u -> pi/4
          long[] longs2 = {Long.MAX_VALUE, 2703662416942444033L};
         assertUWSequence(new double[] { PI_4 - PI_4 * DU, 1.0, }, longs2);
     }
@@ -7461,14 +13467,21 @@ class StableSamplerTest_OE25Dev {
 @Test
     void testWeronImplementationEdgeCase_1_oe() {
         double alpha = 0.25;
+        // Solved in testSinAlphaPhiMinusAtanZeta()
         double beta = -0.48021693505171;
+        // Require phi = PI_4.
+        // This is the equivalent of phi/2 = pi/5
          long x = Long.MIN_VALUE >>> 1;
          long[] longs = new long[] {
+            // phi/2=pi/5, w=0
             x, 0,
+            // phi/2=pi/5, w=large
             x, -1, -1, -1, -1, -1, -1, -1, -1, 0,
+            // phi/2=pi/5, w=1
             x, 2703662416942444033L,
         };
 
+        // Validate series
         assertUWSequence(new double[] { PI_4 / 2, 0, PI_4 / 2, LARGE_W, PI_4 / 2, 1.0, }, longs);
     }
 

@@ -59,6 +59,8 @@ class SmallMeanPoissonSamplerTest_OE25Dev {
          UniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
          double p0 = Double.MIN_VALUE;
+        // Note: p0 = Math.exp(-mean) => mean = -Math.log(p0).
+        // Add to the limit on the mean to cause p0 to be zero.
          double mean = -Math.log(p0) + 1;
         try {
     SmallMeanPoissonSampler.of(rng, mean);
@@ -81,7 +83,9 @@ class SmallMeanPoissonSamplerTest_OE25Dev {
 
     @Test
     void testSampleUpperBounds_1_oe() {
+        // If the nextDouble() is always 1 then the sample will hit the upper bounds
          UniformRandomProvider rng = new UniformRandomProvider() {
+            // CHECKSTYLE: stop all
             public long nextLong(long n) { return 0; }
             public long nextLong() { return 0; }
             public int nextInt(int n) { return 0; }
@@ -91,6 +95,7 @@ class SmallMeanPoissonSamplerTest_OE25Dev {
             public void nextBytes(byte[] bytes, int start, int len) {}
             public void nextBytes(byte[] bytes) {}
             public boolean nextBoolean() { return false; }
+            // CHECKSTYLE: resume all
         };
         for (double mean : new double[] {0.5, 1, 1.5, 2.2}) {
              SharedStateDiscreteSampler sampler = SmallMeanPoissonSampler.of(rng, mean);

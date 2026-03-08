@@ -260,6 +260,7 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
             new UnixFTPEntryParser(UnixFTPEntryParser.NUMERIC_DATE_CONFIG);
 
         final FTPFile f = parser.parseFTPEntry(testNumericDF);
+        // removed other assertion
 
 
         final Calendar cal = Calendar.getInstance();
@@ -284,6 +285,7 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
             new UnixFTPEntryParser(UnixFTPEntryParser.NUMERIC_DATE_CONFIG);
 
         final FTPFile f = parser.parseFTPEntry(testNumericDF);
+        // removed other assertion
 
 
         final Calendar cal = Calendar.getInstance();
@@ -294,6 +296,7 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
         cal.set(Calendar.DAY_OF_MONTH, 8);
         cal.set(Calendar.HOUR_OF_DAY, 11);
         cal.set(Calendar.MINUTE, 22);
+        // removed other assertion
 
         final FTPFile f2 = parser.parseFTPEntry(testNumericDF2);
         assertNotNull("Failed to parse " + testNumericDF2, f2);
@@ -310,6 +313,7 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
             new UnixFTPEntryParser(UnixFTPEntryParser.NUMERIC_DATE_CONFIG);
 
         final FTPFile f = parser.parseFTPEntry(testNumericDF);
+        // removed other assertion
 
 
         final Calendar cal = Calendar.getInstance();
@@ -320,8 +324,10 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
         cal.set(Calendar.DAY_OF_MONTH, 8);
         cal.set(Calendar.HOUR_OF_DAY, 11);
         cal.set(Calendar.MINUTE, 22);
+        // removed other assertion
 
         final FTPFile f2 = parser.parseFTPEntry(testNumericDF2);
+        // removed other assertion
         assertEquals("symbolic link", "./../../global/macros/.", f2.getLink());
     }
 
@@ -332,6 +338,7 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
 
     public void testOwnerNameWithSpaces_2_oe() {
         final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 john smith     group         4096 Mar  2 15:13 zxbox");
+        // removed other assertion
         assertEquals("john smith", f.getUser());
     }
 
@@ -342,11 +349,14 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
 
     public void testOwnerAndGroupNameWithSpaces_2_oe() {
         final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 john smith     test group         4096 Mar  2 15:13 zxbox");
+        // removed other assertion
         assertEquals("john smith", f.getUser());
     }
 
     public void testOwnerAndGroupNameWithSpaces_3_oe() {
         final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 john smith     test group         4096 Mar  2 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
         assertEquals("test group", f.getGroup());
     }
 
@@ -359,36 +369,57 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
     public void testNET294_2_oe() {
         final FTPFile f = getParser().parseFTPEntry(
                 "-rwxrwx---   1 ftp      ftp-admin 816026400 Oct  5  2008 bloplab 7 cd1.img");
+        // removed other assertion
         assertEquals("ftp", f.getUser());
     }
 
     public void testNET294_3_oe() {
         final FTPFile f = getParser().parseFTPEntry(
                 "-rwxrwx---   1 ftp      ftp-admin 816026400 Oct  5  2008 bloplab 7 cd1.img");
+        // removed other assertion
+        // removed other assertion
         assertEquals("ftp-admin", f.getGroup());
     }
 
     public void testNET294_4_oe() {
         final FTPFile f = getParser().parseFTPEntry(
                 "-rwxrwx---   1 ftp      ftp-admin 816026400 Oct  5  2008 bloplab 7 cd1.img");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(816026400L,f.getSize());
     }
 
     public void testNET294_5_oe() {
         final FTPFile f = getParser().parseFTPEntry(
                 "-rwxrwx---   1 ftp      ftp-admin 816026400 Oct  5  2008 bloplab 7 cd1.img");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNotNull("Timestamp should not be null",f.getTimestamp());
     }
 
     public void testNET294_6_oe() {
         final FTPFile f = getParser().parseFTPEntry(
                 "-rwxrwx---   1 ftp      ftp-admin 816026400 Oct  5  2008 bloplab 7 cd1.img");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(2008,f.getTimestamp().get(Calendar.YEAR));
     }
 
     public void testNET294_7_oe() {
         final FTPFile f = getParser().parseFTPEntry(
                 "-rwxrwx---   1 ftp      ftp-admin 816026400 Oct  5  2008 bloplab 7 cd1.img");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("bloplab 7 cd1.img",f.getName());
     }
 
@@ -399,11 +430,14 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
 
     public void testGroupNameWithSpaces_2_oe() {
         final FTPFile f = getParser().parseFTPEntry("drwx------ 4 maxm Domain Users 512 Oct 2 10:59 .metadata");
+        // removed other assertion
         assertEquals("maxm", f.getUser());
     }
 
     public void testGroupNameWithSpaces_3_oe() {
         final FTPFile f = getParser().parseFTPEntry("drwx------ 4 maxm Domain Users 512 Oct 2 10:59 .metadata");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Domain Users", f.getGroup());
     }
 
@@ -414,6 +448,7 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
 
     public void testTrailingSpaces_2_oe() {
         final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 john smith     group         4096 Mar  2 15:13 zxbox     ");
+        // removed other assertion
         assertEquals("zxbox     ", f.getName());
     }
 
@@ -424,6 +459,7 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
 
     public void testLeadingSpacesDefault_2_oe() { // the default has been changed to keep spaces
         final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 john smith     group         4096 Mar  2 15:13   zxbox");
+        // removed other assertion
         assertEquals("  zxbox", f.getName() ); // leading spaces retained;
     }
 
@@ -436,6 +472,7 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
     public void testLeadingSpacesNET566_2_oe() { // check new behavior
         final FTPFile f = new UnixFTPEntryParser(null, false).parseFTPEntry(
             "drwxr-xr-x   2 john smith     group         4096 Mar  2 15:13   zxbox");
+        // removed other assertion
         assertEquals("  zxbox", f.getName() ); // leading spaces retained;
     }
 
@@ -448,6 +485,7 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
     public void testTrimLeadingSpacesNET566_2_oe() { // check can trim spaces as before
         final FTPFile f = new UnixFTPEntryParser(null, true).parseFTPEntry(
             "drwxr-xr-x   2 john smith     group         4096 Mar  2 15:13   zxbox");
+        // removed other assertion
         assertEquals("zxbox", f.getName() ); // leading spaces trimmed;
     }
 
@@ -458,6 +496,7 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
 
     public void testNameWIthPunctuation_2_oe() {
         final FTPFile f = getParser().parseFTPEntry("drwx------ 4 maxm Domain Users 512 Oct 2 10:59 abc(test)123.pdf");
+        // removed other assertion
         assertEquals("abc(test)123.pdf", f.getName());
     }
 
@@ -468,26 +507,41 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
 
     public void testNoSpacesBeforeFileSize_2_oe() {
         final FTPFile f = getParser().parseFTPEntry("drwxr-x---+1464 chrism   chrism     41472 Feb 25 13:17 20090225");
+        // removed other assertion
         assertEquals(41472, f.getSize());
     }
 
     public void testNoSpacesBeforeFileSize_3_oe() {
         final FTPFile f = getParser().parseFTPEntry("drwxr-x---+1464 chrism   chrism     41472 Feb 25 13:17 20090225");
+        // removed other assertion
+        // removed other assertion
         assertEquals(f.getType(), FTPFile.DIRECTORY_TYPE);
     }
 
     public void testNoSpacesBeforeFileSize_4_oe() {
         final FTPFile f = getParser().parseFTPEntry("drwxr-x---+1464 chrism   chrism     41472 Feb 25 13:17 20090225");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("chrism", f.getUser());
     }
 
     public void testNoSpacesBeforeFileSize_5_oe() {
         final FTPFile f = getParser().parseFTPEntry("drwxr-x---+1464 chrism   chrism     41472 Feb 25 13:17 20090225");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("chrism", f.getGroup());
     }
 
     public void testNoSpacesBeforeFileSize_6_oe() {
         final FTPFile f = getParser().parseFTPEntry("drwxr-x---+1464 chrism   chrism     41472 Feb 25 13:17 20090225");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1464, f.getHardLinkCount());
     }
 
@@ -498,31 +552,52 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
 
     public void testCorrectGroupNameParsing_2_oe() {
         final FTPFile f = getParser().parseFTPEntry("-rw-r--r--   1 ftpuser  ftpusers 12414535 Mar 17 11:07 test 1999 abc.pdf");
+        // removed other assertion
         assertEquals(1, f.getHardLinkCount());
     }
 
     public void testCorrectGroupNameParsing_3_oe() {
         final FTPFile f = getParser().parseFTPEntry("-rw-r--r--   1 ftpuser  ftpusers 12414535 Mar 17 11:07 test 1999 abc.pdf");
+        // removed other assertion
+        // removed other assertion
         assertEquals("ftpuser", f.getUser());
     }
 
     public void testCorrectGroupNameParsing_4_oe() {
         final FTPFile f = getParser().parseFTPEntry("-rw-r--r--   1 ftpuser  ftpusers 12414535 Mar 17 11:07 test 1999 abc.pdf");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("ftpusers", f.getGroup());
     }
 
     public void testCorrectGroupNameParsing_5_oe() {
         final FTPFile f = getParser().parseFTPEntry("-rw-r--r--   1 ftpuser  ftpusers 12414535 Mar 17 11:07 test 1999 abc.pdf");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(12414535, f.getSize());
     }
 
     public void testCorrectGroupNameParsing_6_oe() {
         final FTPFile f = getParser().parseFTPEntry("-rw-r--r--   1 ftpuser  ftpusers 12414535 Mar 17 11:07 test 1999 abc.pdf");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("test 1999 abc.pdf", f.getName());
     }
 
     public void testCorrectGroupNameParsing_7_oe() {
         final FTPFile f = getParser().parseFTPEntry("-rw-r--r--   1 ftpuser  ftpusers 12414535 Mar 17 11:07 test 1999 abc.pdf");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Calendar cal = Calendar.getInstance();
         cal.set(Calendar.MONTH, Calendar.MARCH);
@@ -537,6 +612,12 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
 
     public void testCorrectGroupNameParsing_8_oe() {
         final FTPFile f = getParser().parseFTPEntry("-rw-r--r--   1 ftpuser  ftpusers 12414535 Mar 17 11:07 test 1999 abc.pdf");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Calendar cal = Calendar.getInstance();
         cal.set(Calendar.MONTH, Calendar.MARCH);
@@ -546,11 +627,18 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MILLISECOND, 0);
 
+        // removed other assertion
         assertEquals(f.getTimestamp().get(Calendar.DAY_OF_MONTH), cal.get(Calendar.DAY_OF_MONTH));
     }
 
     public void testCorrectGroupNameParsing_9_oe() {
         final FTPFile f = getParser().parseFTPEntry("-rw-r--r--   1 ftpuser  ftpusers 12414535 Mar 17 11:07 test 1999 abc.pdf");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Calendar cal = Calendar.getInstance();
         cal.set(Calendar.MONTH, Calendar.MARCH);
@@ -560,11 +648,19 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MILLISECOND, 0);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(f.getTimestamp().get(Calendar.HOUR_OF_DAY), cal.get(Calendar.HOUR_OF_DAY));
     }
 
     public void testCorrectGroupNameParsing_10_oe() {
         final FTPFile f = getParser().parseFTPEntry("-rw-r--r--   1 ftpuser  ftpusers 12414535 Mar 17 11:07 test 1999 abc.pdf");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Calendar cal = Calendar.getInstance();
         cal.set(Calendar.MONTH, Calendar.MARCH);
@@ -574,11 +670,20 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MILLISECOND, 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(f.getTimestamp().get(Calendar.MINUTE), cal.get(Calendar.MINUTE));
     }
 
     public void testCorrectGroupNameParsing_11_oe() {
         final FTPFile f = getParser().parseFTPEntry("-rw-r--r--   1 ftpuser  ftpusers 12414535 Mar 17 11:07 test 1999 abc.pdf");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Calendar cal = Calendar.getInstance();
         cal.set(Calendar.MONTH, Calendar.MARCH);
@@ -588,6 +693,10 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MILLISECOND, 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(f.getTimestamp().get(Calendar.SECOND), cal.get(Calendar.SECOND));
     }
 
@@ -598,16 +707,22 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
 
     public void testFilenamesWithEmbeddedNumbers_2_oe() {
         final FTPFile f = getParser().parseFTPEntry("-rw-rw-rw-   1 user group 5840 Mar 19 09:34 123 456 abc.csv");
+        // removed other assertion
         assertEquals(5840, f.getSize());
     }
 
     public void testFilenamesWithEmbeddedNumbers_3_oe() {
         final FTPFile f = getParser().parseFTPEntry("-rw-rw-rw-   1 user group 5840 Mar 19 09:34 123 456 abc.csv");
+        // removed other assertion
+        // removed other assertion
         assertEquals("user", f.getUser());
     }
 
     public void testFilenamesWithEmbeddedNumbers_4_oe() {
         final FTPFile f = getParser().parseFTPEntry("-rw-rw-rw-   1 user group 5840 Mar 19 09:34 123 456 abc.csv");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("group", f.getGroup());
     }
 
@@ -620,12 +735,15 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
     public void testParseFieldsOnFileJapaneseTime_2_oe()
     {
         final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        // removed other assertion
         assertTrue("Should have been a file.", f.isFile());
     }
 
     public void testParseFieldsOnFileJapaneseTime_3_oe()
     {
         final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
         checkPermissions(f);
         assertEquals(2, f.getHardLinkCount());
     }
@@ -633,35 +751,60 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
     public void testParseFieldsOnFileJapaneseTime_4_oe()
     {
         final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
         checkPermissions(f);
+        // removed other assertion
         assertEquals("user", f.getUser());
     }
 
     public void testParseFieldsOnFileJapaneseTime_5_oe()
     {
         final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
         checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
         assertEquals("group", f.getGroup());
     }
 
     public void testParseFieldsOnFileJapaneseTime_6_oe()
     {
         final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
         checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("zxbox", f.getName());
     }
 
     public void testParseFieldsOnFileJapaneseTime_7_oe()
     {
         final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
         checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(4096, f.getSize());
     }
 
     public void testParseFieldsOnFileJapaneseTime_8_oe()
     {
         final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
         checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertNotNull("Timestamp not null", f.getTimestamp());
     }
@@ -669,8 +812,16 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
     public void testParseFieldsOnFileJapaneseTime_9_oe()
     {
         final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
         checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         final Calendar cal = Calendar.getInstance();
         cal.set(Calendar.MONTH, Calendar.MARCH);
         cal.set(Calendar.DATE,1);
@@ -695,12 +846,15 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
     public void testParseFieldsOnFileJapaneseYear_2_oe() {
         final FTPFile f = getParser().parseFTPEntry(
                 "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        // removed other assertion
         assertTrue("Should have been a file.", f.isFile());
     }
 
     public void testParseFieldsOnFileJapaneseYear_3_oe() {
         final FTPFile f = getParser().parseFTPEntry(
                 "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        // removed other assertion
+        // removed other assertion
         checkPermissions(f);
         assertEquals(2, f.getHardLinkCount());
     }
@@ -708,35 +862,60 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
     public void testParseFieldsOnFileJapaneseYear_4_oe() {
         final FTPFile f = getParser().parseFTPEntry(
                 "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        // removed other assertion
+        // removed other assertion
         checkPermissions(f);
+        // removed other assertion
         assertEquals("user", f.getUser());
     }
 
     public void testParseFieldsOnFileJapaneseYear_5_oe() {
         final FTPFile f = getParser().parseFTPEntry(
                 "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        // removed other assertion
+        // removed other assertion
         checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
         assertEquals("group", f.getGroup());
     }
 
     public void testParseFieldsOnFileJapaneseYear_6_oe() {
         final FTPFile f = getParser().parseFTPEntry(
                 "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        // removed other assertion
+        // removed other assertion
         checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("\u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv", f.getName());
     }
 
     public void testParseFieldsOnFileJapaneseYear_7_oe() {
         final FTPFile f = getParser().parseFTPEntry(
                 "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        // removed other assertion
+        // removed other assertion
         checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(4096, f.getSize());
     }
 
     public void testParseFieldsOnFileJapaneseYear_8_oe() {
         final FTPFile f = getParser().parseFTPEntry(
                 "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        // removed other assertion
+        // removed other assertion
         checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertNotNull("Timestamp not null", f.getTimestamp());
     }
@@ -744,8 +923,16 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
     public void testParseFieldsOnFileJapaneseYear_9_oe() {
         final FTPFile f = getParser().parseFTPEntry(
                 "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        // removed other assertion
+        // removed other assertion
         checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         final Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, 2003);
         cal.set(Calendar.MONTH, Calendar.MARCH);

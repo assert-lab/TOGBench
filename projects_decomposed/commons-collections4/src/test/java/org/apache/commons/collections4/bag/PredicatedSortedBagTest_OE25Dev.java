@@ -84,6 +84,21 @@ public class PredicatedSortedBagTest_OE25Dev<T> extends AbstractSortedBagTest<T>
         } catch (final NullPointerException e) {}
     }
 
+    @SuppressWarnings("unchecked")
+    public void testSortOrder() {
+        final SortedBag<T> bag = decorateBag(new TreeBag<T>(), stringPredicate());
+        final String one = "one";
+        final String two = "two";
+        final String three = "three";
+        bag.add((T) one);
+        bag.add((T) two);
+        bag.add((T) three);
+        assertEquals("first element", bag.first(), one);
+        assertEquals("last element", bag.last(), two);
+        final Comparator<? super T> c = bag.comparator();
+        assertTrue("natural order, so comparator should be null", c == null);
+    }
+
     @Override
     public String getCompatibilityVersion() {
         return "4";
@@ -128,6 +143,20 @@ public class PredicatedSortedBagTest_OE25Dev<T> extends AbstractSortedBagTest<T>
         bag.add((T) three);
         final Comparator<? super T> c = bag.comparator();
         assertTrue("natural order, so comparator should be null", c == null);
+    }
+
+public void testDecorate_oe_101_oe() {
+        try {
+            decorateBag(new TreeBag<T>(), null);
+            fail("Expecting NullPointerException for null predicate");
+        } catch (final NullPointerException e) {}
+    }
+
+public void testDecorate_oe_102_oe() {
+        try {
+            decorateBag(nullBag, stringPredicate());
+            fail("Expecting NullPointerException for null bag");
+        } catch (final NullPointerException e) {}
     }
 
 }

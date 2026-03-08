@@ -39,6 +39,7 @@ public class UserAuthenticationDataTestCase_OE25Dev {
         final char[] array = "PMC".toCharArray();
         data.setData(UserAuthenticationData.USERNAME, array);
         data.setData(UserAuthenticationData.DOMAIN, "Apache".toCharArray());
+        // removed other assertion
         assertArrayEquals("Apache".toCharArray(), data.getData(UserAuthenticationData.DOMAIN));
     }
 
@@ -48,6 +49,8 @@ public class UserAuthenticationDataTestCase_OE25Dev {
         final char[] array = "PMC".toCharArray();
         data.setData(UserAuthenticationData.USERNAME, array);
         data.setData(UserAuthenticationData.DOMAIN, "Apache".toCharArray());
+        // removed other assertion
+        // removed other assertion
         data.setData(UserAuthenticationData.DOMAIN, "Apache Commons".toCharArray());
         assertArrayEquals("Apache Commons".toCharArray(), data.getData(UserAuthenticationData.DOMAIN));
     }
@@ -58,7 +61,10 @@ public class UserAuthenticationDataTestCase_OE25Dev {
         final char[] array = "PMC".toCharArray();
         data.setData(UserAuthenticationData.USERNAME, array);
         data.setData(UserAuthenticationData.DOMAIN, "Apache".toCharArray());
+        // removed other assertion
+        // removed other assertion
         data.setData(UserAuthenticationData.DOMAIN, "Apache Commons".toCharArray());
+        // removed other assertion
         assertNull(data.getData(UserAuthenticationData.PASSWORD));
     }
 
@@ -68,7 +74,11 @@ public class UserAuthenticationDataTestCase_OE25Dev {
         final char[] array = "PMC".toCharArray();
         data.setData(UserAuthenticationData.USERNAME, array);
         data.setData(UserAuthenticationData.DOMAIN, "Apache".toCharArray());
+        // removed other assertion
+        // removed other assertion
         data.setData(UserAuthenticationData.DOMAIN, "Apache Commons".toCharArray());
+        // removed other assertion
+        // removed other assertion
 
         data.cleanup();
         assertNull(data.getData(UserAuthenticationData.USERNAME));
@@ -80,9 +90,14 @@ public class UserAuthenticationDataTestCase_OE25Dev {
         final char[] array = "PMC".toCharArray();
         data.setData(UserAuthenticationData.USERNAME, array);
         data.setData(UserAuthenticationData.DOMAIN, "Apache".toCharArray());
+        // removed other assertion
+        // removed other assertion
         data.setData(UserAuthenticationData.DOMAIN, "Apache Commons".toCharArray());
+        // removed other assertion
+        // removed other assertion
 
         data.cleanup();
+        // removed other assertion
         assertNull(data.getData(UserAuthenticationData.DOMAIN));
     }
 
@@ -92,9 +107,15 @@ public class UserAuthenticationDataTestCase_OE25Dev {
         final char[] array = "PMC".toCharArray();
         data.setData(UserAuthenticationData.USERNAME, array);
         data.setData(UserAuthenticationData.DOMAIN, "Apache".toCharArray());
+        // removed other assertion
+        // removed other assertion
         data.setData(UserAuthenticationData.DOMAIN, "Apache Commons".toCharArray());
+        // removed other assertion
+        // removed other assertion
 
         data.cleanup();
+        // removed other assertion
+        // removed other assertion
         final char[] nulls = { 0, 0, 0 };
         assertArrayEquals(nulls, array);
     }

@@ -69,6 +69,7 @@ public class ColorCmyTest_OE25Dev {
         final ColorCmy colorCmy = new ColorCmy(0.0, (-1668.733868772), (-1568.733868772));
         final ColorCmy colorCmyTwo = ColorCmy.YELLOW;
 
+        // removed other assertion
         assertEquals((-1568.733868772), colorCmy.Y, 0.01);
     }
 
@@ -77,6 +78,8 @@ public class ColorCmyTest_OE25Dev {
         final ColorCmy colorCmy = new ColorCmy(0.0, (-1668.733868772), (-1568.733868772));
         final ColorCmy colorCmyTwo = ColorCmy.YELLOW;
 
+        // removed other assertion
+        // removed other assertion
         assertEquals((-1668.733868772), colorCmy.M, 0.01);
     }
 
@@ -87,6 +90,7 @@ public class ColorCmyTest_OE25Dev {
 
     @Test
     public void testEquals_2_oe() {
+        // removed other assertion
         assertThat(color.hashCode(), is(colorCopy.hashCode()));
     }
 

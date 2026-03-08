@@ -45,6 +45,7 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
 
   @Test
   void newCallShouldProduceExpectedResult_1_oe() {
+    // given
     val request = new Request.Builder().url("http://www.google.com/").build();
     val httpClient = mock(AsyncHttpClient.class);
 
@@ -53,6 +54,7 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
     Consumer<Response> onRequestSuccess = createConsumer(new AtomicInteger());
     Consumer<RequestBuilder> requestCustomizer = createConsumer(new AtomicInteger());
 
+    // first call customizer
     val customizer1Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer1 = builder -> {
       builder.onRequestStart(onRequestStart)
@@ -61,23 +63,27 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
       customizer1Called.incrementAndGet();
     };
 
+    // first call customizer
     val customizer2Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer2 = builder -> {
       builder.requestCustomizer(requestCustomizer);
       customizer2Called.incrementAndGet();
     };
 
+    // when: create call factory
     val factory = AsyncHttpClientCallFactory.builder()
             .httpClient(httpClient)
             .callCustomizer(callBuilderConsumer1)
             .callCustomizer(callBuilderConsumer2)
             .build();
 
+    // then
     assertTrue(factory.getHttpClient() == httpClient);
   }
 
   @Test
   void newCallShouldProduceExpectedResult_2_oe() {
+    // given
     val request = new Request.Builder().url("http://www.google.com/").build();
     val httpClient = mock(AsyncHttpClient.class);
 
@@ -86,6 +92,7 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
     Consumer<Response> onRequestSuccess = createConsumer(new AtomicInteger());
     Consumer<RequestBuilder> requestCustomizer = createConsumer(new AtomicInteger());
 
+    // first call customizer
     val customizer1Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer1 = builder -> {
       builder.onRequestStart(onRequestStart)
@@ -94,23 +101,28 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
       customizer1Called.incrementAndGet();
     };
 
+    // first call customizer
     val customizer2Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer2 = builder -> {
       builder.requestCustomizer(requestCustomizer);
       customizer2Called.incrementAndGet();
     };
 
+    // when: create call factory
     val factory = AsyncHttpClientCallFactory.builder()
             .httpClient(httpClient)
             .callCustomizer(callBuilderConsumer1)
             .callCustomizer(callBuilderConsumer2)
             .build();
 
+    // then
+    // removed other assertion
     assertTrue(factory.getCallCustomizers().size() == 2);
   }
 
   @Test
   void newCallShouldProduceExpectedResult_3_oe() {
+    // given
     val request = new Request.Builder().url("http://www.google.com/").build();
     val httpClient = mock(AsyncHttpClient.class);
 
@@ -119,6 +131,7 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
     Consumer<Response> onRequestSuccess = createConsumer(new AtomicInteger());
     Consumer<RequestBuilder> requestCustomizer = createConsumer(new AtomicInteger());
 
+    // first call customizer
     val customizer1Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer1 = builder -> {
       builder.onRequestStart(onRequestStart)
@@ -127,23 +140,29 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
       customizer1Called.incrementAndGet();
     };
 
+    // first call customizer
     val customizer2Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer2 = builder -> {
       builder.requestCustomizer(requestCustomizer);
       customizer2Called.incrementAndGet();
     };
 
+    // when: create call factory
     val factory = AsyncHttpClientCallFactory.builder()
             .httpClient(httpClient)
             .callCustomizer(callBuilderConsumer1)
             .callCustomizer(callBuilderConsumer2)
             .build();
 
+    // then
+    // removed other assertion
+    // removed other assertion
     assertTrue(customizer1Called.get() == 0);
   }
 
   @Test
   void newCallShouldProduceExpectedResult_4_oe() {
+    // given
     val request = new Request.Builder().url("http://www.google.com/").build();
     val httpClient = mock(AsyncHttpClient.class);
 
@@ -152,6 +171,7 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
     Consumer<Response> onRequestSuccess = createConsumer(new AtomicInteger());
     Consumer<RequestBuilder> requestCustomizer = createConsumer(new AtomicInteger());
 
+    // first call customizer
     val customizer1Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer1 = builder -> {
       builder.onRequestStart(onRequestStart)
@@ -160,23 +180,30 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
       customizer1Called.incrementAndGet();
     };
 
+    // first call customizer
     val customizer2Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer2 = builder -> {
       builder.requestCustomizer(requestCustomizer);
       customizer2Called.incrementAndGet();
     };
 
+    // when: create call factory
     val factory = AsyncHttpClientCallFactory.builder()
             .httpClient(httpClient)
             .callCustomizer(callBuilderConsumer1)
             .callCustomizer(callBuilderConsumer2)
             .build();
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertTrue(customizer2Called.get() == 0);
   }
 
   @Test
   void newCallShouldProduceExpectedResult_5_oe() {
+    // given
     val request = new Request.Builder().url("http://www.google.com/").build();
     val httpClient = mock(AsyncHttpClient.class);
 
@@ -185,6 +212,7 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
     Consumer<Response> onRequestSuccess = createConsumer(new AtomicInteger());
     Consumer<RequestBuilder> requestCustomizer = createConsumer(new AtomicInteger());
 
+    // first call customizer
     val customizer1Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer1 = builder -> {
       builder.onRequestStart(onRequestStart)
@@ -193,26 +221,36 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
       customizer1Called.incrementAndGet();
     };
 
+    // first call customizer
     val customizer2Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer2 = builder -> {
       builder.requestCustomizer(requestCustomizer);
       customizer2Called.incrementAndGet();
     };
 
+    // when: create call factory
     val factory = AsyncHttpClientCallFactory.builder()
             .httpClient(httpClient)
             .callCustomizer(callBuilderConsumer1)
             .callCustomizer(callBuilderConsumer2)
             .build();
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(request);
 
+    // then
     assertNotNull(call);
   }
 
   @Test
   void newCallShouldProduceExpectedResult_6_oe() {
+    // given
     val request = new Request.Builder().url("http://www.google.com/").build();
     val httpClient = mock(AsyncHttpClient.class);
 
@@ -221,6 +259,7 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
     Consumer<Response> onRequestSuccess = createConsumer(new AtomicInteger());
     Consumer<RequestBuilder> requestCustomizer = createConsumer(new AtomicInteger());
 
+    // first call customizer
     val customizer1Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer1 = builder -> {
       builder.onRequestStart(onRequestStart)
@@ -229,26 +268,37 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
       customizer1Called.incrementAndGet();
     };
 
+    // first call customizer
     val customizer2Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer2 = builder -> {
       builder.requestCustomizer(requestCustomizer);
       customizer2Called.incrementAndGet();
     };
 
+    // when: create call factory
     val factory = AsyncHttpClientCallFactory.builder()
             .httpClient(httpClient)
             .callCustomizer(callBuilderConsumer1)
             .callCustomizer(callBuilderConsumer2)
             .build();
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(request);
 
+    // then
+    // removed other assertion
     assertTrue(customizer1Called.get() == 1);
   }
 
   @Test
   void newCallShouldProduceExpectedResult_7_oe() {
+    // given
     val request = new Request.Builder().url("http://www.google.com/").build();
     val httpClient = mock(AsyncHttpClient.class);
 
@@ -257,6 +307,7 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
     Consumer<Response> onRequestSuccess = createConsumer(new AtomicInteger());
     Consumer<RequestBuilder> requestCustomizer = createConsumer(new AtomicInteger());
 
+    // first call customizer
     val customizer1Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer1 = builder -> {
       builder.onRequestStart(onRequestStart)
@@ -265,26 +316,38 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
       customizer1Called.incrementAndGet();
     };
 
+    // first call customizer
     val customizer2Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer2 = builder -> {
       builder.requestCustomizer(requestCustomizer);
       customizer2Called.incrementAndGet();
     };
 
+    // when: create call factory
     val factory = AsyncHttpClientCallFactory.builder()
             .httpClient(httpClient)
             .callCustomizer(callBuilderConsumer1)
             .callCustomizer(callBuilderConsumer2)
             .build();
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(request);
 
+    // then
+    // removed other assertion
+    // removed other assertion
     assertTrue(customizer2Called.get() == 1);
   }
 
   @Test
   void newCallShouldProduceExpectedResult_8_oe() {
+    // given
     val request = new Request.Builder().url("http://www.google.com/").build();
     val httpClient = mock(AsyncHttpClient.class);
 
@@ -293,6 +356,7 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
     Consumer<Response> onRequestSuccess = createConsumer(new AtomicInteger());
     Consumer<RequestBuilder> requestCustomizer = createConsumer(new AtomicInteger());
 
+    // first call customizer
     val customizer1Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer1 = builder -> {
       builder.onRequestStart(onRequestStart)
@@ -301,27 +365,40 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
       customizer1Called.incrementAndGet();
     };
 
+    // first call customizer
     val customizer2Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer2 = builder -> {
       builder.requestCustomizer(requestCustomizer);
       customizer2Called.incrementAndGet();
     };
 
+    // when: create call factory
     val factory = AsyncHttpClientCallFactory.builder()
             .httpClient(httpClient)
             .callCustomizer(callBuilderConsumer1)
             .callCustomizer(callBuilderConsumer2)
             .build();
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(request);
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
     assertTrue(call.request() == request);
   }
 
   @Test
   void newCallShouldProduceExpectedResult_9_oe() {
+    // given
     val request = new Request.Builder().url("http://www.google.com/").build();
     val httpClient = mock(AsyncHttpClient.class);
 
@@ -330,6 +407,7 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
     Consumer<Response> onRequestSuccess = createConsumer(new AtomicInteger());
     Consumer<RequestBuilder> requestCustomizer = createConsumer(new AtomicInteger());
 
+    // first call customizer
     val customizer1Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer1 = builder -> {
       builder.onRequestStart(onRequestStart)
@@ -338,27 +416,41 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
       customizer1Called.incrementAndGet();
     };
 
+    // first call customizer
     val customizer2Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer2 = builder -> {
       builder.requestCustomizer(requestCustomizer);
       customizer2Called.incrementAndGet();
     };
 
+    // when: create call factory
     val factory = AsyncHttpClientCallFactory.builder()
             .httpClient(httpClient)
             .callCustomizer(callBuilderConsumer1)
             .callCustomizer(callBuilderConsumer2)
             .build();
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(request);
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
     assertTrue(call.getHttpClient() == httpClient);
   }
 
   @Test
   void newCallShouldProduceExpectedResult_10_oe() {
+    // given
     val request = new Request.Builder().url("http://www.google.com/").build();
     val httpClient = mock(AsyncHttpClient.class);
 
@@ -367,6 +459,7 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
     Consumer<Response> onRequestSuccess = createConsumer(new AtomicInteger());
     Consumer<RequestBuilder> requestCustomizer = createConsumer(new AtomicInteger());
 
+    // first call customizer
     val customizer1Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer1 = builder -> {
       builder.onRequestStart(onRequestStart)
@@ -375,28 +468,43 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
       customizer1Called.incrementAndGet();
     };
 
+    // first call customizer
     val customizer2Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer2 = builder -> {
       builder.requestCustomizer(requestCustomizer);
       customizer2Called.incrementAndGet();
     };
 
+    // when: create call factory
     val factory = AsyncHttpClientCallFactory.builder()
             .httpClient(httpClient)
             .callCustomizer(callBuilderConsumer1)
             .callCustomizer(callBuilderConsumer2)
             .build();
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(request);
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
+    // removed other assertion
 
     assertEquals(call.getOnRequestStart().get(0), onRequestStart);
   }
 
   @Test
   void newCallShouldProduceExpectedResult_11_oe() {
+    // given
     val request = new Request.Builder().url("http://www.google.com/").build();
     val httpClient = mock(AsyncHttpClient.class);
 
@@ -405,6 +513,7 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
     Consumer<Response> onRequestSuccess = createConsumer(new AtomicInteger());
     Consumer<RequestBuilder> requestCustomizer = createConsumer(new AtomicInteger());
 
+    // first call customizer
     val customizer1Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer1 = builder -> {
       builder.onRequestStart(onRequestStart)
@@ -413,28 +522,44 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
       customizer1Called.incrementAndGet();
     };
 
+    // first call customizer
     val customizer2Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer2 = builder -> {
       builder.requestCustomizer(requestCustomizer);
       customizer2Called.incrementAndGet();
     };
 
+    // when: create call factory
     val factory = AsyncHttpClientCallFactory.builder()
             .httpClient(httpClient)
             .callCustomizer(callBuilderConsumer1)
             .callCustomizer(callBuilderConsumer2)
             .build();
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(request);
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
     assertEquals(call.getOnRequestFailure().get(0), onRequestFailure);
   }
 
   @Test
   void newCallShouldProduceExpectedResult_12_oe() {
+    // given
     val request = new Request.Builder().url("http://www.google.com/").build();
     val httpClient = mock(AsyncHttpClient.class);
 
@@ -443,6 +568,7 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
     Consumer<Response> onRequestSuccess = createConsumer(new AtomicInteger());
     Consumer<RequestBuilder> requestCustomizer = createConsumer(new AtomicInteger());
 
+    // first call customizer
     val customizer1Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer1 = builder -> {
       builder.onRequestStart(onRequestStart)
@@ -451,28 +577,45 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
       customizer1Called.incrementAndGet();
     };
 
+    // first call customizer
     val customizer2Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer2 = builder -> {
       builder.requestCustomizer(requestCustomizer);
       customizer2Called.incrementAndGet();
     };
 
+    // when: create call factory
     val factory = AsyncHttpClientCallFactory.builder()
             .httpClient(httpClient)
             .callCustomizer(callBuilderConsumer1)
             .callCustomizer(callBuilderConsumer2)
             .build();
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(request);
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
+    // removed other assertion
     assertEquals(call.getOnRequestSuccess().get(0), onRequestSuccess);
   }
 
   @Test
   void newCallShouldProduceExpectedResult_13_oe() {
+    // given
     val request = new Request.Builder().url("http://www.google.com/").build();
     val httpClient = mock(AsyncHttpClient.class);
 
@@ -481,6 +624,7 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
     Consumer<Response> onRequestSuccess = createConsumer(new AtomicInteger());
     Consumer<RequestBuilder> requestCustomizer = createConsumer(new AtomicInteger());
 
+    // first call customizer
     val customizer1Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer1 = builder -> {
       builder.onRequestStart(onRequestStart)
@@ -489,28 +633,46 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
       customizer1Called.incrementAndGet();
     };
 
+    // first call customizer
     val customizer2Called = new AtomicInteger();
     Consumer<AsyncHttpClientCall.AsyncHttpClientCallBuilder> callBuilderConsumer2 = builder -> {
       builder.requestCustomizer(requestCustomizer);
       customizer2Called.incrementAndGet();
     };
 
+    // when: create call factory
     val factory = AsyncHttpClientCallFactory.builder()
             .httpClient(httpClient)
             .callCustomizer(callBuilderConsumer1)
             .callCustomizer(callBuilderConsumer2)
             .build();
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(request);
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals(call.getRequestCustomizers().get(0), requestCustomizer);
   }
 
   @Test
   void shouldApplyAllConsumersToCallBeingConstructed_1_oe() {
+    // given
     val httpClient = mock(AsyncHttpClient.class);
 
     val rewriteUrl = "http://foo.bar.com/";
@@ -536,19 +698,23 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
                     .onRequestFailure(createConsumer(numRequestFailure))
                     .onRequestStart(createConsumer(numRequestStart));
 
+    // create factory
     val factory = AsyncHttpClientCallFactory.builder()
             .callCustomizer(callCustomizer)
             .httpClient(httpClient)
             .build();
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
     val callRequest = call.createRequest(call.request());
 
+    // then
     assertTrue(numCustomized.get() == 1);
   }
 
   @Test
   void shouldApplyAllConsumersToCallBeingConstructed_2_oe() {
+    // given
     val httpClient = mock(AsyncHttpClient.class);
 
     val rewriteUrl = "http://foo.bar.com/";
@@ -574,19 +740,24 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
                     .onRequestFailure(createConsumer(numRequestFailure))
                     .onRequestStart(createConsumer(numRequestStart));
 
+    // create factory
     val factory = AsyncHttpClientCallFactory.builder()
             .callCustomizer(callCustomizer)
             .httpClient(httpClient)
             .build();
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
     val callRequest = call.createRequest(call.request());
 
+    // then
+    // removed other assertion
     assertTrue(numRequestStart.get() == 0);
   }
 
   @Test
   void shouldApplyAllConsumersToCallBeingConstructed_3_oe() {
+    // given
     val httpClient = mock(AsyncHttpClient.class);
 
     val rewriteUrl = "http://foo.bar.com/";
@@ -612,19 +783,25 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
                     .onRequestFailure(createConsumer(numRequestFailure))
                     .onRequestStart(createConsumer(numRequestStart));
 
+    // create factory
     val factory = AsyncHttpClientCallFactory.builder()
             .callCustomizer(callCustomizer)
             .httpClient(httpClient)
             .build();
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
     val callRequest = call.createRequest(call.request());
 
+    // then
+    // removed other assertion
+    // removed other assertion
     assertTrue(numRequestSuccess.get() == 0);
   }
 
   @Test
   void shouldApplyAllConsumersToCallBeingConstructed_4_oe() {
+    // given
     val httpClient = mock(AsyncHttpClient.class);
 
     val rewriteUrl = "http://foo.bar.com/";
@@ -650,19 +827,26 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
                     .onRequestFailure(createConsumer(numRequestFailure))
                     .onRequestStart(createConsumer(numRequestStart));
 
+    // create factory
     val factory = AsyncHttpClientCallFactory.builder()
             .callCustomizer(callCustomizer)
             .httpClient(httpClient)
             .build();
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
     val callRequest = call.createRequest(call.request());
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertTrue(numRequestFailure.get() == 0);
   }
 
   @Test
   void shouldApplyAllConsumersToCallBeingConstructed_5_oe() {
+    // given
     val httpClient = mock(AsyncHttpClient.class);
 
     val rewriteUrl = "http://foo.bar.com/";
@@ -688,20 +872,31 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
                     .onRequestFailure(createConsumer(numRequestFailure))
                     .onRequestStart(createConsumer(numRequestStart));
 
+    // create factory
     val factory = AsyncHttpClientCallFactory.builder()
             .callCustomizer(callCustomizer)
             .httpClient(httpClient)
             .build();
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
     val callRequest = call.createRequest(call.request());
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // let's see whether request customizers did their job
+    // final async-http-client request should have modified URL and one
+    // additional header value.
     assertEquals(callRequest.getUrl(), rewriteUrl);
   }
 
   @Test
   void shouldApplyAllConsumersToCallBeingConstructed_6_oe() {
+    // given
     val httpClient = mock(AsyncHttpClient.class);
 
     val rewriteUrl = "http://foo.bar.com/";
@@ -727,20 +922,32 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
                     .onRequestFailure(createConsumer(numRequestFailure))
                     .onRequestStart(createConsumer(numRequestStart));
 
+    // create factory
     val factory = AsyncHttpClientCallFactory.builder()
             .callCustomizer(callCustomizer)
             .httpClient(httpClient)
             .build();
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
     val callRequest = call.createRequest(call.request());
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // let's see whether request customizers did their job
+    // final async-http-client request should have modified URL and one
+    // additional header value.
+    // removed other assertion
     assertEquals(callRequest.getHeaders().get(headerName), headerValue);
   }
 
   @Test
   void shouldApplyAllConsumersToCallBeingConstructed_7_oe() {
+    // given
     val httpClient = mock(AsyncHttpClient.class);
 
     val rewriteUrl = "http://foo.bar.com/";
@@ -766,21 +973,35 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
                     .onRequestFailure(createConsumer(numRequestFailure))
                     .onRequestStart(createConsumer(numRequestStart));
 
+    // create factory
     val factory = AsyncHttpClientCallFactory.builder()
             .callCustomizer(callCustomizer)
             .httpClient(httpClient)
             .build();
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
     val callRequest = call.createRequest(call.request());
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // let's see whether request customizers did their job
+    // final async-http-client request should have modified URL and one
+    // additional header value.
+    // removed other assertion
+    // removed other assertion
 
+    // final call should have additional consumers set
     assertNotNull(call.getOnRequestStart());
   }
 
   @Test
   void shouldApplyAllConsumersToCallBeingConstructed_8_oe() {
+    // given
     val httpClient = mock(AsyncHttpClient.class);
 
     val rewriteUrl = "http://foo.bar.com/";
@@ -806,21 +1027,36 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
                     .onRequestFailure(createConsumer(numRequestFailure))
                     .onRequestStart(createConsumer(numRequestStart));
 
+    // create factory
     val factory = AsyncHttpClientCallFactory.builder()
             .callCustomizer(callCustomizer)
             .httpClient(httpClient)
             .build();
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
     val callRequest = call.createRequest(call.request());
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // let's see whether request customizers did their job
+    // final async-http-client request should have modified URL and one
+    // additional header value.
+    // removed other assertion
+    // removed other assertion
 
+    // final call should have additional consumers set
+    // removed other assertion
     assertTrue(call.getOnRequestStart().size() == 1);
   }
 
   @Test
   void shouldApplyAllConsumersToCallBeingConstructed_9_oe() {
+    // given
     val httpClient = mock(AsyncHttpClient.class);
 
     val rewriteUrl = "http://foo.bar.com/";
@@ -846,22 +1082,38 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
                     .onRequestFailure(createConsumer(numRequestFailure))
                     .onRequestStart(createConsumer(numRequestStart));
 
+    // create factory
     val factory = AsyncHttpClientCallFactory.builder()
             .callCustomizer(callCustomizer)
             .httpClient(httpClient)
             .build();
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
     val callRequest = call.createRequest(call.request());
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // let's see whether request customizers did their job
+    // final async-http-client request should have modified URL and one
+    // additional header value.
+    // removed other assertion
+    // removed other assertion
 
+    // final call should have additional consumers set
+    // removed other assertion
+    // removed other assertion
 
     assertNotNull(call.getOnRequestSuccess());
   }
 
   @Test
   void shouldApplyAllConsumersToCallBeingConstructed_10_oe() {
+    // given
     val httpClient = mock(AsyncHttpClient.class);
 
     val rewriteUrl = "http://foo.bar.com/";
@@ -887,22 +1139,39 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
                     .onRequestFailure(createConsumer(numRequestFailure))
                     .onRequestStart(createConsumer(numRequestStart));
 
+    // create factory
     val factory = AsyncHttpClientCallFactory.builder()
             .callCustomizer(callCustomizer)
             .httpClient(httpClient)
             .build();
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
     val callRequest = call.createRequest(call.request());
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // let's see whether request customizers did their job
+    // final async-http-client request should have modified URL and one
+    // additional header value.
+    // removed other assertion
+    // removed other assertion
 
+    // final call should have additional consumers set
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
     assertTrue(call.getOnRequestSuccess().size() == 1);
   }
 
   @Test
   void shouldApplyAllConsumersToCallBeingConstructed_11_oe() {
+    // given
     val httpClient = mock(AsyncHttpClient.class);
 
     val rewriteUrl = "http://foo.bar.com/";
@@ -928,23 +1197,41 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
                     .onRequestFailure(createConsumer(numRequestFailure))
                     .onRequestStart(createConsumer(numRequestStart));
 
+    // create factory
     val factory = AsyncHttpClientCallFactory.builder()
             .callCustomizer(callCustomizer)
             .httpClient(httpClient)
             .build();
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
     val callRequest = call.createRequest(call.request());
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // let's see whether request customizers did their job
+    // final async-http-client request should have modified URL and one
+    // additional header value.
+    // removed other assertion
+    // removed other assertion
 
+    // final call should have additional consumers set
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
+    // removed other assertion
 
     assertNotNull(call.getOnRequestFailure());
   }
 
   @Test
   void shouldApplyAllConsumersToCallBeingConstructed_12_oe() {
+    // given
     val httpClient = mock(AsyncHttpClient.class);
 
     val rewriteUrl = "http://foo.bar.com/";
@@ -970,23 +1257,42 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
                     .onRequestFailure(createConsumer(numRequestFailure))
                     .onRequestStart(createConsumer(numRequestStart));
 
+    // create factory
     val factory = AsyncHttpClientCallFactory.builder()
             .callCustomizer(callCustomizer)
             .httpClient(httpClient)
             .build();
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
     val callRequest = call.createRequest(call.request());
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // let's see whether request customizers did their job
+    // final async-http-client request should have modified URL and one
+    // additional header value.
+    // removed other assertion
+    // removed other assertion
 
+    // final call should have additional consumers set
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
     assertTrue(call.getOnRequestFailure().size() == 1);
   }
 
   @Test
   void shouldApplyAllConsumersToCallBeingConstructed_13_oe() {
+    // given
     val httpClient = mock(AsyncHttpClient.class);
 
     val rewriteUrl = "http://foo.bar.com/";
@@ -1012,24 +1318,44 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
                     .onRequestFailure(createConsumer(numRequestFailure))
                     .onRequestStart(createConsumer(numRequestStart));
 
+    // create factory
     val factory = AsyncHttpClientCallFactory.builder()
             .callCustomizer(callCustomizer)
             .httpClient(httpClient)
             .build();
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
     val callRequest = call.createRequest(call.request());
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // let's see whether request customizers did their job
+    // final async-http-client request should have modified URL and one
+    // additional header value.
+    // removed other assertion
+    // removed other assertion
 
+    // final call should have additional consumers set
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
+    // removed other assertion
 
     assertNotNull(call.getRequestCustomizers());
   }
 
   @Test
   void shouldApplyAllConsumersToCallBeingConstructed_14_oe() {
+    // given
     val httpClient = mock(AsyncHttpClient.class);
 
     val rewriteUrl = "http://foo.bar.com/";
@@ -1055,64 +1381,97 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
                     .onRequestFailure(createConsumer(numRequestFailure))
                     .onRequestStart(createConsumer(numRequestStart));
 
+    // create factory
     val factory = AsyncHttpClientCallFactory.builder()
             .callCustomizer(callCustomizer)
             .httpClient(httpClient)
             .build();
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
     val callRequest = call.createRequest(call.request());
 
+    // then
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
 
+    // let's see whether request customizers did their job
+    // final async-http-client request should have modified URL and one
+    // additional header value.
+    // removed other assertion
+    // removed other assertion
 
+    // final call should have additional consumers set
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
+    // removed other assertion
 
+    // removed other assertion
     assertTrue(call.getRequestCustomizers().size() == 2);
   }
 
   @Test(expectedExceptions = NullPointerException.class,
           expectedExceptionsMessageRegExp = "httpClientSupplier is marked non-null but is null")
   void shouldThrowISEIfHttpClientIsNotDefined_1_oe() {
+    // given
     val factory = AsyncHttpClientCallFactory.builder()
             .build();
 
+    // when
     val httpClient = factory.getHttpClient();
 
+    // then
     assertNull(httpClient);
           }
 
   @Test
   void shouldUseHttpClientInstanceIfSupplierIsNotAvailable_1_oe() {
+    // given
     val httpClient = mock(AsyncHttpClient.class);
 
     val factory = AsyncHttpClientCallFactory.builder()
             .httpClient(httpClient)
             .build();
 
+    // when
     val usedHttpClient = factory.getHttpClient();
 
+    // then
     assertTrue(usedHttpClient == httpClient);
   }
 
   @Test
   void shouldUseHttpClientInstanceIfSupplierIsNotAvailable_2_oe() {
+    // given
     val httpClient = mock(AsyncHttpClient.class);
 
     val factory = AsyncHttpClientCallFactory.builder()
             .httpClient(httpClient)
             .build();
 
+    // when
     val usedHttpClient = factory.getHttpClient();
 
+    // then
+    // removed other assertion
 
+    // when
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
 
+    // then: call should contain correct http client
     assertTrue(call.getHttpClient()== httpClient);
   }
 
   @Test
   void shouldPreferHttpClientSupplierOverHttpClient_1_oe() {
+    // given
     val httpClientA = mock(AsyncHttpClient.class);
     val httpClientB = mock(AsyncHttpClient.class);
 
@@ -1121,13 +1480,16 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
             .httpClientSupplier(() -> httpClientB)
             .build();
 
+    // when
     val usedHttpClient = factory.getHttpClient();
 
+    // then
     assertTrue(usedHttpClient == httpClientB);
   }
 
   @Test
   void shouldPreferHttpClientSupplierOverHttpClient_2_oe() {
+    // given
     val httpClientA = mock(AsyncHttpClient.class);
     val httpClientB = mock(AsyncHttpClient.class);
 
@@ -1136,16 +1498,22 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
             .httpClientSupplier(() -> httpClientB)
             .build();
 
+    // when
     val usedHttpClient = factory.getHttpClient();
 
+    // then
+    // removed other assertion
 
+    // when: try to create new call
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
 
+    // then: call should contain correct http client
     assertNotNull(call);
   }
 
   @Test
   void shouldPreferHttpClientSupplierOverHttpClient_3_oe() {
+    // given
     val httpClientA = mock(AsyncHttpClient.class);
     val httpClientB = mock(AsyncHttpClient.class);
 
@@ -1154,11 +1522,17 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
             .httpClientSupplier(() -> httpClientB)
             .build();
 
+    // when
     val usedHttpClient = factory.getHttpClient();
 
+    // then
+    // removed other assertion
 
+    // when: try to create new call
     val call = (AsyncHttpClientCall) factory.newCall(REQUEST);
 
+    // then: call should contain correct http client
+    // removed other assertion
     assertTrue(call.getHttpClient() == httpClientB);
   }
 

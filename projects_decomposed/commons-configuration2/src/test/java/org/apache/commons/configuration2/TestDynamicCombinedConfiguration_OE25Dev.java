@@ -296,6 +296,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         builder.configure(parameters.fileBased().setFile(MULTI_TENENT_FILE).setSynchronizer(new ReadWriteSynchronizer()));
         final CombinedConfiguration config = builder.getConfiguration();
 
+        // removed other assertion
         final Thread testThreads[] = new Thread[THREAD_COUNT];
         final int failures[] = new int[THREAD_COUNT];
 
@@ -329,6 +330,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         builder.configure(parameters.fileBased().setFile(MULTI_TENENT_FILE).setSynchronizer(new ReadWriteSynchronizer()));
         final CombinedConfiguration config = builder.getConfiguration();
 
+        // removed other assertion
 
         final Thread testThreads[] = new Thread[THREAD_COUNT];
         final int failures[] = new int[THREAD_COUNT];
@@ -341,6 +343,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         final int threadCount = 25;
         System.getProperties().remove("Id");
         System.setProperty("TemporaryFolder", folder.getRoot().getAbsolutePath());
+        // create a new configuration
         File input = new File("target/test-classes/testMultiDynamic_default.xml");
         final File output = folder.newFile("testMultiDynamic_default.xml");
         output.delete();
@@ -360,6 +363,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         final int threadCount = 25;
         System.getProperties().remove("Id");
         System.setProperty("TemporaryFolder", folder.getRoot().getAbsolutePath());
+        // create a new configuration
         File input = new File("target/test-classes/testMultiDynamic_default.xml");
         final File output = folder.newFile("testMultiDynamic_default.xml");
         output.delete();
@@ -371,6 +375,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
             .setDefinitionBuilderParameters(new FileBasedBuilderParametersImpl().setFile(MULTI_DYNAMIC_FILE)).registerChildDefaultsHandler(
                 FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingRefreshDelay(1L))));
         CombinedConfiguration config = builder.getConfiguration();
+        // removed other assertion
 
         final ReaderThread testThreads[] = new ReaderThread[threadCount];
         for (int i = 0; i < testThreads.length; ++i) {
@@ -393,6 +398,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         final int threadCount = 25;
         System.getProperties().remove("Id");
         System.setProperty("TemporaryFolder", folder.getRoot().getAbsolutePath());
+        // create a new configuration
         File input = new File("target/test-classes/testMultiDynamic_default.xml");
         final File output = folder.newFile("testMultiDynamic_default.xml");
         output.delete();
@@ -404,6 +410,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
             .setDefinitionBuilderParameters(new FileBasedBuilderParametersImpl().setFile(MULTI_DYNAMIC_FILE)).registerChildDefaultsHandler(
                 FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingRefreshDelay(1L))));
         CombinedConfiguration config = builder.getConfiguration();
+        // removed other assertion
 
         final ReaderThread testThreads[] = new ReaderThread[threadCount];
         for (int i = 0; i < testThreads.length; ++i) {
@@ -418,9 +425,12 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         copyFile(input, output);
 
         Thread.sleep(2000);
+        // removed other assertion
         config = builder.getConfiguration();
         final String id = config.getString("Product/FIIndex/FI[@id='123456782']");
+        // removed other assertion
         final String rows = config.getString("rowsPerPage");
+        // removed other assertion
 
         for (final ReaderThread testThread : testThreads) {
             testThread.shutdown();
@@ -492,6 +502,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         verify("1002", config, 25);
         verify("1003", config, 35);
         verify("1004", config, 50);
+        // removed other assertion
         assertEquals(0, config.getMaxIndex("split/list3/@values"));
     }
 
@@ -519,6 +530,8 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         verify("1002", config, 25);
         verify("1003", config, 35);
         verify("1004", config, 50);
+        // removed other assertion
+        // removed other assertion
         assertEquals("a\\,b\\,c", config.getString("split/list4/@values"));
     }
 
@@ -546,6 +559,9 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         verify("1002", config, 25);
         verify("1003", config, 35);
         verify("1004", config, 50);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("OK-1", config.getString("buttons/name"));
     }
 
@@ -573,6 +589,10 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         verify("1002", config, 25);
         verify("1003", config, 35);
         verify("1004", config, 50);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(3, config.getMaxIndex("buttons/name"));
     }
 
@@ -600,6 +620,11 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         verify("1002", config, 25);
         verify("1003", config, 35);
         verify("1004", config, 50);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("a\\,b\\,c", config.getString("split/list2"));
     }
 
@@ -627,6 +652,12 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         verify("1002", config, 25);
         verify("1003", config, 35);
         verify("1004", config, 50);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong size", 18, config.size());
     }
 
@@ -654,6 +685,13 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         verify("1002", config, 25);
         verify("1003", config, 35);
         verify("1004", config, 50);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         config.addProperty("listDelimiterTest", "1,2,3");
         assertEquals("List delimiter not detected", "1", config.getString("listDelimiterTest"));
     }

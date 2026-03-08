@@ -1,0 +1,2042 @@
+id,test_prefix,test_name
+commons-beanutils_3_101,"public void testAddProperty3_oe_101_oe() {
+        try {
+            dynaClass.add(testProperty, String.class, true, true);
+            fail(""add(name, type, readable, writable) did not throw UnsupportedOperationException"");
+        } catch (final UnsupportedOperationException expected) {
+            // expected result
+        }
+    }
+",LazyDynaClassTestCase::testAddProperty3_oe_101_oe
+commons-beanutils_4_101,"public void testAddPropertyNullName1_oe_101_oe() {
+        try {
+            dynaClass.add((String)null);
+            fail(""null property name not prevented"");
+        } catch (final IllegalArgumentException expected) {
+            // expected result
+        }
+    }
+",LazyDynaClassTestCase::testAddPropertyNullName1_oe_101_oe
+commons-beanutils_5_101,"public void testAddPropertyNullName2_oe_101_oe() {
+        try {
+            dynaClass.add(null, String.class);
+            fail(""null property name not prevented"");
+        } catch (final IllegalArgumentException expected) {
+            // expected result
+        }
+    }
+",LazyDynaClassTestCase::testAddPropertyNullName2_oe_101_oe
+commons-beanutils_6_101,"public void testAddPropertyNullName3_oe_101_oe() {
+        try {
+            dynaClass.add(null, String.class, true, true);
+            fail(""add(name, type, readable, writable) did not throw UnsupportedOperationException"");
+        } catch (final UnsupportedOperationException expected) {
+            // expected result
+        }
+    }
+",LazyDynaClassTestCase::testAddPropertyNullName3_oe_101_oe
+commons-beanutils_9_101,"public void testAddPropertyRestricted3_oe_101_oe() {
+        try {
+            dynaClass.add(testProperty, String.class, true, true);
+            fail(""add(name, type, readable, writable) did not throw UnsupportedOperationException"");
+        } catch (final UnsupportedOperationException t) {
+            // expected result
+        }
+    }
+",LazyDynaClassTestCase::testAddPropertyRestricted3_oe_101_oe
+commons-beanutils_13_101,"public void testRemovePropertyNullName_oe_101_oe() {
+        try {
+            dynaClass.remove(null);
+            fail(""remove(null) did not throw IllegalArgumentException"");
+        } catch (final IllegalArgumentException expected) {
+            // expected result
+        }
+    }
+",LazyDynaClassTestCase::testRemovePropertyNullName_oe_101_oe
+commons-beanutils_57_101,"public void testInvokeMethodUnknown_oe_101_oe() throws Exception {
+        try {
+            final AbstractParent parent = new AlphaBean(""parent"");
+            final BetaBean childOne = new BetaBean(""ChildOne"");
+            MethodUtils.invokeMethod(parent, ""bogus"", childOne);
+
+            fail(""No exception thrown when no appropriate method exists"");
+        } catch (final NoSuchMethodException expected) {
+            // this is what we're expecting!
+        }
+    }
+",MethodUtilsTestCase::testInvokeMethodUnknown_oe_101_oe
+commons-beanutils_78_101,"public void testGetDynaProperty_oe_101_oe() {
+        try {
+            dynaClass.getDynaProperty(null);
+            fail(""Did not throw IllegaArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            // Expected result
+        }
+    }
+",DynaResultSetTestCase::testGetDynaProperty_oe_101_oe
+commons-beanutils_80_101,"public void testNewInstance_oe_101_oe() {
+        try {
+            dynaClass.newInstance();
+            fail(""Did not throw UnsupportedOperationException()"");
+        } catch (final UnsupportedOperationException e) {
+            // Expected result
+        } catch (final Exception e) {
+        }
+    }
+",DynaResultSetTestCase::testNewInstance_oe_101_oe
+commons-beanutils_83_101,"public void testIteratorResultsNormalCase_oe_101_oe() {
+        try {
+            dynaClass = new ResultSetDynaClass(TestResultSet.createProxy(), false);
+        } catch (final Exception e) {
+            fail(""Error creating ResultSetDynaClass: "" + e);
+        }
+    }
+",DynaResultSetTestCase::testIteratorResultsNormalCase_oe_101_oe
+commons-beanutils_90_101,"public void testDefaultTransformersMap_oe_101_oe() {
+        try {
+            BeanMap.defaultTransformers.clear();
+            fail(""clear() - expected UnsupportedOperationException"");
+        } catch(final UnsupportedOperationException e) {
+            // expected result
+        }
+    }
+",BeanMapTestCase::testDefaultTransformersMap_oe_101_oe
+commons-beanutils_90_102,"public void testDefaultTransformersMap_oe_102_oe() {
+        try {
+            BeanMap.defaultTransformers.put(""FOO"", null);
+            fail(""put() - expected UnsupportedOperationException"");
+        } catch(final UnsupportedOperationException e) {
+            // expected result
+        }
+    }
+",BeanMapTestCase::testDefaultTransformersMap_oe_102_oe
+commons-beanutils_90_103,"public void testDefaultTransformersMap_oe_103_oe() {
+        try {
+            BeanMap.defaultTransformers.putAll(new HashMap<Object, Object>());
+            fail(""putAll() - expected UnsupportedOperationException"");
+        } catch(final UnsupportedOperationException e) {
+            // expected result
+        }
+    }
+",BeanMapTestCase::testDefaultTransformersMap_oe_103_oe
+commons-beanutils_90_104,"public void testDefaultTransformersMap_oe_104_oe() {
+        try {
+            BeanMap.defaultTransformers.remove(""FOO"");
+            fail(""remove() - expected UnsupportedOperationException"");
+        } catch(final UnsupportedOperationException e) {
+            // expected result
+        }
+    }
+",BeanMapTestCase::testDefaultTransformersMap_oe_104_oe
+commons-beanutils_91_101,"public void testExceptionThrowFromClone_oe_101_oe() {
+        try {
+            final Object bean = Jira87BeanFactory.createMappedPropertyBean();
+            final BeanMap map = new BeanMap(bean);
+            map.clone();
+            fail(""Non-public bean clone() - expected CloneNotSupportedException"");
+        } catch (final CloneNotSupportedException e) {
+            Throwable cause = null;
+            try {
+                cause = (Throwable)PropertyUtils.getProperty(e, ""cause"");
+            } catch (final Exception e2) {
+            }
+        }
+    }
+",BeanMapTestCase::testExceptionThrowFromClone_oe_101_oe
+commons-beanutils_91_102,"public void testExceptionThrowFromClone_oe_102_oe() {
+        try {
+            final BeanMap map = new BeanMap(new BeanThrowingExceptions());
+            map.clone();
+            fail(""Setter Exception clone() - expected CloneNotSupportedException"");
+        } catch (final CloneNotSupportedException e) {
+            Throwable cause = null;
+            try {
+                cause = (Throwable)PropertyUtils.getProperty(e, ""cause"");
+            } catch (final Exception e2) {
+            }
+        }
+    }
+",BeanMapTestCase::testExceptionThrowFromClone_oe_102_oe
+commons-beanutils_92_101,"public void testExceptionThrowFromClear_oe_101_oe() {
+        try {
+            final Object bean = Jira87BeanFactory.createMappedPropertyBean();
+            final BeanMap map = new BeanMap(bean);
+            map.clear();
+            fail(""clear() - expected UnsupportedOperationException"");
+        } catch (final UnsupportedOperationException e) {
+            Throwable cause = null;
+            try {
+                cause = (Throwable)PropertyUtils.getProperty(e, ""cause"");
+            } catch (final Exception e2) {
+            }
+        }
+    }
+",BeanMapTestCase::testExceptionThrowFromClear_oe_101_oe
+commons-beanutils_93_101,"public void testExceptionThrowFromPut_oe_101_oe() {
+        try {
+            final Map<Object, Object> map = new BeanMap(new BeanThrowingExceptions());
+            map.put(""valueThrowingException"", ""value"");
+            fail(""Setter exception - expected IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            Throwable cause1 = null;
+            Throwable cause2 = null;
+            try {
+                cause1 = (Throwable)PropertyUtils.getProperty(e, ""cause"");
+                cause2 = (Throwable)PropertyUtils.getProperty(e, ""cause.cause"");
+            } catch (final Exception e2) {
+            }
+        }
+    }
+",BeanMapTestCase::testExceptionThrowFromPut_oe_101_oe
+commons-beanutils_107_101,"public void testGetIndexedArguments_oe_101_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(null, ""intArray"", 0);
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedArguments_oe_101_oe
+commons-beanutils_107_102,"public void testGetIndexedArguments_oe_102_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(bean, null, 0);
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedArguments_oe_102_oe
+commons-beanutils_107_103,"public void testGetIndexedArguments_oe_103_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(null,
+                    ""intArray[0]"");
+            fail(""Should throw IllegalArgumentException 3"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedArguments_oe_103_oe
+commons-beanutils_107_104,"public void testGetIndexedArguments_oe_104_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(bean, ""[0]"");
+            fail(""Should throw NoSuchMethodException 4"");
+        } catch (final NoSuchMethodException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedArguments_oe_104_oe
+commons-beanutils_107_105,"public void testGetIndexedArguments_oe_105_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(bean, ""intArray"");
+            fail(""Should throw IllegalArgumentException 5"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedArguments_oe_105_oe
+commons-beanutils_107_106,"public void testGetIndexedArguments_oe_106_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(null, ""intIndexed"", 0);
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedArguments_oe_106_oe
+commons-beanutils_107_107,"public void testGetIndexedArguments_oe_107_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(bean, null, 0);
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedArguments_oe_107_oe
+commons-beanutils_107_108,"public void testGetIndexedArguments_oe_108_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(null,
+                    ""intIndexed[0]"");
+            fail(""Should throw IllegalArgumentException 3"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedArguments_oe_108_oe
+commons-beanutils_107_109,"public void testGetIndexedArguments_oe_109_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(bean, ""[0]"");
+            fail(""Should throw NoSuchMethodException 4"");
+        } catch (final NoSuchMethodException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedArguments_oe_109_oe
+commons-beanutils_107_110,"public void testGetIndexedArguments_oe_110_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(bean, ""intIndexed"");
+            fail(""Should throw IllegalArgumentException 5"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedArguments_oe_110_oe
+commons-beanutils_109_101,"public void testGetMappedArguments_oe_101_oe() {
+        try {
+            PropertyUtils.getMappedProperty(null, ""mappedProperty"",
+                    ""First Key"");
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetMappedArguments_oe_101_oe
+commons-beanutils_109_102,"public void testGetMappedArguments_oe_102_oe() {
+        try {
+            PropertyUtils.getMappedProperty(bean, null, ""First Key"");
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetMappedArguments_oe_102_oe
+commons-beanutils_109_103,"public void testGetMappedArguments_oe_103_oe() {
+        try {
+            PropertyUtils.getMappedProperty(bean, ""mappedProperty"", null);
+            fail(""Should throw IllegalArgumentException 3"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetMappedArguments_oe_103_oe
+commons-beanutils_109_104,"public void testGetMappedArguments_oe_104_oe() {
+        try {
+            PropertyUtils.getMappedProperty(null,
+                    ""mappedProperty(First Key)"");
+            fail(""Should throw IllegalArgumentException 4"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetMappedArguments_oe_104_oe
+commons-beanutils_109_105,"public void testGetMappedArguments_oe_105_oe() {
+        try {
+            PropertyUtils.getMappedProperty(bean, ""(Second Key)"");
+            fail(""Should throw IllegalArgumentException 5"");
+        } catch (final NoSuchMethodException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetMappedArguments_oe_105_oe
+commons-beanutils_109_106,"public void testGetMappedArguments_oe_106_oe() {
+        try {
+            PropertyUtils.getMappedProperty(bean, ""mappedProperty"");
+            fail(""Should throw IllegalArgumentException 6"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetMappedArguments_oe_106_oe
+commons-beanutils_113_101,"public void testGetNestedArguments_oe_101_oe() {
+        try {
+            PropertyUtils.getNestedProperty(null, ""stringProperty"");
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedArguments_oe_101_oe
+commons-beanutils_113_102,"public void testGetNestedArguments_oe_102_oe() {
+        try {
+            PropertyUtils.getNestedProperty(bean, null);
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedArguments_oe_102_oe
+commons-beanutils_122_101,"public void testGetNestedUnknown_oe_101_oe() {
+        try {
+            PropertyUtils.getNestedProperty(bean, ""nested.unknown"");
+            fail(""Should have thrown NoSuchMethodException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            // Correct result for this test
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedUnknown_oe_101_oe
+commons-beanutils_123_101,"public void testGetSimpleArguments_oe_101_oe() {
+        try {
+            PropertyUtils.getSimpleProperty(null, ""stringProperty"");
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleArguments_oe_101_oe
+commons-beanutils_123_102,"public void testGetSimpleArguments_oe_102_oe() {
+        try {
+            PropertyUtils.getSimpleProperty(bean, null);
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleArguments_oe_102_oe
+commons-beanutils_127_101,"public void testGetSimpleIndexed_oe_101_oe() {
+        try {
+            PropertyUtils.getSimpleProperty(bean,
+                    ""intIndexed[0]"");
+            fail(""Should have thrown IllegalArgumentException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+            // Correct result for this test
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleIndexed_oe_101_oe
+commons-beanutils_130_101,"public void testGetSimpleNested_oe_101_oe() {
+        try {
+            PropertyUtils.getSimpleProperty(bean,
+                    ""nested.stringProperty"");
+            fail(""Should have thrown IllegaArgumentException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+            // Correct result for this test
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleNested_oe_101_oe
+commons-beanutils_133_101,"public void testGetSimpleUnknown_oe_101_oe() {
+        try {
+            PropertyUtils.getSimpleProperty(bean, ""unknown"");
+            fail(""Should have thrown NoSuchMethodException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            // Correct result for this test
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleUnknown_oe_101_oe
+commons-beanutils_134_101,"public void testSetIndexedArguments_oe_101_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(null, ""intArray"", 0,
+                    new Integer(1));
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedArguments_oe_101_oe
+commons-beanutils_134_102,"public void testSetIndexedArguments_oe_102_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean, null, 0,
+                    new Integer(1));
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedArguments_oe_102_oe
+commons-beanutils_134_103,"public void testSetIndexedArguments_oe_103_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(null,
+                    ""intArray[0]"",
+                    new Integer(1));
+            fail(""Should throw IllegalArgumentException 3"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedArguments_oe_103_oe
+commons-beanutils_134_104,"public void testSetIndexedArguments_oe_104_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean, ""[0]"",
+                    new Integer(1));
+            fail(""Should throw NoSuchMethodException 4"");
+        } catch (final NoSuchMethodException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedArguments_oe_104_oe
+commons-beanutils_134_105,"public void testSetIndexedArguments_oe_105_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean, ""intArray"",
+                    new Integer(1));
+            fail(""Should throw IllegalArgumentException 5"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedArguments_oe_105_oe
+commons-beanutils_134_106,"public void testSetIndexedArguments_oe_106_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(null, ""intIndexed"", 0,
+                    new Integer(1));
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedArguments_oe_106_oe
+commons-beanutils_134_107,"public void testSetIndexedArguments_oe_107_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean, null, 0,
+                    new Integer(1));
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedArguments_oe_107_oe
+commons-beanutils_134_108,"public void testSetIndexedArguments_oe_108_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(null,
+                    ""intIndexed[0]"",
+                    new Integer(1));
+            fail(""Should throw IllegalArgumentException 3"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedArguments_oe_108_oe
+commons-beanutils_134_109,"public void testSetIndexedArguments_oe_109_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean, ""[0]"",
+                    new Integer(1));
+            fail(""Should throw NoSuchMethodException 4"");
+        } catch (final NoSuchMethodException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedArguments_oe_109_oe
+commons-beanutils_134_110,"public void testSetIndexedArguments_oe_110_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean, ""intIndexed"",
+                    new Integer(1));
+            fail(""Should throw IllegalArgumentException 5"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedArguments_oe_110_oe
+commons-beanutils_135_111,"public void testSetIndexedValues_oe_111_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""intArray"", -1,
+                    new Integer(0));
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_111_oe
+commons-beanutils_135_112,"public void testSetIndexedValues_oe_112_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""intArray"", 5,
+                    new Integer(0));
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_112_oe
+commons-beanutils_135_113,"public void testSetIndexedValues_oe_113_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""intIndexed"", -1,
+                    new Integer(0));
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_113_oe
+commons-beanutils_135_114,"public void testSetIndexedValues_oe_114_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""intIndexed"", 5,
+                    new Integer(0));
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_114_oe
+commons-beanutils_135_115,"public void testSetIndexedValues_oe_115_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""listIndexed"", 5,
+                    ""New String"");
+            fail(""Should have thrown IndexOutOfBoundsException"");
+        } catch (final IndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_115_oe
+commons-beanutils_135_116,"public void testSetIndexedValues_oe_116_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""listIndexed"", -1,
+                    ""New String"");
+            fail(""Should have thrown IndexOutOfBoundsException"");
+        } catch (final IndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_116_oe
+commons-beanutils_135_117,"public void testSetIndexedValues_oe_117_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""stringArray"", -1,
+                    ""New String"");
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_117_oe
+commons-beanutils_135_118,"public void testSetIndexedValues_oe_118_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""stringArray"", 5,
+                    ""New String"");
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_118_oe
+commons-beanutils_135_119,"public void testSetIndexedValues_oe_119_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""stringIndexed"", -1,
+                    ""New String"");
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_119_oe
+commons-beanutils_135_120,"public void testSetIndexedValues_oe_120_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""stringIndexed"", 5,
+                    ""New String"");
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_120_oe
+commons-beanutils_136_101,"public void testSetMappedArguments_oe_101_oe() {
+        try {
+            PropertyUtils.setMappedProperty(null, ""mappedProperty"",
+                    ""First Key"", ""First Value"");
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetMappedArguments_oe_101_oe
+commons-beanutils_136_102,"public void testSetMappedArguments_oe_102_oe() {
+        try {
+            PropertyUtils.setMappedProperty(bean, null, ""First Key"",
+                    ""First Value"");
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetMappedArguments_oe_102_oe
+commons-beanutils_136_103,"public void testSetMappedArguments_oe_103_oe() {
+        try {
+            PropertyUtils.setMappedProperty(bean, ""mappedProperty"", null,
+                    ""First Value"");
+            fail(""Should throw IllegalArgumentException 3"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetMappedArguments_oe_103_oe
+commons-beanutils_136_104,"public void testSetMappedArguments_oe_104_oe() {
+        try {
+            PropertyUtils.setMappedProperty(null,
+                    ""mappedProperty(First Key)"",
+                    ""First Value"");
+            fail(""Should throw IllegalArgumentException 4"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetMappedArguments_oe_104_oe
+commons-beanutils_136_105,"public void testSetMappedArguments_oe_105_oe() {
+        try {
+            PropertyUtils.setMappedProperty(bean, ""(Second Key)"",
+                    ""Second Value"");
+            fail(""Should throw IllegalArgumentException 5"");
+        } catch (final NoSuchMethodException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetMappedArguments_oe_105_oe
+commons-beanutils_136_106,"public void testSetMappedArguments_oe_106_oe() {
+        try {
+            PropertyUtils.setMappedProperty(bean, ""mappedProperty"",
+                    ""Third Value"");
+            fail(""Should throw IllegalArgumentException 6"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetMappedArguments_oe_106_oe
+commons-beanutils_138_101,"public void testSetNestedArguments_oe_101_oe() {
+        try {
+            PropertyUtils.setNestedProperty(null, ""stringProperty"", """");
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedArguments_oe_101_oe
+commons-beanutils_138_102,"public void testSetNestedArguments_oe_102_oe() {
+        try {
+            PropertyUtils.setNestedProperty(bean, null, """");
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedArguments_oe_102_oe
+commons-beanutils_144_101,"public void testSetNestedReadOnly_oe_101_oe() {
+        try {
+            final String oldValue = nested.getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.readOnlyProperty"",
+                    newValue);
+            fail(""Should have thrown NoSuchMethodException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            // Correct result for this test
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedReadOnly_oe_101_oe
+commons-beanutils_147_101,"public void testSetNestedUnknown_oe_101_oe() {
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.unknown"",
+                    newValue);
+            fail(""Should have thrown NoSuchMethodException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            // Correct result for this test
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedUnknown_oe_101_oe
+commons-beanutils_149_101,"public void testSetSimpleArguments_oe_101_oe() {
+        try {
+            PropertyUtils.setSimpleProperty(null, ""stringProperty"", """");
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleArguments_oe_101_oe
+commons-beanutils_149_102,"public void testSetSimpleArguments_oe_102_oe() {
+        try {
+            PropertyUtils.setSimpleProperty(bean, null, """");
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleArguments_oe_102_oe
+commons-beanutils_153_101,"public void testSetSimpleIndexed_oe_101_oe() {
+        try {
+            PropertyUtils.setSimpleProperty(bean,
+                    ""stringIndexed[0]"",
+                    ""New String Value"");
+            fail(""Should have thrown IllegalArgumentException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+            // Correct result for this test
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleIndexed_oe_101_oe
+commons-beanutils_156_101,"public void testSetSimpleNested_oe_101_oe() {
+        try {
+            PropertyUtils.setSimpleProperty(bean,
+                    ""nested.stringProperty"",
+                    ""New String Value"");
+            fail(""Should have thrown IllegalArgumentException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+            // Correct result for this test
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleNested_oe_101_oe
+commons-beanutils_159_101,"public void testSetSimpleUnknown_oe_101_oe() {
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""unknown"",
+                    newValue);
+            fail(""Should have thrown NoSuchMethodException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            // Correct result for this test
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleUnknown_oe_101_oe
+commons-beanutils_177_101,"public void testSetIndexedArguments_oe_101_oe() {
+        try {
+            bean.set(""intArray"", -1, new Integer(0));
+            fail(""Should throw IndexOutOfBoundsException"");
+        } catch (final IndexOutOfBoundsException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",BasicDynaBeanTestCase::testSetIndexedArguments_oe_101_oe
+commons-beanutils_227_101,"public void testInitNoPrefix_oe_101_oe() {
+        try {
+            new FluentPropertyBeanIntrospector(null);
+            fail(""Missing prefix for write methods not detected!"");
+        } catch (final IllegalArgumentException iex) {
+            // ok
+        }
+    }
+",FluentPropertyBeanIntrospectorTestCase::testInitNoPrefix_oe_101_oe
+commons-beanutils_230_101,"public void testInitNoPropertyNames_oe_101_oe() {
+        try {
+            new SuppressPropertiesBeanIntrospector(null);
+            fail(""Missing properties not detected!"");
+        } catch (final IllegalArgumentException iaex) {
+            // ok
+        }
+    }
+",SuppressPropertiesBeanIntrospectorTestCase::testInitNoPropertyNames_oe_101_oe
+commons-beanutils_235_101,"public void testExecuteWithSimpleFloatPropertyAndStringValue_oe_101_oe() {
+        try {
+            new BeanPropertyValueChangeClosure(""floatProperty"", ""123"").execute(new TestBean());
+            fail(""Should have thrown an IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            /* this is what we expect */
+        }
+    }
+",BeanPropertyValueChangeClosureTestCase::testExecuteWithSimpleFloatPropertyAndStringValue_oe_101_oe
+commons-beanutils_236_101,"public void testExecuteWithSimpleFloatPropertyAndDoubleValue_oe_101_oe() {
+        try {
+            new BeanPropertyValueChangeClosure(""floatProperty"", expectedDoubleValue).execute(new TestBean());
+            fail(""Should have thrown an IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            /* this is what we expect */
+        }
+    }
+",BeanPropertyValueChangeClosureTestCase::testExecuteWithSimpleFloatPropertyAndDoubleValue_oe_101_oe
+commons-beanutils_239_101,"public void testExecuteWithSimpleDoublePropertyAndStringValue_oe_101_oe() {
+        try {
+            new BeanPropertyValueChangeClosure(""doubleProperty"", ""123"").execute(new TestBean());
+            fail(""Should have thrown an IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            /* this is what we expect */
+        }
+    }
+",BeanPropertyValueChangeClosureTestCase::testExecuteWithSimpleDoublePropertyAndStringValue_oe_101_oe
+commons-beanutils_242_101,"public void testExecuteWithSimpleIntPropertyAndDoubleValue_oe_101_oe() {
+        try {
+            new BeanPropertyValueChangeClosure(""intProperty"", expectedDoubleValue).execute(new TestBean());
+            fail(""Should have thrown an IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            /* this is what we expect */
+        }
+    }
+",BeanPropertyValueChangeClosureTestCase::testExecuteWithSimpleIntPropertyAndDoubleValue_oe_101_oe
+commons-beanutils_243_101,"public void testExecuteWithSimpleIntPropertyAndStringValue_oe_101_oe() {
+        try {
+            new BeanPropertyValueChangeClosure(""intProperty"", ""123"").execute(new TestBean());
+            fail(""Should have thrown an IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            /* this is what we expect */
+        }
+    }
+",BeanPropertyValueChangeClosureTestCase::testExecuteWithSimpleIntPropertyAndStringValue_oe_101_oe
+commons-beanutils_244_101,"public void testExecuteWithSimpleIntPropertyAndFloatValue_oe_101_oe() {
+        try {
+            new BeanPropertyValueChangeClosure(""intProperty"", expectedFloatValue).execute(new TestBean());
+            fail(""Should have thrown an IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            /* this is what we expect */
+        }
+    }
+",BeanPropertyValueChangeClosureTestCase::testExecuteWithSimpleIntPropertyAndFloatValue_oe_101_oe
+commons-beanutils_247_101,"public void testExecuteWithSimpleBooleanPropertyAndStringValue_oe_101_oe() {
+        try {
+            new BeanPropertyValueChangeClosure(""booleanProperty"", ""true"").execute(new TestBean());
+            fail(""Should have thrown an IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            /* this is what we expect */
+        }
+    }
+",BeanPropertyValueChangeClosureTestCase::testExecuteWithSimpleBooleanPropertyAndStringValue_oe_101_oe
+commons-beanutils_249_101,"public void testExecuteWithSimpleBytePropertyAndStringValue_oe_101_oe() {
+        try {
+            new BeanPropertyValueChangeClosure(""byteProperty"", ""foo"").execute(new TestBean());
+            fail(""Should have thrown an IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            /* this is what we expect */
+        }
+    }
+",BeanPropertyValueChangeClosureTestCase::testExecuteWithSimpleBytePropertyAndStringValue_oe_101_oe
+commons-beanutils_250_101,"public void testExecuteWithSimplePrimitivePropertyAndNullValue_oe_101_oe() {
+        try {
+            new BeanPropertyValueChangeClosure(""intProperty"", null).execute(new TestBean());
+            fail(""Should have thrown an IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            /* this is what we expect */
+        }
+    }
+",BeanPropertyValueChangeClosureTestCase::testExecuteWithSimplePrimitivePropertyAndNullValue_oe_101_oe
+commons-beanutils_251_101,"public void testExecuteWithReadOnlyProperty_oe_101_oe() {
+        try {
+            new BeanPropertyValueChangeClosure(""readOnlyProperty"", ""foo"").execute(new TestBean());
+            fail(""Should have thrown an IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            /* this is what we expect */
+        }
+    }
+",BeanPropertyValueChangeClosureTestCase::testExecuteWithReadOnlyProperty_oe_101_oe
+commons-beanutils_254_101,"public void testExecuteWithNullInPropertyPath_oe_101_oe() {
+        try {
+            new BeanPropertyValueChangeClosure(""anotherNested.stringProperty"", ""foo"").execute(new TestBean());
+            fail(""Should have thrown an IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            /* this is what we expect */
+        }
+    }
+",BeanPropertyValueChangeClosureTestCase::testExecuteWithNullInPropertyPath_oe_101_oe
+commons-beanutils_259_101,"public void testExecuteWithInvalidPropertyName_oe_101_oe() {
+        try {
+            new BeanPropertyValueChangeClosure(""bogusProperty"", ""foo"").execute(new TestBean());
+            fail(""Should have thrown an IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            /* this is what we expect */
+        }
+    }
+",BeanPropertyValueChangeClosureTestCase::testExecuteWithInvalidPropertyName_oe_101_oe
+commons-beanutils_261_101,"public void testClear_oe_101_oe() {
+        try {
+            decoratedMap.clear();
+            fail(""decoratedMap.clear()"");
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+    }
+",DynaBeanMapDecoratorTestCase::testClear_oe_101_oe
+commons-beanutils_261_102,"public void testClear_oe_102_oe() {
+        try {
+            modifiableMap.clear();
+            fail(""modifiableMap.clear()"");
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+    }
+",DynaBeanMapDecoratorTestCase::testClear_oe_102_oe
+commons-beanutils_265_101,"public void testGet_oe_101_oe() {
+        try {
+            decoratedMap.get(""xyz"");
+            fail(""decoratedMap invalid"");
+        } catch(final IllegalArgumentException ignore) {
+            // expected result
+        }
+    }
+",DynaBeanMapDecoratorTestCase::testGet_oe_101_oe
+commons-beanutils_270_101,"public void testRemove_oe_101_oe() {
+        try {
+            decoratedMap.remove(stringProp.getName());
+            fail(""decoratedMap.remove()"");
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+    }
+",DynaBeanMapDecoratorTestCase::testRemove_oe_101_oe
+commons-beanutils_270_102,"public void testRemove_oe_102_oe() {
+        try {
+            modifiableMap.remove(stringProp.getName());
+            fail(""modifiableMap.remove()"");
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+    }
+",DynaBeanMapDecoratorTestCase::testRemove_oe_102_oe
+commons-beanutils_310_101,"public void testAddPropertyDescriptorNull_oe_101_oe() {
+        try {
+            context.addPropertyDescriptor(null);
+            fail(""Could add null descriptor!"");
+        } catch (final IllegalArgumentException iex) {
+            // ok
+        }
+    }
+",DefaultIntrospectionContextTestCase::testAddPropertyDescriptorNull_oe_101_oe
+commons-beanutils_312_101,"public void testAddPropertyDescriptorsNull_oe_101_oe() {
+        try {
+            context.addPropertyDescriptors(null);
+            fail(""Could add a null array with descriptors!"");
+        } catch (final IllegalArgumentException iex) {
+            // ok
+        }
+    }
+",DefaultIntrospectionContextTestCase::testAddPropertyDescriptorsNull_oe_101_oe
+commons-beanutils_318_101,"public void testGetDynaProperty_oe_101_oe() {
+        try {
+            dynaClass.getDynaProperty(null);
+            fail(""Did not throw IllegaArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            // Expected result
+        }
+    }
+",DynaRowSetTestCase::testGetDynaProperty_oe_101_oe
+commons-beanutils_320_101,"public void testNewInstance_oe_101_oe() {
+        try {
+            dynaClass.newInstance();
+            fail(""Did not throw UnsupportedOperationException()"");
+        } catch (final UnsupportedOperationException e) {
+            // Expected result
+        } catch (final Exception e) {
+        }
+    }
+",DynaRowSetTestCase::testNewInstance_oe_101_oe
+commons-beanutils_323_101,"public void testListResultsNormalCase_oe_101_oe() {
+        try {
+            dynaClass = new RowSetDynaClass(TestResultSet.createProxy(), false);
+        } catch (final Exception e) {
+            fail(""Error creating RowSetDynaClass: "" + e);
+        }
+    }
+",DynaRowSetTestCase::testListResultsNormalCase_oe_101_oe
+commons-beanutils_429_101,"public void testGetDescriptorArguments_oe_101_oe() {
+        try {
+            PropertyUtils.getPropertyDescriptor(null, ""stringProperty"");
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetDescriptorArguments_oe_101_oe
+commons-beanutils_429_102,"public void testGetDescriptorArguments_oe_102_oe() {
+        try {
+            PropertyUtils.getPropertyDescriptor(bean, null);
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetDescriptorArguments_oe_102_oe
+commons-beanutils_433_101,"public void testGetDescriptorsArguments_oe_101_oe() {
+        try {
+            PropertyUtils.getPropertyDescriptors(null);
+            fail(""Should throw IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetDescriptorsArguments_oe_101_oe
+commons-beanutils_434_101,"public void testGetIndexedArguments_oe_101_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(null, ""intArray"", 0);
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedArguments_oe_101_oe
+commons-beanutils_434_102,"public void testGetIndexedArguments_oe_102_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(bean, null, 0);
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedArguments_oe_102_oe
+commons-beanutils_434_103,"public void testGetIndexedArguments_oe_103_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(null,
+                    ""intArray[0]"");
+            fail(""Should throw IllegalArgumentException 3"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedArguments_oe_103_oe
+commons-beanutils_434_104,"public void testGetIndexedArguments_oe_104_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(bean, ""[0]"");
+            fail(""Should throw NoSuchMethodException 4"");
+        } catch (final NoSuchMethodException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedArguments_oe_104_oe
+commons-beanutils_434_105,"public void testGetIndexedArguments_oe_105_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(bean, ""intArray"");
+            fail(""Should throw IllegalArgumentException 5"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedArguments_oe_105_oe
+commons-beanutils_434_106,"public void testGetIndexedArguments_oe_106_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(null, ""intIndexed"", 0);
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedArguments_oe_106_oe
+commons-beanutils_434_107,"public void testGetIndexedArguments_oe_107_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(bean, null, 0);
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedArguments_oe_107_oe
+commons-beanutils_434_108,"public void testGetIndexedArguments_oe_108_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(null,
+                    ""intIndexed[0]"");
+            fail(""Should throw IllegalArgumentException 3"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedArguments_oe_108_oe
+commons-beanutils_434_109,"public void testGetIndexedArguments_oe_109_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(bean, ""[0]"");
+            fail(""Should throw NoSuchMethodException 4"");
+        } catch (final NoSuchMethodException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedArguments_oe_109_oe
+commons-beanutils_434_110,"public void testGetIndexedArguments_oe_110_oe() {
+        try {
+            PropertyUtils.getIndexedProperty(bean, ""intIndexed"");
+            fail(""Should throw IllegalArgumentException 5"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedArguments_oe_110_oe
+commons-beanutils_439_101,"public void testGetMappedArguments_oe_101_oe() {
+        try {
+            PropertyUtils.getMappedProperty(null, ""mappedProperty"",
+                    ""First Key"");
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetMappedArguments_oe_101_oe
+commons-beanutils_439_102,"public void testGetMappedArguments_oe_102_oe() {
+        try {
+            PropertyUtils.getMappedProperty(bean, null, ""First Key"");
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetMappedArguments_oe_102_oe
+commons-beanutils_439_103,"public void testGetMappedArguments_oe_103_oe() {
+        try {
+            PropertyUtils.getMappedProperty(bean, ""mappedProperty"", null);
+            fail(""Should throw IllegalArgumentException 3"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetMappedArguments_oe_103_oe
+commons-beanutils_439_104,"public void testGetMappedArguments_oe_104_oe() {
+        try {
+            PropertyUtils.getMappedProperty(null,
+                    ""mappedProperty(First Key)"");
+            fail(""Should throw IllegalArgumentException 4"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetMappedArguments_oe_104_oe
+commons-beanutils_439_105,"public void testGetMappedArguments_oe_105_oe() {
+        try {
+            PropertyUtils.getMappedProperty(bean, ""(Second Key)"");
+            fail(""Should throw IllegalArgumentException 5"");
+        } catch (final NoSuchMethodException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetMappedArguments_oe_105_oe
+commons-beanutils_439_106,"public void testGetMappedArguments_oe_106_oe() {
+        try {
+            PropertyUtils.getMappedProperty(bean, ""mappedProperty"");
+            fail(""Should throw IllegalArgumentException 6"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetMappedArguments_oe_106_oe
+commons-beanutils_446_101,"public void testGetNestedArguments_oe_101_oe() {
+        try {
+            PropertyUtils.getNestedProperty(null, ""stringProperty"");
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetNestedArguments_oe_101_oe
+commons-beanutils_446_102,"public void testGetNestedArguments_oe_102_oe() {
+        try {
+            PropertyUtils.getNestedProperty(bean, null);
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetNestedArguments_oe_102_oe
+commons-beanutils_455_101,"public void testGetNestedUnknown_oe_101_oe() {
+        try {
+            PropertyUtils.getNestedProperty(bean, ""nested.unknown"");
+            fail(""Should have thrown NoSuchMethodException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            // Correct result for this test
+        }
+    }
+",PropertyUtilsTestCase::testGetNestedUnknown_oe_101_oe
+commons-beanutils_457_101,"public void testGetNestedWriteOnly_oe_101_oe() {
+        try {
+            PropertyUtils.getNestedProperty(bean, ""writeOnlyProperty"");
+            fail(""Should have thrown NoSuchMethodException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            // Correct result for this test
+        }
+    }
+",PropertyUtilsTestCase::testGetNestedWriteOnly_oe_101_oe
+commons-beanutils_461_101,"public void testGetSimpleArguments_oe_101_oe() {
+        try {
+            PropertyUtils.getSimpleProperty(null, ""stringProperty"");
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetSimpleArguments_oe_101_oe
+commons-beanutils_461_102,"public void testGetSimpleArguments_oe_102_oe() {
+        try {
+            PropertyUtils.getSimpleProperty(bean, null);
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetSimpleArguments_oe_102_oe
+commons-beanutils_465_101,"public void testGetSimpleIndexed_oe_101_oe() {
+        try {
+            PropertyUtils.getSimpleProperty(bean,
+                    ""intIndexed[0]"");
+            fail(""Should have thrown IllegalArgumentException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+            // Correct result for this test
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+        }
+    }
+",PropertyUtilsTestCase::testGetSimpleIndexed_oe_101_oe
+commons-beanutils_468_101,"public void testGetSimpleNested_oe_101_oe() {
+        try {
+            PropertyUtils.getSimpleProperty(bean,
+                    ""nested.stringProperty"");
+            fail(""Should have thrown IllegaArgumentException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+            // Correct result for this test
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+        }
+    }
+",PropertyUtilsTestCase::testGetSimpleNested_oe_101_oe
+commons-beanutils_472_101,"public void testGetSimpleUnknown_oe_101_oe() {
+        try {
+            PropertyUtils.getSimpleProperty(bean, ""unknown"");
+            fail(""Should have thrown NoSuchMethodException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            // Correct result for this test
+        }
+    }
+",PropertyUtilsTestCase::testGetSimpleUnknown_oe_101_oe
+commons-beanutils_473_101,"public void testGetSimpleWriteOnly_oe_101_oe() {
+        try {
+            PropertyUtils.getSimpleProperty(bean, ""writeOnlyProperty"");
+            fail(""Should have thrown NoSuchMethodException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            // Correct result for this test
+        }
+    }
+",PropertyUtilsTestCase::testGetSimpleWriteOnly_oe_101_oe
+commons-beanutils_477_101,"public void testSetIndexedArguments_oe_101_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(null, ""intArray"", 0,
+                    new Integer(1));
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedArguments_oe_101_oe
+commons-beanutils_477_102,"public void testSetIndexedArguments_oe_102_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean, null, 0,
+                    new Integer(1));
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedArguments_oe_102_oe
+commons-beanutils_477_103,"public void testSetIndexedArguments_oe_103_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(null,
+                    ""intArray[0]"",
+                    new Integer(1));
+            fail(""Should throw IllegalArgumentException 3"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedArguments_oe_103_oe
+commons-beanutils_477_104,"public void testSetIndexedArguments_oe_104_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean, ""[0]"",
+                    new Integer(1));
+            fail(""Should throw NoSuchMethodException 4"");
+        } catch (final NoSuchMethodException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedArguments_oe_104_oe
+commons-beanutils_477_105,"public void testSetIndexedArguments_oe_105_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean, ""intArray"",
+                    new Integer(1));
+            fail(""Should throw IllegalArgumentException 5"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedArguments_oe_105_oe
+commons-beanutils_477_106,"public void testSetIndexedArguments_oe_106_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(null, ""intIndexed"", 0,
+                    new Integer(1));
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedArguments_oe_106_oe
+commons-beanutils_477_107,"public void testSetIndexedArguments_oe_107_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean, null, 0,
+                    new Integer(1));
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedArguments_oe_107_oe
+commons-beanutils_477_108,"public void testSetIndexedArguments_oe_108_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(null,
+                    ""intIndexed[0]"",
+                    new Integer(1));
+            fail(""Should throw IllegalArgumentException 3"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedArguments_oe_108_oe
+commons-beanutils_477_109,"public void testSetIndexedArguments_oe_109_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean, ""[0]"",
+                    new Integer(1));
+            fail(""Should throw NoSuchMethodException 4"");
+        } catch (final NoSuchMethodException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedArguments_oe_109_oe
+commons-beanutils_477_110,"public void testSetIndexedArguments_oe_110_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean, ""intIndexed"",
+                    new Integer(1));
+            fail(""Should throw IllegalArgumentException 5"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedArguments_oe_110_oe
+commons-beanutils_481_113,"public void testSetIndexedValues_oe_113_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""dupProperty"", -1,
+                    ""New -1"");
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_113_oe
+commons-beanutils_481_114,"public void testSetIndexedValues_oe_114_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""dupProperty"", 5,
+                    ""New 5"");
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_114_oe
+commons-beanutils_481_115,"public void testSetIndexedValues_oe_115_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""intArray"", -1,
+                    new Integer(0));
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_115_oe
+commons-beanutils_481_116,"public void testSetIndexedValues_oe_116_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""intArray"", 5,
+                    new Integer(0));
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_116_oe
+commons-beanutils_481_117,"public void testSetIndexedValues_oe_117_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""intIndexed"", -1,
+                    new Integer(0));
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_117_oe
+commons-beanutils_481_118,"public void testSetIndexedValues_oe_118_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""intIndexed"", 5,
+                    new Integer(0));
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_118_oe
+commons-beanutils_481_119,"public void testSetIndexedValues_oe_119_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""listIndexed"", 5,
+                    ""New String"");
+            fail(""Should have thrown IndexOutOfBoundsException"");
+        } catch (final IndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_119_oe
+commons-beanutils_481_120,"public void testSetIndexedValues_oe_120_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""listIndexed"", -1,
+                    ""New String"");
+            fail(""Should have thrown IndexOutOfBoundsException"");
+        } catch (final IndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_120_oe
+commons-beanutils_481_121,"public void testSetIndexedValues_oe_121_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""stringArray"", -1,
+                    ""New String"");
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_121_oe
+commons-beanutils_481_122,"public void testSetIndexedValues_oe_122_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""stringArray"", 5,
+                    ""New String"");
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_122_oe
+commons-beanutils_481_123,"public void testSetIndexedValues_oe_123_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""stringIndexed"", -1,
+                    ""New String"");
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_123_oe
+commons-beanutils_481_124,"public void testSetIndexedValues_oe_124_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""stringIndexed"", 5,
+                    ""New String"");
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_124_oe
+commons-beanutils_482_101,"public void testSetMappedArguments_oe_101_oe() {
+        try {
+            PropertyUtils.setMappedProperty(null, ""mappedProperty"",
+                    ""First Key"", ""First Value"");
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetMappedArguments_oe_101_oe
+commons-beanutils_482_102,"public void testSetMappedArguments_oe_102_oe() {
+        try {
+            PropertyUtils.setMappedProperty(bean, null, ""First Key"",
+                    ""First Value"");
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetMappedArguments_oe_102_oe
+commons-beanutils_482_103,"public void testSetMappedArguments_oe_103_oe() {
+        try {
+            PropertyUtils.setMappedProperty(bean, ""mappedProperty"", null,
+                    ""First Value"");
+            fail(""Should throw IllegalArgumentException 3"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetMappedArguments_oe_103_oe
+commons-beanutils_482_104,"public void testSetMappedArguments_oe_104_oe() {
+        try {
+            PropertyUtils.setMappedProperty(null,
+                    ""mappedProperty(First Key)"",
+                    ""First Value"");
+            fail(""Should throw IllegalArgumentException 4"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetMappedArguments_oe_104_oe
+commons-beanutils_482_105,"public void testSetMappedArguments_oe_105_oe() {
+        try {
+            PropertyUtils.setMappedProperty(bean, ""(Second Key)"",
+                    ""Second Value"");
+            fail(""Should throw IllegalArgumentException 5"");
+        } catch (final NoSuchMethodException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetMappedArguments_oe_105_oe
+commons-beanutils_482_106,"public void testSetMappedArguments_oe_106_oe() {
+        try {
+            PropertyUtils.setMappedProperty(bean, ""mappedProperty"",
+                    ""Third Value"");
+            fail(""Should throw IllegalArgumentException 6"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetMappedArguments_oe_106_oe
+commons-beanutils_488_101,"public void testSetNestedArguments_oe_101_oe() {
+        try {
+            PropertyUtils.setNestedProperty(null, ""stringProperty"", """");
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetNestedArguments_oe_101_oe
+commons-beanutils_488_102,"public void testSetNestedArguments_oe_102_oe() {
+        try {
+            PropertyUtils.setNestedProperty(bean, null, """");
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetNestedArguments_oe_102_oe
+commons-beanutils_494_101,"public void testSetNestedReadOnly_oe_101_oe() {
+        try {
+            final String oldValue = bean.getNested().getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.readOnlyProperty"",
+                    newValue);
+            fail(""Should have thrown NoSuchMethodException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            // Correct result for this test
+        }
+    }
+",PropertyUtilsTestCase::testSetNestedReadOnly_oe_101_oe
+commons-beanutils_497_101,"public void testSetNestedUnknown_oe_101_oe() {
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.unknown"",
+                    newValue);
+            fail(""Should have thrown NoSuchMethodException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            // Correct result for this test
+        }
+    }
+",PropertyUtilsTestCase::testSetNestedUnknown_oe_101_oe
+commons-beanutils_499_101,"public void testSetSimpleArguments_oe_101_oe() {
+        try {
+            PropertyUtils.setSimpleProperty(null, ""stringProperty"", """");
+            fail(""Should throw IllegalArgumentException 1"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetSimpleArguments_oe_101_oe
+commons-beanutils_499_102,"public void testSetSimpleArguments_oe_102_oe() {
+        try {
+            PropertyUtils.setSimpleProperty(bean, null, """");
+            fail(""Should throw IllegalArgumentException 2"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testSetSimpleArguments_oe_102_oe
+commons-beanutils_503_101,"public void testSetSimpleIndexed_oe_101_oe() {
+        try {
+            PropertyUtils.setSimpleProperty(bean,
+                    ""stringIndexed[0]"",
+                    ""New String Value"");
+            fail(""Should have thrown IllegalArgumentException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+            // Correct result for this test
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+        }
+    }
+",PropertyUtilsTestCase::testSetSimpleIndexed_oe_101_oe
+commons-beanutils_506_101,"public void testSetSimpleNested_oe_101_oe() {
+        try {
+            PropertyUtils.setSimpleProperty(bean,
+                    ""nested.stringProperty"",
+                    ""New String Value"");
+            fail(""Should have thrown IllegalArgumentException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+            // Correct result for this test
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+        }
+    }
+",PropertyUtilsTestCase::testSetSimpleNested_oe_101_oe
+commons-beanutils_507_101,"public void testSetSimpleReadOnly_oe_101_oe() {
+        try {
+            final String oldValue = bean.getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""readOnlyProperty"",
+                    newValue);
+            fail(""Should have thrown NoSuchMethodException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            // Correct result for this test
+        }
+    }
+",PropertyUtilsTestCase::testSetSimpleReadOnly_oe_101_oe
+commons-beanutils_510_101,"public void testSetSimpleUnknown_oe_101_oe() {
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""unknown"",
+                    newValue);
+            fail(""Should have thrown NoSuchMethodException"");
+        } catch (final IllegalAccessException e) {
+        } catch (final IllegalArgumentException e) {
+        } catch (final InvocationTargetException e) {
+        } catch (final NoSuchMethodException e) {
+            // Correct result for this test
+        }
+    }
+",PropertyUtilsTestCase::testSetSimpleUnknown_oe_101_oe
+commons-beanutils_527_101,"public void testAddBeanIntrospectorNull_oe_101_oe() {
+        try {
+            PropertyUtils.addBeanIntrospector(null);
+            fail(""Could add null BeanIntrospector!"");
+        } catch (final IllegalArgumentException iex) {
+            // ok
+        }
+    }
+",PropertyUtilsTestCase::testAddBeanIntrospectorNull_oe_101_oe
+commons-beanutils_560_101,"public void testInvokeExactConstructor_oe_101_oe() throws Exception {
+            try {
+                ConstructorUtils.invokeExactConstructor(TestBean.class,new Float(17.3f));
+                fail(""Expected NoSuchMethodException"");
+            } catch(final NoSuchMethodException e) {
+                // expected
+            }
+    }
+",ConstructorUtilsTestCase::testInvokeExactConstructor_oe_101_oe
+commons-beanutils_567_101,"public void testIndexedProperties_oe_101_oe() {
+        try {
+            bean.get(""invalidProperty"", 0);
+            fail(""Invalid get should have thrown IllegalArgumentException"");
+        } catch (final IllegalArgumentException t) {
+            // Expected result
+        }
+    }
+",WrapDynaBeanTestCase::testIndexedProperties_oe_101_oe
+commons-beanutils_567_102,"public void testIndexedProperties_oe_102_oe() {
+        try {
+            bean.set(""invalidProperty"", 0, ""XYZ"");
+            fail(""Invalid set should have thrown IllegalArgumentException"");
+        } catch (final IllegalArgumentException t) {
+            // Expected result
+        }
+    }
+",WrapDynaBeanTestCase::testIndexedProperties_oe_102_oe
+commons-beanutils_659_101,"public void testUnsupportedTargetType_oe_101_oe() {
+        try {
+            converter.convert(Integer.class, ""/tmp"");
+            fail(""Could convert to unsupported type!"");
+        } catch (final ConversionException cex) {
+            // expected result
+        }
+    }
+",FileConverterTestCase::testUnsupportedTargetType_oe_101_oe
+commons-beanutils_712_101,"public void testErrors_oe_101_oe() {
+        try {
+            new ArrayConverter(null, new DateConverter());
+            fail(""Default Type missing - expected IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            // expected result
+        }
+    }
+",ArrayConverterTestCase::testErrors_oe_101_oe
+commons-beanutils_712_102,"public void testErrors_oe_102_oe() {
+        try {
+            new ArrayConverter(Boolean.class, new DateConverter());
+            fail(""Default Type not an array - expected IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            // expected result
+        }
+    }
+",ArrayConverterTestCase::testErrors_oe_102_oe
+commons-beanutils_712_103,"public void testErrors_oe_103_oe() {
+        try {
+            new ArrayConverter(int[].class, null);
+            fail(""Component Converter missing - expected IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            // expected result
+        }
+    }
+",ArrayConverterTestCase::testErrors_oe_103_oe
+commons-beanutils_715_101,"public void testUnsupportedType_oe_101_oe() {
+        try {
+            converter.convert(Integer.class, ""http://www.apache.org"");
+            fail(""Unsupported type could be converted!"");
+        } catch (final ConversionException cex) {
+            // expected result
+        }
+    }
+",URLConverterTestCase::testUnsupportedType_oe_101_oe
+commons-beanutils_739_101,"public void testConvertToUnsupportedType_oe_101_oe() {
+        try {
+            converter.convert(Integer.class, new Object());
+            fail(""No conversion exception thrown!"");
+        } catch(final ConversionException cex) {
+            // expected result
+        }
+    }
+",StringConverterTestCase::testConvertToUnsupportedType_oe_101_oe
+commons-beanutils_759_101,"public void testNegativeScalar_oe_101_oe() {
+        try {
+            LocaleConvertUtils.convert(""foo"", Byte.TYPE);
+            fail(""Should have thrown conversion exception (1)"");
+        } catch (final ConversionException e) {
+            // Expected result
+        }
+    }
+",LocaleConvertUtilsTestCase::testNegativeScalar_oe_101_oe
+commons-beanutils_759_102,"public void testNegativeScalar_oe_102_oe() {
+        try {
+            LocaleConvertUtils.convert(""foo"", Byte.class);
+            fail(""Should have thrown conversion exception (2)"");
+        } catch (final ConversionException e) {
+            // Expected result
+        }
+    }
+",LocaleConvertUtilsTestCase::testNegativeScalar_oe_102_oe
+commons-beanutils_759_104,"public void testNegativeScalar_oe_104_oe() {
+        try {
+            LocaleConvertUtils.convert(""foo"", Double.TYPE);
+            fail(""Should have thrown conversion exception (3)"");
+        } catch (final ConversionException e) {
+            // Expected result
+        }
+    }
+",LocaleConvertUtilsTestCase::testNegativeScalar_oe_104_oe
+commons-beanutils_759_105,"public void testNegativeScalar_oe_105_oe() {
+        try {
+            LocaleConvertUtils.convert(""foo"", Double.class);
+            fail(""Should have thrown conversion exception (4)"");
+        } catch (final ConversionException e) {
+            // Expected result
+        }
+    }
+",LocaleConvertUtilsTestCase::testNegativeScalar_oe_105_oe
+commons-beanutils_759_106,"public void testNegativeScalar_oe_106_oe() {
+        try {
+            LocaleConvertUtils.convert(""foo"", Float.TYPE);
+            fail(""Should have thrown conversion exception (5)"");
+        } catch (final ConversionException e) {
+            // Expected result
+        }
+    }
+",LocaleConvertUtilsTestCase::testNegativeScalar_oe_106_oe
+commons-beanutils_759_107,"public void testNegativeScalar_oe_107_oe() {
+        try {
+            LocaleConvertUtils.convert(""foo"", Float.class);
+            fail(""Should have thrown conversion exception (6)"");
+        } catch (final ConversionException e) {
+            // Expected result
+        }
+    }
+",LocaleConvertUtilsTestCase::testNegativeScalar_oe_107_oe
+commons-beanutils_759_108,"public void testNegativeScalar_oe_108_oe() {
+        try {
+            LocaleConvertUtils.convert(""foo"", Integer.TYPE);
+            fail(""Should have thrown conversion exception (7)"");
+        } catch (final ConversionException e) {
+            // Expected result
+        }
+    }
+",LocaleConvertUtilsTestCase::testNegativeScalar_oe_108_oe
+commons-beanutils_759_109,"public void testNegativeScalar_oe_109_oe() {
+        try {
+            LocaleConvertUtils.convert(""foo"", Integer.class);
+            fail(""Should have thrown conversion exception (8)"");
+        } catch (final ConversionException e) {
+            // Expected result
+        }
+    }
+",LocaleConvertUtilsTestCase::testNegativeScalar_oe_109_oe
+commons-beanutils_759_110,"public void testNegativeScalar_oe_110_oe() {
+        try {
+            LocaleConvertUtils.convert(""foo"", Byte.TYPE);
+            fail(""Should have thrown conversion exception (9)"");
+        } catch (final ConversionException e) {
+            // Expected result
+        }
+    }
+",LocaleConvertUtilsTestCase::testNegativeScalar_oe_110_oe
+commons-beanutils_759_111,"public void testNegativeScalar_oe_111_oe() {
+        try {
+            LocaleConvertUtils.convert(""foo"", Long.class);
+            fail(""Should have thrown conversion exception (10)"");
+        } catch (final ConversionException e) {
+            // Expected result
+        }
+    }
+",LocaleConvertUtilsTestCase::testNegativeScalar_oe_111_oe
+commons-beanutils_759_112,"public void testNegativeScalar_oe_112_oe() {
+        try {
+            LocaleConvertUtils.convert(""foo"", Short.TYPE);
+            fail(""Should have thrown conversion exception (11)"");
+        } catch (final ConversionException e) {
+            // Expected result
+        }
+    }
+",LocaleConvertUtilsTestCase::testNegativeScalar_oe_112_oe
+commons-beanutils_759_113,"public void testNegativeScalar_oe_113_oe() {
+        try {
+            LocaleConvertUtils.convert(""foo"", Short.class);
+            fail(""Should have thrown conversion exception (12)"");
+        } catch (final ConversionException e) {
+            // Expected result
+        }
+    }
+",LocaleConvertUtilsTestCase::testNegativeScalar_oe_113_oe

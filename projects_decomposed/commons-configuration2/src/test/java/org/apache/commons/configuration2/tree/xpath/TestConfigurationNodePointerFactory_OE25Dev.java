@@ -90,6 +90,7 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
     @Test
     public void testFollowingSiblingAxis_2_oe() {
         final List<?> nodes = context.selectNodes("/" + CHILD_NAME1 + "[2]/following-sibling::*");
+        // removed other assertion
         final ImmutableNode node = (ImmutableNode) nodes.get(0);
         assertEquals("Wrong node type", CHILD_NAME2, node.getNodeName());
     }
@@ -97,7 +98,9 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
     @Test
     public void testFollowingSiblingAxis_3_oe() {
         final List<?> nodes = context.selectNodes("/" + CHILD_NAME1 + "[2]/following-sibling::*");
+        // removed other assertion
         final ImmutableNode node = (ImmutableNode) nodes.get(0);
+        // removed other assertion
         assertEquals("Wrong index", String.valueOf(CHILD_COUNT), node.getValue());
     }
 
@@ -108,6 +111,7 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
 
     @Test
     public void testIndices_2_oe() {
+        // removed other assertion
         assertEquals("Incorrect value of last node", String.valueOf(CHILD_COUNT), context.getValue(CHILD_NAME2 + "[last()]"));
     }
 
@@ -126,6 +130,7 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
 @Test
     public void testPrecedingSiblingAxis_2_oe() {
         final List<?> nodes = context.selectNodes("/" + CHILD_NAME1 + "[2]/preceding-sibling::*");
+        // removed other assertion
         for (int index = 0, value = 3; index < nodes.size(); index++, value--) {
             assertEquals("Wrong node index", String.valueOf(value), ((ImmutableNode) nodes.get(index)).getValue());
     }
@@ -150,6 +155,7 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
 @Test
     public void testSimpleXPath_2_oe() {
         List<?> results = context.selectNodes(CHILD_NAME1);
+        // removed other assertion
         for (final Object result : results) {
             final ImmutableNode node = (ImmutableNode) result;
             assertEquals("Incorrect node name", CHILD_NAME1, node.getNodeName());
@@ -159,8 +165,10 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
 @Test
     public void testSimpleXPath_3_oe() {
         List<?> results = context.selectNodes(CHILD_NAME1);
+        // removed other assertion
         for (final Object result : results) {
             final ImmutableNode node = (ImmutableNode) result;
+            // removed other assertion
         }
 
         results = context.selectNodes("/" + CHILD_NAME1);
@@ -170,11 +178,14 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
 @Test
     public void testSimpleXPath_4_oe() {
         List<?> results = context.selectNodes(CHILD_NAME1);
+        // removed other assertion
         for (final Object result : results) {
             final ImmutableNode node = (ImmutableNode) result;
+            // removed other assertion
         }
 
         results = context.selectNodes("/" + CHILD_NAME1);
+        // removed other assertion
 
         results = context.selectNodes(CHILD_NAME2 + "/" + CHILD_NAME1 + "/" + CHILD_NAME2);
         assertEquals("Incorrect number of results", 18, results.size());

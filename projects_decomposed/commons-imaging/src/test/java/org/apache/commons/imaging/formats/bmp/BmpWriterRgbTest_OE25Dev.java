@@ -40,6 +40,7 @@ public class BmpWriterRgbTest_OE25Dev{
         final BufferedImage bufferedImage = new BufferedImage(2, 2, 5);
         final byte[] byteArray = bmpWriterRgb.getImageData(bufferedImage);
 
+        // removed other assertion
         assertEquals(0, bmpWriterRgb.getPaletteSize());
     }
 
@@ -49,6 +50,8 @@ public class BmpWriterRgbTest_OE25Dev{
         final BufferedImage bufferedImage = new BufferedImage(2, 2, 5);
         final byte[] byteArray = bmpWriterRgb.getImageData(bufferedImage);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(16, byteArray.length);
     }
 
@@ -58,6 +61,9 @@ public class BmpWriterRgbTest_OE25Dev{
         final BufferedImage bufferedImage = new BufferedImage(2, 2, 5);
         final byte[] byteArray = bmpWriterRgb.getImageData(bufferedImage);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertArrayEquals(new byte[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, byteArray);
     }
 

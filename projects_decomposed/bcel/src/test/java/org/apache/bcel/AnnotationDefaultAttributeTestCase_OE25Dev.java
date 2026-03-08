@@ -49,6 +49,7 @@ public class AnnotationDefaultAttributeTestCase_OE25Dev extends AbstractTestCase
         final AnnotationDefault a = (AnnotationDefault) findAttribute(
                 "AnnotationDefault", m.getAttributes());
         final SimpleElementValue val = (SimpleElementValue) a.getDefaultValue();
+        // removed other assertion
         assertTrue("Should have default of bananas but default is " + val.getValueString(), val.getValueString().equals("bananas"));
     }
 

@@ -662,11 +662,14 @@ public class TestCombinedConfiguration_OE25Dev {
 
     @Test
     public void testAccessPropertyEmpty_2_oe() {
+        // removed other assertion
         assertNull("Key has a value", config.getString("test.comment"));
     }
 
     @Test
     public void testAccessPropertyEmpty_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertTrue("Config is not empty", config.isEmpty());
     }
 
@@ -683,6 +686,7 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(setUpTestConfiguration());
         config.addConfiguration(setUpTestConfiguration(), null, "prefix1");
         config.addConfiguration(setUpTestConfiguration(), null, "prefix2");
+        // removed other assertion
         assertTrue("Prop 2 not found", config.getBoolean("prefix1." + TEST_KEY));
     }
 
@@ -691,6 +695,8 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(setUpTestConfiguration());
         config.addConfiguration(setUpTestConfiguration(), null, "prefix1");
         config.addConfiguration(setUpTestConfiguration(), null, "prefix2");
+        // removed other assertion
+        // removed other assertion
         assertTrue("Prop 3 not found", config.getBoolean("prefix2." + TEST_KEY));
     }
 
@@ -699,6 +705,9 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(setUpTestConfiguration());
         config.addConfiguration(setUpTestConfiguration(), null, "prefix1");
         config.addConfiguration(setUpTestConfiguration(), null, "prefix2");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Configuration is empty", config.isEmpty());
     }
 
@@ -715,6 +724,7 @@ public class TestCombinedConfiguration_OE25Dev {
         final AbstractConfiguration c = setUpTestConfiguration();
         config.addConfiguration(c);
         checkAddConfig(c);
+        // removed other assertion
         assertTrue("Name list is not empty", config.getConfigurationNames().isEmpty());
     }
 
@@ -723,6 +733,8 @@ public class TestCombinedConfiguration_OE25Dev {
         final AbstractConfiguration c = setUpTestConfiguration();
         config.addConfiguration(c);
         checkAddConfig(c);
+        // removed other assertion
+        // removed other assertion
         assertSame("Added config not found", c, config.getConfiguration(0));
     }
 
@@ -731,6 +743,9 @@ public class TestCombinedConfiguration_OE25Dev {
         final AbstractConfiguration c = setUpTestConfiguration();
         config.addConfiguration(c);
         checkAddConfig(c);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Wrong property value", config.getBoolean(TEST_KEY));
     }
 
@@ -763,6 +778,7 @@ public class TestCombinedConfiguration_OE25Dev {
         final AbstractConfiguration c = setUpTestConfiguration();
         config.addConfiguration(c, TEST_NAME);
         checkAddConfig(c);
+        // removed other assertion
         assertSame("Added config not found", c, config.getConfiguration(0));
     }
 
@@ -771,6 +787,8 @@ public class TestCombinedConfiguration_OE25Dev {
         final AbstractConfiguration c = setUpTestConfiguration();
         config.addConfiguration(c, TEST_NAME);
         checkAddConfig(c);
+        // removed other assertion
+        // removed other assertion
         assertSame("Added config not found by name", c, config.getConfiguration(TEST_NAME));
     }
 
@@ -779,6 +797,9 @@ public class TestCombinedConfiguration_OE25Dev {
         final AbstractConfiguration c = setUpTestConfiguration();
         config.addConfiguration(c, TEST_NAME);
         checkAddConfig(c);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final Set<String> names = config.getConfigurationNames();
         assertEquals("Wrong number of config names", 1, names.size());
     }
@@ -788,7 +809,11 @@ public class TestCombinedConfiguration_OE25Dev {
         final AbstractConfiguration c = setUpTestConfiguration();
         config.addConfiguration(c, TEST_NAME);
         checkAddConfig(c);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final Set<String> names = config.getConfigurationNames();
+        // removed other assertion
         assertTrue("Name not found", names.contains(TEST_NAME));
     }
 
@@ -797,7 +822,12 @@ public class TestCombinedConfiguration_OE25Dev {
         final AbstractConfiguration c = setUpTestConfiguration();
         config.addConfiguration(c, TEST_NAME);
         checkAddConfig(c);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final Set<String> names = config.getConfigurationNames();
+        // removed other assertion
+        // removed other assertion
         assertTrue("Wrong property value", config.getBoolean(TEST_KEY));
     }
 
@@ -816,6 +846,7 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(setUpTestConfiguration());
 
         config.clear();
+        // removed other assertion
         assertTrue("Still names contained", config.getConfigurationNames().isEmpty());
     }
 
@@ -825,6 +856,8 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(setUpTestConfiguration());
 
         config.clear();
+        // removed other assertion
+        // removed other assertion
         assertTrue("Config is not empty", config.isEmpty());
     }
 
@@ -856,6 +889,7 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(new PropertiesConfiguration(), "props");
 
         final CombinedConfiguration cc2 = (CombinedConfiguration) config.clone();
+        // removed other assertion
         assertEquals("Wrong number of contained configurations", config.getNumberOfConfigurations(), cc2.getNumberOfConfigurations());
     }
 
@@ -866,6 +900,8 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(new PropertiesConfiguration(), "props");
 
         final CombinedConfiguration cc2 = (CombinedConfiguration) config.clone();
+        // removed other assertion
+        // removed other assertion
         assertSame("Wrong node combiner", config.getNodeCombiner(), cc2.getNodeCombiner());
     }
 
@@ -876,6 +912,9 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(new PropertiesConfiguration(), "props");
 
         final CombinedConfiguration cc2 = (CombinedConfiguration) config.clone();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong number of names", config.getConfigurationNames().size(), cc2.getConfigurationNames().size());
     }
 
@@ -886,6 +925,10 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(new PropertiesConfiguration(), "props");
 
         final CombinedConfiguration cc2 = (CombinedConfiguration) config.clone();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Found duplicate event listeners",Collections.disjoint(cc2.getEventListeners(ConfigurationEvent.ANY),config.getEventListeners(ConfigurationEvent.ANY)));
     }
 
@@ -896,6 +939,11 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(new PropertiesConfiguration(), "props");
 
         final CombinedConfiguration cc2 = (CombinedConfiguration) config.clone();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final StrictConfigurationComparator comp = new StrictConfigurationComparator();
         for (int i = 0; i < config.getNumberOfConfigurations(); i++) {
@@ -910,9 +958,15 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(new PropertiesConfiguration(), "props");
 
         final CombinedConfiguration cc2 = (CombinedConfiguration) config.clone();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final StrictConfigurationComparator comp = new StrictConfigurationComparator();
         for (int i = 0; i < config.getNumberOfConfigurations(); i++) {
+            // removed other assertion
             assertEquals("Wrong config class at " + i, config.getConfiguration(i).getClass(), cc2.getConfiguration(i).getClass());
     }
     }
@@ -924,9 +978,16 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(new PropertiesConfiguration(), "props");
 
         final CombinedConfiguration cc2 = (CombinedConfiguration) config.clone();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final StrictConfigurationComparator comp = new StrictConfigurationComparator();
         for (int i = 0; i < config.getNumberOfConfigurations(); i++) {
+            // removed other assertion
+            // removed other assertion
             assertTrue("Configs not equal at " + i, comp.compare(config.getConfiguration(i), cc2.getConfiguration(i)));
     }
     }
@@ -938,9 +999,17 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(new PropertiesConfiguration(), "props");
 
         final CombinedConfiguration cc2 = (CombinedConfiguration) config.clone();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final StrictConfigurationComparator comp = new StrictConfigurationComparator();
         for (int i = 0; i < config.getNumberOfConfigurations(); i++) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
         }
 
         assertTrue("Combined configs not equal", comp.compare(config, cc2));
@@ -957,6 +1026,7 @@ public class TestCombinedConfiguration_OE25Dev {
     public void testCloneModify_2_oe() {
         config.addConfiguration(setUpTestConfiguration(), TEST_NAME);
         final CombinedConfiguration cc2 = (CombinedConfiguration) config.clone();
+        // removed other assertion
         cc2.removeConfiguration(TEST_NAME);
         assertFalse("Names in original changed", config.getConfigurationNames().isEmpty());
     }
@@ -992,6 +1062,7 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(x2);
         config.addConfiguration(x1);
         XMLConfiguration x3 = new XMLConfiguration(config);
+        // removed other assertion
         assertEquals("Wrong attribute value", "USER2", x3.getString("key2[@override]"));
     }
 
@@ -1009,6 +1080,8 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(x2);
         config.addConfiguration(x1);
         XMLConfiguration x3 = new XMLConfiguration(config);
+        // removed other assertion
+        // removed other assertion
         final StringWriter w = new StringWriter();
         new FileHandler(x3).save(w);
         final String s = w.toString();
@@ -1031,16 +1104,20 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(x2);
         config.addConfiguration(x1);
         XMLConfiguration x3 = new XMLConfiguration(config);
+        // removed other assertion
+        // removed other assertion
         final StringWriter w = new StringWriter();
         new FileHandler(x3).save(w);
         final String s = w.toString();
         x3 = new XMLConfiguration();
         new FileHandler(x3).load(new StringReader(s));
+        // removed other assertion
         assertEquals("Wrong attribute value after load", "USER2", x3.getString("key2[@override]"));
     }
 
     @Test
     public void testConcurrentAccess_1_oe() throws ConfigurationException, InterruptedException {
+        // populate the test combined configuration
         setUpSourceTest();
         final XMLConfiguration xmlConf = new XMLConfiguration();
         new FileHandler(xmlConf).load(ConfigurationAssert.getTestFile("test.xml"));
@@ -1052,12 +1129,14 @@ public class TestCombinedConfiguration_OE25Dev {
         }
         config.getConfiguration(0).addProperty(KEY_CONCURRENT, TEST_NAME);
 
+        // Set a single synchronizer for all involved configurations
         final Synchronizer sync = new ReadWriteSynchronizer();
         config.setSynchronizer(sync);
         for (final Configuration c : config.getConfigurations()) {
             c.setSynchronizer(sync);
         }
 
+        // setup test threads
         final int numberOfReaders = 3;
         final int readCount = 5000;
         final int writeCount = 3000;
@@ -1073,6 +1152,7 @@ public class TestCombinedConfiguration_OE25Dev {
             threads.add(readThread);
         }
 
+        // perform test
         latch.countDown();
         for (final Thread t : threads) {
             t.join();
@@ -1107,6 +1187,7 @@ public class TestCombinedConfiguration_OE25Dev {
         final DefaultExpressionEngine engineConvert = new DefaultExpressionEngine(
             new DefaultExpressionEngineSymbols.Builder(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS).setIndexStart("[").setIndexEnd("]").create());
         config.setConversionExpressionEngine(engineConvert);
+        // removed other assertion
         assertEquals("Wrong property 2", "2", config.getString("test(a)<1>"));
     }
 
@@ -1122,6 +1203,8 @@ public class TestCombinedConfiguration_OE25Dev {
         final DefaultExpressionEngine engineConvert = new DefaultExpressionEngine(
             new DefaultExpressionEngineSymbols.Builder(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS).setIndexStart("[").setIndexEnd("]").create());
         config.setConversionExpressionEngine(engineConvert);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong property 3", "3", config.getString("test(a)<2>"));
     }
 
@@ -1163,6 +1246,7 @@ public class TestCombinedConfiguration_OE25Dev {
         final AbstractConfiguration pc = new PropertiesConfiguration();
         config.addConfiguration(pc, "props");
         final List<String> list = config.getConfigurationNameList();
+        // removed other assertion
         assertEquals("Incorrect number of configurations", 3, list.size());
     }
 
@@ -1173,6 +1257,8 @@ public class TestCombinedConfiguration_OE25Dev {
         final AbstractConfiguration pc = new PropertiesConfiguration();
         config.addConfiguration(pc, "props");
         final List<String> list = config.getConfigurationNameList();
+        // removed other assertion
+        // removed other assertion
         final String name = list.get(1);
         assertNotNull("No name returned", name);
     }
@@ -1184,7 +1270,10 @@ public class TestCombinedConfiguration_OE25Dev {
         final AbstractConfiguration pc = new PropertiesConfiguration();
         config.addConfiguration(pc, "props");
         final List<String> list = config.getConfigurationNameList();
+        // removed other assertion
+        // removed other assertion
         final String name = list.get(1);
+        // removed other assertion
         assertEquals("Incorrect configuration name", TEST_NAME, name);
     }
 
@@ -1217,6 +1306,7 @@ public class TestCombinedConfiguration_OE25Dev {
         final AbstractConfiguration pc = new PropertiesConfiguration();
         config.addConfiguration(pc, "props");
         final List<Configuration> list = config.getConfigurations();
+        // removed other assertion
         assertEquals("Incorrect number of configurations", 3, list.size());
     }
 
@@ -1227,6 +1317,8 @@ public class TestCombinedConfiguration_OE25Dev {
         final AbstractConfiguration pc = new PropertiesConfiguration();
         config.addConfiguration(pc, "props");
         final List<Configuration> list = config.getConfigurations();
+        // removed other assertion
+        // removed other assertion
         final Configuration c = list.get(2);
         assertSame("Incorrect configuration", c, pc);
     }
@@ -1300,6 +1392,7 @@ public class TestCombinedConfiguration_OE25Dev {
         config.getConfiguration(CHILD1).addProperty(key, "1,2,3");
         config.getConfiguration(CHILD2).addProperty(key, "a,b,c");
         final Set<Configuration> sources = config.getSources(key);
+        // removed other assertion
         assertTrue("Source 1 not found", sources.contains(config.getConfiguration(CHILD1)));
     }
 
@@ -1310,6 +1403,8 @@ public class TestCombinedConfiguration_OE25Dev {
         config.getConfiguration(CHILD1).addProperty(key, "1,2,3");
         config.getConfiguration(CHILD2).addProperty(key, "a,b,c");
         final Set<Configuration> sources = config.getSources(key);
+        // removed other assertion
+        // removed other assertion
         assertTrue("Source 2 not found", sources.contains(config.getConfiguration(CHILD2)));
     }
 
@@ -1346,16 +1441,22 @@ public class TestCombinedConfiguration_OE25Dev {
 
     @Test
     public void testInit_2_oe() {
+        // removed other assertion
         assertTrue("Set of names is not empty", config.getConfigurationNames().isEmpty());
     }
 
     @Test
     public void testInit_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertTrue("Wrong node combiner", config.getNodeCombiner() instanceof UnionCombiner);
     }
 
     @Test
     public void testInit_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("Test config was found", config.getConfiguration(TEST_NAME));
     }
 
@@ -1370,6 +1471,7 @@ public class TestCombinedConfiguration_OE25Dev {
     public void testInvalidateEventBeforeAndAfterChange_2_oe() {
         ConfigurationEvent event = new ConfigurationEvent(config, ConfigurationEvent.ANY, null, null, true);
         config.onEvent(event);
+        // removed other assertion
         event = new ConfigurationEvent(config, ConfigurationEvent.ANY, null, null, false);
         config.onEvent(event);
         assertEquals("Another invalidate event fired", 1, listener.invalidateEvents);
@@ -1388,6 +1490,7 @@ public class TestCombinedConfiguration_OE25Dev {
         config.addConfiguration(childEx);
         try {
             config.lock(LockMode.READ);
+            // removed other assertion
         } catch (final Exception ex) {
             assertEquals("Unexpected exception", testEx, ex);
     }
@@ -1450,6 +1553,7 @@ public class TestCombinedConfiguration_OE25Dev {
     public void testSubConfigurationWithUpdates_2_oe() {
         final AbstractConfiguration srcConfig = setUpSubConfigTest();
         final HierarchicalConfiguration<ImmutableNode> sub = config.configurationAt(SUB_KEY, true);
+        // removed other assertion
         srcConfig.setProperty(TEST_KEY, Boolean.FALSE);
         assertFalse("Wrong value after update", sub.getBoolean(TEST_KEY));
     }
@@ -1458,7 +1562,9 @@ public class TestCombinedConfiguration_OE25Dev {
     public void testSubConfigurationWithUpdates_3_oe() {
         final AbstractConfiguration srcConfig = setUpSubConfigTest();
         final HierarchicalConfiguration<ImmutableNode> sub = config.configurationAt(SUB_KEY, true);
+        // removed other assertion
         srcConfig.setProperty(TEST_KEY, Boolean.FALSE);
+        // removed other assertion
         assertFalse("Wrong value from combined configuration", config.getBoolean(SUB_KEY + '.' + TEST_KEY));
     }
 

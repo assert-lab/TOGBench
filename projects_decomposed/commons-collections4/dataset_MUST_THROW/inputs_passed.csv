@@ -1,0 +1,3539 @@
+id,test_prefix,test_name,focal_method,docstring
+coll_3_101,"@Test
+    public void max_oe_101_oe() {
+        try {
+            ComparatorUtils.max(1, null, null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",ComparatorUtilsTest::max_oe_101_oe,"@SuppressWarnings(""unchecked"")
+    public static <E> E max(final E o1, final E o2, Comparator<E> comparator) {
+        if (comparator == null) {
+            comparator = NATURAL_COMPARATOR;
+        }
+        final int c = comparator.compare(o1, o2);
+        return c > 0 ? o1 : o2;
+    }","/**
+     * Returns the larger of the given objects according to the given
+     * comparator, returning the second object if the comparator
+     * returns equal.
+     *
+     * @param <E>  the object type to compare
+     * @param o1  the first object to compare
+     * @param o2  the second object to compare
+     * @param comparator  the sort order to use
+     * @return  the larger of the two objects
+     */"
+coll_3_102,"@Test
+    public void max_oe_102_oe() {
+        try {
+            ComparatorUtils.max(null, 10, null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",ComparatorUtilsTest::max_oe_102_oe,"@SuppressWarnings(""unchecked"")
+    public static <E> E max(final E o1, final E o2, Comparator<E> comparator) {
+        if (comparator == null) {
+            comparator = NATURAL_COMPARATOR;
+        }
+        final int c = comparator.compare(o1, o2);
+        return c > 0 ? o1 : o2;
+    }","/**
+     * Returns the larger of the given objects according to the given
+     * comparator, returning the second object if the comparator
+     * returns equal.
+     *
+     * @param <E>  the object type to compare
+     * @param o1  the first object to compare
+     * @param o2  the second object to compare
+     * @param comparator  the sort order to use
+     * @return  the larger of the two objects
+     */"
+coll_4_101,"@Test
+    public void min_oe_101_oe() {
+        try {
+            ComparatorUtils.min(1, null, null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",ComparatorUtilsTest::min_oe_101_oe,"@SuppressWarnings(""unchecked"")
+    public static <E> E min(final E o1, final E o2, Comparator<E> comparator) {
+        if (comparator == null) {
+            comparator = NATURAL_COMPARATOR;
+        }
+        final int c = comparator.compare(o1, o2);
+        return c < 0 ? o1 : o2;
+    }","/**
+     * Returns the smaller of the given objects according to the given
+     * comparator, returning the second object if the comparator
+     * returns equal.
+     *
+     * @param <E>  the object type to compare
+     * @param o1  the first object to compare
+     * @param o2  the second object to compare
+     * @param comparator  the sort order to use
+     * @return  the smaller of the two objects
+     */"
+coll_4_102,"@Test
+    public void min_oe_102_oe() {
+        try {
+            ComparatorUtils.min(null, 10, null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",ComparatorUtilsTest::min_oe_102_oe,"@SuppressWarnings(""unchecked"")
+    public static <E> E min(final E o1, final E o2, Comparator<E> comparator) {
+        if (comparator == null) {
+            comparator = NATURAL_COMPARATOR;
+        }
+        final int c = comparator.compare(o1, o2);
+        return c < 0 ? o1 : o2;
+    }","/**
+     * Returns the smaller of the given objects according to the given
+     * comparator, returning the second object if the comparator
+     * returns equal.
+     *
+     * @param <E>  the object type to compare
+     * @param o1  the first object to compare
+     * @param o2  the second object to compare
+     * @param comparator  the sort order to use
+     * @return  the smaller of the two objects
+     */"
+coll_7_101,"@Test
+    public void difference_oe_101_oe() {
+        try {
+            SetUtils.difference(setA, null);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",SetUtilsTest::difference_oe_101_oe,"public static <E> SetView<E> difference(final Set<? extends E> a, final Set<? extends E> b) {
+        if (a == null || b == null) {
+            throw new NullPointerException(""Sets must not be null."");
+        }
+
+        final Predicate<E> notContainedInB = new Predicate<E>() {
+            @Override
+            public boolean evaluate(final E object) {
+                return !b.contains(object);
+            }
+        };
+
+        return new SetView<E>() {
+            @Override
+            public boolean contains(final Object o) {
+                return a.contains(o) && !b.contains(o);
+            }
+
+            @Override
+            public Iterator<E> createIterator() {
+                return IteratorUtils.filteredIterator(a.iterator(), notContainedInB);
+            }
+        };
+    }","/**
+     * Returns a unmodifiable <b>view</b> containing the difference of the given
+     * {@link Set}s, denoted by {@code a \ b} (or {@code a - b}).
+     * <p>
+     * The returned view contains all elements of {@code a} that are not a member
+     * of {@code b}.
+     *
+     * @param <E> the generic type that is able to represent the types contained
+     *   in both input sets.
+     * @param a  the set to subtract from, must not be null
+     * @param b  the set to subtract, must not be null
+     * @return a view of the relative complement of  of the two sets
+     * @since 4.1
+     */"
+coll_7_102,"@Test
+    public void difference_oe_102_oe() {
+        try {
+            SetUtils.difference(null, setA);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",SetUtilsTest::difference_oe_102_oe,"public static <E> SetView<E> difference(final Set<? extends E> a, final Set<? extends E> b) {
+        if (a == null || b == null) {
+            throw new NullPointerException(""Sets must not be null."");
+        }
+
+        final Predicate<E> notContainedInB = new Predicate<E>() {
+            @Override
+            public boolean evaluate(final E object) {
+                return !b.contains(object);
+            }
+        };
+
+        return new SetView<E>() {
+            @Override
+            public boolean contains(final Object o) {
+                return a.contains(o) && !b.contains(o);
+            }
+
+            @Override
+            public Iterator<E> createIterator() {
+                return IteratorUtils.filteredIterator(a.iterator(), notContainedInB);
+            }
+        };
+    }","/**
+     * Returns a unmodifiable <b>view</b> containing the difference of the given
+     * {@link Set}s, denoted by {@code a \ b} (or {@code a - b}).
+     * <p>
+     * The returned view contains all elements of {@code a} that are not a member
+     * of {@code b}.
+     *
+     * @param <E> the generic type that is able to represent the types contained
+     *   in both input sets.
+     * @param a  the set to subtract from, must not be null
+     * @param b  the set to subtract, must not be null
+     * @return a view of the relative complement of  of the two sets
+     * @since 4.1
+     */"
+coll_8_101,"@Test
+    public void disjunction_oe_101_oe() {
+        try {
+            SetUtils.disjunction(setA, null);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",SetUtilsTest::disjunction_oe_101_oe,"public static <E> SetView<E> disjunction(final Set<? extends E> a, final Set<? extends E> b) {
+        if (a == null || b == null) {
+            throw new NullPointerException(""Sets must not be null."");
+        }
+
+        final SetView<E> aMinusB = difference(a, b);
+        final SetView<E> bMinusA = difference(b, a);
+
+        return new SetView<E>() {
+            @Override
+            public boolean contains(final Object o) {
+                return a.contains(o) ^ b.contains(o);
+            }
+
+            @Override
+            public Iterator<E> createIterator() {
+                return IteratorUtils.chainedIterator(aMinusB.iterator(), bMinusA.iterator());
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return aMinusB.isEmpty() && bMinusA.isEmpty();
+            }
+
+            @Override
+            public int size() {
+                return aMinusB.size() + bMinusA.size();
+            }
+        };
+    }","/**
+     * Returns a unmodifiable <b>view</b> of the symmetric difference of the given
+     * {@link Set}s.
+     * <p>
+     * The returned view contains all elements of {@code a} and {@code b} that are
+     * not a member of the other set.
+     * <p>
+     * This is equivalent to {@code union(difference(a, b), difference(b, a))}.
+     *
+     * @param <E> the generic type that is able to represent the types contained
+     *   in both input sets.
+     * @param a  the first set, must not be null
+     * @param b  the second set, must not be null
+     * @return a view of the symmetric difference of the two sets
+     * @since 4.1
+     */"
+coll_8_102,"@Test
+    public void disjunction_oe_102_oe() {
+        try {
+            SetUtils.disjunction(null, setA);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",SetUtilsTest::disjunction_oe_102_oe,"public static <E> SetView<E> disjunction(final Set<? extends E> a, final Set<? extends E> b) {
+        if (a == null || b == null) {
+            throw new NullPointerException(""Sets must not be null."");
+        }
+
+        final SetView<E> aMinusB = difference(a, b);
+        final SetView<E> bMinusA = difference(b, a);
+
+        return new SetView<E>() {
+            @Override
+            public boolean contains(final Object o) {
+                return a.contains(o) ^ b.contains(o);
+            }
+
+            @Override
+            public Iterator<E> createIterator() {
+                return IteratorUtils.chainedIterator(aMinusB.iterator(), bMinusA.iterator());
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return aMinusB.isEmpty() && bMinusA.isEmpty();
+            }
+
+            @Override
+            public int size() {
+                return aMinusB.size() + bMinusA.size();
+            }
+        };
+    }","/**
+     * Returns a unmodifiable <b>view</b> of the symmetric difference of the given
+     * {@link Set}s.
+     * <p>
+     * The returned view contains all elements of {@code a} and {@code b} that are
+     * not a member of the other set.
+     * <p>
+     * This is equivalent to {@code union(difference(a, b), difference(b, a))}.
+     *
+     * @param <E> the generic type that is able to represent the types contained
+     *   in both input sets.
+     * @param a  the first set, must not be null
+     * @param b  the second set, must not be null
+     * @return a view of the symmetric difference of the two sets
+     * @since 4.1
+     */"
+coll_9_101,"@Test
+    public void intersection_oe_101_oe() {
+        try {
+            SetUtils.intersection(setA, null);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",SetUtilsTest::intersection_oe_101_oe,"public static <E> SetView<E> intersection(final Set<? extends E> a, final Set<? extends E> b) {
+        if (a == null || b == null) {
+            throw new NullPointerException(""Sets must not be null."");
+        }
+
+        final Predicate<E> containedInB = new Predicate<E>() {
+            @Override
+            public boolean evaluate(final E object) {
+                return b.contains(object);
+            }
+        };
+
+        return new SetView<E>() {
+            @Override
+            public boolean contains(final Object o) {
+                return a.contains(o) && b.contains(o);
+            }
+
+            @Override
+            public Iterator<E> createIterator() {
+                return IteratorUtils.filteredIterator(a.iterator(), containedInB);
+            }
+        };
+    }","/**
+     * Returns a unmodifiable <b>view</b> of the intersection of the given {@link Set}s.
+     * <p>
+     * The returned view contains all elements that are members of both input sets
+     * ({@code a} and {@code b}).
+     *
+     * @param <E> the generic type that is able to represent the types contained
+     *   in both input sets.
+     * @param a  the first set, must not be null
+     * @param b  the second set, must not be null
+     * @return a view of the intersection of the two sets
+     * @since 4.1
+     */"
+coll_9_102,"@Test
+    public void intersection_oe_102_oe() {
+        try {
+            SetUtils.intersection(null, setA);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",SetUtilsTest::intersection_oe_102_oe,"public static <E> SetView<E> intersection(final Set<? extends E> a, final Set<? extends E> b) {
+        if (a == null || b == null) {
+            throw new NullPointerException(""Sets must not be null."");
+        }
+
+        final Predicate<E> containedInB = new Predicate<E>() {
+            @Override
+            public boolean evaluate(final E object) {
+                return b.contains(object);
+            }
+        };
+
+        return new SetView<E>() {
+            @Override
+            public boolean contains(final Object o) {
+                return a.contains(o) && b.contains(o);
+            }
+
+            @Override
+            public Iterator<E> createIterator() {
+                return IteratorUtils.filteredIterator(a.iterator(), containedInB);
+            }
+        };
+    }","/**
+     * Returns a unmodifiable <b>view</b> of the intersection of the given {@link Set}s.
+     * <p>
+     * The returned view contains all elements that are members of both input sets
+     * ({@code a} and {@code b}).
+     *
+     * @param <E> the generic type that is able to represent the types contained
+     *   in both input sets.
+     * @param a  the first set, must not be null
+     * @param b  the second set, must not be null
+     * @return a view of the intersection of the two sets
+     * @since 4.1
+     */"
+coll_15_101,"@Test
+    public void testpredicatedSet_oe_101_oe() {
+        try {
+            SetUtils.predicatedSet(new HashSet<>(), null);
+            fail(""Expecting NullPointerException for null predicate."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",SetUtilsTest::testpredicatedSet_oe_101_oe,"public static <E> Set<E> predicatedSet(final Set<E> set, final Predicate<? super E> predicate) {
+        return PredicatedSet.predicatedSet(set, predicate);
+    }","/**
+     * Returns a predicated (validating) set backed by the given set.
+     * <p>
+     * Only objects that pass the test in the given predicate can be added to the set.
+     * Trying to add an invalid object results in an IllegalArgumentException.
+     * It is important not to use the original set after invoking this method,
+     * as it is a backdoor for adding invalid objects.
+     *
+     * @param <E> the element type
+     * @param set  the set to predicate, must not be null
+     * @param predicate  the predicate for the set, must not be null
+     * @return a predicated set backed by the given set
+     * @throws NullPointerException if the set or predicate is null
+     */"
+coll_18_101,"@Test
+    public void union_oe_101_oe() {
+        try {
+            SetUtils.union(setA, null);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",SetUtilsTest::union_oe_101_oe,"public static <E> SetView<E> union(final Set<? extends E> a, final Set<? extends E> b) {
+        if (a == null || b == null) {
+            throw new NullPointerException(""Sets must not be null."");
+        }
+
+        final SetView<E> bMinusA = difference(b, a);
+
+        return new SetView<E>() {
+            @Override
+            public boolean contains(final Object o) {
+                return a.contains(o) || b.contains(o);
+            }
+
+            @Override
+            public Iterator<E> createIterator() {
+                return IteratorUtils.chainedIterator(a.iterator(), bMinusA.iterator());
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return a.isEmpty() && b.isEmpty();
+            }
+
+            @Override
+            public int size() {
+                return a.size() + bMinusA.size();
+            }
+        };
+    }","/**
+     * Returns a unmodifiable <b>view</b> of the union of the given {@link Set}s.
+     * <p>
+     * The returned view contains all elements of {@code a} and {@code b}.
+     *
+     * @param <E> the generic type that is able to represent the types contained
+     *   in both input sets.
+     * @param a  the first set, must not be null
+     * @param b  the second set, must not be null
+     * @return a view of the union of the two set
+     * @throws NullPointerException if either input set is null
+     * @since 4.1
+     */"
+coll_18_102,"@Test
+    public void union_oe_102_oe() {
+        try {
+            SetUtils.union(null, setA);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",SetUtilsTest::union_oe_102_oe,"public static <E> SetView<E> union(final Set<? extends E> a, final Set<? extends E> b) {
+        if (a == null || b == null) {
+            throw new NullPointerException(""Sets must not be null."");
+        }
+
+        final SetView<E> bMinusA = difference(b, a);
+
+        return new SetView<E>() {
+            @Override
+            public boolean contains(final Object o) {
+                return a.contains(o) || b.contains(o);
+            }
+
+            @Override
+            public Iterator<E> createIterator() {
+                return IteratorUtils.chainedIterator(a.iterator(), bMinusA.iterator());
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return a.isEmpty() && b.isEmpty();
+            }
+
+            @Override
+            public int size() {
+                return a.size() + bMinusA.size();
+            }
+        };
+    }","/**
+     * Returns a unmodifiable <b>view</b> of the union of the given {@link Set}s.
+     * <p>
+     * The returned view contains all elements of {@code a} and {@code b}.
+     *
+     * @param <E> the generic type that is able to represent the types contained
+     *   in both input sets.
+     * @param a  the first set, must not be null
+     * @param b  the second set, must not be null
+     * @return a view of the union of the two set
+     * @throws NullPointerException if either input set is null
+     * @since 4.1
+     */"
+coll_25_101,"@Test
+    public void testPredicatedList_oe_101_oe() {
+        try {
+            ListUtils.predicatedList(new ArrayList<>(), null);
+            fail(""Expecting IllegalArgumentException for null predicate."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",ListUtilsTest::testPredicatedList_oe_101_oe,"public static <E> List<E> predicatedList(final List<E> list, final Predicate<E> predicate) {
+        return PredicatedList.predicatedList(list, predicate);
+    }","/**
+     * Returns a predicated (validating) list backed by the given list.
+     * <p>
+     * Only objects that pass the test in the given predicate can be added to the list.
+     * Trying to add an invalid object results in an IllegalArgumentException.
+     * It is important not to use the original list after invoking this method,
+     * as it is a backdoor for adding invalid objects.
+     *
+     * @param <E> the element type
+     * @param list  the list to predicate, must not be null
+     * @param predicate  the predicate for the list, must not be null
+     * @return a predicated list backed by the given list
+     * @throws NullPointerException if the List or Predicate is null
+     */"
+coll_32_101,"@Test
+    public void testRetainAll_oe_101_oe() {
+        try {
+            ListUtils.retainAll(null, null);
+            fail(""expecting NullPointerException"");
+        } catch(final NullPointerException npe){} // this is what we want
+    }
+",ListUtilsTest::testRetainAll_oe_101_oe,"public static <E> List<E> retainAll(final Collection<E> collection, final Collection<?> retain) {
+        final List<E> list = new ArrayList<>(Math.min(collection.size(), retain.size()));
+
+        for (final E obj : collection) {
+            if (retain.contains(obj)) {
+                list.add(obj);
+            }
+        }
+        return list;
+    }","/**
+     * Returns a List containing all the elements in <code>collection</code>
+     * that are also in <code>retain</code>. The cardinality of an element <code>e</code>
+     * in the returned list is the same as the cardinality of <code>e</code>
+     * in <code>collection</code> unless <code>retain</code> does not contain <code>e</code>, in which
+     * case the cardinality is zero. This method is useful if you do not wish to modify
+     * the collection <code>c</code> and thus cannot call <code>collection.retainAll(retain);</code>.
+     * <p>
+     * This implementation iterates over <code>collection</code>, checking each element in
+     * turn to see if it's contained in <code>retain</code>. If it's contained, it's added
+     * to the returned list. As a consequence, it is advised to use a collection type for
+     * <code>retain</code> that provides a fast (e.g. O(1)) implementation of
+     * {@link Collection#contains(Object)}.
+     *
+     * @param <E>  the element type
+     * @param collection  the collection whose contents are the target of the #retailAll operation
+     * @param retain  the collection containing the elements to be retained in the returned collection
+     * @return a <code>List</code> containing all the elements of <code>c</code>
+     * that occur at least once in <code>retain</code>.
+     * @throws NullPointerException if either parameter is null
+     * @since 3.2
+     */"
+coll_33_101,"@Test
+    public void testRemoveAll_oe_101_oe() {
+        try {
+            ListUtils.removeAll(null, null);
+            fail(""expecting NullPointerException"");
+        } catch(final NullPointerException npe) {} // this is what we want
+    }
+",ListUtilsTest::testRemoveAll_oe_101_oe,"public static <E> List<E> removeAll(final Collection<E> collection, final Collection<?> remove) {
+        final List<E> list = new ArrayList<>();
+        for (final E obj : collection) {
+            if (!remove.contains(obj)) {
+                list.add(obj);
+            }
+        }
+        return list;
+    }","/**
+     * Removes the elements in <code>remove</code> from <code>collection</code>. That is, this
+     * method returns a list containing all the elements in <code>collection</code>
+     * that are not in <code>remove</code>. The cardinality of an element <code>e</code>
+     * in the returned collection is the same as the cardinality of <code>e</code>
+     * in <code>collection</code> unless <code>remove</code> contains <code>e</code>, in which
+     * case the cardinality is zero. This method is useful if you do not wish to modify
+     * <code>collection</code> and thus cannot call <code>collection.removeAll(remove);</code>.
+     * <p>
+     * This implementation iterates over <code>collection</code>, checking each element in
+     * turn to see if it's contained in <code>remove</code>. If it's not contained, it's added
+     * to the returned list. As a consequence, it is advised to use a collection type for
+     * <code>remove</code> that provides a fast (e.g. O(1)) implementation of
+     * {@link Collection#contains(Object)}.
+     *
+     * @param <E>  the element type
+     * @param collection  the collection from which items are removed (in the returned collection)
+     * @param remove  the items to be removed from the returned <code>collection</code>
+     * @return a <code>List</code> containing all the elements of <code>c</code> except
+     * any elements that also occur in <code>remove</code>.
+     * @throws NullPointerException if either parameter is null
+     * @since 3.2
+     */"
+coll_38_101,"@Test
+    public void testLongestCommonSubsequenceWithString_oe_101_oe() {
+      try {
+          ListUtils.longestCommonSubsequence((String) null, null);
+          fail(""failed to check for null argument"");
+      } catch (final NullPointerException e) {}
+    }
+",ListUtilsTest::testLongestCommonSubsequenceWithString_oe_101_oe,"public static <E> List<E> longestCommonSubsequence(final List<E> a, final List<E> b) {
+      return longestCommonSubsequence( a, b, DefaultEquator.defaultEquator() );
+    }","/**
+     * Returns the longest common subsequence (LCS) of two sequences (lists).
+     *
+     * @param <E>  the element type
+     * @param a  the first list
+     * @param b  the second list
+     * @return the longest common subsequence
+     * @throws NullPointerException if either list is {@code null}
+     * @since 4.0
+     */"
+coll_38_102,"@Test
+    public void testLongestCommonSubsequenceWithString_oe_102_oe() {
+      try {
+          ListUtils.longestCommonSubsequence(""A"", null);
+          fail(""failed to check for null argument"");
+      } catch (final NullPointerException e) {}
+    }
+",ListUtilsTest::testLongestCommonSubsequenceWithString_oe_102_oe,"public static <E> List<E> longestCommonSubsequence(final List<E> a, final List<E> b) {
+      return longestCommonSubsequence( a, b, DefaultEquator.defaultEquator() );
+    }","/**
+     * Returns the longest common subsequence (LCS) of two sequences (lists).
+     *
+     * @param <E>  the element type
+     * @param a  the first list
+     * @param b  the second list
+     * @return the longest common subsequence
+     * @throws NullPointerException if either list is {@code null}
+     * @since 4.0
+     */"
+coll_38_103,"@Test
+    public void testLongestCommonSubsequenceWithString_oe_103_oe() {
+      try {
+          ListUtils.longestCommonSubsequence(null, ""A"");
+          fail(""failed to check for null argument"");
+      } catch (final NullPointerException e) {}
+    }
+",ListUtilsTest::testLongestCommonSubsequenceWithString_oe_103_oe,"public static <E> List<E> longestCommonSubsequence(final List<E> a, final List<E> b) {
+      return longestCommonSubsequence( a, b, DefaultEquator.defaultEquator() );
+    }","/**
+     * Returns the longest common subsequence (LCS) of two sequences (lists).
+     *
+     * @param <E>  the element type
+     * @param a  the first list
+     * @param b  the second list
+     * @return the longest common subsequence
+     * @throws NullPointerException if either list is {@code null}
+     * @since 4.0
+     */"
+coll_115_101,"@Test
+    public void testIfTransformer_oe_101_oe() {
+        try {
+            TransformerUtils.ifTransformer(null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",TransformerUtilsTest::testIfTransformer_oe_101_oe,"public static <T> Transformer<T, T> ifTransformer(final Predicate<? super T> predicate,
+                                                      final Transformer<? super T, ? extends T> trueTransformer) {
+        return IfTransformer.ifTransformer(predicate, trueTransformer);
+    }","/**
+     * Create a new Transformer that calls the transformer if the predicate is true,
+     * otherwise the input object is returned unchanged.
+     *
+     * @param <T>  the input / output type
+     * @param predicate  the predicate to switch on
+     * @param trueTransformer  the transformer called if the predicate is true
+     * @return the transformer
+     * @throws NullPointerException if either the predicate or transformer is null
+     * @see IfTransformer
+     * @since 4.1
+     */"
+coll_115_102,"@Test
+    public void testIfTransformer_oe_102_oe() {
+        try {
+            TransformerUtils.ifTransformer(TruePredicate.truePredicate(), null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",TransformerUtilsTest::testIfTransformer_oe_102_oe,"public static <T> Predicate<T> truePredicate() {
+        return INSTANCE;
+    }","/**
+     * Factory returning the singleton instance.
+     *
+     * @param <T> the type that the predicate queries
+     * @return the singleton instance
+     * @since 3.1
+     */"
+coll_115_103,"@Test
+    public void testIfTransformer_oe_103_oe() {
+        try {
+            TransformerUtils.ifTransformer(null, ConstantTransformer.constantTransformer(""A""));
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",TransformerUtilsTest::testIfTransformer_oe_103_oe,"public static <I, O> Transformer<I, O> constantTransformer(final O constantToReturn) {
+        return ConstantTransformer.constantTransformer(constantToReturn);
+    }","/**
+     * Creates a Transformer that will return the same object each time the
+     * transformer is used.
+     *
+     * @param <I>  the input type
+     * @param <O>  the output type
+     * @param constantToReturn  the constant object to return each time in the transformer
+     * @return the transformer.
+     * @see ConstantTransformer
+     */"
+coll_115_104,"@Test
+    public void testIfTransformer_oe_104_oe() {
+        try {
+            TransformerUtils.ifTransformer(null, null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",TransformerUtilsTest::testIfTransformer_oe_104_oe,"public static <T> Transformer<T, T> ifTransformer(final Predicate<? super T> predicate,
+                                                      final Transformer<? super T, ? extends T> trueTransformer) {
+        return IfTransformer.ifTransformer(predicate, trueTransformer);
+    }","/**
+     * Create a new Transformer that calls the transformer if the predicate is true,
+     * otherwise the input object is returned unchanged.
+     *
+     * @param <T>  the input / output type
+     * @param predicate  the predicate to switch on
+     * @param trueTransformer  the transformer called if the predicate is true
+     * @return the transformer
+     * @throws NullPointerException if either the predicate or transformer is null
+     * @see IfTransformer
+     * @since 4.1
+     */"
+coll_117_101,"@Test
+    public void testSwitchMapTransformer_oe_101_oe() {
+        try {
+            TransformerUtils.switchMapTransformer(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",TransformerUtilsTest::testSwitchMapTransformer_oe_101_oe,"@SuppressWarnings(""unchecked"")
+    public static <I, O> Transformer<I, O> switchMapTransformer(
+            final Map<I, Transformer<I, O>> objectsAndTransformers) {
+
+        if (objectsAndTransformers == null) {
+            throw new NullPointerException(""The object and transformer map must not be null"");
+        }
+        final Transformer<? super I, ? extends O> def = objectsAndTransformers.remove(null);
+        final int size = objectsAndTransformers.size();
+        final Transformer<? super I, ? extends O>[] trs = new Transformer[size];
+        final Predicate<I>[] preds = new Predicate[size];
+        int i = 0;
+        for (final Map.Entry<I, Transformer<I, O>> entry : objectsAndTransformers.entrySet()) {
+            preds[i] = EqualPredicate.<I>equalPredicate(entry.getKey());
+            trs[i++] = entry.getValue();
+        }
+        return TransformerUtils.switchTransformer(preds, trs, def);
+    }","/**
+     * Create a new Transformer that uses the input object as a key to find the
+     * transformer to call.
+     * <p>
+     * The Map consists of object keys and Transformer values. A transformer
+     * is called if the input object equals the key. If there is no match, the
+     * default transformer is called. The default transformer is set in the map
+     * using a null key. If no default is set, null will be returned in a default case.
+     *
+     * @param <I>  the input type
+     * @param <O>  the output type
+     * @param objectsAndTransformers  a map of objects to transformers
+     * @return the transformer
+     * @throws NullPointerException if the map is null
+     * @throws NullPointerException if any transformer in the map is null
+     * @see SwitchTransformer
+     */"
+coll_118_101,"@Test
+    public void testInvokerTransformer_oe_101_oe() {
+        try {
+            TransformerUtils.invokerTransformer(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",TransformerUtilsTest::testInvokerTransformer_oe_101_oe,"public static <I, O> Transformer<I, O> invokerTransformer(final String methodName) {
+        return InvokerTransformer.invokerTransformer(methodName, null, null);
+    }","/**
+     * Gets a Transformer that invokes a method on the input object.
+     * The method must have no parameters. If the input object is {@code null},
+     * {@code null} is returned.
+     *
+     * <p>
+     * For example, <code>TransformerUtils.invokerTransformer(""getName"");</code>
+     * will call the <code>getName</code> method on the input object to
+     * determine the transformer result.
+     * </p>
+     *
+     * @param <I>  the input type
+     * @param <O>  the output type
+     * @param methodName  the method name to call on the input object, may not be null
+     * @return the transformer
+     * @throws NullPointerException if the methodName is null.
+     * @see InvokerTransformer
+     */"
+coll_118_102,"@Test
+    public void testInvokerTransformer_oe_102_oe() {
+        try {
+            TransformerUtils.invokerTransformer(""noSuchMethod"").transform(new Object());
+            fail();
+        } catch (final FunctorException ex) {}
+    }
+",TransformerUtilsTest::testInvokerTransformer_oe_102_oe,"@Override
+            public EquatorWrapper<?> transform(final Object input) {
+                return new EquatorWrapper(equator, input);
+            }",
+coll_119_101,"@Test
+    public void testInvokerTransformer2_oe_101_oe() {
+        try {
+            TransformerUtils.invokerTransformer(null, null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",TransformerUtilsTest::testInvokerTransformer2_oe_101_oe,"public static <I, O> Transformer<I, O> invokerTransformer(final String methodName) {
+        return InvokerTransformer.invokerTransformer(methodName, null, null);
+    }","/**
+     * Gets a Transformer that invokes a method on the input object.
+     * The method must have no parameters. If the input object is {@code null},
+     * {@code null} is returned.
+     *
+     * <p>
+     * For example, <code>TransformerUtils.invokerTransformer(""getName"");</code>
+     * will call the <code>getName</code> method on the input object to
+     * determine the transformer result.
+     * </p>
+     *
+     * @param <I>  the input type
+     * @param <O>  the output type
+     * @param methodName  the method name to call on the input object, may not be null
+     * @return the transformer
+     * @throws NullPointerException if the methodName is null.
+     * @see InvokerTransformer
+     */"
+coll_119_102,"@Test
+    public void testInvokerTransformer2_oe_102_oe() {
+        try {
+            TransformerUtils.invokerTransformer(""noSuchMethod"", new Class[] { Object.class },
+                    new Object[] { cString }).transform(new Object());
+            fail();
+        } catch (final FunctorException ex) {}
+    }
+",TransformerUtilsTest::testInvokerTransformer2_oe_102_oe,"@Override
+            public EquatorWrapper<?> transform(final Object input) {
+                return new EquatorWrapper(equator, input);
+            }",
+coll_119_103,"@Test
+    public void testInvokerTransformer2_oe_103_oe() {
+        try {
+            TransformerUtils.invokerTransformer(""badArgs"", null, new Object[] { cString });
+            fail();
+        } catch (final IllegalArgumentException ex) {}
+    }
+",TransformerUtilsTest::testInvokerTransformer2_oe_103_oe,"public static <I, O> Transformer<I, O> invokerTransformer(final String methodName) {
+        return InvokerTransformer.invokerTransformer(methodName, null, null);
+    }","/**
+     * Gets a Transformer that invokes a method on the input object.
+     * The method must have no parameters. If the input object is {@code null},
+     * {@code null} is returned.
+     *
+     * <p>
+     * For example, <code>TransformerUtils.invokerTransformer(""getName"");</code>
+     * will call the <code>getName</code> method on the input object to
+     * determine the transformer result.
+     * </p>
+     *
+     * @param <I>  the input type
+     * @param <O>  the output type
+     * @param methodName  the method name to call on the input object, may not be null
+     * @return the transformer
+     * @throws NullPointerException if the methodName is null.
+     * @see InvokerTransformer
+     */"
+coll_119_104,"@Test
+    public void testInvokerTransformer2_oe_104_oe() {
+        try {
+            TransformerUtils.invokerTransformer(""badArgs"", new Class[] { Object.class }, null);
+            fail();
+        } catch (final IllegalArgumentException ex) {}
+    }
+",TransformerUtilsTest::testInvokerTransformer2_oe_104_oe,"public static <I, O> Transformer<I, O> invokerTransformer(final String methodName) {
+        return InvokerTransformer.invokerTransformer(methodName, null, null);
+    }","/**
+     * Gets a Transformer that invokes a method on the input object.
+     * The method must have no parameters. If the input object is {@code null},
+     * {@code null} is returned.
+     *
+     * <p>
+     * For example, <code>TransformerUtils.invokerTransformer(""getName"");</code>
+     * will call the <code>getName</code> method on the input object to
+     * determine the transformer result.
+     * </p>
+     *
+     * @param <I>  the input type
+     * @param <O>  the output type
+     * @param methodName  the method name to call on the input object, may not be null
+     * @return the transformer
+     * @throws NullPointerException if the methodName is null.
+     * @see InvokerTransformer
+     */"
+coll_119_105,"@Test
+    public void testInvokerTransformer2_oe_105_oe() {
+        try {
+            TransformerUtils.invokerTransformer(""badArgs"", new Class[] {}, new Object[] { cString });
+            fail();
+        } catch (final IllegalArgumentException ex) {}
+    }
+",TransformerUtilsTest::testInvokerTransformer2_oe_105_oe,"public static <I, O> Transformer<I, O> invokerTransformer(final String methodName) {
+        return InvokerTransformer.invokerTransformer(methodName, null, null);
+    }","/**
+     * Gets a Transformer that invokes a method on the input object.
+     * The method must have no parameters. If the input object is {@code null},
+     * {@code null} is returned.
+     *
+     * <p>
+     * For example, <code>TransformerUtils.invokerTransformer(""getName"");</code>
+     * will call the <code>getName</code> method on the input object to
+     * determine the transformer result.
+     * </p>
+     *
+     * @param <I>  the input type
+     * @param <O>  the output type
+     * @param methodName  the method name to call on the input object, may not be null
+     * @return the transformer
+     * @throws NullPointerException if the methodName is null.
+     * @see InvokerTransformer
+     */"
+coll_121_101,"@Test
+    public void testInstantiateTransformerNull_oe_101_oe() {
+        try {
+            TransformerUtils.instantiateTransformer(null, new Object[] { ""str"" });
+            fail();
+        } catch (final IllegalArgumentException ex) {}
+    }
+",TransformerUtilsTest::testInstantiateTransformerNull_oe_101_oe,"public static <T> Transformer<Class<? extends T>, T> instantiateTransformer() {
+        return InstantiateTransformer.instantiateTransformer();
+    }","/**
+     * Gets a Transformer that expects an input Class object that it will instantiate.
+     *
+     * @param <T>  the output type
+     * @return the transformer
+     * @see InstantiateTransformer
+     */"
+coll_121_102,"@Test
+    public void testInstantiateTransformerNull_oe_102_oe() {
+        try {
+            TransformerUtils.instantiateTransformer(new Class[] {}, new Object[] { ""str"" });
+            fail();
+        } catch (final IllegalArgumentException ex) {}
+    }
+",TransformerUtilsTest::testInstantiateTransformerNull_oe_102_oe,"public static <T> Transformer<Class<? extends T>, T> instantiateTransformer() {
+        return InstantiateTransformer.instantiateTransformer();
+    }","/**
+     * Gets a Transformer that expects an input Class object that it will instantiate.
+     *
+     * @param <T>  the output type
+     * @return the transformer
+     * @see InstantiateTransformer
+     */"
+coll_138_101,"@Test
+    public void collate_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableOdd).collate(null).toList();
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",FluentIterableTest::collate_oe_101_oe,"public List<E> toList() {
+        return IterableUtils.toList(iterable);
+    }","/**
+     * Returns a mutable list containing all elements of this iterable
+     * by traversing its iterator.
+     * <p>
+     * The returned list is guaranteed to be mutable.
+     *
+     * @return a list of the iterable contents
+     */"
+coll_140_101,"@Test
+    public void filter_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableA).filter(null).toList();
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",FluentIterableTest::filter_oe_101_oe,"public List<E> toList() {
+        return IterableUtils.toList(iterable);
+    }","/**
+     * Returns a mutable list containing all elements of this iterable
+     * by traversing its iterator.
+     * <p>
+     * The returned list is guaranteed to be mutable.
+     *
+     * @return a list of the iterable contents
+     */"
+coll_141_101,"@Test
+    public void forEach_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableA).forEach((Closure<Integer>) null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",FluentIterableTest::forEach_oe_101_oe,"public void forEach(final Closure<? super E> closure) {
+        IterableUtils.forEach(iterable, closure);
+    }","/**
+     * Applies the closure to all elements contained in this iterable.
+     *
+     * @param closure  the closure to apply to each element, may not be null
+     * @throws NullPointerException if closure is null
+     */"
+coll_142_101,"@Test
+    public void limit_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableA).limit(-2).toList();
+            fail(""expecting IllegalArgumentException"");
+        } catch (final IllegalArgumentException iae) {
+            // expected
+        }
+    }
+",FluentIterableTest::limit_oe_101_oe,"public List<E> toList() {
+        return IterableUtils.toList(iterable);
+    }","/**
+     * Returns a mutable list containing all elements of this iterable
+     * by traversing its iterator.
+     * <p>
+     * The returned list is guaranteed to be mutable.
+     *
+     * @return a list of the iterable contents
+     */"
+coll_144_101,"@Test
+    public void skip_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableA).skip(-4).toList();
+            fail(""expecting IllegalArgumentException"");
+        } catch (final IllegalArgumentException iae) {
+            // expected
+        }
+    }
+",FluentIterableTest::skip_oe_101_oe,"public List<E> toList() {
+        return IterableUtils.toList(iterable);
+    }","/**
+     * Returns a mutable list containing all elements of this iterable
+     * by traversing its iterator.
+     * <p>
+     * The returned list is guaranteed to be mutable.
+     *
+     * @return a list of the iterable contents
+     */"
+coll_145_101,"@Test
+    public void transform_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableA).transform(null).toList();
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",FluentIterableTest::transform_oe_101_oe,"public List<E> toList() {
+        return IterableUtils.toList(iterable);
+    }","/**
+     * Returns a mutable list containing all elements of this iterable
+     * by traversing its iterator.
+     * <p>
+     * The returned list is guaranteed to be mutable.
+     *
+     * @return a list of the iterable contents
+     */"
+coll_150_101,"@Test
+    public void allMatch_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableEven).allMatch(null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",FluentIterableTest::allMatch_oe_101_oe,"public boolean allMatch(final Predicate<? super E> predicate) {
+        return IterableUtils.matchesAll(iterable, predicate);
+    }","/**
+     * Checks if all elements contained in this iterable are matching the
+     * provided predicate.
+     * <p>
+     * A <code>null</code> or empty iterable returns true.
+     *
+     * @param predicate  the predicate to use, may not be null
+     * @return true if all elements contained in this iterable match the predicate,
+     *   false otherwise
+     * @throws NullPointerException if predicate is null
+     */"
+coll_151_101,"@Test
+    public void anyMatch_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableEven).anyMatch(null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",FluentIterableTest::anyMatch_oe_101_oe,"public boolean anyMatch(final Predicate<? super E> predicate) {
+        return IterableUtils.matchesAny(iterable, predicate);
+    }","/**
+     * Checks if this iterable contains any element matching the provided predicate.
+     * <p>
+     * A <code>null</code> or empty iterable returns false.
+     *
+     * @param predicate  the predicate to use, may not be null
+     * @return true if at least one element contained in this iterable matches the predicate,
+     *   false otherwise
+     * @throws NullPointerException if predicate is null
+     */"
+coll_153_101,"@Test
+    public void size_oe_101_oe() {
+        try {
+            FluentIterable.of((Iterable<?>) null).size();
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",FluentIterableTest::size_oe_101_oe,"public int size() {
+        return IterableUtils.size(iterable);
+    }","/**
+     * Returns the number of elements that are contained in this iterable.
+     * In order to determine the size, an iterator needs to be traversed.
+     *
+     * @return the size of this iterable
+     */"
+coll_156_101,"@Test
+    public void copyInto_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableA).copyInto(null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",FluentIterableTest::copyInto_oe_101_oe,"public void copyInto(final Collection<? super E> collection) {
+        if (collection == null) {
+            throw new NullPointerException(""Collection must not be null"");
+        }
+        CollectionUtils.addAll(collection, iterable);
+    }","/**
+     * Traverses an iterator of this iterable and adds all elements
+     * to the provided collection.
+     *
+     * @param collection  the collection to add the elements
+     * @throws NullPointerException if collection is null
+     */"
+coll_158_101,"@Test
+    public void get_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableEven).get(-1);
+            fail(""expecting IndexOutOfBoundsException"");
+        } catch (final IndexOutOfBoundsException ioe) {
+            // expected
+        }
+    }
+",FluentIterableTest::get_oe_101_oe,"public E get(final int position) {
+        return IterableUtils.get(iterable, position);
+    }","/**
+     * Returns the element at the provided position in this iterable.
+     * In order to return the element, an iterator needs to be traversed
+     * up to the requested position.
+     *
+     * @param position  the position of the element to return
+     * @return the element
+     * @throws IndexOutOfBoundsException if the provided position is outside the
+     *   valid range of this iterable: [0, size)
+     */"
+coll_158_102,"@Test
+    public void get_oe_102_oe() {
+        try {
+            FluentIterable.of(iterableEven).get(IterableUtils.size(iterableEven));
+            fail(""expecting IndexOutOfBoundsException"");
+        } catch (final IndexOutOfBoundsException ioe) {
+            // expected
+        }
+    }
+",FluentIterableTest::get_oe_102_oe,"public int size() {
+        return IterableUtils.size(iterable);
+    }","/**
+     * Returns the number of elements that are contained in this iterable.
+     * In order to determine the size, an iterator needs to be traversed.
+     *
+     * @return the size of this iterable
+     */"
+coll_167_101,"@Test
+    public void indexOf_oe_101_oe() {
+        try {
+            IterableUtils.indexOf(iterableA, null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",IterableUtilsTest::indexOf_oe_101_oe,"public static <E> int indexOf(final Iterable<E> iterable, final Predicate<? super E> predicate) {
+        return IteratorUtils.indexOf(emptyIteratorIfNull(iterable), predicate);
+    }","/**
+     * Returns the index of the first element in the specified iterable that
+     * matches the given predicate.
+     * <p>
+     * A <code>null</code> or empty iterable returns -1.
+     *
+     * @param <E> the element type
+     * @param iterable  the iterable to search, may be null
+     * @param predicate  the predicate to use, may not be null
+     * @return the index of the first element which matches the predicate or -1 if none matches
+     * @throws NullPointerException if predicate is null
+     */"
+coll_175_101,"@Test
+    public void testToStringWithNullArguments_oe_101_oe() {
+        try {
+            IterableUtils.toString(new ArrayList<Integer>(), null, """", ""("", "")"");
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",IterableUtilsTest::testToStringWithNullArguments_oe_101_oe,,
+coll_175_102,"@Test
+    public void testToStringWithNullArguments_oe_102_oe() {
+        try {
+            IterableUtils.toString(new ArrayList<Integer>(), new Transformer<Integer, String>() {
+                @Override
+                public String transform(final Integer input) {
+                    fail(""not supposed to reach here"");
+                    return """";
+                }
+            }, null, ""("", "")"");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",IterableUtilsTest::testToStringWithNullArguments_oe_102_oe,"@Override
+            public EquatorWrapper<?> transform(final Object input) {
+                return new EquatorWrapper(equator, input);
+            }",
+coll_175_103,"@Test
+    public void testToStringWithNullArguments_oe_103_oe() {
+        try {
+            IterableUtils.toString(new ArrayList<Integer>(), new Transformer<Integer, String>() {
+                @Override
+                public String transform(final Integer input) {
+                    fail(""not supposed to reach here"");
+                    return """";
+                }
+            }, """", null, "")"");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",IterableUtilsTest::testToStringWithNullArguments_oe_103_oe,"@Override
+            public EquatorWrapper<?> transform(final Object input) {
+                return new EquatorWrapper(equator, input);
+            }",
+coll_175_104,"@Test
+    public void testToStringWithNullArguments_oe_104_oe() {
+        try {
+            IterableUtils.toString(new ArrayList<Integer>(), new Transformer<Integer, String>() {
+                @Override
+                public String transform(final Integer input) {
+                    fail(""not supposed to reach here"");
+                    return """";
+                }
+            }, """", ""("", null);
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",IterableUtilsTest::testToStringWithNullArguments_oe_104_oe,"@Override
+            public EquatorWrapper<?> transform(final Object input) {
+                return new EquatorWrapper(equator, input);
+            }",
+coll_180_101,"@Test
+    public void testSynchronizedBag_oe_101_oe() {
+        try {
+            BagUtils.synchronizedBag(null);
+            fail(""Expecting NullPointerException for null bag."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testSynchronizedBag_oe_101_oe,"public static <E> Bag<E> synchronizedBag(final Bag<E> bag) {
+        return SynchronizedBag.synchronizedBag(bag);
+    }","/**
+     * Returns a synchronized (thread-safe) bag backed by the given bag. In
+     * order to guarantee serial access, it is critical that all access to the
+     * backing bag is accomplished through the returned bag.
+     * <p>
+     * It is imperative that the user manually synchronize on the returned bag
+     * when iterating over it:
+     * </p>
+     *
+     * <pre>
+     * Bag bag = BagUtils.synchronizedBag(new HashBag());
+     * ...
+     * synchronized(bag) {
+     *     Iterator i = bag.iterator(); // Must be in synchronized block
+     *     while (i.hasNext())
+     *         foo(i.next());
+     *     }
+     * }
+     * </pre>
+     *
+     * Failure to follow this advice may result in non-deterministic behavior.
+     *
+     * @param <E> the element type
+     * @param bag the bag to synchronize, must not be null
+     * @return a synchronized bag backed by that bag
+     * @throws NullPointerException if the Bag is null
+     */"
+coll_181_101,"@Test
+    public void testUnmodifiableBag_oe_101_oe() {
+        try {
+            BagUtils.unmodifiableBag(null);
+            fail(""Expecting NullPointerException for null bag."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testUnmodifiableBag_oe_101_oe,"public static <E> Bag<E> unmodifiableBag(final Bag<? extends E> bag) {
+        return UnmodifiableBag.unmodifiableBag(bag);
+    }","/**
+     * Returns an unmodifiable view of the given bag. Any modification attempts
+     * to the returned bag will raise an {@link UnsupportedOperationException}.
+     *
+     * @param <E> the element type
+     * @param bag the bag whose unmodifiable view is to be returned, must not be null
+     * @return an unmodifiable view of that bag
+     * @throws NullPointerException if the Bag is null
+     */"
+coll_182_101,"@Test
+    public void testPredicatedBag_oe_101_oe() {
+        try {
+            BagUtils.predicatedBag(null,truePredicate);
+            fail(""Expecting NullPointerException for null bag."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testPredicatedBag_oe_101_oe,"public static <E> Bag<E> predicatedBag(final Bag<E> bag, final Predicate<? super E> predicate) {
+        return PredicatedBag.predicatedBag(bag, predicate);
+    }","/**
+     * Returns a predicated (validating) bag backed by the given bag.
+     * <p>
+     * Only objects that pass the test in the given predicate can be added to
+     * the bag. Trying to add an invalid object results in an
+     * IllegalArgumentException. It is important not to use the original bag
+     * after invoking this method, as it is a backdoor for adding invalid
+     * objects.
+     * </p>
+     *
+     * @param <E> the element type
+     * @param bag the bag to predicate, must not be null
+     * @param predicate the predicate for the bag, must not be null
+     * @return a predicated bag backed by the given bag
+     * @throws NullPointerException if the Bag or Predicate is null
+     */"
+coll_182_102,"@Test
+    public void testPredicatedBag_oe_102_oe() {
+        try {
+            BagUtils.predicatedBag(new HashBag<>(), null);
+            fail(""Expecting NullPointerException for null predicate."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testPredicatedBag_oe_102_oe,"public static <E> Bag<E> predicatedBag(final Bag<E> bag, final Predicate<? super E> predicate) {
+        return PredicatedBag.predicatedBag(bag, predicate);
+    }","/**
+     * Returns a predicated (validating) bag backed by the given bag.
+     * <p>
+     * Only objects that pass the test in the given predicate can be added to
+     * the bag. Trying to add an invalid object results in an
+     * IllegalArgumentException. It is important not to use the original bag
+     * after invoking this method, as it is a backdoor for adding invalid
+     * objects.
+     * </p>
+     *
+     * @param <E> the element type
+     * @param bag the bag to predicate, must not be null
+     * @param predicate the predicate for the bag, must not be null
+     * @return a predicated bag backed by the given bag
+     * @throws NullPointerException if the Bag or Predicate is null
+     */"
+coll_183_101,"@Test
+    public void testTransformedBag_oe_101_oe() {
+        try {
+            BagUtils.transformingBag(null, nopTransformer);
+            fail(""Expecting NullPointerException for null bag."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testTransformedBag_oe_101_oe,"public static <E> Bag<E> transformingBag(final Bag<E> bag, final Transformer<? super E, ? extends E> transformer) {
+        return TransformedBag.transformingBag(bag, transformer);
+    }","/**
+     * Returns a transformed bag backed by the given bag.
+     * <p>
+     * Each object is passed through the transformer as it is added to the Bag.
+     * It is important not to use the original bag after invoking this method,
+     * as it is a backdoor for adding untransformed objects.
+     * </p>
+     * <p>
+     * Existing entries in the specified bag will not be transformed.
+     * If you want that behaviour, see {@link TransformedBag#transformedBag(Bag, Transformer)}.
+     * </p>
+     *
+     * @param <E> the element type
+     * @param bag the bag to predicate, must not be null
+     * @param transformer the transformer for the bag, must not be null
+     * @return a transformed bag backed by the given bag
+     * @throws NullPointerException if the Bag or Transformer is null
+     */"
+coll_183_102,"@Test
+    public void testTransformedBag_oe_102_oe() {
+        try {
+            BagUtils.transformingBag(new HashBag<>(), null);
+            fail(""Expecting NullPointerException for null transformer."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testTransformedBag_oe_102_oe,"public static <E> Bag<E> transformingBag(final Bag<E> bag, final Transformer<? super E, ? extends E> transformer) {
+        return TransformedBag.transformingBag(bag, transformer);
+    }","/**
+     * Returns a transformed bag backed by the given bag.
+     * <p>
+     * Each object is passed through the transformer as it is added to the Bag.
+     * It is important not to use the original bag after invoking this method,
+     * as it is a backdoor for adding untransformed objects.
+     * </p>
+     * <p>
+     * Existing entries in the specified bag will not be transformed.
+     * If you want that behaviour, see {@link TransformedBag#transformedBag(Bag, Transformer)}.
+     * </p>
+     *
+     * @param <E> the element type
+     * @param bag the bag to predicate, must not be null
+     * @param transformer the transformer for the bag, must not be null
+     * @return a transformed bag backed by the given bag
+     * @throws NullPointerException if the Bag or Transformer is null
+     */"
+coll_184_101,"@Test
+    public void testSynchronizedSortedBag_oe_101_oe() {
+        try {
+            BagUtils.synchronizedSortedBag(null);
+            fail(""Expecting NullPointerException for null bag."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testSynchronizedSortedBag_oe_101_oe,"public static <E> SortedBag<E> synchronizedSortedBag(final SortedBag<E> bag) {
+        return SynchronizedSortedBag.synchronizedSortedBag(bag);
+    }","/**
+     * Returns a synchronized (thread-safe) sorted bag backed by the given
+     * sorted bag. In order to guarantee serial access, it is critical that all
+     * access to the backing bag is accomplished through the returned bag.
+     * <p>
+     * It is imperative that the user manually synchronize on the returned bag
+     * when iterating over it:
+     * </p>
+     *
+     * <pre>
+     * SortedBag bag = BagUtils.synchronizedSortedBag(new TreeBag());
+     * ...
+     * synchronized(bag) {
+     *     Iterator i = bag.iterator(); // Must be in synchronized block
+     *     while (i.hasNext())
+     *         foo(i.next());
+     *     }
+     * }
+     * </pre>
+     *
+     * Failure to follow this advice may result in non-deterministic behavior.
+     *
+     * @param <E> the element type
+     * @param bag the bag to synchronize, must not be null
+     * @return a synchronized bag backed by that bag
+     * @throws NullPointerException if the SortedBag is null
+     */"
+coll_185_101,"@Test
+    public void testUnmodifiableSortedBag_oe_101_oe() {
+        try {
+            BagUtils.unmodifiableSortedBag(null);
+            fail(""Expecting NullPointerException for null bag."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testUnmodifiableSortedBag_oe_101_oe,"public static <E> SortedBag<E> unmodifiableSortedBag(final SortedBag<E> bag) {
+        return UnmodifiableSortedBag.unmodifiableSortedBag(bag);
+    }","/**
+     * Returns an unmodifiable view of the given sorted bag. Any modification
+     * attempts to the returned bag will raise an
+     * {@link UnsupportedOperationException}.
+     *
+     * @param <E> the element type
+     * @param bag the bag whose unmodifiable view is to be returned, must not be null
+     * @return an unmodifiable view of that bag
+     * @throws NullPointerException if the SortedBag is null
+     */"
+coll_186_101,"@Test
+    public void testPredicatedSortedBag_oe_101_oe() {
+        try {
+            BagUtils.predicatedSortedBag(null, truePredicate);
+            fail(""Expecting NullPointerException for null bag."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testPredicatedSortedBag_oe_101_oe,"public static <E> SortedBag<E> predicatedSortedBag(final SortedBag<E> bag,
+            final Predicate<? super E> predicate) {
+        return PredicatedSortedBag.predicatedSortedBag(bag, predicate);
+    }","/**
+     * Returns a predicated (validating) sorted bag backed by the given sorted
+     * bag.
+     * <p>
+     * Only objects that pass the test in the given predicate can be added to
+     * the bag. Trying to add an invalid object results in an
+     * IllegalArgumentException. It is important not to use the original bag
+     * after invoking this method, as it is a backdoor for adding invalid
+     * objects.
+     * </p>
+     *
+     * @param <E> the element type
+     * @param bag the sorted bag to predicate, must not be null
+     * @param predicate the predicate for the bag, must not be null
+     * @return a predicated bag backed by the given bag
+     * @throws NullPointerException if the SortedBag or Predicate is null
+     */"
+coll_186_102,"@Test
+    public void testPredicatedSortedBag_oe_102_oe() {
+        try {
+            BagUtils.predicatedSortedBag(new TreeBag<>(), null);
+            fail(""Expecting NullPointerException for null predicate."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testPredicatedSortedBag_oe_102_oe,"public static <E> SortedBag<E> predicatedSortedBag(final SortedBag<E> bag,
+            final Predicate<? super E> predicate) {
+        return PredicatedSortedBag.predicatedSortedBag(bag, predicate);
+    }","/**
+     * Returns a predicated (validating) sorted bag backed by the given sorted
+     * bag.
+     * <p>
+     * Only objects that pass the test in the given predicate can be added to
+     * the bag. Trying to add an invalid object results in an
+     * IllegalArgumentException. It is important not to use the original bag
+     * after invoking this method, as it is a backdoor for adding invalid
+     * objects.
+     * </p>
+     *
+     * @param <E> the element type
+     * @param bag the sorted bag to predicate, must not be null
+     * @param predicate the predicate for the bag, must not be null
+     * @return a predicated bag backed by the given bag
+     * @throws NullPointerException if the SortedBag or Predicate is null
+     */"
+coll_187_101,"@Test
+    public void testTransformedSortedBag_oe_101_oe() {
+        try {
+            BagUtils.transformingSortedBag(null, nopTransformer);
+            fail(""Expecting NullPointerException for null bag."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testTransformedSortedBag_oe_101_oe,"public static <E> SortedBag<E> transformingSortedBag(final SortedBag<E> bag,
+                                                         final Transformer<? super E, ? extends E> transformer) {
+        return TransformedSortedBag.transformingSortedBag(bag, transformer);
+    }","/**
+     * Returns a transformed sorted bag backed by the given bag.
+     * <p>
+     * Each object is passed through the transformer as it is added to the Bag.
+     * It is important not to use the original bag after invoking this method,
+     * as it is a backdoor for adding untransformed objects.
+     * </p>
+     * <p>
+     * Existing entries in the specified bag will not be transformed.
+     * If you want that behaviour, see
+     * {@link TransformedSortedBag#transformedSortedBag(SortedBag, Transformer)}.
+     * </p>
+     *
+     * @param <E> the element type
+     * @param bag the bag to predicate, must not be null
+     * @param transformer the transformer for the bag, must not be null
+     * @return a transformed bag backed by the given bag
+     * @throws NullPointerException if the Bag or Transformer is null
+     */"
+coll_187_102,"@Test
+    public void testTransformedSortedBag_oe_102_oe() {
+        try {
+            BagUtils.transformingSortedBag(new TreeBag<>(), null);
+            fail(""Expecting NullPointerException for null transformer."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testTransformedSortedBag_oe_102_oe,"public static <E> SortedBag<E> transformingSortedBag(final SortedBag<E> bag,
+                                                         final Transformer<? super E, ? extends E> transformer) {
+        return TransformedSortedBag.transformingSortedBag(bag, transformer);
+    }","/**
+     * Returns a transformed sorted bag backed by the given bag.
+     * <p>
+     * Each object is passed through the transformer as it is added to the Bag.
+     * It is important not to use the original bag after invoking this method,
+     * as it is a backdoor for adding untransformed objects.
+     * </p>
+     * <p>
+     * Existing entries in the specified bag will not be transformed.
+     * If you want that behaviour, see
+     * {@link TransformedSortedBag#transformedSortedBag(SortedBag, Transformer)}.
+     * </p>
+     *
+     * @param <E> the element type
+     * @param bag the bag to predicate, must not be null
+     * @param transformer the transformer for the bag, must not be null
+     * @return a transformed bag backed by the given bag
+     * @throws NullPointerException if the Bag or Transformer is null
+     */"
+coll_190_101,"@Test
+    public void testUnmodifiableTrie_oe_101_oe() {
+        try {
+            TrieUtils.unmodifiableTrie(null);
+            fail(""Expecting NullPointerException for null trie."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",TrieUtilsTest::testUnmodifiableTrie_oe_101_oe,"public static <K, V> Trie<K, V> unmodifiableTrie(final Trie<K, ? extends V> trie) {
+        return UnmodifiableTrie.unmodifiableTrie(trie);
+    }","/**
+     * Returns an unmodifiable instance of a {@link Trie}
+     *
+     * @param <K>  the key type
+     * @param <V>  the value type
+     * @param trie  the trie to make unmodifiable, must not be null
+     * @return an unmodifiable trie backed by the given trie
+     * @throws NullPointerException if trie is null
+     *
+     * @see java.util.Collections#unmodifiableMap(java.util.Map)
+     */"
+coll_191_101,"@Test
+    public void testSynchronizedQueue_oe_101_oe() {
+        try {
+            QueueUtils.synchronizedQueue(null);
+            fail(""Expecting NullPointerException for null queue."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",QueueUtilsTest::testSynchronizedQueue_oe_101_oe,"public static <E> Queue<E> synchronizedQueue(final Queue<E> queue) {
+        return SynchronizedQueue.synchronizedQueue(queue);
+    }","/**
+     * Returns a synchronized (thread-safe) queue backed by the given queue.
+     * In order to guarantee serial access, it is critical that all access to the
+     * backing queue is accomplished through the returned queue.
+     * <p>
+     * It is imperative that the user manually synchronize on the returned queue
+     * when iterating over it:
+     *
+     * <pre>
+     * Queue queue = QueueUtils.synchronizedQueue(new CircularFifoQueue());
+     * ...
+     * synchronized(queue) {
+     *     Iterator i = queue.iterator(); // Must be in synchronized block
+     *     while (i.hasNext())
+     *         foo(i.next());
+     *     }
+     * }
+     * </pre>
+     *
+     * Failure to follow this advice may result in non-deterministic behavior.
+     *
+     * @param <E> the element type
+     * @param queue the queue to synchronize, must not be null
+     * @return a synchronized queue backed by that queue
+     * @throws NullPointerException if the queue is null
+     * @since 4.2
+     */"
+coll_192_101,"@Test
+    public void testUnmodifiableQueue_oe_101_oe() {
+        try {
+            QueueUtils.unmodifiableQueue(null);
+            fail(""Expecting NullPointerException for null queue."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",QueueUtilsTest::testUnmodifiableQueue_oe_101_oe,"public static <E> Queue<E> unmodifiableQueue(final Queue<? extends E> queue) {
+        return UnmodifiableQueue.unmodifiableQueue(queue);
+    }","/**
+     * Returns an unmodifiable queue backed by the given queue.
+     *
+     * @param <E> the type of the elements in the queue
+     * @param queue  the queue to make unmodifiable, must not be null
+     * @return an unmodifiable queue backed by that queue
+     * @throws NullPointerException if the queue is null
+     */"
+coll_193_101,"@Test
+    public void testPredicatedQueue_oe_101_oe() {
+        try {
+            QueueUtils.predicatedQueue(null, truePredicate);
+            fail(""Expecting NullPointerException for null queue."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",QueueUtilsTest::testPredicatedQueue_oe_101_oe,"public static <E> Queue<E> predicatedQueue(final Queue<E> queue, final Predicate<? super E> predicate) {
+        return PredicatedQueue.predicatedQueue(queue, predicate);
+    }","/**
+     * Returns a predicated (validating) queue backed by the given queue.
+     * <p>
+     * Only objects that pass the test in the given predicate can be added to the queue.
+     * Trying to add an invalid object results in an IllegalArgumentException.
+     * It is important not to use the original queue after invoking this method,
+     * as it is a backdoor for adding invalid objects.
+     *
+     * @param <E> the type of the elements in the queue
+     * @param queue  the queue to predicate, must not be null
+     * @param predicate  the predicate used to evaluate new elements, must not be null
+     * @return a predicated queue
+     * @throws NullPointerException if the queue or predicate is null
+     */"
+coll_193_102,"@Test
+    public void testPredicatedQueue_oe_102_oe() {
+        try {
+            QueueUtils.predicatedQueue(new LinkedList<>(), null);
+            fail(""Expecting NullPointerException for null predicate."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",QueueUtilsTest::testPredicatedQueue_oe_102_oe,"public static <E> Queue<E> predicatedQueue(final Queue<E> queue, final Predicate<? super E> predicate) {
+        return PredicatedQueue.predicatedQueue(queue, predicate);
+    }","/**
+     * Returns a predicated (validating) queue backed by the given queue.
+     * <p>
+     * Only objects that pass the test in the given predicate can be added to the queue.
+     * Trying to add an invalid object results in an IllegalArgumentException.
+     * It is important not to use the original queue after invoking this method,
+     * as it is a backdoor for adding invalid objects.
+     *
+     * @param <E> the type of the elements in the queue
+     * @param queue  the queue to predicate, must not be null
+     * @param predicate  the predicate used to evaluate new elements, must not be null
+     * @return a predicated queue
+     * @throws NullPointerException if the queue or predicate is null
+     */"
+coll_194_101,"@Test
+    public void testTransformedQueue_oe_101_oe() {
+        try {
+            QueueUtils.transformingQueue(null, nopTransformer);
+            fail(""Expecting NullPointerException for null queue."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",QueueUtilsTest::testTransformedQueue_oe_101_oe,"public static <E> Queue<E> transformingQueue(final Queue<E> queue,
+                                                 final Transformer<? super E, ? extends E> transformer) {
+        return TransformedQueue.transformingQueue(queue, transformer);
+    }","/**
+     * Returns a transformed queue backed by the given queue.
+     * <p>
+     * Each object is passed through the transformer as it is added to the
+     * Queue. It is important not to use the original queue after invoking this
+     * method, as it is a backdoor for adding untransformed objects.
+     * <p>
+     * Existing entries in the specified queue will not be transformed.
+     * If you want that behaviour, see {@link TransformedQueue#transformedQueue}.
+     *
+     * @param <E> the type of the elements in the queue
+     * @param queue  the queue to predicate, must not be null
+     * @param transformer  the transformer for the queue, must not be null
+     * @return a transformed queue backed by the given queue
+     * @throws NullPointerException if the queue or transformer is null
+     */"
+coll_194_102,"@Test
+    public void testTransformedQueue_oe_102_oe() {
+        try {
+            QueueUtils.transformingQueue(new LinkedList<>(), null);
+            fail(""Expecting NullPointerException for null transformer."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",QueueUtilsTest::testTransformedQueue_oe_102_oe,"public static <E> Queue<E> transformingQueue(final Queue<E> queue,
+                                                 final Transformer<? super E, ? extends E> transformer) {
+        return TransformedQueue.transformingQueue(queue, transformer);
+    }","/**
+     * Returns a transformed queue backed by the given queue.
+     * <p>
+     * Each object is passed through the transformer as it is added to the
+     * Queue. It is important not to use the original queue after invoking this
+     * method, as it is a backdoor for adding untransformed objects.
+     * <p>
+     * Existing entries in the specified queue will not be transformed.
+     * If you want that behaviour, see {@link TransformedQueue#transformedQueue}.
+     *
+     * @param <E> the type of the elements in the queue
+     * @param queue  the queue to predicate, must not be null
+     * @param transformer  the transformer for the queue, must not be null
+     * @return a transformed queue backed by the given queue
+     * @throws NullPointerException if the queue or transformer is null
+     */"
+coll_200_101,"@Test
+    public void testWhileClosure_oe_101_oe() {
+        try {
+            ClosureUtils.whileClosure(null, ClosureUtils.nopClosure());
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",ClosureUtilsTest::testWhileClosure_oe_101_oe,"public static <E> Closure<E> nopClosure() {
+        return NOPClosure.<E>nopClosure();
+    }","/**
+     * Gets a Closure that will do nothing.
+     * This could be useful during testing as a placeholder.
+     *
+     * @see org.apache.commons.collections4.functors.NOPClosure
+     *
+     * @param <E>  the type that the closure acts on
+     * @return the closure
+     */"
+coll_200_102,"@Test
+    public void testWhileClosure_oe_102_oe() {
+        try {
+            ClosureUtils.whileClosure(FalsePredicate.falsePredicate(), null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",ClosureUtilsTest::testWhileClosure_oe_102_oe,"public static <T> Predicate<T> falsePredicate() {
+        return INSTANCE;
+    }","/**
+     * Get a typed instance.
+     *
+     * @param <T> the type that the predicate queries
+     * @return the singleton instance
+     * @since 4.0
+     */"
+coll_200_103,"@Test
+    public void testWhileClosure_oe_103_oe() {
+        try {
+            ClosureUtils.whileClosure(null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",ClosureUtilsTest::testWhileClosure_oe_103_oe,"public static <E> Closure<E> whileClosure(final Predicate<? super E> predicate, final Closure<? super E> closure) {
+        return WhileClosure.<E>whileClosure(predicate, closure, false);
+    }","/**
+     * Creates a Closure that will call the closure repeatedly until the
+     * predicate returns false.
+     *
+     * @see org.apache.commons.collections4.functors.WhileClosure
+     *
+     * @param <E>  the type that the closure acts on
+     * @param predicate  the predicate to use as an end of loop test, not null
+     * @param closure  the closure to call repeatedly, not null
+     * @return the <code>while</code> closure
+     * @throws NullPointerException if either argument is null
+     */"
+coll_201_101,"@Test
+    public void testDoWhileClosure_oe_101_oe() {
+        try {
+            ClosureUtils.doWhileClosure(null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",ClosureUtilsTest::testDoWhileClosure_oe_101_oe,"public static <E> Closure<E> doWhileClosure(final Closure<? super E> closure,
+                                                final Predicate<? super E> predicate) {
+        return WhileClosure.<E>whileClosure(predicate, closure, true);
+    }","/**
+     * Creates a Closure that will call the closure once and then repeatedly
+     * until the predicate returns false.
+     *
+     * @see org.apache.commons.collections4.functors.WhileClosure
+     *
+     * @param <E>  the type that the closure acts on
+     * @param closure  the closure to call repeatedly, not null
+     * @param predicate  the predicate to use as an end of loop test, not null
+     * @return the <code>do-while</code> closure
+     * @throws NullPointerException if either argument is null
+     */"
+coll_205_101,"@Test
+    public void testSwitchMapClosure_oe_101_oe() {
+        try {
+            ClosureUtils.switchMapClosure(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",ClosureUtilsTest::testSwitchMapClosure_oe_101_oe,"@SuppressWarnings(""unchecked"")
+    public static <E> Closure<E> switchMapClosure(final Map<? extends E, Closure<E>> objectsAndClosures) {
+        if (objectsAndClosures == null) {
+            throw new NullPointerException(""The object and closure map must not be null"");
+        }
+        final Closure<? super E> def = objectsAndClosures.remove(null);
+        final int size = objectsAndClosures.size();
+        final Closure<? super E>[] trs = new Closure[size];
+        final Predicate<E>[] preds = new Predicate[size];
+        int i = 0;
+        for (final Map.Entry<? extends E, Closure<E>> entry : objectsAndClosures.entrySet()) {
+            preds[i] = EqualPredicate.<E>equalPredicate(entry.getKey());
+            trs[i] = entry.getValue();
+            i++;
+        }
+        return ClosureUtils.<E>switchClosure(preds, trs, def);
+    }","/**
+     * Create a new Closure that uses the input object as a key to find the
+     * closure to call.
+     * <p>
+     * The Map consists of object keys and Closure values. A closure
+     * is called if the input object equals the key. If there is no match, the
+     * default closure is called. The default closure is set in the map
+     * using a null key.
+     *
+     * @see org.apache.commons.collections4.functors.SwitchClosure
+     *
+     * @param <E>  the type that the closure acts on
+     * @param objectsAndClosures  a map of objects to closures
+     * @return the closure
+     * @throws NullPointerException if the map is null
+     * @throws NullPointerException if any closure in the map is null
+     * @throws IllegalArgumentException if the map is empty
+     */"
+coll_250_101,"@Test
+    public void testTransformedPredicate_oe_101_oe() {
+        try {
+            PredicateUtils.transformedPredicate(null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",PredicateUtilsTest::testTransformedPredicate_oe_101_oe,"public static <T> Predicate<T> transformedPredicate(
+            final Transformer<? super T, ? extends T> transformer, final Predicate<? super T> predicate) {
+        return TransformedPredicate.transformedPredicate(transformer, predicate);
+    }","/**
+     * Creates a predicate that transforms the input object before passing it
+     * to the predicate.
+     *
+     * @param <T>  the type that the predicate queries
+     * @param transformer  the transformer to call first
+     * @param predicate  the predicate to call with the result of the transform
+     * @return the predicate
+     * @throws NullPointerException if the transformer or the predicate is null
+     * @see TransformedPredicate
+     * @since 3.1
+     */"
+coll_299_101,"@Test
+    public void testSizeIsEmpty_Other_oe_101_oe() {
+        try {
+            CollectionUtils.sizeIsEmpty(""not a list"");
+            fail(""Expecting IllegalArgumentException"");
+        } catch (final IllegalArgumentException ex) {
+        }
+    }
+",CollectionUtilsTest::testSizeIsEmpty_Other_oe_101_oe,"public static boolean sizeIsEmpty(final Object object) {
+        if (object == null) {
+            return true;
+        } else if (object instanceof Collection<?>) {
+            return ((Collection<?>) object).isEmpty();
+        } else if (object instanceof Iterable<?>) {
+            return IterableUtils.isEmpty((Iterable<?>) object);
+        } else if (object instanceof Map<?, ?>) {
+            return ((Map<?, ?>) object).isEmpty();
+        } else if (object instanceof Object[]) {
+            return ((Object[]) object).length == 0;
+        } else if (object instanceof Iterator<?>) {
+            return ((Iterator<?>) object).hasNext() == false;
+        } else if (object instanceof Enumeration<?>) {
+            return ((Enumeration<?>) object).hasMoreElements() == false;
+        } else {
+            try {
+                return Array.getLength(object) == 0;
+            } catch (final IllegalArgumentException ex) {
+                throw new IllegalArgumentException(""Unsupported object type: "" + object.getClass().getName());
+            }
+        }
+    }","/**
+     * Checks if the specified collection/array/iterator is empty.
+     * <p>
+     * This method can handles objects as follows
+     * </p>
+     * <ul>
+     * <li>Collection - via collection isEmpty
+     * <li>Map - via map isEmpty
+     * <li>Array - using array size
+     * <li>Iterator - via hasNext
+     * <li>Enumeration - via hasMoreElements
+     * </ul>
+     * <p>
+     * Note: This method is named to avoid clashing with
+     * {@link #isEmpty(Collection)}.
+     * </p>
+     *
+     * @param object  the object to get the size of, may be null
+     * @return true if empty or null
+     * @throws IllegalArgumentException thrown if object is not recognized
+     * @since 3.2
+     */"
+coll_319_101,"@Test
+    public void predicatedCollection_oe_101_oe() {
+        try {
+            CollectionUtils.predicatedCollection(new ArrayList<Number>(), null);
+            fail(""Expecting NullPointerException for null predicate."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",CollectionUtilsTest::predicatedCollection_oe_101_oe,"public static <C> Collection<C> predicatedCollection(final Collection<C> collection,
+                                                         final Predicate<? super C> predicate) {
+        return PredicatedCollection.predicatedCollection(collection, predicate);
+    }","/**
+     * Returns a predicated (validating) collection backed by the given collection.
+     * <p>
+     * Only objects that pass the test in the given predicate can be added to the collection.
+     * Trying to add an invalid object results in an IllegalArgumentException.
+     * It is important not to use the original collection after invoking this method,
+     * as it is a backdoor for adding invalid objects.
+     * </p>
+     *
+     * @param <C> the type of objects in the Collection.
+     * @param collection  the collection to predicate, must not be null
+     * @param predicate  the predicate for the collection, must not be null
+     * @return a predicated collection backed by the given collection
+     * @throws NullPointerException if the Collection is null
+     */"
+coll_320_101,"@Test
+    public void isFull_oe_101_oe() {
+        try {
+            CollectionUtils.isFull(null);
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",CollectionUtilsTest::isFull_oe_101_oe,"public static boolean isFull(final Collection<? extends Object> coll) {
+        if (coll == null) {
+            throw new NullPointerException(""The collection must not be null"");
+        }
+        if (coll instanceof BoundedCollection) {
+            return ((BoundedCollection<?>) coll).isFull();
+        }
+        try {
+            final BoundedCollection<?> bcoll =
+                    UnmodifiableBoundedCollection.unmodifiableBoundedCollection(coll);
+            return bcoll.isFull();
+        } catch (final IllegalArgumentException ex) {
+            return false;
+        }
+    }","/**
+     * Returns true if no more elements can be added to the Collection.
+     * <p>
+     * This method uses the {@link BoundedCollection} interface to determine the
+     * full status. If the collection does not implement this interface then
+     * false is returned.
+     * </p>
+     * <p>
+     * The collection does not have to implement this interface directly.
+     * If the collection has been decorated using the decorators subpackage
+     * then these will be removed to access the BoundedCollection.
+     * </p>
+     *
+     * @param coll  the collection to check
+     * @return true if the BoundedCollection is full
+     * @throws NullPointerException if the collection is null
+     */"
+coll_322_101,"@Test
+    public void maxSize_oe_101_oe() {
+        try {
+            CollectionUtils.maxSize(null);
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",CollectionUtilsTest::maxSize_oe_101_oe,"public static int maxSize(final Collection<? extends Object> coll) {
+        if (coll == null) {
+            throw new NullPointerException(""The collection must not be null"");
+        }
+        if (coll instanceof BoundedCollection) {
+            return ((BoundedCollection<?>) coll).maxSize();
+        }
+        try {
+            final BoundedCollection<?> bcoll =
+                    UnmodifiableBoundedCollection.unmodifiableBoundedCollection(coll);
+            return bcoll.maxSize();
+        } catch (final IllegalArgumentException ex) {
+            return -1;
+        }
+    }","/**
+     * Get the maximum number of elements that the Collection can contain.
+     * <p>
+     * This method uses the {@link BoundedCollection} interface to determine the
+     * maximum size. If the collection does not implement this interface then
+     * -1 is returned.
+     * </p>
+     * <p>
+     * The collection does not have to implement this interface directly.
+     * If the collection has been decorated using the decorators subpackage
+     * then these will be removed to access the BoundedCollection.
+     * </p>
+     *
+     * @param coll  the collection to check
+     * @return the maximum size of the BoundedCollection, -1 if no maximum size
+     * @throws NullPointerException if the collection is null
+     */"
+coll_324_101,"@Test
+    public void testRetainAll_oe_101_oe() {
+        try {
+            CollectionUtils.retainAll(null, null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+        } // this is what we want
+    }
+",CollectionUtilsTest::testRetainAll_oe_101_oe,"public static <C> Collection<C> retainAll(final Collection<C> collection, final Collection<?> retain) {
+        return ListUtils.retainAll(collection, retain);
+    }","/**
+     * Returns a collection containing all the elements in <code>collection</code>
+     * that are also in <code>retain</code>. The cardinality of an element <code>e</code>
+     * in the returned collection is the same as the cardinality of <code>e</code>
+     * in <code>collection</code> unless <code>retain</code> does not contain <code>e</code>, in which
+     * case the cardinality is zero. This method is useful if you do not wish to modify
+     * the collection <code>c</code> and thus cannot call <code>c.retainAll(retain);</code>.
+     * <p>
+     * This implementation iterates over <code>collection</code>, checking each element in
+     * turn to see if it's contained in <code>retain</code>. If it's contained, it's added
+     * to the returned list. As a consequence, it is advised to use a collection type for
+     * <code>retain</code> that provides a fast (e.g. O(1)) implementation of
+     * {@link Collection#contains(Object)}.
+     * </p>
+     *
+     * @param <C>  the type of object the {@link Collection} contains
+     * @param collection  the collection whose contents are the target of the #retailAll operation
+     * @param retain  the collection containing the elements to be retained in the returned collection
+     * @return a <code>Collection</code> containing all the elements of <code>collection</code>
+     * that occur at least once in <code>retain</code>.
+     * @throws NullPointerException if either parameter is null
+     * @since 3.2
+     */"
+coll_325_101,"@Test
+    public void testRemoveAll_oe_101_oe() {
+        try {
+            CollectionUtils.removeAll(null, null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+        } // this is what we want
+    }
+",CollectionUtilsTest::testRemoveAll_oe_101_oe,"public static <E> Collection<E> removeAll(final Collection<E> collection, final Collection<?> remove) {
+        return ListUtils.removeAll(collection, remove);
+  }","/**
+     * Removes the elements in <code>remove</code> from <code>collection</code>. That is, this
+     * method returns a collection containing all the elements in <code>c</code>
+     * that are not in <code>remove</code>. The cardinality of an element <code>e</code>
+     * in the returned collection is the same as the cardinality of <code>e</code>
+     * in <code>collection</code> unless <code>remove</code> contains <code>e</code>, in which
+     * case the cardinality is zero. This method is useful if you do not wish to modify
+     * the collection <code>c</code> and thus cannot call <code>collection.removeAll(remove);</code>.
+     * <p>
+     * This implementation iterates over <code>collection</code>, checking each element in
+     * turn to see if it's contained in <code>remove</code>. If it's not contained, it's added
+     * to the returned list. As a consequence, it is advised to use a collection type for
+     * <code>remove</code> that provides a fast (e.g. O(1)) implementation of
+     * {@link Collection#contains(Object)}.
+     * </p>
+     *
+     * @param <E>  the type of object the {@link Collection} contains
+     * @param collection  the collection from which items are removed (in the returned collection)
+     * @param remove  the items to be removed from the returned <code>collection</code>
+     * @return a <code>Collection</code> containing all the elements of <code>collection</code> except
+     * any elements that also occur in <code>remove</code>.
+     * @throws NullPointerException if either parameter is null
+     * @since 4.0 (method existed in 3.2 but was completely broken)
+     */"
+coll_326_101,"@Test
+    public void testTransformedCollection_oe_101_oe() {
+        try {
+            CollectionUtils.transformingCollection(new ArrayList<>(), null);
+            fail(""Expecting NullPointerException for null transformer."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",CollectionUtilsTest::testTransformedCollection_oe_101_oe,"public static <E> Collection<E> transformingCollection(final Collection<E> collection,
+            final Transformer<? super E, ? extends E> transformer) {
+        return TransformedCollection.transformingCollection(collection, transformer);
+    }","/**
+     * Returns a transformed bag backed by the given collection.
+     * <p>
+     * Each object is passed through the transformer as it is added to the
+     * Collection. It is important not to use the original collection after invoking this
+     * method, as it is a backdoor for adding untransformed objects.
+     * </p>
+     * <p>
+     * Existing entries in the specified collection will not be transformed.
+     * If you want that behaviour, see {@link TransformedCollection#transformedCollection}.
+     * </p>
+     *
+     * @param <E> the type of object the {@link Collection} contains
+     * @param collection  the collection to predicate, must not be null
+     * @param transformer  the transformer for the collection, must not be null
+     * @return a transformed collection backed by the given collection
+     * @throws NullPointerException if the Collection or Transformer is null
+     */"
+coll_328_101,"@Test
+    @Deprecated
+    public void testSynchronizedCollection_oe_101_oe() {
+        try {
+            CollectionUtils.synchronizedCollection(null);
+            fail(""Expecting NullPointerException for null collection."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",CollectionUtilsTest::testSynchronizedCollection_oe_101_oe,"@Deprecated
+    public static <C> Collection<C> synchronizedCollection(final Collection<C> collection) {
+        return SynchronizedCollection.synchronizedCollection(collection);
+    }","/**
+     * Returns a synchronized collection backed by the given collection.
+     * <p>
+     * You must manually synchronize on the returned buffer's iterator to
+     * avoid non-deterministic behavior:
+     * </p>
+     * <pre>
+     * Collection c = CollectionUtils.synchronizedCollection(myCollection);
+     * synchronized (c) {
+     *     Iterator i = c.iterator();
+     *     while (i.hasNext()) {
+     *         process (i.next());
+     *     }
+     * }
+     * </pre>
+     * <p>
+     * This method uses the implementation in the decorators subpackage.
+     * </p>
+     *
+     * @param <C>  the type of object the {@link Collection} contains
+     * @param collection  the collection to synchronize, must not be null
+     * @return a synchronized collection backed by the given collection
+     * @throws NullPointerException if the collection is null
+     * @deprecated since 4.1, use {@link java.util.Collections#synchronizedCollection(Collection)} instead
+     */"
+coll_329_101,"@Test
+    @Deprecated
+    public void testUnmodifiableCollection_oe_101_oe() {
+        try {
+            CollectionUtils.unmodifiableCollection(null);
+            fail(""Expecting NullPointerException for null collection."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",CollectionUtilsTest::testUnmodifiableCollection_oe_101_oe,"@Deprecated
+    public static <C> Collection<C> unmodifiableCollection(final Collection<? extends C> collection) {
+        return UnmodifiableCollection.unmodifiableCollection(collection);
+    }","/**
+     * Returns an unmodifiable collection backed by the given collection.
+     * <p>
+     * This method uses the implementation in the decorators subpackage.
+     * </p>
+     *
+     * @param <C>  the type of object the {@link Collection} contains
+     * @param collection  the collection to make unmodifiable, must not be null
+     * @return an unmodifiable collection backed by the given collection
+     * @throws NullPointerException if the collection is null
+     * @deprecated since 4.1, use {@link java.util.Collections#unmodifiableCollection(Collection)} instead
+     */"
+coll_344_101,"@Test
+    public void testRemoveAllWithEquator_oe_101_oe() {
+        try {
+            CollectionUtils.removeAll(null, null, DefaultEquator.defaultEquator());
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+        } // this is what we want
+    }
+",CollectionUtilsTest::testRemoveAllWithEquator_oe_101_oe,"public static <T> DefaultEquator<T> defaultEquator() {
+        return DefaultEquator.INSTANCE;
+    }","/**
+     * Factory returning the typed singleton instance.
+     *
+     * @param <T>  the object type
+     * @return the singleton instance
+     */"
+coll_345_101,"@Test
+    public void testRetainAllWithEquator_oe_101_oe() {
+        try {
+            CollectionUtils.retainAll(null, null, null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+        } // this is what we want
+    }
+",CollectionUtilsTest::testRetainAllWithEquator_oe_101_oe,"public static <C> Collection<C> retainAll(final Collection<C> collection, final Collection<?> retain) {
+        return ListUtils.retainAll(collection, retain);
+    }","/**
+     * Returns a collection containing all the elements in <code>collection</code>
+     * that are also in <code>retain</code>. The cardinality of an element <code>e</code>
+     * in the returned collection is the same as the cardinality of <code>e</code>
+     * in <code>collection</code> unless <code>retain</code> does not contain <code>e</code>, in which
+     * case the cardinality is zero. This method is useful if you do not wish to modify
+     * the collection <code>c</code> and thus cannot call <code>c.retainAll(retain);</code>.
+     * <p>
+     * This implementation iterates over <code>collection</code>, checking each element in
+     * turn to see if it's contained in <code>retain</code>. If it's contained, it's added
+     * to the returned list. As a consequence, it is advised to use a collection type for
+     * <code>retain</code> that provides a fast (e.g. O(1)) implementation of
+     * {@link Collection#contains(Object)}.
+     * </p>
+     *
+     * @param <C>  the type of object the {@link Collection} contains
+     * @param collection  the collection whose contents are the target of the #retailAll operation
+     * @param retain  the collection containing the elements to be retained in the returned collection
+     * @return a <code>Collection</code> containing all the elements of <code>collection</code>
+     * that occur at least once in <code>retain</code>.
+     * @throws NullPointerException if either parameter is null
+     * @since 3.2
+     */"
+coll_349_101,"@Test
+    public void testAsIterableNull_oe_101_oe() {
+        try {
+            IteratorUtils.asIterable(null);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+",IteratorUtilsTest::testAsIterableNull_oe_101_oe,"public static <E> Iterable<E> asIterable(final Iterator<? extends E> iterator) {
+        if (iterator == null) {
+            throw new NullPointerException(""Iterator must not be null"");
+        }
+        return new IteratorIterable<>(iterator, false);
+    }","/**
+     * Gets an {@link Iterable} that wraps an iterator.  The returned {@link Iterable} can be
+     * used for a single iteration.
+     *
+     * @param <E> the element type
+     * @param iterator  the iterator to use, may not be null
+     * @return a new, single use {@link Iterable}
+     * @throws NullPointerException if iterator is null
+     */"
+coll_351_101,"@Test
+    public void testAsMultipleIterableNull_oe_101_oe() {
+        try {
+            IteratorUtils.asMultipleUseIterable(null);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+",IteratorUtilsTest::testAsMultipleIterableNull_oe_101_oe,"public static <E> Iterable<E> asMultipleUseIterable(final Iterator<? extends E> iterator) {
+        if (iterator == null) {
+            throw new NullPointerException(""Iterator must not be null"");
+        }
+        return new IteratorIterable<>(iterator, true);
+    }","/**
+     * Gets an iterable that wraps an iterator.  The returned iterable can be
+     * used for multiple iterations.
+     *
+     * @param <E> the element type
+     * @param iterator  the iterator to use, may not be null
+     * @return a new, multiple use iterable
+     * @throws NullPointerException if iterator is null
+     */"
+coll_352_101,"@Test
+    public void testCollatedIterator_oe_101_oe() {
+        try {
+            IteratorUtils.collatedIterator(null, collectionOdd.iterator(), null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",IteratorUtilsTest::testCollatedIterator_oe_101_oe,"@Override
+        public Iterator<Object> iterator() {
+            return IteratorUtils.emptyIterator();
+        }",
+coll_352_102,"@Test
+    public void testCollatedIterator_oe_102_oe() {
+        try {
+            IteratorUtils.collatedIterator(null, null, collectionEven.iterator());
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",IteratorUtilsTest::testCollatedIterator_oe_102_oe,"@Override
+        public Iterator<Object> iterator() {
+            return IteratorUtils.emptyIterator();
+        }",
+coll_353_101,"@Test
+    public void testEmptyIterator_oe_101_oe() {
+        try {
+            IteratorUtils.EMPTY_ITERATOR.next();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+    }
+",IteratorUtilsTest::testEmptyIterator_oe_101_oe,"@Override
+    public E next() {
+        if (!hasNext()) {
+            throw new NoSuchElementException();
+        }
+        final E x = slotFilled ? slot : iterator.next();
+        // reset the lookahead slot
+        slot = null;
+        slotFilled = false;
+        return x;
+    }",
+coll_353_102,"@Test
+    public void testEmptyIterator_oe_102_oe() {
+        try {
+            IteratorUtils.EMPTY_ITERATOR.remove();
+            fail();
+        } catch (final IllegalStateException ex) {}
+    }
+",IteratorUtilsTest::testEmptyIterator_oe_102_oe,"@Override
+        public V remove(final Object key) {
+            return get.remove(key);
+        }",
+coll_354_101,"@Test
+    public void testEmptyListIterator_oe_101_oe() {
+        try {
+            IteratorUtils.EMPTY_LIST_ITERATOR.next();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+    }
+",IteratorUtilsTest::testEmptyListIterator_oe_101_oe,"@Override
+    public E next() {
+        if (!hasNext()) {
+            throw new NoSuchElementException();
+        }
+        final E x = slotFilled ? slot : iterator.next();
+        // reset the lookahead slot
+        slot = null;
+        slotFilled = false;
+        return x;
+    }",
+coll_354_102,"@Test
+    public void testEmptyListIterator_oe_102_oe() {
+        try {
+            IteratorUtils.EMPTY_LIST_ITERATOR.previous();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+    }
+",IteratorUtilsTest::testEmptyListIterator_oe_102_oe,"@Override
+    public E previous() throws NoSuchElementException {
+        if (iterator instanceof ListIterator) {
+            @SuppressWarnings(""unchecked"")
+            final ListIterator<E> li = (ListIterator<E>) iterator;
+            return li.previous();
+        }
+
+        if (currentIndex == 0) {
+            throw new NoSuchElementException();
+        }
+        removeState = wrappedIteratorIndex == currentIndex;
+        return list.get(--currentIndex);
+    }","/**
+     * Returns the previous element.
+     *
+     * @return the previous element
+     * @throws NoSuchElementException  if there are no previous elements
+     */"
+coll_354_103,"@Test
+    public void testEmptyListIterator_oe_103_oe() {
+        try {
+            IteratorUtils.EMPTY_LIST_ITERATOR.remove();
+            fail();
+        } catch (final IllegalStateException ex) {}
+    }
+",IteratorUtilsTest::testEmptyListIterator_oe_103_oe,"@Override
+        public V remove(final Object key) {
+            return get.remove(key);
+        }",
+coll_354_104,"@Test
+    public void testEmptyListIterator_oe_104_oe() {
+        try {
+            IteratorUtils.emptyListIterator().set(null);
+            fail();
+        } catch (final IllegalStateException ex) {}
+    }
+",IteratorUtilsTest::testEmptyListIterator_oe_104_oe,"@Override
+    public void set(final E obj) throws UnsupportedOperationException {
+        if (iterator instanceof ListIterator) {
+            @SuppressWarnings(""unchecked"")
+            final ListIterator<E> li = (ListIterator<E>) iterator;
+            li.set(obj);
+            return;
+        }
+        throw new UnsupportedOperationException(UNSUPPORTED_OPERATION_MESSAGE);
+    }","/**
+     * Throws {@link UnsupportedOperationException}
+     * unless the underlying <code>Iterator</code> is a <code>ListIterator</code>.
+     *
+     * @param obj  the object to set
+     * @throws UnsupportedOperationException if the underlying iterator is not of
+     * type {@link ListIterator}
+     */"
+coll_354_105,"@Test
+    public void testEmptyListIterator_oe_105_oe() {
+        try {
+            IteratorUtils.emptyListIterator().add(null);
+            fail();
+        } catch (final UnsupportedOperationException ex) {}
+    }
+",IteratorUtilsTest::testEmptyListIterator_oe_105_oe,"@Override
+    public void add(final E obj) throws UnsupportedOperationException {
+        if (iterator instanceof ListIterator) {
+            @SuppressWarnings(""unchecked"")
+            final ListIterator<E> li = (ListIterator<E>) iterator;
+            li.add(obj);
+            return;
+        }
+        throw new UnsupportedOperationException(UNSUPPORTED_OPERATION_MESSAGE);
+    }","/**
+     * Throws {@link UnsupportedOperationException}
+     * unless the underlying <code>Iterator</code> is a <code>ListIterator</code>.
+     *
+     * @param obj  the object to add
+     * @throws UnsupportedOperationException if the underlying iterator is not of
+     * type {@link ListIterator}
+     */"
+coll_364_101,"@Test
+    public void testIndexOf_oe_101_oe() {
+        try {
+            IteratorUtils.indexOf(iterableA.iterator(), null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",IteratorUtilsTest::testIndexOf_oe_101_oe,"@Override
+        public Iterator<Object> iterator() {
+            return IteratorUtils.emptyIterator();
+        }",
+coll_367_101,"@Test
+    public void testToArray_oe_101_oe() {
+        try {
+        	IteratorUtils.toArray(null);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+",IteratorUtilsTest::testToArray_oe_101_oe,"public static Object[] toArray(final Iterator<?> iterator) {
+        if (iterator == null) {
+            throw new NullPointerException(""Iterator must not be null"");
+        }
+        final List<?> list = toList(iterator, 100);
+        return list.toArray();
+    }","/**
+     * Gets an array based on an iterator.
+     * <p>
+     * As the wrapped Iterator is traversed, an ArrayList of its values is
+     * created. At the end, this is converted to an array.
+     *
+     * @param iterator  the iterator to use, not null
+     * @return an array of the iterator contents
+     * @throws NullPointerException if iterator parameter is null
+     */"
+coll_368_102,"@Test
+    public void testToArray2_oe_102_oe() {
+        try {
+        	IteratorUtils.toArray(null, String.class);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+",IteratorUtilsTest::testToArray2_oe_102_oe,"public static Object[] toArray(final Iterator<?> iterator) {
+        if (iterator == null) {
+            throw new NullPointerException(""Iterator must not be null"");
+        }
+        final List<?> list = toList(iterator, 100);
+        return list.toArray();
+    }","/**
+     * Gets an array based on an iterator.
+     * <p>
+     * As the wrapped Iterator is traversed, an ArrayList of its values is
+     * created. At the end, this is converted to an array.
+     *
+     * @param iterator  the iterator to use, not null
+     * @return an array of the iterator contents
+     * @throws NullPointerException if iterator parameter is null
+     */"
+coll_371_101,"@Test
+    public void testToListIteratorNull_oe_101_oe() {
+        try {
+            IteratorUtils.toListIterator(null);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+",IteratorUtilsTest::testToListIteratorNull_oe_101_oe,"public static <E> ListIterator<E> toListIterator(final Iterator<? extends E> iterator) {
+        if (iterator == null) {
+            throw new NullPointerException(""Iterator must not be null"");
+        }
+        return new ListIteratorWrapper<>(iterator);
+    }","/**
+     * Gets a list iterator based on a simple iterator.
+     * <p>
+     * As the wrapped Iterator is traversed, a LinkedList of its values is
+     * cached, permitting all required operations of ListIterator.
+     *
+     * @param <E> the element type
+     * @param iterator  the iterator to use, may not be null
+     * @return a new iterator
+     * @throws NullPointerException if iterator parameter is null
+     */"
+coll_377_102,"@Test
+    public void testUnmodifiableMultiSet_oe_102_oe() {
+        try {
+            MultiSetUtils.unmodifiableMultiSet(null);
+            fail(""Expecting NPE"");
+        } catch (final NullPointerException e) {
+        }
+    }
+",MultiSetUtilsTest::testUnmodifiableMultiSet_oe_102_oe,"public static <E> MultiSet<E> unmodifiableMultiSet(final MultiSet<? extends E> multiset) {
+        return UnmodifiableMultiSet.unmodifiableMultiSet(multiset);
+    }","/**
+     * Returns an unmodifiable view of the given multiset. Any modification attempts
+     * to the returned multiset will raise an {@link UnsupportedOperationException}.
+     *
+     * @param <E> the element type
+     * @param multiset the multiset whose unmodifiable view is to be returned, must not be null
+     * @return an unmodifiable view of that multiset
+     * @throws NullPointerException if the MultiSet is null
+     */"
+coll_379_102,"@Test
+    public void testPredicatedMultiSet_oe_102_oe() {
+        try {
+            MultiSetUtils.predicatedMultiSet(multiSet, null);
+            fail(""Expecting NPE"");
+        } catch (final NullPointerException e) {
+        }
+    }
+",MultiSetUtilsTest::testPredicatedMultiSet_oe_102_oe,"public static <E> MultiSet<E> predicatedMultiSet(final MultiSet<E> multiset,
+            final Predicate<? super E> predicate) {
+        return PredicatedMultiSet.predicatedMultiSet(multiset, predicate);
+    }","/**
+     * Returns a predicated (validating) multiset backed by the given multiset.
+     * <p>
+     * Only objects that pass the test in the given predicate can be added to
+     * the multiset. Trying to add an invalid object results in an
+     * IllegalArgumentException. It is important not to use the original multiset
+     * after invoking this method, as it is a backdoor for adding invalid
+     * objects.
+     *
+     * @param <E> the element type
+     * @param multiset the multiset to predicate, must not be null
+     * @param predicate the predicate for the multiset, must not be null
+     * @return a predicated multiset backed by the given multiset
+     * @throws NullPointerException if the MultiSet or Predicate is null
+     */"
+coll_391_101,"@Test
+    public void testConstructorEx_oe_101_oe() throws Exception {
+        try {
+            new LoopingListIterator<>(null);
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",LoopingListIteratorTest::testConstructorEx_oe_101_oe,,
+coll_411_101,"@Test
+    public void testNegativeOffset_oe_101_oe() {
+        try {
+            new SkippingIterator<>(testList.iterator(), -1);
+            fail(""Expected IllegalArgumentException."");
+        } catch (final IllegalArgumentException iae) { /* Success case */
+        }
+    }
+",SkippingIteratorTest::testNegativeOffset_oe_101_oe,"@Override
+        public Iterator<Object> iterator() {
+            return IteratorUtils.emptyIterator();
+        }",
+coll_426_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableMapIterator.unmodifiableMapIterator(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableMapIteratorTest::testDecorateFactory_oe_101_oe,"public static <K, V> MapIterator<K, V> unmodifiableMapIterator(
+            final MapIterator<? extends K, ? extends V> iterator) {
+        if (iterator == null) {
+            throw new NullPointerException(""MapIterator must not be null"");
+        }
+        if (iterator instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final MapIterator<K, V> tmpIterator = (MapIterator<K, V>) iterator;
+            return tmpIterator;
+        }
+        return new UnmodifiableMapIterator<>(iterator);
+    }","/**
+     * Decorates the specified iterator such that it cannot be modified.
+     *
+     * @param <K>  the key type
+     * @param <V>  the value type
+     * @param iterator  the iterator to decorate
+     * @return a new unmodifiable map iterator
+     * @throws NullPointerException if the iterator is null
+     */"
+coll_442_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableListIterator.umodifiableListIterator(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableListIteratorTest::testDecorateFactory_oe_101_oe,"public static <E> ListIterator<E> umodifiableListIterator(final ListIterator<? extends E> iterator) {
+        if (iterator == null) {
+            throw new NullPointerException(""ListIterator must not be null"");
+        }
+        if (iterator instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final ListIterator<E> tmpIterator = (ListIterator<E>) iterator;
+            return tmpIterator;
+        }
+        return new UnmodifiableListIterator<>(iterator);
+    }","/**
+     * Decorates the specified iterator such that it cannot be modified.
+     *
+     * @param <E>  the element type
+     * @param iterator  the iterator to decorate
+     * @return a new unmodifiable list iterator
+     * @throws NullPointerException if the iterator is null
+     */"
+coll_451_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableIterator.unmodifiableIterator(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableIteratorTest::testDecorateFactory_oe_101_oe,"public static <E> Iterator<E> unmodifiableIterator(final Iterator<? extends E> iterator) {
+        if (iterator == null) {
+            throw new NullPointerException(""Iterator must not be null"");
+        }
+        if (iterator instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final Iterator<E> tmpIterator = (Iterator<E>) iterator;
+            return tmpIterator;
+        }
+        return new UnmodifiableIterator<>(iterator);
+    }","/**
+     * Decorates the specified iterator such that it cannot be modified.
+     * <p>
+     * If the iterator is already unmodifiable it is returned directly.
+     *
+     * @param <E>  the element type
+     * @param iterator  the iterator to decorate
+     * @return a new unmodifiable iterator
+     * @throws NullPointerException if the iterator is null
+     */"
+coll_459_101,"public void testNullArray_oe_101_oe() {
+        try {
+            makeArrayIterator(null);
+
+            fail(""Constructor should throw a NullPointerException when constructed with a null array"");
+        } catch (final NullPointerException e) {
+            // expected
+        }
+    }
+",ObjectArrayIteratorTest::testNullArray_oe_101_oe,,
+coll_462_101,"public void testNullArray_oe_101_oe() {
+        try {
+            new ArrayIterator<>(null);
+            fail(""Constructor should throw a NullPointerException when constructed with a null array"");
+        } catch (final NullPointerException e) {
+            // expected
+        }
+    }
+",ArrayIteratorTest::testNullArray_oe_101_oe,,
+coll_466_101,"public void testNullConstructor_oe_101_oe(){
+        try{
+            new NodeListIterator((Node) null);
+            fail(""NullPointerException expected!"");
+        }catch(final NullPointerException e){
+            // expected.
+        }
+    }
+",NodeListIteratorTest::testNullConstructor_oe_101_oe,,
+coll_513_101,"@Test
+    public void testNegativeOffset_oe_101_oe() {
+        try {
+            new BoundedIterator<>(testList.iterator(), -1, 4);
+            fail(""Expected IllegalArgumentException."");
+        } catch (final IllegalArgumentException iae) { /* Success case */
+        }
+    }
+",BoundedIteratorTest::testNegativeOffset_oe_101_oe,"@Override
+        public Iterator<Object> iterator() {
+            return IteratorUtils.emptyIterator();
+        }",
+coll_514_101,"@Test
+    public void testNegativeMax_oe_101_oe() {
+        try {
+            new BoundedIterator<>(testList.iterator(), 3, -1);
+            fail(""Expected IllegalArgumentException."");
+        } catch (final IllegalArgumentException iae) { /* Success case */
+        }
+    }
+",BoundedIteratorTest::testNegativeMax_oe_101_oe,"@Override
+        public Iterator<Object> iterator() {
+            return IteratorUtils.emptyIterator();
+        }",
+coll_528_101,"@Test
+    public void testConstructorEx_oe_101_oe() throws Exception {
+        try {
+            new LoopingIterator<>(null);
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",LoopingIteratorTest::testConstructorEx_oe_101_oe,,
+coll_537_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableOrderedMapIteratorTest::testDecorateFactory_oe_101_oe,"public static <K, V> OrderedMapIterator<K, V> unmodifiableOrderedMapIterator(
+            final OrderedMapIterator<K, ? extends V> iterator) {
+
+        if (iterator == null) {
+            throw new NullPointerException(""OrderedMapIterator must not be null"");
+        }
+        if (iterator instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final OrderedMapIterator<K, V> tmpIterator = (OrderedMapIterator<K, V>) iterator;
+            return tmpIterator;
+        }
+        return new UnmodifiableOrderedMapIterator<>(iterator);
+    }","/**
+     * Decorates the specified iterator such that it cannot be modified.
+     *
+     * @param <K>  the key type
+     * @param <V>  the value type
+     * @param iterator  the iterator to decorate
+     * @return a new unmodifiable ordered map iterator
+     * @throws NullPointerException if the iterator is null
+     */"
+coll_576_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableBoundedCollection.unmodifiableBoundedCollection(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableBoundedCollectionTest::testDecorateFactory_oe_101_oe,"public static <E> BoundedCollection<E> unmodifiableBoundedCollection(final BoundedCollection<? extends E> coll) {
+        if (coll instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final BoundedCollection<E> tmpColl = (BoundedCollection<E>) coll;
+            return tmpColl;
+        }
+        return new UnmodifiableBoundedCollection<>(coll);
+    }","/**
+     * Factory method to create an unmodifiable bounded collection.
+     *
+     * @param <E> the type of the elements in the collection
+     * @param coll  the <code>BoundedCollection</code> to decorate, must not be null
+     * @return a new unmodifiable bounded collection
+     * @throws NullPointerException if {@code coll} is {@code null}
+     * @since 4.0
+     */"
+coll_619_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableCollection.unmodifiableCollection(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableCollectionTest::testDecorateFactory_oe_101_oe,"public static <T> Collection<T> unmodifiableCollection(final Collection<? extends T> coll) {
+        if (coll instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final Collection<T> tmpColl = (Collection<T>) coll;
+            return tmpColl;
+        }
+        return new UnmodifiableCollection<>(coll);
+    }","/**
+     * Factory method to create an unmodifiable collection.
+     * <p>
+     * If the collection passed in is already unmodifiable, it is returned.
+     *
+     * @param <T> the type of the elements in the collection
+     * @param coll  the collection to decorate, must not be null
+     * @return an unmodifiable collection
+     * @throws NullPointerException if collection is null
+     * @since 4.0
+     */"
+coll_663_101,"public void testDecoratorFactoryNullMap_oe_101_oe() {
+        try {
+            UnmodifiableMultiValuedMap.unmodifiableMultiValuedMap(null);
+            fail(""map must not be null"");
+        } catch (final NullPointerException e) {
+            // expected
+        }
+    }
+",UnmodifiableMultiValuedMapTest::testDecoratorFactoryNullMap_oe_101_oe,"@SuppressWarnings(""unchecked"")
+    public static <K, V> UnmodifiableMultiValuedMap<K, V> unmodifiableMultiValuedMap(
+            final MultiValuedMap<? extends K, ? extends V> map) {
+        if (map instanceof Unmodifiable) {
+            return (UnmodifiableMultiValuedMap<K, V>) map;
+        }
+        return new UnmodifiableMultiValuedMap<>(map);
+    }","/**
+     * Factory method to create an unmodifiable MultiValuedMap.
+     * <p>
+     * If the map passed in is already unmodifiable, it is returned.
+     *
+     * @param <K> the type of key elements
+     * @param <V> the type of value elements
+     * @param map  the map to decorate, may not be null
+     * @return an unmodifiable MultiValuedMap
+     * @throws NullPointerException if map is null
+     */"
+coll_678_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableTrie.unmodifiableTrie(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableTrieTest::testDecorateFactory_oe_101_oe,"public static <K, V> Trie<K, V> unmodifiableTrie(final Trie<K, ? extends V> trie) {
+        if (trie instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final Trie<K, V> tmpTrie = (Trie<K, V>) trie;
+            return tmpTrie;
+        }
+        return new UnmodifiableTrie<>(trie);
+    }","/**
+     * Factory method to create a unmodifiable trie.
+     *
+     * @param <K>  the key type
+     * @param <V>  the value type
+     * @param trie  the trie to decorate, must not be null
+     * @return a new unmodifiable trie
+     * @throws NullPointerException if trie is null
+     */"
+coll_699_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableQueue.unmodifiableQueue(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableQueueTest::testDecorateFactory_oe_101_oe,"public static <E> Queue<E> unmodifiableQueue(final Queue<? extends E> queue) {
+        if (queue instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final Queue<E> tmpQueue = (Queue<E>) queue;
+            return tmpQueue;
+        }
+        return new UnmodifiableQueue<>(queue);
+    }","/**
+     * Factory method to create an unmodifiable queue.
+     * <p>
+     * If the queue passed in is already unmodifiable, it is returned.
+     *
+     * @param <E> the type of the elements in the queue
+     * @param queue  the queue to decorate, must not be null
+     * @return an unmodifiable Queue
+     * @throws NullPointerException if queue is null
+     */"
+coll_742_101,"public void testDecorate_oe_101_oe() {
+        try {
+            decorateBag(new TreeBag<T>(), null);
+            fail(""Expecting NullPointerException for null predicate"");
+        } catch (final NullPointerException e) {}
+    }
+",PredicatedSortedBagTest::testDecorate_oe_101_oe,,
+coll_742_102,"public void testDecorate_oe_102_oe() {
+        try {
+            decorateBag(nullBag, stringPredicate());
+            fail(""Expecting NullPointerException for null bag"");
+        } catch (final NullPointerException e) {}
+    }
+",PredicatedSortedBagTest::testDecorate_oe_102_oe,,
+coll_750_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableSortedBag.unmodifiableSortedBag(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableSortedBagTest::testDecorateFactory_oe_101_oe,"public static <E> SortedBag<E> unmodifiableSortedBag(final SortedBag<E> bag) {
+        if (bag instanceof Unmodifiable) {
+            return bag;
+        }
+        return new UnmodifiableSortedBag<>(bag);
+    }","/**
+     * Factory method to create an unmodifiable bag.
+     * <p>
+     * If the bag passed in is already unmodifiable, it is returned.
+     *
+     * @param <E> the type of the elements in the bag
+     * @param bag  the bag to decorate, must not be null
+     * @return an unmodifiable SortedBag
+     * @throws NullPointerException if bag is null
+     * @since 4.0
+     */"
+coll_757_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableBag.unmodifiableBag(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableBagTest::testDecorateFactory_oe_101_oe,"public static <E> Bag<E> unmodifiableBag(final Bag<? extends E> bag) {
+        if (bag instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final Bag<E> tmpBag = (Bag<E>) bag;
+            return tmpBag;
+        }
+        return new UnmodifiableBag<>(bag);
+    }","/**
+     * Factory method to create an unmodifiable bag.
+     * <p>
+     * If the bag passed in is already unmodifiable, it is returned.
+     *
+     * @param <E> the type of the elements in the bag
+     * @param bag  the bag to decorate, must not be null
+     * @return an unmodifiable Bag
+     * @throws NullPointerException if bag is null
+     * @since 4.0
+     */"
+coll_780_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableBidiMap.unmodifiableBidiMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableBidiMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> BidiMap<K, V> unmodifiableBidiMap(final BidiMap<? extends K, ? extends V> map) {
+        if (map instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final BidiMap<K, V> tmpMap = (BidiMap<K, V>) map;
+            return tmpMap;
+        }
+        return new UnmodifiableBidiMap<>(map);
+    }","/**
+     * Factory method to create an unmodifiable map.
+     * <p>
+     * If the map passed in is already unmodifiable, it is returned.
+     *
+     * @param <K> the key type
+     * @param <V> the value type
+     * @param map  the map to decorate, must not be null
+     * @return an unmodifiable BidiMap
+     * @throws NullPointerException if map is null
+     * @since 4.0
+     */"
+coll_794_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableSortedBidiMap.unmodifiableSortedBidiMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableSortedBidiMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> SortedBidiMap<K, V> unmodifiableSortedBidiMap(final SortedBidiMap<K, ? extends V> map) {
+        if (map instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final SortedBidiMap<K, V> tmpMap = (SortedBidiMap<K, V>) map;
+            return tmpMap;
+        }
+        return new UnmodifiableSortedBidiMap<>(map);
+    }","/**
+     * Factory method to create an unmodifiable map.
+     * <p>
+     * If the map passed in is already unmodifiable, it is returned.
+     *
+     * @param <K> the key type
+     * @param <V> the value type
+     * @param map  the map to decorate, must not be null
+     * @return an unmodifiable SortedBidiMap
+     * @throws NullPointerException if map is null
+     * @since 4.0
+     */"
+coll_796_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableOrderedBidiMap.unmodifiableOrderedBidiMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableOrderedBidiMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> OrderedBidiMap<K, V> unmodifiableOrderedBidiMap(
+            final OrderedBidiMap<? extends K, ? extends V> map) {
+        if (map instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final OrderedBidiMap<K, V> tmpMap = (OrderedBidiMap<K, V>) map;
+            return tmpMap;
+        }
+        return new UnmodifiableOrderedBidiMap<>(map);
+    }","/**
+     * Factory method to create an unmodifiable map.
+     * <p>
+     * If the map passed in is already unmodifiable, it is returned.
+     *
+     * @param <K> the key type
+     * @param <V> the value type
+     * @param map  the map to decorate, must not be null
+     * @return an unmodifiable OrderedBidiMap
+     * @throws NullPointerException if map is null
+     * @since 4.0
+     */"
+coll_834_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableMultiSet.unmodifiableMultiSet(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableMultiSetTest::testDecorateFactory_oe_101_oe,"public static <E> MultiSet<E> unmodifiableMultiSet(final MultiSet<? extends E> multiset) {
+        if (multiset instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final MultiSet<E> tmpMultiSet = (MultiSet<E>) multiset;
+            return tmpMultiSet;
+        }
+        return new UnmodifiableMultiSet<>(multiset);
+    }","/**
+     * Factory method to create an unmodifiable multiset.
+     * <p>
+     * If the multiset passed in is already unmodifiable, it is returned.
+     *
+     * @param <E>  the type of the elements in the multiset
+     * @param multiset  the multiset to decorate, may not be null
+     * @return an unmodifiable MultiSet
+     * @throws NullPointerException if multiset is null
+     */"
+coll_1004_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableList.unmodifiableList(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableListTest::testDecorateFactory_oe_101_oe,"public static <E> List<E> unmodifiableList(final List<? extends E> list) {
+        if (list instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final List<E> tmpList = (List<E>) list;
+            return tmpList;
+        }
+        return new UnmodifiableList<>(list);
+    }","/**
+     * Factory method to create an unmodifiable list.
+     *
+     * @param <E> the type of the elements in the list
+     * @param list  the list to decorate, must not be null
+     * @return a new unmodifiable list
+     * @throws NullPointerException if list is null
+     * @since 4.0
+     */"
+coll_1028_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableNavigableSet.unmodifiableNavigableSet(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableNavigableSetTest::testDecorateFactory_oe_101_oe,"public static <E> NavigableSet<E> unmodifiableNavigableSet(final NavigableSet<E> set) {
+        if (set instanceof Unmodifiable) {
+            return set;
+        }
+        return new UnmodifiableNavigableSet<>(set);
+    }","/**
+     * Factory method to create an unmodifiable set.
+     *
+     * @param <E> the element type
+     * @param set  the set to decorate, must not be null
+     * @return a new unmodifiable {@link NavigableSet}
+     * @throws NullPointerException if set is null
+     */"
+coll_1034_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableSortedSet.unmodifiableSortedSet(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableSortedSetTest::testDecorateFactory_oe_101_oe,"public static <E> SortedSet<E> unmodifiableSortedSet(final SortedSet<E> set) {
+        if (set instanceof Unmodifiable) {
+            return set;
+        }
+        return new UnmodifiableSortedSet<>(set);
+    }","/**
+     * Factory method to create an unmodifiable set.
+     *
+     * @param <E> the element type
+     * @param set  the set to decorate, must not be null
+     * @return a new unmodifiable {@link SortedSet}
+     * @throws NullPointerException if set is null
+     * @since 4.0
+     */"
+coll_1042_101,"public void testDecorator_oe_101_oe() {
+        try {
+            ListOrderedSet.listOrderedSet((List<E>) null);
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",ListOrderedSetTest::testDecorator_oe_101_oe,"public static <E> ListOrderedSet<E> listOrderedSet(final Set<E> set, final List<E> list) {
+        if (set == null) {
+            throw new NullPointerException(""Set must not be null"");
+        }
+        if (list == null) {
+            throw new NullPointerException(""List must not be null"");
+        }
+        if (set.size() > 0 || list.size() > 0) {
+            throw new IllegalArgumentException(""Set and List must be empty"");
+        }
+        return new ListOrderedSet<>(set, list);
+    }","/**
+     * Factory method to create an ordered set specifying the list and set to use.
+     * <p>
+     * The list and set must both be empty.
+     *
+     * @param <E> the element type
+     * @param set the set to decorate, must be empty and not null
+     * @param list the list to decorate, must be empty and not null
+     * @return a new ordered set
+     * @throws NullPointerException if set or list is null
+     * @throws IllegalArgumentException if either the set or list is not empty
+     * @since 4.0
+     */"
+coll_1042_102,"public void testDecorator_oe_102_oe() {
+        try {
+            ListOrderedSet.listOrderedSet((Set<E>) null);
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",ListOrderedSetTest::testDecorator_oe_102_oe,"public static <E> ListOrderedSet<E> listOrderedSet(final Set<E> set, final List<E> list) {
+        if (set == null) {
+            throw new NullPointerException(""Set must not be null"");
+        }
+        if (list == null) {
+            throw new NullPointerException(""List must not be null"");
+        }
+        if (set.size() > 0 || list.size() > 0) {
+            throw new IllegalArgumentException(""Set and List must be empty"");
+        }
+        return new ListOrderedSet<>(set, list);
+    }","/**
+     * Factory method to create an ordered set specifying the list and set to use.
+     * <p>
+     * The list and set must both be empty.
+     *
+     * @param <E> the element type
+     * @param set the set to decorate, must be empty and not null
+     * @param list the list to decorate, must be empty and not null
+     * @return a new ordered set
+     * @throws NullPointerException if set or list is null
+     * @throws IllegalArgumentException if either the set or list is not empty
+     * @since 4.0
+     */"
+coll_1042_103,"public void testDecorator_oe_103_oe() {
+        try {
+            ListOrderedSet.listOrderedSet(null, null);
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",ListOrderedSetTest::testDecorator_oe_103_oe,"public static <E> ListOrderedSet<E> listOrderedSet(final Set<E> set, final List<E> list) {
+        if (set == null) {
+            throw new NullPointerException(""Set must not be null"");
+        }
+        if (list == null) {
+            throw new NullPointerException(""List must not be null"");
+        }
+        if (set.size() > 0 || list.size() > 0) {
+            throw new IllegalArgumentException(""Set and List must be empty"");
+        }
+        return new ListOrderedSet<>(set, list);
+    }","/**
+     * Factory method to create an ordered set specifying the list and set to use.
+     * <p>
+     * The list and set must both be empty.
+     *
+     * @param <E> the element type
+     * @param set the set to decorate, must be empty and not null
+     * @param list the list to decorate, must be empty and not null
+     * @return a new ordered set
+     * @throws NullPointerException if set or list is null
+     * @throws IllegalArgumentException if either the set or list is not empty
+     * @since 4.0
+     */"
+coll_1042_104,"public void testDecorator_oe_104_oe() {
+        try {
+            ListOrderedSet.listOrderedSet(new HashSet<E>(), null);
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",ListOrderedSetTest::testDecorator_oe_104_oe,"public static <E> ListOrderedSet<E> listOrderedSet(final Set<E> set, final List<E> list) {
+        if (set == null) {
+            throw new NullPointerException(""Set must not be null"");
+        }
+        if (list == null) {
+            throw new NullPointerException(""List must not be null"");
+        }
+        if (set.size() > 0 || list.size() > 0) {
+            throw new IllegalArgumentException(""Set and List must be empty"");
+        }
+        return new ListOrderedSet<>(set, list);
+    }","/**
+     * Factory method to create an ordered set specifying the list and set to use.
+     * <p>
+     * The list and set must both be empty.
+     *
+     * @param <E> the element type
+     * @param set the set to decorate, must be empty and not null
+     * @param list the list to decorate, must be empty and not null
+     * @return a new ordered set
+     * @throws NullPointerException if set or list is null
+     * @throws IllegalArgumentException if either the set or list is not empty
+     * @since 4.0
+     */"
+coll_1042_105,"public void testDecorator_oe_105_oe() {
+        try {
+            ListOrderedSet.listOrderedSet(null, new ArrayList<E>());
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",ListOrderedSetTest::testDecorator_oe_105_oe,"public static <E> ListOrderedSet<E> listOrderedSet(final Set<E> set, final List<E> list) {
+        if (set == null) {
+            throw new NullPointerException(""Set must not be null"");
+        }
+        if (list == null) {
+            throw new NullPointerException(""List must not be null"");
+        }
+        if (set.size() > 0 || list.size() > 0) {
+            throw new IllegalArgumentException(""Set and List must be empty"");
+        }
+        return new ListOrderedSet<>(set, list);
+    }","/**
+     * Factory method to create an ordered set specifying the list and set to use.
+     * <p>
+     * The list and set must both be empty.
+     *
+     * @param <E> the element type
+     * @param set the set to decorate, must be empty and not null
+     * @param list the list to decorate, must be empty and not null
+     * @return a new ordered set
+     * @throws NullPointerException if set or list is null
+     * @throws IllegalArgumentException if either the set or list is not empty
+     * @since 4.0
+     */"
+coll_1046_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableSet.unmodifiableSet(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableSetTest::testDecorateFactory_oe_101_oe,"public static <E> Set<E> unmodifiableSet(final Set<? extends E> set) {
+        if (set instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final Set<E> tmpSet = (Set<E>) set;
+            return tmpSet;
+        }
+        return new UnmodifiableSet<>(set);
+    }","/**
+     * Factory method to create an unmodifiable set.
+     *
+     * @param <E> the element type
+     * @param set  the set to decorate, must not be null
+     * @return a new unmodifiable set
+     * @throws NullPointerException if set is null
+     * @since 4.0
+     */"
+coll_1094_101,"public void testCtors_oe_101_oe() {
+        try {
+            new LRUMap<K, V>(0);
+            fail(""maxSize must be positive"");
+        } catch(final IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",LRUMapTest::testCtors_oe_101_oe,,
+coll_1094_102,"public void testCtors_oe_102_oe() {
+        try {
+            new LRUMap<K, V>(-1, 12, 0.75f, false);
+            fail(""maxSize must be positive"");
+        } catch(final IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",LRUMapTest::testCtors_oe_102_oe,,
+coll_1094_103,"public void testCtors_oe_103_oe() {
+        try {
+            new LRUMap<K, V>(10, -1);
+            fail(""initialSize must not be negative"");
+        } catch(final IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",LRUMapTest::testCtors_oe_103_oe,,
+coll_1094_104,"public void testCtors_oe_104_oe() {
+        try {
+            new LRUMap<K, V>(10, 12);
+            fail(""initialSize must not be larger than maxSize"");
+        } catch(final IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",LRUMapTest::testCtors_oe_104_oe,,
+coll_1094_105,"public void testCtors_oe_105_oe() {
+        try {
+            new LRUMap<K, V>(10, -1, 0.75f, false);
+            fail(""initialSize must not be negative"");
+        } catch(final IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",LRUMapTest::testCtors_oe_105_oe,,
+coll_1094_106,"public void testCtors_oe_106_oe() {
+        try {
+            new LRUMap<K, V>(10, 12, 0.75f, false);
+            fail(""initialSize must not be larger than maxSize"");
+        } catch(final IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",LRUMapTest::testCtors_oe_106_oe,,
+coll_1205_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableOrderedMap.unmodifiableOrderedMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableOrderedMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> OrderedMap<K, V> unmodifiableOrderedMap(final OrderedMap<? extends K, ? extends V> map) {
+        if (map instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final OrderedMap<K, V> tmpMap = (OrderedMap<K, V>) map;
+            return tmpMap;
+        }
+        return new UnmodifiableOrderedMap<>(map);
+    }","/**
+     * Factory method to create an unmodifiable sorted map.
+     *
+     * @param <K>  the key type
+     * @param <V>  the value type
+     * @param map  the map to decorate, must not be null
+     * @return a new ordered map
+     * @throws NullPointerException if map is null
+     * @since 4.0
+     */"
+coll_1259_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableMap.unmodifiableMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> Map<K, V> unmodifiableMap(final Map<? extends K, ? extends V> map) {
+        if (map instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final Map<K, V> tmpMap = (Map<K, V>) map;
+            return tmpMap;
+        }
+        return new UnmodifiableMap<>(map);
+    }","/**
+     * Factory method to create an unmodifiable map.
+     *
+     * @param <K>  the key type
+     * @param <V>  the value type
+     * @param map  the map to decorate, must not be null
+     * @return a new unmodifiable map
+     * @throws NullPointerException if map is null
+     * @since 4.0
+     */"
+coll_1267_101,"public void testConstructors_oe_101_oe() {
+        try {
+            final Map<String, String> map = null;
+            new PassiveExpiringMap<>(map);
+            fail(""constructor - exception should have been thrown."");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+",PassiveExpiringMapTest::testConstructors_oe_101_oe,,
+coll_1267_102,"public void testConstructors_oe_102_oe() {
+        try {
+            final ExpirationPolicy<String, String> policy = null;
+            new PassiveExpiringMap<>(policy);
+            fail(""constructor - exception should have been thrown."");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+",PassiveExpiringMapTest::testConstructors_oe_102_oe,,
+coll_1267_103,"public void testConstructors_oe_103_oe() {
+        try {
+            final TimeUnit unit = null;
+            new PassiveExpiringMap<String, String>(10L, unit);
+            fail(""constructor - exception should have been thrown."");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+",PassiveExpiringMapTest::testConstructors_oe_103_oe,,
+coll_1293_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableSortedMap.unmodifiableSortedMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableSortedMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> SortedMap<K, V> unmodifiableSortedMap(final SortedMap<K, ? extends V> map) {
+        if (map instanceof Unmodifiable) {
+            @SuppressWarnings(""unchecked"") // safe to upcast
+            final SortedMap<K, V> tmpMap = (SortedMap<K, V>) map;
+            return tmpMap;
+        }
+        return new UnmodifiableSortedMap<>(map);
+    }","/**
+     * Factory method to create an unmodifiable sorted map.
+     *
+     * @param <K>  the key type
+     * @param <V>  the value type
+     * @param map  the map to decorate, must not be null
+     * @return a new unmodifiable sorted map
+     * @throws NullPointerException if map is null
+     * @since 4.0
+     */"

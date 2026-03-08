@@ -39,6 +39,7 @@ public class URLResourceTest_OE25Dev {
 	@Test
 	public void resource_2_oe() throws IOException {
 		File file = URLResourceUtil.asFile("classpath://application.properties");
+		// removed other assertion
 
 		InputStream is = URLResourceUtil.asStream("classpath://application.properties");
 		assertThat(IOUtil.toString(is)).isEqualTo("springside.min=1\nspringside.max=10");
@@ -47,12 +48,15 @@ public class URLResourceTest_OE25Dev {
 	@Test
 	public void resource_4_oe() throws IOException {
 		File file = URLResourceUtil.asFile("classpath://application.properties");
+		// removed other assertion
 
 		InputStream is = URLResourceUtil.asStream("classpath://application.properties");
+		// removed other assertion
 		IOUtil.closeQuietly(is);
 
 		try {
 			URLResourceUtil.asFile("classpath://notexist.properties");
+			// removed other assertion
 		} catch (Throwable t) {
 			assertThat(t).isInstanceOf(IllegalArgumentException.class);
 	}
@@ -61,17 +65,22 @@ public class URLResourceTest_OE25Dev {
 	@Test
 	public void resource_6_oe() throws IOException {
 		File file = URLResourceUtil.asFile("classpath://application.properties");
+		// removed other assertion
 
 		InputStream is = URLResourceUtil.asStream("classpath://application.properties");
+		// removed other assertion
 		IOUtil.closeQuietly(is);
 
 		try {
 			URLResourceUtil.asFile("classpath://notexist.properties");
+			// removed other assertion
 		} catch (Throwable t) {
+			// removed other assertion
 		}
 
 		try {
 			URLResourceUtil.asStream("classpath://notexist.properties");
+			// removed other assertion
 		} catch (Throwable t) {
 			assertThat(t).isInstanceOf(IllegalArgumentException.class);
 	}

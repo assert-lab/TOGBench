@@ -140,6 +140,7 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
         final URL url = new URL("jar:" + new File("conf/resources.jar").getAbsoluteFile().toURI().toURL() + "!/test-jar.xml");
         detector.getFileHandler().setURL(url);
         final File file = detector.getFile();
+        // removed other assertion
         assertEquals("Detector does not monitor the jar file", "resources.jar", file.getName());
     }
 
@@ -200,6 +201,7 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
         EasyMock.replay(f);
         final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetectorTestImpl(f, 60 * 60 * 1000L);
         detector.reloadingPerformed();
+        // removed other assertion
         assertFalse("Reloading required", detector.isReloadingRequired());
     }
 
@@ -238,7 +240,10 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
         EasyMock.replay(f);
         final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetectorTestImpl(f);
         detector.refresh();
+        // removed other assertion
+        // removed other assertion
         detector.reloadingPerformed();
+        // removed other assertion
         assertTrue("Next reloading not detected", detector.isReloadingRequired());
     }
 
@@ -263,7 +268,10 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
         EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 2);
         EasyMock.replay(f);
         final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetectorTestImpl(f);
+        // removed other assertion
+        // removed other assertion
         detector.reloadingPerformed();
+        // removed other assertion
         assertTrue("Next reloading not detected", detector.isReloadingRequired());
     }
 

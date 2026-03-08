@@ -173,11 +173,14 @@ public class BitwiseOperatorTest_OE25Dev extends JexlTestCase {
 
 @Test
     public void testParenthesized_2_oe() throws Exception {
+        // removed other assertion
         asserter.assertExpression("(2 & 1) | 3", Long.valueOf(3L));
     }
 
 @Test
     public void testParenthesized_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("~(120 | 42)", new Long(~(120 | 42)));
     }
 

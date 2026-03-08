@@ -122,13 +122,17 @@ public class FTPClientConfigFunctionalTest_OE25Dev extends TestCase {
         final java.util.Date now = new java.util.Date();
         final FTPFile[] files = FTP.listFiles();
         final TreeSet<FTPFile> sorted = getSortedList(files);
+        //SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm z" );
         FTPFile lastfile = null;
         FTPFile firstfile = null;
         for (final FTPFile thisfile : sorted) {
             if (firstfile == null) {
                 firstfile = thisfile;
             }
+            //System.out.println(sdf.format(thisfile.getTimestamp().getTime())
+            //        + " " +thisfile.getName());
             if (lastfile != null) {
+                // verify that the list is sorted earliest to latest.
                 assertTrue(lastfile.getTimestamp().before(thisfile.getTimestamp()));
     }
     }
@@ -138,13 +142,18 @@ public class FTPClientConfigFunctionalTest_OE25Dev extends TestCase {
         final java.util.Date now = new java.util.Date();
         final FTPFile[] files = FTP.listFiles();
         final TreeSet<FTPFile> sorted = getSortedList(files);
+        //SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm z" );
         FTPFile lastfile = null;
         FTPFile firstfile = null;
         for (final FTPFile thisfile : sorted) {
             if (firstfile == null) {
                 firstfile = thisfile;
             }
+            //System.out.println(sdf.format(thisfile.getTimestamp().getTime())
+            //        + " " +thisfile.getName());
             if (lastfile != null) {
+                // verify that the list is sorted earliest to latest.
+                // removed other assertion
             }
             lastfile = thisfile;
         }
@@ -158,19 +167,27 @@ public class FTPClientConfigFunctionalTest_OE25Dev extends TestCase {
         final java.util.Date now = new java.util.Date();
         final FTPFile[] files = FTP.listFiles();
         final TreeSet<FTPFile> sorted = getSortedList(files);
+        //SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm z" );
         FTPFile lastfile = null;
         FTPFile firstfile = null;
         for (final FTPFile thisfile : sorted) {
             if (firstfile == null) {
                 firstfile = thisfile;
             }
+            //System.out.println(sdf.format(thisfile.getTimestamp().getTime())
+            //        + " " +thisfile.getName());
             if (lastfile != null) {
+                // verify that the list is sorted earliest to latest.
+                // removed other assertion
             }
             lastfile = thisfile;
         }
 
         if (firstfile == null || lastfile == null)  {
+            // removed other assertion
         } else {
+            // test that notwithstanding any time zone differences, the newest file
+            // is older than now.
             assertTrue(lastfile.getTimestamp().getTime().before(now));
     }
     }

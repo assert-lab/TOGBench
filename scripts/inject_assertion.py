@@ -1,7 +1,7 @@
 # python3 scripts/inject_assertion.py \
-#   --inputs projects_decomposed/commons-collections4/dataset/inputs_no_assert.csv \
-#   --preds  ../oe25_for_toga/toga_output_OE25Dev/commons-collections4/oracle_preds.csv \
-#   --out    projects_decomposed/commons-collections4/dataset/inputs_filled.csv
+#   --inputs projects_decomposed/JSON-java/dataset/inputs_no_assert.csv \
+#   --preds  /home/tasfia/Desktop/oe25_for_toga/toga_output_OE25Dev/JSON-java/oracle_preds.csv \
+#   --out    projects_decomposed/JSON-java/dataset/inputs_llm.csv
 
 import argparse
 from pathlib import Path
@@ -25,21 +25,50 @@ def normalize_assert(s: str) -> str:
         s += ";"
     return s
 
+
+
 def fill_file(inputs_path: Path, preds_path: Path, out_path: Path) -> dict:
     inputs = pd.read_csv(inputs_path)
+    # preds = pd.read_csv(preds_path)
+
     preds = pd.read_csv(preds_path)
+
+    if "bug_num" not in preds.columns:
+        raise ValueError(f"{preds_path} must contain column: bug_num")
+
+    if "assert_pred" not in preds.columns:
+        raise ValueError(f"{preds_path} must contain column: assert_pred")
+
+    preds = preds[preds["assert_pred"].notna()]
+
+    preds = preds.rename(columns={
+        "bug_num": "id",
+        "assert_pred": "output"
+    })
 
     if "id" not in inputs.columns or "test_prefix" not in inputs.columns:
         raise ValueError(f"{inputs_path} must contain columns: id, test_prefix")
-    if "assert_pred" not in preds.columns or "assert_pred" not in preds.columns:
-        raise ValueError(f"{preds_path} must contain columns: id, assert_pred")
+    if "output" not in preds.columns or "output" not in preds.columns:
+        raise ValueError(f"{preds_path} must contain columns: id, output")
 
     inputs["id"] = inputs["id"].astype(str)
-    preds["id"] = preds["assert_pred"].astype(str)
+    preds["id"] = preds["id"].astype(str)
 
     id_to_out = {}
-    for _id, out in zip(preds["id"].tolist(), preds["assert_pred"].tolist()):
+    multiline_pred = 0
+
+    for _id, out in zip(preds["id"].tolist(), preds["output"].tolist()):
+        if out is None:
+            continue
+
+        out = str(out).strip()
+
+        if "\n" in out or "\r" in out:
+            multiline_pred += 1
+            continue
+
         out_norm = normalize_assert(out)
+
         if out_norm != "" and is_assert_stmt(out_norm):
             id_to_out[_id] = out_norm
 
@@ -49,13 +78,15 @@ def fill_file(inputs_path: Path, preds_path: Path, out_path: Path) -> dict:
     missing_pred = 0
     no_hole_rows = 0
 
-    new_prefixes = []
-    for _id, prefix in zip(inputs["id"].tolist(), inputs["test_prefix"].tolist()):
-        p = "" if prefix is None else str(prefix)
+    new_rows = []
 
-        if HOLE not in p:
+    for _, row in inputs.iterrows():
+        _id = str(row["id"])
+        prefix = "" if row["test_prefix"] is None else str(row["test_prefix"])
+
+        if HOLE not in prefix:
             no_hole_rows += 1
-            new_prefixes.append(p)
+            new_rows.append(row)
             continue
 
         had_hole += 1
@@ -63,16 +94,16 @@ def fill_file(inputs_path: Path, preds_path: Path, out_path: Path) -> dict:
 
         if out_stmt == "":
             missing_pred += 1
-            # remove the hole entirely
-            replaced = p.replace(HOLE + ";", "").replace(HOLE, "")
-            new_prefixes.append(replaced)
             continue
 
-        replaced = p.replace(HOLE + ";", out_stmt).replace(HOLE, out_stmt)
-        new_prefixes.append(replaced)
+        replaced = prefix.replace(HOLE + ";", out_stmt).replace(HOLE, out_stmt)
+
+        row["test_prefix"] = replaced
+        new_rows.append(row)
         filled += 1
 
-    inputs["test_prefix"] = new_prefixes
+    inputs = pd.DataFrame(new_rows)
+
     out_path.parent.mkdir(parents=True, exist_ok=True)
     inputs.to_csv(out_path, index=False)
 
@@ -84,7 +115,8 @@ def fill_file(inputs_path: Path, preds_path: Path, out_path: Path) -> dict:
         "rows_with_hole": had_hole,
         "filled_rows": filled,
         "missing_prediction_for_id": missing_pred,
-        "rows_without_hole": no_hole_rows
+        "rows_without_hole": no_hole_rows,
+        "multiline_predictions": multiline_pred
     }
 
 def main():
@@ -103,6 +135,7 @@ def main():
     print("filled_rows", stats["filled_rows"])
     print("missing_prediction_for_id", stats["missing_prediction_for_id"])
     print("rows_without_hole", stats["rows_without_hole"])
+    print("multiline_predictions", stats["multiline_predictions"])
 
 if __name__ == "__main__":
     main()

@@ -137,6 +137,8 @@ public class POP3ClientTest_OE25Dev extends TestCase
     {
         reset();
 
+        //Not currently connected, not in authorization state
+        //Try to login with good name/password
         assertFalse(p.login(user, password));
     }
 

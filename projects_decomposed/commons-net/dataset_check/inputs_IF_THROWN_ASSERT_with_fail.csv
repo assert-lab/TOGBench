@@ -1,0 +1,520 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+net_63_2,"    public void testConnectTimeout_2_oe() throws SocketException, IOException {
+        final FTPClient client = new FTPClient();
+        client.setConnectTimeout(1000);
+
+        try {
+            client.connect(""www.apache.org"", 1234);
+            fail(""Expecting an Exception"");
+        } catch (final ConnectException | SocketTimeoutException | UnknownHostException ue) {
+            assertTrue(true);
+    }
+    }",TestConnectTimeout::testConnectTimeout_2_oe,org.apache.commons.net.SocketClient,"void connect(final InetAddress host, final int port)","/**
+     * Opens a Socket connected to a remote host at the specified port and
+     * originating from the current host at a system assigned port.
+     * Before returning, {@link #_connectAction_  _connectAction_() }
+     * is called to perform connection initialization actions.
+     * <p>
+     * @param host  The remote host.
+     * @param port  The port to connect to on the remote host.
+     * @throws SocketException If the socket timeout could not be set.
+     * @throws IOException If the socket could not be opened.  In most
+     *  cases you will only want to catch IOException since SocketException is
+     *  derived from it.
+     */","public void connect(final InetAddress host, final int port)
+    throws SocketException, IOException
+    {
+        _hostname_ = null;
+        _connect(host, port, null, -1);
+    }"
+net_132_11,"    public void testDefaultParserFactory_11_oe() {
+        final DefaultFTPFileEntryParserFactory factory =
+            new DefaultFTPFileEntryParserFactory();
+
+        FTPFileEntryParser parser = factory.createFileEntryParser(""unix"");
+
+        parser = factory.createFileEntryParser(""UNIX"");
+
+        parser = factory.createFileEntryParser(""UNIX_LTRIM"");
+
+        parser = factory.createFileEntryParser(""Unix"");
+
+        parser = factory.createFileEntryParser(""EnterpriseUnix"");
+
+        parser = factory.createFileEntryParser(""UnixFTPEntryParser"");
+
+        try {
+            parser = factory.createFileEntryParser(""NT"");
+            fail(""Exception should have been thrown. \""NT\"" is not a recognized key"");
+        } catch (final ParserInitializationException pie) {
+            assertNull(pie.getCause());
+    }
+    }",DefaultFTPFileEntryParserFactoryTest::testDefaultParserFactory_11_oe,org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory,createFileEntryParser(final String key),"/**
+     * This default implementation of the FTPFileEntryParserFactory
+     * interface works according to the following logic:
+     * First it attempts to interpret the supplied key as a fully
+     * qualified classname (default package is not allowed) of a class implementing the
+     * FTPFileEntryParser interface.  If that succeeds, a parser
+     * object of this class is instantiated and is returned;
+     * otherwise it attempts to interpret the key as an identirier
+     * commonly used by the FTP SYST command to identify systems.
+     * <p>
+     * If <code>key</code> is not recognized as a fully qualified
+     * classname known to the system, this method will then attempt
+     * to see whether it <b>contains</b> a string identifying one of
+     * the known parsers.  This comparison is <b>case-insensitive</b>.
+     * The intent here is where possible, to select as keys strings
+     * which are returned by the SYST command on the systems which
+     * the corresponding parser successfully parses.  This enables
+     * this factory to be used in the auto-detection system.
+     *
+     * @param key    should be a fully qualified classname corresponding to
+     *               a class implementing the FTPFileEntryParser interface<br>
+     *               OR<br>
+     *               a string containing (case-insensitively) one of the
+     *               following keywords:
+     *               <ul>
+     *               <li>{@link FTPClientConfig#SYST_UNIX UNIX}</li>
+     *               <li>{@link FTPClientConfig#SYST_NT WINDOWS}</li>
+     *               <li>{@link FTPClientConfig#SYST_OS2 OS/2}</li>
+     *               <li>{@link FTPClientConfig#SYST_OS400 OS/400}</li>
+     *               <li>{@link FTPClientConfig#SYST_AS400 AS/400}</li>
+     *               <li>{@link FTPClientConfig#SYST_VMS VMS}</li>
+     *               <li>{@link FTPClientConfig#SYST_MVS MVS}</li>
+     *               <li>{@link FTPClientConfig#SYST_NETWARE NETWARE}</li>
+     *               <li>{@link FTPClientConfig#SYST_L8 TYPE:L8}</li>
+     *               </ul>
+     * @return the FTPFileEntryParser corresponding to the supplied key.
+     * @throws ParserInitializationException thrown if for any reason the factory cannot resolve
+     *                   the supplied key into an FTPFileEntryParser.
+     * @see FTPFileEntryParser
+     */","@Override
+    public FTPFileEntryParser createFileEntryParser(final String key)
+    {
+        if (key == null) {
+            throw new ParserInitializationException(""Parser key cannot be null"");
+        }
+        return createFileEntryParser(key, null);
+    }"
+net_132_12,"    public void testDefaultParserFactory_12_oe() {
+        final DefaultFTPFileEntryParserFactory factory =
+            new DefaultFTPFileEntryParserFactory();
+
+        FTPFileEntryParser parser = factory.createFileEntryParser(""unix"");
+
+        parser = factory.createFileEntryParser(""UNIX"");
+
+        parser = factory.createFileEntryParser(""UNIX_LTRIM"");
+
+        parser = factory.createFileEntryParser(""Unix"");
+
+        parser = factory.createFileEntryParser(""EnterpriseUnix"");
+
+        parser = factory.createFileEntryParser(""UnixFTPEntryParser"");
+
+        try {
+            parser = factory.createFileEntryParser(""NT"");
+            fail(""Exception should have been thrown. \""NT\"" is not a recognized key"");
+        } catch (final ParserInitializationException pie) {
+            assertTrue(pie.getMessage()+ ""should contain 'Unknown parser type:'"",pie.getMessage().contains(""Unknown parser type:""));
+    }
+    }",DefaultFTPFileEntryParserFactoryTest::testDefaultParserFactory_12_oe,org.apache.commons.net.ProtocolCommandEvent,getMessage(),"/**
+     * Returns the entire message sent to or received from the server.
+     * Includes the line terminator.
+     *
+     * @return The entire message sent to or received from the server.
+     */","public String getMessage()
+    {
+        return message;
+    }"
+net_132_19,"    public void testDefaultParserFactory_19_oe() {
+        final DefaultFTPFileEntryParserFactory factory =
+            new DefaultFTPFileEntryParserFactory();
+
+        FTPFileEntryParser parser = factory.createFileEntryParser(""unix"");
+
+        parser = factory.createFileEntryParser(""UNIX"");
+
+        parser = factory.createFileEntryParser(""UNIX_LTRIM"");
+
+        parser = factory.createFileEntryParser(""Unix"");
+
+        parser = factory.createFileEntryParser(""EnterpriseUnix"");
+
+        parser = factory.createFileEntryParser(""UnixFTPEntryParser"");
+
+        try {
+            parser = factory.createFileEntryParser(""NT"");
+        } catch (final ParserInitializationException pie) {
+        }
+
+        parser = factory.createFileEntryParser(""WindowsNT"");
+
+        parser = factory.createFileEntryParser(""ThigaVMSaMaJig"");
+
+        parser = factory.createFileEntryParser(""OS/2"");
+
+        parser = factory.createFileEntryParser(""OS/400"");
+
+        parser = factory.createFileEntryParser(""AS/400"");
+
+        parser = factory.createFileEntryParser(""UNKNOWN Type: L8"");
+
+        try {
+            parser = factory.createFileEntryParser(""OS2FTPFileEntryParser"");
+            fail(""Exception should have been thrown. \""NT\"" is not a recognized key"");
+        } catch (final ParserInitializationException pie) {
+            assertNull(pie.getCause());
+    }
+    }",DefaultFTPFileEntryParserFactoryTest::testDefaultParserFactory_19_oe,org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory,createFileEntryParser(final String key),"/**
+     * This default implementation of the FTPFileEntryParserFactory
+     * interface works according to the following logic:
+     * First it attempts to interpret the supplied key as a fully
+     * qualified classname (default package is not allowed) of a class implementing the
+     * FTPFileEntryParser interface.  If that succeeds, a parser
+     * object of this class is instantiated and is returned;
+     * otherwise it attempts to interpret the key as an identirier
+     * commonly used by the FTP SYST command to identify systems.
+     * <p>
+     * If <code>key</code> is not recognized as a fully qualified
+     * classname known to the system, this method will then attempt
+     * to see whether it <b>contains</b> a string identifying one of
+     * the known parsers.  This comparison is <b>case-insensitive</b>.
+     * The intent here is where possible, to select as keys strings
+     * which are returned by the SYST command on the systems which
+     * the corresponding parser successfully parses.  This enables
+     * this factory to be used in the auto-detection system.
+     *
+     * @param key    should be a fully qualified classname corresponding to
+     *               a class implementing the FTPFileEntryParser interface<br>
+     *               OR<br>
+     *               a string containing (case-insensitively) one of the
+     *               following keywords:
+     *               <ul>
+     *               <li>{@link FTPClientConfig#SYST_UNIX UNIX}</li>
+     *               <li>{@link FTPClientConfig#SYST_NT WINDOWS}</li>
+     *               <li>{@link FTPClientConfig#SYST_OS2 OS/2}</li>
+     *               <li>{@link FTPClientConfig#SYST_OS400 OS/400}</li>
+     *               <li>{@link FTPClientConfig#SYST_AS400 AS/400}</li>
+     *               <li>{@link FTPClientConfig#SYST_VMS VMS}</li>
+     *               <li>{@link FTPClientConfig#SYST_MVS MVS}</li>
+     *               <li>{@link FTPClientConfig#SYST_NETWARE NETWARE}</li>
+     *               <li>{@link FTPClientConfig#SYST_L8 TYPE:L8}</li>
+     *               </ul>
+     * @return the FTPFileEntryParser corresponding to the supplied key.
+     * @throws ParserInitializationException thrown if for any reason the factory cannot resolve
+     *                   the supplied key into an FTPFileEntryParser.
+     * @see FTPFileEntryParser
+     */","@Override
+    public FTPFileEntryParser createFileEntryParser(final String key)
+    {
+        if (key == null) {
+            throw new ParserInitializationException(""Parser key cannot be null"");
+        }
+        return createFileEntryParser(key, null);
+    }"
+net_132_22,"    public void testDefaultParserFactory_22_oe() {
+        final DefaultFTPFileEntryParserFactory factory =
+            new DefaultFTPFileEntryParserFactory();
+
+        FTPFileEntryParser parser = factory.createFileEntryParser(""unix"");
+
+        parser = factory.createFileEntryParser(""UNIX"");
+
+        parser = factory.createFileEntryParser(""UNIX_LTRIM"");
+
+        parser = factory.createFileEntryParser(""Unix"");
+
+        parser = factory.createFileEntryParser(""EnterpriseUnix"");
+
+        parser = factory.createFileEntryParser(""UnixFTPEntryParser"");
+
+        try {
+            parser = factory.createFileEntryParser(""NT"");
+        } catch (final ParserInitializationException pie) {
+        }
+
+        parser = factory.createFileEntryParser(""WindowsNT"");
+
+        parser = factory.createFileEntryParser(""ThigaVMSaMaJig"");
+
+        parser = factory.createFileEntryParser(""OS/2"");
+
+        parser = factory.createFileEntryParser(""OS/400"");
+
+        parser = factory.createFileEntryParser(""AS/400"");
+
+        parser = factory.createFileEntryParser(""UNKNOWN Type: L8"");
+
+        try {
+            parser = factory.createFileEntryParser(""OS2FTPFileEntryParser"");
+        } catch (final ParserInitializationException pie) {
+        }
+
+        parser = factory.createFileEntryParser(
+            ""org.apache.commons.net.ftp.parser.OS2FTPEntryParser"");
+
+        try {
+            factory.createFileEntryParser(
+                ""org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory"");
+            fail(""Exception should have been thrown. \""DefaultFTPFileEntryParserFactory\"" does not implement FTPFileEntryParser"");
+        } catch (final ParserInitializationException pie) {
+            final Throwable root = pie.getCause();
+            assertTrue(root instanceof ClassCastException);
+    }
+    }",DefaultFTPFileEntryParserFactoryTest::testDefaultParserFactory_22_oe,org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory,createFileEntryParser(final String key),"/**
+     * This default implementation of the FTPFileEntryParserFactory
+     * interface works according to the following logic:
+     * First it attempts to interpret the supplied key as a fully
+     * qualified classname (default package is not allowed) of a class implementing the
+     * FTPFileEntryParser interface.  If that succeeds, a parser
+     * object of this class is instantiated and is returned;
+     * otherwise it attempts to interpret the key as an identirier
+     * commonly used by the FTP SYST command to identify systems.
+     * <p>
+     * If <code>key</code> is not recognized as a fully qualified
+     * classname known to the system, this method will then attempt
+     * to see whether it <b>contains</b> a string identifying one of
+     * the known parsers.  This comparison is <b>case-insensitive</b>.
+     * The intent here is where possible, to select as keys strings
+     * which are returned by the SYST command on the systems which
+     * the corresponding parser successfully parses.  This enables
+     * this factory to be used in the auto-detection system.
+     *
+     * @param key    should be a fully qualified classname corresponding to
+     *               a class implementing the FTPFileEntryParser interface<br>
+     *               OR<br>
+     *               a string containing (case-insensitively) one of the
+     *               following keywords:
+     *               <ul>
+     *               <li>{@link FTPClientConfig#SYST_UNIX UNIX}</li>
+     *               <li>{@link FTPClientConfig#SYST_NT WINDOWS}</li>
+     *               <li>{@link FTPClientConfig#SYST_OS2 OS/2}</li>
+     *               <li>{@link FTPClientConfig#SYST_OS400 OS/400}</li>
+     *               <li>{@link FTPClientConfig#SYST_AS400 AS/400}</li>
+     *               <li>{@link FTPClientConfig#SYST_VMS VMS}</li>
+     *               <li>{@link FTPClientConfig#SYST_MVS MVS}</li>
+     *               <li>{@link FTPClientConfig#SYST_NETWARE NETWARE}</li>
+     *               <li>{@link FTPClientConfig#SYST_L8 TYPE:L8}</li>
+     *               </ul>
+     * @return the FTPFileEntryParser corresponding to the supplied key.
+     * @throws ParserInitializationException thrown if for any reason the factory cannot resolve
+     *                   the supplied key into an FTPFileEntryParser.
+     * @see FTPFileEntryParser
+     */","@Override
+    public FTPFileEntryParser createFileEntryParser(final String key)
+    {
+        if (key == null) {
+            throw new ParserInitializationException(""Parser key cannot be null"");
+        }
+        return createFileEntryParser(key, null);
+    }"
+net_132_24,"    public void testDefaultParserFactory_24_oe() {
+        final DefaultFTPFileEntryParserFactory factory =
+            new DefaultFTPFileEntryParserFactory();
+
+        FTPFileEntryParser parser = factory.createFileEntryParser(""unix"");
+
+        parser = factory.createFileEntryParser(""UNIX"");
+
+        parser = factory.createFileEntryParser(""UNIX_LTRIM"");
+
+        parser = factory.createFileEntryParser(""Unix"");
+
+        parser = factory.createFileEntryParser(""EnterpriseUnix"");
+
+        parser = factory.createFileEntryParser(""UnixFTPEntryParser"");
+
+        try {
+            parser = factory.createFileEntryParser(""NT"");
+        } catch (final ParserInitializationException pie) {
+        }
+
+        parser = factory.createFileEntryParser(""WindowsNT"");
+
+        parser = factory.createFileEntryParser(""ThigaVMSaMaJig"");
+
+        parser = factory.createFileEntryParser(""OS/2"");
+
+        parser = factory.createFileEntryParser(""OS/400"");
+
+        parser = factory.createFileEntryParser(""AS/400"");
+
+        parser = factory.createFileEntryParser(""UNKNOWN Type: L8"");
+
+        try {
+            parser = factory.createFileEntryParser(""OS2FTPFileEntryParser"");
+        } catch (final ParserInitializationException pie) {
+        }
+
+        parser = factory.createFileEntryParser(
+            ""org.apache.commons.net.ftp.parser.OS2FTPEntryParser"");
+
+        try {
+            factory.createFileEntryParser(
+                ""org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory"");
+        } catch (final ParserInitializationException pie) {
+            final Throwable root = pie.getCause();
+        }
+
+        try {
+            factory.createFileEntryParser(""org.apache.commons.net.ftp.parser.FTPFileEntryParserFactory"");
+            fail(""ParserInitializationException should have been thrown."");
+        } catch (final ParserInitializationException pie){
+            final Throwable root = pie.getCause();
+            assertTrue(root instanceof InstantiationException);
+    }
+    }",DefaultFTPFileEntryParserFactoryTest::testDefaultParserFactory_24_oe,org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory,createFileEntryParser(final String key),"/**
+     * This default implementation of the FTPFileEntryParserFactory
+     * interface works according to the following logic:
+     * First it attempts to interpret the supplied key as a fully
+     * qualified classname (default package is not allowed) of a class implementing the
+     * FTPFileEntryParser interface.  If that succeeds, a parser
+     * object of this class is instantiated and is returned;
+     * otherwise it attempts to interpret the key as an identirier
+     * commonly used by the FTP SYST command to identify systems.
+     * <p>
+     * If <code>key</code> is not recognized as a fully qualified
+     * classname known to the system, this method will then attempt
+     * to see whether it <b>contains</b> a string identifying one of
+     * the known parsers.  This comparison is <b>case-insensitive</b>.
+     * The intent here is where possible, to select as keys strings
+     * which are returned by the SYST command on the systems which
+     * the corresponding parser successfully parses.  This enables
+     * this factory to be used in the auto-detection system.
+     *
+     * @param key    should be a fully qualified classname corresponding to
+     *               a class implementing the FTPFileEntryParser interface<br>
+     *               OR<br>
+     *               a string containing (case-insensitively) one of the
+     *               following keywords:
+     *               <ul>
+     *               <li>{@link FTPClientConfig#SYST_UNIX UNIX}</li>
+     *               <li>{@link FTPClientConfig#SYST_NT WINDOWS}</li>
+     *               <li>{@link FTPClientConfig#SYST_OS2 OS/2}</li>
+     *               <li>{@link FTPClientConfig#SYST_OS400 OS/400}</li>
+     *               <li>{@link FTPClientConfig#SYST_AS400 AS/400}</li>
+     *               <li>{@link FTPClientConfig#SYST_VMS VMS}</li>
+     *               <li>{@link FTPClientConfig#SYST_MVS MVS}</li>
+     *               <li>{@link FTPClientConfig#SYST_NETWARE NETWARE}</li>
+     *               <li>{@link FTPClientConfig#SYST_L8 TYPE:L8}</li>
+     *               </ul>
+     * @return the FTPFileEntryParser corresponding to the supplied key.
+     * @throws ParserInitializationException thrown if for any reason the factory cannot resolve
+     *                   the supplied key into an FTPFileEntryParser.
+     * @see FTPFileEntryParser
+     */","@Override
+    public FTPFileEntryParser createFileEntryParser(final String key)
+    {
+        if (key == null) {
+            throw new ParserInitializationException(""Parser key cannot be null"");
+        }
+        return createFileEntryParser(key, null);
+    }"
+net_132_26,"    public void testDefaultParserFactory_26_oe() {
+        final DefaultFTPFileEntryParserFactory factory =
+            new DefaultFTPFileEntryParserFactory();
+
+        FTPFileEntryParser parser = factory.createFileEntryParser(""unix"");
+
+        parser = factory.createFileEntryParser(""UNIX"");
+
+        parser = factory.createFileEntryParser(""UNIX_LTRIM"");
+
+        parser = factory.createFileEntryParser(""Unix"");
+
+        parser = factory.createFileEntryParser(""EnterpriseUnix"");
+
+        parser = factory.createFileEntryParser(""UnixFTPEntryParser"");
+
+        try {
+            parser = factory.createFileEntryParser(""NT"");
+        } catch (final ParserInitializationException pie) {
+        }
+
+        parser = factory.createFileEntryParser(""WindowsNT"");
+
+        parser = factory.createFileEntryParser(""ThigaVMSaMaJig"");
+
+        parser = factory.createFileEntryParser(""OS/2"");
+
+        parser = factory.createFileEntryParser(""OS/400"");
+
+        parser = factory.createFileEntryParser(""AS/400"");
+
+        parser = factory.createFileEntryParser(""UNKNOWN Type: L8"");
+
+        try {
+            parser = factory.createFileEntryParser(""OS2FTPFileEntryParser"");
+        } catch (final ParserInitializationException pie) {
+        }
+
+        parser = factory.createFileEntryParser(
+            ""org.apache.commons.net.ftp.parser.OS2FTPEntryParser"");
+
+        try {
+            factory.createFileEntryParser(
+                ""org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory"");
+        } catch (final ParserInitializationException pie) {
+            final Throwable root = pie.getCause();
+        }
+
+        try {
+            factory.createFileEntryParser(""org.apache.commons.net.ftp.parser.FTPFileEntryParserFactory"");
+        } catch (final ParserInitializationException pie){
+            final Throwable root = pie.getCause();
+        }
+        try {
+            factory.createFileEntryParser(""org.apache.commons.net.ftp.FTPFileEntryParserImpl"");
+            fail(""ParserInitializationException should have been thrown."");
+        } catch (final ParserInitializationException pie){
+            final Throwable root = pie.getCause();
+            assertTrue(root instanceof InstantiationException);
+    }
+    }",DefaultFTPFileEntryParserFactoryTest::testDefaultParserFactory_26_oe,org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory,createFileEntryParser(final String key),"/**
+     * This default implementation of the FTPFileEntryParserFactory
+     * interface works according to the following logic:
+     * First it attempts to interpret the supplied key as a fully
+     * qualified classname (default package is not allowed) of a class implementing the
+     * FTPFileEntryParser interface.  If that succeeds, a parser
+     * object of this class is instantiated and is returned;
+     * otherwise it attempts to interpret the key as an identirier
+     * commonly used by the FTP SYST command to identify systems.
+     * <p>
+     * If <code>key</code> is not recognized as a fully qualified
+     * classname known to the system, this method will then attempt
+     * to see whether it <b>contains</b> a string identifying one of
+     * the known parsers.  This comparison is <b>case-insensitive</b>.
+     * The intent here is where possible, to select as keys strings
+     * which are returned by the SYST command on the systems which
+     * the corresponding parser successfully parses.  This enables
+     * this factory to be used in the auto-detection system.
+     *
+     * @param key    should be a fully qualified classname corresponding to
+     *               a class implementing the FTPFileEntryParser interface<br>
+     *               OR<br>
+     *               a string containing (case-insensitively) one of the
+     *               following keywords:
+     *               <ul>
+     *               <li>{@link FTPClientConfig#SYST_UNIX UNIX}</li>
+     *               <li>{@link FTPClientConfig#SYST_NT WINDOWS}</li>
+     *               <li>{@link FTPClientConfig#SYST_OS2 OS/2}</li>
+     *               <li>{@link FTPClientConfig#SYST_OS400 OS/400}</li>
+     *               <li>{@link FTPClientConfig#SYST_AS400 AS/400}</li>
+     *               <li>{@link FTPClientConfig#SYST_VMS VMS}</li>
+     *               <li>{@link FTPClientConfig#SYST_MVS MVS}</li>
+     *               <li>{@link FTPClientConfig#SYST_NETWARE NETWARE}</li>
+     *               <li>{@link FTPClientConfig#SYST_L8 TYPE:L8}</li>
+     *               </ul>
+     * @return the FTPFileEntryParser corresponding to the supplied key.
+     * @throws ParserInitializationException thrown if for any reason the factory cannot resolve
+     *                   the supplied key into an FTPFileEntryParser.
+     * @see FTPFileEntryParser
+     */","@Override
+    public FTPFileEntryParser createFileEntryParser(final String key)
+    {
+        if (key == null) {
+            throw new ParserInitializationException(""Parser key cannot be null"");
+        }
+        return createFileEntryParser(key, null);
+    }"

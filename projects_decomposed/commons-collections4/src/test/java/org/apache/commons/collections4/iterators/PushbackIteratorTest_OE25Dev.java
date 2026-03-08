@@ -66,6 +66,49 @@ public class PushbackIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
 
     // -----------------------------------------------------------------------
 
+    @Test
+    public void testNormalIteration() {
+        final PushbackIterator<E> iter = makeObject();
+        assertEquals("a", iter.next());
+        assertEquals("b", iter.next());
+        assertEquals("c", iter.next());
+        assertFalse(iter.hasNext());
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testImmediatePushback() {
+        final PushbackIterator<E> iter = makeObject();
+        iter.pushback((E) "x");
+        assertEquals("x", iter.next());
+        assertEquals("a", iter.next());
+        validate(iter, "b", "c");
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testDelayedPushback() {
+        final PushbackIterator<E> iter = makeObject();
+        assertEquals("a", iter.next());
+        iter.pushback((E) "x");
+        assertEquals("x", iter.next());
+        assertEquals("b", iter.next());
+        validate(iter, "c");
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testMultiplePushback() {
+        final PushbackIterator<E> iter = makeObject();
+        assertEquals("a", iter.next());
+        iter.pushback((E) "x");
+        iter.pushback((E) "y");
+        assertEquals("y", iter.next());
+        assertEquals("x", iter.next());
+        assertEquals("b", iter.next());
+        validate(iter, "c");
+    }
+
     private void validate(final Iterator<E> iter, final Object... items) {
         for (final Object x : items) {
             assertTrue(iter.hasNext());

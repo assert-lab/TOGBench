@@ -1,11 +1,11 @@
-classname,method,docstring,method_definition
-com.github.kevinsawicki.http.HttpRequest,getValidCharset(final String charset),,"private static String getValidCharset(final String charset) {
+focal_file_path,focal_package,focal_class,classname,method,docstring,method_definition
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,getValidCharset(final String charset),,"private static String getValidCharset(final String charset) {
     if (charset != null && charset.length() > 0)
       return charset;
     else
       return CHARSET_UTF8;
   }"
-com.github.kevinsawicki.http.HttpRequest,getTrustedFactory(),,"private static SSLSocketFactory getTrustedFactory()
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,getTrustedFactory(),,"private static SSLSocketFactory getTrustedFactory()
       throws HttpRequestException {
     if (TRUSTED_FACTORY == null) {
       final TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
@@ -36,16 +36,16 @@ com.github.kevinsawicki.http.HttpRequest,getTrustedFactory(),,"private static SS
 
     return TRUSTED_FACTORY;
   }"
-com.github.kevinsawicki.http.HttpRequest,getAcceptedIssuers(),,"public X509Certificate[] getAcceptedIssuers() {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,getAcceptedIssuers(),,"public X509Certificate[] getAcceptedIssuers() {
           return new X509Certificate[0];
         }"
-com.github.kevinsawicki.http.HttpRequest,"void checkClientTrusted(X509Certificate[] chain, String authType)",,"public void checkClientTrusted(X509Certificate[] chain, String authType) {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"void checkClientTrusted(X509Certificate[] chain, String authType)",,"public void checkClientTrusted(X509Certificate[] chain, String authType) {
           // Intentionally left blank
         }"
-com.github.kevinsawicki.http.HttpRequest,"void checkServerTrusted(X509Certificate[] chain, String authType)",,"public void checkServerTrusted(X509Certificate[] chain, String authType) {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"void checkServerTrusted(X509Certificate[] chain, String authType)",,"public void checkServerTrusted(X509Certificate[] chain, String authType) {
           // Intentionally left blank
         }"
-com.github.kevinsawicki.http.HttpRequest,getTrustedVerifier(),,"private static HostnameVerifier getTrustedVerifier() {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,getTrustedVerifier(),,"private static HostnameVerifier getTrustedVerifier() {
     if (TRUSTED_VERIFIER == null)
       TRUSTED_VERIFIER = new HostnameVerifier() {
 
@@ -56,10 +56,10 @@ com.github.kevinsawicki.http.HttpRequest,getTrustedVerifier(),,"private static H
 
     return TRUSTED_VERIFIER;
   }"
-com.github.kevinsawicki.http.HttpRequest,"verify(String hostname, SSLSession session)",,"public boolean verify(String hostname, SSLSession session) {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"verify(String hostname, SSLSession session)",,"public boolean verify(String hostname, SSLSession session) {
           return true;
         }"
-com.github.kevinsawicki.http.HttpRequest,"addPathSeparator(final String baseUrl,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"addPathSeparator(final String baseUrl,
       final StringBuilder result)",,"private static StringBuilder addPathSeparator(final String baseUrl,
       final StringBuilder result) {
     // Add trailing slash if the base URL doesn't have any path segments.
@@ -70,7 +70,7 @@ com.github.kevinsawicki.http.HttpRequest,"addPathSeparator(final String baseUrl,
       result.append('/');
     return result;
   }"
-com.github.kevinsawicki.http.HttpRequest,"addParamPrefix(final String baseUrl,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"addParamPrefix(final String baseUrl,
       final StringBuilder result)",,"private static StringBuilder addParamPrefix(final String baseUrl,
       final StringBuilder result) {
     // Add '?' if missing and add '&' if params already exist in base url
@@ -82,7 +82,7 @@ com.github.kevinsawicki.http.HttpRequest,"addParamPrefix(final String baseUrl,
       result.append('&');
     return result;
   }"
-com.github.kevinsawicki.http.HttpRequest,"addParam(final Object key, Object value,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"addParam(final Object key, Object value,
       final StringBuilder result)",,"private static StringBuilder addParam(final Object key, Object value,
       final StringBuilder result) {
     if (value != null && value.getClass().isArray())
@@ -108,24 +108,13 @@ com.github.kevinsawicki.http.HttpRequest,"addParam(final Object key, Object valu
 
     return result;
   }"
-com.github.kevinsawicki.http.HttpRequest.ConnectionFactory,create(URL url),"/**
-     * Open an {@link HttpURLConnection} for the specified {@link URL}.
-     *
-     * @throws IOException
-     */",HttpURLConnection create(URL url) throws IOException;
-com.github.kevinsawicki.http.HttpRequest.ConnectionFactory,"create(URL url, Proxy proxy)","/**
-     * Open an {@link HttpURLConnection} for the specified {@link URL}
-     * and {@link Proxy}.
-     *
-     * @throws IOException
-     */","HttpURLConnection create(URL url, Proxy proxy) throws IOException;"
-com.github.kevinsawicki.http.HttpRequest.ConnectionFactory,create(URL url),,"public HttpURLConnection create(URL url) throws IOException {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest.ConnectionFactory,com.github.kevinsawicki.http.HttpRequest.ConnectionFactory,create(URL url),,"public HttpURLConnection create(URL url) throws IOException {
         return (HttpURLConnection) url.openConnection();
       }"
-com.github.kevinsawicki.http.HttpRequest.ConnectionFactory,"create(URL url, Proxy proxy)",,"public HttpURLConnection create(URL url, Proxy proxy) throws IOException {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest.ConnectionFactory,com.github.kevinsawicki.http.HttpRequest.ConnectionFactory,"create(URL url, Proxy proxy)",,"public HttpURLConnection create(URL url, Proxy proxy) throws IOException {
         return (HttpURLConnection) url.openConnection(proxy);
       }"
-com.github.kevinsawicki.http.HttpRequest,void setConnectionFactory(final ConnectionFactory connectionFactory),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,void setConnectionFactory(final ConnectionFactory connectionFactory),"/**
    * Specify the {@link ConnectionFactory} used to create new requests.
    */","public static void setConnectionFactory(final ConnectionFactory connectionFactory) {
     if (connectionFactory == null)
@@ -133,16 +122,9 @@ com.github.kevinsawicki.http.HttpRequest,void setConnectionFactory(final Connect
     else
       CONNECTION_FACTORY = connectionFactory;
   }"
-com.github.kevinsawicki.http.HttpRequest.UploadProgress,"void onUpload(long uploaded, long total)","/**
-     * Callback invoked as data is uploaded by the request.
-     *
-     * @param uploaded The number of bytes already uploaded
-     * @param total The total number of bytes that will be uploaded or -1 if
-     *              the length is unknown.
-     */","void onUpload(long uploaded, long total);"
-com.github.kevinsawicki.http.HttpRequest.UploadProgress,"void onUpload(long uploaded, long total)",,"public void onUpload(long uploaded, long total) {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest.UploadProgress,com.github.kevinsawicki.http.HttpRequest.UploadProgress,"void onUpload(long uploaded, long total)",,"public void onUpload(long uploaded, long total) {
       }"
-com.github.kevinsawicki.http.HttpRequest.Base64,"encode3to4(byte[] source, int srcOffset,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest.Base64,com.github.kevinsawicki.http.HttpRequest.Base64,"encode3to4(byte[] source, int srcOffset,
         int numSigBytes, byte[] destination, int destOffset)","/**
      * <p>
      * Encodes up to three bytes of the array <var>source</var> and writes the
@@ -207,7 +189,7 @@ com.github.kevinsawicki.http.HttpRequest.Base64,"encode3to4(byte[] source, int s
         return destination;
       }
     }"
-com.github.kevinsawicki.http.HttpRequest.Base64,encode(String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest.Base64,com.github.kevinsawicki.http.HttpRequest.Base64,encode(String string),"/**
      * Encode string as a byte array in Base64 annotation.
      *
      * @param string
@@ -221,7 +203,7 @@ com.github.kevinsawicki.http.HttpRequest.Base64,encode(String string),"/**
       }
       return encodeBytes(bytes);
     }"
-com.github.kevinsawicki.http.HttpRequest.Base64,encodeBytes(byte[] source),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest.Base64,com.github.kevinsawicki.http.HttpRequest.Base64,encodeBytes(byte[] source),"/**
      * Encodes a byte array into Base64 notation.
      *
      * @param source
@@ -235,7 +217,7 @@ com.github.kevinsawicki.http.HttpRequest.Base64,encodeBytes(byte[] source),"/**
      */","public static String encodeBytes(byte[] source) {
       return encodeBytes(source, 0, source.length);
     }"
-com.github.kevinsawicki.http.HttpRequest.Base64,"encodeBytes(byte[] source, int off, int len)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest.Base64,com.github.kevinsawicki.http.HttpRequest.Base64,"encodeBytes(byte[] source, int off, int len)","/**
      * Encodes a byte array into Base64 notation.
      *
      * @param source
@@ -258,7 +240,7 @@ com.github.kevinsawicki.http.HttpRequest.Base64,"encodeBytes(byte[] source, int 
         return new String(encoded);
       }
     }"
-com.github.kevinsawicki.http.HttpRequest.Base64,"encodeBytesToBytes(byte[] source, int off, int len)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest.Base64,com.github.kevinsawicki.http.HttpRequest.Base64,"encodeBytesToBytes(byte[] source, int off, int len)","/**
      * Similar to {@link #encodeBytes(byte[], int, int)} but returns a byte
      * array instead of instantiating a String. This is more efficient if you're
      * working with I/O streams and have large data sets to encode.
@@ -318,7 +300,7 @@ com.github.kevinsawicki.http.HttpRequest.Base64,"encodeBytesToBytes(byte[] sourc
       } else
         return outBuff;
     }"
-com.github.kevinsawicki.http.HttpRequest.HttpRequestException,getCause(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest.HttpRequestException,com.github.kevinsawicki.http.HttpRequest.HttpRequestException,getCause(),"/**
      * Get {@link IOException} that triggered this request exception
      *
      * @return {@link IOException} cause
@@ -326,19 +308,7 @@ com.github.kevinsawicki.http.HttpRequest.HttpRequestException,getCause(),"/**
     public IOException getCause() {
       return (IOException) super.getCause();
     }"
-com.github.kevinsawicki.http.HttpRequest.Operation,run(),"/**
-     * Run operation
-     *
-     * @return result
-     * @throws HttpRequestException
-     * @throws IOException
-     */","protected abstract V run() throws HttpRequestException, IOException;"
-com.github.kevinsawicki.http.HttpRequest.Operation,void done(),"/**
-     * Operation complete callback
-     *
-     * @throws IOException
-     */",protected abstract void done() throws IOException;
-com.github.kevinsawicki.http.HttpRequest.Operation,call(),,"public V call() throws HttpRequestException {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest.Operation,com.github.kevinsawicki.http.HttpRequest.Operation,call(),,"public V call() throws HttpRequestException {
       boolean thrown = false;
       try {
         return run();
@@ -357,7 +327,7 @@ com.github.kevinsawicki.http.HttpRequest.Operation,call(),,"public V call() thro
         }
       }
     }"
-com.github.kevinsawicki.http.HttpRequest.CloseOperation,void done(),,"@Override
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest.CloseOperation,com.github.kevinsawicki.http.HttpRequest.CloseOperation,void done(),,"@Override
     protected void done() throws IOException {
       if (closeable instanceof Flushable)
         ((Flushable) closeable).flush();
@@ -370,11 +340,11 @@ com.github.kevinsawicki.http.HttpRequest.CloseOperation,void done(),,"@Override
       else
         closeable.close();
     }"
-com.github.kevinsawicki.http.HttpRequest.FlushOperation,void done(),,"@Override
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest.FlushOperation,com.github.kevinsawicki.http.HttpRequest.FlushOperation,void done(),,"@Override
     protected void done() throws IOException {
       flushable.flush();
     }"
-com.github.kevinsawicki.http.HttpRequest.RequestOutputStream,write(final String value),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest.RequestOutputStream,com.github.kevinsawicki.http.HttpRequest.RequestOutputStream,write(final String value),"/**
      * Write string to stream
      *
      * @param value
@@ -387,7 +357,7 @@ com.github.kevinsawicki.http.HttpRequest.RequestOutputStream,write(final String 
 
       return this;
     }"
-com.github.kevinsawicki.http.HttpRequest,arrayToList(final Object array),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,arrayToList(final Object array),"/**
    * Represents array of any type as list of objects so we can easily iterate over it
    * @param array of elements
    * @return list with the same elements
@@ -415,7 +385,7 @@ com.github.kevinsawicki.http.HttpRequest,arrayToList(final Object array),"/**
       for (char value : (char[]) array) result.add(value);
     return result;
   }"
-com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -455,7 +425,7 @@ com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
       throw new HttpRequestException(io);
     }
   }"
-com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -487,7 +457,7 @@ com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final M
 
     return result.toString();
   }"
-com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Object... params)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Object... params)","/**
    * Append given name/value pairs as query parameters to the base URL
    * <p>
    * The params argument is interpreted as a sequence of name/value pairs so the
@@ -520,7 +490,7 @@ com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final O
 
     return result.toString();
   }"
-com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -530,7 +500,7 @@ com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
       throws HttpRequestException {
     return new HttpRequest(url, METHOD_GET);
   }"
-com.github.kevinsawicki.http.HttpRequest,get(final URL url),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,get(final URL url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -539,7 +509,7 @@ com.github.kevinsawicki.http.HttpRequest,get(final URL url),"/**
    */","public static HttpRequest get(final URL url) throws HttpRequestException {
     return new HttpRequest(url, METHOD_GET);
   }"
-com.github.kevinsawicki.http.HttpRequest,"get(final CharSequence baseUrl,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"get(final CharSequence baseUrl,
       final Map<?, ?> params, final boolean encode)","/**
    * Start a 'GET' request to the given URL along with the query params
    *
@@ -558,7 +528,7 @@ com.github.kevinsawicki.http.HttpRequest,"get(final CharSequence baseUrl,
     String url = append(baseUrl, params);
     return get(encode ? encode(url) : url);
   }"
-com.github.kevinsawicki.http.HttpRequest,"get(final CharSequence baseUrl,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"get(final CharSequence baseUrl,
       final boolean encode, final Object... params)","/**
    * Start a 'GET' request to the given URL along with the query params
    *
@@ -578,7 +548,7 @@ com.github.kevinsawicki.http.HttpRequest,"get(final CharSequence baseUrl,
     String url = append(baseUrl, params);
     return get(encode ? encode(url) : url);
   }"
-com.github.kevinsawicki.http.HttpRequest,post(final CharSequence url),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,post(final CharSequence url),"/**
    * Start a 'POST' request to the given URL
    *
    * @param url
@@ -588,7 +558,7 @@ com.github.kevinsawicki.http.HttpRequest,post(final CharSequence url),"/**
       throws HttpRequestException {
     return new HttpRequest(url, METHOD_POST);
   }"
-com.github.kevinsawicki.http.HttpRequest,post(final URL url),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,post(final URL url),"/**
    * Start a 'POST' request to the given URL
    *
    * @param url
@@ -597,7 +567,7 @@ com.github.kevinsawicki.http.HttpRequest,post(final URL url),"/**
    */","public static HttpRequest post(final URL url) throws HttpRequestException {
     return new HttpRequest(url, METHOD_POST);
   }"
-com.github.kevinsawicki.http.HttpRequest,"post(final CharSequence baseUrl,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"post(final CharSequence baseUrl,
       final Map<?, ?> params, final boolean encode)","/**
    * Start a 'POST' request to the given URL along with the query params
    *
@@ -616,7 +586,7 @@ com.github.kevinsawicki.http.HttpRequest,"post(final CharSequence baseUrl,
     String url = append(baseUrl, params);
     return post(encode ? encode(url) : url);
   }"
-com.github.kevinsawicki.http.HttpRequest,"post(final CharSequence baseUrl,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"post(final CharSequence baseUrl,
       final boolean encode, final Object... params)","/**
    * Start a 'POST' request to the given URL along with the query params
    *
@@ -636,7 +606,7 @@ com.github.kevinsawicki.http.HttpRequest,"post(final CharSequence baseUrl,
     String url = append(baseUrl, params);
     return post(encode ? encode(url) : url);
   }"
-com.github.kevinsawicki.http.HttpRequest,put(final CharSequence url),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,put(final CharSequence url),"/**
    * Start a 'PUT' request to the given URL
    *
    * @param url
@@ -646,7 +616,7 @@ com.github.kevinsawicki.http.HttpRequest,put(final CharSequence url),"/**
       throws HttpRequestException {
     return new HttpRequest(url, METHOD_PUT);
   }"
-com.github.kevinsawicki.http.HttpRequest,put(final URL url),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,put(final URL url),"/**
    * Start a 'PUT' request to the given URL
    *
    * @param url
@@ -655,7 +625,7 @@ com.github.kevinsawicki.http.HttpRequest,put(final URL url),"/**
    */","public static HttpRequest put(final URL url) throws HttpRequestException {
     return new HttpRequest(url, METHOD_PUT);
   }"
-com.github.kevinsawicki.http.HttpRequest,"put(final CharSequence baseUrl,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"put(final CharSequence baseUrl,
       final Map<?, ?> params, final boolean encode)","/**
    * Start a 'PUT' request to the given URL along with the query params
    *
@@ -674,7 +644,7 @@ com.github.kevinsawicki.http.HttpRequest,"put(final CharSequence baseUrl,
     String url = append(baseUrl, params);
     return put(encode ? encode(url) : url);
   }"
-com.github.kevinsawicki.http.HttpRequest,"put(final CharSequence baseUrl,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"put(final CharSequence baseUrl,
       final boolean encode, final Object... params)","/**
    * Start a 'PUT' request to the given URL along with the query params
    *
@@ -694,7 +664,7 @@ com.github.kevinsawicki.http.HttpRequest,"put(final CharSequence baseUrl,
     String url = append(baseUrl, params);
     return put(encode ? encode(url) : url);
   }"
-com.github.kevinsawicki.http.HttpRequest,delete(final CharSequence url),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,delete(final CharSequence url),"/**
    * Start a 'DELETE' request to the given URL
    *
    * @param url
@@ -704,7 +674,7 @@ com.github.kevinsawicki.http.HttpRequest,delete(final CharSequence url),"/**
       throws HttpRequestException {
     return new HttpRequest(url, METHOD_DELETE);
   }"
-com.github.kevinsawicki.http.HttpRequest,delete(final URL url),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,delete(final URL url),"/**
    * Start a 'DELETE' request to the given URL
    *
    * @param url
@@ -713,7 +683,7 @@ com.github.kevinsawicki.http.HttpRequest,delete(final URL url),"/**
    */","public static HttpRequest delete(final URL url) throws HttpRequestException {
     return new HttpRequest(url, METHOD_DELETE);
   }"
-com.github.kevinsawicki.http.HttpRequest,"delete(final CharSequence baseUrl,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"delete(final CharSequence baseUrl,
       final Map<?, ?> params, final boolean encode)","/**
    * Start a 'DELETE' request to the given URL along with the query params
    *
@@ -732,7 +702,7 @@ com.github.kevinsawicki.http.HttpRequest,"delete(final CharSequence baseUrl,
     String url = append(baseUrl, params);
     return delete(encode ? encode(url) : url);
   }"
-com.github.kevinsawicki.http.HttpRequest,"delete(final CharSequence baseUrl,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"delete(final CharSequence baseUrl,
       final boolean encode, final Object... params)","/**
    * Start a 'DELETE' request to the given URL along with the query params
    *
@@ -752,7 +722,7 @@ com.github.kevinsawicki.http.HttpRequest,"delete(final CharSequence baseUrl,
     String url = append(baseUrl, params);
     return delete(encode ? encode(url) : url);
   }"
-com.github.kevinsawicki.http.HttpRequest,head(final CharSequence url),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,head(final CharSequence url),"/**
    * Start a 'HEAD' request to the given URL
    *
    * @param url
@@ -762,7 +732,7 @@ com.github.kevinsawicki.http.HttpRequest,head(final CharSequence url),"/**
       throws HttpRequestException {
     return new HttpRequest(url, METHOD_HEAD);
   }"
-com.github.kevinsawicki.http.HttpRequest,head(final URL url),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,head(final URL url),"/**
    * Start a 'HEAD' request to the given URL
    *
    * @param url
@@ -771,7 +741,7 @@ com.github.kevinsawicki.http.HttpRequest,head(final URL url),"/**
    */","public static HttpRequest head(final URL url) throws HttpRequestException {
     return new HttpRequest(url, METHOD_HEAD);
   }"
-com.github.kevinsawicki.http.HttpRequest,"head(final CharSequence baseUrl,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"head(final CharSequence baseUrl,
       final Map<?, ?> params, final boolean encode)","/**
    * Start a 'HEAD' request to the given URL along with the query params
    *
@@ -790,7 +760,7 @@ com.github.kevinsawicki.http.HttpRequest,"head(final CharSequence baseUrl,
     String url = append(baseUrl, params);
     return head(encode ? encode(url) : url);
   }"
-com.github.kevinsawicki.http.HttpRequest,"head(final CharSequence baseUrl,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"head(final CharSequence baseUrl,
       final boolean encode, final Object... params)","/**
    * Start a 'GET' request to the given URL along with the query params
    *
@@ -810,7 +780,7 @@ com.github.kevinsawicki.http.HttpRequest,"head(final CharSequence baseUrl,
     String url = append(baseUrl, params);
     return head(encode ? encode(url) : url);
   }"
-com.github.kevinsawicki.http.HttpRequest,options(final CharSequence url),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,options(final CharSequence url),"/**
    * Start an 'OPTIONS' request to the given URL
    *
    * @param url
@@ -820,7 +790,7 @@ com.github.kevinsawicki.http.HttpRequest,options(final CharSequence url),"/**
       throws HttpRequestException {
     return new HttpRequest(url, METHOD_OPTIONS);
   }"
-com.github.kevinsawicki.http.HttpRequest,options(final URL url),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,options(final URL url),"/**
    * Start an 'OPTIONS' request to the given URL
    *
    * @param url
@@ -829,7 +799,7 @@ com.github.kevinsawicki.http.HttpRequest,options(final URL url),"/**
    */","public static HttpRequest options(final URL url) throws HttpRequestException {
     return new HttpRequest(url, METHOD_OPTIONS);
   }"
-com.github.kevinsawicki.http.HttpRequest,trace(final CharSequence url),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,trace(final CharSequence url),"/**
    * Start a 'TRACE' request to the given URL
    *
    * @param url
@@ -839,7 +809,7 @@ com.github.kevinsawicki.http.HttpRequest,trace(final CharSequence url),"/**
       throws HttpRequestException {
     return new HttpRequest(url, METHOD_TRACE);
   }"
-com.github.kevinsawicki.http.HttpRequest,trace(final URL url),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,trace(final URL url),"/**
    * Start a 'TRACE' request to the given URL
    *
    * @param url
@@ -848,7 +818,7 @@ com.github.kevinsawicki.http.HttpRequest,trace(final URL url),"/**
    */","public static HttpRequest trace(final URL url) throws HttpRequestException {
     return new HttpRequest(url, METHOD_TRACE);
   }"
-com.github.kevinsawicki.http.HttpRequest,void keepAlive(final boolean keepAlive),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,void keepAlive(final boolean keepAlive),"/**
    * Set the 'http.keepAlive' property to the given value.
    * <p>
    * This setting will apply to all requests.
@@ -857,7 +827,7 @@ com.github.kevinsawicki.http.HttpRequest,void keepAlive(final boolean keepAlive)
    */","public static void keepAlive(final boolean keepAlive) {
     setProperty(""http.keepAlive"", Boolean.toString(keepAlive));
   }"
-com.github.kevinsawicki.http.HttpRequest,void maxConnections(final int maxConnections),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,void maxConnections(final int maxConnections),"/**
    * Set the 'http.maxConnections' property to the given value.
    * <p>
    * This setting will apply to all requests.
@@ -866,7 +836,7 @@ com.github.kevinsawicki.http.HttpRequest,void maxConnections(final int maxConnec
    */","public static void maxConnections(final int maxConnections) {
     setProperty(""http.maxConnections"", Integer.toString(maxConnections));
   }"
-com.github.kevinsawicki.http.HttpRequest,void proxyHost(final String host),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,void proxyHost(final String host),"/**
    * Set the 'http.proxyHost' and 'https.proxyHost' properties to the given host
    * value.
    * <p>
@@ -877,7 +847,7 @@ com.github.kevinsawicki.http.HttpRequest,void proxyHost(final String host),"/**
     setProperty(""http.proxyHost"", host);
     setProperty(""https.proxyHost"", host);
   }"
-com.github.kevinsawicki.http.HttpRequest,void proxyPort(final int port),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,void proxyPort(final int port),"/**
    * Set the 'http.proxyPort' and 'https.proxyPort' properties to the given port
    * number.
    * <p>
@@ -889,7 +859,7 @@ com.github.kevinsawicki.http.HttpRequest,void proxyPort(final int port),"/**
     setProperty(""http.proxyPort"", portValue);
     setProperty(""https.proxyPort"", portValue);
   }"
-com.github.kevinsawicki.http.HttpRequest,void nonProxyHosts(final String... hosts),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,void nonProxyHosts(final String... hosts),"/**
    * Set the 'http.nonProxyHosts' property to the given host values.
    * <p>
    * Hosts will be separated by a '|' character.
@@ -908,7 +878,7 @@ com.github.kevinsawicki.http.HttpRequest,void nonProxyHosts(final String... host
     } else
       setProperty(""http.nonProxyHosts"", null);
   }"
-com.github.kevinsawicki.http.HttpRequest,"setProperty(final String name, final String value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"setProperty(final String name, final String value)","/**
    * Set property to given value.
    * <p>
    * Specifying a null value will cause the property to be cleared
@@ -934,16 +904,16 @@ com.github.kevinsawicki.http.HttpRequest,"setProperty(final String name, final S
       };
     return AccessController.doPrivileged(action);
   }"
-com.github.kevinsawicki.http.HttpRequest,run(),,"public String run() {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,run(),,"public String run() {
           return System.setProperty(name, value);
         }"
-com.github.kevinsawicki.http.HttpRequest,run(),,"public String run() {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,run(),,"public String run() {
           return System.clearProperty(name);
         }"
-com.github.kevinsawicki.http.HttpRequest,createProxy(),,"private Proxy createProxy() {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,createProxy(),,"private Proxy createProxy() {
     return new Proxy(HTTP, new InetSocketAddress(httpProxyHost, httpProxyPort));
   }"
-com.github.kevinsawicki.http.HttpRequest,createConnection(),,"private HttpURLConnection createConnection() {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,createConnection(),,"private HttpURLConnection createConnection() {
     try {
       final HttpURLConnection connection;
       if (httpProxyHost != null)
@@ -956,11 +926,11 @@ com.github.kevinsawicki.http.HttpRequest,createConnection(),,"private HttpURLCon
       throw new HttpRequestException(e);
     }
   }"
-com.github.kevinsawicki.http.HttpRequest,toString(),,"@Override
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,toString(),,"@Override
   public String toString() {
     return method() + ' ' + url();
   }"
-com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -969,7 +939,7 @@ com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
       connection = createConnection();
     return connection;
   }"
-com.github.kevinsawicki.http.HttpRequest,ignoreCloseExceptions(final boolean ignore),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,ignoreCloseExceptions(final boolean ignore),"/**
    * Set whether or not to ignore exceptions that occur from calling
    * {@link Closeable#close()}
    * <p>
@@ -981,7 +951,7 @@ com.github.kevinsawicki.http.HttpRequest,ignoreCloseExceptions(final boolean ign
     ignoreCloseExceptions = ignore;
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,ignoreCloseExceptions(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,ignoreCloseExceptions(),"/**
    * Get whether or not exceptions thrown by {@link Closeable#close()} are
    * ignored
    *
@@ -989,7 +959,7 @@ com.github.kevinsawicki.http.HttpRequest,ignoreCloseExceptions(),"/**
    */","public boolean ignoreCloseExceptions() {
     return ignoreCloseExceptions;
   }"
-com.github.kevinsawicki.http.HttpRequest,code(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -1002,7 +972,7 @@ com.github.kevinsawicki.http.HttpRequest,code(),"/**
       throw new HttpRequestException(e);
     }
   }"
-com.github.kevinsawicki.http.HttpRequest,code(final AtomicInteger output),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,code(final AtomicInteger output),"/**
    * Set the value of the given {@link AtomicInteger} to the status code of the
    * response
    *
@@ -1014,7 +984,7 @@ com.github.kevinsawicki.http.HttpRequest,code(final AtomicInteger output),"/**
     output.set(code());
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -1022,7 +992,7 @@ com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    */","public boolean ok() throws HttpRequestException {
     return HTTP_OK == code();
   }"
-com.github.kevinsawicki.http.HttpRequest,created(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,created(),"/**
    * Is the response code a 201 Created?
    *
    * @return true if 201, false otherwise
@@ -1030,7 +1000,7 @@ com.github.kevinsawicki.http.HttpRequest,created(),"/**
    */","public boolean created() throws HttpRequestException {
     return HTTP_CREATED == code();
   }"
-com.github.kevinsawicki.http.HttpRequest,noContent(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,noContent(),"/**
    * Is the response code a 204 No Content?
    *
    * @return true if 204, false otherwise
@@ -1038,7 +1008,7 @@ com.github.kevinsawicki.http.HttpRequest,noContent(),"/**
    */","public boolean noContent() throws HttpRequestException {
     return HTTP_NO_CONTENT == code();
   }"
-com.github.kevinsawicki.http.HttpRequest,serverError(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,serverError(),"/**
    * Is the response code a 500 Internal Server Error?
    *
    * @return true if 500, false otherwise
@@ -1046,7 +1016,7 @@ com.github.kevinsawicki.http.HttpRequest,serverError(),"/**
    */","public boolean serverError() throws HttpRequestException {
     return HTTP_INTERNAL_ERROR == code();
   }"
-com.github.kevinsawicki.http.HttpRequest,badRequest(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,badRequest(),"/**
    * Is the response code a 400 Bad Request?
    *
    * @return true if 400, false otherwise
@@ -1054,7 +1024,7 @@ com.github.kevinsawicki.http.HttpRequest,badRequest(),"/**
    */","public boolean badRequest() throws HttpRequestException {
     return HTTP_BAD_REQUEST == code();
   }"
-com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
    * Is the response code a 404 Not Found?
    *
    * @return true if 404, false otherwise
@@ -1062,7 +1032,7 @@ com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
    */","public boolean notFound() throws HttpRequestException {
     return HTTP_NOT_FOUND == code();
   }"
-com.github.kevinsawicki.http.HttpRequest,notModified(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,notModified(),"/**
    * Is the response code a 304 Not Modified?
    *
    * @return true if 304, false otherwise
@@ -1070,7 +1040,7 @@ com.github.kevinsawicki.http.HttpRequest,notModified(),"/**
    */","public boolean notModified() throws HttpRequestException {
     return HTTP_NOT_MODIFIED == code();
   }"
-com.github.kevinsawicki.http.HttpRequest,message(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,message(),"/**
    * Get status message of the response
    *
    * @return message
@@ -1083,7 +1053,7 @@ com.github.kevinsawicki.http.HttpRequest,message(),"/**
       throw new HttpRequestException(e);
     }
   }"
-com.github.kevinsawicki.http.HttpRequest,disconnect(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,disconnect(),"/**
    * Disconnect the connection
    *
    * @return this request
@@ -1091,7 +1061,7 @@ com.github.kevinsawicki.http.HttpRequest,disconnect(),"/**
     getConnection().disconnect();
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,chunk(final int size),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,chunk(final int size),"/**
    * Set chunked streaming mode to the given size
    *
    * @param size
@@ -1100,7 +1070,7 @@ com.github.kevinsawicki.http.HttpRequest,chunk(final int size),"/**
     getConnection().setChunkedStreamingMode(size);
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,bufferSize(final int size),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,bufferSize(final int size),"/**
    * Set the size used when buffering and copying between streams
    * <p>
    * This size is also used for send and receive buffers created for both char
@@ -1116,7 +1086,7 @@ com.github.kevinsawicki.http.HttpRequest,bufferSize(final int size),"/**
     bufferSize = size;
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,bufferSize(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,bufferSize(),"/**
    * Get the configured buffer size
    * <p>
    * The default buffer size is 8,192 bytes
@@ -1125,7 +1095,7 @@ com.github.kevinsawicki.http.HttpRequest,bufferSize(),"/**
    */","public int bufferSize() {
     return bufferSize;
   }"
-com.github.kevinsawicki.http.HttpRequest,uncompress(final boolean uncompress),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,uncompress(final boolean uncompress),"/**
    * Set whether or not the response body should be automatically uncompressed
    * when read from.
    * <p>
@@ -1146,7 +1116,7 @@ com.github.kevinsawicki.http.HttpRequest,uncompress(final boolean uncompress),"/
     this.uncompress = uncompress;
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,byteStream(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,byteStream(),"/**
    * Create byte array output stream
    *
    * @return stream
@@ -1157,7 +1127,7 @@ com.github.kevinsawicki.http.HttpRequest,byteStream(),"/**
     else
       return new ByteArrayOutputStream();
   }"
-com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -1175,7 +1145,7 @@ com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
       throw new HttpRequestException(e);
     }
   }"
-com.github.kevinsawicki.http.HttpRequest,body(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,body(),"/**
    * Get response as {@link String} using character set returned from
    * {@link #charset()}
    *
@@ -1184,7 +1154,7 @@ com.github.kevinsawicki.http.HttpRequest,body(),"/**
    */","public String body() throws HttpRequestException {
     return body(charset());
   }"
-com.github.kevinsawicki.http.HttpRequest,body(final AtomicReference<String> output),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,body(final AtomicReference<String> output),"/**
    * Get the response body as a {@link String} and set it as the value of the
    * given reference.
    *
@@ -1195,7 +1165,7 @@ com.github.kevinsawicki.http.HttpRequest,body(final AtomicReference<String> outp
     output.set(body());
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,"body(final AtomicReference<String> output, final String charset)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"body(final AtomicReference<String> output, final String charset)","/**
    * Get the response body as a {@link String} and set it as the value of the
    * given reference.
    *
@@ -1207,7 +1177,7 @@ com.github.kevinsawicki.http.HttpRequest,"body(final AtomicReference<String> out
     output.set(body(charset));
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,isBodyEmpty(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,isBodyEmpty(),"/**
    * Is the response body empty?
    *
    * @return true if the Content-Length response header is 0, false otherwise
@@ -1215,7 +1185,7 @@ com.github.kevinsawicki.http.HttpRequest,isBodyEmpty(),"/**
    */","public boolean isBodyEmpty() throws HttpRequestException {
     return contentLength() == 0;
   }"
-com.github.kevinsawicki.http.HttpRequest,bytes(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,bytes(),"/**
    * Get response as byte array
    *
    * @return byte array
@@ -1229,7 +1199,7 @@ com.github.kevinsawicki.http.HttpRequest,bytes(),"/**
     }
     return output.toByteArray();
   }"
-com.github.kevinsawicki.http.HttpRequest,buffer(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,buffer(),"/**
    * Get response in a buffered stream
    *
    * @see #bufferSize(int)
@@ -1238,7 +1208,7 @@ com.github.kevinsawicki.http.HttpRequest,buffer(),"/**
    */","public BufferedInputStream buffer() throws HttpRequestException {
     return new BufferedInputStream(stream(), bufferSize);
   }"
-com.github.kevinsawicki.http.HttpRequest,stream(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,stream(),"/**
    * Get stream to response body
    *
    * @return stream
@@ -1273,7 +1243,7 @@ com.github.kevinsawicki.http.HttpRequest,stream(),"/**
         throw new HttpRequestException(e);
       }
   }"
-com.github.kevinsawicki.http.HttpRequest,reader(final String charset),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,reader(final String charset),"/**
    * Get reader to response body using given character set.
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -1290,7 +1260,7 @@ com.github.kevinsawicki.http.HttpRequest,reader(final String charset),"/**
       throw new HttpRequestException(e);
     }
   }"
-com.github.kevinsawicki.http.HttpRequest,reader(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,reader(),"/**
    * Get reader to response body using the character set returned from
    * {@link #charset()}
    *
@@ -1299,7 +1269,7 @@ com.github.kevinsawicki.http.HttpRequest,reader(),"/**
    */","public InputStreamReader reader() throws HttpRequestException {
     return reader(charset());
   }"
-com.github.kevinsawicki.http.HttpRequest,bufferedReader(final String charset),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,bufferedReader(final String charset),"/**
    * Get buffered reader to response body using the given character set r and
    * the configured buffer size
    *
@@ -1312,7 +1282,7 @@ com.github.kevinsawicki.http.HttpRequest,bufferedReader(final String charset),"/
       throws HttpRequestException {
     return new BufferedReader(reader(charset), bufferSize);
   }"
-com.github.kevinsawicki.http.HttpRequest,bufferedReader(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,bufferedReader(),"/**
    * Get buffered reader to response body using the character set returned from
    * {@link #charset()} and the configured buffer size
    *
@@ -1322,7 +1292,7 @@ com.github.kevinsawicki.http.HttpRequest,bufferedReader(),"/**
    */","public BufferedReader bufferedReader() throws HttpRequestException {
     return bufferedReader(charset());
   }"
-com.github.kevinsawicki.http.HttpRequest,receive(final File file),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,receive(final File file),"/**
    * Stream response body to file
    *
    * @param file
@@ -1343,11 +1313,11 @@ com.github.kevinsawicki.http.HttpRequest,receive(final File file),"/**
       }
     }.call();
   }"
-com.github.kevinsawicki.http.HttpRequest,run(),,"@Override
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,run(),,"@Override
       protected HttpRequest run() throws HttpRequestException, IOException {
         return receive(output);
       }"
-com.github.kevinsawicki.http.HttpRequest,receive(final OutputStream output),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,receive(final OutputStream output),"/**
    * Stream response to given output stream
    *
    * @param output
@@ -1361,7 +1331,7 @@ com.github.kevinsawicki.http.HttpRequest,receive(final OutputStream output),"/**
       throw new HttpRequestException(e);
     }
   }"
-com.github.kevinsawicki.http.HttpRequest,receive(final PrintStream output),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,receive(final PrintStream output),"/**
    * Stream response to given print stream
    *
    * @param output
@@ -1371,7 +1341,7 @@ com.github.kevinsawicki.http.HttpRequest,receive(final PrintStream output),"/**
       throws HttpRequestException {
     return receive((OutputStream) output);
   }"
-com.github.kevinsawicki.http.HttpRequest,receive(final Appendable appendable),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,receive(final Appendable appendable),"/**
    * Receive response into the given appendable
    *
    * @param appendable
@@ -1395,7 +1365,7 @@ com.github.kevinsawicki.http.HttpRequest,receive(final Appendable appendable),"/
       }
     }.call();
   }"
-com.github.kevinsawicki.http.HttpRequest,run(),,"@Override
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,run(),,"@Override
       public HttpRequest run() throws IOException {
         final CharBuffer buffer = CharBuffer.allocate(bufferSize);
         int read;
@@ -1406,7 +1376,7 @@ com.github.kevinsawicki.http.HttpRequest,run(),,"@Override
         }
         return HttpRequest.this;
       }"
-com.github.kevinsawicki.http.HttpRequest,receive(final Writer writer),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,receive(final Writer writer),"/**
    * Receive response into the given writer
    *
    * @param writer
@@ -1422,11 +1392,11 @@ com.github.kevinsawicki.http.HttpRequest,receive(final Writer writer),"/**
       }
     }.call();
   }"
-com.github.kevinsawicki.http.HttpRequest,run(),,"@Override
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,run(),,"@Override
       public HttpRequest run() throws IOException {
         return copy(reader, writer);
       }"
-com.github.kevinsawicki.http.HttpRequest,readTimeout(final int timeout),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,readTimeout(final int timeout),"/**
    * Set read timeout on connection to given value
    *
    * @param timeout
@@ -1435,7 +1405,7 @@ com.github.kevinsawicki.http.HttpRequest,readTimeout(final int timeout),"/**
     getConnection().setReadTimeout(timeout);
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,connectTimeout(final int timeout),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,connectTimeout(final int timeout),"/**
    * Set connect timeout on connection to given value
    *
    * @param timeout
@@ -1444,7 +1414,7 @@ com.github.kevinsawicki.http.HttpRequest,connectTimeout(final int timeout),"/**
     getConnection().setConnectTimeout(timeout);
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,"header(final String name, final String value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"header(final String name, final String value)","/**
    * Set header name to given value
    *
    * @param name
@@ -1454,7 +1424,7 @@ com.github.kevinsawicki.http.HttpRequest,"header(final String name, final String
     getConnection().setRequestProperty(name, value);
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,"header(final String name, final Number value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"header(final String name, final Number value)","/**
    * Set header name to given value
    *
    * @param name
@@ -1463,7 +1433,7 @@ com.github.kevinsawicki.http.HttpRequest,"header(final String name, final Number
    */","public HttpRequest header(final String name, final Number value) {
     return header(name, value != null ? value.toString() : null);
   }"
-com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> headers)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> headers)","/**
    * Set all headers found in given map where the keys are the header names and
    * the values are the header values
    *
@@ -1475,7 +1445,7 @@ com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> head
         header(header);
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,"header(final Entry<String, String> header)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"header(final Entry<String, String> header)","/**
    * Set header to have given entry's key as the name and value as the value
    *
    * @param header
@@ -1483,7 +1453,7 @@ com.github.kevinsawicki.http.HttpRequest,"header(final Entry<String, String> hea
    */","public HttpRequest header(final Entry<String, String> header) {
     return header(header.getKey(), header.getValue());
   }"
-com.github.kevinsawicki.http.HttpRequest,header(final String name),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,header(final String name),"/**
    * Get a response header
    *
    * @param name
@@ -1493,7 +1463,7 @@ com.github.kevinsawicki.http.HttpRequest,header(final String name),"/**
     closeOutputQuietly();
     return getConnection().getHeaderField(name);
   }"
-com.github.kevinsawicki.http.HttpRequest,headers(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,headers(),"/**
    * Get all the response headers
    *
    * @return map of response header names to their value(s)
@@ -1502,7 +1472,7 @@ com.github.kevinsawicki.http.HttpRequest,headers(),"/**
     closeOutputQuietly();
     return getConnection().getHeaderFields();
   }"
-com.github.kevinsawicki.http.HttpRequest,dateHeader(final String name),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,dateHeader(final String name),"/**
    * Get a date header from the response falling back to returning -1 if the
    * header is missing or parsing fails
    *
@@ -1512,7 +1482,7 @@ com.github.kevinsawicki.http.HttpRequest,dateHeader(final String name),"/**
    */","public long dateHeader(final String name) throws HttpRequestException {
     return dateHeader(name, -1L);
   }"
-com.github.kevinsawicki.http.HttpRequest,"dateHeader(final String name, final long defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"dateHeader(final String name, final long defaultValue)","/**
    * Get a date header from the response falling back to returning the given
    * default value if the header is missing or parsing fails
    *
@@ -1525,7 +1495,7 @@ com.github.kevinsawicki.http.HttpRequest,"dateHeader(final String name, final lo
     closeOutputQuietly();
     return getConnection().getHeaderFieldDate(name, defaultValue);
   }"
-com.github.kevinsawicki.http.HttpRequest,intHeader(final String name),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,intHeader(final String name),"/**
    * Get an integer header from the response falling back to returning -1 if the
    * header is missing or parsing fails
    *
@@ -1535,7 +1505,7 @@ com.github.kevinsawicki.http.HttpRequest,intHeader(final String name),"/**
    */","public int intHeader(final String name) throws HttpRequestException {
     return intHeader(name, -1);
   }"
-com.github.kevinsawicki.http.HttpRequest,"intHeader(final String name, final int defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"intHeader(final String name, final int defaultValue)","/**
    * Get an integer header value from the response falling back to the given
    * default value if the header is missing or if parsing fails
    *
@@ -1549,7 +1519,7 @@ com.github.kevinsawicki.http.HttpRequest,"intHeader(final String name, final int
     closeOutputQuietly();
     return getConnection().getHeaderFieldInt(name, defaultValue);
   }"
-com.github.kevinsawicki.http.HttpRequest,headers(final String name),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,headers(final String name),"/**
    * Get all values of the given header from the response
    *
    * @param name
@@ -1565,7 +1535,7 @@ com.github.kevinsawicki.http.HttpRequest,headers(final String name),"/**
     else
       return EMPTY_STRINGS;
   }"
-com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
    * Get parameter with given name from header value in response
    *
    * @param headerName
@@ -1574,7 +1544,7 @@ com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, fin
    */","public String parameter(final String headerName, final String paramName) {
     return getParam(header(headerName), paramName);
   }"
-com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
    * Get all parameters from header value in response
    * <p>
    * This will be all key=value pairs after the first ';' that are separated by
@@ -1585,7 +1555,7 @@ com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/*
    */","public Map<String, String> parameters(final String headerName) {
     return getParams(header(headerName));
   }"
-com.github.kevinsawicki.http.HttpRequest,getParams(final String header),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,getParams(final String header),"/**
    * Get parameter values from header value
    *
    * @param header
@@ -1628,7 +1598,7 @@ com.github.kevinsawicki.http.HttpRequest,getParams(final String header),"/**
 
     return params;
   }"
-com.github.kevinsawicki.http.HttpRequest,"getParam(final String value, final String paramName)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"getParam(final String value, final String paramName)","/**
    * Get parameter value from header value
    *
    * @param value
@@ -1669,14 +1639,14 @@ com.github.kevinsawicki.http.HttpRequest,"getParam(final String value, final Str
 
     return null;
   }"
-com.github.kevinsawicki.http.HttpRequest,charset(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,charset(),"/**
    * Get 'charset' parameter from 'Content-Type' response header
    *
    * @return charset or null if none
    */","public String charset() {
     return parameter(HEADER_CONTENT_TYPE, PARAM_CHARSET);
   }"
-com.github.kevinsawicki.http.HttpRequest,userAgent(final String userAgent),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,userAgent(final String userAgent),"/**
    * Set the 'User-Agent' header to given value
    *
    * @param userAgent
@@ -1684,7 +1654,7 @@ com.github.kevinsawicki.http.HttpRequest,userAgent(final String userAgent),"/**
    */","public HttpRequest userAgent(final String userAgent) {
     return header(HEADER_USER_AGENT, userAgent);
   }"
-com.github.kevinsawicki.http.HttpRequest,referer(final String referer),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,referer(final String referer),"/**
    * Set the 'Referer' header to given value
    *
    * @param referer
@@ -1692,7 +1662,7 @@ com.github.kevinsawicki.http.HttpRequest,referer(final String referer),"/**
    */","public HttpRequest referer(final String referer) {
     return header(HEADER_REFERER, referer);
   }"
-com.github.kevinsawicki.http.HttpRequest,useCaches(final boolean useCaches),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,useCaches(final boolean useCaches),"/**
    * Set value of {@link HttpURLConnection#setUseCaches(boolean)}
    *
    * @param useCaches
@@ -1701,7 +1671,7 @@ com.github.kevinsawicki.http.HttpRequest,useCaches(final boolean useCaches),"/**
     getConnection().setUseCaches(useCaches);
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,acceptEncoding(final String acceptEncoding),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,acceptEncoding(final String acceptEncoding),"/**
    * Set the 'Accept-Encoding' header to given value
    *
    * @param acceptEncoding
@@ -1709,7 +1679,7 @@ com.github.kevinsawicki.http.HttpRequest,acceptEncoding(final String acceptEncod
    */","public HttpRequest acceptEncoding(final String acceptEncoding) {
     return header(HEADER_ACCEPT_ENCODING, acceptEncoding);
   }"
-com.github.kevinsawicki.http.HttpRequest,acceptGzipEncoding(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,acceptGzipEncoding(),"/**
    * Set the 'Accept-Encoding' header to 'gzip'
    *
    * @see #uncompress(boolean)
@@ -1717,7 +1687,7 @@ com.github.kevinsawicki.http.HttpRequest,acceptGzipEncoding(),"/**
    */","public HttpRequest acceptGzipEncoding() {
     return acceptEncoding(ENCODING_GZIP);
   }"
-com.github.kevinsawicki.http.HttpRequest,acceptCharset(final String acceptCharset),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,acceptCharset(final String acceptCharset),"/**
    * Set the 'Accept-Charset' header to given value
    *
    * @param acceptCharset
@@ -1725,63 +1695,63 @@ com.github.kevinsawicki.http.HttpRequest,acceptCharset(final String acceptCharse
    */","public HttpRequest acceptCharset(final String acceptCharset) {
     return header(HEADER_ACCEPT_CHARSET, acceptCharset);
   }"
-com.github.kevinsawicki.http.HttpRequest,contentEncoding(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,contentEncoding(),"/**
    * Get the 'Content-Encoding' header from the response
    *
    * @return this request
    */","public String contentEncoding() {
     return header(HEADER_CONTENT_ENCODING);
   }"
-com.github.kevinsawicki.http.HttpRequest,server(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,server(),"/**
    * Get the 'Server' header from the response
    *
    * @return server
    */","public String server() {
     return header(HEADER_SERVER);
   }"
-com.github.kevinsawicki.http.HttpRequest,date(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,date(),"/**
    * Get the 'Date' header from the response
    *
    * @return date value, -1 on failures
    */","public long date() {
     return dateHeader(HEADER_DATE);
   }"
-com.github.kevinsawicki.http.HttpRequest,cacheControl(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,cacheControl(),"/**
    * Get the 'Cache-Control' header from the response
    *
    * @return cache control
    */","public String cacheControl() {
     return header(HEADER_CACHE_CONTROL);
   }"
-com.github.kevinsawicki.http.HttpRequest,eTag(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,eTag(),"/**
    * Get the 'ETag' header from the response
    *
    * @return entity tag
    */","public String eTag() {
     return header(HEADER_ETAG);
   }"
-com.github.kevinsawicki.http.HttpRequest,expires(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,expires(),"/**
    * Get the 'Expires' header from the response
    *
    * @return expires value, -1 on failures
    */","public long expires() {
     return dateHeader(HEADER_EXPIRES);
   }"
-com.github.kevinsawicki.http.HttpRequest,lastModified(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,lastModified(),"/**
    * Get the 'Last-Modified' header from the response
    *
    * @return last modified value, -1 on failures
    */","public long lastModified() {
     return dateHeader(HEADER_LAST_MODIFIED);
   }"
-com.github.kevinsawicki.http.HttpRequest,location(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,location(),"/**
    * Get the 'Location' header from the response
    *
    * @return location
    */","public String location() {
     return header(HEADER_LOCATION);
   }"
-com.github.kevinsawicki.http.HttpRequest,authorization(final String authorization),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,authorization(final String authorization),"/**
    * Set the 'Authorization' header to given value
    *
    * @param authorization
@@ -1789,7 +1759,7 @@ com.github.kevinsawicki.http.HttpRequest,authorization(final String authorizatio
    */","public HttpRequest authorization(final String authorization) {
     return header(HEADER_AUTHORIZATION, authorization);
   }"
-com.github.kevinsawicki.http.HttpRequest,proxyAuthorization(final String proxyAuthorization),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,proxyAuthorization(final String proxyAuthorization),"/**
    * Set the 'Proxy-Authorization' header to given value
    *
    * @param proxyAuthorization
@@ -1797,7 +1767,7 @@ com.github.kevinsawicki.http.HttpRequest,proxyAuthorization(final String proxyAu
    */","public HttpRequest proxyAuthorization(final String proxyAuthorization) {
     return header(HEADER_PROXY_AUTHORIZATION, proxyAuthorization);
   }"
-com.github.kevinsawicki.http.HttpRequest,"basic(final String name, final String password)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"basic(final String name, final String password)","/**
    * Set the 'Authorization' header to given values in Basic authentication
    * format
    *
@@ -1807,7 +1777,7 @@ com.github.kevinsawicki.http.HttpRequest,"basic(final String name, final String 
    */","public HttpRequest basic(final String name, final String password) {
     return authorization(""Basic "" + Base64.encode(name + ':' + password));
   }"
-com.github.kevinsawicki.http.HttpRequest,"proxyBasic(final String name, final String password)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"proxyBasic(final String name, final String password)","/**
    * Set the 'Proxy-Authorization' header to given values in Basic authentication
    * format
    *
@@ -1817,7 +1787,7 @@ com.github.kevinsawicki.http.HttpRequest,"proxyBasic(final String name, final St
    */","public HttpRequest proxyBasic(final String name, final String password) {
     return proxyAuthorization(""Basic "" + Base64.encode(name + ':' + password));
   }"
-com.github.kevinsawicki.http.HttpRequest,ifModifiedSince(final long ifModifiedSince),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,ifModifiedSince(final long ifModifiedSince),"/**
    * Set the 'If-Modified-Since' request header to the given value
    *
    * @param ifModifiedSince
@@ -1826,7 +1796,7 @@ com.github.kevinsawicki.http.HttpRequest,ifModifiedSince(final long ifModifiedSi
     getConnection().setIfModifiedSince(ifModifiedSince);
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,ifNoneMatch(final String ifNoneMatch),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,ifNoneMatch(final String ifNoneMatch),"/**
    * Set the 'If-None-Match' request header to the given value
    *
    * @param ifNoneMatch
@@ -1834,7 +1804,7 @@ com.github.kevinsawicki.http.HttpRequest,ifNoneMatch(final String ifNoneMatch),"
    */","public HttpRequest ifNoneMatch(final String ifNoneMatch) {
     return header(HEADER_IF_NONE_MATCH, ifNoneMatch);
   }"
-com.github.kevinsawicki.http.HttpRequest,contentType(final String contentType),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,contentType(final String contentType),"/**
    * Set the 'Content-Type' request header to the given value
    *
    * @param contentType
@@ -1842,7 +1812,7 @@ com.github.kevinsawicki.http.HttpRequest,contentType(final String contentType),"
    */","public HttpRequest contentType(final String contentType) {
     return contentType(contentType, null);
   }"
-com.github.kevinsawicki.http.HttpRequest,"contentType(final String contentType, final String charset)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"contentType(final String contentType, final String charset)","/**
    * Set the 'Content-Type' request header to the given value and charset
    *
    * @param contentType
@@ -1855,21 +1825,21 @@ com.github.kevinsawicki.http.HttpRequest,"contentType(final String contentType, 
     } else
       return header(HEADER_CONTENT_TYPE, contentType);
   }"
-com.github.kevinsawicki.http.HttpRequest,contentType(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,contentType(),"/**
    * Get the 'Content-Type' header from the response
    *
    * @return response header value
    */","public String contentType() {
     return header(HEADER_CONTENT_TYPE);
   }"
-com.github.kevinsawicki.http.HttpRequest,contentLength(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,contentLength(),"/**
    * Get the 'Content-Length' header from the response
    *
    * @return response header value
    */","public int contentLength() {
     return intHeader(HEADER_CONTENT_LENGTH);
   }"
-com.github.kevinsawicki.http.HttpRequest,contentLength(final String contentLength),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,contentLength(final String contentLength),"/**
    * Set the 'Content-Length' request header to the given value
    *
    * @param contentLength
@@ -1877,7 +1847,7 @@ com.github.kevinsawicki.http.HttpRequest,contentLength(final String contentLengt
    */","public HttpRequest contentLength(final String contentLength) {
     return contentLength(Integer.parseInt(contentLength));
   }"
-com.github.kevinsawicki.http.HttpRequest,contentLength(final int contentLength),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,contentLength(final int contentLength),"/**
    * Set the 'Content-Length' request header to the given value
    *
    * @param contentLength
@@ -1886,7 +1856,7 @@ com.github.kevinsawicki.http.HttpRequest,contentLength(final int contentLength),
     getConnection().setFixedLengthStreamingMode(contentLength);
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,accept(final String accept),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,accept(final String accept),"/**
    * Set the 'Accept' header to given value
    *
    * @param accept
@@ -1894,14 +1864,14 @@ com.github.kevinsawicki.http.HttpRequest,accept(final String accept),"/**
    */","public HttpRequest accept(final String accept) {
     return header(HEADER_ACCEPT, accept);
   }"
-com.github.kevinsawicki.http.HttpRequest,acceptJson(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,acceptJson(),"/**
    * Set the 'Accept' header to 'application/json'
    *
    * @return this request
    */","public HttpRequest acceptJson() {
     return accept(CONTENT_TYPE_JSON);
   }"
-com.github.kevinsawicki.http.HttpRequest,"copy(final InputStream input, final OutputStream output)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"copy(final InputStream input, final OutputStream output)","/**
    * Copy from input stream to output stream
    *
    * @param input
@@ -1925,7 +1895,7 @@ com.github.kevinsawicki.http.HttpRequest,"copy(final InputStream input, final Ou
       }
     }.call();
   }"
-com.github.kevinsawicki.http.HttpRequest,run(),,"@Override
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,run(),,"@Override
       public HttpRequest run() throws IOException {
         final byte[] buffer = new byte[bufferSize];
         int read;
@@ -1936,7 +1906,7 @@ com.github.kevinsawicki.http.HttpRequest,run(),,"@Override
         }
         return HttpRequest.this;
       }"
-com.github.kevinsawicki.http.HttpRequest,"copy(final Reader input, final Writer output)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"copy(final Reader input, final Writer output)","/**
    * Copy from reader to writer
    *
    * @param input
@@ -1960,7 +1930,7 @@ com.github.kevinsawicki.http.HttpRequest,"copy(final Reader input, final Writer 
       }
     }.call();
   }"
-com.github.kevinsawicki.http.HttpRequest,run(),,"@Override
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,run(),,"@Override
       public HttpRequest run() throws IOException {
         final char[] buffer = new char[bufferSize];
         int read;
@@ -1971,7 +1941,7 @@ com.github.kevinsawicki.http.HttpRequest,run(),,"@Override
         }
         return HttpRequest.this;
       }"
-com.github.kevinsawicki.http.HttpRequest,progress(final UploadProgress callback),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,progress(final UploadProgress callback),"/**
    * Set the UploadProgress callback for this request
    *
    * @param callback
@@ -1983,13 +1953,13 @@ com.github.kevinsawicki.http.HttpRequest,progress(final UploadProgress callback)
       progress = callback;
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,incrementTotalSize(final long size),,"private HttpRequest incrementTotalSize(final long size) {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,incrementTotalSize(final long size),,"private HttpRequest incrementTotalSize(final long size) {
     if (totalSize == -1)
       totalSize = 0;
     totalSize += size;
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,closeOutput(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,closeOutput(),"/**
    * Close output stream
    *
    * @return this request
@@ -2012,7 +1982,7 @@ com.github.kevinsawicki.http.HttpRequest,closeOutput(),"/**
     output = null;
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,closeOutputQuietly(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,closeOutputQuietly(),"/**
    * Call {@link #closeOutput()} and re-throw a caught {@link IOException}s as
    * an {@link HttpRequestException}
    *
@@ -2025,7 +1995,7 @@ com.github.kevinsawicki.http.HttpRequest,closeOutputQuietly(),"/**
       throw new HttpRequestException(e);
     }
   }"
-com.github.kevinsawicki.http.HttpRequest,openOutput(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,openOutput(),"/**
    * Open output stream
    *
    * @return this request
@@ -2040,7 +2010,7 @@ com.github.kevinsawicki.http.HttpRequest,openOutput(),"/**
         bufferSize);
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,startPart(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,startPart(),"/**
    * Start part of a multipart
    *
    * @return this request
@@ -2054,7 +2024,7 @@ com.github.kevinsawicki.http.HttpRequest,startPart(),"/**
       output.write(CRLF + ""--"" + BOUNDARY + CRLF);
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,"writePartHeader(final String name, final String filename)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"writePartHeader(final String name, final String filename)","/**
    * Write part header
    *
    * @param name
@@ -2065,7 +2035,7 @@ com.github.kevinsawicki.http.HttpRequest,"writePartHeader(final String name, fin
       throws IOException {
     return writePartHeader(name, filename, null);
   }"
-com.github.kevinsawicki.http.HttpRequest,"writePartHeader(final String name,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"writePartHeader(final String name,
       final String filename, final String contentType)","/**
    * Write part header
    *
@@ -2086,7 +2056,7 @@ com.github.kevinsawicki.http.HttpRequest,"writePartHeader(final String name,
       partHeader(HEADER_CONTENT_TYPE, contentType);
     return send(CRLF);
   }"
-com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String part)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String part)","/**
    * Write part of a multipart request to the request body
    *
    * @param name
@@ -2095,7 +2065,7 @@ com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String p
    */","public HttpRequest part(final String name, final String part) {
     return part(name, null, part);
   }"
-com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String filename,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String filename,
       final String part)","/**
    * Write part of a multipart request to the request body
    *
@@ -2108,7 +2078,7 @@ com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String f
       final String part) throws HttpRequestException {
     return part(name, filename, null, part);
   }"
-com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String filename,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String filename,
       final String contentType, final String part)","/**
    * Write part of a multipart request to the request body
    *
@@ -2130,7 +2100,7 @@ com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String f
     }
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,"part(final String name, final Number part)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"part(final String name, final Number part)","/**
    * Write part of a multipart request to the request body
    *
    * @param name
@@ -2141,7 +2111,7 @@ com.github.kevinsawicki.http.HttpRequest,"part(final String name, final Number p
       throws HttpRequestException {
     return part(name, null, part);
   }"
-com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String filename,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String filename,
       final Number part)","/**
    * Write part of a multipart request to the request body
    *
@@ -2154,7 +2124,7 @@ com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String f
       final Number part) throws HttpRequestException {
     return part(name, filename, part != null ? part.toString() : null);
   }"
-com.github.kevinsawicki.http.HttpRequest,"part(final String name, final File part)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"part(final String name, final File part)","/**
    * Write part of a multipart request to the request body
    *
    * @param name
@@ -2165,7 +2135,7 @@ com.github.kevinsawicki.http.HttpRequest,"part(final String name, final File par
       throws HttpRequestException {
     return part(name, null, part);
   }"
-com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String filename,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String filename,
       final File part)","/**
    * Write part of a multipart request to the request body
    *
@@ -2178,7 +2148,7 @@ com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String f
       final File part) throws HttpRequestException {
     return part(name, filename, null, part);
   }"
-com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String filename,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String filename,
       final String contentType, final File part)","/**
    * Write part of a multipart request to the request body
    *
@@ -2200,7 +2170,7 @@ com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String f
     }
     return part(name, filename, contentType, stream);
   }"
-com.github.kevinsawicki.http.HttpRequest,"part(final String name, final InputStream part)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"part(final String name, final InputStream part)","/**
    * Write part of a multipart request to the request body
    *
    * @param name
@@ -2211,7 +2181,7 @@ com.github.kevinsawicki.http.HttpRequest,"part(final String name, final InputStr
       throws HttpRequestException {
     return part(name, null, null, part);
   }"
-com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String filename,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String filename,
       final String contentType, final InputStream part)","/**
    * Write part of a multipart request to the request body
    *
@@ -2234,7 +2204,7 @@ com.github.kevinsawicki.http.HttpRequest,"part(final String name, final String f
     }
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,"partHeader(final String name, final String value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"partHeader(final String name, final String value)","/**
    * Write a multipart header to the response body
    *
    * @param name
@@ -2245,7 +2215,7 @@ com.github.kevinsawicki.http.HttpRequest,"partHeader(final String name, final St
       throws HttpRequestException {
     return send(name).send("": "").send(value).send(CRLF);
   }"
-com.github.kevinsawicki.http.HttpRequest,send(final File input),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,send(final File input),"/**
    * Write contents of file to request body
    *
    * @param input
@@ -2261,7 +2231,7 @@ com.github.kevinsawicki.http.HttpRequest,send(final File input),"/**
     }
     return send(stream);
   }"
-com.github.kevinsawicki.http.HttpRequest,send(final byte[] input),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,send(final byte[] input),"/**
    * Write byte array to request body
    *
    * @param input
@@ -2272,7 +2242,7 @@ com.github.kevinsawicki.http.HttpRequest,send(final byte[] input),"/**
       incrementTotalSize(input.length);
     return send(new ByteArrayInputStream(input));
   }"
-com.github.kevinsawicki.http.HttpRequest,send(final InputStream input),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,send(final InputStream input),"/**
    * Write stream to request body
    * <p>
    * The given stream will be closed once sending completes
@@ -2289,7 +2259,7 @@ com.github.kevinsawicki.http.HttpRequest,send(final InputStream input),"/**
     }
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,send(final Reader input),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,send(final Reader input),"/**
    * Write reader to request body
    * <p>
    * The given reader will be closed once sending completes
@@ -2313,11 +2283,11 @@ com.github.kevinsawicki.http.HttpRequest,send(final Reader input),"/**
       }
     }.call();
   }"
-com.github.kevinsawicki.http.HttpRequest,run(),,"@Override
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,run(),,"@Override
       protected HttpRequest run() throws IOException {
         return copy(input, writer);
       }"
-com.github.kevinsawicki.http.HttpRequest,send(final CharSequence value),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,send(final CharSequence value),"/**
    * Write char sequence to request body
    * <p>
    * The charset configured via {@link #contentType(String)} will be used and
@@ -2335,7 +2305,7 @@ com.github.kevinsawicki.http.HttpRequest,send(final CharSequence value),"/**
     }
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,writer(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,writer(),"/**
    * Create writer to request output stream
    *
    * @return writer
@@ -2348,7 +2318,7 @@ com.github.kevinsawicki.http.HttpRequest,writer(),"/**
       throw new HttpRequestException(e);
     }
   }"
-com.github.kevinsawicki.http.HttpRequest,"form(final Map<?, ?> values)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"form(final Map<?, ?> values)","/**
    * Write the values in the map as form data to the request body
    * <p>
    * The pairs specified will be URL-encoded in UTF-8 and sent with the
@@ -2360,7 +2330,7 @@ com.github.kevinsawicki.http.HttpRequest,"form(final Map<?, ?> values)","/**
    */","public HttpRequest form(final Map<?, ?> values) throws HttpRequestException {
     return form(values, CHARSET_UTF8);
   }"
-com.github.kevinsawicki.http.HttpRequest,"form(final Entry<?, ?> entry)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"form(final Entry<?, ?> entry)","/**
    * Write the key and value in the entry as form data to the request body
    * <p>
    * The pair specified will be URL-encoded in UTF-8 and sent with the
@@ -2372,7 +2342,7 @@ com.github.kevinsawicki.http.HttpRequest,"form(final Entry<?, ?> entry)","/**
    */","public HttpRequest form(final Entry<?, ?> entry) throws HttpRequestException {
     return form(entry, CHARSET_UTF8);
   }"
-com.github.kevinsawicki.http.HttpRequest,"form(final Entry<?, ?> entry, final String charset)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"form(final Entry<?, ?> entry, final String charset)","/**
    * Write the key and value in the entry as form data to the request body
    * <p>
    * The pair specified will be URL-encoded and sent with the
@@ -2386,7 +2356,7 @@ com.github.kevinsawicki.http.HttpRequest,"form(final Entry<?, ?> entry, final St
       throws HttpRequestException {
     return form(entry.getKey(), entry.getValue(), charset);
   }"
-com.github.kevinsawicki.http.HttpRequest,"form(final Object name, final Object value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"form(final Object name, final Object value)","/**
    * Write the name/value pair as form data to the request body
    * <p>
    * The pair specified will be URL-encoded in UTF-8 and sent with the
@@ -2400,7 +2370,7 @@ com.github.kevinsawicki.http.HttpRequest,"form(final Object name, final Object v
       throws HttpRequestException {
     return form(name, value, CHARSET_UTF8);
   }"
-com.github.kevinsawicki.http.HttpRequest,"form(final Object name, final Object value, String charset)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"form(final Object name, final Object value, String charset)","/**
    * Write the name/value pair as form data to the request body
    * <p>
    * The values specified will be URL-encoded and sent with the
@@ -2432,7 +2402,7 @@ com.github.kevinsawicki.http.HttpRequest,"form(final Object name, final Object v
     }
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,"form(final Map<?, ?> values, final String charset)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"form(final Map<?, ?> values, final String charset)","/**
    * Write the values in the map as encoded form data to the request body
    *
    * @param values
@@ -2446,7 +2416,7 @@ com.github.kevinsawicki.http.HttpRequest,"form(final Map<?, ?> values, final Str
         form(entry, charset);
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,trustAllCerts(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,trustAllCerts(),"/**
    * Configure HTTPS connection to trust all certificates
    * <p>
    * This method does nothing if the current request is not a HTTPS request
@@ -2460,7 +2430,7 @@ com.github.kevinsawicki.http.HttpRequest,trustAllCerts(),"/**
           .setSSLSocketFactory(getTrustedFactory());
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,trustAllHosts(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,trustAllHosts(),"/**
    * Configure HTTPS connection to trust all hosts using a custom
    * {@link HostnameVerifier} that always returns <code>true</code> for each
    * host verified
@@ -2475,21 +2445,21 @@ com.github.kevinsawicki.http.HttpRequest,trustAllHosts(),"/**
           .setHostnameVerifier(getTrustedVerifier());
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,url(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,url(),"/**
    * Get the {@link URL} of this request's connection
    *
    * @return request URL
    */","public URL url() {
     return getConnection().getURL();
   }"
-com.github.kevinsawicki.http.HttpRequest,method(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,method(),"/**
    * Get the HTTP method of this request
    *
    * @return method
    */","public String method() {
     return getConnection().getRequestMethod();
   }"
-com.github.kevinsawicki.http.HttpRequest,"useProxy(final String proxyHost, final int proxyPort)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,"useProxy(final String proxyHost, final int proxyPort)","/**
    * Configure an HTTP proxy on this connection. Use {{@link #proxyBasic(String, String)} if
    * this proxy requires basic authentication.
    *
@@ -2504,7 +2474,7 @@ com.github.kevinsawicki.http.HttpRequest,"useProxy(final String proxyHost, final
     this.httpProxyPort = proxyPort;
     return this;
   }"
-com.github.kevinsawicki.http.HttpRequest,followRedirects(final boolean followRedirects),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/main/java/com/github/kevinsawicki/http/HttpRequest.java,com.github.kevinsawicki.http,com.github.kevinsawicki.http.HttpRequest,com.github.kevinsawicki.http.HttpRequest,followRedirects(final boolean followRedirects),"/**
    * Set whether or not the underlying connection should follow redirects in
    * the response.
    *

@@ -49,21 +49,27 @@ public class IndexDiskCacheSizeUnitTest_OE25Dev extends IndexDiskCacheUnitTestAb
 		        final String[] test = { "a", "bb", "ccc", "dddd", "eeeee", "ffffff", "ggggggg", "hhhhhhhhh", "iiiiiiiiii" };
 		        final String[] expect = { null, "bb", "ccc", null, null, "ffffff", null, "hhhhhhhhh", "iiiiiiiiii" };
 		        final DiskTestObject value = DiskTestObjectUtil.createCacheElementsWithTestObjects( 1, 1, cattr .getCacheName())[0].getVal();
+		        //System.out.println( "------------------------- testRecycleBin " );
 
 		        for ( int i = 0; i < 6; i++ )
 		        {
 		            final ICacheElement<String, DiskTestObject> element = new CacheElement<>( "testRecycleBin", "key:" + test[i], value);
+		            //System.out.println( "About to add " + "key:" + test[i] + " i = " + i );
 		            disk.processUpdate( element );
 		        }
 
 		        for ( int i = 3; i < 5; i++ )
 		        {
+		            //System.out.println( "About to remove " + "key:" + test[i] + " i = " + i );
 		            disk.remove( "key:" + test[i] );
 		        }
 
+		        // there was a bug where 7 would try to be put in the empty slot left by 4's removal, but it
+		        // will not fit.
 		        for ( int i = 7; i < 9; i++ )
 		        {
 		            final ICacheElement<String, DiskTestObject> element = new CacheElement<>( "testRecycleBin", "key:" + test[i], value);
+		            //System.out.println( "About to add " + "key:" + test[i] + " i = " + i );
 		            disk.processUpdate( element );
 		        }
 
@@ -74,17 +80,22 @@ public class IndexDiskCacheSizeUnitTest_OE25Dev extends IndexDiskCacheUnitTestAb
 		                final ICacheElement<String, DiskTestObject> element = disk.get( "key:" + test[i] );
 		                if ( element != null )
 		                {
+		                    //System.out.println( "element = " + element.getVal() );
 		                }
 		                else
 		                {
+		                    //System.out.println( "null --" + "key:" + test[i] );
 		                }
 
 		                final String expectedValue = expect[i];
 		                if ( expectedValue == null )
 		                {
+		                    // removed other assertion
 		                }
 		                else
 		                {
+		                    // removed other assertion
+		                    // removed other assertion
 		                }
 		            }
 		        }

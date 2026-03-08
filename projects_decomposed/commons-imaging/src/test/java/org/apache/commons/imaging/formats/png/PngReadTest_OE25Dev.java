@@ -84,6 +84,7 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
 
             Debug.debug("imageFile", imageFile);
             if (isInvalidPNGTestFile(imageFile)) {
+                // removed other assertion
 
                 try {
     Imaging.getImageInfo(imageFile);
@@ -103,7 +104,9 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
 
             Debug.debug("imageFile", imageFile);
             if (isInvalidPNGTestFile(imageFile)) {
+                // removed other assertion
 
+                // removed other assertion
 
                 try {
     Imaging.getBufferedImage(imageFile);
@@ -123,8 +126,11 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
 
             Debug.debug("imageFile", imageFile);
             if (isInvalidPNGTestFile(imageFile)) {
+                // removed other assertion
 
+                // removed other assertion
 
+                // removed other assertion
             } else {
                 final ImageMetadata metadata = Imaging.getMetadata(imageFile);
                 Assertions.assertFalse(metadata instanceof File);// Dummy check to avoid unused warning(it may be null);
@@ -141,10 +147,14 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
 
             Debug.debug("imageFile", imageFile);
             if (isInvalidPNGTestFile(imageFile)) {
+                // removed other assertion
 
+                // removed other assertion
 
+                // removed other assertion
             } else {
                 final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+                // removed other assertion
                 final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
                 assertNotNull(imageInfo);
     }
@@ -160,11 +170,16 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
 
             Debug.debug("imageFile", imageFile);
             if (isInvalidPNGTestFile(imageFile)) {
+                // removed other assertion
 
+                // removed other assertion
 
+                // removed other assertion
             } else {
                 final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+                // removed other assertion
                 final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+                // removed other assertion
 
                 Debug.debug("ICC profile", Imaging.getICCProfile(imageFile));
 

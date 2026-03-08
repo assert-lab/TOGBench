@@ -32,6 +32,7 @@ public class JfifSegmentTest_OE25Dev{
 
       try {
         new JfifSegment((-2275), byteArray);
+        // removed other assertion
       } catch(final ImageReadException e) {
          assertEquals("Not a Valid JPEG File: missing JFIF string",e.getMessage());
   }
@@ -43,7 +44,9 @@ public class JfifSegmentTest_OE25Dev{
 
       try {
         new JfifSegment((-2275), byteArray);
+        // removed other assertion
       } catch(final ImageReadException e) {
+         // removed other assertion
          assertEquals(JfifSegment.class.getName(), e.getStackTrace()[0].getClassName());
   }
   }

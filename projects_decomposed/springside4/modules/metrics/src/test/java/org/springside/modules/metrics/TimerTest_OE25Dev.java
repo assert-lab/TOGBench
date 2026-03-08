@@ -53,6 +53,7 @@ public class TimerTest_OE25Dev {
 
 		TimerMetric metric = timer.calculateMetric();
 
+		// removed other assertion
 		assertThat(metric.counterMetric.avgRate).isEqualTo(4);
 	}
 
@@ -73,6 +74,8 @@ public class TimerTest_OE25Dev {
 
 		TimerMetric metric = timer.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.counterMetric.latestCount).isEqualTo(2);
 	}
 
@@ -93,6 +96,9 @@ public class TimerTest_OE25Dev {
 
 		TimerMetric metric = timer.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.counterMetric.latestRate).isEqualTo(4);
 	}
 
@@ -113,6 +119,10 @@ public class TimerTest_OE25Dev {
 
 		TimerMetric metric = timer.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(metric.histogramMetric.min).isEqualTo(200);
 	}
@@ -134,7 +144,12 @@ public class TimerTest_OE25Dev {
 
 		TimerMetric metric = timer.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(metric.histogramMetric.avg).isEqualTo(250);
 	}
 
@@ -155,7 +170,13 @@ public class TimerTest_OE25Dev {
 
 		TimerMetric metric = timer.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.histogramMetric.pcts.get(90d)).isEqualTo(300);
 	}
 

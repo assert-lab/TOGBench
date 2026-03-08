@@ -116,6 +116,7 @@ public class StaticFilesTest_OE25Dev {
     public void testExceptionMapping404_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet("/filethatdoesntexist.html");
 
+        // removed other assertion
         Assert.assertEquals(NOT_FOUND_BRO, response.body);
     }
 
@@ -126,36 +127,64 @@ public class StaticFilesTest_OE25Dev {
 
 @Test
     public void testMimeTypes_2_oe() throws Exception {
+        // removed other assertion
         Assert.assertEquals("application/javascript", doGet("/js/scripts.js").headers.get("Content-Type"));
     }
 
 @Test
     public void testMimeTypes_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("text/css", doGet("/css/style.css").headers.get("Content-Type"));
     }
 
 @Test
     public void testMimeTypes_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("image/png", doGet("/img/sparklogo.png").headers.get("Content-Type"));
     }
 
 @Test
     public void testMimeTypes_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("image/svg+xml", doGet("/img/sparklogo.svg").headers.get("Content-Type"));
     }
 
 @Test
     public void testMimeTypes_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("application/octet-stream", doGet("/img/sparklogoPng").headers.get("Content-Type"));
     }
 
 @Test
     public void testMimeTypes_7_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("application/octet-stream", doGet("/img/sparklogoSvg").headers.get("Content-Type"));
     }
 
 @Test
     public void testMimeTypes_8_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("text/html", doGet("/externalFile.html").headers.get("Content-Type"));
     }
 
@@ -174,12 +203,15 @@ public class StaticFilesTest_OE25Dev {
 @Test
     public void testStaticFileCssStyleCss_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet("/css/style.css");
+        // removed other assertion
         Assert.assertEquals("text/css", response.headers.get("Content-Type"));
     }
 
 @Test
     public void testStaticFileCssStyleCss_3_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet("/css/style.css");
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("Content of css file", response.body);
     }
 
@@ -192,6 +224,7 @@ public class StaticFilesTest_OE25Dev {
 @Test
     public void testStaticFilePagesIndexHtml_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet("/pages/index.html");
+        // removed other assertion
         Assert.assertEquals("<html><body>Hello Static World!</body></html>", response.body);
     }
 
@@ -204,6 +237,7 @@ public class StaticFilesTest_OE25Dev {
 @Test
     public void testStaticFilePageHtml_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet("/page.html");
+        // removed other assertion
         Assert.assertEquals("<html><body>Hello Static Files World!</body></html>", response.body);
     }
 
@@ -224,6 +258,7 @@ public class StaticFilesTest_OE25Dev {
 @Test
     public void testExternalStaticFile_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet("/externalFile.html");
+        // removed other assertion
         Assert.assertEquals(CONTENT_OF_EXTERNAL_FILE, response.body);
     }
 

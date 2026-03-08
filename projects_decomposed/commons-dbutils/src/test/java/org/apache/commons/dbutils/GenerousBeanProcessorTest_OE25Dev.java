@@ -99,6 +99,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
         
+        // removed other assertion
         assertEquals(4, ret.length);
     }
 
@@ -112,6 +113,8 @@ public class GenerousBeanProcessorTest_OE25Dev {
         
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
         
+        // removed other assertion
+        // removed other assertion
         assertEquals(-1, ret[0]);
     }
 
@@ -125,6 +128,9 @@ public class GenerousBeanProcessorTest_OE25Dev {
         
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(2, ret[1]);
     }
 
@@ -138,6 +144,10 @@ public class GenerousBeanProcessorTest_OE25Dev {
         
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0, ret[2]);
     }
 
@@ -151,6 +161,11 @@ public class GenerousBeanProcessorTest_OE25Dev {
         
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, ret[3]);
     }
 
@@ -177,6 +192,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
 
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
 
+        // removed other assertion
         assertEquals(4, ret.length);
     }
 
@@ -190,6 +206,8 @@ public class GenerousBeanProcessorTest_OE25Dev {
 
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(-1, ret[0]);
     }
 
@@ -203,6 +221,9 @@ public class GenerousBeanProcessorTest_OE25Dev {
 
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(2, ret[1]);
     }
 
@@ -216,6 +237,10 @@ public class GenerousBeanProcessorTest_OE25Dev {
 
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0, ret[2]);
     }
 
@@ -229,6 +254,11 @@ public class GenerousBeanProcessorTest_OE25Dev {
 
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, ret[3]);
     }
 
@@ -255,6 +285,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
         
+        // removed other assertion
         assertEquals(4, ret.length);
     }
 
@@ -268,6 +299,8 @@ public class GenerousBeanProcessorTest_OE25Dev {
         
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
         
+        // removed other assertion
+        // removed other assertion
         assertEquals(-1, ret[0]);
     }
 
@@ -281,6 +314,9 @@ public class GenerousBeanProcessorTest_OE25Dev {
         
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(2, ret[1]);
     }
 
@@ -294,6 +330,10 @@ public class GenerousBeanProcessorTest_OE25Dev {
         
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0, ret[2]);
     }
 
@@ -307,6 +347,11 @@ public class GenerousBeanProcessorTest_OE25Dev {
         
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, ret[3]);
     }
 
@@ -335,6 +380,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
 
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
 
+        // removed other assertion
         assertEquals(2, ret.length);
     }
 
@@ -349,6 +395,8 @@ public class GenerousBeanProcessorTest_OE25Dev {
 
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(-1, ret[0]);
     }
 
@@ -363,6 +411,9 @@ public class GenerousBeanProcessorTest_OE25Dev {
 
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(-1, ret[1]);
     }
 
@@ -377,6 +428,10 @@ public class GenerousBeanProcessorTest_OE25Dev {
 
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(-1, ret[1]);
     }
 
@@ -391,6 +446,11 @@ public class GenerousBeanProcessorTest_OE25Dev {
 
         int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(-1, ret[1]);
     }
 

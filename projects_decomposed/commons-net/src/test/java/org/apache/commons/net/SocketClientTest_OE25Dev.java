@@ -46,6 +46,7 @@ public class SocketClientTest_OE25Dev extends TestCase
     public void testProxySettings_2_oe()
     {
         final SocketClient socketClient = new FTPClient();
+        // removed other assertion
         final Proxy proxy = new Proxy(Proxy.Type.SOCKS, new InetSocketAddress(PROXY_HOST, PROXY_PORT));
         socketClient.setProxy(proxy);
         assertEquals(proxy, socketClient.getProxy());
@@ -54,8 +55,10 @@ public class SocketClientTest_OE25Dev extends TestCase
     public void testProxySettings_3_oe()
     {
         final SocketClient socketClient = new FTPClient();
+        // removed other assertion
         final Proxy proxy = new Proxy(Proxy.Type.SOCKS, new InetSocketAddress(PROXY_HOST, PROXY_PORT));
         socketClient.setProxy(proxy);
+        // removed other assertion
         assertFalse(socketClient.isConnected());
     }
 

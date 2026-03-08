@@ -102,6 +102,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Double expected = Double.valueOf(12345);
+        // removed other assertion
         assertEquals("validate(A) locale ", expected, DoubleValidator.getInstance().validate(localeVal, locale));
     }
 
@@ -114,6 +115,8 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Double expected = Double.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(A) pattern", expected, DoubleValidator.getInstance().validate(patternVal, pattern));
     }
 
@@ -126,6 +129,9 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Double expected = Double.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(A) both",    expected, DoubleValidator.getInstance().validate(germanPatternVal, pattern, Locale.GERMAN));
     }
 
@@ -138,6 +144,10 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Double expected = Double.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue("isValid(A) default", DoubleValidator.getInstance().isValid(defaultVal));
     }
@@ -151,7 +161,12 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Double expected = Double.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue("isValid(A) locale ", DoubleValidator.getInstance().isValid(localeVal, locale));
     }
 
@@ -164,7 +179,13 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Double expected = Double.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid(A) pattern", DoubleValidator.getInstance().isValid(patternVal, pattern));
     }
 
@@ -177,7 +198,14 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Double expected = Double.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid(A) both",    DoubleValidator.getInstance().isValid(germanPatternVal, pattern, Locale.GERMAN));
     }
 
@@ -190,7 +218,15 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Double expected = Double.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertNull("validate(B) default", DoubleValidator.getInstance().validate(XXXX));
     }
@@ -204,8 +240,17 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Double expected = Double.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertNull("validate(B) locale ", DoubleValidator.getInstance().validate(XXXX, locale));
     }
 
@@ -218,8 +263,18 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Double expected = Double.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertNull("validate(B) pattern", DoubleValidator.getInstance().validate(XXXX, pattern));
     }
 
@@ -232,8 +287,19 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Double expected = Double.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("validate(B) both",    DoubleValidator.getInstance().validate(patternVal, pattern, Locale.GERMAN));
     }
 
@@ -246,8 +312,20 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Double expected = Double.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("isValid(B) default", DoubleValidator.getInstance().isValid(XXXX));
     }
@@ -261,9 +339,22 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Double expected = Double.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("isValid(B) locale ", DoubleValidator.getInstance().isValid(XXXX, locale));
     }
 
@@ -276,9 +367,23 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Double expected = Double.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid(B) pattern", DoubleValidator.getInstance().isValid(XXXX, pattern));
     }
 
@@ -291,9 +396,24 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Double expected = Double.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid(B) both",    DoubleValidator.getInstance().isValid(patternVal, pattern, Locale.GERMAN));
     }
 
@@ -306,6 +426,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Double number20 = validator.validate("20", "#");
         Double number21 = validator.validate("21", "#");
 
+        // Test isInRange()
         assertFalse("isInRange() < min",   validator.isInRange(number9,  10, 20));
     }
 
@@ -318,6 +439,8 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Double number20 = validator.validate("20", "#");
         Double number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
         assertTrue("isInRange() = min",    validator.isInRange(number10, 10, 20));
     }
 
@@ -330,6 +453,9 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Double number20 = validator.validate("20", "#");
         Double number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
         assertTrue("isInRange() in range", validator.isInRange(number11, 10, 20));
     }
 
@@ -342,6 +468,10 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Double number20 = validator.validate("20", "#");
         Double number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isInRange() = max",    validator.isInRange(number20, 10, 20));
     }
 
@@ -354,6 +484,11 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Double number20 = validator.validate("20", "#");
         Double number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isInRange() > max",   validator.isInRange(number21, 10, 20));
     }
 
@@ -366,7 +501,14 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Double number20 = validator.validate("20", "#");
         Double number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
         assertFalse("minValue() < min",    validator.minValue(number9,  10));
     }
 
@@ -379,7 +521,15 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Double number20 = validator.validate("20", "#");
         Double number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
         assertTrue("minValue() = min",     validator.minValue(number10, 10));
     }
 
@@ -392,7 +542,16 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Double number20 = validator.validate("20", "#");
         Double number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
         assertTrue("minValue() > min",     validator.minValue(number11, 10));
     }
 
@@ -405,8 +564,19 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Double number20 = validator.validate("20", "#");
         Double number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
         assertTrue("maxValue() < max",     validator.maxValue(number19, 20));
     }
 
@@ -419,8 +589,20 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Double number20 = validator.validate("20", "#");
         Double number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
         assertTrue("maxValue() = max",     validator.maxValue(number20, 20));
     }
 
@@ -433,8 +615,21 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Double number20 = validator.validate("20", "#");
         Double number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
         assertFalse("maxValue() > max",    validator.maxValue(number21, 20));
     }
 

@@ -24,6 +24,7 @@ public class ConcurrentHashSetTest_OE25Dev {
 		conrrentHashSet.add("b");
 		conrrentHashSet.add("c");
 
+		// removed other assertion
 		assertThat(conrrentHashSet.contains("a")).isTrue();
 	}
 
@@ -34,6 +35,8 @@ public class ConcurrentHashSetTest_OE25Dev {
 		conrrentHashSet.add("b");
 		conrrentHashSet.add("c");
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(conrrentHashSet.contains("d")).isFalse();
 	}
 
@@ -44,6 +47,9 @@ public class ConcurrentHashSetTest_OE25Dev {
 		conrrentHashSet.add("b");
 		conrrentHashSet.add("c");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(conrrentHashSet).hasSize(3).contains("a", "b", "c");
 	}
@@ -55,7 +61,11 @@ public class ConcurrentHashSetTest_OE25Dev {
 		conrrentHashSet.add("b");
 		conrrentHashSet.add("c");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 
 		for (String key : conrrentHashSet) {
 			System.out.print(key + ",");
@@ -72,13 +82,18 @@ public class ConcurrentHashSetTest_OE25Dev {
 		conrrentHashSet.add("b");
 		conrrentHashSet.add("c");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 
 		for (String key : conrrentHashSet) {
 			System.out.print(key + ",");
 		}
 
 		conrrentHashSet.remove("c");
+		// removed other assertion
 
 		Object[] strings = conrrentHashSet.toArray();
 		assertThat(strings).hasSize(2).contains("a", "b");
@@ -91,15 +106,21 @@ public class ConcurrentHashSetTest_OE25Dev {
 		conrrentHashSet.add("b");
 		conrrentHashSet.add("c");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 
 		for (String key : conrrentHashSet) {
 			System.out.print(key + ",");
 		}
 
 		conrrentHashSet.remove("c");
+		// removed other assertion
 
 		Object[] strings = conrrentHashSet.toArray();
+		// removed other assertion
 
 		conrrentHashSet.toArray(new String[conrrentHashSet.size()]);
 		conrrentHashSet.hashCode();
@@ -118,15 +139,21 @@ public class ConcurrentHashSetTest_OE25Dev {
 		conrrentHashSet.add("b");
 		conrrentHashSet.add("c");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 
 		for (String key : conrrentHashSet) {
 			System.out.print(key + ",");
 		}
 
 		conrrentHashSet.remove("c");
+		// removed other assertion
 
 		Object[] strings = conrrentHashSet.toArray();
+		// removed other assertion
 
 		conrrentHashSet.toArray(new String[conrrentHashSet.size()]);
 		conrrentHashSet.hashCode();
@@ -135,6 +162,7 @@ public class ConcurrentHashSetTest_OE25Dev {
 		ConcurrentHashSet<String> conrrentHashSet2 = SetUtil.newConcurrentHashSet();
 		conrrentHashSet2.add("a");
 
+		// removed other assertion
 		assertThat(conrrentHashSet.equals(conrrentHashSet2)).isFalse();
 	}
 
@@ -145,15 +173,21 @@ public class ConcurrentHashSetTest_OE25Dev {
 		conrrentHashSet.add("b");
 		conrrentHashSet.add("c");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 
 		for (String key : conrrentHashSet) {
 			System.out.print(key + ",");
 		}
 
 		conrrentHashSet.remove("c");
+		// removed other assertion
 
 		Object[] strings = conrrentHashSet.toArray();
+		// removed other assertion
 
 		conrrentHashSet.toArray(new String[conrrentHashSet.size()]);
 		conrrentHashSet.hashCode();
@@ -162,6 +196,8 @@ public class ConcurrentHashSetTest_OE25Dev {
 		ConcurrentHashSet<String> conrrentHashSet2 = SetUtil.newConcurrentHashSet();
 		conrrentHashSet2.add("a");
 
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(conrrentHashSet.containsAll(conrrentHashSet2)).isTrue();
 	}
@@ -173,15 +209,21 @@ public class ConcurrentHashSetTest_OE25Dev {
 		conrrentHashSet.add("b");
 		conrrentHashSet.add("c");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 
 		for (String key : conrrentHashSet) {
 			System.out.print(key + ",");
 		}
 
 		conrrentHashSet.remove("c");
+		// removed other assertion
 
 		Object[] strings = conrrentHashSet.toArray();
+		// removed other assertion
 
 		conrrentHashSet.toArray(new String[conrrentHashSet.size()]);
 		conrrentHashSet.hashCode();
@@ -190,7 +232,10 @@ public class ConcurrentHashSetTest_OE25Dev {
 		ConcurrentHashSet<String> conrrentHashSet2 = SetUtil.newConcurrentHashSet();
 		conrrentHashSet2.add("a");
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 
 		conrrentHashSet.retainAll(conrrentHashSet2);
 		assertThat(conrrentHashSet).hasSize(1).contains("a");
@@ -203,15 +248,21 @@ public class ConcurrentHashSetTest_OE25Dev {
 		conrrentHashSet.add("b");
 		conrrentHashSet.add("c");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 
 		for (String key : conrrentHashSet) {
 			System.out.print(key + ",");
 		}
 
 		conrrentHashSet.remove("c");
+		// removed other assertion
 
 		Object[] strings = conrrentHashSet.toArray();
+		// removed other assertion
 
 		conrrentHashSet.toArray(new String[conrrentHashSet.size()]);
 		conrrentHashSet.hashCode();
@@ -220,9 +271,13 @@ public class ConcurrentHashSetTest_OE25Dev {
 		ConcurrentHashSet<String> conrrentHashSet2 = SetUtil.newConcurrentHashSet();
 		conrrentHashSet2.add("a");
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 
 		conrrentHashSet.retainAll(conrrentHashSet2);
+		// removed other assertion
 		assertThat(conrrentHashSet.equals(conrrentHashSet2)).isTrue();
 	}
 
@@ -233,15 +288,21 @@ public class ConcurrentHashSetTest_OE25Dev {
 		conrrentHashSet.add("b");
 		conrrentHashSet.add("c");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 
 		for (String key : conrrentHashSet) {
 			System.out.print(key + ",");
 		}
 
 		conrrentHashSet.remove("c");
+		// removed other assertion
 
 		Object[] strings = conrrentHashSet.toArray();
+		// removed other assertion
 
 		conrrentHashSet.toArray(new String[conrrentHashSet.size()]);
 		conrrentHashSet.hashCode();
@@ -250,9 +311,14 @@ public class ConcurrentHashSetTest_OE25Dev {
 		ConcurrentHashSet<String> conrrentHashSet2 = SetUtil.newConcurrentHashSet();
 		conrrentHashSet2.add("a");
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 
 		conrrentHashSet.retainAll(conrrentHashSet2);
+		// removed other assertion
+		// removed other assertion
 
 		conrrentHashSet.removeAll(conrrentHashSet2);
 		assertThat(conrrentHashSet.isEmpty()).isTrue();
@@ -265,15 +331,21 @@ public class ConcurrentHashSetTest_OE25Dev {
 		conrrentHashSet.add("b");
 		conrrentHashSet.add("c");
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 
 		for (String key : conrrentHashSet) {
 			System.out.print(key + ",");
 		}
 
 		conrrentHashSet.remove("c");
+		// removed other assertion
 
 		Object[] strings = conrrentHashSet.toArray();
+		// removed other assertion
 
 		conrrentHashSet.toArray(new String[conrrentHashSet.size()]);
 		conrrentHashSet.hashCode();
@@ -282,11 +354,17 @@ public class ConcurrentHashSetTest_OE25Dev {
 		ConcurrentHashSet<String> conrrentHashSet2 = SetUtil.newConcurrentHashSet();
 		conrrentHashSet2.add("a");
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 
 		conrrentHashSet.retainAll(conrrentHashSet2);
+		// removed other assertion
+		// removed other assertion
 
 		conrrentHashSet.removeAll(conrrentHashSet2);
+		// removed other assertion
 
 		conrrentHashSet2.clear();
 		assertThat(conrrentHashSet2.isEmpty()).isTrue();

@@ -62,6 +62,7 @@ public class ModularRuntimeImageTestCase_OE25Dev {
     @Test
     public void testListJreModules_2_oe() throws IOException {
         final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.MODULES_PATH);
+        // removed other assertion
         Assert.assertTrue(listEntries.toString().indexOf("/java.base") > -1);
     }
 
@@ -74,6 +75,7 @@ public class ModularRuntimeImageTestCase_OE25Dev {
     @Test
     public void testListJreModule_2_oe() throws IOException {
         final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.MODULES_PATH + "/java.base");
+        // removed other assertion
         Assert.assertTrue(listEntries.toString().indexOf("/java.base") > -1);
     }
 
@@ -88,6 +90,7 @@ public class ModularRuntimeImageTestCase_OE25Dev {
     public void testListJreModulePackageDir_2_oe() throws IOException {
         final List<Path> listEntries = modularRuntimeImage
                 .list(ModularRuntimeImage.MODULES_PATH + "/java.base/java/lang");
+        // removed other assertion
         Assert.assertTrue(listEntries.toString().indexOf("/java.base/java/lang/String.class") > -1);
     }
 
@@ -100,6 +103,7 @@ public class ModularRuntimeImageTestCase_OE25Dev {
     @Test
     public void testListJrePackages_2_oe() throws IOException {
         final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.PACKAGES_PATH);
+        // removed other assertion
         Assert.assertTrue(listEntries.toString().indexOf("java.lang") > -1);
     }
 

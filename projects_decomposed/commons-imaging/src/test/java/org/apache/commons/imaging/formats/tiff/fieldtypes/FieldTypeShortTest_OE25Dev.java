@@ -32,6 +32,7 @@ public class FieldTypeShortTest_OE25Dev {
 
         try {
             fieldTypeShort.writeData("", byteOrder);
+            // removed other assertion
         } catch (final Exception e) {
             assertEquals("Invalid data:  (java.lang.String)", e.getMessage());
     }
@@ -44,7 +45,9 @@ public class FieldTypeShortTest_OE25Dev {
 
         try {
             fieldTypeShort.writeData("", byteOrder);
+            // removed other assertion
         } catch (final Exception e) {
+            // removed other assertion
             assertEquals(FieldTypeShort.class.getName(), e.getStackTrace()[0].getClassName());
     }
     }

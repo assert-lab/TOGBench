@@ -109,18 +109,23 @@ public class TFTPServerPathTest_OE25Dev extends TestCase
 
     public void testReadOnly_1_oe() throws IOException
     {
+        // Start a read-only server
         final TFTPServer tftpS = new TFTPServer(serverDirectory, serverDirectory, SERVER_PORT,
                 ServerMode.GET_ONLY, null, null);
 
+        // Create our TFTP instance to handle the file transfer.
         final TFTPClient tftp = new TFTPClient();
         tftp.open();
         tftp.setSoTimeout(2000);
 
+        // make a file to work with.
         final File file = new File(serverDirectory, filePrefix + "source.txt");
         file.createNewFile();
 
+        // Read the file from the tftp server.
         final File out = new File(serverDirectory, filePrefix + "out");
 
+        // cleanup old failed runs
         out.delete();
         assertTrue("Couldn't clear output location", !out.exists());
     }

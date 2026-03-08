@@ -30,6 +30,7 @@ public class ParserSettingsTest_OE25Dev {
         ParseSettings tagOn = new ParseSettings(true, false);
         ParseSettings attrOn = new ParseSettings(false, true);
 
+        // removed other assertion
         assertEquals("ID", bothOn.normalizeAttribute("ID"));
     }
 
@@ -42,6 +43,8 @@ public class ParserSettingsTest_OE25Dev {
         ParseSettings tagOn = new ParseSettings(true, false);
         ParseSettings attrOn = new ParseSettings(false, true);
 
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("img", bothOff.normalizeTag("IMG"));
     }
@@ -55,7 +58,10 @@ public class ParserSettingsTest_OE25Dev {
         ParseSettings tagOn = new ParseSettings(true, false);
         ParseSettings attrOn = new ParseSettings(false, true);
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("id", bothOff.normalizeAttribute("ID"));
     }
 
@@ -68,7 +74,11 @@ public class ParserSettingsTest_OE25Dev {
         ParseSettings tagOn = new ParseSettings(true, false);
         ParseSettings attrOn = new ParseSettings(false, true);
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("IMG", tagOn.normalizeTag("IMG"));
     }
@@ -82,8 +92,13 @@ public class ParserSettingsTest_OE25Dev {
         ParseSettings tagOn = new ParseSettings(true, false);
         ParseSettings attrOn = new ParseSettings(false, true);
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("id", tagOn.normalizeAttribute("ID"));
     }
 
@@ -96,8 +111,14 @@ public class ParserSettingsTest_OE25Dev {
         ParseSettings tagOn = new ParseSettings(true, false);
         ParseSettings attrOn = new ParseSettings(false, true);
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("img", attrOn.normalizeTag("IMG"));
     }
@@ -111,9 +132,16 @@ public class ParserSettingsTest_OE25Dev {
         ParseSettings tagOn = new ParseSettings(true, false);
         ParseSettings attrOn = new ParseSettings(false, true);
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("ID", attrOn.normalizeAttribute("ID"));
     }
 

@@ -286,14 +286,102 @@ public abstract class AbstractListTest_OE25Dev<E> extends AbstractCollectionTest
     /**
      *  Tests {@link List#equals(Object)}.
      */
+    public void testListEquals() {
+        resetEmpty();
+        List<E> list = getCollection();
+        assertEquals("Empty lists should be equal", true, list.equals(getConfirmed()));
+        verify();
+        assertEquals("Empty list should equal self", true, list.equals(list));
+        verify();
+
+        List<E> list2 = Arrays.asList(getFullElements());
+        assertEquals("Empty list shouldn't equal full", false, list.equals(list2));
+        verify();
+
+        list2 = Arrays.asList(getOtherElements());
+        assertEquals("Empty list shouldn't equal other", false, list.equals(list2));
+        verify();
+
+        resetFull();
+        list = getCollection();
+        assertEquals("Full lists should be equal", true, list.equals(getConfirmed()));
+        verify();
+        assertEquals("Full list should equal self", true, list.equals(list));
+        verify();
+
+        list2 = makeObject();
+        assertEquals("Full list shouldn't equal empty", false, list.equals(list2));
+        verify();
+
+        list2 = Arrays.asList(getOtherElements());
+        assertEquals("Full list shouldn't equal other", false, list.equals(list2));
+        verify();
+
+        list2 = Arrays.asList(getFullElements());
+        if (list2.size() < 2 && isAddSupported()) {
+            // main list is only size 1, so lets add other elements to get a better list
+            list.addAll(Arrays.asList(getOtherElements()));
+            getConfirmed().addAll(Arrays.asList(getOtherElements()));
+            list2 = new ArrayList<>(list2);
+            list2.addAll(Arrays.asList(getOtherElements()));
+        }
+        if (list2.size() > 1) {
+            Collections.reverse(list2);
+            assertEquals("Full list shouldn't equal full list with same elements but different order",false,list.equals(list2));
+            verify();
+        }
+
+        resetFull();
+        list = getCollection();
+        assertEquals("List shouldn't equal String", false, list.equals(""));
+        verify();
+
+        final List<E> listForC = Arrays.asList(getFullElements());
+        final Collection<E> c = new AbstractCollection<E>() {
+            @Override
+            public int size() {
+                return listForC.size();
+            }
+
+            @Override
+            public Iterator<E> iterator() {
+                return listForC.iterator();
+            }
+        };
+
+        assertEquals("List shouldn't equal nonlist with same elements in same order", false, list.equals(c));
+        verify();
+    }
 
     /**
      *  Tests {@link List#hashCode()}.
      */
+    public void testListHashCode() {
+        resetEmpty();
+        int hash1 = getCollection().hashCode();
+        int hash2 = getConfirmed().hashCode();
+        assertEquals("Empty lists should have equal hashCodes", hash1, hash2);
+        verify();
+
+        resetFull();
+        hash1 = getCollection().hashCode();
+        hash2 = getConfirmed().hashCode();
+        assertEquals("Full lists should have equal hashCodes", hash1, hash2);
+        verify();
+    }
 
     /**
      *  Tests {@link List#get(int)}.
      */
+    public void testListGetByIndex() {
+        resetFull();
+        final List<E> list = getCollection();
+        final E[] elements = getFullElements();
+        for (int i = 0; i < elements.length; i++) {
+            assertEquals("List should contain correct elements", elements[i], list.get(i));
+            verify();
+        }
+    }
 
     /**
      *  Tests bounds checking for {@link List#get(int)} on an
@@ -377,10 +465,44 @@ public abstract class AbstractListTest_OE25Dev<E> extends AbstractCollectionTest
     /**
      *  Tests {@link List#indexOf}.
      */
+    public void testListIndexOf() {
+        resetFull();
+        final List<E> list1 = getCollection();
+        final List<E> list2 = getConfirmed();
+
+        for (final E element : list2) {
+            assertEquals("indexOf should return correct result",list1.indexOf(element),list2.indexOf(element));
+            verify();
+        }
+
+        final E[] other = getOtherElements();
+        for (final E element : other) {
+            assertEquals("indexOf should return -1 for nonexistent element",-1,list1.indexOf(element));
+            verify();
+        }
+    }
 
     /**
      *  Tests {@link List#lastIndexOf}.
      */
+    public void testListLastIndexOf() {
+        resetFull();
+        final List<E> list1 = getCollection();
+        final List<E> list2 = getConfirmed();
+
+        final Iterator<E> iterator = list2.iterator();
+        while (iterator.hasNext()) {
+            final E element = iterator.next();
+            assertEquals("lastIndexOf should return correct result",list1.lastIndexOf(element),list2.lastIndexOf(element));
+            verify();
+        }
+
+        final E[] other = getOtherElements();
+        for (final E element : other) {
+            assertEquals("lastIndexOf should return -1 for nonexistent " + "element",-1,list1.lastIndexOf(element));
+            verify();
+        }
+    }
 
     /**
      *  Tests bounds checking for {@link List#set(int,Object)} on an
@@ -476,6 +598,23 @@ public abstract class AbstractListTest_OE25Dev<E> extends AbstractCollectionTest
     /**
      *  Test {@link List#set(int,Object)}.
      */
+    public void testListSetByIndex() {
+        if (!isSetSupported()) {
+            return;
+        }
+
+        resetFull();
+        final E[] elements = getFullElements();
+        final E[] other = getOtherElements();
+
+        for (int i = 0; i < elements.length; i++) {
+            final E n = other[i % other.length];
+            final E v = getCollection().set(i, n);
+            assertEquals("Set should return correct element", elements[i], v);
+            getConfirmed().set(i, n);
+            verify();
+        }
+    }
 
     /**
      *  If {@link #isSetSupported()} returns false, tests that set operation
@@ -589,6 +728,20 @@ public abstract class AbstractListTest_OE25Dev<E> extends AbstractCollectionTest
     /**
      *  Tests {@link List#remove(int)}.
      */
+    public void testListRemoveByIndex() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+
+        final int max = getFullElements().length;
+        for (int i = 0; i < max; i++) {
+            resetFull();
+            final E o1 = getCollection().remove(i);
+            final E o2 = getConfirmed().remove(i);
+            assertEquals("remove should return correct element", o1, o2);
+            verify();
+        }
+    }
 
     /**
      *  Tests the read-only bits of {@link List#listIterator()}.
@@ -626,18 +779,123 @@ public abstract class AbstractListTest_OE25Dev<E> extends AbstractCollectionTest
     /**
      * Tests remove on list iterator is correct.
      */
+    public void testListListIteratorPreviousRemoveNext() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        if (getCollection().size() < 4) {
+            return;
+        }
+        final ListIterator<E> it = getCollection().listIterator();
+        final E zero = it.next();
+        final E one = it.next();
+        final E two = it.next();
+        final E two2 = it.previous();
+        final E one2 = it.previous();
+        assertEquals(one, one2);
+        assertEquals(two, two2);
+        assertEquals(zero, getCollection().get(0));
+        assertEquals(one, getCollection().get(1));
+        assertEquals(two, getCollection().get(2));
+
+        it.remove(); // removed element at index 1 (one)
+        assertEquals(zero, getCollection().get(0));
+        assertEquals(two, getCollection().get(1));
+        final E two3 = it.next();  // do next after remove
+        assertEquals(two, two3);
+        assertEquals(getCollection().size() > 2, it.hasNext());
+        assertEquals(true, it.hasPrevious());
+    }
 
     /**
      * Tests remove on list iterator is correct.
      */
+    public void testListListIteratorPreviousRemovePrevious() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        if (getCollection().size() < 4) {
+            return;
+        }
+        final ListIterator<E> it = getCollection().listIterator();
+        final E zero = it.next();
+        final E one = it.next();
+        final E two = it.next();
+        final E two2 = it.previous();
+        final E one2 = it.previous();
+        assertEquals(one, one2);
+        assertEquals(two, two2);
+        assertEquals(zero, getCollection().get(0));
+        assertEquals(one, getCollection().get(1));
+        assertEquals(two, getCollection().get(2));
+
+        it.remove(); // removed element at index 1 (one)
+        assertEquals(zero, getCollection().get(0));
+        assertEquals(two, getCollection().get(1));
+        final E zero3 = it.previous();  // do previous after remove
+        assertEquals(zero, zero3);
+        assertEquals(false, it.hasPrevious());
+        assertEquals(getCollection().size() > 2, it.hasNext());
+    }
 
     /**
      * Tests remove on list iterator is correct.
      */
+    public void testListListIteratorNextRemoveNext() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        if (getCollection().size() < 4) {
+            return;
+        }
+        final ListIterator<E> it = getCollection().listIterator();
+        final E zero = it.next();
+        final E one = it.next();
+        final E two = it.next();
+        assertEquals(zero, getCollection().get(0));
+        assertEquals(one, getCollection().get(1));
+        assertEquals(two, getCollection().get(2));
+        final E three = getCollection().get(3);
+
+        it.remove(); // removed element at index 2 (two)
+        assertEquals(zero, getCollection().get(0));
+        assertEquals(one, getCollection().get(1));
+        final E three2 = it.next();  // do next after remove
+        assertEquals(three, three2);
+        assertEquals(getCollection().size() > 3, it.hasNext());
+        assertEquals(true, it.hasPrevious());
+    }
 
     /**
      * Tests remove on list iterator is correct.
      */
+    public void testListListIteratorNextRemovePrevious() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        if (getCollection().size() < 4) {
+            return;
+        }
+        final ListIterator<E> it = getCollection().listIterator();
+        final E zero = it.next();
+        final E one = it.next();
+        final E two = it.next();
+        assertEquals(zero, getCollection().get(0));
+        assertEquals(one, getCollection().get(1));
+        assertEquals(two, getCollection().get(2));
+
+        it.remove(); // removed element at index 2 (two)
+        assertEquals(zero, getCollection().get(0));
+        assertEquals(one, getCollection().get(1));
+        final E one2 = it.previous();  // do previous after remove
+        assertEquals(one, one2);
+        assertEquals(true, it.hasNext());
+        assertEquals(true, it.hasPrevious());
+    }
 
     //-----------------------------------------------------------------------
     /**
@@ -763,15 +1021,85 @@ public abstract class AbstractListTest_OE25Dev<E> extends AbstractCollectionTest
         }
     }
 
-    /**
-     * Compare the current serialized form of the List
-     * against the canonical version in SVN.
-     */
+    @SuppressWarnings("unchecked")
+    public void testEmptyListSerialization() throws IOException, ClassNotFoundException {
+        final List<E> list = makeObject();
+        if (!(list instanceof Serializable && isTestSerialization())) {
+            return;
+        }
+
+        final byte[] objekt = writeExternalFormToBytes((Serializable) list);
+        final List<E> list2 = (List<E>) readExternalFormFromBytes(objekt);
+
+        assertEquals("Both lists are empty", 0, list.size());
+        assertEquals("Both lists are empty", 0, list2.size());
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testFullListSerialization() throws IOException, ClassNotFoundException {
+        final List<E> list = makeFullCollection();
+        final int size = getFullElements().length;
+        if (!(list instanceof Serializable && isTestSerialization())) {
+            return;
+        }
+
+        final byte[] objekt = writeExternalFormToBytes((Serializable) list);
+        final List<E> list2 = (List<E>) readExternalFormFromBytes(objekt);
+
+        assertEquals("Both lists are same size", size, list.size());
+        assertEquals("Both lists are same size", size, list2.size());
+    }
 
     /**
      * Compare the current serialized form of the List
      * against the canonical version in SVN.
      */
+    @SuppressWarnings("unchecked")
+    public void testEmptyListCompatibility() throws IOException, ClassNotFoundException {
+        /**
+         * Create canonical objects with this code
+        List list = makeEmptyList();
+        if (!(list instanceof Serializable)) return;
+
+        writeExternalFormToDisk((Serializable) list, getCanonicalEmptyCollectionName(list));
+        */
+
+        // test to make sure the canonical form has been preserved
+        final List<E> list = makeObject();
+        if (list instanceof Serializable && !skipSerializedCanonicalTests()
+                && isTestSerialization()) {
+            final List<E> list2 = (List<E>) readExternalFormFromDisk(getCanonicalEmptyCollectionName(list));
+            assertEquals("List is empty", 0, list2.size());
+            assertEquals(list, list2);
+        }
+    }
+
+    /**
+     * Compare the current serialized form of the List
+     * against the canonical version in SVN.
+     */
+    @SuppressWarnings("unchecked")
+    public void testFullListCompatibility() throws IOException, ClassNotFoundException {
+        /**
+         * Create canonical objects with this code
+        List list = makeFullList();
+        if (!(list instanceof Serializable)) return;
+
+        writeExternalFormToDisk((Serializable) list, getCanonicalFullCollectionName(list));
+        */
+
+        // test to make sure the canonical form has been preserved
+        final List<E> list = makeFullCollection();
+        if(list instanceof Serializable && !skipSerializedCanonicalTests() && isTestSerialization()) {
+            final List<E> list2 = (List<E>) readExternalFormFromDisk(getCanonicalFullCollectionName(list));
+            if (list2.size() == 4) {
+                // old serialized tests
+                return;
+            }
+            assertEquals("List is the right size",list.size(), list2.size());
+            assertEquals(list, list2);
+        }
+    }
 
     //-----------------------------------------------------------------------
     /**

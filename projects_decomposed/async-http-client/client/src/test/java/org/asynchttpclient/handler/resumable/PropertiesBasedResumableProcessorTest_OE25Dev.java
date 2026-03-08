@@ -42,6 +42,7 @@ public class PropertiesBasedResumableProcessorTest_OE25Dev {
     p.save(null);
     p = new PropertiesBasedResumableProcessor();
     Map<String, Long> m = p.load();
+    // removed other assertion
     assertEquals(m.get("http://localhost/test.url"), Long.valueOf(15L));
   }
 
@@ -53,6 +54,8 @@ public class PropertiesBasedResumableProcessorTest_OE25Dev {
     p.save(null);
     p = new PropertiesBasedResumableProcessor();
     Map<String, Long> m = p.load();
+    // removed other assertion
+    // removed other assertion
     assertEquals(m.get("http://localhost/test2.url"), Long.valueOf(50L));
   }
 
@@ -77,6 +80,7 @@ public class PropertiesBasedResumableProcessorTest_OE25Dev {
     propertiesProcessor.save(null);
     propertiesProcessor = new PropertiesBasedResumableProcessor();
     Map<String, Long> propertiesMap = propertiesProcessor.load();
+    // removed other assertion
     assertEquals(propertiesMap.get("http://localhost/test2.url"), Long.valueOf(50L));
   }
 

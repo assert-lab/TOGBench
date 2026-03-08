@@ -32,6 +32,7 @@ public class BranchHandleTestCase_OE25Dev {
     @Test(expected=ClassGenException.class)
     public void testsetInstructionNull_2_oe() {
         final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
+        // removed other assertion
         bh.setInstruction(null);
         Assert.assertNotNull(bh);
     }
@@ -45,6 +46,7 @@ public class BranchHandleTestCase_OE25Dev {
     @Test
     public void testsetInstructionBI_2_oe() {
         final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
+        // removed other assertion
         bh.setInstruction(new GOTO(null));
         Assert.assertNotNull(bh);
     }
@@ -52,6 +54,7 @@ public class BranchHandleTestCase_OE25Dev {
     @Test(expected=ClassGenException.class)
     public void testsetInstructionnotBI_2_oe() {
         final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
+        // removed other assertion
         bh.setInstruction(new NOP());
         Assert.assertNotNull(bh);
     }

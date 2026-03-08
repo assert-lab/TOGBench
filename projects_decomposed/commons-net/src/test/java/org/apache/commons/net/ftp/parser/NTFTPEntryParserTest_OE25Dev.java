@@ -286,29 +286,44 @@ public class NTFTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramework
 
     public void testParseLeadingDigits_2_oe() {
             final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 10 years and under");
+            // removed other assertion
             assertEquals("10 years and under", file.getName());
     }
 
     public void testParseLeadingDigits_3_oe() {
             final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 10 years and under");
+            // removed other assertion
+            // removed other assertion
             assertEquals(5000000000L, file.getSize());
     }
 
     public void testParseLeadingDigits_4_oe() {
             final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 10 years and under");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             Calendar timestamp = file.getTimestamp();
             assertNotNull("Could not parse time",timestamp);
     }
 
     public void testParseLeadingDigits_5_oe() {
             final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 10 years and under");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             Calendar timestamp = file.getTimestamp();
+            // removed other assertion
             assertEquals("Thu May 22 00:08:00 1997",df.format(timestamp.getTime()));
     }
 
     public void testParseLeadingDigits_6_oe() {
             final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 10 years and under");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             Calendar timestamp = file.getTimestamp();
+            // removed other assertion
+            // removed other assertion
 
             final FTPFile dir = getParser().parseFTPEntry("12-03-96  06:38PM       <DIR>           10 years and under");
             assertNotNull("Could not parse entry", dir);
@@ -316,27 +331,48 @@ public class NTFTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramework
 
     public void testParseLeadingDigits_7_oe() {
             final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 10 years and under");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             Calendar timestamp = file.getTimestamp();
+            // removed other assertion
+            // removed other assertion
 
             final FTPFile dir = getParser().parseFTPEntry("12-03-96  06:38PM       <DIR>           10 years and under");
+            // removed other assertion
             assertEquals("10 years and under", dir.getName());
     }
 
     public void testParseLeadingDigits_8_oe() {
             final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 10 years and under");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             Calendar timestamp = file.getTimestamp();
+            // removed other assertion
+            // removed other assertion
 
             final FTPFile dir = getParser().parseFTPEntry("12-03-96  06:38PM       <DIR>           10 years and under");
+            // removed other assertion
+            // removed other assertion
             timestamp = dir.getTimestamp();
             assertNotNull("Could not parse time",timestamp);
     }
 
     public void testParseLeadingDigits_9_oe() {
             final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 10 years and under");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             Calendar timestamp = file.getTimestamp();
+            // removed other assertion
+            // removed other assertion
 
             final FTPFile dir = getParser().parseFTPEntry("12-03-96  06:38PM       <DIR>           10 years and under");
+            // removed other assertion
+            // removed other assertion
             timestamp = dir.getTimestamp();
+            // removed other assertion
             assertEquals("Tue Dec 03 18:38:00 1996",df.format(timestamp.getTime()));
     }
 
@@ -347,29 +383,44 @@ public class NTFTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramework
 
     public void testNET339_2_oe() {
         final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08                  5000000000 10 years and under");
+        // removed other assertion
         assertEquals("10 years and under", file.getName());
     }
 
     public void testNET339_3_oe() {
         final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08                  5000000000 10 years and under");
+        // removed other assertion
+        // removed other assertion
         assertEquals(5000000000L, file.getSize());
     }
 
     public void testNET339_4_oe() {
         final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08                  5000000000 10 years and under");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Calendar timestamp = file.getTimestamp();
         assertNotNull("Could not parse time",timestamp);
     }
 
     public void testNET339_5_oe() {
         final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08                  5000000000 10 years and under");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Calendar timestamp = file.getTimestamp();
+        // removed other assertion
         assertEquals("Thu May 22 12:08:00 1997",df.format(timestamp.getTime()));
     }
 
     public void testNET339_6_oe() {
         final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08                  5000000000 10 years and under");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Calendar timestamp = file.getTimestamp();
+        // removed other assertion
+        // removed other assertion
 
         final FTPFile dir = getParser().parseFTPEntry("12-03-96  06:38       <DIR>           10 years and under");
         assertNotNull("Could not parse entry", dir);
@@ -377,27 +428,48 @@ public class NTFTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramework
 
     public void testNET339_7_oe() {
         final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08                  5000000000 10 years and under");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Calendar timestamp = file.getTimestamp();
+        // removed other assertion
+        // removed other assertion
 
         final FTPFile dir = getParser().parseFTPEntry("12-03-96  06:38       <DIR>           10 years and under");
+        // removed other assertion
         assertEquals("10 years and under", dir.getName());
     }
 
     public void testNET339_8_oe() {
         final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08                  5000000000 10 years and under");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Calendar timestamp = file.getTimestamp();
+        // removed other assertion
+        // removed other assertion
 
         final FTPFile dir = getParser().parseFTPEntry("12-03-96  06:38       <DIR>           10 years and under");
+        // removed other assertion
+        // removed other assertion
         timestamp = dir.getTimestamp();
         assertNotNull("Could not parse time",timestamp);
     }
 
     public void testNET339_9_oe() {
         final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08                  5000000000 10 years and under");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Calendar timestamp = file.getTimestamp();
+        // removed other assertion
+        // removed other assertion
 
         final FTPFile dir = getParser().parseFTPEntry("12-03-96  06:38       <DIR>           10 years and under");
+        // removed other assertion
+        // removed other assertion
         timestamp = dir.getTimestamp();
+        // removed other assertion
         assertEquals("Tue Dec 03 06:38:00 1996",df.format(timestamp.getTime()));
     }
 
@@ -416,6 +488,7 @@ public class NTFTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramework
     public void testDirectoryBeginningWithNumberFollowedBySpaces_2_oe()
     {
         FTPFile f = getParser().parseFTPEntry("12-03-96  06:38AM       <DIR>          123 xyz");
+        // removed other assertion
         f = getParser().parseFTPEntry("12-03-96  06:38AM       <DIR>          123 abc xyz");
         assertNotNull(f);
     }
@@ -423,7 +496,9 @@ public class NTFTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramework
     public void testDirectoryBeginningWithNumberFollowedBySpaces_3_oe()
     {
         FTPFile f = getParser().parseFTPEntry("12-03-96  06:38AM       <DIR>          123 xyz");
+        // removed other assertion
         f = getParser().parseFTPEntry("12-03-96  06:38AM       <DIR>          123 abc xyz");
+        // removed other assertion
         assertEquals("name", "123 abc xyz", f.getName());
     }
 
@@ -434,11 +509,14 @@ public class NTFTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramework
 
     public void testGroupNameWithSpaces_2_oe() {
         final FTPFile f = getParser().parseFTPEntry("drwx------ 4 maxm Domain Users 512 Oct 2 10:59 .metadata");
+        // removed other assertion
         assertEquals("maxm", f.getUser());
     }
 
     public void testGroupNameWithSpaces_3_oe() {
         final FTPFile f = getParser().parseFTPEntry("drwx------ 4 maxm Domain Users 512 Oct 2 10:59 .metadata");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Domain Users", f.getGroup());
     }
 
@@ -449,13 +527,16 @@ public class NTFTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramework
 
     public void testNET516_2_oe() throws Exception { // problem where part of a multi-byte char gets converted to 0x85 = line term
         final int utf = testNET516("UTF-8");
+        // removed other assertion
         final int ascii = testNET516("ASCII");
         assertEquals(LISTFILE_COUNT, ascii);
     }
 
     public void testNET516_3_oe() throws Exception { // problem where part of a multi-byte char gets converted to 0x85 = line term
         final int utf = testNET516("UTF-8");
+        // removed other assertion
         final int ascii = testNET516("ASCII");
+        // removed other assertion
         final int iso8859_1 = testNET516("ISO-8859-1");
         assertEquals(LISTFILE_COUNT, iso8859_1);
     }

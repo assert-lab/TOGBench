@@ -345,6 +345,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         final PropertiesConfiguration config = builder.getConfiguration();
         builder.addEventListener(ConfigurationEvent.ANY, l2);
         final Collection<EventListener<? super ConfigurationEvent>> listeners = config.getEventListeners(ConfigurationEvent.ANY);
+        // removed other assertion
         assertTrue("Listener 2 not registered", listeners.contains(l2));
     }
 
@@ -363,6 +364,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
             createTestParameters());
         final Map<String, Object> params = createTestParameters();
         params.put("anotherParameter", "value");
+        // removed other assertion
         final Map<String, Object> params2 = builder.getParameters();
         assertTrue("No original parameters", params2.keySet().containsAll(createTestParameters().keySet()));
     }
@@ -426,6 +428,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
 
         builder.connectToReloadingController(controller);
         controller.checkForReloading(null);
+        // removed other assertion
         assertNotSame("No new configuration created", configuration, builder.getConfiguration());
     }
 
@@ -458,6 +461,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         builder.copyEventListeners(builder2);
         final XMLConfiguration config = builder2.getConfiguration();
         Collection<EventListener<? super ConfigurationEvent>> listeners = config.getEventListeners(ConfigurationEvent.ANY);
+        // removed other assertion
         assertTrue("Wrong listener", listeners.contains(l1));
     }
 
@@ -474,6 +478,8 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         builder.copyEventListeners(builder2);
         final XMLConfiguration config = builder2.getConfiguration();
         Collection<EventListener<? super ConfigurationEvent>> listeners = config.getEventListeners(ConfigurationEvent.ANY);
+        // removed other assertion
+        // removed other assertion
         listeners = config.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL);
         assertEquals("Wrong number of listeners for hierarchical", 2, listeners.size());
     }
@@ -491,7 +497,10 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         builder.copyEventListeners(builder2);
         final XMLConfiguration config = builder2.getConfiguration();
         Collection<EventListener<? super ConfigurationEvent>> listeners = config.getEventListeners(ConfigurationEvent.ANY);
+        // removed other assertion
+        // removed other assertion
         listeners = config.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL);
+        // removed other assertion
         assertTrue("Listener 1 not found", listeners.contains(l1));
     }
 
@@ -508,7 +517,11 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         builder.copyEventListeners(builder2);
         final XMLConfiguration config = builder2.getConfiguration();
         Collection<EventListener<? super ConfigurationEvent>> listeners = config.getEventListeners(ConfigurationEvent.ANY);
+        // removed other assertion
+        // removed other assertion
         listeners = config.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL);
+        // removed other assertion
+        // removed other assertion
         assertTrue("Listener 2 not found", listeners.contains(l2));
     }
 
@@ -525,7 +538,12 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         builder.copyEventListeners(builder2);
         final XMLConfiguration config = builder2.getConfiguration();
         Collection<EventListener<? super ConfigurationEvent>> listeners = config.getEventListeners(ConfigurationEvent.ANY);
+        // removed other assertion
+        // removed other assertion
         listeners = config.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final Collection<EventListener<? super ConfigurationErrorEvent>> errListeners = config.getEventListeners(ConfigurationErrorEvent.ANY);
         assertEquals("Wrong number of error listeners", 1, errListeners.size());
     }
@@ -543,8 +561,14 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         builder.copyEventListeners(builder2);
         final XMLConfiguration config = builder2.getConfiguration();
         Collection<EventListener<? super ConfigurationEvent>> listeners = config.getEventListeners(ConfigurationEvent.ANY);
+        // removed other assertion
+        // removed other assertion
         listeners = config.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final Collection<EventListener<? super ConfigurationErrorEvent>> errListeners = config.getEventListeners(ConfigurationErrorEvent.ANY);
+        // removed other assertion
         assertTrue("Wrong error listener", errListeners.contains(l3));
     }
 
@@ -567,6 +591,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class)
             .configure(new EventListenerParameters().addEventListener(ConfigurationEvent.ANY, listener1).addEventListener(regData));
         final PropertiesConfiguration config = builder.getConfiguration();
+        // removed other assertion
         assertTrue("Error listener not found", config.getEventListeners(regData.getEventType()).contains(regData.getListener()));
     }
 
@@ -581,6 +606,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
     public void testGetConfiguration_2_oe() throws ConfigurationException {
         final PropertiesConfiguration config = new BasicConfigurationBuilder<>(PropertiesConfiguration.class)
             .configure(new BasicBuilderParameters().setListDelimiterHandler(listHandler).setThrowExceptionOnMissing(true)).getConfiguration();
+        // removed other assertion
         assertEquals("Wrong list delimiter handler", listHandler, config.getListDelimiterHandler());
     }
 
@@ -611,6 +637,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
             threads[i].start();
         }
         startLatch.countDown();
+        // removed other assertion
         final Set<Object> results = new HashSet<>();
         for (final AccessBuilderThread t : threads) {
             results.add(t.result);
@@ -675,7 +702,9 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
         builder.addEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l1);
         builder.addEventListener(ConfigurationEvent.ANY, l2);
+        // removed other assertion
         final PropertiesConfiguration config = builder.getConfiguration();
+        // removed other assertion
         assertTrue("Listener not registered", config.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL).contains(l1));
     }
 
@@ -687,7 +716,10 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
         builder.addEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l1);
         builder.addEventListener(ConfigurationEvent.ANY, l2);
+        // removed other assertion
         final PropertiesConfiguration config = builder.getConfiguration();
+        // removed other assertion
+        // removed other assertion
         builder.removeEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l1);
         assertFalse("Listener still registered", config.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL).contains(l1));
     }
@@ -719,6 +751,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         final PropertiesConfiguration config = builder.getConfiguration();
         builder.reset();
         final PropertiesConfiguration config2 = builder.getConfiguration();
+        // removed other assertion
         assertFalse("Parameters not reset", config2.isThrowExceptionOnMissing());
     }
 
@@ -747,6 +780,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         final PropertiesConfiguration config = builder.getConfiguration();
         builder.resetResult();
         final PropertiesConfiguration config2 = builder.getConfiguration();
+        // removed other assertion
         assertTrue("Wrong property", config2.isThrowExceptionOnMissing());
     }
 

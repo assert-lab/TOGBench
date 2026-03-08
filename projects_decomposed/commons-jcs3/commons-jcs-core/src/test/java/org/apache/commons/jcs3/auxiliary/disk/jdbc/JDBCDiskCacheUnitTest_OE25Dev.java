@@ -152,6 +152,7 @@ public class JDBCDiskCacheUnitTest_OE25Dev
     public void testInitializePoolAccess_withPoolName_1_oe()
         throws Exception
     {
+        // SETUP
         final String poolName = "testInitializePoolAccess_withPoolName";
 
         final String url = "jdbc:hsqldb:";
@@ -188,6 +189,7 @@ public class JDBCDiskCacheUnitTest_OE25Dev
     public void testInitializePoolAccess_withPoolName_2_oe()
         throws Exception
     {
+        // SETUP
         final String poolName = "testInitializePoolAccess_withPoolName";
 
         final String url = "jdbc:hsqldb:";
@@ -218,15 +220,19 @@ public class JDBCDiskCacheUnitTest_OE25Dev
         	new DaemonThreadFactory("JCS-JDBCDiskCacheManager-", Thread.MIN_PRIORITY)));
 
         final JDBCDiskCache<String, String> diskCache = dcFactory.createCache( cattr, compositeCacheManager, null, new StandardSerializer() );
+        // removed other assertion
 
+        // DO WORK
         final DataSourceFactory result = dcFactory.getDataSourceFactory(cattr, props);
 
+        // VERIFY
         assertNotNull( "Should have a data source factory class", result );
     }
 
     public void testInitializePoolAccess_withPoolName_3_oe()
         throws Exception
     {
+        // SETUP
         final String poolName = "testInitializePoolAccess_withPoolName";
 
         final String url = "jdbc:hsqldb:";
@@ -257,9 +263,13 @@ public class JDBCDiskCacheUnitTest_OE25Dev
         	new DaemonThreadFactory("JCS-JDBCDiskCacheManager-", Thread.MIN_PRIORITY)));
 
         final JDBCDiskCache<String, String> diskCache = dcFactory.createCache( cattr, compositeCacheManager, null, new StandardSerializer() );
+        // removed other assertion
 
+        // DO WORK
         final DataSourceFactory result = dcFactory.getDataSourceFactory(cattr, props);
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "wrong name", poolName, result.getName() );
     }
 

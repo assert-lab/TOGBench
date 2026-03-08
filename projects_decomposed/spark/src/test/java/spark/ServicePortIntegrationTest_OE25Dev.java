@@ -54,6 +54,7 @@ public class ServicePortIntegrationTest_OE25Dev {
         SparkTestUtil testUtil = new SparkTestUtil(actualPort);
 
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/hi", null);
+        // removed other assertion
         Assert.assertEquals("Hello World!", response.body);
     }
 

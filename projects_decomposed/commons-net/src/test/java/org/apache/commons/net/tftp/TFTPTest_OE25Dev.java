@@ -226,6 +226,7 @@ public class TFTPTest_OE25Dev extends TestCase
 
     public void testASCIIDownloads_1_oe()
     {
+        // test with the smaller files
         for (int i = 0; i < 6; i++)
         {
             try {

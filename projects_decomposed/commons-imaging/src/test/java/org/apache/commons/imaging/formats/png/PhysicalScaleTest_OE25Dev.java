@@ -36,6 +36,7 @@ public class PhysicalScaleTest_OE25Dev {
    public void createFromMeters_2_oe() {
       final PhysicalScale physicalScale = PhysicalScale.createFromMeters(1.0, 2.0);
 
+      // removed other assertion
       assertFalse(physicalScale.isInRadians());
    }
 
@@ -43,6 +44,8 @@ public class PhysicalScaleTest_OE25Dev {
    public void createFromMeters_3_oe() {
       final PhysicalScale physicalScale = PhysicalScale.createFromMeters(1.0, 2.0);
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(physicalScale.getHorizontalUnitsPerPixel(), 1.0, delta);
    }
 
@@ -50,6 +53,9 @@ public class PhysicalScaleTest_OE25Dev {
    public void createFromMeters_4_oe() {
       final PhysicalScale physicalScale = PhysicalScale.createFromMeters(1.0, 2.0);
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(physicalScale.getVerticalUnitsPerPixel(), 2.0, delta);
    }
 
@@ -64,6 +70,7 @@ public class PhysicalScaleTest_OE25Dev {
    public void createFromRadians_2_oe() {
       final PhysicalScale physicalScale = PhysicalScale.createFromRadians(2.0, 1.0);
 
+      // removed other assertion
       assertTrue(physicalScale.isInRadians());
    }
 
@@ -71,6 +78,8 @@ public class PhysicalScaleTest_OE25Dev {
    public void createFromRadians_3_oe() {
       final PhysicalScale physicalScale = PhysicalScale.createFromRadians(2.0, 1.0);
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(physicalScale.getHorizontalUnitsPerPixel(), 2.0, delta);
    }
 
@@ -78,6 +87,9 @@ public class PhysicalScaleTest_OE25Dev {
    public void createFromRadians_4_oe() {
       final PhysicalScale physicalScale = PhysicalScale.createFromRadians(2.0, 1.0);
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(physicalScale.getVerticalUnitsPerPixel(), 1.0, delta);
    }
 

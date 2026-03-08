@@ -3,6 +3,8 @@ import re
 from pathlib import Path
 import pandas as pd
 
+outputs_toga = Path("/home/tasfia/Desktop/oe25_for_toga/toga_output_OE25Dev/JSON-java/oracle_preds.csv").expanduser()
+
 FAIL_RE = re.compile(r"\bfail\s*\(", re.MULTILINE)
 ASSERT_LINE_START_RE = re.compile(r"\b(?:Assert\.)?assert\w*\s*\(")
 
@@ -47,53 +49,61 @@ def replace_last_assertion_block(prefix: str) -> tuple[str, bool]:
 
 def process_dataset_dir(dataset_dir: Path) -> dict:
     inputs_path = dataset_dir / "inputs.csv"
-    meta_path = dataset_dir / "meta.csv"
+    outputs_path = outputs_toga
 
     inputs = pd.read_csv(inputs_path)
+
     if "id" not in inputs.columns or "test_prefix" not in inputs.columns:
         raise ValueError(f"Missing required columns in {inputs_path}")
 
-    if meta_path.exists():
-        meta = pd.read_csv(meta_path)
-        if "id" not in meta.columns:
-            raise ValueError(f"meta.csv missing 'id' column: {meta_path}")
-    else:
-        meta = None
+    if not outputs_path.exists():
+        raise FileNotFoundError(outputs_path)
 
-    is_except = inputs["test_prefix"].astype(str).str.contains(FAIL_RE)
-    inputs_except = inputs[is_except].copy()
-    inputs_norm = inputs[~is_except].copy()
+    # outputs = pd.read_csv(outputs_path)
+
+    # if "id" not in outputs.columns:
+    #     raise ValueError(f"outputs.csv missing id column: {outputs_path}")
+
+    # ids = set(outputs["id"].astype(str))
+
+    outputs = pd.read_csv(outputs_path)
+
+    if "bug_num" not in outputs.columns or "assert_pred" not in outputs.columns:
+        raise ValueError(f"oracle_preds.csv must contain bug_num and assert_pred")
+
+    outputs = outputs[outputs["assert_pred"].notna()]
+    ids = set(outputs["bug_num"].astype(str))
+
+    ids = set(outputs["bug_num"].astype(str))
+
+    inputs["id"] = inputs["id"].astype(str)
+
+    inputs["id"] = inputs["id"].astype(str).str.strip()
+    outputs["bug_num"] = outputs["bug_num"].astype(str).str.strip()
+
+    inputs_assert = inputs[inputs["id"].isin(ids)].copy()
+
+        
 
     changed_count = 0
     new_prefixes = []
-    for p in inputs_norm["test_prefix"].tolist():
+
+    for p in inputs_assert["test_prefix"].tolist():
         new_p, changed = replace_last_assertion_block(p)
         if changed:
             changed_count += 1
         new_prefixes.append(new_p)
-    inputs_norm["test_prefix"] = new_prefixes
 
-    out_no_assert = dataset_dir / "inputs_no_assert.csv"
-    out_except_inputs = dataset_dir / "inputs_except.csv"
-    inputs_norm.to_csv(out_no_assert, index=False)
-    inputs_except.to_csv(out_except_inputs, index=False)
+    inputs_assert["test_prefix"] = new_prefixes
 
-    meta_except_rows = 0
-    if meta is not None:
-        except_ids = set(inputs_except["id"].astype(str).tolist())
-        meta_id_str = meta["id"].astype(str)
-        meta_except = meta[meta_id_str.isin(except_ids)].copy()
-        out_except_meta = dataset_dir / "meta_except.csv"
-        meta_except.to_csv(out_except_meta, index=False)
-        meta_except_rows = len(meta_except)
+    out_assert = dataset_dir / "inputs_no_assert.csv"
+    inputs_assert.to_csv(out_assert, index=False)
 
     return {
         "dataset_dir": str(dataset_dir),
         "inputs_rows": len(inputs),
-        "except_rows": int(is_except.sum()),
-        "no_assert_rows": int((~is_except).sum()),
-        "assert_replaced_rows": changed_count,
-        "meta_except_rows": meta_except_rows
+        "assert_rows": len(inputs_assert),
+        "assert_replaced_rows": changed_count
     }
 
 def main():
@@ -112,35 +122,26 @@ def main():
     total = {
         "datasets": 0,
         "inputs_rows": 0,
-        "except_rows": 0,
-        "no_assert_rows": 0,
-        "assert_replaced_rows": 0,
-        "meta_except_rows": 0
+        "assert_rows": 0,
+        "assert_replaced_rows": 0
     }
 
     for d in dataset_dirs:
         stats = process_dataset_dir(d)
         total["datasets"] += 1
         total["inputs_rows"] += stats["inputs_rows"]
-        total["except_rows"] += stats["except_rows"]
-        total["no_assert_rows"] += stats["no_assert_rows"]
+        total["assert_rows"] += stats["assert_rows"]
         total["assert_replaced_rows"] += stats["assert_replaced_rows"]
-        total["meta_except_rows"] += stats["meta_except_rows"]
 
         print("processed", stats["dataset_dir"])
         print(" inputs", stats["inputs_rows"])
-        print(" except", stats["except_rows"])
-        print(" no_assert", stats["no_assert_rows"])
+        print(" assert_rows", stats["assert_rows"])
         print(" replaced", stats["assert_replaced_rows"])
-        if stats["meta_except_rows"]:
-            print(" meta_except", stats["meta_except_rows"])
 
     print("TOTAL_DATASETS", total["datasets"])
     print("TOTAL_INPUTS", total["inputs_rows"])
-    print("TOTAL_EXCEPT", total["except_rows"])
-    print("TOTAL_NO_ASSERT", total["no_assert_rows"])
+    print("TOTAL_ASSERT_ROWS", total["assert_rows"])
     print("TOTAL_REPLACED", total["assert_replaced_rows"])
-    print("TOTAL_META_EXCEPT", total["meta_except_rows"])
 
 if __name__ == "__main__":
     main()

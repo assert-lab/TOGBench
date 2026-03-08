@@ -354,6 +354,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new NumbersContext();
         final JexlScript e = JEXL.createScript("var y  = 42; for(var x : numbers()) { if (x > 10) return x } y;");
         final Object o = e.execute(jc);
+        // removed other assertion
 
         Assert.assertTrue(toString(e.getVariables()), e.getVariables().isEmpty());
     }
@@ -379,6 +380,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
@@ -395,10 +397,12 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
@@ -415,14 +419,17 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
@@ -440,19 +447,23 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
@@ -469,23 +480,28 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
@@ -502,27 +518,33 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]['g']");
         vars = e.getVariables();
@@ -539,31 +561,38 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']['g']");
         vars = e.getVariables();
@@ -580,35 +609,43 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","g"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'].c['d'].e");
         vars = e.getVariables();
@@ -625,39 +662,48 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","g"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'].c['d'].e");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b", "c", "d", "e"}});
+        // removed other assertion
 
         e = JEXL.createScript("a + b.c + b.c.d + e['f']");
         vars = e.getVariables();
@@ -674,43 +720,53 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","g"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'].c['d'].e");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b", "c", "d", "e"}});
+        // removed other assertion
 
         e = JEXL.createScript("a + b.c + b.c.d + e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b", "c"}, {"b", "c", "d"}, {"e", "f"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F]]");
         vars = e.getVariables();
@@ -727,47 +783,58 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","g"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'].c['d'].e");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b", "c", "d", "e"}});
+        // removed other assertion
 
         e = JEXL.createScript("a + b.c + b.c.d + e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b", "c"}, {"b", "c", "d"}, {"e", "f"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F[G[H]]]]");
         vars = e.getVariables();
@@ -784,51 +851,63 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","g"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'].c['d'].e");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b", "c", "d", "e"}});
+        // removed other assertion
 
         e = JEXL.createScript("a + b.c + b.c.d + e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b", "c"}, {"b", "c", "d"}, {"e", "f"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F[G[H]]]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}, {"G"}, {"H"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D[E[F]] + x[y[z]] ");
         vars = e.getVariables();
@@ -845,55 +924,68 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","g"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'].c['d'].e");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b", "c", "d", "e"}});
+        // removed other assertion
 
         e = JEXL.createScript("a + b.c + b.c.d + e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b", "c"}, {"b", "c", "d"}, {"e", "f"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F[G[H]]]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}, {"G"}, {"H"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D[E[F]] + x[y[z]] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D"}, {"E"}, {"F"}, {"x"} , {"y"}, {"z"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D.E['F'] + x[y.z] ");
         vars = e.getVariables();
@@ -910,59 +1002,73 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","g"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'].c['d'].e");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b", "c", "d", "e"}});
+        // removed other assertion
 
         e = JEXL.createScript("a + b.c + b.c.d + e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b", "c"}, {"b", "c", "d"}, {"e", "f"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F[G[H]]]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}, {"G"}, {"H"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D[E[F]] + x[y[z]] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D"}, {"E"}, {"F"}, {"x"} , {"y"}, {"z"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D.E['F'] + x[y.z] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D", "E", "F"}, {"x"} , {"y", "z"}});
+        // removed other assertion
 
         e = JEXL.createScript("(A)");
         vars = e.getVariables();
@@ -979,63 +1085,78 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","g"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'].c['d'].e");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b", "c", "d", "e"}});
+        // removed other assertion
 
         e = JEXL.createScript("a + b.c + b.c.d + e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b", "c"}, {"b", "c", "d"}, {"e", "f"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F[G[H]]]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}, {"G"}, {"H"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D[E[F]] + x[y[z]] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D"}, {"E"}, {"F"}, {"x"} , {"y"}, {"z"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D.E['F'] + x[y.z] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D", "E", "F"}, {"x"} , {"y", "z"}});
+        // removed other assertion
 
         e = JEXL.createScript("(A)");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("not(A)");
         vars = e.getVariables();
@@ -1052,67 +1173,83 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","g"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'].c['d'].e");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b", "c", "d", "e"}});
+        // removed other assertion
 
         e = JEXL.createScript("a + b.c + b.c.d + e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b", "c"}, {"b", "c", "d"}, {"e", "f"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F[G[H]]]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}, {"G"}, {"H"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D[E[F]] + x[y[z]] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D"}, {"E"}, {"F"}, {"x"} , {"y"}, {"z"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D.E['F'] + x[y.z] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D", "E", "F"}, {"x"} , {"y", "z"}});
+        // removed other assertion
 
         e = JEXL.createScript("(A)");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("not(A)");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("not((A))");
         vars = e.getVariables();
@@ -1129,71 +1266,88 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","g"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'].c['d'].e");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b", "c", "d", "e"}});
+        // removed other assertion
 
         e = JEXL.createScript("a + b.c + b.c.d + e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b", "c"}, {"b", "c", "d"}, {"e", "f"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F[G[H]]]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}, {"G"}, {"H"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D[E[F]] + x[y[z]] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D"}, {"E"}, {"F"}, {"x"} , {"y"}, {"z"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D.E['F'] + x[y.z] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D", "E", "F"}, {"x"} , {"y", "z"}});
+        // removed other assertion
 
         e = JEXL.createScript("(A)");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("not(A)");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("not((A))");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
@@ -1210,75 +1364,93 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","g"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'].c['d'].e");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b", "c", "d", "e"}});
+        // removed other assertion
 
         e = JEXL.createScript("a + b.c + b.c.d + e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b", "c"}, {"b", "c", "d"}, {"e", "f"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F[G[H]]]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}, {"G"}, {"H"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D[E[F]] + x[y[z]] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D"}, {"E"}, {"F"}, {"x"} , {"y"}, {"z"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D.E['F'] + x[y.z] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D", "E", "F"}, {"x"} , {"y", "z"}});
+        // removed other assertion
 
         e = JEXL.createScript("(A)");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("not(A)");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("not((A))");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'][c]");
         vars = e.getVariables();
@@ -1295,79 +1467,98 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","g"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'].c['d'].e");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b", "c", "d", "e"}});
+        // removed other assertion
 
         e = JEXL.createScript("a + b.c + b.c.d + e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b", "c"}, {"b", "c", "d"}, {"e", "f"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F[G[H]]]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}, {"G"}, {"H"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D[E[F]] + x[y[z]] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D"}, {"E"}, {"F"}, {"x"} , {"y"}, {"z"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D.E['F'] + x[y.z] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D", "E", "F"}, {"x"} , {"y", "z"}});
+        // removed other assertion
 
         e = JEXL.createScript("(A)");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("not(A)");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("not((A))");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'][c]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b"}, {"c"}});
+        // removed other assertion
 
         e = JEXL.createScript("a[b].c");
         vars = e.getVariables();
@@ -1384,83 +1575,103 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","g"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'].c['d'].e");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b", "c", "d", "e"}});
+        // removed other assertion
 
         e = JEXL.createScript("a + b.c + b.c.d + e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b", "c"}, {"b", "c", "d"}, {"e", "f"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F[G[H]]]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}, {"G"}, {"H"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D[E[F]] + x[y[z]] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D"}, {"E"}, {"F"}, {"x"} , {"y"}, {"z"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D.E['F'] + x[y.z] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D", "E", "F"}, {"x"} , {"y", "z"}});
+        // removed other assertion
 
         e = JEXL.createScript("(A)");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("not(A)");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("not((A))");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'][c]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b"}, {"c"}});
+        // removed other assertion
 
         e = JEXL.createScript("a[b].c");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a[b].c[d]");
         vars = e.getVariables();
@@ -1477,87 +1688,108 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"},{"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a.'b + c'");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b + c"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
 
         e = JEXL.createScript("e[f][g]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"},{"g"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f'].goo");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","goo"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e[f]['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"},{"f"}});
+        // removed other assertion
 
         e = JEXL.createScript("e['f']['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e","f","g"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'].c['d'].e");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b", "c", "d", "e"}});
+        // removed other assertion
 
         e = JEXL.createScript("a + b.c + b.c.d + e['f']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b", "c"}, {"b", "c", "d"}, {"e", "f"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}});
+        // removed other assertion
 
         e = JEXL.createScript("D[E[F[G[H]]]]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"D"}, {"E"}, {"F"}, {"G"}, {"H"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D[E[F]] + x[y[z]] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D"}, {"E"}, {"F"}, {"x"} , {"y"}, {"z"}});
+        // removed other assertion
 
         e = JEXL.createScript(" A + B[C] + D.E['F'] + x[y.z] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D", "E", "F"}, {"x"} , {"y", "z"}});
+        // removed other assertion
 
         e = JEXL.createScript("(A)");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("not(A)");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("not((A))");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}});
+        // removed other assertion
 
         e = JEXL.createScript("a[b]['c']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a['b'][c]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a", "b"}, {"c"}});
+        // removed other assertion
 
         e = JEXL.createScript("a[b].c");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b"}});
+        // removed other assertion
 
         e = JEXL.createScript("a[b].c[d]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b"}, {"d"}});
+        // removed other assertion
 
         e = JEXL.createScript("a[b][e].c[d][f]");
         vars = e.getVariables();
@@ -1588,6 +1820,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = jexl.createScript("a['b'][c]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"c"}});
+        // removed other assertion
 
         e = jexl.createScript(" A + B[C] + D[E[F]] + x[y[z]] ");
         vars = e.getVariables();
@@ -1605,10 +1838,12 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = jexl.createScript("a['b'][c]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"c"}});
+        // removed other assertion
 
         e = jexl.createScript(" A + B[C] + D[E[F]] + x[y[z]] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D"}, {"E"}, {"F"}, {"x"} , {"y"}, {"z"}});
+        // removed other assertion
 
         e = jexl.createScript("e['f']['g']");
         vars = e.getVariables();
@@ -1626,14 +1861,17 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = jexl.createScript("a['b'][c]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"c"}});
+        // removed other assertion
 
         e = jexl.createScript(" A + B[C] + D[E[F]] + x[y[z]] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D"}, {"E"}, {"F"}, {"x"} , {"y"}, {"z"}});
+        // removed other assertion
 
         e = jexl.createScript("e['f']['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"}});
+        // removed other assertion
 
         e = jexl.createScript("a[b][e].c[d][f]");
         vars = e.getVariables();
@@ -1651,18 +1889,22 @@ public class VarTest_OE25Dev extends JexlTestCase {
         e = jexl.createScript("a['b'][c]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"c"}});
+        // removed other assertion
 
         e = jexl.createScript(" A + B[C] + D[E[F]] + x[y[z]] ");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"A"}, {"B"}, {"C"}, {"D"}, {"E"}, {"F"}, {"x"} , {"y"}, {"z"}});
+        // removed other assertion
 
         e = jexl.createScript("e['f']['g']");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"e"}});
+        // removed other assertion
 
         e = jexl.createScript("a[b][e].c[d][f]");
         vars = e.getVariables();
         expect = mkref(new String[][]{{"a"}, {"b"}, {"d"}, {"e"}, {"f"}});
+        // removed other assertion
 
         e = jexl.createScript("a + b.c + b.c.d + e['f']");
         vars = e.getVariables();
@@ -1673,6 +1915,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
     @Test
     public void testMix_1_oe() throws Exception {
         JexlScript e;
+        // x is a parameter, y a context variable, z a local variable
         e = JEXL.createScript("if (x) { y } else { var z = 2 * x}", "x");
         final Set<List<String>> vars = e.getVariables();
         final String[] parms = e.getParameters();
@@ -1684,44 +1927,58 @@ public class VarTest_OE25Dev extends JexlTestCase {
     @Test
     public void testMix_2_oe() throws Exception {
         JexlScript e;
+        // x is a parameter, y a context variable, z a local variable
         e = JEXL.createScript("if (x) { y } else { var z = 2 * x}", "x");
         final Set<List<String>> vars = e.getVariables();
         final String[] parms = e.getParameters();
         final String[] locals = e.getLocalVariables();
 
+        // removed other assertion
         Assert.assertEquals(1, parms.length);
     }
 
     @Test
     public void testMix_3_oe() throws Exception {
         JexlScript e;
+        // x is a parameter, y a context variable, z a local variable
         e = JEXL.createScript("if (x) { y } else { var z = 2 * x}", "x");
         final Set<List<String>> vars = e.getVariables();
         final String[] parms = e.getParameters();
         final String[] locals = e.getLocalVariables();
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("x", parms[0]);
     }
 
     @Test
     public void testMix_4_oe() throws Exception {
         JexlScript e;
+        // x is a parameter, y a context variable, z a local variable
         e = JEXL.createScript("if (x) { y } else { var z = 2 * x}", "x");
         final Set<List<String>> vars = e.getVariables();
         final String[] parms = e.getParameters();
         final String[] locals = e.getLocalVariables();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(1, locals.length);
     }
 
     @Test
     public void testMix_5_oe() throws Exception {
         JexlScript e;
+        // x is a parameter, y a context variable, z a local variable
         e = JEXL.createScript("if (x) { y } else { var z = 2 * x}", "x");
         final Set<List<String>> vars = e.getVariables();
         final String[] parms = e.getParameters();
         final String[] locals = e.getLocalVariables();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("z", locals[0]);
     }
 
@@ -1731,7 +1988,10 @@ public class VarTest_OE25Dev extends JexlTestCase {
         JexlScript script;
         List<String> result;
         Set<List<String>> vars;
+        // in collectAll mode, the collector grabs all syntactic variations of
+        // constant variable references including map/arry/set literals
         final JexlContext ctxt = new MapContext();
+        //d.yyyy = 1969; d.MM = 7; d.dd = 20
         ctxt.set("moon.landing", new VarDate("1969-07-20"));
 
         script = jexld.createScript("moon.landing[['yyyy', 'MM', 'dd']]");
@@ -1745,11 +2005,15 @@ public class VarTest_OE25Dev extends JexlTestCase {
         JexlScript script;
         List<String> result;
         Set<List<String>> vars;
+        // in collectAll mode, the collector grabs all syntactic variations of
+        // constant variable references including map/arry/set literals
         final JexlContext ctxt = new MapContext();
+        //d.yyyy = 1969; d.MM = 7; d.dd = 20
         ctxt.set("moon.landing", new VarDate("1969-07-20"));
 
         script = jexld.createScript("moon.landing[['yyyy', 'MM', 'dd']]");
         result = (List<String>) script.execute(ctxt);
+        // removed other assertion
 
         vars = script.getVariables();
         Assert.assertEquals(1, vars.size());
@@ -1761,13 +2025,18 @@ public class VarTest_OE25Dev extends JexlTestCase {
         JexlScript script;
         List<String> result;
         Set<List<String>> vars;
+        // in collectAll mode, the collector grabs all syntactic variations of
+        // constant variable references including map/arry/set literals
         final JexlContext ctxt = new MapContext();
+        //d.yyyy = 1969; d.MM = 7; d.dd = 20
         ctxt.set("moon.landing", new VarDate("1969-07-20"));
 
         script = jexld.createScript("moon.landing[['yyyy', 'MM', 'dd']]");
         result = (List<String>) script.execute(ctxt);
+        // removed other assertion
 
         vars = script.getVariables();
+        // removed other assertion
         List<String> var = vars.iterator().next();
         Assert.assertEquals("moon", var.get(0));
     }
@@ -1778,14 +2047,20 @@ public class VarTest_OE25Dev extends JexlTestCase {
         JexlScript script;
         List<String> result;
         Set<List<String>> vars;
+        // in collectAll mode, the collector grabs all syntactic variations of
+        // constant variable references including map/arry/set literals
         final JexlContext ctxt = new MapContext();
+        //d.yyyy = 1969; d.MM = 7; d.dd = 20
         ctxt.set("moon.landing", new VarDate("1969-07-20"));
 
         script = jexld.createScript("moon.landing[['yyyy', 'MM', 'dd']]");
         result = (List<String>) script.execute(ctxt);
+        // removed other assertion
 
         vars = script.getVariables();
+        // removed other assertion
         List<String> var = vars.iterator().next();
+        // removed other assertion
         Assert.assertEquals("landing", var.get(1));
     }
 
@@ -1795,14 +2070,21 @@ public class VarTest_OE25Dev extends JexlTestCase {
         JexlScript script;
         List<String> result;
         Set<List<String>> vars;
+        // in collectAll mode, the collector grabs all syntactic variations of
+        // constant variable references including map/arry/set literals
         final JexlContext ctxt = new MapContext();
+        //d.yyyy = 1969; d.MM = 7; d.dd = 20
         ctxt.set("moon.landing", new VarDate("1969-07-20"));
 
         script = jexld.createScript("moon.landing[['yyyy', 'MM', 'dd']]");
         result = (List<String>) script.execute(ctxt);
+        // removed other assertion
 
         vars = script.getVariables();
+        // removed other assertion
         List<String> var = vars.iterator().next();
+        // removed other assertion
+        // removed other assertion
         Assert.assertArrayEquals(new String[]{"yyyy", "MM", "dd"}, readIdentifiers(var.get(2)));
     }
 
@@ -1812,14 +2094,22 @@ public class VarTest_OE25Dev extends JexlTestCase {
         JexlScript script;
         List<String> result;
         Set<List<String>> vars;
+        // in collectAll mode, the collector grabs all syntactic variations of
+        // constant variable references including map/arry/set literals
         final JexlContext ctxt = new MapContext();
+        //d.yyyy = 1969; d.MM = 7; d.dd = 20
         ctxt.set("moon.landing", new VarDate("1969-07-20"));
 
         script = jexld.createScript("moon.landing[['yyyy', 'MM', 'dd']]");
         result = (List<String>) script.execute(ctxt);
+        // removed other assertion
 
         vars = script.getVariables();
+        // removed other assertion
         List<String> var = vars.iterator().next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         script = jexld.createScript("moon.landing[ { 'yyyy' : 'year', 'MM' : 'month', 'dd' : 'day' } ]");
         final Map<String, String> mapr = (Map<String, String>) script.execute(ctxt);
@@ -1832,17 +2122,26 @@ public class VarTest_OE25Dev extends JexlTestCase {
         JexlScript script;
         List<String> result;
         Set<List<String>> vars;
+        // in collectAll mode, the collector grabs all syntactic variations of
+        // constant variable references including map/arry/set literals
         final JexlContext ctxt = new MapContext();
+        //d.yyyy = 1969; d.MM = 7; d.dd = 20
         ctxt.set("moon.landing", new VarDate("1969-07-20"));
 
         script = jexld.createScript("moon.landing[['yyyy', 'MM', 'dd']]");
         result = (List<String>) script.execute(ctxt);
+        // removed other assertion
 
         vars = script.getVariables();
+        // removed other assertion
         List<String> var = vars.iterator().next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         script = jexld.createScript("moon.landing[ { 'yyyy' : 'year', 'MM' : 'month', 'dd' : 'day' } ]");
         final Map<String, String> mapr = (Map<String, String>) script.execute(ctxt);
+        // removed other assertion
         Assert.assertEquals("1969", mapr.get("year"));
     }
 
@@ -1852,17 +2151,27 @@ public class VarTest_OE25Dev extends JexlTestCase {
         JexlScript script;
         List<String> result;
         Set<List<String>> vars;
+        // in collectAll mode, the collector grabs all syntactic variations of
+        // constant variable references including map/arry/set literals
         final JexlContext ctxt = new MapContext();
+        //d.yyyy = 1969; d.MM = 7; d.dd = 20
         ctxt.set("moon.landing", new VarDate("1969-07-20"));
 
         script = jexld.createScript("moon.landing[['yyyy', 'MM', 'dd']]");
         result = (List<String>) script.execute(ctxt);
+        // removed other assertion
 
         vars = script.getVariables();
+        // removed other assertion
         List<String> var = vars.iterator().next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         script = jexld.createScript("moon.landing[ { 'yyyy' : 'year', 'MM' : 'month', 'dd' : 'day' } ]");
         final Map<String, String> mapr = (Map<String, String>) script.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("7", mapr.get("month"));
     }
 
@@ -1872,17 +2181,28 @@ public class VarTest_OE25Dev extends JexlTestCase {
         JexlScript script;
         List<String> result;
         Set<List<String>> vars;
+        // in collectAll mode, the collector grabs all syntactic variations of
+        // constant variable references including map/arry/set literals
         final JexlContext ctxt = new MapContext();
+        //d.yyyy = 1969; d.MM = 7; d.dd = 20
         ctxt.set("moon.landing", new VarDate("1969-07-20"));
 
         script = jexld.createScript("moon.landing[['yyyy', 'MM', 'dd']]");
         result = (List<String>) script.execute(ctxt);
+        // removed other assertion
 
         vars = script.getVariables();
+        // removed other assertion
         List<String> var = vars.iterator().next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         script = jexld.createScript("moon.landing[ { 'yyyy' : 'year', 'MM' : 'month', 'dd' : 'day' } ]");
         final Map<String, String> mapr = (Map<String, String>) script.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("20", mapr.get("day"));
     }
 
@@ -1892,17 +2212,29 @@ public class VarTest_OE25Dev extends JexlTestCase {
         JexlScript script;
         List<String> result;
         Set<List<String>> vars;
+        // in collectAll mode, the collector grabs all syntactic variations of
+        // constant variable references including map/arry/set literals
         final JexlContext ctxt = new MapContext();
+        //d.yyyy = 1969; d.MM = 7; d.dd = 20
         ctxt.set("moon.landing", new VarDate("1969-07-20"));
 
         script = jexld.createScript("moon.landing[['yyyy', 'MM', 'dd']]");
         result = (List<String>) script.execute(ctxt);
+        // removed other assertion
 
         vars = script.getVariables();
+        // removed other assertion
         List<String> var = vars.iterator().next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         script = jexld.createScript("moon.landing[ { 'yyyy' : 'year', 'MM' : 'month', 'dd' : 'day' } ]");
         final Map<String, String> mapr = (Map<String, String>) script.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         vars = script.getVariables();
         Assert.assertEquals(1, vars.size());
@@ -1914,19 +2246,32 @@ public class VarTest_OE25Dev extends JexlTestCase {
         JexlScript script;
         List<String> result;
         Set<List<String>> vars;
+        // in collectAll mode, the collector grabs all syntactic variations of
+        // constant variable references including map/arry/set literals
         final JexlContext ctxt = new MapContext();
+        //d.yyyy = 1969; d.MM = 7; d.dd = 20
         ctxt.set("moon.landing", new VarDate("1969-07-20"));
 
         script = jexld.createScript("moon.landing[['yyyy', 'MM', 'dd']]");
         result = (List<String>) script.execute(ctxt);
+        // removed other assertion
 
         vars = script.getVariables();
+        // removed other assertion
         List<String> var = vars.iterator().next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         script = jexld.createScript("moon.landing[ { 'yyyy' : 'year', 'MM' : 'month', 'dd' : 'day' } ]");
         final Map<String, String> mapr = (Map<String, String>) script.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         vars = script.getVariables();
+        // removed other assertion
         var = vars.iterator().next();
         Assert.assertEquals("moon", var.get(0));
     }
@@ -1937,20 +2282,34 @@ public class VarTest_OE25Dev extends JexlTestCase {
         JexlScript script;
         List<String> result;
         Set<List<String>> vars;
+        // in collectAll mode, the collector grabs all syntactic variations of
+        // constant variable references including map/arry/set literals
         final JexlContext ctxt = new MapContext();
+        //d.yyyy = 1969; d.MM = 7; d.dd = 20
         ctxt.set("moon.landing", new VarDate("1969-07-20"));
 
         script = jexld.createScript("moon.landing[['yyyy', 'MM', 'dd']]");
         result = (List<String>) script.execute(ctxt);
+        // removed other assertion
 
         vars = script.getVariables();
+        // removed other assertion
         List<String> var = vars.iterator().next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         script = jexld.createScript("moon.landing[ { 'yyyy' : 'year', 'MM' : 'month', 'dd' : 'day' } ]");
         final Map<String, String> mapr = (Map<String, String>) script.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         vars = script.getVariables();
+        // removed other assertion
         var = vars.iterator().next();
+        // removed other assertion
         Assert.assertEquals("landing", var.get(1));
     }
 
@@ -1960,20 +2319,35 @@ public class VarTest_OE25Dev extends JexlTestCase {
         JexlScript script;
         List<String> result;
         Set<List<String>> vars;
+        // in collectAll mode, the collector grabs all syntactic variations of
+        // constant variable references including map/arry/set literals
         final JexlContext ctxt = new MapContext();
+        //d.yyyy = 1969; d.MM = 7; d.dd = 20
         ctxt.set("moon.landing", new VarDate("1969-07-20"));
 
         script = jexld.createScript("moon.landing[['yyyy', 'MM', 'dd']]");
         result = (List<String>) script.execute(ctxt);
+        // removed other assertion
 
         vars = script.getVariables();
+        // removed other assertion
         List<String> var = vars.iterator().next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         script = jexld.createScript("moon.landing[ { 'yyyy' : 'year', 'MM' : 'month', 'dd' : 'day' } ]");
         final Map<String, String> mapr = (Map<String, String>) script.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         vars = script.getVariables();
+        // removed other assertion
         var = vars.iterator().next();
+        // removed other assertion
+        // removed other assertion
         Assert.assertArrayEquals(new String[]{"yyyy", "MM", "dd"}, readIdentifiers(var.get(2)));
     }
 
@@ -1986,12 +2360,15 @@ public class VarTest_OE25Dev extends JexlTestCase {
     @Test
     public void testLiteral_2_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
         Assert.assertTrue(builder.collectAll());
     }
 
     @Test
     public void testLiteral_3_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
+        // removed other assertion
 
         JexlEngine jexld = builder.create();
         JexlScript e = jexld.createScript("x.y[['z', 't']]");
@@ -2002,20 +2379,27 @@ public class VarTest_OE25Dev extends JexlTestCase {
     @Test
     public void testLiteral_4_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
+        // removed other assertion
 
         JexlEngine jexld = builder.create();
         JexlScript e = jexld.createScript("x.y[['z', 't']]");
         Set<List<String>> vars = e.getVariables();
+        // removed other assertion
         Assert.assertTrue(eq(mkref(new String[][]{{"x", "y", "[ 'z', 't' ]"}}), vars));
     }
 
     @Test
     public void testLiteral_5_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
+        // removed other assertion
 
         JexlEngine jexld = builder.create();
         JexlScript e = jexld.createScript("x.y[['z', 't']]");
         Set<List<String>> vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
@@ -2025,26 +2409,37 @@ public class VarTest_OE25Dev extends JexlTestCase {
     @Test
     public void testLiteral_6_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
+        // removed other assertion
 
         JexlEngine jexld = builder.create();
         JexlScript e = jexld.createScript("x.y[['z', 't']]");
         Set<List<String>> vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
         Assert.assertTrue(eq(mkref(new String[][]{{"x", "y", "{ 'z' : 't' }"}}), vars));
     }
 
     @Test
     public void testLiteral_7_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
+        // removed other assertion
 
         JexlEngine jexld = builder.create();
         JexlScript e = jexld.createScript("x.y[['z', 't']]");
         Set<List<String>> vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y.'{ \\'z\\' : \\'t\\' }'");
         vars = e.getVariables();
@@ -2054,33 +2449,49 @@ public class VarTest_OE25Dev extends JexlTestCase {
     @Test
     public void testLiteral_8_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
+        // removed other assertion
 
         JexlEngine jexld = builder.create();
         JexlScript e = jexld.createScript("x.y[['z', 't']]");
         Set<List<String>> vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y.'{ \\'z\\' : \\'t\\' }'");
         vars = e.getVariables();
+        // removed other assertion
         Assert.assertTrue(eq(mkref(new String[][]{{"x", "y", "{ 'z' : 't' }"}}), vars));
     }
 
     @Test
     public void testLiteral_9_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
+        // removed other assertion
 
         JexlEngine jexld = builder.create();
         JexlScript e = jexld.createScript("x.y[['z', 't']]");
         Set<List<String>> vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y.'{ \\'z\\' : \\'t\\' }'");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
+        // only string or number literals
         builder = builder.collectAll(true);
         Assert.assertEquals(1, builder.collectMode());
     }
@@ -2088,36 +2499,57 @@ public class VarTest_OE25Dev extends JexlTestCase {
     @Test
     public void testLiteral_10_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
+        // removed other assertion
 
         JexlEngine jexld = builder.create();
         JexlScript e = jexld.createScript("x.y[['z', 't']]");
         Set<List<String>> vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y.'{ \\'z\\' : \\'t\\' }'");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
+        // only string or number literals
         builder = builder.collectAll(true);
+        // removed other assertion
         Assert.assertTrue(builder.collectAll());
     }
 
     @Test
     public void testLiteral_11_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
+        // removed other assertion
 
         JexlEngine jexld = builder.create();
         JexlScript e = jexld.createScript("x.y[['z', 't']]");
         Set<List<String>> vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y.'{ \\'z\\' : \\'t\\' }'");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
+        // only string or number literals
         builder = builder.collectAll(true);
+        // removed other assertion
+        // removed other assertion
 
         jexld = builder.create();
         e = jexld.createScript("x.y[{'z': 't'}]");
@@ -2128,44 +2560,69 @@ public class VarTest_OE25Dev extends JexlTestCase {
     @Test
     public void testLiteral_12_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
+        // removed other assertion
 
         JexlEngine jexld = builder.create();
         JexlScript e = jexld.createScript("x.y[['z', 't']]");
         Set<List<String>> vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y.'{ \\'z\\' : \\'t\\' }'");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
+        // only string or number literals
         builder = builder.collectAll(true);
+        // removed other assertion
+        // removed other assertion
 
         jexld = builder.create();
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
         Assert.assertTrue(eq(mkref(new String[][]{{"x", "y"}}), vars));
     }
 
     @Test
     public void testLiteral_13_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
+        // removed other assertion
 
         JexlEngine jexld = builder.create();
         JexlScript e = jexld.createScript("x.y[['z', 't']]");
         Set<List<String>> vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y.'{ \\'z\\' : \\'t\\' }'");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
+        // only string or number literals
         builder = builder.collectAll(true);
+        // removed other assertion
+        // removed other assertion
 
         jexld = builder.create();
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[['z', 't']]");
         vars = e.getVariables();
@@ -2175,50 +2632,79 @@ public class VarTest_OE25Dev extends JexlTestCase {
     @Test
     public void testLiteral_14_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
+        // removed other assertion
 
         JexlEngine jexld = builder.create();
         JexlScript e = jexld.createScript("x.y[['z', 't']]");
         Set<List<String>> vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y.'{ \\'z\\' : \\'t\\' }'");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
+        // only string or number literals
         builder = builder.collectAll(true);
+        // removed other assertion
+        // removed other assertion
 
         jexld = builder.create();
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[['z', 't']]");
         vars = e.getVariables();
+        // removed other assertion
         Assert.assertTrue(eq(mkref(new String[][]{{"x", "y"}}), vars));
     }
 
     @Test
     public void testLiteral_15_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
+        // removed other assertion
 
         JexlEngine jexld = builder.create();
         JexlScript e = jexld.createScript("x.y[['z', 't']]");
         Set<List<String>> vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y.'{ \\'z\\' : \\'t\\' }'");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
+        // only string or number literals
         builder = builder.collectAll(true);
+        // removed other assertion
+        // removed other assertion
 
         jexld = builder.create();
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[['z', 't']]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y['z']");
         vars = e.getVariables();
@@ -2228,56 +2714,89 @@ public class VarTest_OE25Dev extends JexlTestCase {
     @Test
     public void testLiteral_16_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
+        // removed other assertion
 
         JexlEngine jexld = builder.create();
         JexlScript e = jexld.createScript("x.y[['z', 't']]");
         Set<List<String>> vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y.'{ \\'z\\' : \\'t\\' }'");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
+        // only string or number literals
         builder = builder.collectAll(true);
+        // removed other assertion
+        // removed other assertion
 
         jexld = builder.create();
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[['z', 't']]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y['z']");
         vars = e.getVariables();
+        // removed other assertion
         Assert.assertTrue(eq(mkref(new String[][]{{"x", "y", "z"}}), vars));
     }
 
     @Test
     public void testLiteral_17_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
+        // removed other assertion
 
         JexlEngine jexld = builder.create();
         JexlScript e = jexld.createScript("x.y[['z', 't']]");
         Set<List<String>> vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y.'{ \\'z\\' : \\'t\\' }'");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
+        // only string or number literals
         builder = builder.collectAll(true);
+        // removed other assertion
+        // removed other assertion
 
         jexld = builder.create();
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[['z', 't']]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y['z']");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[42]");
         vars = e.getVariables();
@@ -2287,31 +2806,49 @@ public class VarTest_OE25Dev extends JexlTestCase {
     @Test
     public void testLiteral_18_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
+        // removed other assertion
+        // removed other assertion
 
         JexlEngine jexld = builder.create();
         JexlScript e = jexld.createScript("x.y[['z', 't']]");
         Set<List<String>> vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y.'{ \\'z\\' : \\'t\\' }'");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
+        // only string or number literals
         builder = builder.collectAll(true);
+        // removed other assertion
+        // removed other assertion
 
         jexld = builder.create();
         e = jexld.createScript("x.y[{'z': 't'}]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[['z', 't']]");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y['z']");
         vars = e.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         e = jexld.createScript("x.y[42]");
         vars = e.getVariables();
+        // removed other assertion
         Assert.assertTrue(eq(mkref(new String[][]{{"x", "y", "42"}}), vars));
     }
 
@@ -2332,13 +2869,21 @@ public class VarTest_OE25Dev extends JexlTestCase {
             Object result;
             script = JEXL.createScript("x = 3");
             result = script.execute(jc);
+            // removed other assertion
+            // removed other assertion
             script = JEXL.createScript("x == 3");
             result = script.execute(jc);
+            // removed other assertion
+            // removed other assertion
 
             script = JEXL.createScript("color = 'blue'");
             result = script.execute(jc);
+            // removed other assertion
+            // removed other assertion
             script = JEXL.createScript("color == 'blue'");
             result = script.execute(jc);
+            // removed other assertion
+            // removed other assertion
         } catch (final JexlException.Method ambiguous) {
             Assert.fail("total() is solvable");
     }

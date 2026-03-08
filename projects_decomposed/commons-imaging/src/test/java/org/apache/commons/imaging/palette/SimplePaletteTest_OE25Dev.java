@@ -38,6 +38,7 @@ public class SimplePaletteTest_OE25Dev{
         final int[] intArray = new int[1];
         final SimplePalette simplePalette = new SimplePalette(intArray);
 
+        // removed other assertion
         assertEquals(1, simplePalette.length() );
     }
 

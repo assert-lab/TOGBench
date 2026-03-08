@@ -341,6 +341,7 @@ class ProvidersCommonParametricTest_OE25Dev {
          RandomSource originalSource = data.getSource();
          Object originalSeed = data.getSeed();
          Object[] originalArgs = data.getArgs();
+        // Cannot test providers that require arguments
         Assumptions.assumeTrue(originalArgs == null);
         @SuppressWarnings("deprecation")
          UniformRandomProvider rng = RandomSource.create(data.getSource());
@@ -369,6 +370,8 @@ class ProvidersCommonParametricTest_OE25Dev {
          UniformRandomProvider generator = originalSource.create(originalSeed, originalArgs);
         @SuppressWarnings("deprecation")
          UniformRandomProvider rng1 = RandomSource.create(originalSource, originalSeed, originalArgs);
+        // removed other assertion
+        // Check the output
          UniformRandomProvider rng2 = originalSource.create(originalSeed, originalArgs);
         for (int i = 0; i < 10; i++) {
             Assertions.assertEquals(rng2.nextLong(), rng1.nextLong());
@@ -381,6 +384,7 @@ class ProvidersCommonParametricTest_OE25Dev {
          RandomSource originalSource = data.getSource();
          Object[] originalArgs = data.getArgs();
         if (originalArgs == null) {
+            // Try passing arguments to a provider that does not require them
             int arg1 = 123;
             double arg2 = 456.0;
             try {
@@ -397,9 +401,12 @@ class ProvidersCommonParametricTest_OE25Dev {
          RandomSource originalSource = data.getSource();
          Object[] originalArgs = data.getArgs();
         if (originalArgs == null) {
+            // Try passing arguments to a provider that does not require them
             int arg1 = 123;
             double arg2 = 456.0;
+            // removed other assertion
         } else {
+            // Try no arguments for a provider that does require them
             try {
     originalSource.create();
     fail("IllegalArgumentException: () -> \"Source requires arguments: \" + originalSource");
@@ -461,6 +468,7 @@ class ProvidersCommonParametricTest_OE25Dev {
         for (Object s : seeds) {
             ++seedCount;
             if (originalSource.isNativeSeed(s)) {
+                // removed other assertion
                 Assertions.assertEquals(s.getClass(),originalSeed.getClass(),"Incorrect identification of native seed type");
     }
     }
@@ -490,6 +498,8 @@ class ProvidersCommonParametricTest_OE25Dev {
         for (Object s : seeds) {
             ++seedCount;
             if (originalSource.isNativeSeed(s)) {
+                // removed other assertion
+                // removed other assertion
             } else {
                 ++nonNativeSeedCount;
             }
@@ -524,6 +534,8 @@ class ProvidersCommonParametricTest_OE25Dev {
         for (Object s : seeds) {
             ++seedCount;
             if (originalSource.isNativeSeed(s)) {
+                // removed other assertion
+                // removed other assertion
             } else {
                 ++nonNativeSeedCount;
             }
@@ -531,6 +543,7 @@ class ProvidersCommonParametricTest_OE25Dev {
             originalSource.create(s, originalArgs);
         }
 
+        // removed other assertion
         Assertions.assertEquals(5, nonNativeSeedCount);
     }
 
@@ -540,11 +553,16 @@ class ProvidersCommonParametricTest_OE25Dev {
          RandomSource originalSource = data.getSource();
          Object originalSeed = data.getSeed();
          Object[] originalArgs = data.getArgs();
+        // Create two generators of the same type as the one being tested.
          UniformRandomProvider rng1 = originalSource.create(originalSeed, originalArgs);
          UniformRandomProvider rng2 = RandomSource.unrestorable(originalSource.create(originalSeed, originalArgs));
 
+        // Ensure that they generate the same values.
+        // removed other assertion
 
+        // Cast must work.
          RestorableUniformRandomProvider restorable = (RestorableUniformRandomProvider) rng1;
+        // Cast must fail.
         try {
      RestorableUniformRandomProvider dummy = (RestorableUniformRandomProvider) rng2;
     fail("ClassCastException");
@@ -559,17 +577,23 @@ class ProvidersCommonParametricTest_OE25Dev {
                ClassNotFoundException {
          UniformRandomProvider generator = data.getSource().create(data.getSeed(), data.getArgs());
 
+        // Large "n" is not necessary here as we only test the serialization.
          int n = 100;
 
+        // Cast is OK: all instances created by this library inherit from "BaseProvider".
          RestorableUniformRandomProvider restorable = (RestorableUniformRandomProvider) generator;
 
+        // Save.
          RandomProviderState stateOrig = restorable.saveState();
+        // Serialize.
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bos);
         oos.writeObject(((RandomProviderDefaultState) stateOrig).getState());
 
+        // Store some values.
          List<Number> listOrig = makeList(n, generator);
 
+        // Discard a few more.
          List<Number> listDiscard = makeList(n, generator);
         Assertions.assertNotEquals(0, listDiscard.size());
     }
@@ -581,18 +605,25 @@ class ProvidersCommonParametricTest_OE25Dev {
                ClassNotFoundException {
          UniformRandomProvider generator = data.getSource().create(data.getSeed(), data.getArgs());
 
+        // Large "n" is not necessary here as we only test the serialization.
          int n = 100;
 
+        // Cast is OK: all instances created by this library inherit from "BaseProvider".
          RestorableUniformRandomProvider restorable = (RestorableUniformRandomProvider) generator;
 
+        // Save.
          RandomProviderState stateOrig = restorable.saveState();
+        // Serialize.
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bos);
         oos.writeObject(((RandomProviderDefaultState) stateOrig).getState());
 
+        // Store some values.
          List<Number> listOrig = makeList(n, generator);
 
+        // Discard a few more.
          List<Number> listDiscard = makeList(n, generator);
+        // removed other assertion
         Assertions.assertNotEquals(listOrig, listDiscard);
     }
 
@@ -603,19 +634,28 @@ class ProvidersCommonParametricTest_OE25Dev {
                ClassNotFoundException {
          UniformRandomProvider generator = data.getSource().create(data.getSeed(), data.getArgs());
 
+        // Large "n" is not necessary here as we only test the serialization.
          int n = 100;
 
+        // Cast is OK: all instances created by this library inherit from "BaseProvider".
          RestorableUniformRandomProvider restorable = (RestorableUniformRandomProvider) generator;
 
+        // Save.
          RandomProviderState stateOrig = restorable.saveState();
+        // Serialize.
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bos);
         oos.writeObject(((RandomProviderDefaultState) stateOrig).getState());
 
+        // Store some values.
          List<Number> listOrig = makeList(n, generator);
 
+        // Discard a few more.
          List<Number> listDiscard = makeList(n, generator);
+        // removed other assertion
+        // removed other assertion
 
+        // Retrieve from serialized stream.
         ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
         ObjectInputStream ois = new ObjectInputStream(bis);
          RandomProviderState stateNew = new RandomProviderDefaultState((byte[]) ois.readObject());
@@ -630,26 +670,38 @@ class ProvidersCommonParametricTest_OE25Dev {
                ClassNotFoundException {
          UniformRandomProvider generator = data.getSource().create(data.getSeed(), data.getArgs());
 
+        // Large "n" is not necessary here as we only test the serialization.
          int n = 100;
 
+        // Cast is OK: all instances created by this library inherit from "BaseProvider".
          RestorableUniformRandomProvider restorable = (RestorableUniformRandomProvider) generator;
 
+        // Save.
          RandomProviderState stateOrig = restorable.saveState();
+        // Serialize.
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bos);
         oos.writeObject(((RandomProviderDefaultState) stateOrig).getState());
 
+        // Store some values.
          List<Number> listOrig = makeList(n, generator);
 
+        // Discard a few more.
          List<Number> listDiscard = makeList(n, generator);
+        // removed other assertion
+        // removed other assertion
 
+        // Retrieve from serialized stream.
         ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
         ObjectInputStream ois = new ObjectInputStream(bis);
          RandomProviderState stateNew = new RandomProviderDefaultState((byte[]) ois.readObject());
 
+        // removed other assertion
 
+        // Reset.
         restorable.restoreState(stateNew);
 
+        // Replay.
          List<Number> listReplay = makeList(n, generator);
         Assertions.assertNotSame(listOrig, listReplay);
     }
@@ -661,28 +713,42 @@ class ProvidersCommonParametricTest_OE25Dev {
                ClassNotFoundException {
          UniformRandomProvider generator = data.getSource().create(data.getSeed(), data.getArgs());
 
+        // Large "n" is not necessary here as we only test the serialization.
          int n = 100;
 
+        // Cast is OK: all instances created by this library inherit from "BaseProvider".
          RestorableUniformRandomProvider restorable = (RestorableUniformRandomProvider) generator;
 
+        // Save.
          RandomProviderState stateOrig = restorable.saveState();
+        // Serialize.
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bos);
         oos.writeObject(((RandomProviderDefaultState) stateOrig).getState());
 
+        // Store some values.
          List<Number> listOrig = makeList(n, generator);
 
+        // Discard a few more.
          List<Number> listDiscard = makeList(n, generator);
+        // removed other assertion
+        // removed other assertion
 
+        // Retrieve from serialized stream.
         ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
         ObjectInputStream ois = new ObjectInputStream(bis);
          RandomProviderState stateNew = new RandomProviderDefaultState((byte[]) ois.readObject());
 
+        // removed other assertion
 
+        // Reset.
         restorable.restoreState(stateNew);
 
+        // Replay.
          List<Number> listReplay = makeList(n, generator);
+        // removed other assertion
 
+        // Check that the serialized data recreated the orginal state.
         Assertions.assertEquals(listOrig, listReplay);
     }
 
@@ -708,6 +774,7 @@ class ProvidersCommonParametricTest_OE25Dev {
          RandomSource originalSource = data.getSource();
          Object[] originalArgs = data.getArgs();
          UniformRandomProvider rng = originalSource.create(null, originalArgs);
+        // removed other assertion
         Assertions.assertEquals(rng instanceof LongJumpableUniformRandomProvider,originalSource.isLongJumpable(),"isLongJumpable");
     }
 

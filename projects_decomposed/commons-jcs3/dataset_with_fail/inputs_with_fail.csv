@@ -1,0 +1,169 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+jcs3_95_1,"    public void testDifferentKey_1_oe()
+        throws Exception
+    {
+        final String before = ""adsfdsafdsafdsafdsafdsafdsafdsagfdsafdsafdsfdsafdsafsa333 31231"";
+        byte[] serialized = serializer.serialize(before);
+        serializer.setPreSharedKey(""another_key"");
+
+        try {
+    serializer.deSerialize(serialized, null);
+    fail(""IOException"");
+} catch (IOException e) {
+}
+    }",EncryptingSerializerUnitTest::testDifferentKey_1_oe,org.apache.commons.jcs3.engine.behavior.IElementSerializer,"deSerialize( byte[] bytes, ClassLoader loader )","/**
+     * Turns a byte array into an object.
+     *
+     * @param bytes data bytes
+     * @param loader class loader to use
+     * @return Object
+     * @throws IOException if de-serialization fails
+     * @throws ClassNotFoundException thrown if we don't know the object.
+     */","<T> T deSerialize( byte[] bytes, ClassLoader loader )
+        throws IOException, ClassNotFoundException;"
+jcs3_225_4,"	  public void testRecycleBin_4_oe()
+		        throws IOException
+		    {
+		        final IndexedDiskCacheAttributes cattr = getCacheAttributes();
+		        cattr.setCacheName( ""testRemoveItems"" );
+		        cattr.setOptimizeAtRemoveCount( 7 );
+		        cattr.setMaxKeySize( 5 );
+		        cattr.setMaxPurgatorySize( 0 );
+		        cattr.setDiskPath( ""target/test-sandbox/BreakIndexTest"" );
+		        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+
+		        final String[] test = { ""a"", ""bb"", ""ccc"", ""dddd"", ""eeeee"", ""ffffff"", ""ggggggg"", ""hhhhhhhhh"", ""iiiiiiiiii"" };
+		        final String[] expect = { null, ""bb"", ""ccc"", null, null, ""ffffff"", null, ""hhhhhhhhh"", ""iiiiiiiiii"" };
+
+
+		        for ( int i = 0; i < 6; i++ )
+		        {
+		            final ICacheElement<String, String> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], test[i] );
+		            disk.processUpdate( element );
+		        }
+
+		        for ( int i = 3; i < 5; i++ )
+		        {
+		            disk.remove( ""key:"" + test[i] );
+		        }
+
+		        for ( int i = 7; i < 9; i++ )
+		        {
+		            final ICacheElement<String, String> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], test[i] );
+		            disk.processUpdate( element );
+		        }
+
+		        try
+		        {
+		            for ( int i = 0; i < 9; i++ )
+		            {
+		                final ICacheElement<String, String> element = disk.get( ""key:"" + test[i] );
+		                if ( element != null )
+		                {
+		                }
+		                else
+		                {
+		                }
+
+		                final String expectedValue = expect[i];
+		                if ( expectedValue == null )
+		                {
+		                }
+		                else
+		                {
+		                }
+		            }
+		        }
+		        catch ( final Exception e )
+		        {
+		            e.printStackTrace();
+		            fail( ""Should not get an exception: "" + e.toString() );
+	  }
+	  }",IndexDiskCacheCountUnitTest::testRecycleBin_4_oe,org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocal,"get( final String cacheName, final K key, final long requesterId )","/**
+     * Does nothing. Gets are synchronous and cannot be added to a queue.
+     * <p>
+     * @param cacheName - region name
+     * @param key - item key
+     * @param requesterId - identifies the caller.
+     * @return null
+     * @throws IOException
+     */","@Override
+    public ICacheElement<K, V> get( final String cacheName, final K key, final long requesterId )
+        throws IOException
+    {
+        // Zombies have no inner life
+        return null;
+    }"
+jcs3_228_4,"	  public void testRecycleBin_4_oe()
+		        throws IOException
+		    {
+		        final IndexedDiskCacheAttributes cattr = getCacheAttributes();
+		        cattr.setCacheName( ""testRemoveItems"" );
+		        cattr.setOptimizeAtRemoveCount( 7 );
+		        cattr.setMaxKeySize( 8); // 1kb DiskTestObject takes 1420 bytes, so 5*1420 = 7100, so to keep 5 ojbects, we need max key size of 8
+		        cattr.setMaxPurgatorySize( 0 );
+		        cattr.setDiskPath( ""target/test-sandbox/BreakIndexTest"" );
+		        final IndexedDiskCache<String, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
+
+		        final String[] test = { ""a"", ""bb"", ""ccc"", ""dddd"", ""eeeee"", ""ffffff"", ""ggggggg"", ""hhhhhhhhh"", ""iiiiiiiiii"" };
+		        final String[] expect = { null, ""bb"", ""ccc"", null, null, ""ffffff"", null, ""hhhhhhhhh"", ""iiiiiiiiii"" };
+		        final DiskTestObject value = DiskTestObjectUtil.createCacheElementsWithTestObjects( 1, 1, cattr .getCacheName())[0].getVal();
+
+		        for ( int i = 0; i < 6; i++ )
+		        {
+		            final ICacheElement<String, DiskTestObject> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], value);
+		            disk.processUpdate( element );
+		        }
+
+		        for ( int i = 3; i < 5; i++ )
+		        {
+		            disk.remove( ""key:"" + test[i] );
+		        }
+
+		        for ( int i = 7; i < 9; i++ )
+		        {
+		            final ICacheElement<String, DiskTestObject> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], value);
+		            disk.processUpdate( element );
+		        }
+
+		        try
+		        {
+		            for ( int i = 0; i < 9; i++ )
+		            {
+		                final ICacheElement<String, DiskTestObject> element = disk.get( ""key:"" + test[i] );
+		                if ( element != null )
+		                {
+		                }
+		                else
+		                {
+		                }
+
+		                final String expectedValue = expect[i];
+		                if ( expectedValue == null )
+		                {
+		                }
+		                else
+		                {
+		                }
+		            }
+		        }
+		        catch ( final Exception e )
+		        {
+		            e.printStackTrace();
+		            fail( ""Should not get an exception: "" + e.toString() );
+	  }
+	  }",IndexDiskCacheSizeUnitTest::testRecycleBin_4_oe,org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocal,"get( final String cacheName, final K key, final long requesterId )","/**
+     * Does nothing. Gets are synchronous and cannot be added to a queue.
+     * <p>
+     * @param cacheName - region name
+     * @param key - item key
+     * @param requesterId - identifies the caller.
+     * @return null
+     * @throws IOException
+     */","@Override
+    public ICacheElement<K, V> get( final String cacheName, final K key, final long requesterId )
+        throws IOException
+    {
+        // Zombies have no inner life
+        return null;
+    }"

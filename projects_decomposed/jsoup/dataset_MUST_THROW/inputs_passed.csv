@@ -1,0 +1,64 @@
+id,test_prefix,test_name,focal_method,docstring
+jsoup_398_101,"@Test
+    public void chompBalancedThrowIllegalArgumentException_oe_101_oe() {
+        try {
+            TokenQueue tq = new TokenQueue(""unbalanced(something(or another)) else"");
+            tq.consumeTo(""("");
+            tq.chompBalanced('(', '+');
+            fail(""should have thrown IllegalArgumentException"");
+        } catch (IllegalArgumentException expected) {
+        }
+    }
+",TokenQueueTest::chompBalancedThrowIllegalArgumentException_oe_101_oe,"public String chompBalanced(char open, char close) {
+        int start = -1;
+        int end = -1;
+        int depth = 0;
+        char last = 0;
+        boolean inSingleQuote = false;
+        boolean inDoubleQuote = false;
+        boolean inRegexQE = false; // regex \Q .. \E escapes from Pattern.quote()
+
+        do {
+            if (isEmpty()) break;
+            char c = consume();
+            if (last != ESC) {
+                if (c == '\'' && c != open && !inDoubleQuote)
+                    inSingleQuote = !inSingleQuote;
+                else if (c == '""' && c != open && !inSingleQuote)
+                    inDoubleQuote = !inDoubleQuote;
+                if (inSingleQuote || inDoubleQuote || inRegexQE){
+                    last = c;
+                    continue;
+                }
+
+                if (c == open) {
+                    depth++;
+                    if (start == -1)
+                        start = pos;
+                }
+                else if (c == close)
+                    depth--;
+            } else if (c == 'Q') {
+                inRegexQE = true;
+            } else if (c == 'E') {
+                inRegexQE = false;
+            }
+
+            if (depth > 0 && last != 0)
+                end = pos; // don't include the outer match pair in the return
+            last = c;
+        } while (depth > 0);
+        final String out = (end >= 0) ? queue.substring(start, end) : """";
+        if (depth > 0) {// ran out of queue before seeing enough )
+            Validate.fail(""Did not find balanced marker at '"" + out + ""'"");
+        }
+        return out;
+    }","/**
+     * Pulls a balanced string off the queue. E.g. if queue is ""(one (two) three) four"", (,) will return ""one (two) three"",
+     * and leave "" four"" on the queue. Unbalanced openers and closers can be quoted (with ' or "") or escaped (with \). Those escapes will be left
+     * in the returned string, which is suitable for regexes (where we need to preserve the escape), but unsuitable for
+     * contains text strings; use unescape for that.
+     * @param open opener
+     * @param close closer
+     * @return data matched from the queue
+     */"

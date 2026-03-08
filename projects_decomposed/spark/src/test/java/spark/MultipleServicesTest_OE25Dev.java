@@ -92,6 +92,7 @@ public class MultipleServicesTest_OE25Dev {
     @Test
     public void testGetHello_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = firstClient.doMethod("GET", "/hello", null);
+        // removed other assertion
         Assert.assertEquals("Hello World!", response.body);
     }
 
@@ -104,6 +105,7 @@ public class MultipleServicesTest_OE25Dev {
     @Test
     public void testGetRedirectedHi_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = secondClient.doMethod("GET", "/hi", null);
+        // removed other assertion
         Assert.assertEquals("Hello World!", response.body);
     }
 
@@ -122,6 +124,7 @@ public class MultipleServicesTest_OE25Dev {
     @Test
     public void testGetUniqueForSecondWithSecond_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = secondClient.doMethod("GET", "/uniqueforsecond", null);
+        // removed other assertion
         Assert.assertEquals("Bompton", response.body);
     }
 
@@ -140,6 +143,7 @@ public class MultipleServicesTest_OE25Dev {
     @Test
     public void testStaticFileCssStyleCssWithSecond_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = secondClient.doMethod("GET", "/css/style.css", null);
+        // removed other assertion
         Assert.assertEquals("Content of css file", response.body);
     }
 
@@ -171,6 +175,7 @@ public class MultipleServicesTest_OE25Dev {
 
         for(RouteMatch routeMatch : second.routes()){
             Assert.assertEquals(routeMatch.getAcceptType(), "*/*");
+            // removed other assertion
             boolean isUriOnList = ("/hello/hi/uniqueforsecond").contains(routeMatch.getMatchUri());
             Assert.assertTrue(isUriOnList);
     }
@@ -188,7 +193,9 @@ public class MultipleServicesTest_OE25Dev {
 
         for(RouteMatch routeMatch : second.routes()){
             Assert.assertEquals(routeMatch.getAcceptType(), "*/*");
+            // removed other assertion
             boolean isUriOnList = ("/hello/hi/uniqueforsecond").contains(routeMatch.getMatchUri());
+            // removed other assertion
             Assert.assertEquals(routeMatch.getRequestURI(), "ALL_ROUTES");
     }
     }
@@ -205,7 +212,10 @@ public class MultipleServicesTest_OE25Dev {
 
         for(RouteMatch routeMatch : second.routes()){
             Assert.assertEquals(routeMatch.getAcceptType(), "*/*");
+            // removed other assertion
             boolean isUriOnList = ("/hello/hi/uniqueforsecond").contains(routeMatch.getMatchUri());
+            // removed other assertion
+            // removed other assertion
             Assert.assertThat(routeMatch.getTarget(), instanceOf(RouteImpl.class));
     }
     }

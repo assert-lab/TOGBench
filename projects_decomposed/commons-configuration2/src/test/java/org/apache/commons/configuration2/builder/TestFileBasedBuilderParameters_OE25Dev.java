@@ -156,6 +156,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         BeanHelper.setProperty(params, "throwExceptionOnMissing", Boolean.TRUE);
         BeanHelper.setProperty(params, "fileName", "test.xml");
+        // removed other assertion
         final Map<String, Object> map = params.getParameters();
         assertEquals("Property not stored", Boolean.TRUE, map.get("throwExceptionOnMissing"));
     }
@@ -181,6 +182,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         params.setThrowExceptionOnMissing(true);
         params.setFileName("test.xml");
         final FileBasedBuilderParametersImpl clone = params.clone();
+        // removed other assertion
         assertEquals("File name not copied", "test.xml", clone.getFileHandler().getFileName());
     }
 
@@ -193,6 +195,8 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         params.setThrowExceptionOnMissing(true);
         params.setFileName("test.xml");
         final FileBasedBuilderParametersImpl clone = params.clone();
+        // removed other assertion
+        // removed other assertion
         assertSame("Content not copied", content, clone.getFileHandler().getContent());
     }
 
@@ -205,6 +209,9 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         params.setThrowExceptionOnMissing(true);
         params.setFileName("test.xml");
         final FileBasedBuilderParametersImpl clone = params.clone();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNotSame("No copy of file handler", params.getFileHandler(), clone.getFileHandler());
     }
 
@@ -239,6 +246,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         map.put("reloadingRefreshDelay", refreshDelay);
 
         final FileBasedBuilderParametersImpl params = FileBasedBuilderParametersImpl.fromMap(map);
+        // removed other assertion
         assertEquals("Wrong file name", fileName, params.getFileHandler().getFileName());
     }
 
@@ -256,6 +264,8 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         map.put("reloadingRefreshDelay", refreshDelay);
 
         final FileBasedBuilderParametersImpl params = FileBasedBuilderParametersImpl.fromMap(map);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong detector factory", factory, params.getReloadingDetectorFactory());
     }
 
@@ -273,6 +283,9 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         map.put("reloadingRefreshDelay", refreshDelay);
 
         final FileBasedBuilderParametersImpl params = FileBasedBuilderParametersImpl.fromMap(map);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong refresh delay", refreshDelay, params.getReloadingRefreshDelay());
     }
 
@@ -285,6 +298,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
     @Test
     public void testFromMapNull_2_oe() {
         final FileBasedBuilderParametersImpl params = FileBasedBuilderParametersImpl.fromMap(null);
+        // removed other assertion
         assertNull("Got a file name", params.getFileHandler().getFileName());
     }
 
@@ -319,6 +333,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl().setReloadingRefreshDelay(1000L);
         params.setThrowExceptionOnMissing(true);
         final Map<String, Object> map = params.getParameters();
+        // removed other assertion
         assertEquals("Wrong exception flag", Boolean.TRUE, params.getParameters().get("throwExceptionOnMissing"));
     }
 
@@ -351,6 +366,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         final FileBasedBuilderParametersImpl params2 = new FileBasedBuilderParametersImpl();
 
         params2.inheritFrom(params.getParameters());
+        // removed other assertion
         assertEquals("File system not set", params.getFileHandler().getFileSystem(), params2.getFileHandler().getFileSystem());
     }
 
@@ -367,6 +383,8 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         final FileBasedBuilderParametersImpl params2 = new FileBasedBuilderParametersImpl();
 
         params2.inheritFrom(params.getParameters());
+        // removed other assertion
+        // removed other assertion
         assertEquals("Location strategy not set", params.getFileHandler().getLocationStrategy(), params2.getFileHandler().getLocationStrategy());
     }
 
@@ -383,6 +401,9 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         final FileBasedBuilderParametersImpl params2 = new FileBasedBuilderParametersImpl();
 
         params2.inheritFrom(params.getParameters());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Detector factory not set", params.getReloadingDetectorFactory(), params2.getReloadingDetectorFactory());
     }
 
@@ -399,6 +420,10 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         final FileBasedBuilderParametersImpl params2 = new FileBasedBuilderParametersImpl();
 
         params2.inheritFrom(params.getParameters());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Refresh delay not set", params.getReloadingRefreshDelay(), params2.getReloadingRefreshDelay());
     }
 
@@ -415,6 +440,11 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         final FileBasedBuilderParametersImpl params2 = new FileBasedBuilderParametersImpl();
 
         params2.inheritFrom(params.getParameters());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("Path was copied", params2.getFileHandler().getPath());
     }
 
@@ -431,6 +461,12 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         final FileBasedBuilderParametersImpl params2 = new FileBasedBuilderParametersImpl();
 
         params2.inheritFrom(params.getParameters());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Base properties not set", Boolean.TRUE, params2.getParameters().get("throwExceptionOnMissing"));
     }
 
@@ -463,6 +499,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
             .setReloadingRefreshDelay(refreshDelay);
 
         params.inheritFrom(new FileBasedBuilderParametersImpl().getParameters());
+        // removed other assertion
         assertEquals("Detector factory overwritten", factory, params.getReloadingDetectorFactory());
     }
 
@@ -475,6 +512,8 @@ public class TestFileBasedBuilderParameters_OE25Dev {
             .setReloadingRefreshDelay(refreshDelay);
 
         params.inheritFrom(new FileBasedBuilderParametersImpl().getParameters());
+        // removed other assertion
+        // removed other assertion
         assertEquals("Refresh delay overwritten", refreshDelay, params.getReloadingRefreshDelay());
     }
 
@@ -487,6 +526,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
     @Test
     public void testInitDefaults_2_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
+        // removed other assertion
         assertNull("Got a refresh delay", params.getReloadingRefreshDelay());
     }
 
@@ -561,6 +601,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         final ReloadingDetectorFactory factory = EasyMock.createMock(ReloadingDetectorFactory.class);
         EasyMock.replay(factory);
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
+        // removed other assertion
         assertSame("Wrong result", params, params.setReloadingDetectorFactory(factory));
     }
 

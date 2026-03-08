@@ -173,48 +173,76 @@ class QuaternionTest_OE25Dev {
 
     @Test
     void testUnitQuaternions_2_oe() {
+        // removed other assertion
         Assertions.assertSame(Quaternion.ONE, Quaternion.ONE.normalize());
     }
 
     @Test
     void testUnitQuaternions_3_oe() {
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1, Quaternion.I.norm());
     }
 
     @Test
     void testUnitQuaternions_4_oe() {
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(Quaternion.I, Quaternion.I.normalize());
     }
 
     @Test
     void testUnitQuaternions_5_oe() {
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1, Quaternion.J.norm());
     }
 
     @Test
     void testUnitQuaternions_6_oe() {
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(Quaternion.J, Quaternion.J.normalize());
     }
 
     @Test
     void testUnitQuaternions_7_oe() {
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1, Quaternion.K.norm());
     }
 
     @Test
     void testUnitQuaternions_8_oe() {
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(Quaternion.K, Quaternion.K.normalize());
     }
 
@@ -237,6 +265,7 @@ class QuaternionTest_OE25Dev {
         final double q3 = 0.0005;
         final Quaternion q = Quaternion.of(q0, q1, q2, q3);
 
+        // removed other assertion
         Assertions.assertEquals(q1, q.getX());
     }
 
@@ -248,6 +277,8 @@ class QuaternionTest_OE25Dev {
         final double q3 = 0.0005;
         final Quaternion q = Quaternion.of(q0, q1, q2, q3);
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(q2, q.getY());
     }
 
@@ -259,6 +290,9 @@ class QuaternionTest_OE25Dev {
         final double q3 = 0.0005;
         final Quaternion q = Quaternion.of(q0, q1, q2, q3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(q3, q.getZ());
     }
 
@@ -287,6 +321,7 @@ class QuaternionTest_OE25Dev {
         final double sP = q.getScalarPart();
         final double[] vP = q.getVectorPart();
 
+        // removed other assertion
         Assertions.assertEquals(q1, vP[0]);
     }
 
@@ -301,6 +336,8 @@ class QuaternionTest_OE25Dev {
         final double sP = q.getScalarPart();
         final double[] vP = q.getVectorPart();
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(q2, vP[1]);
     }
 
@@ -315,6 +352,9 @@ class QuaternionTest_OE25Dev {
         final double sP = q.getScalarPart();
         final double[] vP = q.getVectorPart();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(q3, vP[2]);
     }
 
@@ -343,6 +383,7 @@ class QuaternionTest_OE25Dev {
         final double sP = q.getScalarPart();
         final double[] vP = q.getVectorPart();
 
+        // removed other assertion
         Assertions.assertEquals(q1, vP[0]);
     }
 
@@ -357,6 +398,8 @@ class QuaternionTest_OE25Dev {
         final double sP = q.getScalarPart();
         final double[] vP = q.getVectorPart();
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(q2, vP[1]);
     }
 
@@ -371,6 +414,9 @@ class QuaternionTest_OE25Dev {
         final double sP = q.getScalarPart();
         final double[] vP = q.getVectorPart();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(q3, vP[2]);
     }
 
@@ -406,6 +452,7 @@ class QuaternionTest_OE25Dev {
 
         final Quaternion qConjugate = q.conjugate();
 
+        // removed other assertion
         Assertions.assertEquals(-q1, qConjugate.getX());
     }
 
@@ -419,6 +466,8 @@ class QuaternionTest_OE25Dev {
 
         final Quaternion qConjugate = q.conjugate();
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-q2, qConjugate.getY());
     }
 
@@ -432,12 +481,17 @@ class QuaternionTest_OE25Dev {
 
         final Quaternion qConjugate = q.conjugate();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-q3, qConjugate.getZ());
     }
 
     @Test
     final void testDotProductQuaternionQuaternion_1_oe() {
+        // expected output
         final double expected = -6.;
+        // inputs
         final Quaternion q1 = Quaternion.of(1, 2, 2, 1);
         final Quaternion q2 = Quaternion.of(3, -2, -1, -3);
 
@@ -449,22 +503,27 @@ class QuaternionTest_OE25Dev {
 
     @Test
     final void testDotProductQuaternionQuaternion_2_oe() {
+        // expected output
         final double expected = -6.;
+        // inputs
         final Quaternion q1 = Quaternion.of(1, 2, 2, 1);
         final Quaternion q2 = Quaternion.of(3, -2, -1, -3);
 
         final double actual1 = Quaternion.dot(q1, q2);
         final double actual2 = q1.dot(q2);
 
+        // removed other assertion
         Assertions.assertEquals(expected, actual2, EPS);
     }
 
     @Test
     final void testScalarMultiplyDouble_1_oe() {
+        // expected outputs
         final double w = 1.6;
         final double x = -4.8;
         final double y = 11.20;
         final double z = 2.56;
+        // inputs
         final Quaternion q1 = Quaternion.of(0.5, -1.5, 3.5, 0.8);
         final double a = 3.2;
 
@@ -475,52 +534,66 @@ class QuaternionTest_OE25Dev {
 
     @Test
     final void testScalarMultiplyDouble_2_oe() {
+        // expected outputs
         final double w = 1.6;
         final double x = -4.8;
         final double y = 11.20;
         final double z = 2.56;
+        // inputs
         final Quaternion q1 = Quaternion.of(0.5, -1.5, 3.5, 0.8);
         final double a = 3.2;
 
         final Quaternion q = q1.multiply(a);
 
+        // removed other assertion
         Assertions.assertEquals(x, q.getX(), COMPARISON_EPS);
     }
 
     @Test
     final void testScalarMultiplyDouble_3_oe() {
+        // expected outputs
         final double w = 1.6;
         final double x = -4.8;
         final double y = 11.20;
         final double z = 2.56;
+        // inputs
         final Quaternion q1 = Quaternion.of(0.5, -1.5, 3.5, 0.8);
         final double a = 3.2;
 
         final Quaternion q = q1.multiply(a);
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(y, q.getY(), COMPARISON_EPS);
     }
 
     @Test
     final void testScalarMultiplyDouble_4_oe() {
+        // expected outputs
         final double w = 1.6;
         final double x = -4.8;
         final double y = 11.20;
         final double z = 2.56;
+        // inputs
         final Quaternion q1 = Quaternion.of(0.5, -1.5, 3.5, 0.8);
         final double a = 3.2;
 
         final Quaternion q = q1.multiply(a);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(z, q.getZ(), COMPARISON_EPS);
     }
 
     @Test
     final void testAddQuaternionQuaternion_1_oe() {
+        // expected outputs
         final double w = 4;
         final double x = -1;
         final double y = 2;
         final double z = -4;
+        // inputs
         final Quaternion q1 = Quaternion.of(1., 2., -2., -1.);
         final Quaternion q2 = Quaternion.of(3., -3., 4., -3.);
 
@@ -532,119 +605,163 @@ class QuaternionTest_OE25Dev {
 
     @Test
     final void testAddQuaternionQuaternion_2_oe() {
+        // expected outputs
         final double w = 4;
         final double x = -1;
         final double y = 2;
         final double z = -4;
+        // inputs
         final Quaternion q1 = Quaternion.of(1., 2., -2., -1.);
         final Quaternion q2 = Quaternion.of(3., -3., 4., -3.);
 
         final Quaternion qa = Quaternion.add(q1, q2);
         final Quaternion qb = q1.add(q2);
 
+        // removed other assertion
         Assertions.assertEquals(x, qa.getX(), EPS);
     }
 
     @Test
     final void testAddQuaternionQuaternion_3_oe() {
+        // expected outputs
         final double w = 4;
         final double x = -1;
         final double y = 2;
         final double z = -4;
+        // inputs
         final Quaternion q1 = Quaternion.of(1., 2., -2., -1.);
         final Quaternion q2 = Quaternion.of(3., -3., 4., -3.);
 
         final Quaternion qa = Quaternion.add(q1, q2);
         final Quaternion qb = q1.add(q2);
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(y, qa.getY(), EPS);
     }
 
     @Test
     final void testAddQuaternionQuaternion_4_oe() {
+        // expected outputs
         final double w = 4;
         final double x = -1;
         final double y = 2;
         final double z = -4;
+        // inputs
         final Quaternion q1 = Quaternion.of(1., 2., -2., -1.);
         final Quaternion q2 = Quaternion.of(3., -3., 4., -3.);
 
         final Quaternion qa = Quaternion.add(q1, q2);
         final Quaternion qb = q1.add(q2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(z, qa.getZ(), EPS);
     }
 
     @Test
     final void testAddQuaternionQuaternion_5_oe() {
+        // expected outputs
         final double w = 4;
         final double x = -1;
         final double y = 2;
         final double z = -4;
+        // inputs
         final Quaternion q1 = Quaternion.of(1., 2., -2., -1.);
         final Quaternion q2 = Quaternion.of(3., -3., 4., -3.);
 
         final Quaternion qa = Quaternion.add(q1, q2);
         final Quaternion qb = q1.add(q2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(w, qb.getW(), EPS);
     }
 
     @Test
     final void testAddQuaternionQuaternion_6_oe() {
+        // expected outputs
         final double w = 4;
         final double x = -1;
         final double y = 2;
         final double z = -4;
+        // inputs
         final Quaternion q1 = Quaternion.of(1., 2., -2., -1.);
         final Quaternion q2 = Quaternion.of(3., -3., 4., -3.);
 
         final Quaternion qa = Quaternion.add(q1, q2);
         final Quaternion qb = q1.add(q2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(x, qb.getX(), EPS);
     }
 
     @Test
     final void testAddQuaternionQuaternion_7_oe() {
+        // expected outputs
         final double w = 4;
         final double x = -1;
         final double y = 2;
         final double z = -4;
+        // inputs
         final Quaternion q1 = Quaternion.of(1., 2., -2., -1.);
         final Quaternion q2 = Quaternion.of(3., -3., 4., -3.);
 
         final Quaternion qa = Quaternion.add(q1, q2);
         final Quaternion qb = q1.add(q2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(y, qb.getY(), EPS);
     }
 
     @Test
     final void testAddQuaternionQuaternion_8_oe() {
+        // expected outputs
         final double w = 4;
         final double x = -1;
         final double y = 2;
         final double z = -4;
+        // inputs
         final Quaternion q1 = Quaternion.of(1., 2., -2., -1.);
         final Quaternion q2 = Quaternion.of(3., -3., 4., -3.);
 
         final Quaternion qa = Quaternion.add(q1, q2);
         final Quaternion qb = q1.add(q2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(z, qb.getZ(), EPS);
     }
 
     @Test
     final void testSubtractQuaternionQuaternion_1_oe() {
+        // expected outputs
         final double w = -2.;
         final double x = 5.;
         final double y = -6.;
         final double z = 2.;
+        // inputs
         final Quaternion q1 = Quaternion.of(1., 2., -2., -1.);
         final Quaternion q2 = Quaternion.of(3., -3., 4., -3.);
 
@@ -656,110 +773,152 @@ class QuaternionTest_OE25Dev {
 
     @Test
     final void testSubtractQuaternionQuaternion_2_oe() {
+        // expected outputs
         final double w = -2.;
         final double x = 5.;
         final double y = -6.;
         final double z = 2.;
+        // inputs
         final Quaternion q1 = Quaternion.of(1., 2., -2., -1.);
         final Quaternion q2 = Quaternion.of(3., -3., 4., -3.);
 
         final Quaternion qa = Quaternion.subtract(q1, q2);
         final Quaternion qb = q1.subtract(q2);
 
+        // removed other assertion
         Assertions.assertEquals(x, qa.getX(), EPS);
     }
 
     @Test
     final void testSubtractQuaternionQuaternion_3_oe() {
+        // expected outputs
         final double w = -2.;
         final double x = 5.;
         final double y = -6.;
         final double z = 2.;
+        // inputs
         final Quaternion q1 = Quaternion.of(1., 2., -2., -1.);
         final Quaternion q2 = Quaternion.of(3., -3., 4., -3.);
 
         final Quaternion qa = Quaternion.subtract(q1, q2);
         final Quaternion qb = q1.subtract(q2);
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(y, qa.getY(), EPS);
     }
 
     @Test
     final void testSubtractQuaternionQuaternion_4_oe() {
+        // expected outputs
         final double w = -2.;
         final double x = 5.;
         final double y = -6.;
         final double z = 2.;
+        // inputs
         final Quaternion q1 = Quaternion.of(1., 2., -2., -1.);
         final Quaternion q2 = Quaternion.of(3., -3., 4., -3.);
 
         final Quaternion qa = Quaternion.subtract(q1, q2);
         final Quaternion qb = q1.subtract(q2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(z, qa.getZ(), EPS);
     }
 
     @Test
     final void testSubtractQuaternionQuaternion_5_oe() {
+        // expected outputs
         final double w = -2.;
         final double x = 5.;
         final double y = -6.;
         final double z = 2.;
+        // inputs
         final Quaternion q1 = Quaternion.of(1., 2., -2., -1.);
         final Quaternion q2 = Quaternion.of(3., -3., 4., -3.);
 
         final Quaternion qa = Quaternion.subtract(q1, q2);
         final Quaternion qb = q1.subtract(q2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(w, qb.getW(), EPS);
     }
 
     @Test
     final void testSubtractQuaternionQuaternion_6_oe() {
+        // expected outputs
         final double w = -2.;
         final double x = 5.;
         final double y = -6.;
         final double z = 2.;
+        // inputs
         final Quaternion q1 = Quaternion.of(1., 2., -2., -1.);
         final Quaternion q2 = Quaternion.of(3., -3., 4., -3.);
 
         final Quaternion qa = Quaternion.subtract(q1, q2);
         final Quaternion qb = q1.subtract(q2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(x, qb.getX(), EPS);
     }
 
     @Test
     final void testSubtractQuaternionQuaternion_7_oe() {
+        // expected outputs
         final double w = -2.;
         final double x = 5.;
         final double y = -6.;
         final double z = 2.;
+        // inputs
         final Quaternion q1 = Quaternion.of(1., 2., -2., -1.);
         final Quaternion q2 = Quaternion.of(3., -3., 4., -3.);
 
         final Quaternion qa = Quaternion.subtract(q1, q2);
         final Quaternion qb = q1.subtract(q2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(y, qb.getY(), EPS);
     }
 
     @Test
     final void testSubtractQuaternionQuaternion_8_oe() {
+        // expected outputs
         final double w = -2.;
         final double x = 5.;
         final double y = -6.;
         final double z = 2.;
+        // inputs
         final Quaternion q1 = Quaternion.of(1., 2., -2., -1.);
         final Quaternion q2 = Quaternion.of(3., -3., 4., -3.);
 
         final Quaternion qa = Quaternion.subtract(q1, q2);
         final Quaternion qb = q1.subtract(q2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(z, qb.getZ(), EPS);
     }
 
@@ -788,6 +947,7 @@ class QuaternionTest_OE25Dev {
 
         final double norm = q.norm();
 
+        // removed other assertion
 
         final double normSquareRef = Quaternion.multiply(q, q.conjugate()).getScalarPart();
         Assertions.assertEquals(Math.sqrt(normSquareRef), norm);
@@ -810,6 +970,7 @@ class QuaternionTest_OE25Dev {
 
         final Quaternion versor = q.normalize();
 
+        // removed other assertion
         Assertions.assertEquals(1.0 / 5.0, versor.getX());
     }
 
@@ -820,6 +981,8 @@ class QuaternionTest_OE25Dev {
 
         final Quaternion versor = q.normalize();
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-4.0 / 5.0, versor.getY());
     }
 
@@ -830,6 +993,9 @@ class QuaternionTest_OE25Dev {
 
         final Quaternion versor = q.normalize();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-2.0 / 5.0, versor.getZ());
     }
 
@@ -840,6 +1006,10 @@ class QuaternionTest_OE25Dev {
 
         final Quaternion versor = q.normalize();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1, versor.norm());
     }
@@ -851,7 +1021,12 @@ class QuaternionTest_OE25Dev {
 
         final Quaternion versor = q.normalize();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertSame(versor.normalize(), versor);
     }
@@ -907,6 +1082,7 @@ class QuaternionTest_OE25Dev {
     final void testObjectEquals_2_oe() {
         final double one = 1;
         final Quaternion q1 = Quaternion.of(one, one, one, one);
+        // removed other assertion
 
         final Quaternion q2 = Quaternion.of(one, one, one, one);
         Assertions.assertEquals(q2, q1);
@@ -916,8 +1092,10 @@ class QuaternionTest_OE25Dev {
     final void testObjectEquals_3_oe() {
         final double one = 1;
         final Quaternion q1 = Quaternion.of(one, one, one, one);
+        // removed other assertion
 
         final Quaternion q2 = Quaternion.of(one, one, one, one);
+        // removed other assertion
 
         final Quaternion q3 = Quaternion.of(one, Math.nextUp(one), one, one);
         Assertions.assertNotEquals(q3, q1);
@@ -927,10 +1105,13 @@ class QuaternionTest_OE25Dev {
     final void testObjectEquals_4_oe() {
         final double one = 1;
         final Quaternion q1 = Quaternion.of(one, one, one, one);
+        // removed other assertion
 
         final Quaternion q2 = Quaternion.of(one, one, one, one);
+        // removed other assertion
 
         final Quaternion q3 = Quaternion.of(one, Math.nextUp(one), one, one);
+        // removed other assertion
 
         Assertions.assertNotEquals(q3, "bar");
     }
@@ -946,6 +1127,7 @@ class QuaternionTest_OE25Dev {
     void testHashCode_2_oe() {
         Quaternion x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         Quaternion y = Quaternion.of(0.0, 0.0 + Double.MIN_VALUE, 0.0, 0.0);
+        // removed other assertion
         y = Quaternion.of(0.0 + Double.MIN_VALUE, 0.0, 0.0, 0.0);
         Assertions.assertNotEquals(x.hashCode(), y.hashCode());
     }
@@ -954,8 +1136,12 @@ class QuaternionTest_OE25Dev {
     void testHashCode_3_oe() {
         Quaternion x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         Quaternion y = Quaternion.of(0.0, 0.0 + Double.MIN_VALUE, 0.0, 0.0);
+        // removed other assertion
         y = Quaternion.of(0.0 + Double.MIN_VALUE, 0.0, 0.0, 0.0);
+        // removed other assertion
 
+        // "equals" and "hashCode" must be compatible: if two objects have
+        // different hash codes, "equals" must return false.
         final String msg = "'equals' not compatible with 'hashCode'";
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
@@ -967,12 +1153,17 @@ class QuaternionTest_OE25Dev {
     void testHashCode_4_oe() {
         Quaternion x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         Quaternion y = Quaternion.of(0.0, 0.0 + Double.MIN_VALUE, 0.0, 0.0);
+        // removed other assertion
         y = Quaternion.of(0.0 + Double.MIN_VALUE, 0.0, 0.0, 0.0);
+        // removed other assertion
 
+        // "equals" and "hashCode" must be compatible: if two objects have
+        // different hash codes, "equals" must return false.
         final String msg = "'equals' not compatible with 'hashCode'";
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(-0.0, 0.0, 0.0, 0.0);
+        // removed other assertion
         Assertions.assertNotEquals(x, y, msg);
     }
 
@@ -980,12 +1171,18 @@ class QuaternionTest_OE25Dev {
     void testHashCode_5_oe() {
         Quaternion x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         Quaternion y = Quaternion.of(0.0, 0.0 + Double.MIN_VALUE, 0.0, 0.0);
+        // removed other assertion
         y = Quaternion.of(0.0 + Double.MIN_VALUE, 0.0, 0.0, 0.0);
+        // removed other assertion
 
+        // "equals" and "hashCode" must be compatible: if two objects have
+        // different hash codes, "equals" must return false.
         final String msg = "'equals' not compatible with 'hashCode'";
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(-0.0, 0.0, 0.0, 0.0);
+        // removed other assertion
+        // removed other assertion
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(0.0, -0.0, 0.0, 0.0);
@@ -996,15 +1193,22 @@ class QuaternionTest_OE25Dev {
     void testHashCode_6_oe() {
         Quaternion x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         Quaternion y = Quaternion.of(0.0, 0.0 + Double.MIN_VALUE, 0.0, 0.0);
+        // removed other assertion
         y = Quaternion.of(0.0 + Double.MIN_VALUE, 0.0, 0.0, 0.0);
+        // removed other assertion
 
+        // "equals" and "hashCode" must be compatible: if two objects have
+        // different hash codes, "equals" must return false.
         final String msg = "'equals' not compatible with 'hashCode'";
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(-0.0, 0.0, 0.0, 0.0);
+        // removed other assertion
+        // removed other assertion
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(0.0, -0.0, 0.0, 0.0);
+        // removed other assertion
         Assertions.assertNotEquals(x, y, msg);
     }
 
@@ -1012,15 +1216,23 @@ class QuaternionTest_OE25Dev {
     void testHashCode_7_oe() {
         Quaternion x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         Quaternion y = Quaternion.of(0.0, 0.0 + Double.MIN_VALUE, 0.0, 0.0);
+        // removed other assertion
         y = Quaternion.of(0.0 + Double.MIN_VALUE, 0.0, 0.0, 0.0);
+        // removed other assertion
 
+        // "equals" and "hashCode" must be compatible: if two objects have
+        // different hash codes, "equals" must return false.
         final String msg = "'equals' not compatible with 'hashCode'";
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(-0.0, 0.0, 0.0, 0.0);
+        // removed other assertion
+        // removed other assertion
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(0.0, -0.0, 0.0, 0.0);
+        // removed other assertion
+        // removed other assertion
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(0.0, 0.0, -0.0, 0.0);
@@ -1031,18 +1243,27 @@ class QuaternionTest_OE25Dev {
     void testHashCode_8_oe() {
         Quaternion x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         Quaternion y = Quaternion.of(0.0, 0.0 + Double.MIN_VALUE, 0.0, 0.0);
+        // removed other assertion
         y = Quaternion.of(0.0 + Double.MIN_VALUE, 0.0, 0.0, 0.0);
+        // removed other assertion
 
+        // "equals" and "hashCode" must be compatible: if two objects have
+        // different hash codes, "equals" must return false.
         final String msg = "'equals' not compatible with 'hashCode'";
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(-0.0, 0.0, 0.0, 0.0);
+        // removed other assertion
+        // removed other assertion
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(0.0, -0.0, 0.0, 0.0);
+        // removed other assertion
+        // removed other assertion
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(0.0, 0.0, -0.0, 0.0);
+        // removed other assertion
         Assertions.assertNotEquals(x, y, msg);
     }
 
@@ -1050,18 +1271,28 @@ class QuaternionTest_OE25Dev {
     void testHashCode_9_oe() {
         Quaternion x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         Quaternion y = Quaternion.of(0.0, 0.0 + Double.MIN_VALUE, 0.0, 0.0);
+        // removed other assertion
         y = Quaternion.of(0.0 + Double.MIN_VALUE, 0.0, 0.0, 0.0);
+        // removed other assertion
 
+        // "equals" and "hashCode" must be compatible: if two objects have
+        // different hash codes, "equals" must return false.
         final String msg = "'equals' not compatible with 'hashCode'";
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(-0.0, 0.0, 0.0, 0.0);
+        // removed other assertion
+        // removed other assertion
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(0.0, -0.0, 0.0, 0.0);
+        // removed other assertion
+        // removed other assertion
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(0.0, 0.0, -0.0, 0.0);
+        // removed other assertion
+        // removed other assertion
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(0.0, 0.0, 0.0, -0.0);
@@ -1072,21 +1303,32 @@ class QuaternionTest_OE25Dev {
     void testHashCode_10_oe() {
         Quaternion x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         Quaternion y = Quaternion.of(0.0, 0.0 + Double.MIN_VALUE, 0.0, 0.0);
+        // removed other assertion
         y = Quaternion.of(0.0 + Double.MIN_VALUE, 0.0, 0.0, 0.0);
+        // removed other assertion
 
+        // "equals" and "hashCode" must be compatible: if two objects have
+        // different hash codes, "equals" must return false.
         final String msg = "'equals' not compatible with 'hashCode'";
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(-0.0, 0.0, 0.0, 0.0);
+        // removed other assertion
+        // removed other assertion
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(0.0, -0.0, 0.0, 0.0);
+        // removed other assertion
+        // removed other assertion
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(0.0, 0.0, -0.0, 0.0);
+        // removed other assertion
+        // removed other assertion
 
         x = Quaternion.of(0.0, 0.0, 0.0, 0.0);
         y = Quaternion.of(0.0, 0.0, 0.0, -0.0);
+        // removed other assertion
         Assertions.assertNotEquals(x, y, msg);
     }
 
@@ -1111,6 +1353,7 @@ class QuaternionTest_OE25Dev {
         final Quaternion q4 = Quaternion.of(q1.getW(), q1.getX(), q1.getY() + inc, q1.getZ());
         final Quaternion q5 = Quaternion.of(q1.getW(), q1.getX(), q1.getY(), q1.getZ() + inc);
 
+        // removed other assertion
         Assertions.assertFalse(q1.equals(q3, 0.9 * inc));
     }
 
@@ -1123,6 +1366,8 @@ class QuaternionTest_OE25Dev {
         final Quaternion q4 = Quaternion.of(q1.getW(), q1.getX(), q1.getY() + inc, q1.getZ());
         final Quaternion q5 = Quaternion.of(q1.getW(), q1.getX(), q1.getY(), q1.getZ() + inc);
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(q1.equals(q4, 0.9 * inc));
     }
 
@@ -1135,6 +1380,9 @@ class QuaternionTest_OE25Dev {
         final Quaternion q4 = Quaternion.of(q1.getW(), q1.getX(), q1.getY() + inc, q1.getZ());
         final Quaternion q5 = Quaternion.of(q1.getW(), q1.getX(), q1.getY(), q1.getZ() + inc);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(q1.equals(q5, 0.9 * inc));
     }
 
@@ -1147,6 +1395,10 @@ class QuaternionTest_OE25Dev {
         final Quaternion q4 = Quaternion.of(q1.getW(), q1.getX(), q1.getY() + inc, q1.getZ());
         final Quaternion q5 = Quaternion.of(q1.getW(), q1.getX(), q1.getY(), q1.getZ() + inc);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(q1.equals(q2, 1.1 * inc));
     }
@@ -1160,7 +1412,12 @@ class QuaternionTest_OE25Dev {
         final Quaternion q4 = Quaternion.of(q1.getW(), q1.getX(), q1.getY() + inc, q1.getZ());
         final Quaternion q5 = Quaternion.of(q1.getW(), q1.getX(), q1.getY(), q1.getZ() + inc);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(q1.equals(q3, 1.1 * inc));
     }
 
@@ -1173,7 +1430,13 @@ class QuaternionTest_OE25Dev {
         final Quaternion q4 = Quaternion.of(q1.getW(), q1.getX(), q1.getY() + inc, q1.getZ());
         final Quaternion q5 = Quaternion.of(q1.getW(), q1.getX(), q1.getY(), q1.getZ() + inc);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(q1.equals(q4, 1.1 * inc));
     }
 
@@ -1186,7 +1449,14 @@ class QuaternionTest_OE25Dev {
         final Quaternion q4 = Quaternion.of(q1.getW(), q1.getX(), q1.getY() + inc, q1.getZ());
         final Quaternion q5 = Quaternion.of(q1.getW(), q1.getX(), q1.getY(), q1.getZ() + inc);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(q1.equals(q5, 1.1 * inc));
     }
 
@@ -1205,6 +1475,7 @@ class QuaternionTest_OE25Dev {
         final double gap = 1e-5;
         final Quaternion q2 = Quaternion.of(1 + gap, 4 + gap, 2 + gap, 3 + gap);
 
+        // removed other assertion
         Assertions.assertFalse(q1.equals(q2, gap));
     }
 
@@ -1214,6 +1485,8 @@ class QuaternionTest_OE25Dev {
         final double gap = 1e-5;
         final Quaternion q2 = Quaternion.of(1 + gap, 4 + gap, 2 + gap, 3 + gap);
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(q1.equals(q2, gap / 10));
     }
 
@@ -1235,6 +1508,7 @@ class QuaternionTest_OE25Dev {
         for (int i = 0; i < numberOfTrials; i++) {
             final Quaternion q1 = Quaternion.of(r.nextDouble(), r.nextDouble(), r.nextDouble(), r.nextDouble());
             final Quaternion q2 = q1.normalize();
+            // removed other assertion
         }
 
         final Quaternion q = Quaternion.of(1, 1, 1, 1);
@@ -1250,6 +1524,7 @@ class QuaternionTest_OE25Dev {
     @Test
     final void testIsPure_2_oe() {
         final Quaternion q1 = Quaternion.of(0, 5, 4, 8);
+        // removed other assertion
 
         final Quaternion q2 = Quaternion.of(0 - EPS, 5, 4, 8);
         Assertions.assertTrue(q2.isPure(EPS));
@@ -1258,8 +1533,10 @@ class QuaternionTest_OE25Dev {
     @Test
     final void testIsPure_3_oe() {
         final Quaternion q1 = Quaternion.of(0, 5, 4, 8);
+        // removed other assertion
 
         final Quaternion q2 = Quaternion.of(0 - EPS, 5, 4, 8);
+        // removed other assertion
 
         final Quaternion q3 = Quaternion.of(0 - 1.1 * EPS, 5, 4, 8);
         Assertions.assertFalse(q3.isPure(EPS));
@@ -1268,10 +1545,13 @@ class QuaternionTest_OE25Dev {
     @Test
     final void testIsPure_4_oe() {
         final Quaternion q1 = Quaternion.of(0, 5, 4, 8);
+        // removed other assertion
 
         final Quaternion q2 = Quaternion.of(0 - EPS, 5, 4, 8);
+        // removed other assertion
 
         final Quaternion q3 = Quaternion.of(0 - 1.1 * EPS, 5, 4, 8);
+        // removed other assertion
 
         final Random r = new Random(48);
         final double[] v = {r.nextDouble(), r.nextDouble(), r.nextDouble()};
@@ -1282,14 +1562,18 @@ class QuaternionTest_OE25Dev {
     @Test
     final void testIsPure_5_oe() {
         final Quaternion q1 = Quaternion.of(0, 5, 4, 8);
+        // removed other assertion
 
         final Quaternion q2 = Quaternion.of(0 - EPS, 5, 4, 8);
+        // removed other assertion
 
         final Quaternion q3 = Quaternion.of(0 - 1.1 * EPS, 5, 4, 8);
+        // removed other assertion
 
         final Random r = new Random(48);
         final double[] v = {r.nextDouble(), r.nextDouble(), r.nextDouble()};
         final Quaternion q4 = Quaternion.of(v);
+        // removed other assertion
 
         final Quaternion q5 = Quaternion.of(0, v);
         Assertions.assertTrue(q5.isPure(0));
@@ -1306,6 +1590,7 @@ class QuaternionTest_OE25Dev {
     final void testPositivePolarFormWhenScalarPositive_2_oe() {
         Quaternion q = Quaternion.of(3, -3, -3, 3).positivePolarForm();
         Quaternion expected = Quaternion.of(0.5, -0.5, -0.5, 0.5);
+        // removed other assertion
 
         Assertions.assertSame(q.positivePolarForm(), q);
     }
@@ -1321,6 +1606,7 @@ class QuaternionTest_OE25Dev {
     final void testPositivePolarFormWhenScalarNegative_2_oe() {
         Quaternion q = Quaternion.of(-3, 3, -3, 3).positivePolarForm();
         Quaternion expected = Quaternion.of(0.5, -0.5, 0.5, -0.5);
+        // removed other assertion
 
         Assertions.assertSame(q.positivePolarForm(), q);
     }
@@ -1336,6 +1622,7 @@ class QuaternionTest_OE25Dev {
     final void testPositivePolarFormWhenScalarPositiveAndNormalized_2_oe() {
         Quaternion q = Quaternion.of(123, 45, 67, 89).normalize().positivePolarForm();
 
+        // removed other assertion
         Assertions.assertSame(q.positivePolarForm(), q);
     }
 
@@ -1350,6 +1637,7 @@ class QuaternionTest_OE25Dev {
     final void testPositivePolarFormWhenScalarNegativeAndNormalized_2_oe() {
         Quaternion q = Quaternion.of(123, 45, 67, 89).normalize().negate().positivePolarForm();
 
+        // removed other assertion
         Assertions.assertSame(q.positivePolarForm(), q);
     }
 
@@ -1372,6 +1660,7 @@ class QuaternionTest_OE25Dev {
         final double d = 4;
         final Quaternion q = Quaternion.of(a, b, c, d);
         final Quaternion qNeg = q.negate();
+        // removed other assertion
         Assertions.assertEquals(-b, qNeg.getX());
     }
 
@@ -1383,6 +1672,8 @@ class QuaternionTest_OE25Dev {
         final double d = 4;
         final Quaternion q = Quaternion.of(a, b, c, d);
         final Quaternion qNeg = q.negate();
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-c, qNeg.getY());
     }
 
@@ -1394,6 +1685,9 @@ class QuaternionTest_OE25Dev {
         final double d = 4;
         final Quaternion q = Quaternion.of(a, b, c, d);
         final Quaternion qNeg = q.negate();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-d, qNeg.getZ());
     }
 
@@ -1405,6 +1699,10 @@ class QuaternionTest_OE25Dev {
         final double d = 4;
         final Quaternion q = Quaternion.of(a, b, c, d);
         final Quaternion qNeg = q.negate();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(q.equals(qNeg.negate(), 0d));
     }
@@ -1444,6 +1742,7 @@ class QuaternionTest_OE25Dev {
         final Quaternion q = Quaternion.of(1.5, 4, 2, -2.5);
 
         final Quaternion inverseQ = q.inverse();
+        // removed other assertion
         Assertions.assertEquals(-4.0 / 28.5, inverseQ.getX());
     }
 
@@ -1452,6 +1751,8 @@ class QuaternionTest_OE25Dev {
         final Quaternion q = Quaternion.of(1.5, 4, 2, -2.5);
 
         final Quaternion inverseQ = q.inverse();
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-2.0 / 28.5, inverseQ.getY());
     }
 
@@ -1460,6 +1761,9 @@ class QuaternionTest_OE25Dev {
         final Quaternion q = Quaternion.of(1.5, 4, 2, -2.5);
 
         final Quaternion inverseQ = q.inverse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(2.5 / 28.5, inverseQ.getZ());
     }
 
@@ -1468,6 +1772,10 @@ class QuaternionTest_OE25Dev {
         final Quaternion q = Quaternion.of(1.5, 4, 2, -2.5);
 
         final Quaternion inverseQ = q.inverse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Quaternion product = Quaternion.multiply(inverseQ, q);
         Assertions.assertEquals(1, product.getW(), EPS);
@@ -1478,8 +1786,13 @@ class QuaternionTest_OE25Dev {
         final Quaternion q = Quaternion.of(1.5, 4, 2, -2.5);
 
         final Quaternion inverseQ = q.inverse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Quaternion product = Quaternion.multiply(inverseQ, q);
+        // removed other assertion
         Assertions.assertEquals(0, product.getX(), EPS);
     }
 
@@ -1488,8 +1801,14 @@ class QuaternionTest_OE25Dev {
         final Quaternion q = Quaternion.of(1.5, 4, 2, -2.5);
 
         final Quaternion inverseQ = q.inverse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Quaternion product = Quaternion.multiply(inverseQ, q);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, product.getY(), EPS);
     }
 
@@ -1498,8 +1817,15 @@ class QuaternionTest_OE25Dev {
         final Quaternion q = Quaternion.of(1.5, 4, 2, -2.5);
 
         final Quaternion inverseQ = q.inverse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Quaternion product = Quaternion.multiply(inverseQ, q);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, product.getZ(), EPS);
     }
 
@@ -1588,18 +1914,24 @@ class QuaternionTest_OE25Dev {
     @Test
     final void testParseSpecials_2_oe() {
         Quaternion parsed = Quaternion.parse("[1e-5 Infinity NaN -0xa.cp0]");
+        // removed other assertion
         Assertions.assertTrue(Double.isInfinite(parsed.getX()));
     }
 
     @Test
     final void testParseSpecials_3_oe() {
         Quaternion parsed = Quaternion.parse("[1e-5 Infinity NaN -0xa.cp0]");
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(Double.isNaN(parsed.getY()));
     }
 
     @Test
     final void testParseSpecials_4_oe() {
         Quaternion parsed = Quaternion.parse("[1e-5 Infinity NaN -0xa.cp0]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-0xa.cp0, parsed.getZ(), EPS);
     }
 

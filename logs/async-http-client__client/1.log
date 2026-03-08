@@ -3,9 +3,6 @@
 [INFO] ---------------< org.asynchttpclient:async-http-client >----------------
 [INFO] Building Asynchronous Http Client 2.12.3
 [INFO] --------------------------------[ jar ]---------------------------------
-Downloading from apache.snapshots: https://repository.apache.org/content/repositories/snapshots/net/minidev/json-smart/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/net/minidev/json-smart/maven-metadata.xml
-Progress (1): 1.4 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/net/minidev/json-smart/maven-metadata.xml (1.4 kB at 2.2 kB/s)
 [INFO] 
 [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ async-http-client ---
 [INFO] 
@@ -41,3 +38,15 @@ Progress (1): 1.4 kB                    Downloaded from central: https://repo.
  T E S T S
 -------------------------------------------------------
 Running TestSuite
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.14 sec - in TestSuite
+
+Results :
+
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  24.018 s
+[INFO] Finished at: 2026-03-05T21:41:10-06:00
+[INFO] ------------------------------------------------------------------------

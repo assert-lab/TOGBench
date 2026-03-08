@@ -71,6 +71,23 @@ public abstract class AbstractMapEntryTest_OE25Dev<K, V> {
     }
 
     //-----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testAccessorsAndMutators() {
+        Map.Entry<K, V> entry = makeMapEntry((K) key, (V) value);
+
+        assertTrue(entry.getKey() == key);
+
+        entry.setValue((V) value);
+        assertTrue(entry.getValue() == value);
+
+        // check that null doesn't do anything funny
+        entry = makeMapEntry(null, null);
+        assertTrue(entry.getKey() == null);
+
+        entry.setValue(null);
+        assertTrue(entry.getValue() == null);
+    }
 
     /**
      * Subclasses should override this method to test the
@@ -79,11 +96,64 @@ public abstract class AbstractMapEntryTest_OE25Dev<K, V> {
      *
      */
 
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testSelfReferenceHandling() {
+        // test that #setValue does not permit
+        //  the MapEntry to contain itself (and thus cause infinite recursion
+        //  in #hashCode and #toString)
+
+        final Map.Entry<K, V> entry = makeMapEntry();
+
+        try {
+            entry.setValue((V) entry);
+            fail("Should throw an IllegalArgumentException");
+        } catch (final IllegalArgumentException iae) {
+            // expected to happen...
+
+            // check that the KVP's state has not changed
+            assertTrue(entry.getKey() == null && entry.getValue() == null);
+        }
+    }
+
     /**
      * Subclasses should provide tests for their constructors.
      *
      */
     public abstract void testConstructors();
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testEqualsAndHashCode() {
+        // 1. test with object data
+        Map.Entry<K, V> e1 = makeMapEntry((K) key, (V) value);
+        Map.Entry<K, V> e2 = makeKnownMapEntry((K) key, (V) value);
+
+        assertTrue(e1.equals(e1));
+        assertTrue(e2.equals(e1));
+        assertTrue(e1.equals(e2));
+        assertTrue(e1.hashCode() == e2.hashCode());
+
+        // 2. test with nulls
+        e1 = makeMapEntry();
+        e2 = makeKnownMapEntry();
+
+        assertTrue(e1.equals(e1));
+        assertTrue(e2.equals(e1));
+        assertTrue(e1.equals(e2));
+        assertTrue(e1.hashCode() == e2.hashCode());
+    }
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testToString() {
+        Map.Entry<K, V> entry = makeMapEntry((K) key, (V) value);
+        assertTrue(entry.toString().equals(entry.getKey() + "=" + entry.getValue()));
+
+        // test with nulls
+        entry = makeMapEntry();
+        assertTrue(entry.toString().equals(entry.getKey() + "=" + entry.getValue()));
+    }
 
     @Test
     public void testAccessorsAndMutators_1_oe() {

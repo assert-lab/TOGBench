@@ -93,8 +93,10 @@ class HexTest_OE25Dev {
 
     @Test
     void testHexEncodeAndDecode_1_oe_1_oe() {
+        // Empty bytes
         for (int size = 0; size < 10; size++) {
                          byte[] bytes0 = new byte[size];
+            // Use a StringBuilder to append the chars as this is the method used in the stress command.
                      StringBuilder sb0 = new StringBuilder();
                     sb0.append(Hex.encodeHex(bytes0));
                      byte[] decoded0 = Hex.decodeHex(sb0);
@@ -104,13 +106,17 @@ class HexTest_OE25Dev {
 
     @Test
     void testHexEncodeAndDecode_2_oe_1_oe() {
+        // Empty bytes
         for (int size = 0; size < 10; size++) {
+            // removed other assertion
         }
+        // Random bytes
         for (int size : new int[] {3, 4, 5, 8, 16, 31}) {
              byte[] bytes = new byte[size];
             for (int i = 0; i < 5; i++) {
                 ThreadLocalRandom.current().nextBytes(bytes);
                                  byte[] bytes0 = bytes;
+                // Use a StringBuilder to append the chars as this is the method used in the stress command.
                          StringBuilder sb0 = new StringBuilder();
                         sb0.append(Hex.encodeHex(bytes0));
                          byte[] decoded0 = Hex.decodeHex(sb0);
@@ -121,31 +127,40 @@ class HexTest_OE25Dev {
 
     @Test
     void testHexDecodeAndEncode_1_oe_1_oe() {
+        // Note: char[] must be an even length.
+        // Empty chars.
         for (int size = 0; size < 10; size++) {
              char[] chars = new char[size * 2];
             Arrays.fill(chars, '0');
                          char[] chars0 = chars;
              String text0 = String.valueOf(chars0);
                      byte[] decoded0 = Hex.decodeHex(text0);
+                    // Test the encoding is lower case
                     Assertions.assertArrayEquals(text0.toLowerCase(Locale.US).toCharArray(), Hex.encodeHex(decoded0));
     }
     }
 
     @Test
     void testHexDecodeAndEncode_2_oe_1_oe() {
+        // Note: char[] must be an even length.
+        // Empty chars.
         for (int size = 0; size < 10; size++) {
              char[] chars = new char[size * 2];
             Arrays.fill(chars, '0');
+            // removed other assertion
         }
+        // Random bytes
         for (int size : new int[] {3, 4, 5, 8, 16, 31}) {
              char[] chars = new char[size * 2];
             for (int i = 0; i < 5; i++) {
+                // Encode upper case
                 for (int j = 0; j < chars.length; j++) {
                     chars[j] = DIGITS[ThreadLocalRandom.current().nextInt(16)];
                 }
                                  char[] chars0 = chars;
                  String text0 = String.valueOf(chars0);
                          byte[] decoded0 = Hex.decodeHex(text0);
+                        // Test the encoding is lower case
                         Assertions.assertArrayEquals(text0.toLowerCase(Locale.US).toCharArray(), Hex.encodeHex(decoded0));
     }
     }

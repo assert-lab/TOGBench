@@ -45,6 +45,7 @@ public class PngCrcTest_OE25Dev{
         final PngCrc pngCrc = new PngCrc();
         final byte[] byteArray = new byte[4];
 
+        // removed other assertion
         assertEquals(3736805603L, pngCrc.start_partial_crc(byteArray, 0));
     }
 

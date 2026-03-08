@@ -39,6 +39,7 @@ public class VerifierTestCase_OE25Dev extends TestCase {
         final Verifier verifier = VerifierFactory.getVerifier(classname);
         VerificationResult result = verifier.doPass1();
 
+        // removed other assertion
 
         result = verifier.doPass2();
 

@@ -28,6 +28,7 @@ public class RequestTest_OE25Dev {
         final OAuthRequest getRequest
                 = new OAuthRequest(Verb.GET, "http://example.com?qsparam=value&other+param=value+with+spaces");
 
+        // removed other assertion
         assertEquals(0, postRequest.getQueryStringParams().size());
     }
 
@@ -40,6 +41,8 @@ public class RequestTest_OE25Dev {
         final OAuthRequest getRequest
                 = new OAuthRequest(Verb.GET, "http://example.com?qsparam=value&other+param=value+with+spaces");
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(getRequest.getQueryStringParams().contains(new Parameter("qsparam", "value")));
     }
 

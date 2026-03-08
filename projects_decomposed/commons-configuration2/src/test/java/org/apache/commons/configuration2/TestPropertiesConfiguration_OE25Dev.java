@@ -833,6 +833,7 @@ public class TestPropertiesConfiguration_OE25Dev {
         final File file2 = ConfigurationAssert.getTestFile("threesome.properties");
         final FileHandler handler = new FileHandler(conf);
         handler.load(file2);
+        // removed other assertion
         assertEquals("true", conf.getString("configuration.loaded"));
     }
 
@@ -843,6 +844,7 @@ public class TestPropertiesConfiguration_OE25Dev {
 
     @Test
     public void testChangingListDelimiter_2_oe() throws Exception {
+        // removed other assertion
         final PropertiesConfiguration pc2 = new PropertiesConfiguration();
         pc2.setListDelimiterHandler(new DefaultListDelimiterHandler('^'));
         load(pc2, testProperties);
@@ -851,9 +853,11 @@ public class TestPropertiesConfiguration_OE25Dev {
 
     @Test
     public void testChangingListDelimiter_3_oe() throws Exception {
+        // removed other assertion
         final PropertiesConfiguration pc2 = new PropertiesConfiguration();
         pc2.setListDelimiterHandler(new DefaultListDelimiterHandler('^'));
         load(pc2, testProperties);
+        // removed other assertion
         assertEquals("Wrong list size", 3, pc2.getList("test.other.delimiter").size());
     }
 
@@ -866,6 +870,7 @@ public class TestPropertiesConfiguration_OE25Dev {
     @Test
     public void testClearFooterComment_2_oe() {
         conf.clear();
+        // removed other assertion
         assertNull("Still got a header comment", conf.getHeader());
     }
 
@@ -878,30 +883,45 @@ public class TestPropertiesConfiguration_OE25Dev {
     @Test
     public void testClone_2_oe() throws ConfigurationException {
         final PropertiesConfiguration copy = (PropertiesConfiguration) conf.clone();
+        // removed other assertion
         assertEquals("Wrong number of event listeners for original", 1, conf.getEventListeners(ConfigurationEvent.ANY).size());
     }
 
     @Test
     public void testClone_3_oe() throws ConfigurationException {
         final PropertiesConfiguration copy = (PropertiesConfiguration) conf.clone();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong number of event listeners for clone", 1, copy.getEventListeners(ConfigurationEvent.ANY).size());
     }
 
     @Test
     public void testClone_4_oe() throws ConfigurationException {
         final PropertiesConfiguration copy = (PropertiesConfiguration) conf.clone();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertSame("Wrong event listener for original", conf.getLayout(), conf.getEventListeners(ConfigurationEvent.ANY).iterator().next());
     }
 
     @Test
     public void testClone_5_oe() throws ConfigurationException {
         final PropertiesConfiguration copy = (PropertiesConfiguration) conf.clone();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertSame("Wrong event listener for clone", copy.getLayout(), copy.getEventListeners(ConfigurationEvent.ANY).iterator().next());
     }
 
     @Test
     public void testClone_6_oe() throws ConfigurationException {
         final PropertiesConfiguration copy = (PropertiesConfiguration) conf.clone();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final StringWriter outConf = new StringWriter();
         new FileHandler(conf).save(outConf);
         final StringWriter outCopy = new StringWriter();
@@ -923,6 +943,7 @@ public class TestPropertiesConfiguration_OE25Dev {
 
     @Test
     public void testComment_2_oe() {
+        // removed other assertion
         assertFalse("comment line starting with '!' parsed as a property", conf.containsKey("!comment"));
     }
 
@@ -943,6 +964,7 @@ public class TestPropertiesConfiguration_OE25Dev {
 
     @Test
     public void testDisableListDelimiter_2_oe() throws Exception {
+        // removed other assertion
 
         final PropertiesConfiguration pc2 = new PropertiesConfiguration();
         load(pc2, testProperties);
@@ -965,21 +987,31 @@ public class TestPropertiesConfiguration_OE25Dev {
 
     @Test
     public void testEscapedKeyValueSeparator_2_oe() {
+        // removed other assertion
         assertEquals("Escaped separator ':' not supported in keys", "bar", conf.getProperty("test.separator:in.key"));
     }
 
     @Test
     public void testEscapedKeyValueSeparator_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals("Escaped separator '\\t' not supported in keys", "foo", conf.getProperty("test.separator\tin.key"));
     }
 
     @Test
     public void testEscapedKeyValueSeparator_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Escaped separator '\\f' not supported in keys", "bar", conf.getProperty("test.separator\fin.key"));
     }
 
     @Test
     public void testEscapedKeyValueSeparator_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Escaped separator ' ' not supported in keys", "foo", conf.getProperty("test.separator in.key"));
     }
 
@@ -1000,6 +1032,7 @@ public class TestPropertiesConfiguration_OE25Dev {
         conf.setProperty(PROP_NAME, text);
         final StringWriter out = new StringWriter();
         new FileHandler(conf).save(out);
+        // removed other assertion
         saveTestConfig();
         final PropertiesConfiguration c2 = new PropertiesConfiguration();
         load(c2, testSavePropertiesFile.getAbsolutePath());
@@ -1047,12 +1080,15 @@ public class TestPropertiesConfiguration_OE25Dev {
     @Test
     public void testGetLayout_2_oe() {
         final PropertiesConfigurationLayout layout = conf.getLayout();
+        // removed other assertion
         assertSame("Different object returned", layout, conf.getLayout());
     }
 
     @Test
     public void testGetLayout_3_oe() {
         final PropertiesConfigurationLayout layout = conf.getLayout();
+        // removed other assertion
+        // removed other assertion
         conf.setLayout(null);
         final PropertiesConfigurationLayout layout2 = conf.getLayout();
         assertNotNull("Layout 2 is null", layout2);
@@ -1061,8 +1097,11 @@ public class TestPropertiesConfiguration_OE25Dev {
     @Test
     public void testGetLayout_4_oe() {
         final PropertiesConfigurationLayout layout = conf.getLayout();
+        // removed other assertion
+        // removed other assertion
         conf.setLayout(null);
         final PropertiesConfigurationLayout layout2 = conf.getLayout();
+        // removed other assertion
         assertNotSame("Same object returned", layout, layout2);
     }
 
@@ -1097,6 +1136,7 @@ public class TestPropertiesConfiguration_OE25Dev {
         handler.setBasePath(testBasePath);
         handler.setFileName("include-include-not-found.properties");
         handler.load();
+        // removed other assertion
         assertEquals("valueB", pc.getString("keyB"));
     }
 
@@ -1108,7 +1148,10 @@ public class TestPropertiesConfiguration_OE25Dev {
         handler.setFileName("include-include-cyclical-reference.properties");
         try {
             handler.load();
+            // removed other assertion
         } catch (final ConfigurationException e) {
+            // expected
+            // e.printStackTrace();
         }
         assertNull(pc.getString("keyA"));
     }
@@ -1137,6 +1180,7 @@ public class TestPropertiesConfiguration_OE25Dev {
         final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
         builder.configure(new FileBasedBuilderParametersImpl().setFileName("testFactoryPropertiesInclude.xml"));
         final Configuration config = builder.getConfiguration();
+        // removed other assertion
         assertTrue(config.getBoolean("deepinclude"));
     }
 
@@ -1145,6 +1189,8 @@ public class TestPropertiesConfiguration_OE25Dev {
         final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
         builder.configure(new FileBasedBuilderParametersImpl().setFileName("testFactoryPropertiesInclude.xml"));
         final Configuration config = builder.getConfiguration();
+        // removed other assertion
+        // removed other assertion
         assertFalse(config.containsKey("deeptestinvalid"));
     }
 
@@ -1178,7 +1224,10 @@ public class TestPropertiesConfiguration_OE25Dev {
         handler.setFileName("include-cyclical-root.properties");
         try {
             handler.load();
+            // removed other assertion
         } catch (final ConfigurationException e) {
+            // expected
+            // e.printStackTrace();
         }
         assertNull(pc.getString("keyA"));
     }
@@ -1202,7 +1251,10 @@ public class TestPropertiesConfiguration_OE25Dev {
         handler.setFileName("include-cyclical-reference.properties");
         try {
             handler.load();
+            // removed other assertion
         } catch (final ConfigurationException e) {
+            // expected
+            // e.printStackTrace();
         }
         assertNull(pc.getString("keyA"));
     }
@@ -1221,6 +1273,7 @@ public class TestPropertiesConfiguration_OE25Dev {
     @Test
     public void testInMemoryCreatedSave_1_oe() throws Exception {
         conf = new PropertiesConfiguration();
+        // add an array of strings to the configuration
         conf.addProperty("string", "value1");
         final List<Object> list = new ArrayList<>();
         for (int i = 1; i < 5; i++) {
@@ -1228,6 +1281,7 @@ public class TestPropertiesConfiguration_OE25Dev {
         }
         conf.addProperty("array", list);
 
+        // save the configuration
         saveTestConfig();
         assertTrue("The saved file doesn't exist", testSavePropertiesFile.exists());
     }
@@ -1239,21 +1293,31 @@ public class TestPropertiesConfiguration_OE25Dev {
 
     @Test
     public void testIsCommentLine_2_oe() {
+        // removed other assertion
         assertTrue("Alternative comment not detected", PropertiesConfiguration.isCommentLine("! a comment"));
     }
 
     @Test
     public void testIsCommentLine_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertTrue("Comment with no space not detected", PropertiesConfiguration.isCommentLine("#a comment"));
     }
 
     @Test
     public void testIsCommentLine_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Comment with leading space not detected", PropertiesConfiguration.isCommentLine("    ! a comment"));
     }
 
     @Test
     public void testIsCommentLine_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Wrong comment", PropertiesConfiguration.isCommentLine("   a#comment"));
     }
 
@@ -1264,21 +1328,31 @@ public class TestPropertiesConfiguration_OE25Dev {
 
     @Test
     public void testKeyValueSeparators_2_oe() {
+        // removed other assertion
         assertEquals("colon separator not properly parsed", "foo", conf.getProperty("test.separator.colon"));
     }
 
     @Test
     public void testKeyValueSeparators_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals("tab separator not properly parsed", "foo", conf.getProperty("test.separator.tab"));
     }
 
     @Test
     public void testKeyValueSeparators_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("formfeed separator not properly parsed", "foo", conf.getProperty("test.separator.formfeed"));
     }
 
     @Test
     public void testKeyValueSeparators_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("whitespace separator not properly parsed", "foo", conf.getProperty("test.separator.whitespace"));
     }
 
@@ -1305,12 +1379,14 @@ public class TestPropertiesConfiguration_OE25Dev {
         final StringWriter out = new StringWriter();
         new FileHandler(conf).save(out);
         final String content = out.toString();
+        // removed other assertion
         assertTrue("Property could not be found", content.indexOf("prop = value" + EOL) > 0);
     }
 
     @Test
     public void testList_1_oe() throws Exception {
         final List<Object> packages = conf.getList("packages");
+        // we should get 3 packages here
         assertEquals(3, packages.size());
     }
 
@@ -1427,6 +1503,7 @@ public class TestPropertiesConfiguration_OE25Dev {
     public void testMixedArray_2_oe() {
         final String[] array = conf.getStringArray("test.mixed.array");
 
+        // removed other assertion
         assertEquals("1st element", "a", array[0]);
     }
 
@@ -1434,6 +1511,8 @@ public class TestPropertiesConfiguration_OE25Dev {
     public void testMixedArray_3_oe() {
         final String[] array = conf.getStringArray("test.mixed.array");
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("2nd element", "b", array[1]);
     }
 
@@ -1441,6 +1520,9 @@ public class TestPropertiesConfiguration_OE25Dev {
     public void testMixedArray_4_oe() {
         final String[] array = conf.getStringArray("test.mixed.array");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("3rd element", "c", array[2]);
     }
 
@@ -1448,6 +1530,10 @@ public class TestPropertiesConfiguration_OE25Dev {
     public void testMixedArray_5_oe() {
         final String[] array = conf.getStringArray("test.mixed.array");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("4th element", "d", array[3]);
     }
 
@@ -1472,6 +1558,7 @@ public class TestPropertiesConfiguration_OE25Dev {
         conf = new PropertiesConfiguration();
         final FileHandler handler = new FileHandler(conf);
         handler.load(ConfigurationAssert.getTestFile("config/testMultiInclude.properties"));
+        // removed other assertion
         assertEquals("Wrong included property (1)", 100, conf.getInt("property.c"));
     }
 
@@ -1480,6 +1567,8 @@ public class TestPropertiesConfiguration_OE25Dev {
         conf = new PropertiesConfiguration();
         final FileHandler handler = new FileHandler(conf);
         handler.load(ConfigurationAssert.getTestFile("config/testMultiInclude.properties"));
+        // removed other assertion
+        // removed other assertion
         assertTrue("Wrong included property (2)", conf.getBoolean("include.loaded"));
     }
 
@@ -1492,18 +1581,24 @@ public class TestPropertiesConfiguration_OE25Dev {
     @Test
     public void testNewLineEscaping_2_oe() {
         final List<Object> list = conf.getList("test.path");
+        // removed other assertion
         assertEquals("C:\\path1\\", list.get(0));
     }
 
     @Test
     public void testNewLineEscaping_3_oe() {
         final List<Object> list = conf.getList("test.path");
+        // removed other assertion
+        // removed other assertion
         assertEquals("C:\\path2\\", list.get(1));
     }
 
     @Test
     public void testNewLineEscaping_4_oe() {
         final List<Object> list = conf.getList("test.path");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("C:\\path3\\complex\\test\\", list.get(2));
     }
 
@@ -1520,6 +1615,7 @@ public class TestPropertiesConfiguration_OE25Dev {
         final DummyLayout layout = new DummyLayout();
         conf.setLayout(layout);
         conf.propertyLoaded("layoutLoadedProperty", "yes", null);
+        // removed other assertion
         assertEquals("Property not added", "yes", conf.getString("layoutLoadedProperty"));
     }
 
@@ -1536,6 +1632,7 @@ public class TestPropertiesConfiguration_OE25Dev {
         final DummyLayout layout = new DummyLayout();
         conf.setLayout(layout);
         conf.propertyLoaded(PropertiesConfiguration.getInclude(), "testClasspath.properties,testEqual.properties", new ArrayDeque<>());
+        // removed other assertion
         assertFalse("Property was added", conf.containsKey(PropertiesConfiguration.getInclude()));
     }
 
@@ -1554,6 +1651,7 @@ public class TestPropertiesConfiguration_OE25Dev {
         conf.setLayout(layout);
         conf.setIncludesAllowed(false);
         conf.propertyLoaded(PropertiesConfiguration.getInclude(), "testClassPath.properties,testEqual.properties", null);
+        // removed other assertion
         assertFalse("Property was added", conf.containsKey(PropertiesConfiguration.getInclude()));
     }
 
@@ -1562,6 +1660,7 @@ public class TestPropertiesConfiguration_OE25Dev {
         conf = new PropertiesConfiguration();
         try (Reader in = new FileReader(ConfigurationAssert.getTestFile("test.properties"))) {
             conf.read(in);
+            // removed other assertion
         } catch (final ConfigurationException e) {
             assertThat(e.getMessage(), containsString("FileHandler"));
     }
@@ -1574,6 +1673,7 @@ public class TestPropertiesConfiguration_OE25Dev {
 
     @Test
     public void testReadFooterComment_2_oe() {
+        // removed other assertion
         assertEquals("Wrong footer comment from layout", "\nThis is a foot comment\n", conf.getLayout().getCanonicalFooterCooment(false));
     }
 
@@ -1584,6 +1684,7 @@ public class TestPropertiesConfiguration_OE25Dev {
 
     @Test
     public void testSave_1_oe() throws Exception {
+        // add an array of strings to the configuration
         conf.addProperty("string", "value1");
         final List<Object> list = new ArrayList<>();
         for (int i = 1; i < 5; i++) {
@@ -1591,6 +1692,7 @@ public class TestPropertiesConfiguration_OE25Dev {
         }
         conf.addProperty("array", list);
 
+        // save the configuration
         saveTestConfig();
         assertTrue("The saved file doesn't exist", testSavePropertiesFile.exists());
     }
@@ -1604,10 +1706,12 @@ public class TestPropertiesConfiguration_OE25Dev {
 
     @Test
     public void testSaveToCustomURL_1_oe() throws Exception {
+        // save the configuration to a custom URL
         final URL url = new URL("foo", "", 0, folder.newFile("testsave-custom-url.properties").getAbsolutePath(), new FileURLStreamHandler());
         final FileHandler handlerSave = new FileHandler(conf);
         handlerSave.save(url);
 
+        // reload the configuration
         final PropertiesConfiguration config2 = new PropertiesConfiguration();
         final FileHandler handlerLoad = new FileHandler(config2);
         handlerLoad.load(url);
@@ -1620,6 +1724,7 @@ public class TestPropertiesConfiguration_OE25Dev {
         final URL url = new URL(null, "http://jakarta.apache.org", handler);
         try {
             new FileHandler(conf).save(url);
+            // removed other assertion
         } catch (final ConfigurationException cex) {
             assertTrue("Wrong root cause: " + cex, cex.getCause() instanceof IOException);
     }
@@ -1640,6 +1745,7 @@ public class TestPropertiesConfiguration_OE25Dev {
         final URL url = new URL(null, "http://jakarta.apache.org", handler);
         new FileHandler(conf).save(url);
         final MockHttpURLConnection con = handler.getMockConnection();
+        // removed other assertion
         assertEquals("Wrong method", "PUT", con.getRequestMethod());
     }
 
@@ -1670,6 +1776,7 @@ public class TestPropertiesConfiguration_OE25Dev {
         handler.setFile(testSavePropertiesFile);
         final DataConfiguration dataConfig = new DataConfiguration(conf);
         dataConfig.setProperty("foo", "bar");
+        // removed other assertion
 
         handler.save();
         final PropertiesConfiguration config2 = new PropertiesConfiguration();
@@ -1680,10 +1787,13 @@ public class TestPropertiesConfiguration_OE25Dev {
     @Test
     public void testSetInclude_1_oe() throws Exception {
         conf.clear();
+        // change the include key
         PropertiesConfiguration.setInclude("import");
 
+        // load the configuration
         load(conf, testProperties);
 
+        // restore the previous value for the other tests
         PropertiesConfiguration.setInclude("include");
 
         assertNull(conf.getString("include.loaded"));

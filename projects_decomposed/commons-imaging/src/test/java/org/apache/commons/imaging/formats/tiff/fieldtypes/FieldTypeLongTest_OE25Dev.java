@@ -32,6 +32,7 @@ public class FieldTypeLongTest_OE25Dev {
 
         try {
             fieldTypeLong.writeData(byteOrder, byteOrder);
+            // removed other assertion
         } catch (final Exception e) {
             assertEquals("Invalid data: BIG_ENDIAN (java.nio.ByteOrder)", e.getMessage());
     }
@@ -44,7 +45,9 @@ public class FieldTypeLongTest_OE25Dev {
 
         try {
             fieldTypeLong.writeData(byteOrder, byteOrder);
+            // removed other assertion
         } catch (final Exception e) {
+            // removed other assertion
             assertEquals(FieldTypeLong.class.getName(), e.getStackTrace()[0].getClassName());
     }
     }

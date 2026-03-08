@@ -46,6 +46,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
 
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
         Assert.assertEquals(1, c.size());
     }
@@ -56,7 +57,9 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
 
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
         final Object[] a = c.toArray();
         Assert.assertEquals(1, a.length);
     }
@@ -67,8 +70,11 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
 
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
         final Object[] a = c.toArray();
+        // removed other assertion
         Assert.assertEquals(1, ((Number) a[0]).intValue());
     }
 
@@ -78,8 +84,12 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
 
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
         final Object[] a = c.toArray();
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse((Boolean) JEXL.createScript("empty x", "x").execute(null, e));
     }
 
@@ -100,6 +110,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
         Assert.assertEquals(32, c.size());
     }
@@ -111,7 +122,9 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
 
         Assert.assertNotSame(o0, o);
     }
@@ -123,8 +136,11 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
 
+        // removed other assertion
         Assert.assertEquals(o0.hashCode(), o.hashCode());
     }
 
@@ -135,8 +151,12 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(o0, o);
     }
 
@@ -147,8 +167,13 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         int i = 0;
         for (final Object v : c) {
@@ -164,12 +189,18 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         int i = 0;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
         Assert.assertEquals(32, i);
     }
@@ -181,13 +212,20 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         int i = 0;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
+        // removed other assertion
 
         Integer[] aa = c.<Integer>toArray(new Integer[32]);
         Assert.assertEquals(32, aa.length);
@@ -200,15 +238,23 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         int i = 0;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
+        // removed other assertion
 
         Integer[] aa = c.<Integer>toArray(new Integer[32]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
             Assert.assertEquals((int) aa[l], l + 1);
     }
@@ -221,16 +267,25 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         int i = 0;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
+        // removed other assertion
 
         Integer[] aa = c.<Integer>toArray(new Integer[32]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Integer>toArray(new Integer[2]);
@@ -244,19 +299,29 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         int i = 0;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
+        // removed other assertion
 
         Integer[] aa = c.<Integer>toArray(new Integer[32]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Integer>toArray(new Integer[2]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
             Assert.assertEquals((int) aa[l], l + 1);
     }
@@ -269,20 +334,31 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         int i = 0;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
+        // removed other assertion
 
         Integer[] aa = c.<Integer>toArray(new Integer[32]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Integer>toArray(new Integer[2]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Integer>toArray(new Integer[34]);
@@ -296,23 +372,35 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         int i = 0;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
+        // removed other assertion
 
         Integer[] aa = c.<Integer>toArray(new Integer[32]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Integer>toArray(new Integer[2]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Integer>toArray(new Integer[34]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
             Assert.assertEquals((int) aa[l], l + 1);
     }
@@ -325,24 +413,37 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         int i = 0;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
+        // removed other assertion
 
         Integer[] aa = c.<Integer>toArray(new Integer[32]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Integer>toArray(new Integer[2]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Integer>toArray(new Integer[34]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         final Object[] oaa = c.toArray();
@@ -356,27 +457,41 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         int i = 0;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
+        // removed other assertion
 
         Integer[] aa = c.<Integer>toArray(new Integer[32]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Integer>toArray(new Integer[2]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Integer>toArray(new Integer[34]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         final Object[] oaa = c.toArray();
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
             Assert.assertEquals(oaa[l], l + 1);
     }
@@ -399,6 +514,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
         Assert.assertEquals(32, c.size());
     }
@@ -410,7 +526,9 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
         Assert.assertFalse((Boolean) JEXL.createScript("empty x", "x").execute(null, e));
     }
 
@@ -421,7 +539,10 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
+        // removed other assertion
 
         Assert.assertNotSame(o0, o);
     }
@@ -433,8 +554,12 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assert.assertEquals(o0.hashCode(), o.hashCode());
     }
 
@@ -445,8 +570,13 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(o0, o);
     }
 
@@ -457,8 +587,14 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         long i = 6789000000L;
         for (final Object v : c) {
@@ -474,12 +610,19 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         long i = 6789000000L;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
         Assert.assertEquals(6789000032L, i);
     }
@@ -491,13 +634,21 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         long i = 6789000000L;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
+        // removed other assertion
 
         Long[] aa = c.<Long>toArray(new Long[32]);
         Assert.assertEquals(32, aa.length);
@@ -510,15 +661,24 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         long i = 6789000000L;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
+        // removed other assertion
 
         Long[] aa = c.<Long>toArray(new Long[32]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
             Assert.assertEquals((long) aa[l], 6789000001L + l);
     }
@@ -531,16 +691,26 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         long i = 6789000000L;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
+        // removed other assertion
 
         Long[] aa = c.<Long>toArray(new Long[32]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Long>toArray(new Long[2]);
@@ -554,19 +724,30 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         long i = 6789000000L;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
+        // removed other assertion
 
         Long[] aa = c.<Long>toArray(new Long[32]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Long>toArray(new Long[2]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
             Assert.assertEquals((long) aa[l], 6789000001L + l);
     }
@@ -579,20 +760,32 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         long i = 6789000000L;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
+        // removed other assertion
 
         Long[] aa = c.<Long>toArray(new Long[32]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Long>toArray(new Long[2]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Long>toArray(new Long[34]);
@@ -606,23 +799,36 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         long i = 6789000000L;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
+        // removed other assertion
 
         Long[] aa = c.<Long>toArray(new Long[32]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Long>toArray(new Long[2]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Long>toArray(new Long[34]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
             Assert.assertEquals((long) aa[l], 6789000001L + l);
     }
@@ -635,24 +841,38 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         long i = 6789000000L;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
+        // removed other assertion
 
         Long[] aa = c.<Long>toArray(new Long[32]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Long>toArray(new Long[2]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Long>toArray(new Long[34]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         final Object[] oaa = c.toArray();
@@ -666,27 +886,42 @@ public class RangeTest_OE25Dev extends JexlTestCase {
 
         final Object o0 = e.evaluate(jc);
         final Object o = e.evaluate(jc);
+        // removed other assertion
         final Collection<?> c = (Collection<?>) o;
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         long i = 6789000000L;
         for (final Object v : c) {
             i += 1;
+            // removed other assertion
         }
+        // removed other assertion
 
         Long[] aa = c.<Long>toArray(new Long[32]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Long>toArray(new Long[2]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         aa = c.<Long>toArray(new Long[34]);
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
+            // removed other assertion
         }
 
         final Object[] oaa = c.toArray();
+        // removed other assertion
         for (int l = 0; l < 32; ++l) {
             Assert.assertEquals(oaa[l], 6789000001L + l);
     }
@@ -716,6 +951,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
 
         Object o = e.execute(jc, 5);
+        // removed other assertion
         o = e.execute(jc, 0);
         Assert.assertEquals(Boolean.FALSE, o);
     }
@@ -726,7 +962,9 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
 
         Object o = e.execute(jc, 5);
+        // removed other assertion
         o = e.execute(jc, 0);
+        // removed other assertion
         o = e.execute(jc, 100);
         Assert.assertEquals(Boolean.FALSE, o);
     }
@@ -755,6 +993,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
 
         Object o = e.execute(jc, 90000000005L);
+        // removed other assertion
         o = e.execute(jc, 0);
         Assert.assertEquals(Boolean.FALSE, o);
     }
@@ -765,7 +1004,9 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
 
         Object o = e.execute(jc, 90000000005L);
+        // removed other assertion
         o = e.execute(jc, 0);
+        // removed other assertion
         o = e.execute(jc, 90000000011L);
         Assert.assertEquals(Boolean.FALSE, o);
     }

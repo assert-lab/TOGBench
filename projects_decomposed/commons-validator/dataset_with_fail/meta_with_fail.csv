@@ -1,0 +1,14 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
+vali_49_1,commons-validator,CustomValidatorResourcesTest,testCustomResources_1_oe,src/test/java/org/apache/commons/validator/CustomValidatorResourcesTest.java,,,,assert,unknown,standard,fail
+vali_53_5,commons-validator,ValidatorTest,testManualObject_5_oe,src/test/java/org/apache/commons/validator/ValidatorTest.java,,,,assert,unknown,standard,fail
+vali_53_10,commons-validator,ValidatorTest,testManualObject_10_oe,src/test/java/org/apache/commons/validator/ValidatorTest.java,,,,assert,unknown,standard,fail
+vali_56_1,commons-validator,ValidatorTest,testManualBoolean_1_oe,src/test/java/org/apache/commons/validator/ValidatorTest.java,,,,assert,unknown,standard,fail
+vali_56_3,commons-validator,ValidatorTest,testManualBoolean_3_oe,src/test/java/org/apache/commons/validator/ValidatorTest.java,,,,assert,unknown,standard,fail
+vali_112_1,commons-validator,AbstractCalendarValidatorTest,testSerialization_1_oe,src/test/java/org/apache/commons/validator/routines/AbstractCalendarValidatorTest.java,,,,assert,unknown,standard,fail
+vali_112_2,commons-validator,AbstractCalendarValidatorTest,testSerialization_2_oe,src/test/java/org/apache/commons/validator/routines/AbstractCalendarValidatorTest.java,,,,assert,unknown,standard,fail
+vali_124_1,commons-validator,AbstractNumberValidatorTest,testSerialization_1_oe,src/test/java/org/apache/commons/validator/routines/AbstractNumberValidatorTest.java,,,,assert,unknown,standard,fail
+vali_124_2,commons-validator,AbstractNumberValidatorTest,testSerialization_2_oe,src/test/java/org/apache/commons/validator/routines/AbstractNumberValidatorTest.java,,,,assert,unknown,standard,fail
+vali_231_2,commons-validator,IBANValidatorTest,testSorted_2_oe,src/test/java/org/apache/commons/validator/routines/IBANValidatorTest.java,,,,assert,unknown,standard,fail
+vali_297_2,commons-validator,AbstractCheckDigitTest,testCalculateValid_2_oe,src/test/java/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigitTest.java,,,,assert,unknown,standard,fail
+vali_301_1,commons-validator,AbstractCheckDigitTest,testSerialization_1_oe,src/test/java/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigitTest.java,,,,assert,unknown,standard,fail
+vali_301_2,commons-validator,AbstractCheckDigitTest,testSerialization_2_oe,src/test/java/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigitTest.java,,,,assert,unknown,standard,fail

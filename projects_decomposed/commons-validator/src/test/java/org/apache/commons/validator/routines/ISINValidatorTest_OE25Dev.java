@@ -84,6 +84,7 @@ public class ISINValidatorTest_OE25Dev extends TestCase {
 
     public void testInvalidTrue_2_oe() {
         for(String f : invalidFormat) {
+            // removed other assertion
         }
         for(String f : invalidFormatTrue) {
             assertFalse(f, VALIDATOR_TRUE.isValid(f));

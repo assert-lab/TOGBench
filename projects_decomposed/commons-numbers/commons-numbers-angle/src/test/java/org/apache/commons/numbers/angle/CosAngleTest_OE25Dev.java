@@ -41,6 +41,7 @@ class CosAngleTest_OE25Dev {
 
         final double[] v1 = {1, 0};
         expected = 1;
+        // removed other assertion
 
         final double[] v2 = {0, 1};
         expected = 0;
@@ -53,9 +54,11 @@ class CosAngleTest_OE25Dev {
 
         final double[] v1 = {1, 0};
         expected = 1;
+        // removed other assertion
 
         final double[] v2 = {0, 1};
         expected = 0;
+        // removed other assertion
 
         final double[] v3 = {7, 7};
         expected = Math.sqrt(2) / 2;
@@ -68,12 +71,15 @@ class CosAngleTest_OE25Dev {
 
         final double[] v1 = {1, 0};
         expected = 1;
+        // removed other assertion
 
         final double[] v2 = {0, 1};
         expected = 0;
+        // removed other assertion
 
         final double[] v3 = {7, 7};
         expected = Math.sqrt(2) / 2;
+        // removed other assertion
         Assertions.assertEquals(expected, CosAngle.value(v3, v2), 1e-15);
     }
 
@@ -83,12 +89,16 @@ class CosAngleTest_OE25Dev {
 
         final double[] v1 = {1, 0};
         expected = 1;
+        // removed other assertion
 
         final double[] v2 = {0, 1};
         expected = 0;
+        // removed other assertion
 
         final double[] v3 = {7, 7};
         expected = Math.sqrt(2) / 2;
+        // removed other assertion
+        // removed other assertion
 
         final double[] v4 = {-5, 0};
         expected = -1;
@@ -101,15 +111,20 @@ class CosAngleTest_OE25Dev {
 
         final double[] v1 = {1, 0};
         expected = 1;
+        // removed other assertion
 
         final double[] v2 = {0, 1};
         expected = 0;
+        // removed other assertion
 
         final double[] v3 = {7, 7};
         expected = Math.sqrt(2) / 2;
+        // removed other assertion
+        // removed other assertion
 
         final double[] v4 = {-5, 0};
         expected = -1;
+        // removed other assertion
 
         final double[] v5 = {-100, 100};
         expected = 0;
@@ -131,6 +146,7 @@ class CosAngleTest_OE25Dev {
 
         final double[] v1 = {1, 1, 0};
         expected = 1;
+        // removed other assertion
 
         final double[] v2 = {1, 1, 1};
         expected = Math.sqrt(2) / Math.sqrt(3);
@@ -158,6 +174,7 @@ class CosAngleTest_OE25Dev {
         final double big = 1e200;
         final double[] v2 = {-big, -big};
         expected = -1;
+        // removed other assertion
 
         final double[] v3 = {big, -big};
         expected = 0;

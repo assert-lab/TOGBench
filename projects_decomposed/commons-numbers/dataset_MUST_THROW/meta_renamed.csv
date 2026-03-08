@@ -1,0 +1,9 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
+commons-numbers_451_101,commons-numbers,QuaternionTest,testInverse_oe_101_oe,commons-numbers-quaternion/src/test/java/org/apache/commons/numbers/quaternion/QuaternionTest.java,,,,multiple,unknown,standard,
+commons-numbers_473_101,commons-numbers,BrentSolverTest,testBadEndpoints_oe_101_oe,commons-numbers-rootfinder/src/test/java/org/apache/commons/numbers/rootfinder/BrentSolverTest.java,,,,multiple,unknown,standard,
+commons-numbers_473_102,commons-numbers,BrentSolverTest,testBadEndpoints_oe_102_oe,commons-numbers-rootfinder/src/test/java/org/apache/commons/numbers/rootfinder/BrentSolverTest.java,,,,multiple,unknown,standard,
+commons-numbers_473_103,commons-numbers,BrentSolverTest,testBadEndpoints_oe_103_oe,commons-numbers-rootfinder/src/test/java/org/apache/commons/numbers/rootfinder/BrentSolverTest.java,,,,multiple,unknown,standard,
+commons-numbers_474_101,commons-numbers,BrentSolverTest,testBadInitialGuess_oe_101_oe,commons-numbers-rootfinder/src/test/java/org/apache/commons/numbers/rootfinder/BrentSolverTest.java,,,,multiple,unknown,standard,
+commons-numbers_573_104,commons-numbers,ArithmeticUtilsTest,testPow_oe_104_oe,commons-numbers-core/src/test/java/org/apache/commons/numbers/core/ArithmeticUtilsTest.java,,,,multiple,unknown,standard,
+commons-numbers_573_105,commons-numbers,ArithmeticUtilsTest,testPow_oe_105_oe,commons-numbers-core/src/test/java/org/apache/commons/numbers/core/ArithmeticUtilsTest.java,,,,multiple,unknown,standard,
+commons-numbers_591_101,commons-numbers,ArithmeticUtilsTest,testRemainderUnsignedLongSpecialCases_oe_101_oe,commons-numbers-core/src/test/java/org/apache/commons/numbers/core/ArithmeticUtilsTest.java,,,,multiple,unknown,standard,

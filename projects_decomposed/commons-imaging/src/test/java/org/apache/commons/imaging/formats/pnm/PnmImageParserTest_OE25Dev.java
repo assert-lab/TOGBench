@@ -59,6 +59,7 @@ public class PnmImageParserTest_OE25Dev {
         final PnmImagingParameters params = new PnmImagingParameters();
         final PnmImageParser underTest = new PnmImageParser();
         final ImageInfo results = underTest.getImageInfo(bytes, params);
+        // removed other assertion
         assertEquals(results.getWidth(), 3);
     }
 
@@ -68,6 +69,8 @@ public class PnmImageParserTest_OE25Dev {
         final PnmImagingParameters params = new PnmImagingParameters();
         final PnmImageParser underTest = new PnmImageParser();
         final ImageInfo results = underTest.getImageInfo(bytes, params);
+        // removed other assertion
+        // removed other assertion
         assertEquals(results.getHeight(), 2);
     }
 
@@ -77,6 +80,9 @@ public class PnmImageParserTest_OE25Dev {
         final PnmImagingParameters params = new PnmImagingParameters();
         final PnmImageParser underTest = new PnmImageParser();
         final ImageInfo results = underTest.getImageInfo(bytes, params);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(results.getNumberOfImages(), 1);
     }
 
@@ -99,6 +105,7 @@ public class PnmImageParserTest_OE25Dev {
         final byte[] dstBytes = Imaging.writeImageToBytes(srcImage, ImageFormats.PNM);
         final BufferedImage dstImage = Imaging.getBufferedImage(dstBytes);
 
+        // removed other assertion
         assertEquals(srcImage.getHeight(), dstImage.getHeight());
     }
 
@@ -110,6 +117,8 @@ public class PnmImageParserTest_OE25Dev {
         final byte[] dstBytes = Imaging.writeImageToBytes(srcImage, ImageFormats.PNM);
         final BufferedImage dstImage = Imaging.getBufferedImage(dstBytes);
 
+        // removed other assertion
+        // removed other assertion
 
         final DataBufferInt srcData = (DataBufferInt) srcImage.getRaster().getDataBuffer();
         final DataBufferInt dstData = (DataBufferInt) dstImage.getRaster().getDataBuffer();

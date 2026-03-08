@@ -1,3 +1,4 @@
+# python3 scripts/collect_methods.py
 #!/usr/bin/env python3
 import csv
 from pathlib import Path
@@ -34,7 +35,13 @@ def enclosing_type_chain(node, src_bytes):
     names = []
     cur = node
     while cur is not None:
-        if cur.type in ("class_declaration", "interface_declaration", "enum_declaration", "annotation_type_declaration", "record_declaration"):
+        if cur.type in (
+            "class_declaration",
+            "interface_declaration",
+            "enum_declaration",
+            "annotation_type_declaration",
+            "record_declaration",
+        ):
             ident = first_named_child(cur, "identifier")
             if ident:
                 names.append(node_text(src_bytes, ident).strip())
@@ -43,29 +50,45 @@ def enclosing_type_chain(node, src_bytes):
     return names
 
 def preceding_javadoc(node, src_bytes):
-    prev = node.prev_named_sibling
-    if prev and prev.type == "block_comment":
-        txt = node_text(src_bytes, prev).strip()
-        if txt.startswith("/**"):
-            return txt
+    """Walk backwards over annotations to find the closest /** */ comment."""
+    sib = node.prev_named_sibling
+    while sib:
+        if sib.type == "block_comment":
+            txt = node_text(src_bytes, sib).strip()
+            if txt.startswith("/**"):
+                return txt
+        elif sib.type not in ("marker_annotation", "annotation"):
+            break
+        sib = sib.prev_named_sibling
     return ""
 
 def method_signature(method_node, src_bytes):
     rt = first_named_child(method_node, "type")
     if rt is None:
         rt = first_named_child(method_node, "void_type")
-    name = first_named_child(method_node, "identifier")
+    name   = first_named_child(method_node, "identifier")
     params = first_named_child(method_node, "formal_parameters")
-    rt_s = node_text(src_bytes, rt).strip() if rt else ""
-    n_s = node_text(src_bytes, name).strip() if name else ""
-    p_s = node_text(src_bytes, params).strip() if params else "()"
-    if rt_s:
-        return f"{rt_s} {n_s}{p_s}".strip()
-    return f"{n_s}{p_s}".strip()
+    rt_s = node_text(src_bytes, rt).strip()     if rt     else ""
+    n_s  = node_text(src_bytes, name).strip()   if name   else ""
+    p_s  = node_text(src_bytes, params).strip() if params else "()"
+    return f"{rt_s} {n_s}{p_s}".strip() if rt_s else f"{n_s}{p_s}".strip()
+
+def method_with_annotations(method_node, src_bytes):
+    """Prepend any sibling annotation nodes so they appear in the definition."""
+    parts = []
+    sib = method_node.prev_named_sibling
+    while sib and sib.type in ("marker_annotation", "annotation"):
+        parts.insert(0, node_text(src_bytes, sib).strip())
+        sib = sib.prev_named_sibling
+    parts.append(node_text(src_bytes, method_node).strip())
+    return "\n".join(parts)
 
 def walk_methods(node, out):
     if node.type == "method_declaration":
-        out.append(node)
+        # Only keep concrete methods (have a block body); skip interface/abstract stubs
+        has_body = any(c.type == "block" for c in node.named_children)
+        if has_body:
+            out.append(node)
     for c in node.named_children:
         walk_methods(c, out)
 
@@ -76,14 +99,17 @@ def process_project(proj: Path, java_lang):
 
     rows = []
     src_roots = list(proj.rglob("src/main/java"))
+
     for src_root in src_roots:
         for f in src_root.rglob("*.java"):
             try:
                 src_bytes = f.read_bytes()
             except Exception:
                 continue
-            tree = parser.parse(src_bytes)
-            pkg = package_name(tree, src_bytes)
+
+            tree      = parser.parse(src_bytes)
+            pkg       = package_name(tree, src_bytes)
+            file_path = str(f)          # absolute path to the .java file
 
             methods = []
             walk_methods(tree.root_node, methods)
@@ -92,21 +118,39 @@ def process_project(proj: Path, java_lang):
                 chain = enclosing_type_chain(m, src_bytes)
                 if not chain:
                     continue
-                cls = ".".join(chain)
-                fq = f"{pkg}.{cls}".strip(".") if pkg else cls
-                sig = method_signature(m, src_bytes)
-                jd = preceding_javadoc(m, src_bytes)
-                mdef = node_text(src_bytes, m).strip()
+
+                # focal_class  = simple dot-joined chain of enclosing type names
+                focal_class = ".".join(chain)
+
+                # fully-qualified classname (package + class chain)
+                fq_class = f"{pkg}.{focal_class}".strip(".") if pkg else focal_class
+
+                sig  = method_signature(m, src_bytes)
+                jd   = preceding_javadoc(m, src_bytes)
+                mdef = method_with_annotations(m, src_bytes)
+
                 rows.append({
-                    "classname": fq,
-                    "method": sig,
-                    "docstring": jd,
-                    "method_definition": mdef
+                    "focal_file_path":   file_path,
+                    "focal_package":     pkg,
+                    "focal_class":       fq_class,
+                    "classname":         fq_class,   # kept for backward compat
+                    "method":            sig,
+                    "docstring":         jd,
+                    "method_definition": mdef,
                 })
 
     out_path = proj / "methods.csv"
+    fieldnames = [
+        "focal_file_path",
+        "focal_package",
+        "focal_class",
+        "classname",
+        "method",
+        "docstring",
+        "method_definition",
+    ]
     with out_path.open("w", encoding="utf-8", newline="") as wf:
-        w = csv.DictWriter(wf, fieldnames=["classname", "method", "docstring", "method_definition"])
+        w = csv.DictWriter(wf, fieldnames=fieldnames)
         w.writeheader()
         for r in rows:
             w.writerow(r)
@@ -124,15 +168,15 @@ def main():
         return
 
     total_projects = 0
-    total_methods = 0
+    total_methods  = 0
 
-    for proj in sorted([p for p in PROJECTS_DIR.iterdir() if p.is_dir()]):
+    for proj in sorted(p for p in PROJECTS_DIR.iterdir() if p.is_dir()):
         n = process_project(proj, java_lang)
-        print(f"{proj.name} methods={n}")
+        print(f"{proj.name}  methods={n}")
         total_projects += 1
-        total_methods += n
+        total_methods  += n
 
-    print(f"projects={total_projects} total_methods={total_methods}")
+    print(f"\nprojects={total_projects}  total_methods={total_methods}")
 
 if __name__ == "__main__":
     main()

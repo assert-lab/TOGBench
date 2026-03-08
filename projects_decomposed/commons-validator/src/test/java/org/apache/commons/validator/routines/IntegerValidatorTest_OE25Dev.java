@@ -110,6 +110,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Integer expected = Integer.valueOf(12345);
+        // removed other assertion
         assertEquals("validate(A) locale ", expected, IntegerValidator.getInstance().validate(localeVal, locale));
     }
 
@@ -122,6 +123,8 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Integer expected = Integer.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(A) pattern", expected, IntegerValidator.getInstance().validate(patternVal, pattern));
     }
 
@@ -134,6 +137,9 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Integer expected = Integer.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(A) both",    expected, IntegerValidator.getInstance().validate(germanPatternVal, pattern, Locale.GERMAN));
     }
 
@@ -146,6 +152,10 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Integer expected = Integer.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue("isValid(A) default", IntegerValidator.getInstance().isValid(defaultVal));
     }
@@ -159,7 +169,12 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Integer expected = Integer.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue("isValid(A) locale ", IntegerValidator.getInstance().isValid(localeVal, locale));
     }
 
@@ -172,7 +187,13 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Integer expected = Integer.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid(A) pattern", IntegerValidator.getInstance().isValid(patternVal, pattern));
     }
 
@@ -185,7 +206,14 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Integer expected = Integer.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid(A) both",    IntegerValidator.getInstance().isValid(germanPatternVal, pattern, Locale.GERMAN));
     }
 
@@ -198,7 +226,15 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Integer expected = Integer.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertNull("validate(B) default", IntegerValidator.getInstance().validate(XXXX));
     }
@@ -212,8 +248,17 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Integer expected = Integer.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertNull("validate(B) locale ", IntegerValidator.getInstance().validate(XXXX, locale));
     }
 
@@ -226,8 +271,18 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Integer expected = Integer.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertNull("validate(B) pattern", IntegerValidator.getInstance().validate(XXXX, pattern));
     }
 
@@ -240,8 +295,19 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Integer expected = Integer.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("validate(B) both",    IntegerValidator.getInstance().validate(patternVal, pattern, Locale.GERMAN));
     }
 
@@ -254,8 +320,20 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Integer expected = Integer.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("isValid(B) default", IntegerValidator.getInstance().isValid(XXXX));
     }
@@ -269,9 +347,22 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Integer expected = Integer.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("isValid(B) locale ", IntegerValidator.getInstance().isValid(XXXX, locale));
     }
 
@@ -284,9 +375,23 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Integer expected = Integer.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid(B) pattern", IntegerValidator.getInstance().isValid(XXXX, pattern));
     }
 
@@ -299,9 +404,24 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Integer expected = Integer.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid(B) both",    IntegerValidator.getInstance().isValid(patternVal, pattern, Locale.GERMAN));
     }
 
@@ -314,6 +434,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Integer number20 = validator.validate("20", "#");
         Integer number21 = validator.validate("21", "#");
 
+        // Test isInRange()
         assertFalse("isInRange() < min",   validator.isInRange(number9,  10, 20));
     }
 
@@ -326,6 +447,8 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Integer number20 = validator.validate("20", "#");
         Integer number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
         assertTrue("isInRange() = min",    validator.isInRange(number10, 10, 20));
     }
 
@@ -338,6 +461,9 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Integer number20 = validator.validate("20", "#");
         Integer number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
         assertTrue("isInRange() in range", validator.isInRange(number11, 10, 20));
     }
 
@@ -350,6 +476,10 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Integer number20 = validator.validate("20", "#");
         Integer number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isInRange() = max",    validator.isInRange(number20, 10, 20));
     }
 
@@ -362,6 +492,11 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Integer number20 = validator.validate("20", "#");
         Integer number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isInRange() > max",   validator.isInRange(number21, 10, 20));
     }
 
@@ -374,7 +509,14 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Integer number20 = validator.validate("20", "#");
         Integer number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
         assertFalse("minValue() < min",    validator.minValue(number9,  10));
     }
 
@@ -387,7 +529,15 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Integer number20 = validator.validate("20", "#");
         Integer number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
         assertTrue("minValue() = min",     validator.minValue(number10, 10));
     }
 
@@ -400,7 +550,16 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Integer number20 = validator.validate("20", "#");
         Integer number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
         assertTrue("minValue() > min",     validator.minValue(number11, 10));
     }
 
@@ -413,8 +572,19 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Integer number20 = validator.validate("20", "#");
         Integer number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
         assertTrue("maxValue() < max",     validator.maxValue(number19, 20));
     }
 
@@ -427,8 +597,20 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Integer number20 = validator.validate("20", "#");
         Integer number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
         assertTrue("maxValue() = max",     validator.maxValue(number20, 20));
     }
 
@@ -441,8 +623,21 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Integer number20 = validator.validate("20", "#");
         Integer number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
         assertFalse("maxValue() > max",    validator.maxValue(number21, 20));
     }
 
@@ -451,14 +646,20 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
     }
 
     public void testMinMaxValues_2_oe() {
+        // removed other assertion
         assertFalse("2147483648 > max integer", validator.isValid("2147483648"));
     }
 
     public void testMinMaxValues_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertTrue("-2147483648 is min integer", validator.isValid("-2147483648"));
     }
 
     public void testMinMaxValues_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("-2147483649 < min integer", validator.isValid("-2147483649"));
     }
 

@@ -216,6 +216,7 @@ public class TestXMLDocumentHelper_OE25Dev {
     public void testCopyDocument_2_oe() throws Exception {
         final XMLDocumentHelper helper = XMLDocumentHelper.forSourceDocument(loadDocument());
         final XMLDocumentHelper copy = helper.createCopy();
+        // removed other assertion
         final String doc1 = documentToString(helper);
         final String doc2 = documentToString(copy);
         assertEquals("Different document contents", doc1, doc2);
@@ -230,6 +231,7 @@ public class TestXMLDocumentHelper_OE25Dev {
 
         try {
             XMLDocumentHelper.createDocumentBuilder(factory);
+            // removed other assertion
         } catch (final ConfigurationException cex) {
             assertEquals("Wrong cause", pcex, cex.getCause());
     }
@@ -248,6 +250,7 @@ public class TestXMLDocumentHelper_OE25Dev {
         EasyMock.replay(factory);
         try {
             XMLDocumentHelper.createTransformer(factory);
+            // removed other assertion
         } catch (final ConfigurationException cex) {
             assertEquals("Wrong cause", cause, cex.getCause());
     }
@@ -279,6 +282,7 @@ public class TestXMLDocumentHelper_OE25Dev {
         final XMLDocumentHelper helper = XMLDocumentHelper.forNewDocument(ELEMENT);
         final Document doc = helper.getDocument();
         final Element rootElement = doc.getDocumentElement();
+        // removed other assertion
         final NodeList childNodes = rootElement.getChildNodes();
         assertEquals("Got child nodes", 0, childNodes.getLength());
     }
@@ -288,7 +292,9 @@ public class TestXMLDocumentHelper_OE25Dev {
         final XMLDocumentHelper helper = XMLDocumentHelper.forNewDocument(ELEMENT);
         final Document doc = helper.getDocument();
         final Element rootElement = doc.getDocumentElement();
+        // removed other assertion
         final NodeList childNodes = rootElement.getChildNodes();
+        // removed other assertion
         assertNull("Got a public ID", helper.getSourcePublicID());
     }
 
@@ -297,7 +303,10 @@ public class TestXMLDocumentHelper_OE25Dev {
         final XMLDocumentHelper helper = XMLDocumentHelper.forNewDocument(ELEMENT);
         final Document doc = helper.getDocument();
         final Element rootElement = doc.getDocumentElement();
+        // removed other assertion
         final NodeList childNodes = rootElement.getChildNodes();
+        // removed other assertion
+        // removed other assertion
         assertNull("Got a system ID", helper.getSourceSystemID());
     }
 
@@ -312,6 +321,7 @@ public class TestXMLDocumentHelper_OE25Dev {
     public void testInitForSourceDocument_2_oe() throws Exception {
         final Document doc = loadDocument();
         final XMLDocumentHelper helper = XMLDocumentHelper.forSourceDocument(doc);
+        // removed other assertion
         assertEquals("Wrong document content", documentToString(doc), documentToString(helper));
     }
 
@@ -327,6 +337,7 @@ public class TestXMLDocumentHelper_OE25Dev {
 
         try {
             XMLDocumentHelper.transform(transformer, src, res);
+            // removed other assertion
         } catch (final ConfigurationException cex) {
             assertEquals("Wrong cause", tex, cex.getCause());
     }

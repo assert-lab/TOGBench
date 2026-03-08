@@ -174,6 +174,7 @@ public class DefaultFileContentTest_OE25Dev {
         final FileSystemManager fsManager = VFS.getManager();
         try (final FileObject fo = fsManager.resolveFile(new File("."), "src/test/resources/test-data/size-0-file.bin");
                 final FileContent content = fo.getContent()) {
+            // removed other assertion
             Assert.assertTrue(content.isEmpty());
     }
     }
@@ -183,6 +184,8 @@ public class DefaultFileContentTest_OE25Dev {
         final FileSystemManager fsManager = VFS.getManager();
         try (final FileObject fo = fsManager.resolveFile(new File("."), "src/test/resources/test-data/size-0-file.bin");
                 final FileContent content = fo.getContent()) {
+            // removed other assertion
+            // removed other assertion
             Assert.assertEquals(StringUtils.EMPTY, content.getString(StandardCharsets.UTF_8));
     }
     }
@@ -192,6 +195,9 @@ public class DefaultFileContentTest_OE25Dev {
         final FileSystemManager fsManager = VFS.getManager();
         try (final FileObject fo = fsManager.resolveFile(new File("."), "src/test/resources/test-data/size-0-file.bin");
                 final FileContent content = fo.getContent()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             Assert.assertEquals(StringUtils.EMPTY, content.getString(StandardCharsets.UTF_8.name()));
     }
     }
@@ -201,6 +207,10 @@ public class DefaultFileContentTest_OE25Dev {
         final FileSystemManager fsManager = VFS.getManager();
         try (final FileObject fo = fsManager.resolveFile(new File("."), "src/test/resources/test-data/size-0-file.bin");
                 final FileContent content = fo.getContent()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             Assert.assertArrayEquals(ArrayUtils.EMPTY_BYTE_ARRAY, content.getByteArray());
     }
     }
@@ -223,6 +233,8 @@ public class DefaultFileContentTest_OE25Dev {
                         final byte[] data = new byte[100];
                         readCount = stream.read(data, 0, 7);
                         stream.read();
+                        // removed other assertion
+                        // removed other assertion
                         readCount = stream.read(data, 8, 10);
                         Assert.assertEquals(-1, readCount);
     }

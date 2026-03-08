@@ -219,6 +219,7 @@ public class TransferListenerTest_OE25Dev extends AbstractBasicTest {
 
       Response response = client.preparePut(getTargetUrl()).setBody(file).execute(tl).get();
 
+      // removed other assertion
       assertEquals(response.getStatusCode(), 200);
   }
   }
@@ -268,6 +269,8 @@ public class TransferListenerTest_OE25Dev extends AbstractBasicTest {
 
       Response response = client.preparePut(getTargetUrl()).setBody(file).execute(tl).get();
 
+      // removed other assertion
+      // removed other assertion
       assertNotNull(hRead.get());
   }
   }
@@ -317,6 +320,9 @@ public class TransferListenerTest_OE25Dev extends AbstractBasicTest {
 
       Response response = client.preparePut(getTargetUrl()).setBody(file).execute(tl).get();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertNotNull(hSent.get());
   }
   }
@@ -366,6 +372,10 @@ public class TransferListenerTest_OE25Dev extends AbstractBasicTest {
 
       Response response = client.preparePut(getTargetUrl()).setBody(file).execute(tl).get();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(bbReceivedLength.get(), file.length(), "Number of received bytes incorrect");
   }
   }
@@ -415,6 +425,11 @@ public class TransferListenerTest_OE25Dev extends AbstractBasicTest {
 
       Response response = client.preparePut(getTargetUrl()).setBody(file).execute(tl).get();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(bbSentLength.get(), file.length(), "Number of sent bytes incorrect");
   }
   }
@@ -509,6 +524,7 @@ public class TransferListenerTest_OE25Dev extends AbstractBasicTest {
 
       Response response = client.preparePut(getTargetUrl()).setBody(new FileBodyGenerator(file)).execute(tl).get();
 
+      // removed other assertion
       assertEquals(response.getStatusCode(), 200);
   }
   }
@@ -556,6 +572,8 @@ public class TransferListenerTest_OE25Dev extends AbstractBasicTest {
 
       Response response = client.preparePut(getTargetUrl()).setBody(new FileBodyGenerator(file)).execute(tl).get();
 
+      // removed other assertion
+      // removed other assertion
       assertNotNull(hRead.get());
   }
   }
@@ -603,6 +621,9 @@ public class TransferListenerTest_OE25Dev extends AbstractBasicTest {
 
       Response response = client.preparePut(getTargetUrl()).setBody(new FileBodyGenerator(file)).execute(tl).get();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertNotNull(hSent.get());
   }
   }
@@ -650,6 +671,10 @@ public class TransferListenerTest_OE25Dev extends AbstractBasicTest {
 
       Response response = client.preparePut(getTargetUrl()).setBody(new FileBodyGenerator(file)).execute(tl).get();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(bbReceivedLength.get(), file.length(), "Number of received bytes incorrect");
   }
   }
@@ -697,6 +722,11 @@ public class TransferListenerTest_OE25Dev extends AbstractBasicTest {
 
       Response response = client.preparePut(getTargetUrl()).setBody(new FileBodyGenerator(file)).execute(tl).get();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(bbSentLength.get(), file.length(), "Number of sent bytes incorrect");
   }
   }

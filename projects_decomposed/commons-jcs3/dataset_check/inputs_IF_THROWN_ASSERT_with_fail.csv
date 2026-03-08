@@ -1,0 +1,32 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+jcs3_133_3,"    public void testPutNullValue_3_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> access = JCS.getInstance( ""test"" );
+
+        final String key = ""myKey"";
+        final String value = null;
+
+        try
+        {
+            access.put( key, value );
+            fail( ""Should not have been able to put a null object."" );
+        }
+        catch ( final CacheException e )
+        {
+            assertTrue( ""Should have the word null in the error message."", e.getMessage().indexOf( ""null"" ) != -1 );
+    }
+    }",CacheAccessUnitTest::testPutNullValue_3_oe,org.apache.commons.jcs3.utils.config.PropertySetterException,getMessage(),"/**
+     * Returns descriptive text on the cause of this exception.
+     * <p>
+     * @return The message value
+     */","@Override
+    public String getMessage()
+    {
+        String msg = super.getMessage();
+        if ( msg == null && rootCause != null )
+        {
+            msg = rootCause.getMessage();
+        }
+        return msg;
+    }"

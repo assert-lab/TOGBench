@@ -176,6 +176,7 @@ public class TestFileExtensionConfigurationBuilderProvider_OE25Dev {
     public void testInitSuper_2_oe() {
         final FileExtensionConfigurationBuilderProvider provider = new FileExtensionConfigurationBuilderProvider(BasicConfigurationBuilder.class.getName(),
             ReloadingFileBasedConfigurationBuilder.class.getName(), MATCH_CLASS, DEF_CLASS, EXT, null);
+        // removed other assertion
         assertEquals("Wrong reloading builder class", ReloadingFileBasedConfigurationBuilder.class.getName(), provider.getReloadingBuilderClass());
     }
 
@@ -183,6 +184,8 @@ public class TestFileExtensionConfigurationBuilderProvider_OE25Dev {
     public void testInitSuper_3_oe() {
         final FileExtensionConfigurationBuilderProvider provider = new FileExtensionConfigurationBuilderProvider(BasicConfigurationBuilder.class.getName(),
             ReloadingFileBasedConfigurationBuilder.class.getName(), MATCH_CLASS, DEF_CLASS, EXT, null);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong configuration class", DEF_CLASS, provider.getConfigurationClass());
     }
 

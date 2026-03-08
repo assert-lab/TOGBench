@@ -83,6 +83,7 @@ public class JDBCDiskCacheRemovalUnitTest_OE25Dev
     public void testPartialKeyRemoval_Good_1_oe()
         throws Exception
     {
+        // SETUP
         setupDatabase();
 
         final String keyPart1 = "part1";
@@ -92,9 +93,11 @@ public class JDBCDiskCacheRemovalUnitTest_OE25Dev
 
         final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
+        // DO WORK
         jcs.put( keyPart1 + ":" + keyPart2, data );
         Thread.sleep( 1000 );
 
+        // VERIFY
         final String resultBeforeRemove = jcs.get( keyPart1 + ":" + keyPart2 );
         assertEquals( "Wrong result", data, resultBeforeRemove );
     }
@@ -102,6 +105,7 @@ public class JDBCDiskCacheRemovalUnitTest_OE25Dev
     public void testPartialKeyRemoval_Good_2_oe()
         throws Exception
     {
+        // SETUP
         setupDatabase();
 
         final String keyPart1 = "part1";
@@ -111,10 +115,13 @@ public class JDBCDiskCacheRemovalUnitTest_OE25Dev
 
         final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
+        // DO WORK
         jcs.put( keyPart1 + ":" + keyPart2, data );
         Thread.sleep( 1000 );
 
+        // VERIFY
         final String resultBeforeRemove = jcs.get( keyPart1 + ":" + keyPart2 );
+        // removed other assertion
 
         jcs.remove( keyPart1 + ":" );
         final String resultAfterRemove = jcs.get( keyPart1 + ":" + keyPart2 );

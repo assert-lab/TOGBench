@@ -132,6 +132,7 @@ public class TestReloadingController_OE25Dev {
         EasyMock.replay(detector, l);
         final ReloadingController ctrl = createController();
         ctrl.addEventListener(ReloadingEvent.ANY, l);
+        // removed other assertion
         assertFalse("In reloading state", ctrl.isInReloadingState());
     }
 
@@ -154,6 +155,7 @@ public class TestReloadingController_OE25Dev {
         EasyMock.replay(detector, l);
         final ReloadingController ctrl = createController();
         ctrl.addEventListener(ReloadingEvent.ANY, l);
+        // removed other assertion
         assertTrue("Wrong result (2)", ctrl.checkForReloading(2));
     }
 

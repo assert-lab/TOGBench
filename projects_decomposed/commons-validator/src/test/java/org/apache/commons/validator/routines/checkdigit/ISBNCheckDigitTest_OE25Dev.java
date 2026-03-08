@@ -62,78 +62,116 @@ public class ISBNCheckDigitTest_OE25Dev extends AbstractCheckDigitTest {
     }
 
     public void testInvalidLength_2_oe() {
+        // removed other assertion
         assertFalse("isValid() Lth 11", routine.isValid("12345678901"));
     }
 
     public void testInvalidLength_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid() Lth 12", routine.isValid("123456789012"));
     }
 
     public void testInvalidLength_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid() Lth 14", routine.isValid("12345678901234"));
     }
 
     public void testInvalidLength_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         try {
             routine.calculate("12345678");
+            // removed other assertion
         } catch (Exception e) {
             assertEquals("calculate() Lth 8", "Invalid ISBN Length = 8", e.getMessage());
     }
     }
 
     public void testInvalidLength_8_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         try {
             routine.calculate("12345678");
+            // removed other assertion
         } catch (Exception e) {
+            // removed other assertion
         }
 
         try {
             routine.calculate("1234567890");
+            // removed other assertion
         } catch (Exception e) {
             assertEquals("calculate() Lth 10", "Invalid ISBN Length = 10", e.getMessage());
     }
     }
 
     public void testInvalidLength_10_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         try {
             routine.calculate("12345678");
+            // removed other assertion
         } catch (Exception e) {
+            // removed other assertion
         }
 
         try {
             routine.calculate("1234567890");
+            // removed other assertion
         } catch (Exception e) {
+            // removed other assertion
         }
 
         try {
             routine.calculate("12345678901");
+            // removed other assertion
         } catch (Exception e) {
             assertEquals("calculate() Lth 11", "Invalid ISBN Length = 11", e.getMessage());
     }
     }
 
     public void testInvalidLength_12_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         try {
             routine.calculate("12345678");
+            // removed other assertion
         } catch (Exception e) {
+            // removed other assertion
         }
 
         try {
             routine.calculate("1234567890");
+            // removed other assertion
         } catch (Exception e) {
+            // removed other assertion
         }
 
         try {
             routine.calculate("12345678901");
+            // removed other assertion
         } catch (Exception e) {
+            // removed other assertion
         }
 
         try {
             routine.calculate("1234567890123");
+            // removed other assertion
         } catch (Exception e) {
             assertEquals("calculate() Lth 13", "Invalid ISBN Length = 13", e.getMessage());
     }

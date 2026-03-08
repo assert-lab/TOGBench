@@ -195,6 +195,7 @@ public class MethodKeyTest_OE25Dev {
         for (final MethodKey ctl : KEY_LIST) {
             final MethodKey key = makeKey(ctl.getMethod(), ctl.getParameters());
             final String out = BY_KEY.get(key);
+            // removed other assertion
             Assert.assertEquals(ctl.toString() + " != " + out, ctl.toString(), out);
     }
     }
@@ -213,6 +214,7 @@ public class MethodKeyTest_OE25Dev {
         for (final MethodKey ctl : KEY_LIST) {
             final String key = makeStringKey(ctl.getMethod(), ctl.getParameters());
             final MethodKey out = BY_STRING.get(key);
+            // removed other assertion
             Assert.assertEquals(ctl.toString() + " != " + key, ctl, out);
     }
     }

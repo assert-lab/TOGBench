@@ -15,7 +15,9 @@ public class TokeniserTest_OE25Dev {
 
     @Test
     public void bufferUpInAttributeVal_1_oe() {
+        // https://github.com/jhy/jsoup/issues/967
 
+        // check each double, singlem, unquoted impls
         String[] quotes = {"\"", "'", ""};
         for (String quote : quotes) {
             String preamble = "<img src=" + quote;
@@ -40,7 +42,9 @@ public class TokeniserTest_OE25Dev {
 
     @Test
     public void bufferUpInAttributeVal_2_oe() {
+        // https://github.com/jhy/jsoup/issues/967
 
+        // check each double, singlem, unquoted impls
         String[] quotes = {"\"", "'", ""};
         for (String quote : quotes) {
             String preamble = "<img src=" + quote;
@@ -59,11 +63,13 @@ public class TokeniserTest_OE25Dev {
             Document doc = Jsoup.parse(html);
             String src = doc.select("img").attr("src");
 
+            // removed other assertion
             assertTrue(src.contains(tail));
     }
     }
 
     @Test public void handleSuperLargeTagNames_1_oe() {
+        // unlikely, but valid. so who knows.
 
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
@@ -78,6 +84,7 @@ public class TokeniserTest_OE25Dev {
         }
 
     @Test public void handleSuperLargeTagNames_2_oe() {
+        // unlikely, but valid. so who knows.
 
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
@@ -88,11 +95,13 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Parser.htmlParser().settings(ParseSettings.preserveCase).parseInput(html, "");
         Elements els = doc.select(tag);
+        // removed other assertion
         Element el = els.first();
         assertNotNull(el);
         }
 
     @Test public void handleSuperLargeTagNames_3_oe() {
+        // unlikely, but valid. so who knows.
 
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
@@ -103,11 +112,14 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Parser.htmlParser().settings(ParseSettings.preserveCase).parseInput(html, "");
         Elements els = doc.select(tag);
+        // removed other assertion
         Element el = els.first();
+        // removed other assertion
         assertEquals("One", el.text());
         }
 
     @Test public void handleSuperLargeTagNames_4_oe() {
+        // unlikely, but valid. so who knows.
 
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
@@ -118,7 +130,10 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Parser.htmlParser().settings(ParseSettings.preserveCase).parseInput(html, "");
         Elements els = doc.select(tag);
+        // removed other assertion
         Element el = els.first();
+        // removed other assertion
+        // removed other assertion
         assertEquals(tag, el.tagName());
         }
 
@@ -145,6 +160,7 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Jsoup.parse(html);
         Elements els = doc.getElementsByAttribute(attrName);
+        // removed other assertion
         Element el = els.first();
         assertNotNull(el);
         }
@@ -159,7 +175,9 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Jsoup.parse(html);
         Elements els = doc.getElementsByAttribute(attrName);
+        // removed other assertion
         Element el = els.first();
+        // removed other assertion
         assertEquals("One", el.text());
         }
 
@@ -173,7 +191,10 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Jsoup.parse(html);
         Elements els = doc.getElementsByAttribute(attrName);
+        // removed other assertion
         Element el = els.first();
+        // removed other assertion
+        // removed other assertion
         Attribute attribute = el.attributes().asList().get(0);
         assertEquals(attrName.toLowerCase(), attribute.getKey());
         }
@@ -188,8 +209,12 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Jsoup.parse(html);
         Elements els = doc.getElementsByAttribute(attrName);
+        // removed other assertion
         Element el = els.first();
+        // removed other assertion
+        // removed other assertion
         Attribute attribute = el.attributes().asList().get(0);
+        // removed other assertion
         assertEquals("foo", attribute.getValue());
         }
 
@@ -216,6 +241,7 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Jsoup.parse(html);
         Elements els = doc.select("p");
+        // removed other assertion
         Element el = els.first();
 
         assertNotNull(el);
@@ -231,8 +257,10 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Jsoup.parse(html);
         Elements els = doc.select("p");
+        // removed other assertion
         Element el = els.first();
 
+        // removed other assertion
         assertEquals(text, el.text());
         }
 
@@ -259,6 +287,7 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Jsoup.parse(html);
         Elements els = doc.select("p");
+        // removed other assertion
         Element el = els.first();
 
         assertNotNull(el);
@@ -274,8 +303,10 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Jsoup.parse(html);
         Elements els = doc.select("p");
+        // removed other assertion
         Element el = els.first();
 
+        // removed other assertion
         Comment child = (Comment) el.childNode(0);
         assertEquals(" " + comment + " ", child.getData());
         }
@@ -303,6 +334,7 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Jsoup.parse(html);
         Elements els = doc.select("p");
+        // removed other assertion
         Element el = els.first();
 
         assertNotNull(el);
@@ -318,8 +350,10 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Jsoup.parse(html);
         Elements els = doc.select("p");
+        // removed other assertion
         Element el = els.first();
 
+        // removed other assertion
         TextNode child = (TextNode) el.childNode(0);
         assertEquals(cdata, el.text());
         }
@@ -334,9 +368,12 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Jsoup.parse(html);
         Elements els = doc.select("p");
+        // removed other assertion
         Element el = els.first();
 
+        // removed other assertion
         TextNode child = (TextNode) el.childNode(0);
+        // removed other assertion
         assertEquals(cdata, child.getWholeText());
         }
 
@@ -363,6 +400,7 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Jsoup.parse(html);
         Elements els = doc.select("title");
+        // removed other assertion
         Element el = els.first();
 
         assertNotNull(el);
@@ -378,8 +416,10 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Jsoup.parse(html);
         Elements els = doc.select("title");
+        // removed other assertion
         Element el = els.first();
 
+        // removed other assertion
         TextNode child = (TextNode) el.childNode(0);
         assertEquals(title, el.text());
         }
@@ -394,9 +434,12 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Jsoup.parse(html);
         Elements els = doc.select("title");
+        // removed other assertion
         Element el = els.first();
 
+        // removed other assertion
         TextNode child = (TextNode) el.childNode(0);
+        // removed other assertion
         assertEquals(title, child.getWholeText());
         }
 
@@ -410,9 +453,13 @@ public class TokeniserTest_OE25Dev {
 
         Document doc = Jsoup.parse(html);
         Elements els = doc.select("title");
+        // removed other assertion
         Element el = els.first();
 
+        // removed other assertion
         TextNode child = (TextNode) el.childNode(0);
+        // removed other assertion
+        // removed other assertion
         assertEquals(title, doc.title());
         }
 
@@ -421,10 +468,13 @@ public class TokeniserTest_OE25Dev {
         }
 
     @Test public void cp1252Entities_2_oe() {
+        // removed other assertion
         assertEquals("\u201a", Jsoup.parse("&#0130;").text());
         }
 
     @Test public void cp1252Entities_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals("\u20ac", Jsoup.parse("&#x80;").text());
         }
 
@@ -444,7 +494,9 @@ public class TokeniserTest_OE25Dev {
     @Test public void cp1252SubstitutionTable_2_oe() {
         for (int i = 0; i < Tokeniser.win1252Extensions.length; i++) {
             String s = new String(new byte[]{ (byte) (i + Tokeniser.win1252ExtensionsStart) }, Charset.forName("Windows-1252"));
+            // removed other assertion
 
+            // some of these characters are illegal
             if (s.charAt(0) == '\ufffd') { continue; }
 
             assertEquals(s.charAt(0), Tokeniser.win1252Extensions[i], "At: " + i);
@@ -478,6 +530,7 @@ public class TokeniserTest_OE25Dev {
         Document doc = parser.parseInput(testMarkup, "");
 
         Node commentNode = doc.body().childNode(0);
+        // removed other assertion
         assertEquals(expectedCommentData, ((Comment)commentNode).getData());
         }
 
@@ -510,6 +563,7 @@ public class TokeniserTest_OE25Dev {
         Document doc = parser.parseInput(testMarkup, "");
 
         Node cdataNode = doc.body().childNode(0);
+        // removed other assertion
         assertEquals(cdataContents, ((CDataNode)cdataNode).text());
         }
 

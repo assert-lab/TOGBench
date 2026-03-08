@@ -50,6 +50,7 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(TestBean.class);
         TestBean results = h.handle(this.rs);
 
+        // removed other assertion
         assertEquals("1", results.getOne());
     }
 
@@ -57,6 +58,8 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(TestBean.class);
         TestBean results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", results.getTwo());
     }
 
@@ -64,6 +67,9 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(TestBean.class);
         TestBean results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(TestBean.Ordinal.THREE, results.getThree());
     }
 
@@ -71,6 +77,10 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(TestBean.class);
         TestBean results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("not set", results.getDoNotSet());
     }
 
@@ -92,6 +102,7 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(SubTestBean.class);
         TestBean results = h.handle(this.rs);
 
+        // removed other assertion
         assertEquals("1", results.getOne());
     }
 
@@ -99,6 +110,8 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(SubTestBean.class);
         TestBean results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", results.getTwo());
     }
 
@@ -106,6 +119,9 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(SubTestBean.class);
         TestBean results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(TestBean.Ordinal.THREE, results.getThree());
     }
 
@@ -113,6 +129,10 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(SubTestBean.class);
         TestBean results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("not set", results.getDoNotSet());
     }
 
@@ -127,6 +147,7 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<SubTestBeanInterface> h = new BeanHandler<SubTestBeanInterface>(SubTestBean.class);
         SubTestBeanInterface results = h.handle(this.rs);
 
+        // removed other assertion
         assertEquals("1", results.getOne());
     }
 
@@ -134,6 +155,8 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<SubTestBeanInterface> h = new BeanHandler<SubTestBeanInterface>(SubTestBean.class);
         SubTestBeanInterface results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", results.getTwo());
     }
 
@@ -141,6 +164,9 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<SubTestBeanInterface> h = new BeanHandler<SubTestBeanInterface>(SubTestBean.class);
         SubTestBeanInterface results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(TestBean.Ordinal.THREE, results.getThree());
     }
 
@@ -148,6 +174,10 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<SubTestBeanInterface> h = new BeanHandler<SubTestBeanInterface>(SubTestBean.class);
         SubTestBeanInterface results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("not set", results.getDoNotSet());
     }
 

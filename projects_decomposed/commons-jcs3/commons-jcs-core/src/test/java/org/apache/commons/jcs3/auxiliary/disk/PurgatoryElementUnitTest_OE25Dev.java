@@ -38,6 +38,7 @@ public class PurgatoryElementUnitTest_OE25Dev
 
     public void testSpoolable_normal_1_oe()
     {
+        // SETUP
         final String cacheName = "myCacheName";
         final String key = "myKey";
         final String value = "myValue";
@@ -46,13 +47,16 @@ public class PurgatoryElementUnitTest_OE25Dev
         final PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
         purgatoryElement.setSpoolable( false );
 
+        // DO WORK
         final boolean result = purgatoryElement.isSpoolable();
 
+        // VERIFY
         assertFalse( "Should not be spoolable.", result );
     }
 
     public void testElementAttributes_normal_1_oe()
     {
+        // SETUP
         final String cacheName = "myCacheName";
         final String key = "myKey";
         final String value = "myValue";
@@ -62,13 +66,16 @@ public class PurgatoryElementUnitTest_OE25Dev
         final PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
         purgatoryElement.setElementAttributes( elementAttributes );
 
+        // DO WORK
         final IElementAttributes result = cacheElement.getElementAttributes();
 
+        // VERIFY
         assertEquals( "Should have set the attributes on the element", elementAttributes, result );
     }
 
     public void testToString_normal_1_oe()
     {
+        // SETUP
         final String cacheName = "myCacheName";
         final String key = "myKey";
         final String value = "myValue";
@@ -76,13 +83,16 @@ public class PurgatoryElementUnitTest_OE25Dev
         final ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value, elementAttributes );
         final PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
 
+        // DO WORK
         final String result = purgatoryElement.toString();
 
+        // VERIFY
         assertTrue( "Should have the cacheName.", result.indexOf( cacheName ) != -1 );
     }
 
     public void testToString_normal_2_oe()
     {
+        // SETUP
         final String cacheName = "myCacheName";
         final String key = "myKey";
         final String value = "myValue";
@@ -90,13 +100,17 @@ public class PurgatoryElementUnitTest_OE25Dev
         final ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value, elementAttributes );
         final PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
 
+        // DO WORK
         final String result = purgatoryElement.toString();
 
+        // VERIFY
+        // removed other assertion
         assertTrue( "Should have the key.", result.indexOf( key ) != -1 );
     }
 
     public void testToString_normal_3_oe()
     {
+        // SETUP
         final String cacheName = "myCacheName";
         final String key = "myKey";
         final String value = "myValue";
@@ -104,8 +118,12 @@ public class PurgatoryElementUnitTest_OE25Dev
         final ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value, elementAttributes );
         final PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
 
+        // DO WORK
         final String result = purgatoryElement.toString();
 
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
         assertTrue( "Should have the value.", result.indexOf( value ) != -1 );
     }
 

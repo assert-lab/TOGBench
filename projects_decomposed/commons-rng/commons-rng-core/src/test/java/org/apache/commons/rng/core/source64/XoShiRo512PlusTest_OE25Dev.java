@@ -107,6 +107,7 @@ class XoShiRo512PlusTest_OE25Dev {
 
 @Test
     void testConstructorWithoutFullLengthSeed_1_oe() {
+        // Hit the case when the input seed is self-seeded when not full length
         RandomAssert.assertNextLongNonZeroOutput(new XoShiRo512Plus(new long[] {SEED[0]}), SEED_SIZE, SEED_SIZE);
     }
 

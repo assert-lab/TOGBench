@@ -29,6 +29,7 @@ public class PngChunkTextTest_OE25Dev{
         final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;
         try {
             new PngChunkText(1214, 1214, 0, byteArray);
+            // removed other assertion
         } catch(final Throwable e) {
             assertEquals("PNG tEXt chunk keyword is not terminated.",e.getMessage());
     }
@@ -39,7 +40,9 @@ public class PngChunkTextTest_OE25Dev{
         final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;
         try {
             new PngChunkText(1214, 1214, 0, byteArray);
+            // removed other assertion
         } catch(final Throwable e) {
+            // removed other assertion
             assertEquals(PngChunkText.class.getName(), e.getStackTrace()[0].getClassName());
     }
     }

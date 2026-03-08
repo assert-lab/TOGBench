@@ -222,6 +222,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", new Foo());
         final Object o = e.evaluate(jc);
 
+        // removed other assertion
         Assert.assertEquals("o incorrect", GET_METHOD_STRING, o);
     }
 
@@ -246,6 +247,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Object value;
         expr = JEXL.createExpression("new(double, 1)");
         value = expr.evaluate(jc);
+        // removed other assertion
         expr = JEXL.createExpression("new('java.lang.Float', 100)");
         value = expr.evaluate(jc);
         Assert.assertEquals(expr.toString(), new Float(100.0), value);
@@ -260,8 +262,10 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Object value;
         expr = JEXL.createExpression("new(double, 1)");
         value = expr.evaluate(jc);
+        // removed other assertion
         expr = JEXL.createExpression("new('java.lang.Float', 100)");
         value = expr.evaluate(jc);
+        // removed other assertion
         expr = JEXL.createExpression("new(foo).quux");
         value = expr.evaluate(jc);
         Assert.assertEquals(expr.toString(), "String : quux", value);
@@ -271,6 +275,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     public void testIntProperty_1_oe() throws Exception {
         final Foo foo = new Foo();
 
+        // lets check the square function first..
         Assert.assertEquals(4, foo.square(2));
     }
 
@@ -278,11 +283,14 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     public void testIntProperty_2_oe() throws Exception {
         final Foo foo = new Foo();
 
+        // lets check the square function first..
+        // removed other assertion
         Assert.assertEquals(4, foo.square(-2));
     }
 
     @Test
     public void testBooleanShortCircuitAnd_1_oe() throws Exception {
+        // handle false for the left arg of 'and'
         Foo tester = new Foo();
         final JexlContext jc = new MapContext();
         jc.set("first", Boolean.FALSE);
@@ -294,12 +302,15 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testBooleanShortCircuitAnd_2_oe() throws Exception {
+        // handle false for the left arg of 'and'
         Foo tester = new Foo();
         final JexlContext jc = new MapContext();
         jc.set("first", Boolean.FALSE);
         jc.set("foo", tester);
         final JexlExpression expr = JEXL.createExpression("first and foo.trueAndModify");
         expr.evaluate(jc);
+        // removed other assertion
+        // handle true for the left arg of 'and'
         tester = new Foo();
         jc.set("first", Boolean.TRUE);
         jc.set("foo", tester);
@@ -309,6 +320,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testBooleanShortCircuitOr_1_oe() throws Exception {
+        // handle false for the left arg of 'or'
         Foo tester = new Foo();
         final JexlContext jc = new MapContext();
         jc.set("first", Boolean.FALSE);
@@ -320,12 +332,15 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testBooleanShortCircuitOr_2_oe() throws Exception {
+        // handle false for the left arg of 'or'
         Foo tester = new Foo();
         final JexlContext jc = new MapContext();
         jc.set("first", Boolean.FALSE);
         jc.set("foo", tester);
         final JexlExpression expr = JEXL.createExpression("first or foo.trueAndModify");
         expr.evaluate(jc);
+        // removed other assertion
+        // handle true for the left arg of 'or'
         tester = new Foo();
         jc.set("first", Boolean.TRUE);
         jc.set("foo", tester);
@@ -361,6 +376,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Object result;
         expr = jexl.createExpression("duck.zero");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("duck.one");
         result = expr.evaluate(jc);
         Assert.assertEquals(expr.toString(), 1, result);
@@ -375,8 +391,10 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Object result;
         expr = jexl.createExpression("duck.zero");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("duck.one");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("duck.user = 20");
         result = expr.evaluate(jc);
         Assert.assertEquals(expr.toString(), 20, result);
@@ -391,10 +409,13 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Object result;
         expr = jexl.createExpression("duck.zero");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("duck.one");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("duck.user = 20");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("duck.user");
         result = expr.evaluate(jc);
         Assert.assertEquals(expr.toString(), 20, result);
@@ -409,12 +430,16 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Object result;
         expr = jexl.createExpression("duck.zero");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("duck.one");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("duck.user = 20");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("duck.user");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("duck.user = 'zero'");
         result = expr.evaluate(jc);
         Assert.assertEquals(expr.toString(), "zero", result);
@@ -429,14 +454,19 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Object result;
         expr = jexl.createExpression("duck.zero");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("duck.one");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("duck.user = 20");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("duck.user");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("duck.user = 'zero'");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("duck.user");
         result = expr.evaluate(jc);
         Assert.assertEquals(expr.toString(), 0, result);
@@ -465,6 +495,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Object result;
         expr = jexl.createExpression("array.1");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("array[1] = 1010");
         result = expr.evaluate(jc);
         Assert.assertEquals(expr.toString(), 1010, result);
@@ -480,8 +511,10 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Object result;
         expr = jexl.createExpression("array.1");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("array[1] = 1010");
         result = expr.evaluate(jc);
+        // removed other assertion
         expr = jexl.createExpression("array.0");
         result = expr.evaluate(jc);
         Assert.assertEquals(expr.toString(), 100, result);
@@ -509,6 +542,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("a", Boolean.TRUE);
         jc.set("b", Boolean.FALSE);
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.convertBoolean(a==true)";
         final Object expected0 = "Boolean : true";
@@ -524,6 +558,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("a", Boolean.TRUE);
         jc.set("b", Boolean.FALSE);
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.convertBoolean(a==false)";
         final Object expected0 = "Boolean : false";
@@ -539,6 +575,9 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("a", Boolean.TRUE);
         jc.set("b", Boolean.FALSE);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.convertBoolean(true==false)";
         final Object expected0 = "Boolean : false";
@@ -554,6 +593,10 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("a", Boolean.TRUE);
         jc.set("b", Boolean.FALSE);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "true eq false";
         final Object expected0 = Boolean.FALSE;
@@ -569,6 +612,11 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("a", Boolean.TRUE);
         jc.set("b", Boolean.FALSE);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "true ne false";
         final Object expected0 = Boolean.TRUE;
@@ -626,6 +674,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "a==true";
         final Object expected0 = Boolean.TRUE;
@@ -647,6 +696,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "a==false";
         final Object expected0 = Boolean.FALSE;
@@ -668,6 +719,9 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "true==false";
         final Object expected0 = Boolean.FALSE;
@@ -689,6 +743,10 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final JexlContext jc0 = jc;
         final String expression0 = "2 < 3";
@@ -711,7 +769,12 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num < 5";
         final Object expected0 = Boolean.FALSE;
@@ -733,7 +796,13 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num < num";
         final Object expected0 = Boolean.FALSE;
@@ -755,7 +824,14 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num < null";
         final Object expected0 = Boolean.FALSE;
@@ -777,7 +853,15 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num < 2.5";
         final Object expected0 = Boolean.FALSE;
@@ -799,7 +883,16 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "now2 < now";
         final Object expected0 = Boolean.FALSE;
@@ -821,7 +914,18 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
                 final JexlContext jc0 = jc;
         final String expression0 = "'6' <= '5'";
         final Object expected0 = Boolean.FALSE;
@@ -843,7 +947,19 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num <= 5";
         final Object expected0 = Boolean.TRUE;
@@ -865,7 +981,20 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num <= num";
         final Object expected0 = Boolean.TRUE;
@@ -887,7 +1016,21 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num <= null";
         final Object expected0 = Boolean.FALSE;
@@ -909,7 +1052,22 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num <= 2.5";
         final Object expected0 = Boolean.FALSE;
@@ -931,7 +1089,23 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "now2 <= now";
         final Object expected0 = Boolean.FALSE;
@@ -953,8 +1127,26 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
                 final JexlContext jc0 = jc;
         final String expression0 = "'6' >= '5'";
         final Object expected0 = Boolean.TRUE;
@@ -976,8 +1168,27 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num >= 5";
         final Object expected0 = Boolean.TRUE;
@@ -999,8 +1210,28 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num >= num";
         final Object expected0 = Boolean.TRUE;
@@ -1022,8 +1253,29 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num >= null";
         final Object expected0 = Boolean.FALSE;
@@ -1045,8 +1297,30 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num >= 2.5";
         final Object expected0 = Boolean.TRUE;
@@ -1068,8 +1342,31 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "now2 >= now";
         final Object expected0 = Boolean.TRUE;
@@ -1091,8 +1388,32 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final JexlContext jc0 = jc;
         final String expression0 = "'6' > '5'";
@@ -1115,9 +1436,34 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num > 4";
         final Object expected0 = Boolean.TRUE;
@@ -1139,9 +1485,35 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num > num";
         final Object expected0 = Boolean.FALSE;
@@ -1163,9 +1535,36 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num > null";
         final Object expected0 = Boolean.FALSE;
@@ -1187,9 +1586,37 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num > 2.5";
         final Object expected0 = Boolean.TRUE;
@@ -1211,9 +1638,38 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "now2 > now";
         final Object expected0 = Boolean.TRUE;
@@ -1235,9 +1691,39 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final JexlContext jc0 = jc;
         final String expression0 = "\"foo\" + \"bar\" == \"foobar\"";
@@ -1260,10 +1746,41 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
                 final JexlContext jc0 = jc;
         final String expression0 = "bdec > num";
@@ -1286,11 +1803,43 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "bdec >= num";
         final Object expected0 = Boolean.TRUE;
@@ -1312,11 +1861,44 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num <= bdec";
         final Object expected0 = Boolean.TRUE;
@@ -1338,11 +1920,45 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num < bdec";
         final Object expected0 = Boolean.TRUE;
@@ -1364,11 +1980,46 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "bint > num";
         final Object expected0 = Boolean.TRUE;
@@ -1390,11 +2041,47 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "bint == bdec";
         final Object expected0 = Boolean.TRUE;
@@ -1416,11 +2103,48 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "bint >= num";
         final Object expected0 = Boolean.TRUE;
@@ -1442,11 +2166,49 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num <= bint";
         final Object expected0 = Boolean.TRUE;
@@ -1468,11 +2230,50 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("bdec", new BigDecimal("7"));
         jc.set("bint", new BigInteger("7"));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+//
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "num < bint";
         final Object expected0 = Boolean.TRUE;
@@ -1519,6 +2320,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         /*
          *  I can't believe anyone thinks this is a syntax.. :)
          */
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "empty string";
         final Object expected0 = Boolean.TRUE;
@@ -1542,6 +2344,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         /*
          *  I can't believe anyone thinks this is a syntax.. :)
          */
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "empty array";
         final Object expected0 = Boolean.TRUE;
@@ -1565,6 +2369,9 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         /*
          *  I can't believe anyone thinks this is a syntax.. :)
          */
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "empty map";
         final Object expected0 = Boolean.TRUE;
@@ -1588,6 +2395,10 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         /*
          *  I can't believe anyone thinks this is a syntax.. :)
          */
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "empty set";
         final Object expected0 = Boolean.TRUE;
@@ -1611,6 +2422,11 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         /*
          *  I can't believe anyone thinks this is a syntax.. :)
          */
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "empty list";
         final Object expected0 = Boolean.TRUE;
@@ -1634,6 +2450,12 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         /*
          *  I can't believe anyone thinks this is a syntax.. :)
          */
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "empty longstring";
         final Object expected0 = Boolean.FALSE;
@@ -1657,6 +2479,13 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         /*
          *  I can't believe anyone thinks this is a syntax.. :)
          */
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "not empty longstring";
         final Object expected0 = Boolean.TRUE;
@@ -1693,11 +2522,13 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
         jc.set("list", list);
 
+        // 30652 - support for set
         final Set<String> set = new HashSet<String>(list);
         set.add("1");
 
         jc.set("set", set);
 
+        // support generic int size() method
         final BitSet bitset = new BitSet(5);
         jc.set("bitset", bitset);
 
@@ -1737,14 +2568,17 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
         jc.set("list", list);
 
+        // 30652 - support for set
         final Set<String> set = new HashSet<String>(list);
         set.add("1");
 
         jc.set("set", set);
 
+        // support generic int size() method
         final BitSet bitset = new BitSet(5);
         jc.set("bitset", bitset);
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "size(array)";
         final Object expected0 = new Integer(5);
@@ -1781,14 +2615,18 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
         jc.set("list", list);
 
+        // 30652 - support for set
         final Set<String> set = new HashSet<String>(list);
         set.add("1");
 
         jc.set("set", set);
 
+        // support generic int size() method
         final BitSet bitset = new BitSet(5);
         jc.set("bitset", bitset);
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "size(list)";
         final Object expected0 = new Integer(5);
@@ -1825,14 +2663,19 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
         jc.set("list", list);
 
+        // 30652 - support for set
         final Set<String> set = new HashSet<String>(list);
         set.add("1");
 
         jc.set("set", set);
 
+        // support generic int size() method
         final BitSet bitset = new BitSet(5);
         jc.set("bitset", bitset);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "size(map)";
         final Object expected0 = new Integer(5);
@@ -1869,14 +2712,20 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
         jc.set("list", list);
 
+        // 30652 - support for set
         final Set<String> set = new HashSet<String>(list);
         set.add("1");
 
         jc.set("set", set);
 
+        // support generic int size() method
         final BitSet bitset = new BitSet(5);
         jc.set("bitset", bitset);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "size(set)";
         final Object expected0 = new Integer(5);
@@ -1913,14 +2762,21 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
         jc.set("list", list);
 
+        // 30652 - support for set
         final Set<String> set = new HashSet<String>(list);
         set.add("1");
 
         jc.set("set", set);
 
+        // support generic int size() method
         final BitSet bitset = new BitSet(5);
         jc.set("bitset", bitset);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "size(bitset)";
         final Object expected0 = new Integer(64);
@@ -1957,14 +2813,22 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
         jc.set("list", list);
 
+        // 30652 - support for set
         final Set<String> set = new HashSet<String>(list);
         set.add("1");
 
         jc.set("set", set);
 
+        // support generic int size() method
         final BitSet bitset = new BitSet(5);
         jc.set("bitset", bitset);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "list.size()";
         final Object expected0 = new Integer(5);
@@ -2001,14 +2865,23 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
         jc.set("list", list);
 
+        // 30652 - support for set
         final Set<String> set = new HashSet<String>(list);
         set.add("1");
 
         jc.set("set", set);
 
+        // support generic int size() method
         final BitSet bitset = new BitSet(5);
         jc.set("bitset", bitset);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "map.size()";
         final Object expected0 = new Integer(5);
@@ -2045,14 +2918,24 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
         jc.set("list", list);
 
+        // 30652 - support for set
         final Set<String> set = new HashSet<String>(list);
         set.add("1");
 
         jc.set("set", set);
 
+        // support generic int size() method
         final BitSet bitset = new BitSet(5);
         jc.set("bitset", bitset);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "set.size()";
         final Object expected0 = new Integer(5);
@@ -2089,14 +2972,25 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
         jc.set("list", list);
 
+        // 30652 - support for set
         final Set<String> set = new HashSet<String>(list);
         set.add("1");
 
         jc.set("set", set);
 
+        // support generic int size() method
         final BitSet bitset = new BitSet(5);
         jc.set("bitset", bitset);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "bitset.size()";
         final Object expected0 = new Integer(64);
@@ -2133,14 +3027,26 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
         jc.set("list", list);
 
+        // 30652 - support for set
         final Set<String> set = new HashSet<String>(list);
         set.add("1");
 
         jc.set("set", set);
 
+        // support generic int size() method
         final BitSet bitset = new BitSet(5);
         jc.set("bitset", bitset);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final JexlContext jc0 = jc;
         final String expression0 = "list.get(size(list) - 1)";
@@ -2178,15 +3084,28 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
         jc.set("list", list);
 
+        // 30652 - support for set
         final Set<String> set = new HashSet<String>(list);
         set.add("1");
 
         jc.set("set", set);
 
+        // support generic int size() method
         final BitSet bitset = new BitSet(5);
         jc.set("bitset", bitset);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "list[size(list) - 1]";
         final Object expected0 = "5";
@@ -2223,15 +3142,29 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
         jc.set("list", list);
 
+        // 30652 - support for set
         final Set<String> set = new HashSet<String>(list);
         set.add("1");
 
         jc.set("set", set);
 
+        // support generic int size() method
         final BitSet bitset = new BitSet(5);
         jc.set("bitset", bitset);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "list.get(list.size() - 1)";
         final Object expected0 = "5";
@@ -2266,6 +3199,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("map", map);
         jc.set("foo", new Foo());
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "map['si & ze']";
         final Object expected0 = "cheese";
@@ -2283,6 +3217,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("map", map);
         jc.set("foo", new Foo());
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "map.'si & ze'";
         final Object expected0 = "cheese";
@@ -2300,6 +3236,9 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("map", map);
         jc.set("foo", new Foo());
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "map.size()";
         final Object expected0 = 2;
@@ -2317,6 +3256,10 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("map", map);
         jc.set("foo", new Foo());
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "size(map)";
         final Object expected0 = 2;
@@ -2334,6 +3277,11 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("map", map);
         jc.set("foo", new Foo());
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.getSize()";
         final Object expected0 = 22;
@@ -2351,6 +3299,12 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("map", map);
         jc.set("foo", new Foo());
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.'size'";
         final Object expected0 = 22;
@@ -2389,6 +3343,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
          * test to ensure new string cat works
          */
         jc.set("stringy", "thingy");
+        // removed other assertion
 
         /*
          * test new null coersion
@@ -2413,11 +3368,13 @@ public class JexlTest_OE25Dev extends JexlTestCase {
          * test to ensure new string cat works
          */
         jc.set("stringy", "thingy");
+        // removed other assertion
 
         /*
          * test new null coersion
          */
         jc.set("imanull", null);
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "imanull + imanull";
         final Object expected0 = new Integer(0);
@@ -2437,11 +3394,14 @@ public class JexlTest_OE25Dev extends JexlTestCase {
          * test to ensure new string cat works
          */
         jc.set("stringy", "thingy");
+        // removed other assertion
 
         /*
          * test new null coersion
          */
         jc.set("imanull", null);
+        // removed other assertion
+        // removed other assertion
 
         /* test for bugzilla 31577 */
         jc.set("n", new Integer(0));
@@ -2493,6 +3453,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "2 == 3";
         final Object expected0 = Boolean.FALSE;
@@ -2517,6 +3478,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "3 == foo";
         final Object expected0 = Boolean.FALSE;
@@ -2541,6 +3504,9 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "3 != foo";
         final Object expected0 = Boolean.TRUE;
@@ -2565,6 +3531,10 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo != 2";
         final Object expected0 = Boolean.FALSE;
@@ -2589,6 +3559,12 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test float and double equality
                 final JexlContext jc0 = jc;
         final String expression0 = "aFloat eq aDouble";
         final Object expected0 = Boolean.FALSE;
@@ -2613,6 +3589,13 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test float and double equality
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "aFloat ne aDouble";
         final Object expected0 = Boolean.TRUE;
@@ -2637,6 +3620,14 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test float and double equality
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "aFloat == aDouble";
         final Object expected0 = Boolean.FALSE;
@@ -2661,6 +3652,15 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test float and double equality
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "aFloat != aDouble";
         final Object expected0 = Boolean.TRUE;
@@ -2685,6 +3685,17 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test float and double equality
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test number and character equality
                 final JexlContext jc0 = jc;
         final String expression0 = "foo == aChar";
         final Object expected0 = Boolean.FALSE;
@@ -2709,6 +3720,18 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test float and double equality
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test number and character equality
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo != aChar";
         final Object expected0 = Boolean.TRUE;
@@ -2733,6 +3756,20 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test float and double equality
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test number and character equality
+        // removed other assertion
+        // removed other assertion
+        // test string and boolean
                 final JexlContext jc0 = jc;
         final String expression0 = "aBool == 'true'";
         final Object expected0 = Boolean.TRUE;
@@ -2757,6 +3794,21 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test float and double equality
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test number and character equality
+        // removed other assertion
+        // removed other assertion
+        // test string and boolean
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "aBool == 'false'";
         final Object expected0 = Boolean.FALSE;
@@ -2781,6 +3833,22 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test float and double equality
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test number and character equality
+        // removed other assertion
+        // removed other assertion
+        // test string and boolean
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "aBool != 'false'";
         final Object expected0 = Boolean.TRUE;
@@ -2805,6 +3873,24 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test float and double equality
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test number and character equality
+        // removed other assertion
+        // removed other assertion
+        // test string and boolean
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test null and boolean
         options.setStrict(false);
                 final JexlContext jc0 = jc;
         final String expression0 = "aBool == notThere";
@@ -2830,7 +3916,26 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test float and double equality
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test number and character equality
+        // removed other assertion
+        // removed other assertion
+        // test string and boolean
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test null and boolean
         options.setStrict(false);
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "aBool != notThere";
         final Object expected0 = Boolean.TRUE;
@@ -2855,7 +3960,28 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test float and double equality
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test number and character equality
+        // removed other assertion
+        // removed other assertion
+        // test string and boolean
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test null and boolean
         options.setStrict(false);
+        // removed other assertion
+        // removed other assertion
+        // anything and string as a string comparison
         options.setStrict(true);
                 final JexlContext jc0 = jc;
         final String expression0 = "aBuffer == 'abc'";
@@ -2881,8 +4007,30 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test float and double equality
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test number and character equality
+        // removed other assertion
+        // removed other assertion
+        // test string and boolean
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test null and boolean
         options.setStrict(false);
+        // removed other assertion
+        // removed other assertion
+        // anything and string as a string comparison
         options.setStrict(true);
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "aBuffer != 'abc'";
         final Object expected0 = Boolean.FALSE;
@@ -2907,8 +4055,32 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test float and double equality
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test number and character equality
+        // removed other assertion
+        // removed other assertion
+        // test string and boolean
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test null and boolean
         options.setStrict(false);
+        // removed other assertion
+        // removed other assertion
+        // anything and string as a string comparison
         options.setStrict(true);
+        // removed other assertion
+        // removed other assertion
+        // arbitrary equals
                 final JexlContext jc0 = jc;
         final String expression0 = "aList == bList";
         final Object expected0 = Boolean.TRUE;
@@ -2933,8 +4105,33 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("aList", list);
         jc.set("bList", list2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test float and double equality
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test number and character equality
+        // removed other assertion
+        // removed other assertion
+        // test string and boolean
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test null and boolean
         options.setStrict(false);
+        // removed other assertion
+        // removed other assertion
+        // anything and string as a string comparison
         options.setStrict(true);
+        // removed other assertion
+        // removed other assertion
+        // arbitrary equals
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "aList != bList";
         final Object expected0 = Boolean.FALSE;
@@ -2969,6 +4166,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", foo);
         jc.set("bar", "true");
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "x";
         final Object expected0 = Boolean.TRUE;
@@ -2986,6 +4184,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", foo);
         jc.set("bar", "true");
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "!bar";
         final Object expected0 = Boolean.FALSE;
@@ -3003,6 +4203,9 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", foo);
         jc.set("bar", "true");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "!foo.isSimple()";
         final Object expected0 = Boolean.FALSE;
@@ -3020,6 +4223,10 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", foo);
         jc.set("bar", "true");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.isSimple()";
         final Object expected0 = Boolean.TRUE;
@@ -3037,6 +4244,11 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", foo);
         jc.set("bar", "true");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "!foo.simple";
         final Object expected0 = Boolean.FALSE;
@@ -3054,6 +4266,12 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", foo);
         jc.set("bar", "true");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.simple";
         final Object expected0 = Boolean.TRUE;
@@ -3071,6 +4289,13 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", foo);
         jc.set("bar", "true");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.getCheeseList().size() == 3";
         final Object expected0 = Boolean.TRUE;
@@ -3088,6 +4313,14 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", foo);
         jc.set("bar", "true");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.cheeseList.size() == 3";
         final Object expected0 = Boolean.TRUE;
@@ -3105,6 +4338,15 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", foo);
         jc.set("bar", "true");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         jc.set("string", "");
                 final JexlContext jc0 = jc;
@@ -3124,8 +4366,18 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", foo);
         jc.set("bar", "true");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         jc.set("string", "");
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "not(empty string)";
         final Object expected0 = Boolean.FALSE;
@@ -3143,8 +4395,19 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", foo);
         jc.set("bar", "true");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         jc.set("string", "");
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "not empty(string)";
         final Object expected0 = Boolean.FALSE;
@@ -3162,8 +4425,20 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", foo);
         jc.set("bar", "true");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         jc.set("string", "");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "! empty string";
         final Object expected0 = Boolean.FALSE;
@@ -3181,8 +4456,21 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", foo);
         jc.set("bar", "true");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         jc.set("string", "");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "!(empty string)";
         final Object expected0 = Boolean.FALSE;
@@ -3200,8 +4488,22 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", foo);
         jc.set("bar", "true");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         jc.set("string", "");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "! empty(string)";
         final Object expected0 = Boolean.FALSE;
@@ -3232,6 +4534,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("x.a", Boolean.TRUE);
         jc.set("x.b", Boolean.FALSE);
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "!x.a";
         final Object expected0 = Boolean.FALSE;
@@ -3247,6 +4550,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("x.a", Boolean.TRUE);
         jc.set("x.b", Boolean.FALSE);
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "!x.b";
         final Object expected0 = Boolean.TRUE;
@@ -3273,6 +4578,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         jc.set("foo", "the quick and lazy fox");
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.indexOf('bar') >= 0";
         final Object expected0 = Boolean.FALSE;
@@ -3286,6 +4592,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         jc.set("foo", "the quick and lazy fox");
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.indexOf('bar') < 0";
         final Object expected0 = Boolean.TRUE;
@@ -3316,6 +4624,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         options.setStrict(false);
         jc.set("bar", new Integer(2));
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "bar == null";
         final Object expected0 = Boolean.FALSE;
@@ -3331,6 +4640,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         options.setStrict(false);
         jc.set("bar", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo == null";
         final Object expected0 = Boolean.TRUE;
@@ -3346,6 +4657,9 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         options.setStrict(false);
         jc.set("bar", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "bar != null";
         final Object expected0 = Boolean.TRUE;
@@ -3361,6 +4675,10 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         options.setStrict(false);
         jc.set("bar", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo != null";
         final Object expected0 = Boolean.FALSE;
@@ -3376,6 +4694,11 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         options.setStrict(false);
         jc.set("bar", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "empty(bar)";
         final Object expected0 = Boolean.FALSE;
@@ -3391,6 +4714,12 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         options.setStrict(false);
         jc.set("bar", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "empty(foo)";
         final Object expected0 = Boolean.TRUE;
@@ -3413,6 +4742,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     @Test
     public void testStringQuoting_2_oe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "\"I'm testing\"";
         final Object expected0 = "I'm testing";
@@ -3439,6 +4769,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         jc.set("bar", "");
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "empty bar";
         final Object expected0 = Boolean.TRUE;
@@ -3452,6 +4783,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         jc.set("bar", "");
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "bar.length() == 0";
         final Object expected0 = Boolean.TRUE;
@@ -3465,6 +4798,9 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         jc.set("bar", "");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "size(bar) == 0";
         final Object expected0 = Boolean.TRUE;
@@ -3493,6 +4829,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", "abc");
         jc.set("bar", "def");
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo == 'abc' or bar == 'abc'";
         final Object expected0 = Boolean.TRUE;
@@ -3507,6 +4844,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", "abc");
         jc.set("bar", "def");
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo == 'abc' && bar == 'abc'";
         final Object expected0 = Boolean.FALSE;
@@ -3521,6 +4860,9 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", "abc");
         jc.set("bar", "def");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo == 'abc' and bar == 'abc'";
         final Object expected0 = Boolean.FALSE;
@@ -3535,6 +4877,10 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", "abc");
         jc.set("bar", "def");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final JexlContext jc0 = jc;
         final String expression0 = "foo == 'def' || bar == 'abc'";
@@ -3550,7 +4896,12 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", "abc");
         jc.set("bar", "def");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo == 'def' or bar == 'abc'";
         final Object expected0 = Boolean.FALSE;
@@ -3565,7 +4916,13 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", "abc");
         jc.set("bar", "def");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo == 'abc' && bar == 'def'";
         final Object expected0 = Boolean.TRUE;
@@ -3580,7 +4937,14 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         jc.set("foo", "abc");
         jc.set("bar", "def");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo == 'abc' and bar == 'def'";
         final Object expected0 = Boolean.TRUE;
@@ -3636,6 +5000,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         jc.set("foo", "bar");
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo == 'bar'";
         final Object expected0 = Boolean.TRUE;
@@ -3648,6 +5013,9 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     public void testIntProperty_3_oe_1_oe() throws Exception {
         final Foo foo = new Foo();
 
+        // lets check the square function first..
+        // removed other assertion
+        // removed other assertion
 
         final JexlContext jc = new MapContext();
         jc.set("foo", foo);
@@ -3664,10 +5032,14 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     public void testIntProperty_4_oe_1_oe() throws Exception {
         final Foo foo = new Foo();
 
+        // lets check the square function first..
+        // removed other assertion
+        // removed other assertion
 
         final JexlContext jc = new MapContext();
         jc.set("foo", foo);
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.square(2)";
         final Object expected0 = new Integer(4);
@@ -3680,10 +5052,15 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     public void testIntProperty_5_oe_1_oe() throws Exception {
         final Foo foo = new Foo();
 
+        // lets check the square function first..
+        // removed other assertion
+        // removed other assertion
 
         final JexlContext jc = new MapContext();
         jc.set("foo", foo);
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.square(-2)";
         final Object expected0 = new Integer(4);
@@ -3712,6 +5089,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo();
         jc.set("foo", foo);
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.count == 5";
         final Object expected0 = Boolean.TRUE;
@@ -3726,6 +5104,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         final Foo foo = new Foo();
         jc.set("foo", foo);
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.count == -1";
         final Object expected0 = Boolean.FALSE;
@@ -3758,6 +5138,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
         jc.set("foo", "abcdef");
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.charAt(2)";
         final Object expected0 = new Character('c');
@@ -3774,6 +5155,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
 
         jc.set("foo", "abcdef");
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "foo.charAt(-2)";
         final Object expected0 = null;
@@ -3828,6 +5211,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     public void testCoercionWithComparisionOperators_2_oe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "'2' >= 1";
         final Object expected0 = Boolean.TRUE;
@@ -3840,6 +5224,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     public void testCoercionWithComparisionOperators_3_oe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "'2' >= 2";
         final Object expected0 = Boolean.TRUE;
@@ -3852,6 +5238,9 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     public void testCoercionWithComparisionOperators_4_oe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "'2' < 1";
         final Object expected0 = Boolean.FALSE;
@@ -3864,6 +5253,10 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     public void testCoercionWithComparisionOperators_5_oe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "'2' <= 1";
         final Object expected0 = Boolean.FALSE;
@@ -3876,6 +5269,11 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     public void testCoercionWithComparisionOperators_6_oe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "'2' <= 2";
         final Object expected0 = Boolean.TRUE;
@@ -3888,6 +5286,12 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     public void testCoercionWithComparisionOperators_7_oe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final JexlContext jc0 = jc;
         final String expression0 = "2 > '1'";
@@ -3901,7 +5305,14 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     public void testCoercionWithComparisionOperators_8_oe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "2 >= '1'";
         final Object expected0 = Boolean.TRUE;
@@ -3914,7 +5325,15 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     public void testCoercionWithComparisionOperators_9_oe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "2 >= '2'";
         final Object expected0 = Boolean.TRUE;
@@ -3927,7 +5346,16 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     public void testCoercionWithComparisionOperators_10_oe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "2 < '1'";
         final Object expected0 = Boolean.FALSE;
@@ -3940,7 +5368,17 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     public void testCoercionWithComparisionOperators_11_oe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "2 <= '1'";
         final Object expected0 = Boolean.FALSE;
@@ -3953,7 +5391,18 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     public void testCoercionWithComparisionOperators_12_oe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "2 <= '2'";
         final Object expected0 = Boolean.TRUE;
@@ -4011,6 +5460,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         final Parser parser = new Parser(";");
         parser.parse(null, new JexlFeatures().register(false), "aString = 'World';", null);
 
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "result = 1 + 1";
         final Object expected0 = new Integer(2);
@@ -4037,6 +5488,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         final String value = "Stinky Cheese";
         jc.set("maven.bob.food", value);
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "empty(maven.bob.food)";
         final Object expected0 = Boolean.FALSE;
@@ -4050,6 +5502,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         final String value = "Stinky Cheese";
         jc.set("maven.bob.food", value);
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "size(maven.bob.food)";
         final Object expected0 = new Integer(value.length());
@@ -4063,6 +5517,9 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         final String value = "Stinky Cheese";
         jc.set("maven.bob.food", value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "maven.bob.food + ' is good'";
         final Object expected0 = value + " is good";
@@ -4085,6 +5542,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     @Test
     public void testUnicodeSupport_2_oe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "'c:\\some\\windows\\path'";
         final Object expected0 = "c:\\some\\windows\\path";
@@ -4096,6 +5554,8 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     @Test
     public void testUnicodeSupport_3_oe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "'foo\\u0020bar'";
         final Object expected0 = "foo\u0020bar";
@@ -4107,6 +5567,9 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     @Test
     public void testUnicodeSupport_4_oe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "'foo\\u0020\\u0020bar'";
         final Object expected0 = "foo\u0020\u0020bar";
@@ -4118,6 +5581,10 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     @Test
     public void testUnicodeSupport_5_oe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final JexlContext jc0 = jc;
         final String expression0 = "'\\u0020foobar\\u0020'";
         final Object expected0 = "\u0020foobar\u0020";

@@ -127,6 +127,7 @@ public class JsonMapperTest_OE25Dev {
 
 	@Test
 	public void toJson_1_oe() throws Exception {
+		// Bean
 		TestBean bean = new TestBean("A");
 		String beanString = JsonMapper.INSTANCE.toJson(bean);
 		System.out.println("Bean:" + beanString);
@@ -135,10 +136,13 @@ public class JsonMapperTest_OE25Dev {
 
 	@Test
 	public void toJson_2_oe() throws Exception {
+		// Bean
 		TestBean bean = new TestBean("A");
 		String beanString = JsonMapper.INSTANCE.toJson(bean);
 		System.out.println("Bean:" + beanString);
+		// removed other assertion
 
+		// Map
 		Map<String, Object> map = Maps.newLinkedHashMap();
 		map.put("name", "A");
 		map.put("age", 2);
@@ -149,16 +153,21 @@ public class JsonMapperTest_OE25Dev {
 
 	@Test
 	public void toJson_3_oe() throws Exception {
+		// Bean
 		TestBean bean = new TestBean("A");
 		String beanString = JsonMapper.INSTANCE.toJson(bean);
 		System.out.println("Bean:" + beanString);
+		// removed other assertion
 
+		// Map
 		Map<String, Object> map = Maps.newLinkedHashMap();
 		map.put("name", "A");
 		map.put("age", 2);
 		String mapString = JsonMapper.INSTANCE.toJson(map);
 		System.out.println("Map:" + mapString);
+		// removed other assertion
 
+		// List<String>
 		List<String> stringList = Lists.newArrayList("A", "B", "C");
 		String listString = JsonMapper.INSTANCE.toJson(stringList);
 		System.out.println("String List:" + listString);
@@ -167,20 +176,27 @@ public class JsonMapperTest_OE25Dev {
 
 	@Test
 	public void toJson_4_oe() throws Exception {
+		// Bean
 		TestBean bean = new TestBean("A");
 		String beanString = JsonMapper.INSTANCE.toJson(bean);
 		System.out.println("Bean:" + beanString);
+		// removed other assertion
 
+		// Map
 		Map<String, Object> map = Maps.newLinkedHashMap();
 		map.put("name", "A");
 		map.put("age", 2);
 		String mapString = JsonMapper.INSTANCE.toJson(map);
 		System.out.println("Map:" + mapString);
+		// removed other assertion
 
+		// List<String>
 		List<String> stringList = Lists.newArrayList("A", "B", "C");
 		String listString = JsonMapper.INSTANCE.toJson(stringList);
 		System.out.println("String List:" + listString);
+		// removed other assertion
 
+		// List<Bean>
 		List<TestBean> beanList = Lists.newArrayList(new TestBean("A"), new TestBean("B"));
 		String beanListString = JsonMapper.INSTANCE.toJson(beanList);
 		System.out.println("Bean List:" + beanListString);
@@ -189,24 +205,33 @@ public class JsonMapperTest_OE25Dev {
 
 	@Test
 	public void toJson_5_oe() throws Exception {
+		// Bean
 		TestBean bean = new TestBean("A");
 		String beanString = JsonMapper.INSTANCE.toJson(bean);
 		System.out.println("Bean:" + beanString);
+		// removed other assertion
 
+		// Map
 		Map<String, Object> map = Maps.newLinkedHashMap();
 		map.put("name", "A");
 		map.put("age", 2);
 		String mapString = JsonMapper.INSTANCE.toJson(map);
 		System.out.println("Map:" + mapString);
+		// removed other assertion
 
+		// List<String>
 		List<String> stringList = Lists.newArrayList("A", "B", "C");
 		String listString = JsonMapper.INSTANCE.toJson(stringList);
 		System.out.println("String List:" + listString);
+		// removed other assertion
 
+		// List<Bean>
 		List<TestBean> beanList = Lists.newArrayList(new TestBean("A"), new TestBean("B"));
 		String beanListString = JsonMapper.INSTANCE.toJson(beanList);
 		System.out.println("Bean List:" + beanListString);
+		// removed other assertion
 
+		// Bean[]
 		TestBean[] beanArray = new TestBean[] { new TestBean("A"), new TestBean("B") };
 		String beanArrayString = JsonMapper.INSTANCE.toJson(beanArray);
 		System.out.println("Array List:" + beanArrayString);
@@ -215,7 +240,9 @@ public class JsonMapperTest_OE25Dev {
 
 	@Test
 	public void nullAndEmpty_1_oe() {
+		// toJson测试 //
 
+		// Null Bean
 		TestBean nullBean = null;
 		String nullBeanString = JsonMapper.INSTANCE.toJson(nullBean);
 		assertThat(nullBeanString).isEqualTo("null");
@@ -223,10 +250,14 @@ public class JsonMapperTest_OE25Dev {
 
 	@Test
 	public void nullAndEmpty_2_oe() {
+		// toJson测试 //
 
+		// Null Bean
 		TestBean nullBean = null;
 		String nullBeanString = JsonMapper.INSTANCE.toJson(nullBean);
+		// removed other assertion
 
+		// Empty List
 		List<String> emptyList = Lists.newArrayList();
 		String emptyListString = JsonMapper.INSTANCE.toJson(emptyList);
 		assertThat(emptyListString).isEqualTo("[]");
@@ -234,29 +265,44 @@ public class JsonMapperTest_OE25Dev {
 
 	@Test
 	public void nullAndEmpty_3_oe() {
+		// toJson测试 //
 
+		// Null Bean
 		TestBean nullBean = null;
 		String nullBeanString = JsonMapper.INSTANCE.toJson(nullBean);
+		// removed other assertion
 
+		// Empty List
 		List<String> emptyList = Lists.newArrayList();
 		String emptyListString = JsonMapper.INSTANCE.toJson(emptyList);
+		// removed other assertion
 
+		// fromJson测试 //
 
+		// Null String for Bean
 		TestBean nullBeanResult = JsonMapper.INSTANCE.fromJson(null, TestBean.class);
 		assertThat(nullBeanResult).isNull();
 	}
 
 	@Test
 	public void nullAndEmpty_4_oe() {
+		// toJson测试 //
 
+		// Null Bean
 		TestBean nullBean = null;
 		String nullBeanString = JsonMapper.INSTANCE.toJson(nullBean);
+		// removed other assertion
 
+		// Empty List
 		List<String> emptyList = Lists.newArrayList();
 		String emptyListString = JsonMapper.INSTANCE.toJson(emptyList);
+		// removed other assertion
 
+		// fromJson测试 //
 
+		// Null String for Bean
 		TestBean nullBeanResult = JsonMapper.INSTANCE.fromJson(null, TestBean.class);
+		// removed other assertion
 
 		nullBeanResult = JsonMapper.INSTANCE.fromJson("null", TestBean.class);
 		assertThat(nullBeanResult).isNull();
@@ -264,37 +310,58 @@ public class JsonMapperTest_OE25Dev {
 
 	@Test
 	public void nullAndEmpty_5_oe() {
+		// toJson测试 //
 
+		// Null Bean
 		TestBean nullBean = null;
 		String nullBeanString = JsonMapper.INSTANCE.toJson(nullBean);
+		// removed other assertion
 
+		// Empty List
 		List<String> emptyList = Lists.newArrayList();
 		String emptyListString = JsonMapper.INSTANCE.toJson(emptyList);
+		// removed other assertion
 
+		// fromJson测试 //
 
+		// Null String for Bean
 		TestBean nullBeanResult = JsonMapper.INSTANCE.fromJson(null, TestBean.class);
+		// removed other assertion
 
 		nullBeanResult = JsonMapper.INSTANCE.fromJson("null", TestBean.class);
+		// removed other assertion
 
+		// Null/Empty String for List
 		List nullListResult = JsonMapper.INSTANCE.fromJson(null, List.class);
 		assertThat(nullListResult).isNull();
 	}
 
 	@Test
 	public void nullAndEmpty_6_oe() {
+		// toJson测试 //
 
+		// Null Bean
 		TestBean nullBean = null;
 		String nullBeanString = JsonMapper.INSTANCE.toJson(nullBean);
+		// removed other assertion
 
+		// Empty List
 		List<String> emptyList = Lists.newArrayList();
 		String emptyListString = JsonMapper.INSTANCE.toJson(emptyList);
+		// removed other assertion
 
+		// fromJson测试 //
 
+		// Null String for Bean
 		TestBean nullBeanResult = JsonMapper.INSTANCE.fromJson(null, TestBean.class);
+		// removed other assertion
 
 		nullBeanResult = JsonMapper.INSTANCE.fromJson("null", TestBean.class);
+		// removed other assertion
 
+		// Null/Empty String for List
 		List nullListResult = JsonMapper.INSTANCE.fromJson(null, List.class);
+		// removed other assertion
 
 		nullListResult = JsonMapper.INSTANCE.fromJson("null", List.class);
 		assertThat(nullListResult).isNull();
@@ -302,21 +369,33 @@ public class JsonMapperTest_OE25Dev {
 
 	@Test
 	public void nullAndEmpty_7_oe() {
+		// toJson测试 //
 
+		// Null Bean
 		TestBean nullBean = null;
 		String nullBeanString = JsonMapper.INSTANCE.toJson(nullBean);
+		// removed other assertion
 
+		// Empty List
 		List<String> emptyList = Lists.newArrayList();
 		String emptyListString = JsonMapper.INSTANCE.toJson(emptyList);
+		// removed other assertion
 
+		// fromJson测试 //
 
+		// Null String for Bean
 		TestBean nullBeanResult = JsonMapper.INSTANCE.fromJson(null, TestBean.class);
+		// removed other assertion
 
 		nullBeanResult = JsonMapper.INSTANCE.fromJson("null", TestBean.class);
+		// removed other assertion
 
+		// Null/Empty String for List
 		List nullListResult = JsonMapper.INSTANCE.fromJson(null, List.class);
+		// removed other assertion
 
 		nullListResult = JsonMapper.INSTANCE.fromJson("null", List.class);
+		// removed other assertion
 
 		nullListResult = JsonMapper.INSTANCE.fromJson("[]", List.class);
 		assertThat(nullListResult).isEmpty();
@@ -324,6 +403,7 @@ public class JsonMapperTest_OE25Dev {
 
 	@Test
 	public void threeTypeMappers_1_oe() {
+		// 打印全部属性
 		JsonMapper normalBinder = JsonMapper.defaultMapper();
 		TestBean bean = new TestBean("A");
 		assertThat(normalBinder.toJson(bean)) .isEqualTo("{\"name\":\"A\",\"defaultValue\":\"hello\",\"nullValue\":null,\"emptyValue\":[]}");
@@ -331,32 +411,46 @@ public class JsonMapperTest_OE25Dev {
 
 	@Test
 	public void threeTypeMappers_2_oe() {
+		// 打印全部属性
 		JsonMapper normalBinder = JsonMapper.defaultMapper();
 		TestBean bean = new TestBean("A");
+		// removed other assertion
 
+		// 不打印nullValue属性
 		JsonMapper nonNullMapper = JsonMapper.nonNullMapper();
 		assertThat(nonNullMapper.toJson(bean)) .isEqualTo("{\"name\":\"A\",\"defaultValue\":\"hello\",\"emptyValue\":[]}");
 	}
 
 	@Test
 	public void threeTypeMappers_3_oe() {
+		// 打印全部属性
 		JsonMapper normalBinder = JsonMapper.defaultMapper();
 		TestBean bean = new TestBean("A");
+		// removed other assertion
 
+		// 不打印nullValue属性
 		JsonMapper nonNullMapper = JsonMapper.nonNullMapper();
+		// removed other assertion
 
+		// 不打印nullValue与empty的属性
 		JsonMapper nonEmptyMapper = JsonMapper.nonEmptyMapper();
 		assertThat(nonEmptyMapper.toJson(bean)).isEqualTo("{\"name\":\"A\",\"defaultValue\":\"hello\"}");
 	}
 
 	@Test
 	public void threeTypeMappers_4_oe() {
+		// 打印全部属性
 		JsonMapper normalBinder = JsonMapper.defaultMapper();
 		TestBean bean = new TestBean("A");
+		// removed other assertion
 
+		// 不打印nullValue属性
 		JsonMapper nonNullMapper = JsonMapper.nonNullMapper();
+		// removed other assertion
 
+		// 不打印nullValue与empty的属性
 		JsonMapper nonEmptyMapper = JsonMapper.nonEmptyMapper();
+		// removed other assertion
 
 		TestBean nonEmptyBean = nonEmptyMapper.fromJson("{\"name\":\"A\",\"defaultValue\":\"hello\"}", TestBean.class);
 		assertThat(nonEmptyBean.getEmptyValue()).isEmpty();
@@ -382,6 +476,7 @@ public class JsonMapperTest_OE25Dev {
 		TestBean bean = new TestBean("A");
 		bean.setDefaultValue("lalala");
 		JsonMapper.INSTANCE.update("{\"name\":\"B\"}", bean);
+		// removed other assertion
 		assertThat(bean.getDefaultValue()).isEqualTo("lalala");
 	}
 

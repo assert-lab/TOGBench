@@ -140,154 +140,204 @@ class Transform2STest_OE25Dev {
 
     @Test
     void testIdentity_1_oe() {
+        // act
         final Transform2S t = Transform2S.identity();
 
+        // assert
         Assertions.assertTrue(t.preservesOrientation());
     }
 
     @Test
     void testIdentity_2_oe() {
+        // act
         final Transform2S t = Transform2S.identity();
 
+        // assert
+        // removed other assertion
         Assertions.assertArrayEquals(new double[] { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0 }, t.getEuclideanTransform().toArray(), 0);
     }
 
     @Test
     void testReflection_point_1_oe() {
+        // arrange
         final Point2S a = Point2S.of(1, 1);
         final Point2S b = Point2S.of(-1, 1);
 
         final Point2S c = Point2S.of(1, Math.PI - 1);
         final Point2S d = Point2S.of(-1, Math.PI - 1);
 
+        // act
         final Transform2S t = Transform2S.createReflection(Point2S.PLUS_I);
 
+        // assert
         Assertions.assertFalse(t.preservesOrientation());
     }
 
     @Test
     void testReflection_vector_1_oe() {
+        // arrange
         final Point2S a = Point2S.of(1, 1);
         final Point2S b = Point2S.of(-1, 1);
 
         final Point2S c = Point2S.of(1, Math.PI - 1);
         final Point2S d = Point2S.of(-1, Math.PI - 1);
 
+        // act
         final Transform2S t = Transform2S.createReflection(Vector3D.Unit.PLUS_Y);
 
+        // assert
         Assertions.assertFalse(t.preservesOrientation());
     }
 
     @Test
     void testDoubleReflection_1_oe() {
+        // arrange
         final Point2S a = Point2S.of(1, 1);
         final Point2S b = Point2S.of(-1, 1);
 
         final Point2S c = Point2S.of(1, Math.PI - 1);
         final Point2S d = Point2S.of(-1, Math.PI - 1);
 
+        // act
         final Transform2S t = Transform2S.identity()
                 .reflect(Point2S.PLUS_I)
                 .reflect(Vector3D.Unit.PLUS_Y);
 
+        // assert
         Assertions.assertTrue(t.preservesOrientation());
     }
 
     @Test
     void testHashcode_1_oe() {
+        // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
         final Transform2S b = Transform2S.createRotation(Point2S.PLUS_J, Angle.PI_OVER_TWO);
         final Transform2S c = Transform2S.createRotation(Point2S.PLUS_I, Math.PI);
         final Transform2S d = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
 
+        // act
         final int hash = a.hashCode();
 
+        // assert
         Assertions.assertEquals(hash, a.hashCode());
     }
 
     @Test
     void testHashcode_2_oe() {
+        // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
         final Transform2S b = Transform2S.createRotation(Point2S.PLUS_J, Angle.PI_OVER_TWO);
         final Transform2S c = Transform2S.createRotation(Point2S.PLUS_I, Math.PI);
         final Transform2S d = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
 
+        // act
         final int hash = a.hashCode();
 
+        // assert
+        // removed other assertion
 
         Assertions.assertNotEquals(hash, b.hashCode());
     }
 
     @Test
     void testHashcode_3_oe() {
+        // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
         final Transform2S b = Transform2S.createRotation(Point2S.PLUS_J, Angle.PI_OVER_TWO);
         final Transform2S c = Transform2S.createRotation(Point2S.PLUS_I, Math.PI);
         final Transform2S d = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
 
+        // act
         final int hash = a.hashCode();
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(hash, c.hashCode());
     }
 
     @Test
     void testHashcode_4_oe() {
+        // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
         final Transform2S b = Transform2S.createRotation(Point2S.PLUS_J, Angle.PI_OVER_TWO);
         final Transform2S c = Transform2S.createRotation(Point2S.PLUS_I, Math.PI);
         final Transform2S d = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
 
+        // act
         final int hash = a.hashCode();
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(hash, d.hashCode());
     }
 
     @Test
     void testEquals_2_oe() {
+        // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
         final Transform2S b = Transform2S.createRotation(Point2S.PLUS_J, Angle.PI_OVER_TWO);
         final Transform2S c = Transform2S.createRotation(Point2S.PLUS_I, Math.PI);
         final Transform2S d = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertNotEquals(a, b);
     }
 
     @Test
     void testEquals_3_oe() {
+        // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
         final Transform2S b = Transform2S.createRotation(Point2S.PLUS_J, Angle.PI_OVER_TWO);
         final Transform2S c = Transform2S.createRotation(Point2S.PLUS_I, Math.PI);
         final Transform2S d = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(a, c);
     }
 
     @Test
     void testEquals_4_oe() {
+        // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
         final Transform2S b = Transform2S.createRotation(Point2S.PLUS_J, Angle.PI_OVER_TWO);
         final Transform2S c = Transform2S.createRotation(Point2S.PLUS_I, Math.PI);
         final Transform2S d = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(a, d);
     }
 
     @Test
     void testEquals_5_oe() {
+        // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
         final Transform2S b = Transform2S.createRotation(Point2S.PLUS_J, Angle.PI_OVER_TWO);
         final Transform2S c = Transform2S.createRotation(Point2S.PLUS_I, Math.PI);
         final Transform2S d = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(d, a);
     }
 

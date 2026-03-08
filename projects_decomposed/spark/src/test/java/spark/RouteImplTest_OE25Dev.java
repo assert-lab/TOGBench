@@ -33,6 +33,7 @@ public class RouteImplTest_OE25Dev {
     @Test
     public void testGets_thenReturnGetPathAndGetAcceptTypeSuccessfully_2_oe() throws Exception {
         route = RouteImpl.create(PATH_TEST, ACCEPT_TYPE_TEST, null);
+        // removed other assertion
         assertEquals("Should return accept type specified", ACCEPT_TYPE_TEST, route.getAcceptType());
     }
 
@@ -45,6 +46,7 @@ public class RouteImplTest_OE25Dev {
     @Test
     public void testCreate_whenOutAssignAcceptTypeInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_2_oe(){
         route = RouteImpl.create(PATH_TEST, null);
+        // removed other assertion
         assertEquals("Should return the default accept type", RouteImpl.DEFAULT_ACCEPT_TYPE, route.getAcceptType());
     }
 
@@ -57,6 +59,7 @@ public class RouteImplTest_OE25Dev {
     @Test
     public void testCreate_whenAcceptTypeNullValueInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_2_oe(){
         route = RouteImpl.create(PATH_TEST, null, null);
+        // removed other assertion
         assertEquals("Should return the default accept type", RouteImpl.DEFAULT_ACCEPT_TYPE, route.getAcceptType());
     }
 
@@ -73,6 +76,7 @@ public class RouteImplTest_OE25Dev {
         String finalObjValue = "object_value";
         route = RouteImpl.create(PATH_TEST, null);
         Object value = route.render(finalObjValue);
+        // removed other assertion
         assertEquals("Should return a string object specified", finalObjValue, value.toString());
     }
 

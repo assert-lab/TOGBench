@@ -1,0 +1,4417 @@
+id,test_prefix,test_name
+joda-time_50_101,"public void testIsEqual_LocalDateTime_oe_101_oe() {
+        try {
+            new LocalDateTime(2005, 7, 2, 10, 20, 30, 40).isEqual(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Basics::testIsEqual_LocalDateTime_oe_101_oe
+joda-time_51_101,"public void testIsBefore_LocalDateTime_oe_101_oe() {
+        try {
+            new LocalDateTime(2005, 7, 2, 10, 20, 30, 40).isBefore(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Basics::testIsBefore_LocalDateTime_oe_101_oe
+joda-time_52_101,"public void testIsAfter_LocalDateTime_oe_101_oe() {
+        try {
+            new LocalDateTime(2005, 7, 2, 10, 20, 30, 40).isAfter(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Basics::testIsAfter_LocalDateTime_oe_101_oe
+joda-time_117_101,"public void testIsEqual_MD_oe_101_oe() {
+        try {
+            new MonthDay(6, 7).isEqual(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMonthDay_Basics::testIsEqual_MD_oe_101_oe
+joda-time_118_101,"public void testIsBefore_MD_oe_101_oe() {
+        try {
+            new MonthDay(6, 7).isBefore(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMonthDay_Basics::testIsBefore_MD_oe_101_oe
+joda-time_119_101,"public void testIsAfter_MD_oe_101_oe() {
+        try {
+            new MonthDay(6, 7).isAfter(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMonthDay_Basics::testIsAfter_MD_oe_101_oe
+joda-time_272_101,"public void testSystemMillisSecurity_oe_101_oe() {
+        try {
+            try {
+                Policy.setPolicy(RESTRICT);
+                System.setSecurityManager(new SecurityManager());
+                DateTimeUtils.setCurrentMillisSystem();
+                fail();
+            } catch (SecurityException ex) {
+                // ok
+            } finally {
+                System.setSecurityManager(null);
+                Policy.setPolicy(ALLOW);
+            }
+        } finally {
+            DateTimeUtils.setCurrentMillisSystem();
+        }
+    }
+",TestDateTimeUtils::testSystemMillisSecurity_oe_101_oe
+joda-time_274_101,"public void testFixedMillisSecurity_oe_101_oe() {
+        try {
+            try {
+                Policy.setPolicy(RESTRICT);
+                System.setSecurityManager(new SecurityManager());
+                DateTimeUtils.setCurrentMillisFixed(0L);
+                fail();
+            } catch (SecurityException ex) {
+                // ok
+            } finally {
+                System.setSecurityManager(null);
+                Policy.setPolicy(ALLOW);
+            }
+        } finally {
+            DateTimeUtils.setCurrentMillisSystem();
+        }
+    }
+",TestDateTimeUtils::testFixedMillisSecurity_oe_101_oe
+joda-time_277_101,"public void testOffsetMillisSecurity_oe_101_oe() {
+        try {
+            try {
+                Policy.setPolicy(RESTRICT);
+                System.setSecurityManager(new SecurityManager());
+                DateTimeUtils.setCurrentMillisOffset(-24 * 60 *  60 * 1000);
+                fail();
+            } catch (SecurityException ex) {
+                // ok
+            } finally {
+                System.setSecurityManager(null);
+                Policy.setPolicy(ALLOW);
+            }
+        } finally {
+            DateTimeUtils.setCurrentMillisSystem();
+        }
+    }
+",TestDateTimeUtils::testOffsetMillisSecurity_oe_101_oe
+joda-time_295_101,"public void test_now_nullDateTimeZone_oe_101_oe() throws Throwable {
+        try {
+            MutableDateTime.now((DateTimeZone) null);
+            fail();
+        } catch (NullPointerException ex) {}
+    }
+",TestMutableDateTime_Constructors::test_now_nullDateTimeZone_oe_101_oe
+joda-time_297_101,"public void test_now_nullChronology_oe_101_oe() throws Throwable {
+        try {
+            MutableDateTime.now((Chronology) null);
+            fail();
+        } catch (NullPointerException ex) {}
+    }
+",TestMutableDateTime_Constructors::test_now_nullChronology_oe_101_oe
+joda-time_314_101,"public void testConstructor_invalidObject_oe_101_oe() throws Throwable {
+        try {
+            new MutableDateTime(new Object());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_invalidObject_oe_101_oe
+joda-time_318_101,"public void testConstructor_invalidObject_DateTimeZone_oe_101_oe() throws Throwable {
+        try {
+            new MutableDateTime(new Object(), PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_invalidObject_DateTimeZone_oe_101_oe
+joda-time_324_101,"public void testConstructor_invalidObject_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new MutableDateTime(new Object(), GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_invalidObject_Chronology_oe_101_oe
+joda-time_329_101,"public void testConstructor_int_int_int_int_int_int_int_oe_101_oe() throws Throwable {
+        try {
+            new MutableDateTime(Integer.MIN_VALUE, 6, 9, 0, 0, 0, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_101_oe
+joda-time_329_102,"public void testConstructor_int_int_int_int_int_int_int_oe_102_oe() throws Throwable {
+        try {
+            new MutableDateTime(Integer.MAX_VALUE, 6, 9, 0, 0, 0, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_102_oe
+joda-time_329_103,"public void testConstructor_int_int_int_int_int_int_int_oe_103_oe() throws Throwable {
+        try {
+            new MutableDateTime(2002, 0, 9, 0, 0, 0, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_103_oe
+joda-time_329_104,"public void testConstructor_int_int_int_int_int_int_int_oe_104_oe() throws Throwable {
+        try {
+            new MutableDateTime(2002, 13, 9, 0, 0, 0, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_104_oe
+joda-time_329_105,"public void testConstructor_int_int_int_int_int_int_int_oe_105_oe() throws Throwable {
+        try {
+            new MutableDateTime(2002, 6, 0, 0, 0, 0, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_105_oe
+joda-time_329_106,"public void testConstructor_int_int_int_int_int_int_int_oe_106_oe() throws Throwable {
+        try {
+            new MutableDateTime(2002, 6, 31, 0, 0, 0, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_106_oe
+joda-time_329_107,"public void testConstructor_int_int_int_int_int_int_int_oe_107_oe() throws Throwable {
+        try {
+            new MutableDateTime(2002, 7, 32, 0, 0, 0, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_107_oe
+joda-time_330_101,"public void testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_101_oe() throws Throwable {
+        try {
+            new MutableDateTime(Integer.MIN_VALUE, 6, 9, 0, 0, 0, 0, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_101_oe
+joda-time_330_102,"public void testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_102_oe() throws Throwable {
+        try {
+            new MutableDateTime(Integer.MAX_VALUE, 6, 9, 0, 0, 0, 0, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_102_oe
+joda-time_330_103,"public void testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_103_oe() throws Throwable {
+        try {
+            new MutableDateTime(2002, 0, 9, 0, 0, 0, 0, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_103_oe
+joda-time_330_104,"public void testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_104_oe() throws Throwable {
+        try {
+            new MutableDateTime(2002, 13, 9, 0, 0, 0, 0, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_104_oe
+joda-time_330_105,"public void testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_105_oe() throws Throwable {
+        try {
+            new MutableDateTime(2002, 6, 0, 0, 0, 0, 0, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_105_oe
+joda-time_330_106,"public void testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_106_oe() throws Throwable {
+        try {
+            new MutableDateTime(2002, 6, 31, 0, 0, 0, 0, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_106_oe
+joda-time_330_107,"public void testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_107_oe() throws Throwable {
+        try {
+            new MutableDateTime(2002, 7, 32, 0, 0, 0, 0, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_107_oe
+joda-time_332_101,"public void testConstructor_int_int_int_int_int_int_int_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new MutableDateTime(Integer.MIN_VALUE, 6, 9, 0, 0, 0, 0, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_Chronology_oe_101_oe
+joda-time_332_102,"public void testConstructor_int_int_int_int_int_int_int_Chronology_oe_102_oe() throws Throwable {
+        try {
+            new MutableDateTime(Integer.MAX_VALUE, 6, 9, 0, 0, 0, 0, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_Chronology_oe_102_oe
+joda-time_332_103,"public void testConstructor_int_int_int_int_int_int_int_Chronology_oe_103_oe() throws Throwable {
+        try {
+            new MutableDateTime(2002, 0, 9, 0, 0, 0, 0, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_Chronology_oe_103_oe
+joda-time_332_104,"public void testConstructor_int_int_int_int_int_int_int_Chronology_oe_104_oe() throws Throwable {
+        try {
+            new MutableDateTime(2002, 13, 9, 0, 0, 0, 0, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_Chronology_oe_104_oe
+joda-time_332_105,"public void testConstructor_int_int_int_int_int_int_int_Chronology_oe_105_oe() throws Throwable {
+        try {
+            new MutableDateTime(2002, 6, 0, 0, 0, 0, 0, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_Chronology_oe_105_oe
+joda-time_332_106,"public void testConstructor_int_int_int_int_int_int_int_Chronology_oe_106_oe() throws Throwable {
+        try {
+            new MutableDateTime(2002, 6, 31, 0, 0, 0, 0, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_Chronology_oe_106_oe
+joda-time_332_107,"public void testConstructor_int_int_int_int_int_int_int_Chronology_oe_107_oe() throws Throwable {
+        try {
+            new MutableDateTime(2002, 7, 32, 0, 0, 0, 0, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutableDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_Chronology_oe_107_oe
+joda-time_422_102,"public void testPlus_oe_102_oe() {
+        try {
+            Period.days(Integer.MAX_VALUE).plus(Period.days(1));
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestPeriod_Basics::testPlus_oe_102_oe
+joda-time_422_103,"public void testPlus_oe_103_oe() {
+        try {
+            Period.days(Integer.MIN_VALUE).plus(Period.days(-1));
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestPeriod_Basics::testPlus_oe_103_oe
+joda-time_423_102,"public void testMinus_oe_102_oe() {
+        try {
+            Period.days(Integer.MAX_VALUE).minus(Period.days(-1));
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestPeriod_Basics::testMinus_oe_102_oe
+joda-time_423_103,"public void testMinus_oe_103_oe() {
+        try {
+            Period.days(Integer.MIN_VALUE).minus(Period.days(1));
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestPeriod_Basics::testMinus_oe_103_oe
+joda-time_427_101,"public void testMultipliedBy_oe_101_oe() {
+        try {
+            Period.days(Integer.MAX_VALUE).multipliedBy(2);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestPeriod_Basics::testMultipliedBy_oe_101_oe
+joda-time_427_102,"public void testMultipliedBy_oe_102_oe() {
+        try {
+            Period.days(Integer.MIN_VALUE).multipliedBy(2);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestPeriod_Basics::testMultipliedBy_oe_102_oe
+joda-time_428_101,"public void testNegated_oe_101_oe() {
+        try {
+            Period.days(Integer.MIN_VALUE).negated();
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestPeriod_Basics::testNegated_oe_101_oe
+joda-time_553_101,"public void testFactory_FromCalendarFields_oe_101_oe() throws Exception {
+        try {
+            MonthDay.fromCalendarFields(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMonthDay_Constructors::testFactory_FromCalendarFields_oe_101_oe
+joda-time_554_101,"public void testFactory_FromDateFields_oe_101_oe() throws Exception {
+        try {
+            MonthDay.fromDateFields(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMonthDay_Constructors::testFactory_FromDateFields_oe_101_oe
+joda-time_569_101,"public void testConstructor_ObjectStringEx1_oe_101_oe() throws Throwable {
+        try {
+            new MonthDay(""T10:20:30.040"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestMonthDay_Constructors::testConstructor_ObjectStringEx1_oe_101_oe
+joda-time_570_101,"public void testConstructor_ObjectStringEx2_oe_101_oe() throws Throwable {
+        try {
+            new MonthDay(""T10:20:30.040+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestMonthDay_Constructors::testConstructor_ObjectStringEx2_oe_101_oe
+joda-time_571_101,"public void testConstructor_ObjectStringEx3_oe_101_oe() throws Throwable {
+        try {
+            new MonthDay(""10:20:30.040"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestMonthDay_Constructors::testConstructor_ObjectStringEx3_oe_101_oe
+joda-time_572_101,"public void testConstructor_ObjectStringEx4_oe_101_oe() throws Throwable {
+        try {
+            new MonthDay(""10:20:30.040+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestMonthDay_Constructors::testConstructor_ObjectStringEx4_oe_101_oe
+joda-time_577_101,"public void testConstructor_int_int_oe_101_oe() throws Throwable {
+        try {
+            new MonthDay(Integer.MIN_VALUE, 6);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMonthDay_Constructors::testConstructor_int_int_oe_101_oe
+joda-time_577_102,"public void testConstructor_int_int_oe_102_oe() throws Throwable {
+        try {
+            new MonthDay(Integer.MAX_VALUE, 6);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMonthDay_Constructors::testConstructor_int_int_oe_102_oe
+joda-time_577_103,"public void testConstructor_int_int_oe_103_oe() throws Throwable {
+        try {
+            new MonthDay(1970, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMonthDay_Constructors::testConstructor_int_int_oe_103_oe
+joda-time_577_104,"public void testConstructor_int_int_oe_104_oe() throws Throwable {
+        try {
+            new MonthDay(1970, 13);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMonthDay_Constructors::testConstructor_int_int_oe_104_oe
+joda-time_578_101,"public void testConstructor_int_int_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new MonthDay(Integer.MIN_VALUE, 6, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMonthDay_Constructors::testConstructor_int_int_Chronology_oe_101_oe
+joda-time_578_102,"public void testConstructor_int_int_Chronology_oe_102_oe() throws Throwable {
+        try {
+            new MonthDay(Integer.MAX_VALUE, 6, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMonthDay_Constructors::testConstructor_int_int_Chronology_oe_102_oe
+joda-time_578_103,"public void testConstructor_int_int_Chronology_oe_103_oe() throws Throwable {
+        try {
+            new MonthDay(1970, 0, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMonthDay_Constructors::testConstructor_int_int_Chronology_oe_103_oe
+joda-time_578_104,"public void testConstructor_int_int_Chronology_oe_104_oe() throws Throwable {
+        try {
+            new MonthDay(1970, 13, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMonthDay_Constructors::testConstructor_int_int_Chronology_oe_104_oe
+joda-time_585_101,"public void testFactory_standardSecondsIn_RPeriod_oe_101_oe() {
+        try {
+            Seconds.standardSecondsIn(Period.months(1));
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestSeconds::testFactory_standardSecondsIn_RPeriod_oe_101_oe
+joda-time_586_101,"public void testFactory_parseSeconds_String_oe_101_oe() {
+        try {
+            Seconds.parseSeconds(""P1Y1D"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestSeconds::testFactory_parseSeconds_String_oe_101_oe
+joda-time_586_102,"public void testFactory_parseSeconds_String_oe_102_oe() {
+        try {
+            Seconds.parseSeconds(""P1DT1S"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestSeconds::testFactory_parseSeconds_String_oe_102_oe
+joda-time_599_101,"public void testPlus_int_oe_101_oe() {
+        try {
+            Seconds.MAX_VALUE.plus(1);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestSeconds::testPlus_int_oe_101_oe
+joda-time_600_101,"public void testPlus_Seconds_oe_101_oe() {
+        try {
+            Seconds.MAX_VALUE.plus(Seconds.ONE);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestSeconds::testPlus_Seconds_oe_101_oe
+joda-time_601_101,"public void testMinus_int_oe_101_oe() {
+        try {
+            Seconds.MIN_VALUE.minus(1);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestSeconds::testMinus_int_oe_101_oe
+joda-time_602_101,"public void testMinus_Seconds_oe_101_oe() {
+        try {
+            Seconds.MIN_VALUE.minus(Seconds.ONE);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestSeconds::testMinus_Seconds_oe_101_oe
+joda-time_604_101,"public void testDividedBy_int_oe_101_oe() {
+        try {
+            Seconds.ONE.dividedBy(0);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestSeconds::testDividedBy_int_oe_101_oe
+joda-time_605_101,"public void testNegated_oe_101_oe() {
+        try {
+            Seconds.MIN_VALUE.negated();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestSeconds::testNegated_oe_101_oe
+joda-time_697_101,"public void testDefault_oe_101_oe() {
+        try {
+            DateTimeZone.setDefault(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeZone::testDefault_oe_101_oe
+joda-time_698_101,"public void testDefaultSecurity_oe_101_oe() {
+        try {
+            Policy.setPolicy(RESTRICT);
+            System.setSecurityManager(new SecurityManager());
+            DateTimeZone.setDefault(PARIS);
+            fail();
+        } catch (SecurityException ex) {
+            // ok
+        } finally {
+            System.setSecurityManager(null);
+            Policy.setPolicy(ALLOW);
+        }
+    }
+",TestDateTimeZone::testDefaultSecurity_oe_101_oe
+joda-time_699_101,"public void testForID_String_oe_101_oe() {
+        try {
+            DateTimeZone.forID(""SST"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeZone::testForID_String_oe_101_oe
+joda-time_699_102,"public void testForID_String_oe_102_oe() {
+        try {
+            DateTimeZone.forID(""europe/london"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeZone::testForID_String_oe_102_oe
+joda-time_699_103,"public void testForID_String_oe_103_oe() {
+        try {
+            DateTimeZone.forID(""Europe/UK"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeZone::testForID_String_oe_103_oe
+joda-time_699_104,"public void testForID_String_oe_104_oe() {
+        try {
+            DateTimeZone.forID(""+"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeZone::testForID_String_oe_104_oe
+joda-time_699_105,"public void testForID_String_oe_105_oe() {
+        try {
+            DateTimeZone.forID(""+0"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeZone::testForID_String_oe_105_oe
+joda-time_702_101,"public void testForOffsetHours_int_oe_101_oe() {
+        try {
+            DateTimeZone.forOffsetHours(999999);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeZone::testForOffsetHours_int_oe_101_oe
+joda-time_703_101,"public void testForOffsetHoursMinutes_int_int_oe_101_oe() {
+        try {
+            DateTimeZone.forOffsetHoursMinutes(2, -15);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeZone::testForOffsetHoursMinutes_int_int_oe_101_oe
+joda-time_703_102,"public void testForOffsetHoursMinutes_int_int_oe_102_oe() {
+        try {
+            DateTimeZone.forOffsetHoursMinutes(2, 60);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeZone::testForOffsetHoursMinutes_int_int_oe_102_oe
+joda-time_703_103,"public void testForOffsetHoursMinutes_int_int_oe_103_oe() {
+        try {
+            DateTimeZone.forOffsetHoursMinutes(-2, 60);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeZone::testForOffsetHoursMinutes_int_int_oe_103_oe
+joda-time_703_104,"public void testForOffsetHoursMinutes_int_int_oe_104_oe() {
+        try {
+            DateTimeZone.forOffsetHoursMinutes(24, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeZone::testForOffsetHoursMinutes_int_int_oe_104_oe
+joda-time_703_105,"public void testForOffsetHoursMinutes_int_int_oe_105_oe() {
+        try {
+            DateTimeZone.forOffsetHoursMinutes(-24, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeZone::testForOffsetHoursMinutes_int_int_oe_105_oe
+joda-time_709_101,"public void testProvider_oe_101_oe() {
+        try {
+        
+            Provider provider = DateTimeZone.getProvider();
+            DateTimeZone.setProvider(null);
+        
+            try {
+                DateTimeZone.setProvider(new MockNullIDSProvider());
+                fail();
+            } catch (IllegalArgumentException ex) {}
+            try {
+                DateTimeZone.setProvider(new MockEmptyIDSProvider());
+            } catch (IllegalArgumentException ex) {}
+            try {
+                DateTimeZone.setProvider(new MockNoUTCProvider());
+            } catch (IllegalArgumentException ex) {}
+            try {
+                DateTimeZone.setProvider(new MockBadUTCProvider());
+            } catch (IllegalArgumentException ex) {}
+        
+            Provider prov = new MockOKProvider();
+            DateTimeZone.setProvider(prov);
+        } finally {
+            DateTimeZone.setProvider(null);
+        }
+    }
+",TestDateTimeZone::testProvider_oe_101_oe
+joda-time_711_101,"public void testProviderSecurity_oe_101_oe() {
+        try {
+            Policy.setPolicy(RESTRICT);
+            System.setSecurityManager(new SecurityManager());
+            DateTimeZone.setProvider(new MockOKProvider());
+            fail();
+        } catch (SecurityException ex) {
+            // ok
+        } finally {
+            System.setSecurityManager(null);
+            Policy.setPolicy(ALLOW);
+        }
+    }
+",TestDateTimeZone::testProviderSecurity_oe_101_oe
+joda-time_715_101,"public void testNameProviderSecurity_oe_101_oe() {
+        try {
+            Policy.setPolicy(RESTRICT);
+            System.setSecurityManager(new SecurityManager());
+            DateTimeZone.setNameProvider(new MockOKButNullNameProvider());
+            fail();
+        } catch (SecurityException ex) {
+            // ok
+        } finally {
+            System.setSecurityManager(null);
+            Policy.setPolicy(ALLOW);
+        }
+    }
+",TestDateTimeZone::testNameProviderSecurity_oe_101_oe
+joda-time_825_101,"public void testIsEqual_YMD_oe_101_oe() {
+        try {
+            new YearMonthDay(2005, 7, 2).isEqual(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Basics::testIsEqual_YMD_oe_101_oe
+joda-time_826_101,"public void testIsBefore_YMD_oe_101_oe() {
+        try {
+            new YearMonthDay(2005, 7, 2).isBefore(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Basics::testIsBefore_YMD_oe_101_oe
+joda-time_827_101,"public void testIsAfter_YMD_oe_101_oe() {
+        try {
+            new YearMonthDay(2005, 7, 2).isAfter(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Basics::testIsAfter_YMD_oe_101_oe
+joda-time_917_101,"public void testFactory_parseMonths_String_oe_101_oe() {
+        try {
+            Months.parseMonths(""P1Y1D"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestMonths::testFactory_parseMonths_String_oe_101_oe
+joda-time_917_102,"public void testFactory_parseMonths_String_oe_102_oe() {
+        try {
+            Months.parseMonths(""P1MT1H"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestMonths::testFactory_parseMonths_String_oe_102_oe
+joda-time_925_101,"public void testPlus_int_oe_101_oe() {
+        try {
+            Months.MAX_VALUE.plus(1);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestMonths::testPlus_int_oe_101_oe
+joda-time_926_101,"public void testPlus_Months_oe_101_oe() {
+        try {
+            Months.MAX_VALUE.plus(Months.ONE);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestMonths::testPlus_Months_oe_101_oe
+joda-time_927_101,"public void testMinus_int_oe_101_oe() {
+        try {
+            Months.MIN_VALUE.minus(1);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestMonths::testMinus_int_oe_101_oe
+joda-time_928_101,"public void testMinus_Months_oe_101_oe() {
+        try {
+            Months.MIN_VALUE.minus(Months.ONE);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestMonths::testMinus_Months_oe_101_oe
+joda-time_930_101,"public void testDividedBy_int_oe_101_oe() {
+        try {
+            Months.ONE.dividedBy(0);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestMonths::testDividedBy_int_oe_101_oe
+joda-time_931_101,"public void testNegated_oe_101_oe() {
+        try {
+            Months.MIN_VALUE.negated();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestMonths::testNegated_oe_101_oe
+joda-time_939_101,"public void testFactory_fromCalendarFields_null_oe_101_oe() throws Exception {
+        try {
+            LocalDate.fromCalendarFields((Calendar) null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Constructors::testFactory_fromCalendarFields_null_oe_101_oe
+joda-time_944_101,"public void testFactory_fromDateFields_null_oe_101_oe() throws Exception {
+        try {
+            LocalDate.fromDateFields((Date) null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Constructors::testFactory_fromDateFields_null_oe_101_oe
+joda-time_965_101,"public void testConstructor_ObjectStringEx1_oe_101_oe() throws Throwable {
+        try {
+            new LocalDate(""1970-04-06T+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Constructors::testConstructor_ObjectStringEx1_oe_101_oe
+joda-time_966_101,"public void testConstructor_ObjectStringEx2_oe_101_oe() throws Throwable {
+        try {
+            new LocalDate(""1970-04-06T10:20:30.040"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Constructors::testConstructor_ObjectStringEx2_oe_101_oe
+joda-time_967_101,"public void testConstructor_ObjectStringEx3_oe_101_oe() throws Throwable {
+        try {
+            new LocalDate(""1970-04-06T10:20:30.040+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Constructors::testConstructor_ObjectStringEx3_oe_101_oe
+joda-time_968_101,"public void testConstructor_ObjectStringEx4_oe_101_oe() throws Throwable {
+        try {
+            new LocalDate(""T10:20:30.040"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Constructors::testConstructor_ObjectStringEx4_oe_101_oe
+joda-time_969_101,"public void testConstructor_ObjectStringEx5_oe_101_oe() throws Throwable {
+        try {
+            new LocalDate(""T10:20:30.040+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Constructors::testConstructor_ObjectStringEx5_oe_101_oe
+joda-time_970_101,"public void testConstructor_ObjectStringEx6_oe_101_oe() throws Throwable {
+        try {
+            new LocalDate(""10:20:30.040"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Constructors::testConstructor_ObjectStringEx6_oe_101_oe
+joda-time_971_101,"public void testConstructor_ObjectStringEx7_oe_101_oe() throws Throwable {
+        try {
+            new LocalDate(""10:20:30.040+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Constructors::testConstructor_ObjectStringEx7_oe_101_oe
+joda-time_985_101,"public void testConstructor_int_int_int_oe_101_oe() throws Throwable {
+        try {
+            new LocalDate(Integer.MIN_VALUE, 6, 9);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestLocalDate_Constructors::testConstructor_int_int_int_oe_101_oe
+joda-time_985_102,"public void testConstructor_int_int_int_oe_102_oe() throws Throwable {
+        try {
+            new LocalDate(Integer.MAX_VALUE, 6, 9);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestLocalDate_Constructors::testConstructor_int_int_int_oe_102_oe
+joda-time_985_103,"public void testConstructor_int_int_int_oe_103_oe() throws Throwable {
+        try {
+            new LocalDate(1970, 0, 9);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestLocalDate_Constructors::testConstructor_int_int_int_oe_103_oe
+joda-time_985_104,"public void testConstructor_int_int_int_oe_104_oe() throws Throwable {
+        try {
+            new LocalDate(1970, 13, 9);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestLocalDate_Constructors::testConstructor_int_int_int_oe_104_oe
+joda-time_985_105,"public void testConstructor_int_int_int_oe_105_oe() throws Throwable {
+        try {
+            new LocalDate(1970, 6, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestLocalDate_Constructors::testConstructor_int_int_int_oe_105_oe
+joda-time_985_106,"public void testConstructor_int_int_int_oe_106_oe() throws Throwable {
+        try {
+            new LocalDate(1970, 6, 31);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestLocalDate_Constructors::testConstructor_int_int_int_oe_106_oe
+joda-time_985_107,"public void testConstructor_int_int_int_oe_107_oe() throws Throwable {
+        try {
+            new LocalDate(1970, 7, 32);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestLocalDate_Constructors::testConstructor_int_int_int_oe_107_oe
+joda-time_986_101,"public void testConstructor_int_int_int_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new LocalDate(Integer.MIN_VALUE, 6, 9, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Constructors::testConstructor_int_int_int_Chronology_oe_101_oe
+joda-time_986_102,"public void testConstructor_int_int_int_Chronology_oe_102_oe() throws Throwable {
+        try {
+            new LocalDate(Integer.MAX_VALUE, 6, 9, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Constructors::testConstructor_int_int_int_Chronology_oe_102_oe
+joda-time_986_103,"public void testConstructor_int_int_int_Chronology_oe_103_oe() throws Throwable {
+        try {
+            new LocalDate(1970, 0, 9, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Constructors::testConstructor_int_int_int_Chronology_oe_103_oe
+joda-time_986_104,"public void testConstructor_int_int_int_Chronology_oe_104_oe() throws Throwable {
+        try {
+            new LocalDate(1970, 13, 9, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Constructors::testConstructor_int_int_int_Chronology_oe_104_oe
+joda-time_986_105,"public void testConstructor_int_int_int_Chronology_oe_105_oe() throws Throwable {
+        try {
+            new LocalDate(1970, 6, 0, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Constructors::testConstructor_int_int_int_Chronology_oe_105_oe
+joda-time_986_106,"public void testConstructor_int_int_int_Chronology_oe_106_oe() throws Throwable {
+        try {
+            new LocalDate(1970, 6, 31, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Constructors::testConstructor_int_int_int_Chronology_oe_106_oe
+joda-time_986_107,"public void testConstructor_int_int_int_Chronology_oe_107_oe() throws Throwable {
+        try {
+            new LocalDate(1970, 7, 32, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Constructors::testConstructor_int_int_int_Chronology_oe_107_oe
+joda-time_1051_101,"public void testIsEqual_LocalTime_oe_101_oe() {
+        try {
+            new LocalTime(10, 20, 35, 40).isEqual(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Basics::testIsEqual_LocalTime_oe_101_oe
+joda-time_1052_101,"public void testIsBefore_LocalTime_oe_101_oe() {
+        try {
+            new LocalTime(10, 20, 35, 40).isBefore(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Basics::testIsBefore_LocalTime_oe_101_oe
+joda-time_1053_101,"public void testIsAfter_LocalTime_oe_101_oe() {
+        try {
+            new LocalTime(10, 20, 35, 40).isAfter(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Basics::testIsAfter_LocalTime_oe_101_oe
+joda-time_1175_101,"public void testFactory_standardDaysIn_RPeriod_oe_101_oe() {
+        try {
+            Days.standardDaysIn(Period.months(1));
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestDays::testFactory_standardDaysIn_RPeriod_oe_101_oe
+joda-time_1176_101,"public void testFactory_parseDays_String_oe_101_oe() {
+        try {
+            Days.parseDays(""P1Y1D"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestDays::testFactory_parseDays_String_oe_101_oe
+joda-time_1176_102,"public void testFactory_parseDays_String_oe_102_oe() {
+        try {
+            Days.parseDays(""P1DT1H"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestDays::testFactory_parseDays_String_oe_102_oe
+joda-time_1185_101,"public void testToStandardHours_oe_101_oe() {
+        try {
+            Days.MAX_VALUE.toStandardHours();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestDays::testToStandardHours_oe_101_oe
+joda-time_1186_101,"public void testToStandardMinutes_oe_101_oe() {
+        try {
+            Days.MAX_VALUE.toStandardMinutes();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestDays::testToStandardMinutes_oe_101_oe
+joda-time_1187_101,"public void testToStandardSeconds_oe_101_oe() {
+        try {
+            Days.MAX_VALUE.toStandardSeconds();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestDays::testToStandardSeconds_oe_101_oe
+joda-time_1189_101,"public void testPlus_int_oe_101_oe() {
+        try {
+            Days.MAX_VALUE.plus(1);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestDays::testPlus_int_oe_101_oe
+joda-time_1190_101,"public void testPlus_Days_oe_101_oe() {
+        try {
+            Days.MAX_VALUE.plus(Days.ONE);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestDays::testPlus_Days_oe_101_oe
+joda-time_1191_101,"public void testMinus_int_oe_101_oe() {
+        try {
+            Days.MIN_VALUE.minus(1);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestDays::testMinus_int_oe_101_oe
+joda-time_1192_101,"public void testMinus_Days_oe_101_oe() {
+        try {
+            Days.MIN_VALUE.minus(Days.ONE);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestDays::testMinus_Days_oe_101_oe
+joda-time_1194_101,"public void testDividedBy_int_oe_101_oe() {
+        try {
+            Days.ONE.dividedBy(0);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestDays::testDividedBy_int_oe_101_oe
+joda-time_1195_101,"public void testNegated_oe_101_oe() {
+        try {
+            Days.MIN_VALUE.negated();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestDays::testNegated_oe_101_oe
+joda-time_1308_101,"public void testIsEqual_TOD_oe_101_oe() {
+        try {
+            createHourMinPartial().isEqual(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPartial_Basics::testIsEqual_TOD_oe_101_oe
+joda-time_1309_101,"public void testIsBefore_TOD_oe_101_oe() {
+        try {
+            createHourMinPartial().isBefore(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPartial_Basics::testIsBefore_TOD_oe_101_oe
+joda-time_1310_101,"public void testIsAfter_TOD_oe_101_oe() {
+        try {
+            createHourMinPartial().isAfter(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPartial_Basics::testIsAfter_TOD_oe_101_oe
+joda-time_1418_103,"public void testFactory_between_RInstant_oe_103_oe() {
+        try {
+            Single.between((ReadableInstant) null, (ReadableInstant) null, DurationFieldType.days());
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestBaseSingleFieldPeriod::testFactory_between_RInstant_oe_103_oe
+joda-time_1420_101,"public void testFactory_standardPeriodIn_RPeriod_oe_101_oe() {
+        try {
+            Single.standardPeriodIn(Period.months(1), DateTimeConstants.MILLIS_PER_DAY);
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestBaseSingleFieldPeriod::testFactory_standardPeriodIn_RPeriod_oe_101_oe
+joda-time_1435_101,"public void test_ofEpochSecond_overflow_oe_101_oe() throws Throwable {
+        try {
+            Instant.ofEpochSecond(Long.MAX_VALUE);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestInstant_Constructors::test_ofEpochSecond_overflow_oe_101_oe
+joda-time_1436_101,"public void test_ofEpochSecond_underflow_oe_101_oe() throws Throwable {
+        try {
+            Instant.ofEpochSecond(Long.MIN_VALUE);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestInstant_Constructors::test_ofEpochSecond_underflow_oe_101_oe
+joda-time_1443_101,"public void testConstructor_invalidObject_oe_101_oe() throws Throwable {
+        try {
+            new Instant(new Object());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestInstant_Constructors::testConstructor_invalidObject_oe_101_oe
+joda-time_1510_101,"public void testConstructorEx1_Type_int_oe_101_oe() throws Throwable {
+        try {
+            new Partial(null, 4);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestPartial_Constructors::testConstructorEx1_Type_int_oe_101_oe
+joda-time_1511_101,"public void testConstructorEx2_Type_int_oe_101_oe() throws Throwable {
+        try {
+            new Partial(DateTimeFieldType.dayOfYear(), 0);
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestPartial_Constructors::testConstructorEx2_Type_int_oe_101_oe
+joda-time_1513_101,"public void testConstructorEx_Type_int_Chrono_oe_101_oe() throws Throwable {
+        try {
+            new Partial(null, 4, ISO_UTC);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestPartial_Constructors::testConstructorEx_Type_int_Chrono_oe_101_oe
+joda-time_1514_101,"public void testConstructorEx2_Type_int_Chrono_oe_101_oe() throws Throwable {
+        try {
+            new Partial(DateTimeFieldType.dayOfYear(), 0, ISO_UTC);
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestPartial_Constructors::testConstructorEx2_Type_int_Chrono_oe_101_oe
+joda-time_1527_101,"public void testConstructorEx_Partial_oe_101_oe() throws Throwable {
+        try {
+            new Partial((ReadablePartial) null);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestPartial_Constructors::testConstructorEx_Partial_oe_101_oe
+joda-time_1530_101,"public void testFactory_FromCalendarFields_oe_101_oe() throws Exception {
+        try {
+            YearMonth.fromCalendarFields(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonth_Constructors::testFactory_FromCalendarFields_oe_101_oe
+joda-time_1531_101,"public void testFactory_FromDateFields_oe_101_oe() throws Exception {
+        try {
+            YearMonth.fromDateFields(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonth_Constructors::testFactory_FromDateFields_oe_101_oe
+joda-time_1546_101,"public void testConstructor_ObjectStringEx1_oe_101_oe() throws Throwable {
+        try {
+            new YearMonth(""T10:20:30.040"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestYearMonth_Constructors::testConstructor_ObjectStringEx1_oe_101_oe
+joda-time_1547_101,"public void testConstructor_ObjectStringEx2_oe_101_oe() throws Throwable {
+        try {
+            new YearMonth(""T10:20:30.040+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestYearMonth_Constructors::testConstructor_ObjectStringEx2_oe_101_oe
+joda-time_1548_101,"public void testConstructor_ObjectStringEx3_oe_101_oe() throws Throwable {
+        try {
+            new YearMonth(""10:20:30.040"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestYearMonth_Constructors::testConstructor_ObjectStringEx3_oe_101_oe
+joda-time_1549_101,"public void testConstructor_ObjectStringEx4_oe_101_oe() throws Throwable {
+        try {
+            new YearMonth(""10:20:30.040+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestYearMonth_Constructors::testConstructor_ObjectStringEx4_oe_101_oe
+joda-time_1554_101,"public void testConstructor_int_int_oe_101_oe() throws Throwable {
+        try {
+            new YearMonth(Integer.MIN_VALUE, 6);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonth_Constructors::testConstructor_int_int_oe_101_oe
+joda-time_1554_102,"public void testConstructor_int_int_oe_102_oe() throws Throwable {
+        try {
+            new YearMonth(Integer.MAX_VALUE, 6);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonth_Constructors::testConstructor_int_int_oe_102_oe
+joda-time_1554_103,"public void testConstructor_int_int_oe_103_oe() throws Throwable {
+        try {
+            new YearMonth(1970, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonth_Constructors::testConstructor_int_int_oe_103_oe
+joda-time_1554_104,"public void testConstructor_int_int_oe_104_oe() throws Throwable {
+        try {
+            new YearMonth(1970, 13);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonth_Constructors::testConstructor_int_int_oe_104_oe
+joda-time_1555_101,"public void testConstructor_int_int_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new YearMonth(Integer.MIN_VALUE, 6, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonth_Constructors::testConstructor_int_int_Chronology_oe_101_oe
+joda-time_1555_102,"public void testConstructor_int_int_Chronology_oe_102_oe() throws Throwable {
+        try {
+            new YearMonth(Integer.MAX_VALUE, 6, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonth_Constructors::testConstructor_int_int_Chronology_oe_102_oe
+joda-time_1555_103,"public void testConstructor_int_int_Chronology_oe_103_oe() throws Throwable {
+        try {
+            new YearMonth(1970, 0, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonth_Constructors::testConstructor_int_int_Chronology_oe_103_oe
+joda-time_1555_104,"public void testConstructor_int_int_Chronology_oe_104_oe() throws Throwable {
+        try {
+            new YearMonth(1970, 13, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonth_Constructors::testConstructor_int_int_Chronology_oe_104_oe
+joda-time_1581_101,"public void testFactory_standardWeeksIn_RPeriod_oe_101_oe() {
+        try {
+            Weeks.standardWeeksIn(Period.months(1));
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestWeeks::testFactory_standardWeeksIn_RPeriod_oe_101_oe
+joda-time_1582_101,"public void testFactory_parseWeeks_String_oe_101_oe() {
+        try {
+            Weeks.parseWeeks(""P1Y1D"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestWeeks::testFactory_parseWeeks_String_oe_101_oe
+joda-time_1582_102,"public void testFactory_parseWeeks_String_oe_102_oe() {
+        try {
+            Weeks.parseWeeks(""P1WT1H"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestWeeks::testFactory_parseWeeks_String_oe_102_oe
+joda-time_1590_101,"public void testToStandardDays_oe_101_oe() {
+        try {
+            Weeks.MAX_VALUE.toStandardDays();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestWeeks::testToStandardDays_oe_101_oe
+joda-time_1591_101,"public void testToStandardHours_oe_101_oe() {
+        try {
+            Weeks.MAX_VALUE.toStandardHours();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestWeeks::testToStandardHours_oe_101_oe
+joda-time_1592_101,"public void testToStandardMinutes_oe_101_oe() {
+        try {
+            Weeks.MAX_VALUE.toStandardMinutes();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestWeeks::testToStandardMinutes_oe_101_oe
+joda-time_1593_101,"public void testToStandardSeconds_oe_101_oe() {
+        try {
+            Weeks.MAX_VALUE.toStandardSeconds();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestWeeks::testToStandardSeconds_oe_101_oe
+joda-time_1595_101,"public void testPlus_int_oe_101_oe() {
+        try {
+            Weeks.MAX_VALUE.plus(1);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestWeeks::testPlus_int_oe_101_oe
+joda-time_1596_101,"public void testPlus_Weeks_oe_101_oe() {
+        try {
+            Weeks.MAX_VALUE.plus(Weeks.ONE);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestWeeks::testPlus_Weeks_oe_101_oe
+joda-time_1597_101,"public void testMinus_int_oe_101_oe() {
+        try {
+            Weeks.MIN_VALUE.minus(1);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestWeeks::testMinus_int_oe_101_oe
+joda-time_1598_101,"public void testMinus_Weeks_oe_101_oe() {
+        try {
+            Weeks.MIN_VALUE.minus(Weeks.ONE);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestWeeks::testMinus_Weeks_oe_101_oe
+joda-time_1600_101,"public void testDividedBy_int_oe_101_oe() {
+        try {
+            Weeks.ONE.dividedBy(0);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestWeeks::testDividedBy_int_oe_101_oe
+joda-time_1601_101,"public void testNegated_oe_101_oe() {
+        try {
+            Weeks.MIN_VALUE.negated();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestWeeks::testNegated_oe_101_oe
+joda-time_1644_101,"public void testInvalidObj_oe_101_oe() {
+        try {
+            cYear.compare(""FreeBird"", aDateTime);
+            fail(""Invalid object failed"");
+        } catch (IllegalArgumentException cce) {}
+    }
+",TestDateTimeComparator::testInvalidObj_oe_101_oe
+joda-time_1663_101,"public void testConstructor_Overflow1_oe_101_oe() {
+        try {
+            Duration test = new Duration(-1, Long.MAX_VALUE);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestDuration_Constructors::testConstructor_Overflow1_oe_101_oe
+joda-time_1664_101,"public void testConstructor_Overflow2_oe_101_oe() {
+        try {
+            Duration test = new Duration(Long.MIN_VALUE, 1);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestDuration_Constructors::testConstructor_Overflow2_oe_101_oe
+joda-time_1665_101,"public void testConstructor_Overflow3_oe_101_oe() {
+        try {
+            Instant max= new Instant(Long.MAX_VALUE);
+            Duration test = new Duration(new Instant(-1), max);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestDuration_Constructors::testConstructor_Overflow3_oe_101_oe
+joda-time_1666_101,"public void testConstructor_Overflow4_oe_101_oe() {
+        try {
+            Instant min = new Instant(Long.MIN_VALUE);
+            Duration test = new Duration(min, new Instant(1));
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestDuration_Constructors::testConstructor_Overflow4_oe_101_oe
+joda-time_1667_101,"public void testFactory_FromCalendarFields_oe_101_oe() throws Exception {
+        try {
+            YearMonthDay.fromCalendarFields(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Constructors::testFactory_FromCalendarFields_oe_101_oe
+joda-time_1668_101,"public void testFactory_FromDateFields_oe_101_oe() throws Exception {
+        try {
+            YearMonthDay.fromDateFields(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Constructors::testFactory_FromDateFields_oe_101_oe
+joda-time_1686_101,"public void testConstructor_ObjectStringEx1_oe_101_oe() throws Throwable {
+        try {
+            new YearMonthDay(""T10:20:30.040"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestYearMonthDay_Constructors::testConstructor_ObjectStringEx1_oe_101_oe
+joda-time_1687_101,"public void testConstructor_ObjectStringEx2_oe_101_oe() throws Throwable {
+        try {
+            new YearMonthDay(""T10:20:30.040+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestYearMonthDay_Constructors::testConstructor_ObjectStringEx2_oe_101_oe
+joda-time_1688_101,"public void testConstructor_ObjectStringEx3_oe_101_oe() throws Throwable {
+        try {
+            new YearMonthDay(""10:20:30.040"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestYearMonthDay_Constructors::testConstructor_ObjectStringEx3_oe_101_oe
+joda-time_1689_101,"public void testConstructor_ObjectStringEx4_oe_101_oe() throws Throwable {
+        try {
+            new YearMonthDay(""10:20:30.040+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestYearMonthDay_Constructors::testConstructor_ObjectStringEx4_oe_101_oe
+joda-time_1694_101,"public void testConstructor_int_int_int_oe_101_oe() throws Throwable {
+        try {
+            new YearMonthDay(Integer.MIN_VALUE, 6, 9);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Constructors::testConstructor_int_int_int_oe_101_oe
+joda-time_1694_102,"public void testConstructor_int_int_int_oe_102_oe() throws Throwable {
+        try {
+            new YearMonthDay(Integer.MAX_VALUE, 6, 9);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Constructors::testConstructor_int_int_int_oe_102_oe
+joda-time_1694_103,"public void testConstructor_int_int_int_oe_103_oe() throws Throwable {
+        try {
+            new YearMonthDay(1970, 0, 9);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Constructors::testConstructor_int_int_int_oe_103_oe
+joda-time_1694_104,"public void testConstructor_int_int_int_oe_104_oe() throws Throwable {
+        try {
+            new YearMonthDay(1970, 13, 9);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Constructors::testConstructor_int_int_int_oe_104_oe
+joda-time_1694_105,"public void testConstructor_int_int_int_oe_105_oe() throws Throwable {
+        try {
+            new YearMonthDay(1970, 6, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Constructors::testConstructor_int_int_int_oe_105_oe
+joda-time_1694_106,"public void testConstructor_int_int_int_oe_106_oe() throws Throwable {
+        try {
+            new YearMonthDay(1970, 6, 31);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Constructors::testConstructor_int_int_int_oe_106_oe
+joda-time_1694_107,"public void testConstructor_int_int_int_oe_107_oe() throws Throwable {
+        try {
+            new YearMonthDay(1970, 7, 32);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Constructors::testConstructor_int_int_int_oe_107_oe
+joda-time_1695_101,"public void testConstructor_int_int_int_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new YearMonthDay(Integer.MIN_VALUE, 6, 9, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Constructors::testConstructor_int_int_int_Chronology_oe_101_oe
+joda-time_1695_102,"public void testConstructor_int_int_int_Chronology_oe_102_oe() throws Throwable {
+        try {
+            new YearMonthDay(Integer.MAX_VALUE, 6, 9, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Constructors::testConstructor_int_int_int_Chronology_oe_102_oe
+joda-time_1695_103,"public void testConstructor_int_int_int_Chronology_oe_103_oe() throws Throwable {
+        try {
+            new YearMonthDay(1970, 0, 9, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Constructors::testConstructor_int_int_int_Chronology_oe_103_oe
+joda-time_1695_104,"public void testConstructor_int_int_int_Chronology_oe_104_oe() throws Throwable {
+        try {
+            new YearMonthDay(1970, 13, 9, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Constructors::testConstructor_int_int_int_Chronology_oe_104_oe
+joda-time_1695_105,"public void testConstructor_int_int_int_Chronology_oe_105_oe() throws Throwable {
+        try {
+            new YearMonthDay(1970, 6, 0, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Constructors::testConstructor_int_int_int_Chronology_oe_105_oe
+joda-time_1695_106,"public void testConstructor_int_int_int_Chronology_oe_106_oe() throws Throwable {
+        try {
+            new YearMonthDay(1970, 6, 31, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Constructors::testConstructor_int_int_int_Chronology_oe_106_oe
+joda-time_1695_107,"public void testConstructor_int_int_int_Chronology_oe_107_oe() throws Throwable {
+        try {
+            new YearMonthDay(1970, 7, 32, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonthDay_Constructors::testConstructor_int_int_int_Chronology_oe_107_oe
+joda-time_1700_101,"public void test_now_nullDateTimeZone_oe_101_oe() throws Throwable {
+        try {
+            DateMidnight.now((DateTimeZone) null);
+            fail();
+        } catch (NullPointerException ex) {}
+    }
+",TestDateMidnight_Constructors::test_now_nullDateTimeZone_oe_101_oe
+joda-time_1702_101,"public void test_now_nullChronology_oe_101_oe() throws Throwable {
+        try {
+            DateMidnight.now((Chronology) null);
+            fail();
+        } catch (NullPointerException ex) {}
+    }
+",TestDateMidnight_Constructors::test_now_nullChronology_oe_101_oe
+joda-time_1719_101,"public void testConstructor_invalidObject_oe_101_oe() throws Throwable {
+        try {
+            new DateMidnight(new Object());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_invalidObject_oe_101_oe
+joda-time_1723_101,"public void testConstructor_invalidObject_DateTimeZone_oe_101_oe() throws Throwable {
+        try {
+            new DateMidnight(new Object(), PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_invalidObject_DateTimeZone_oe_101_oe
+joda-time_1729_101,"public void testConstructor_invalidObject_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new DateMidnight(new Object(), GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_invalidObject_Chronology_oe_101_oe
+joda-time_1734_101,"public void testConstructor_int_int_int_oe_101_oe() throws Throwable {
+        try {
+            new DateMidnight(Integer.MIN_VALUE, 6, 9);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_oe_101_oe
+joda-time_1734_102,"public void testConstructor_int_int_int_oe_102_oe() throws Throwable {
+        try {
+            new DateMidnight(Integer.MAX_VALUE, 6, 9);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_oe_102_oe
+joda-time_1734_103,"public void testConstructor_int_int_int_oe_103_oe() throws Throwable {
+        try {
+            new DateMidnight(2002, 0, 9);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_oe_103_oe
+joda-time_1734_104,"public void testConstructor_int_int_int_oe_104_oe() throws Throwable {
+        try {
+            new DateMidnight(2002, 13, 9);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_oe_104_oe
+joda-time_1734_105,"public void testConstructor_int_int_int_oe_105_oe() throws Throwable {
+        try {
+            new DateMidnight(2002, 6, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_oe_105_oe
+joda-time_1734_106,"public void testConstructor_int_int_int_oe_106_oe() throws Throwable {
+        try {
+            new DateMidnight(2002, 6, 31);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_oe_106_oe
+joda-time_1734_107,"public void testConstructor_int_int_int_oe_107_oe() throws Throwable {
+        try {
+            new DateMidnight(2002, 7, 32);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_oe_107_oe
+joda-time_1735_101,"public void testConstructor_int_int_int_DateTimeZone_oe_101_oe() throws Throwable {
+        try {
+            new DateMidnight(Integer.MIN_VALUE, 6, 9, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_DateTimeZone_oe_101_oe
+joda-time_1735_102,"public void testConstructor_int_int_int_DateTimeZone_oe_102_oe() throws Throwable {
+        try {
+            new DateMidnight(Integer.MAX_VALUE, 6, 9, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_DateTimeZone_oe_102_oe
+joda-time_1735_103,"public void testConstructor_int_int_int_DateTimeZone_oe_103_oe() throws Throwable {
+        try {
+            new DateMidnight(2002, 0, 9, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_DateTimeZone_oe_103_oe
+joda-time_1735_104,"public void testConstructor_int_int_int_DateTimeZone_oe_104_oe() throws Throwable {
+        try {
+            new DateMidnight(2002, 13, 9, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_DateTimeZone_oe_104_oe
+joda-time_1735_105,"public void testConstructor_int_int_int_DateTimeZone_oe_105_oe() throws Throwable {
+        try {
+            new DateMidnight(2002, 6, 0, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_DateTimeZone_oe_105_oe
+joda-time_1735_106,"public void testConstructor_int_int_int_DateTimeZone_oe_106_oe() throws Throwable {
+        try {
+            new DateMidnight(2002, 6, 31, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_DateTimeZone_oe_106_oe
+joda-time_1735_107,"public void testConstructor_int_int_int_DateTimeZone_oe_107_oe() throws Throwable {
+        try {
+            new DateMidnight(2002, 7, 32, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_DateTimeZone_oe_107_oe
+joda-time_1737_101,"public void testConstructor_int_int_int_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new DateMidnight(Integer.MIN_VALUE, 6, 9, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_Chronology_oe_101_oe
+joda-time_1737_102,"public void testConstructor_int_int_int_Chronology_oe_102_oe() throws Throwable {
+        try {
+            new DateMidnight(Integer.MAX_VALUE, 6, 9, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_Chronology_oe_102_oe
+joda-time_1737_103,"public void testConstructor_int_int_int_Chronology_oe_103_oe() throws Throwable {
+        try {
+            new DateMidnight(2002, 0, 9, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_Chronology_oe_103_oe
+joda-time_1737_104,"public void testConstructor_int_int_int_Chronology_oe_104_oe() throws Throwable {
+        try {
+            new DateMidnight(2002, 13, 9, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_Chronology_oe_104_oe
+joda-time_1737_105,"public void testConstructor_int_int_int_Chronology_oe_105_oe() throws Throwable {
+        try {
+            new DateMidnight(2002, 6, 0, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_Chronology_oe_105_oe
+joda-time_1737_106,"public void testConstructor_int_int_int_Chronology_oe_106_oe() throws Throwable {
+        try {
+            new DateMidnight(2002, 6, 31, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_Chronology_oe_106_oe
+joda-time_1737_107,"public void testConstructor_int_int_int_Chronology_oe_107_oe() throws Throwable {
+        try {
+            new DateMidnight(2002, 7, 32, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateMidnight_Constructors::testConstructor_int_int_int_Chronology_oe_107_oe
+joda-time_1739_101,"public void testVerifyValueBounds_oe_101_oe() {
+        try {
+            FieldUtils.verifyValueBounds(ISOChronology.getInstance().monthOfYear(), -5, 1, 31);
+            fail();
+        } catch (IllegalFieldValueException e) {
+        }
+    }
+",TestIllegalFieldValueException::testVerifyValueBounds_oe_101_oe
+joda-time_1739_102,"public void testVerifyValueBounds_oe_102_oe() {
+        try {
+            FieldUtils.verifyValueBounds(DateTimeFieldType.hourOfDay(), 27, 0, 23);
+            fail();
+        } catch (IllegalFieldValueException e) {
+        }
+    }
+",TestIllegalFieldValueException::testVerifyValueBounds_oe_102_oe
+joda-time_1739_103,"public void testVerifyValueBounds_oe_103_oe() {
+        try {
+            FieldUtils.verifyValueBounds(""foo"", 1, 2, 3);
+            fail();
+        } catch (IllegalFieldValueException e) {
+        }
+    }
+",TestIllegalFieldValueException::testVerifyValueBounds_oe_103_oe
+joda-time_1741_101,"public void testSetText_oe_101_oe() {
+        try {
+            ISOChronology.getInstanceUTC().year().set(0, null, java.util.Locale.US);
+            fail();
+        } catch (IllegalFieldValueException e) {
+        }
+    }
+",TestIllegalFieldValueException::testSetText_oe_101_oe
+joda-time_1741_102,"public void testSetText_oe_102_oe() {
+        try {
+            ISOChronology.getInstanceUTC().year().set(0, ""nineteen seventy"", java.util.Locale.US);
+            fail();
+        } catch (IllegalFieldValueException e) {
+        }
+    }
+",TestIllegalFieldValueException::testSetText_oe_102_oe
+joda-time_1741_103,"public void testSetText_oe_103_oe() {
+        try {
+            ISOChronology.getInstanceUTC().era().set(0, ""long ago"", java.util.Locale.US);
+            fail();
+        } catch (IllegalFieldValueException e) {
+        }
+    }
+",TestIllegalFieldValueException::testSetText_oe_103_oe
+joda-time_1741_104,"public void testSetText_oe_104_oe() {
+        try {
+            ISOChronology.getInstanceUTC().monthOfYear().set(0, ""spring"", java.util.Locale.US);
+            fail();
+        } catch (IllegalFieldValueException e) {
+        }
+    }
+",TestIllegalFieldValueException::testSetText_oe_104_oe
+joda-time_1741_105,"public void testSetText_oe_105_oe() {
+        try {
+            ISOChronology.getInstanceUTC().dayOfWeek().set(0, ""yesterday"", java.util.Locale.US);
+            fail();
+        } catch (IllegalFieldValueException e) {
+        }
+    }
+",TestIllegalFieldValueException::testSetText_oe_105_oe
+joda-time_1741_106,"public void testSetText_oe_106_oe() {
+        try {
+            ISOChronology.getInstanceUTC().halfdayOfDay().set(0, ""morning"", java.util.Locale.US);
+            fail();
+        } catch (IllegalFieldValueException e) {
+        }
+    }
+",TestIllegalFieldValueException::testSetText_oe_106_oe
+joda-time_1748_101,"public void testFactory_FromCalendarFields_oe_101_oe() throws Exception {
+        try {
+            TimeOfDay.fromCalendarFields(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testFactory_FromCalendarFields_oe_101_oe
+joda-time_1751_101,"public void testFactory_FromDateFields_null_oe_101_oe() throws Exception {
+        try {
+            TimeOfDay.fromDateFields(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testFactory_FromDateFields_null_oe_101_oe
+joda-time_1775_101,"public void testConstructor_ObjectStringEx1_oe_101_oe() throws Throwable {
+        try {
+            new TimeOfDay(""1970-04-06"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_ObjectStringEx1_oe_101_oe
+joda-time_1776_101,"public void testConstructor_ObjectStringEx2_oe_101_oe() throws Throwable {
+        try {
+            new TimeOfDay(""1970-04-06T+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_ObjectStringEx2_oe_101_oe
+joda-time_1777_101,"public void testConstructor_ObjectStringEx3_oe_101_oe() throws Throwable {
+        try {
+            new TimeOfDay(""1970-04-06T10:20:30.040"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_ObjectStringEx3_oe_101_oe
+joda-time_1778_101,"public void testConstructor_ObjectStringEx4_oe_101_oe() throws Throwable {
+        try {
+            new TimeOfDay(""1970-04-06T10:20:30.040+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_ObjectStringEx4_oe_101_oe
+joda-time_1780_101,"public void testConstructor2_Object_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new TimeOfDay(""T1020"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor2_Object_Chronology_oe_101_oe
+joda-time_1784_101,"public void testConstructor_int_int_oe_101_oe() throws Throwable {
+        try {
+            new TimeOfDay(-1, 20);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_oe_101_oe
+joda-time_1784_102,"public void testConstructor_int_int_oe_102_oe() throws Throwable {
+        try {
+            new TimeOfDay(24, 20);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_oe_102_oe
+joda-time_1784_103,"public void testConstructor_int_int_oe_103_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, -1);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_oe_103_oe
+joda-time_1784_104,"public void testConstructor_int_int_oe_104_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 60);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_oe_104_oe
+joda-time_1785_101,"public void testConstructor_int_int_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new TimeOfDay(-1, 20, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_Chronology_oe_101_oe
+joda-time_1785_102,"public void testConstructor_int_int_Chronology_oe_102_oe() throws Throwable {
+        try {
+            new TimeOfDay(24, 20, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_Chronology_oe_102_oe
+joda-time_1785_103,"public void testConstructor_int_int_Chronology_oe_103_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, -1, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_Chronology_oe_103_oe
+joda-time_1785_104,"public void testConstructor_int_int_Chronology_oe_104_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 60, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_Chronology_oe_104_oe
+joda-time_1787_101,"public void testConstructor_int_int_int_oe_101_oe() throws Throwable {
+        try {
+            new TimeOfDay(-1, 20, 30);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_oe_101_oe
+joda-time_1787_102,"public void testConstructor_int_int_int_oe_102_oe() throws Throwable {
+        try {
+            new TimeOfDay(24, 20, 30);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_oe_102_oe
+joda-time_1787_103,"public void testConstructor_int_int_int_oe_103_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, -1, 30);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_oe_103_oe
+joda-time_1787_104,"public void testConstructor_int_int_int_oe_104_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 60, 30);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_oe_104_oe
+joda-time_1787_105,"public void testConstructor_int_int_int_oe_105_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 20, -1);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_oe_105_oe
+joda-time_1787_106,"public void testConstructor_int_int_int_oe_106_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 20, 60);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_oe_106_oe
+joda-time_1788_101,"public void testConstructor_int_int_int_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new TimeOfDay(-1, 20, 30, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_Chronology_oe_101_oe
+joda-time_1788_102,"public void testConstructor_int_int_int_Chronology_oe_102_oe() throws Throwable {
+        try {
+            new TimeOfDay(24, 20, 30, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_Chronology_oe_102_oe
+joda-time_1788_103,"public void testConstructor_int_int_int_Chronology_oe_103_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, -1, 30, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_Chronology_oe_103_oe
+joda-time_1788_104,"public void testConstructor_int_int_int_Chronology_oe_104_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 60, 30, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_Chronology_oe_104_oe
+joda-time_1788_105,"public void testConstructor_int_int_int_Chronology_oe_105_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 20, -1, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_Chronology_oe_105_oe
+joda-time_1788_106,"public void testConstructor_int_int_int_Chronology_oe_106_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 20, 60, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_Chronology_oe_106_oe
+joda-time_1790_101,"public void testConstructor_int_int_int_int_oe_101_oe() throws Throwable {
+        try {
+            new TimeOfDay(-1, 20, 30, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_int_oe_101_oe
+joda-time_1790_102,"public void testConstructor_int_int_int_int_oe_102_oe() throws Throwable {
+        try {
+            new TimeOfDay(24, 20, 30, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_int_oe_102_oe
+joda-time_1790_103,"public void testConstructor_int_int_int_int_oe_103_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, -1, 30, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_int_oe_103_oe
+joda-time_1790_104,"public void testConstructor_int_int_int_int_oe_104_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 60, 30, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_int_oe_104_oe
+joda-time_1790_105,"public void testConstructor_int_int_int_int_oe_105_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 20, -1, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_int_oe_105_oe
+joda-time_1790_106,"public void testConstructor_int_int_int_int_oe_106_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 20, 60, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_int_oe_106_oe
+joda-time_1790_107,"public void testConstructor_int_int_int_int_oe_107_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 20, 30, -1);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_int_oe_107_oe
+joda-time_1790_108,"public void testConstructor_int_int_int_int_oe_108_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 20, 30, 1000);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_int_oe_108_oe
+joda-time_1791_101,"public void testConstructor_int_int_int_int_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new TimeOfDay(-1, 20, 30, 40, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_int_Chronology_oe_101_oe
+joda-time_1791_102,"public void testConstructor_int_int_int_int_Chronology_oe_102_oe() throws Throwable {
+        try {
+            new TimeOfDay(24, 20, 30, 40, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_int_Chronology_oe_102_oe
+joda-time_1791_103,"public void testConstructor_int_int_int_int_Chronology_oe_103_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, -1, 30, 40, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_int_Chronology_oe_103_oe
+joda-time_1791_104,"public void testConstructor_int_int_int_int_Chronology_oe_104_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 60, 30, 40, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_int_Chronology_oe_104_oe
+joda-time_1791_105,"public void testConstructor_int_int_int_int_Chronology_oe_105_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 20, -1, 40, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_int_Chronology_oe_105_oe
+joda-time_1791_106,"public void testConstructor_int_int_int_int_Chronology_oe_106_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 20, 60, 40, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_int_Chronology_oe_106_oe
+joda-time_1791_107,"public void testConstructor_int_int_int_int_Chronology_oe_107_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 20, 30, -1, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_int_Chronology_oe_107_oe
+joda-time_1791_108,"public void testConstructor_int_int_int_int_Chronology_oe_108_oe() throws Throwable {
+        try {
+            new TimeOfDay(10, 20, 30, 1000, JulianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Constructors::testConstructor_int_int_int_int_Chronology_oe_108_oe
+joda-time_1798_101,"public void testFactory_standardMinutesIn_RPeriod_oe_101_oe() {
+        try {
+            Minutes.standardMinutesIn(Period.months(1));
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestMinutes::testFactory_standardMinutesIn_RPeriod_oe_101_oe
+joda-time_1799_101,"public void testFactory_parseMinutes_String_oe_101_oe() {
+        try {
+            Minutes.parseMinutes(""P1Y1D"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestMinutes::testFactory_parseMinutes_String_oe_101_oe
+joda-time_1799_102,"public void testFactory_parseMinutes_String_oe_102_oe() {
+        try {
+            Minutes.parseMinutes(""P1DT1M"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestMinutes::testFactory_parseMinutes_String_oe_102_oe
+joda-time_1810_101,"public void testToStandardSeconds_oe_101_oe() {
+        try {
+            Minutes.MAX_VALUE.toStandardSeconds();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestMinutes::testToStandardSeconds_oe_101_oe
+joda-time_1812_101,"public void testPlus_int_oe_101_oe() {
+        try {
+            Minutes.MAX_VALUE.plus(1);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestMinutes::testPlus_int_oe_101_oe
+joda-time_1813_101,"public void testPlus_Minutes_oe_101_oe() {
+        try {
+            Minutes.MAX_VALUE.plus(Minutes.ONE);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestMinutes::testPlus_Minutes_oe_101_oe
+joda-time_1814_101,"public void testMinus_int_oe_101_oe() {
+        try {
+            Minutes.MIN_VALUE.minus(1);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestMinutes::testMinus_int_oe_101_oe
+joda-time_1815_101,"public void testMinus_Minutes_oe_101_oe() {
+        try {
+            Minutes.MIN_VALUE.minus(Minutes.ONE);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestMinutes::testMinus_Minutes_oe_101_oe
+joda-time_1817_101,"public void testDividedBy_int_oe_101_oe() {
+        try {
+            Minutes.ONE.dividedBy(0);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestMinutes::testDividedBy_int_oe_101_oe
+joda-time_1818_101,"public void testNegated_oe_101_oe() {
+        try {
+            Minutes.MIN_VALUE.negated();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestMinutes::testNegated_oe_101_oe
+joda-time_1823_101,"public void testFactory_FromCalendarFields_Calendar_oe_101_oe() throws Exception {
+        try {
+            LocalTime.fromCalendarFields((Calendar) null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testFactory_FromCalendarFields_Calendar_oe_101_oe
+joda-time_1826_101,"public void testFactory_FromDateFields_null_oe_101_oe() throws Exception {
+        try {
+            LocalTime.fromDateFields((Date) null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testFactory_FromDateFields_null_oe_101_oe
+joda-time_1852_101,"public void testConstructor_ObjectStringEx1_oe_101_oe() throws Throwable {
+        try {
+            new LocalTime(""1970-04-06"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_ObjectStringEx1_oe_101_oe
+joda-time_1853_101,"public void testConstructor_ObjectStringEx2_oe_101_oe() throws Throwable {
+        try {
+            new LocalTime(""1970-04-06T+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_ObjectStringEx2_oe_101_oe
+joda-time_1854_101,"public void testConstructor_ObjectStringEx3_oe_101_oe() throws Throwable {
+        try {
+            new LocalTime(""1970-04-06T10:20:30.040"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_ObjectStringEx3_oe_101_oe
+joda-time_1855_101,"public void testConstructor_ObjectStringEx4_oe_101_oe() throws Throwable {
+        try {
+            new LocalTime(""1970-04-06T10:20:30.040+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_ObjectStringEx4_oe_101_oe
+joda-time_1856_101,"public void testConstructor_ObjectStringEx5_oe_101_oe() throws Throwable {
+        try {
+            new LocalTime(""T10:20:30.040+04:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_ObjectStringEx5_oe_101_oe
+joda-time_1857_101,"public void testConstructor_ObjectStringEx6_oe_101_oe() throws Throwable {
+        try {
+            new LocalTime(""10:20:30.040+04:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_ObjectStringEx6_oe_101_oe
+joda-time_1870_101,"public void testConstructor_Object2_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new LocalTime(""T1020"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_Object2_Chronology_oe_101_oe
+joda-time_1874_101,"public void testConstructor_int_int_oe_101_oe() throws Throwable {
+        try {
+            new LocalTime(-1, 20);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_oe_101_oe
+joda-time_1874_102,"public void testConstructor_int_int_oe_102_oe() throws Throwable {
+        try {
+            new LocalTime(24, 20);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_oe_102_oe
+joda-time_1874_103,"public void testConstructor_int_int_oe_103_oe() throws Throwable {
+        try {
+            new LocalTime(10, -1);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_oe_103_oe
+joda-time_1874_104,"public void testConstructor_int_int_oe_104_oe() throws Throwable {
+        try {
+            new LocalTime(10, 60);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_oe_104_oe
+joda-time_1875_101,"public void testConstructor_int_int_int_oe_101_oe() throws Throwable {
+        try {
+            new LocalTime(-1, 20, 30);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_oe_101_oe
+joda-time_1875_102,"public void testConstructor_int_int_int_oe_102_oe() throws Throwable {
+        try {
+            new LocalTime(24, 20, 30);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_oe_102_oe
+joda-time_1875_103,"public void testConstructor_int_int_int_oe_103_oe() throws Throwable {
+        try {
+            new LocalTime(10, -1, 30);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_oe_103_oe
+joda-time_1875_104,"public void testConstructor_int_int_int_oe_104_oe() throws Throwable {
+        try {
+            new LocalTime(10, 60, 30);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_oe_104_oe
+joda-time_1875_105,"public void testConstructor_int_int_int_oe_105_oe() throws Throwable {
+        try {
+            new LocalTime(10, 20, -1);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_oe_105_oe
+joda-time_1875_106,"public void testConstructor_int_int_int_oe_106_oe() throws Throwable {
+        try {
+            new LocalTime(10, 20, 60);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_oe_106_oe
+joda-time_1876_101,"public void testConstructor_int_int_int_int_oe_101_oe() throws Throwable {
+        try {
+            new LocalTime(-1, 20, 30, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_int_oe_101_oe
+joda-time_1876_102,"public void testConstructor_int_int_int_int_oe_102_oe() throws Throwable {
+        try {
+            new LocalTime(24, 20, 30, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_int_oe_102_oe
+joda-time_1876_103,"public void testConstructor_int_int_int_int_oe_103_oe() throws Throwable {
+        try {
+            new LocalTime(10, -1, 30, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_int_oe_103_oe
+joda-time_1876_104,"public void testConstructor_int_int_int_int_oe_104_oe() throws Throwable {
+        try {
+            new LocalTime(10, 60, 30, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_int_oe_104_oe
+joda-time_1876_105,"public void testConstructor_int_int_int_int_oe_105_oe() throws Throwable {
+        try {
+            new LocalTime(10, 20, -1, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_int_oe_105_oe
+joda-time_1876_106,"public void testConstructor_int_int_int_int_oe_106_oe() throws Throwable {
+        try {
+            new LocalTime(10, 20, 60, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_int_oe_106_oe
+joda-time_1876_107,"public void testConstructor_int_int_int_int_oe_107_oe() throws Throwable {
+        try {
+            new LocalTime(10, 20, 30, -1);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_int_oe_107_oe
+joda-time_1876_108,"public void testConstructor_int_int_int_int_oe_108_oe() throws Throwable {
+        try {
+            new LocalTime(10, 20, 30, 1000);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_int_oe_108_oe
+joda-time_1877_101,"public void testConstructor_int_int_int_int_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new LocalTime(-1, 20, 30, 40, JULIAN_LONDON);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_int_Chronology_oe_101_oe
+joda-time_1877_102,"public void testConstructor_int_int_int_int_Chronology_oe_102_oe() throws Throwable {
+        try {
+            new LocalTime(24, 20, 30, 40, JULIAN_LONDON);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_int_Chronology_oe_102_oe
+joda-time_1877_103,"public void testConstructor_int_int_int_int_Chronology_oe_103_oe() throws Throwable {
+        try {
+            new LocalTime(10, -1, 30, 40, JULIAN_LONDON);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_int_Chronology_oe_103_oe
+joda-time_1877_104,"public void testConstructor_int_int_int_int_Chronology_oe_104_oe() throws Throwable {
+        try {
+            new LocalTime(10, 60, 30, 40, JULIAN_LONDON);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_int_Chronology_oe_104_oe
+joda-time_1877_105,"public void testConstructor_int_int_int_int_Chronology_oe_105_oe() throws Throwable {
+        try {
+            new LocalTime(10, 20, -1, 40, JULIAN_LONDON);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_int_Chronology_oe_105_oe
+joda-time_1877_106,"public void testConstructor_int_int_int_int_Chronology_oe_106_oe() throws Throwable {
+        try {
+            new LocalTime(10, 20, 60, 40, JULIAN_LONDON);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_int_Chronology_oe_106_oe
+joda-time_1877_107,"public void testConstructor_int_int_int_int_Chronology_oe_107_oe() throws Throwable {
+        try {
+            new LocalTime(10, 20, 30, -1, JULIAN_LONDON);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_int_Chronology_oe_107_oe
+joda-time_1877_108,"public void testConstructor_int_int_int_int_Chronology_oe_108_oe() throws Throwable {
+        try {
+            new LocalTime(10, 20, 30, 1000, JULIAN_LONDON);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalTime_Constructors::testConstructor_int_int_int_int_Chronology_oe_108_oe
+joda-time_1884_101,"public void testFactory_parseYears_String_oe_101_oe() {
+        try {
+            Years.parseYears(""P1M1D"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestYears::testFactory_parseYears_String_oe_101_oe
+joda-time_1884_102,"public void testFactory_parseYears_String_oe_102_oe() {
+        try {
+            Years.parseYears(""P1YT1H"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestYears::testFactory_parseYears_String_oe_102_oe
+joda-time_1892_101,"public void testPlus_int_oe_101_oe() {
+        try {
+            Years.MAX_VALUE.plus(1);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestYears::testPlus_int_oe_101_oe
+joda-time_1893_101,"public void testPlus_Years_oe_101_oe() {
+        try {
+            Years.MAX_VALUE.plus(Years.ONE);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestYears::testPlus_Years_oe_101_oe
+joda-time_1894_101,"public void testMinus_int_oe_101_oe() {
+        try {
+            Years.MIN_VALUE.minus(1);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestYears::testMinus_int_oe_101_oe
+joda-time_1895_101,"public void testMinus_Years_oe_101_oe() {
+        try {
+            Years.MIN_VALUE.minus(Years.ONE);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestYears::testMinus_Years_oe_101_oe
+joda-time_1897_101,"public void testDividedBy_int_oe_101_oe() {
+        try {
+            Years.ONE.dividedBy(0);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestYears::testDividedBy_int_oe_101_oe
+joda-time_1898_101,"public void testNegated_oe_101_oe() {
+        try {
+            Years.MIN_VALUE.negated();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestYears::testNegated_oe_101_oe
+joda-time_1911_101,"public void testIsEqual_TOD_oe_101_oe() {
+        try {
+            new TimeOfDay(10, 20, 35, 40).isEqual(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Basics::testIsEqual_TOD_oe_101_oe
+joda-time_1912_101,"public void testIsBefore_TOD_oe_101_oe() {
+        try {
+            new TimeOfDay(10, 20, 35, 40).isBefore(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Basics::testIsBefore_TOD_oe_101_oe
+joda-time_1913_101,"public void testIsAfter_TOD_oe_101_oe() {
+        try {
+            new TimeOfDay(10, 20, 35, 40).isAfter(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestTimeOfDay_Basics::testIsAfter_TOD_oe_101_oe
+joda-time_1974_101,"public void testConstructor_8int__PeriodType3_oe_101_oe() throws Throwable {
+        try {
+            new Period(1, 2, 3, 4, 5, 6, 7, 8, PeriodType.dayTime());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPeriod_Constructors::testConstructor_8int__PeriodType3_oe_101_oe
+joda-time_2142_101,"public void testFactory_standardHoursIn_RPeriod_oe_101_oe() {
+        try {
+            Hours.standardHoursIn(Period.months(1));
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestHours::testFactory_standardHoursIn_RPeriod_oe_101_oe
+joda-time_2143_101,"public void testFactory_parseHours_String_oe_101_oe() {
+        try {
+            Hours.parseHours(""P1Y1D"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestHours::testFactory_parseHours_String_oe_101_oe
+joda-time_2143_102,"public void testFactory_parseHours_String_oe_102_oe() {
+        try {
+            Hours.parseHours(""P1DT1H"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestHours::testFactory_parseHours_String_oe_102_oe
+joda-time_2153_101,"public void testToStandardMinutes_oe_101_oe() {
+        try {
+            Hours.MAX_VALUE.toStandardMinutes();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestHours::testToStandardMinutes_oe_101_oe
+joda-time_2154_101,"public void testToStandardSeconds_oe_101_oe() {
+        try {
+            Hours.MAX_VALUE.toStandardSeconds();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestHours::testToStandardSeconds_oe_101_oe
+joda-time_2156_101,"public void testPlus_int_oe_101_oe() {
+        try {
+            Hours.MAX_VALUE.plus(1);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestHours::testPlus_int_oe_101_oe
+joda-time_2157_101,"public void testPlus_Hours_oe_101_oe() {
+        try {
+            Hours.MAX_VALUE.plus(Hours.ONE);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestHours::testPlus_Hours_oe_101_oe
+joda-time_2158_101,"public void testMinus_int_oe_101_oe() {
+        try {
+            Hours.MIN_VALUE.minus(1);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestHours::testMinus_int_oe_101_oe
+joda-time_2159_101,"public void testMinus_Hours_oe_101_oe() {
+        try {
+            Hours.MIN_VALUE.minus(Hours.ONE);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestHours::testMinus_Hours_oe_101_oe
+joda-time_2161_101,"public void testDividedBy_int_oe_101_oe() {
+        try {
+            Hours.ONE.dividedBy(0);
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestHours::testDividedBy_int_oe_101_oe
+joda-time_2162_101,"public void testNegated_oe_101_oe() {
+        try {
+            Hours.MIN_VALUE.negated();
+            fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",TestHours::testNegated_oe_101_oe
+joda-time_2213_101,"public void testIsEqual_LocalDate_oe_101_oe() {
+        try {
+            new LocalDate(2005, 7, 2).isEqual(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Basics::testIsEqual_LocalDate_oe_101_oe
+joda-time_2214_101,"public void testIsBefore_LocalDate_oe_101_oe() {
+        try {
+            new LocalDate(2005, 7, 2).isBefore(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Basics::testIsBefore_LocalDate_oe_101_oe
+joda-time_2215_101,"public void testIsAfter_LocalDate_oe_101_oe() {
+        try {
+            new LocalDate(2005, 7, 2).isAfter(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDate_Basics::testIsAfter_LocalDate_oe_101_oe
+joda-time_2284_101,"public void test_now_nullDateTimeZone_oe_101_oe() throws Throwable {
+        try {
+            DateTime.now((DateTimeZone) null);
+            fail();
+        } catch (NullPointerException ex) {}
+    }
+",TestDateTime_Constructors::test_now_nullDateTimeZone_oe_101_oe
+joda-time_2286_101,"public void test_now_nullChronology_oe_101_oe() throws Throwable {
+        try {
+            DateTime.now((Chronology) null);
+            fail();
+        } catch (NullPointerException ex) {}
+    }
+",TestDateTime_Constructors::test_now_nullChronology_oe_101_oe
+joda-time_2305_101,"public void testConstructor_invalidObject_oe_101_oe() throws Throwable {
+        try {
+            new DateTime(new Object());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_invalidObject_oe_101_oe
+joda-time_2315_101,"public void testConstructor_ObjectStringEx1_oe_101_oe() throws Throwable {
+        try {
+            new DateTime(""10:20:30.040"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestDateTime_Constructors::testConstructor_ObjectStringEx1_oe_101_oe
+joda-time_2316_101,"public void testConstructor_ObjectStringEx2_oe_101_oe() throws Throwable {
+        try {
+            new DateTime(""10:20:30.040+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestDateTime_Constructors::testConstructor_ObjectStringEx2_oe_101_oe
+joda-time_2318_101,"public void testConstructor_invalidObject_DateTimeZone_oe_101_oe() throws Throwable {
+        try {
+            new DateTime(new Object(), PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_invalidObject_DateTimeZone_oe_101_oe
+joda-time_2324_101,"public void testConstructor_invalidObject_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new DateTime(new Object(), GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_invalidObject_Chronology_oe_101_oe
+joda-time_2339_101,"public void testConstructor_int_int_int_int_int_int_int_oe_101_oe() throws Throwable {
+        try {
+            new DateTime(Integer.MIN_VALUE, 6, 9, 0, 0, 0, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_101_oe
+joda-time_2339_102,"public void testConstructor_int_int_int_int_int_int_int_oe_102_oe() throws Throwable {
+        try {
+            new DateTime(Integer.MAX_VALUE, 6, 9, 0, 0, 0, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_102_oe
+joda-time_2339_103,"public void testConstructor_int_int_int_int_int_int_int_oe_103_oe() throws Throwable {
+        try {
+            new DateTime(2002, 0, 9, 0, 0, 0, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_103_oe
+joda-time_2339_104,"public void testConstructor_int_int_int_int_int_int_int_oe_104_oe() throws Throwable {
+        try {
+            new DateTime(2002, 13, 9, 0, 0, 0, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_104_oe
+joda-time_2339_105,"public void testConstructor_int_int_int_int_int_int_int_oe_105_oe() throws Throwable {
+        try {
+            new DateTime(2002, 6, 0, 0, 0, 0, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_105_oe
+joda-time_2339_106,"public void testConstructor_int_int_int_int_int_int_int_oe_106_oe() throws Throwable {
+        try {
+            new DateTime(2002, 6, 31, 0, 0, 0, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_106_oe
+joda-time_2339_107,"public void testConstructor_int_int_int_int_int_int_int_oe_107_oe() throws Throwable {
+        try {
+            new DateTime(2002, 7, 32, 0, 0, 0, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_107_oe
+joda-time_2340_101,"public void testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_101_oe() throws Throwable {
+        try {
+            new DateTime(Integer.MIN_VALUE, 6, 9, 0, 0, 0, 0, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_101_oe
+joda-time_2340_102,"public void testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_102_oe() throws Throwable {
+        try {
+            new DateTime(Integer.MAX_VALUE, 6, 9, 0, 0, 0, 0, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_102_oe
+joda-time_2340_103,"public void testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_103_oe() throws Throwable {
+        try {
+            new DateTime(2002, 0, 9, 0, 0, 0, 0, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_103_oe
+joda-time_2340_104,"public void testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_104_oe() throws Throwable {
+        try {
+            new DateTime(2002, 13, 9, 0, 0, 0, 0, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_104_oe
+joda-time_2340_105,"public void testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_105_oe() throws Throwable {
+        try {
+            new DateTime(2002, 6, 0, 0, 0, 0, 0, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_105_oe
+joda-time_2340_106,"public void testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_106_oe() throws Throwable {
+        try {
+            new DateTime(2002, 6, 31, 0, 0, 0, 0, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_106_oe
+joda-time_2340_107,"public void testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_107_oe() throws Throwable {
+        try {
+            new DateTime(2002, 7, 32, 0, 0, 0, 0, PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe_107_oe
+joda-time_2342_101,"public void testConstructor_int_int_int_int_int_int_int_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new DateTime(Integer.MIN_VALUE, 6, 9, 0, 0, 0, 0, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_Chronology_oe_101_oe
+joda-time_2342_102,"public void testConstructor_int_int_int_int_int_int_int_Chronology_oe_102_oe() throws Throwable {
+        try {
+            new DateTime(Integer.MAX_VALUE, 6, 9, 0, 0, 0, 0, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_Chronology_oe_102_oe
+joda-time_2342_103,"public void testConstructor_int_int_int_int_int_int_int_Chronology_oe_103_oe() throws Throwable {
+        try {
+            new DateTime(2002, 0, 9, 0, 0, 0, 0, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_Chronology_oe_103_oe
+joda-time_2342_104,"public void testConstructor_int_int_int_int_int_int_int_Chronology_oe_104_oe() throws Throwable {
+        try {
+            new DateTime(2002, 13, 9, 0, 0, 0, 0, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_Chronology_oe_104_oe
+joda-time_2342_105,"public void testConstructor_int_int_int_int_int_int_int_Chronology_oe_105_oe() throws Throwable {
+        try {
+            new DateTime(2002, 6, 0, 0, 0, 0, 0, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_Chronology_oe_105_oe
+joda-time_2342_106,"public void testConstructor_int_int_int_int_int_int_int_Chronology_oe_106_oe() throws Throwable {
+        try {
+            new DateTime(2002, 6, 31, 0, 0, 0, 0, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_Chronology_oe_106_oe
+joda-time_2342_107,"public void testConstructor_int_int_int_int_int_int_int_Chronology_oe_107_oe() throws Throwable {
+        try {
+            new DateTime(2002, 7, 32, 0, 0, 0, 0, GregorianChronology.getInstance());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_Chronology_oe_107_oe
+joda-time_2360_101,"public void test_DateTime_new_Gaza_oe_101_oe() {
+        try {
+            new DateTime(2007, 4, 1, 0, 0, 0, 0, MOCK_GAZA);
+            fail();
+        } catch (IllegalInstantException ex) {
+        }
+    }
+",TestDateTimeZoneCutover::test_DateTime_new_Gaza_oe_101_oe
+joda-time_2361_101,"public void test_DateTime_parse_Gaza_oe_101_oe() {
+        try {
+            new DateTime(""2007-04-01T00:00"", MOCK_GAZA);
+            fail();
+        } catch (IllegalInstantException ex) {
+        }
+    }
+",TestDateTimeZoneCutover::test_DateTime_parse_Gaza_oe_101_oe
+joda-time_2379_101,"public void test_DateTime_new_Turk_oe_101_oe() {
+        try {
+            new DateTime(2007, 4, 1, 0, 0, 0, 0, MOCK_TURK);
+            fail();
+        } catch (IllegalInstantException ex) {
+        }
+    }
+",TestDateTimeZoneCutover::test_DateTime_new_Turk_oe_101_oe
+joda-time_2380_101,"public void test_DateTime_parse_Turk_oe_101_oe() {
+        try {
+            new DateTime(""2007-04-01T00:00"", MOCK_TURK);
+            fail();
+        } catch (IllegalInstantException ex) {
+        }
+    }
+",TestDateTimeZoneCutover::test_DateTime_parse_Turk_oe_101_oe
+joda-time_2477_101,"public void testParseWithOffset_invalid_oe_101_oe() throws Throwable {
+        try {
+            Interval.parseWithOffset(""2010-06-30T12:30"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestInterval_Constructors::testParseWithOffset_invalid_oe_101_oe
+joda-time_2477_102,"public void testParseWithOffset_invalid_oe_102_oe() throws Throwable {
+        try {
+            Interval.parseWithOffset(""P1D/P1D"");
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestInterval_Constructors::testParseWithOffset_invalid_oe_102_oe
+joda-time_2555_101,"public void testConstructor_8int__PeriodType3_oe_101_oe() throws Throwable {
+        try {
+            new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8, PeriodType.dayTime());
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestMutablePeriod_Constructors::testConstructor_8int__PeriodType3_oe_101_oe
+joda-time_2714_101,"public void testIsEqual_YM_oe_101_oe() {
+        try {
+            new YearMonth(2005, 7).isEqual(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonth_Basics::testIsEqual_YM_oe_101_oe
+joda-time_2715_101,"public void testIsBefore_YM_oe_101_oe() {
+        try {
+            new YearMonth(2005, 7).isBefore(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonth_Basics::testIsBefore_YM_oe_101_oe
+joda-time_2716_101,"public void testIsAfter_YM_oe_101_oe() {
+        try {
+            new YearMonth(2005, 7).isAfter(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestYearMonth_Basics::testIsAfter_YM_oe_101_oe
+joda-time_2774_101,"public void testFactory_fromCalendarFields_null_oe_101_oe() throws Exception {
+        try {
+            LocalDateTime.fromCalendarFields((Calendar) null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testFactory_fromCalendarFields_null_oe_101_oe
+joda-time_2779_101,"public void testFactory_fromDateFields_null_oe_101_oe() throws Exception {
+        try {
+            LocalDateTime.fromDateFields((Date) null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testFactory_fromDateFields_null_oe_101_oe
+joda-time_2799_101,"public void testConstructor_ObjectStringEx1_oe_101_oe() throws Throwable {
+        try {
+            new LocalDateTime(""1970-04-06T+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_ObjectStringEx1_oe_101_oe
+joda-time_2800_101,"public void testConstructor_ObjectStringEx2_oe_101_oe() throws Throwable {
+        try {
+            new LocalDateTime(""1970-04-06T10:20:30.040+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_ObjectStringEx2_oe_101_oe
+joda-time_2801_101,"public void testConstructor_ObjectStringEx3_oe_101_oe() throws Throwable {
+        try {
+            new LocalDateTime(""T10:20:30.040"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_ObjectStringEx3_oe_101_oe
+joda-time_2802_101,"public void testConstructor_ObjectStringEx4_oe_101_oe() throws Throwable {
+        try {
+            new LocalDateTime(""T10:20:30.040+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_ObjectStringEx4_oe_101_oe
+joda-time_2803_101,"public void testConstructor_ObjectStringEx5_oe_101_oe() throws Throwable {
+        try {
+            new LocalDateTime(""10:20:30.040"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_ObjectStringEx5_oe_101_oe
+joda-time_2804_101,"public void testConstructor_ObjectStringEx6_oe_101_oe() throws Throwable {
+        try {
+            new LocalDateTime(""10:20:30.040+14:00"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_ObjectStringEx6_oe_101_oe
+joda-time_2823_101,"public void testConstructor_int_int_int_int_int_int_int_oe_101_oe() throws Throwable {
+        try {
+            new LocalDateTime(Integer.MIN_VALUE, 6, 9, 10, 20, 30, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_101_oe
+joda-time_2823_102,"public void testConstructor_int_int_int_int_int_int_int_oe_102_oe() throws Throwable {
+        try {
+            new LocalDateTime(Integer.MAX_VALUE, 6, 9, 10, 20, 30, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_102_oe
+joda-time_2823_103,"public void testConstructor_int_int_int_int_int_int_int_oe_103_oe() throws Throwable {
+        try {
+            new LocalDateTime(2005, 0, 9, 10, 20, 30, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_103_oe
+joda-time_2823_104,"public void testConstructor_int_int_int_int_int_int_int_oe_104_oe() throws Throwable {
+        try {
+            new LocalDateTime(2005, 13, 9, 10, 20, 30, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_104_oe
+joda-time_2823_105,"public void testConstructor_int_int_int_int_int_int_int_oe_105_oe() throws Throwable {
+        try {
+            new LocalDateTime(2005, 6, 0, 10, 20, 30, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_105_oe
+joda-time_2823_106,"public void testConstructor_int_int_int_int_int_int_int_oe_106_oe() throws Throwable {
+        try {
+            new LocalDateTime(2005, 6, 31, 10, 20, 30, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_106_oe
+joda-time_2823_107,"public void testConstructor_int_int_int_int_int_int_int_oe_107_oe() throws Throwable {
+        try {
+            new LocalDateTime(2005, 7, 32, 10, 20, 30, 40);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_int_int_int_int_int_int_int_oe_107_oe
+joda-time_2824_101,"public void testConstructor_int_int_int_Chronology_oe_101_oe() throws Throwable {
+        try {
+            new LocalDateTime(Integer.MIN_VALUE, 6, 9, 10, 20, 30, 40, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_int_int_int_Chronology_oe_101_oe
+joda-time_2824_102,"public void testConstructor_int_int_int_Chronology_oe_102_oe() throws Throwable {
+        try {
+            new LocalDateTime(Integer.MAX_VALUE, 6, 9, 10, 20, 30, 40, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_int_int_int_Chronology_oe_102_oe
+joda-time_2824_103,"public void testConstructor_int_int_int_Chronology_oe_103_oe() throws Throwable {
+        try {
+            new LocalDateTime(2005, 0, 9, 10, 20, 30, 40, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_int_int_int_Chronology_oe_103_oe
+joda-time_2824_104,"public void testConstructor_int_int_int_Chronology_oe_104_oe() throws Throwable {
+        try {
+            new LocalDateTime(2005, 13, 9, 10, 20, 30, 40, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_int_int_int_Chronology_oe_104_oe
+joda-time_2824_105,"public void testConstructor_int_int_int_Chronology_oe_105_oe() throws Throwable {
+        try {
+            new LocalDateTime(2005, 6, 0, 10, 20, 30, 40, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_int_int_int_Chronology_oe_105_oe
+joda-time_2824_106,"public void testConstructor_int_int_int_Chronology_oe_106_oe() throws Throwable {
+        try {
+            new LocalDateTime(2005, 6, 31, 10, 20, 30, 40, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_int_int_int_Chronology_oe_106_oe
+joda-time_2824_107,"public void testConstructor_int_int_int_Chronology_oe_107_oe() throws Throwable {
+        try {
+            new LocalDateTime(2005, 7, 32, 10, 20, 30, 40, GREGORIAN_PARIS);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestLocalDateTime_Constructors::testConstructor_int_int_int_Chronology_oe_107_oe
+joda-time_2866_101,"public void testFactory_Zone_long_int_oe_101_oe() {
+        try {
+            GJChronology.getInstance(TOKYO, 0L, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestGJChronology::testFactory_Zone_long_int_oe_101_oe
+joda-time_2866_102,"public void testFactory_Zone_long_int_oe_102_oe() {
+        try {
+            GJChronology.getInstance(TOKYO, 0L, 8);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestGJChronology::testFactory_Zone_long_int_oe_102_oe
+joda-time_2868_101,"public void testFactory_Zone_RI_int_oe_101_oe() {
+        try {
+            GJChronology.getInstance(TOKYO, new Instant(0L), 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestGJChronology::testFactory_Zone_RI_int_oe_101_oe
+joda-time_2868_102,"public void testFactory_Zone_RI_int_oe_102_oe() {
+        try {
+            GJChronology.getInstance(TOKYO, new Instant(0L), 8);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestGJChronology::testFactory_Zone_RI_int_oe_102_oe
+joda-time_2876_101,"public void testIllegalDates_oe_101_oe() {
+        try {
+            new DateTime(1582, 10, 5, 0, 0, 0, 0, GJChronology.getInstance(DateTimeZone.UTC));
+            fail(""Constructed illegal date"");
+        } catch (IllegalArgumentException e) { /* good */ }
+    }
+",TestGJChronology::testIllegalDates_oe_101_oe
+joda-time_2876_102,"public void testIllegalDates_oe_102_oe() {
+        try {
+            new DateTime(1582, 10, 14, 0, 0, 0, 0, GJChronology.getInstance(DateTimeZone.UTC));
+            fail(""Constructed illegal date"");
+        } catch (IllegalArgumentException e) { /* good */ }
+    }
+",TestGJChronology::testIllegalDates_oe_102_oe
+joda-time_2883_101,"public void testLeapYearRulesConstructionInvalid_oe_101_oe() {
+        try {
+            new DateMidnight(1500, 2, 30, GJChronology.getInstanceUTC());
+            fail();
+        } catch (IllegalFieldValueException ex) {
+            // good
+        }
+    }
+",TestGJChronology::testLeapYearRulesConstructionInvalid_oe_101_oe
+joda-time_2897_101,"public void testEra_oe_101_oe() {
+        try {
+            new DateTime(-1, 13, 5, 0, 0, 0, 0, COPTIC_UTC);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestCopticChronology::testEra_oe_101_oe
+joda-time_2933_101,"public void testEra_oe_101_oe() {
+        try {
+            new DateTime(-1, 13, 5, 0, 0, 0, 0, ETHIOPIC_UTC);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestEthiopicChronology::testEra_oe_101_oe
+joda-time_2964_101,"public void testEra_oe_101_oe() {
+        try {
+            new DateTime(-1, 13, 5, 0, 0, 0, 0, ISLAMIC_UTC);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestIslamicChronology::testEra_oe_101_oe
+joda-time_2977_101,"public void testFactory_Zone_int_oe_101_oe() {
+        try {
+            GregorianChronology.getInstance(TOKYO, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestGregorianChronology::testFactory_Zone_int_oe_101_oe
+joda-time_2977_102,"public void testFactory_Zone_int_oe_102_oe() {
+        try {
+            GregorianChronology.getInstance(TOKYO, 8);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestGregorianChronology::testFactory_Zone_int_oe_102_oe
+joda-time_3009_101,"public void testEra_oe_101_oe() {
+        try {
+            new DateTime(-1, 13, 5, 0, 0, 0, 0, BUDDHIST_UTC);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestBuddhistChronology::testEra_oe_101_oe
+joda-time_3014_101,"public void testFactory_Zone_int_oe_101_oe() {
+        try {
+            JulianChronology.getInstance(TOKYO, 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestJulianChronology::testFactory_Zone_int_oe_101_oe
+joda-time_3014_102,"public void testFactory_Zone_int_oe_102_oe() {
+        try {
+            JulianChronology.getInstance(TOKYO, 8);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestJulianChronology::testFactory_Zone_int_oe_102_oe
+joda-time_3060_101,"public void testGetInstantMillisInvalid_oe_101_oe() {
+        try {
+            StringConverter.INSTANCE.getInstantMillis("""", (Chronology) null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestStringConverter::testGetInstantMillisInvalid_oe_101_oe
+joda-time_3060_102,"public void testGetInstantMillisInvalid_oe_102_oe() {
+        try {
+            StringConverter.INSTANCE.getInstantMillis(""X"", (Chronology) null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestStringConverter::testGetInstantMillisInvalid_oe_102_oe
+joda-time_3072_101,"public void testGetDurationMillis_Object2_oe_101_oe() throws Exception {
+        try {
+            StringConverter.INSTANCE.getDurationMillis(""P2Y6M9DXYZ"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestStringConverter::testGetDurationMillis_Object2_oe_101_oe
+joda-time_3072_102,"public void testGetDurationMillis_Object2_oe_102_oe() throws Exception {
+        try {
+            StringConverter.INSTANCE.getDurationMillis(""PTS"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestStringConverter::testGetDurationMillis_Object2_oe_102_oe
+joda-time_3072_103,"public void testGetDurationMillis_Object2_oe_103_oe() throws Exception {
+        try {
+            StringConverter.INSTANCE.getDurationMillis(""XT0S"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestStringConverter::testGetDurationMillis_Object2_oe_103_oe
+joda-time_3072_104,"public void testGetDurationMillis_Object2_oe_104_oe() throws Exception {
+        try {
+            StringConverter.INSTANCE.getDurationMillis(""PX0S"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestStringConverter::testGetDurationMillis_Object2_oe_104_oe
+joda-time_3072_105,"public void testGetDurationMillis_Object2_oe_105_oe() throws Exception {
+        try {
+            StringConverter.INSTANCE.getDurationMillis(""PT0X"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestStringConverter::testGetDurationMillis_Object2_oe_105_oe
+joda-time_3072_106,"public void testGetDurationMillis_Object2_oe_106_oe() throws Exception {
+        try {
+            StringConverter.INSTANCE.getDurationMillis(""PTXS"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestStringConverter::testGetDurationMillis_Object2_oe_106_oe
+joda-time_3072_107,"public void testGetDurationMillis_Object2_oe_107_oe() throws Exception {
+        try {
+            StringConverter.INSTANCE.getDurationMillis(""PT0.0.0S"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestStringConverter::testGetDurationMillis_Object2_oe_107_oe
+joda-time_3072_108,"public void testGetDurationMillis_Object2_oe_108_oe() throws Exception {
+        try {
+            StringConverter.INSTANCE.getDurationMillis(""PT0-00S"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestStringConverter::testGetDurationMillis_Object2_oe_108_oe
+joda-time_3072_109,"public void testGetDurationMillis_Object2_oe_109_oe() throws Exception {
+        try {
+            StringConverter.INSTANCE.getDurationMillis(""PT-.001S"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestStringConverter::testGetDurationMillis_Object2_oe_109_oe
+joda-time_3117_101,"public void testGetInstantConverter_oe_101_oe() {
+        try {
+            ConverterManager.getInstance().getInstantConverter(Boolean.TRUE);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestConverterManager::testGetInstantConverter_oe_101_oe
+joda-time_3118_101,"public void testGetInstantConverterRemovedNull_oe_101_oe() {
+        try {
+            ConverterManager.getInstance().removeInstantConverter(NullConverter.INSTANCE);
+            try {
+                ConverterManager.getInstance().getInstantConverter(null);
+                fail();
+            } catch (IllegalArgumentException ex) {}
+        } finally {
+            ConverterManager.getInstance().addInstantConverter(NullConverter.INSTANCE);
+        }
+    }
+",TestConverterManager::testGetInstantConverterRemovedNull_oe_101_oe
+joda-time_3126_101,"public void testAddInstantConverterSecurity_oe_101_oe() {
+        try {
+            Policy.setPolicy(RESTRICT);
+            System.setSecurityManager(new SecurityManager());
+            ConverterManager.getInstance().addInstantConverter(StringConverter.INSTANCE);
+            fail();
+        } catch (SecurityException ex) {
+            // ok
+        } finally {
+            System.setSecurityManager(null);
+            Policy.setPolicy(ALLOW);
+        }
+    }
+",TestConverterManager::testAddInstantConverterSecurity_oe_101_oe
+joda-time_3130_101,"public void testRemoveInstantConverterSecurity_oe_101_oe() {
+        try {
+            Policy.setPolicy(RESTRICT);
+            System.setSecurityManager(new SecurityManager());
+            ConverterManager.getInstance().removeInstantConverter(StringConverter.INSTANCE);
+            fail();
+        } catch (SecurityException ex) {
+            // ok
+        } finally {
+            System.setSecurityManager(null);
+            Policy.setPolicy(ALLOW);
+        }
+    }
+",TestConverterManager::testRemoveInstantConverterSecurity_oe_101_oe
+joda-time_3131_101,"public void testGetPartialConverter_oe_101_oe() {
+        try {
+            ConverterManager.getInstance().getPartialConverter(Boolean.TRUE);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestConverterManager::testGetPartialConverter_oe_101_oe
+joda-time_3132_101,"public void testGetPartialConverterRemovedNull_oe_101_oe() {
+        try {
+            ConverterManager.getInstance().removePartialConverter(NullConverter.INSTANCE);
+            try {
+                ConverterManager.getInstance().getPartialConverter(null);
+                fail();
+            } catch (IllegalArgumentException ex) {}
+        } finally {
+            ConverterManager.getInstance().addPartialConverter(NullConverter.INSTANCE);
+        }
+    }
+",TestConverterManager::testGetPartialConverterRemovedNull_oe_101_oe
+joda-time_3140_101,"public void testAddPartialConverterSecurity_oe_101_oe() {
+        try {
+            Policy.setPolicy(RESTRICT);
+            System.setSecurityManager(new SecurityManager());
+            ConverterManager.getInstance().addPartialConverter(StringConverter.INSTANCE);
+            fail();
+        } catch (SecurityException ex) {
+            // ok
+        } finally {
+            System.setSecurityManager(null);
+            Policy.setPolicy(ALLOW);
+        }
+    }
+",TestConverterManager::testAddPartialConverterSecurity_oe_101_oe
+joda-time_3144_101,"public void testRemovePartialConverterSecurity_oe_101_oe() {
+        try {
+            Policy.setPolicy(RESTRICT);
+            System.setSecurityManager(new SecurityManager());
+            ConverterManager.getInstance().removeInstantConverter(StringConverter.INSTANCE);
+            fail();
+        } catch (SecurityException ex) {
+            // ok
+        } finally {
+            System.setSecurityManager(null);
+            Policy.setPolicy(ALLOW);
+        }
+    }
+",TestConverterManager::testRemovePartialConverterSecurity_oe_101_oe
+joda-time_3145_101,"public void testGetDurationConverter_oe_101_oe() {
+        try {
+            ConverterManager.getInstance().getDurationConverter(Boolean.TRUE);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestConverterManager::testGetDurationConverter_oe_101_oe
+joda-time_3146_101,"public void testGetDurationConverterRemovedNull_oe_101_oe() {
+        try {
+            ConverterManager.getInstance().removeDurationConverter(NullConverter.INSTANCE);
+            try {
+                ConverterManager.getInstance().getDurationConverter(null);
+                fail();
+            } catch (IllegalArgumentException ex) {}
+        } finally {
+            ConverterManager.getInstance().addDurationConverter(NullConverter.INSTANCE);
+        }
+    }
+",TestConverterManager::testGetDurationConverterRemovedNull_oe_101_oe
+joda-time_3151_101,"public void testAddDurationConverterSecurity_oe_101_oe() {
+        try {
+            Policy.setPolicy(RESTRICT);
+            System.setSecurityManager(new SecurityManager());
+            ConverterManager.getInstance().addDurationConverter(StringConverter.INSTANCE);
+            fail();
+        } catch (SecurityException ex) {
+            // ok
+        } finally {
+            System.setSecurityManager(null);
+            Policy.setPolicy(ALLOW);
+        }
+    }
+",TestConverterManager::testAddDurationConverterSecurity_oe_101_oe
+joda-time_3155_101,"public void testRemoveDurationConverterSecurity_oe_101_oe() {
+        try {
+            Policy.setPolicy(RESTRICT);
+            System.setSecurityManager(new SecurityManager());
+            ConverterManager.getInstance().removeDurationConverter(StringConverter.INSTANCE);
+            fail();
+        } catch (SecurityException ex) {
+            // ok
+        } finally {
+            System.setSecurityManager(null);
+            Policy.setPolicy(ALLOW);
+        }
+    }
+",TestConverterManager::testRemoveDurationConverterSecurity_oe_101_oe
+joda-time_3156_101,"public void testGetPeriodConverter_oe_101_oe() {
+        try {
+            ConverterManager.getInstance().getPeriodConverter(Boolean.TRUE);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestConverterManager::testGetPeriodConverter_oe_101_oe
+joda-time_3157_101,"public void testGetPeriodConverterRemovedNull_oe_101_oe() {
+        try {
+            ConverterManager.getInstance().removePeriodConverter(NullConverter.INSTANCE);
+            try {
+                ConverterManager.getInstance().getPeriodConverter(null);
+                fail();
+            } catch (IllegalArgumentException ex) {}
+        } finally {
+            ConverterManager.getInstance().addPeriodConverter(NullConverter.INSTANCE);
+        }
+    }
+",TestConverterManager::testGetPeriodConverterRemovedNull_oe_101_oe
+joda-time_3162_101,"public void testAddPeriodConverterSecurity_oe_101_oe() {
+        try {
+            Policy.setPolicy(RESTRICT);
+            System.setSecurityManager(new SecurityManager());
+            ConverterManager.getInstance().addPeriodConverter(StringConverter.INSTANCE);
+            fail();
+        } catch (SecurityException ex) {
+            // ok
+        } finally {
+            System.setSecurityManager(null);
+            Policy.setPolicy(ALLOW);
+        }
+    }
+",TestConverterManager::testAddPeriodConverterSecurity_oe_101_oe
+joda-time_3166_101,"public void testRemovePeriodConverterSecurity_oe_101_oe() {
+        try {
+            Policy.setPolicy(RESTRICT);
+            System.setSecurityManager(new SecurityManager());
+            ConverterManager.getInstance().removePeriodConverter(StringConverter.INSTANCE);
+            fail();
+        } catch (SecurityException ex) {
+            // ok
+        } finally {
+            System.setSecurityManager(null);
+            Policy.setPolicy(ALLOW);
+        }
+    }
+",TestConverterManager::testRemovePeriodConverterSecurity_oe_101_oe
+joda-time_3167_101,"public void testGetIntervalConverter_oe_101_oe() {
+        try {
+            ConverterManager.getInstance().getIntervalConverter(Boolean.TRUE);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestConverterManager::testGetIntervalConverter_oe_101_oe
+joda-time_3167_102,"public void testGetIntervalConverter_oe_102_oe() {
+        try {
+            ConverterManager.getInstance().getIntervalConverter(new Long(0));
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestConverterManager::testGetIntervalConverter_oe_102_oe
+joda-time_3168_101,"public void testGetIntervalConverterRemovedNull_oe_101_oe() {
+        try {
+            ConverterManager.getInstance().removeIntervalConverter(NullConverter.INSTANCE);
+            try {
+                ConverterManager.getInstance().getIntervalConverter(null);
+                fail();
+            } catch (IllegalArgumentException ex) {}
+        } finally {
+            ConverterManager.getInstance().addIntervalConverter(NullConverter.INSTANCE);
+        }
+    }
+",TestConverterManager::testGetIntervalConverterRemovedNull_oe_101_oe
+joda-time_3173_101,"public void testAddIntervalConverterSecurity_oe_101_oe() {
+        try {
+            Policy.setPolicy(RESTRICT);
+            System.setSecurityManager(new SecurityManager());
+            ConverterManager.getInstance().addIntervalConverter(StringConverter.INSTANCE);
+            fail();
+        } catch (SecurityException ex) {
+            // ok
+        } finally {
+            System.setSecurityManager(null);
+            Policy.setPolicy(ALLOW);
+        }
+    }
+",TestConverterManager::testAddIntervalConverterSecurity_oe_101_oe
+joda-time_3177_101,"public void testRemoveIntervalConverterSecurity_oe_101_oe() {
+        try {
+            Policy.setPolicy(RESTRICT);
+            System.setSecurityManager(new SecurityManager());
+            ConverterManager.getInstance().removeIntervalConverter(StringConverter.INSTANCE);
+            fail();
+        } catch (SecurityException ex) {
+            // ok
+        } finally {
+            System.setSecurityManager(null);
+            Policy.setPolicy(ALLOW);
+        }
+    }
+",TestConverterManager::testRemoveIntervalConverterSecurity_oe_101_oe
+joda-time_3292_101,"public void testFormat_invalid_oe_101_oe() {
+        try {
+            DateTimeFormat.forPattern(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormat::testFormat_invalid_oe_101_oe
+joda-time_3292_102,"public void testFormat_invalid_oe_102_oe() {
+        try {
+            DateTimeFormat.forPattern("""");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormat::testFormat_invalid_oe_102_oe
+joda-time_3292_103,"public void testFormat_invalid_oe_103_oe() {
+        try {
+            DateTimeFormat.forPattern(""A"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormat::testFormat_invalid_oe_103_oe
+joda-time_3292_104,"public void testFormat_invalid_oe_104_oe() {
+        try {
+            DateTimeFormat.forPattern(""dd/mm/AA"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormat::testFormat_invalid_oe_104_oe
+joda-time_3326_101,"public void test_getDefault_checkRedundantSeparator_oe_101_oe() {
+        try {
+            PeriodFormat.getDefault().parsePeriod(""2 days and 5 hours "");
+            fail(""No exception was caught"");
+        } catch (Exception e) {
+        }
+    }
+",TestPeriodFormat::test_getDefault_checkRedundantSeparator_oe_101_oe
+joda-time_3367_101,"public void test_wordBased_ja_checkRedundantSeparator_oe_101_oe() {
+        try {
+            // Spaces are not valid separators in Japanese
+            PeriodFormat.wordBased(JA).parsePeriod(""2\u65E5 "");
+            fail(""No exception was caught"");
+        } catch (Exception e) {
+        }
+    }
+",TestPeriodFormat::test_wordBased_ja_checkRedundantSeparator_oe_101_oe
+joda-time_3373_101,"public void test_wordBased_pl_checkRedundantSeparator_oe_101_oe() {
+        try {
+            PeriodFormat.wordBased(PL).parsePeriod(""2 dni and 5 godzin "");
+            fail(""No exception was caught"");
+        } catch (Exception e) {
+        }
+    }
+",TestPeriodFormat::test_wordBased_pl_checkRedundantSeparator_oe_101_oe
+joda-time_3383_101,"public void test_wordBased_ru_checkRedundantSeparator_oe_101_oe() {
+        try {
+            PeriodFormat.wordBased(RU).parsePeriod(""2 дня and 5 минут"");
+            fail(""No exception was caught"");
+        } catch (Exception e) {
+        }
+    }
+",TestPeriodFormat::test_wordBased_ru_checkRedundantSeparator_oe_101_oe
+joda-time_3402_101,"public void testParsePeriod_simple_oe_101_oe() {
+        try {
+            f.parsePeriod(""ABC"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPeriodFormatter::testParsePeriod_simple_oe_101_oe
+joda-time_3403_101,"public void testParsePeriod_parseType_oe_101_oe() {
+        try {
+            f.withParseType(PeriodType.dayTime()).parsePeriod(""P3W4DT5H6M7.008S"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPeriodFormatter::testParsePeriod_parseType_oe_101_oe
+joda-time_3404_101,"public void testParseMutablePeriod_simple_oe_101_oe() {
+        try {
+            f.parseMutablePeriod(""ABC"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPeriodFormatter::testParseMutablePeriod_simple_oe_101_oe
+joda-time_3405_101,"public void testParseInto_simple_oe_101_oe() {
+        try {
+            f.parseInto(null, ""P1Y2M3W4DT5H6M7.008S"", 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPeriodFormatter::testParseInto_simple_oe_101_oe
+joda-time_3453_101,"public void test_append_nullPrinter_oe_101_oe() {
+        try {
+            DateTimeFormatterBuilder bld2 = new DateTimeFormatterBuilder();
+            bld2.append((DateTimePrinter) null);
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestDateTimeFormatterBuilder::test_append_nullPrinter_oe_101_oe
+joda-time_3455_101,"public void test_append_nullParser_oe_101_oe() {
+        try {
+            DateTimeFormatterBuilder bld2 = new DateTimeFormatterBuilder();
+            bld2.append((DateTimeParser) null);
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestDateTimeFormatterBuilder::test_append_nullParser_oe_101_oe
+joda-time_3459_101,"public void test_appendOptional_nullParser_oe_101_oe() {
+        try {
+            DateTimeFormatterBuilder bld2 = new DateTimeFormatterBuilder();
+            bld2.appendOptional((DateTimeParser) null);
+            fail();
+        } catch (IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",TestDateTimeFormatterBuilder::test_appendOptional_nullParser_oe_101_oe
+joda-time_3517_101,"public void testParseLocalDate_simple_oe_101_oe() {
+        try {
+            g.parseDateTime(""ABC"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormatter::testParseLocalDate_simple_oe_101_oe
+joda-time_3532_101,"public void testParseLocalTime_simple_oe_101_oe() {
+        try {
+            g.parseDateTime(""ABC"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormatter::testParseLocalTime_simple_oe_101_oe
+joda-time_3533_101,"public void testParseLocalDateTime_simple_oe_101_oe() {
+        try {
+            g.parseDateTime(""ABC"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormatter::testParseLocalDateTime_simple_oe_101_oe
+joda-time_3536_101,"public void testParseDateTime_simple_oe_101_oe() {
+        try {
+            g.parseDateTime(""ABC"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormatter::testParseDateTime_simple_oe_101_oe
+joda-time_3543_101,"public void testParseMutableDateTime_simple_oe_101_oe() {
+        try {
+            g.parseMutableDateTime(""ABC"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormatter::testParseMutableDateTime_simple_oe_101_oe
+joda-time_3550_101,"public void testParseInto_simple_oe_101_oe() {
+        try {
+            g.parseInto(null, ""2004-06-09T10:20:30Z"", 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormatter::testParseInto_simple_oe_101_oe
+joda-time_3604_101,"public void testFormatPrefixSimple3_oe_101_oe() {
+        try {
+            builder.appendPrefix(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPeriodFormatterBuilder::testFormatPrefixSimple3_oe_101_oe
+joda-time_3609_101,"public void testFormatPrefixPlural3_oe_101_oe() {
+        try {
+            builder.appendPrefix(null, """");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPeriodFormatterBuilder::testFormatPrefixPlural3_oe_101_oe
+joda-time_3609_102,"public void testFormatPrefixPlural3_oe_102_oe() {
+        try {
+            builder.appendPrefix("""", null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPeriodFormatterBuilder::testFormatPrefixPlural3_oe_102_oe
+joda-time_3609_103,"public void testFormatPrefixPlural3_oe_103_oe() {
+        try {
+            builder.appendPrefix(NULL_STRING, null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPeriodFormatterBuilder::testFormatPrefixPlural3_oe_103_oe
+joda-time_3614_101,"public void testFormatPrefixRegEx3_oe_101_oe() {
+        try {
+            builder.appendPrefix(null, new String[0]);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestPeriodFormatterBuilder::testFormatPrefixRegEx3_oe_101_oe
+joda-time_3614_102,"public void testFormatPrefixRegEx3_oe_102_oe() {
+        try {
+            builder.appendPrefix(new String[0], null);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestPeriodFormatterBuilder::testFormatPrefixRegEx3_oe_102_oe
+joda-time_3614_103,"public void testFormatPrefixRegEx3_oe_103_oe() {
+        try {
+            builder.appendPrefix(NULL_STRING_ARRAY, null);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestPeriodFormatterBuilder::testFormatPrefixRegEx3_oe_103_oe
+joda-time_3614_104,"public void testFormatPrefixRegEx3_oe_104_oe() {
+        try {
+            builder.appendPrefix(new String[0], new String[0]);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestPeriodFormatterBuilder::testFormatPrefixRegEx3_oe_104_oe
+joda-time_3614_105,"public void testFormatPrefixRegEx3_oe_105_oe() {
+        try {
+            builder.appendPrefix(new String[1], new String[2]);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestPeriodFormatterBuilder::testFormatPrefixRegEx3_oe_105_oe
+joda-time_3619_101,"public void testFormatSuffixSimple3_oe_101_oe() {
+        try {
+            builder.appendSuffix(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPeriodFormatterBuilder::testFormatSuffixSimple3_oe_101_oe
+joda-time_3620_101,"public void testFormatSuffixSimple4_oe_101_oe() {
+        try {
+            builder.appendSuffix("" hours"");
+            fail();
+        } catch (IllegalStateException ex) {}
+    }
+",TestPeriodFormatterBuilder::testFormatSuffixSimple4_oe_101_oe
+joda-time_3625_101,"public void testFormatSuffixPlural3_oe_101_oe() {
+        try {
+            builder.appendSuffix(null, """");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPeriodFormatterBuilder::testFormatSuffixPlural3_oe_101_oe
+joda-time_3625_102,"public void testFormatSuffixPlural3_oe_102_oe() {
+        try {
+            builder.appendSuffix("""", null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPeriodFormatterBuilder::testFormatSuffixPlural3_oe_102_oe
+joda-time_3625_103,"public void testFormatSuffixPlural3_oe_103_oe() {
+        try {
+            builder.appendSuffix(NULL_STRING, null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPeriodFormatterBuilder::testFormatSuffixPlural3_oe_103_oe
+joda-time_3626_101,"public void testFormatSuffixPlural4_oe_101_oe() {
+        try {
+            builder.appendSuffix("" hour"", "" hours"");
+            fail();
+        } catch (IllegalStateException ex) {}
+    }
+",TestPeriodFormatterBuilder::testFormatSuffixPlural4_oe_101_oe
+joda-time_3630_101,"public void testFormatSuffixRegEx3_oe_101_oe() {
+        try {
+            builder.appendSuffix(null, new String[0]);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestPeriodFormatterBuilder::testFormatSuffixRegEx3_oe_101_oe
+joda-time_3630_102,"public void testFormatSuffixRegEx3_oe_102_oe() {
+        try {
+            builder.appendSuffix(new String[0], null);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestPeriodFormatterBuilder::testFormatSuffixRegEx3_oe_102_oe
+joda-time_3630_103,"public void testFormatSuffixRegEx3_oe_103_oe() {
+        try {
+            builder.appendSuffix(NULL_STRING_ARRAY, null);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestPeriodFormatterBuilder::testFormatSuffixRegEx3_oe_103_oe
+joda-time_3630_104,"public void testFormatSuffixRegEx3_oe_104_oe() {
+        try {
+            builder.appendSuffix(new String[0], new String[0]);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestPeriodFormatterBuilder::testFormatSuffixRegEx3_oe_104_oe
+joda-time_3630_105,"public void testFormatSuffixRegEx3_oe_105_oe() {
+        try {
+            builder.appendSuffix(new String[1], new String[2]);
+            fail();
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",TestPeriodFormatterBuilder::testFormatSuffixRegEx3_oe_105_oe
+joda-time_3656_101,"public void testFormatAppend_PrinterParser_null_null_oe_101_oe() {
+        try {
+            new PeriodFormatterBuilder().append(null, null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPeriodFormatterBuilder::testFormatAppend_PrinterParser_null_null_oe_101_oe
+joda-time_3670_101,"public void testForFields_null_oe_101_oe() {
+        try {
+            ISODateTimeFormat.forFields((Collection) null, true, true);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestISODateTimeFormat_Fields::testForFields_null_oe_101_oe
+joda-time_3671_101,"public void testForFields_empty_oe_101_oe() {
+        try {
+            ISODateTimeFormat.forFields(new ArrayList(), true, true);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestISODateTimeFormat_Fields::testForFields_empty_oe_101_oe
+joda-time_3710_101,"public void testForStyle_stringLengths_oe_101_oe() {
+        try {
+            DateTimeFormat.forStyle(null);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormatStyle::testForStyle_stringLengths_oe_101_oe
+joda-time_3710_102,"public void testForStyle_stringLengths_oe_102_oe() {
+        try {
+            DateTimeFormat.forStyle("""");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormatStyle::testForStyle_stringLengths_oe_102_oe
+joda-time_3710_103,"public void testForStyle_stringLengths_oe_103_oe() {
+        try {
+            DateTimeFormat.forStyle(""S"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormatStyle::testForStyle_stringLengths_oe_103_oe
+joda-time_3710_104,"public void testForStyle_stringLengths_oe_104_oe() {
+        try {
+            DateTimeFormat.forStyle(""SSS"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormatStyle::testForStyle_stringLengths_oe_104_oe
+joda-time_3711_101,"public void testForStyle_invalidStrings_oe_101_oe() {
+        try {
+            DateTimeFormat.forStyle(""AA"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormatStyle::testForStyle_invalidStrings_oe_101_oe
+joda-time_3711_102,"public void testForStyle_invalidStrings_oe_102_oe() {
+        try {
+            DateTimeFormat.forStyle(""--"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormatStyle::testForStyle_invalidStrings_oe_102_oe
+joda-time_3711_103,"public void testForStyle_invalidStrings_oe_103_oe() {
+        try {
+            DateTimeFormat.forStyle(""ss"");
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestDateTimeFormatStyle::testForStyle_invalidStrings_oe_103_oe
+joda-time_3764_101,"public void test_constructor_oe_101_oe() {
+        try {
+            new PreciseDurationField(null, 10);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestPreciseDurationField::test_constructor_oe_101_oe
+joda-time_3771_101,"public void test_getValue_long_oe_101_oe() {
+        try {
+            iField.getValue(LONG_INTEGER_MAX * 1000L + 1000L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestPreciseDurationField::test_getValue_long_oe_101_oe
+joda-time_3773_101,"public void test_getValue_long_long_oe_101_oe() {
+        try {
+            iField.getValue(LONG_INTEGER_MAX * 1000L + 1000L, 567L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestPreciseDurationField::test_getValue_long_long_oe_101_oe
+joda-time_3776_101,"public void test_getMillis_long_oe_101_oe() {
+        try {
+            iField.getMillis(LONG_MAX);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestPreciseDurationField::test_getMillis_long_oe_101_oe
+joda-time_3778_101,"public void test_getMillis_long_long_oe_101_oe() {
+        try {
+            iField.getMillis(LONG_MAX, 567L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestPreciseDurationField::test_getMillis_long_long_oe_101_oe
+joda-time_3779_101,"public void test_add_long_int_oe_101_oe() {
+        try {
+            iField.add(LONG_MAX, 1);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestPreciseDurationField::test_add_long_int_oe_101_oe
+joda-time_3780_101,"public void test_add_long_long_oe_101_oe() {
+        try {
+            iField.add(LONG_MAX, 1L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestPreciseDurationField::test_add_long_long_oe_101_oe
+joda-time_3780_102,"public void test_add_long_long_oe_102_oe() {
+        try {
+            iField.add(1L, LONG_MAX);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestPreciseDurationField::test_add_long_long_oe_102_oe
+joda-time_3781_101,"public void test_getDifference_long_int_oe_101_oe() {
+        try {
+            iField.getDifference(LONG_MAX, -1L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestPreciseDurationField::test_getDifference_long_int_oe_101_oe
+joda-time_3782_101,"public void test_getDifferenceAsLong_long_long_oe_101_oe() {
+        try {
+            iField.getDifferenceAsLong(LONG_MAX, -1L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestPreciseDurationField::test_getDifferenceAsLong_long_long_oe_101_oe
+joda-time_3785_102,"public void test_compareTo_oe_102_oe() {
+        try {
+            iField.compareTo(null);
+            fail();
+        } catch (NullPointerException ex) {}
+    }
+",TestPreciseDurationField::test_compareTo_oe_102_oe
+joda-time_3793_101,"public void test_getValue_long_oe_101_oe() {
+        try {
+            MillisDurationField.INSTANCE.getValue(((long) (Integer.MAX_VALUE)) + 1L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestMillisDurationField::test_getValue_long_oe_101_oe
+joda-time_3795_101,"public void test_getValue_long_long_oe_101_oe() {
+        try {
+            MillisDurationField.INSTANCE.getValue(((long) (Integer.MAX_VALUE)) + 1L, 567L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestMillisDurationField::test_getValue_long_long_oe_101_oe
+joda-time_3801_101,"public void test_add_long_int_oe_101_oe() {
+        try {
+            MillisDurationField.INSTANCE.add(Long.MAX_VALUE, 1);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestMillisDurationField::test_add_long_int_oe_101_oe
+joda-time_3802_101,"public void test_add_long_long_oe_101_oe() {
+        try {
+            MillisDurationField.INSTANCE.add(Long.MAX_VALUE, 1L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestMillisDurationField::test_add_long_long_oe_101_oe
+joda-time_3803_101,"public void test_getDifference_long_int_oe_101_oe() {
+        try {
+            MillisDurationField.INSTANCE.getDifference(Long.MAX_VALUE, 1L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestMillisDurationField::test_getDifference_long_int_oe_101_oe
+joda-time_3804_101,"public void test_getDifferenceAsLong_long_long_oe_101_oe() {
+        try {
+            MillisDurationField.INSTANCE.getDifferenceAsLong(Long.MAX_VALUE, -1L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestMillisDurationField::test_getDifferenceAsLong_long_long_oe_101_oe
+joda-time_3805_102,"public void test_compareTo_oe_102_oe() {
+        try {
+            MillisDurationField.INSTANCE.compareTo(null);
+            fail();
+        } catch (NullPointerException ex) {}
+    }
+",TestMillisDurationField::test_compareTo_oe_102_oe
+joda-time_3906_101,"public void testSafeAddInt_oe_101_oe() {
+        try {
+            FieldUtils.safeAdd(Integer.MAX_VALUE, 1);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeAddInt_oe_101_oe
+joda-time_3906_102,"public void testSafeAddInt_oe_102_oe() {
+        try {
+            FieldUtils.safeAdd(Integer.MAX_VALUE, 100);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeAddInt_oe_102_oe
+joda-time_3906_103,"public void testSafeAddInt_oe_103_oe() {
+        try {
+            FieldUtils.safeAdd(Integer.MAX_VALUE, Integer.MAX_VALUE);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeAddInt_oe_103_oe
+joda-time_3906_104,"public void testSafeAddInt_oe_104_oe() {
+        try {
+            FieldUtils.safeAdd(Integer.MIN_VALUE, -1);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeAddInt_oe_104_oe
+joda-time_3906_105,"public void testSafeAddInt_oe_105_oe() {
+        try {
+            FieldUtils.safeAdd(Integer.MIN_VALUE, -100);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeAddInt_oe_105_oe
+joda-time_3906_106,"public void testSafeAddInt_oe_106_oe() {
+        try {
+            FieldUtils.safeAdd(Integer.MIN_VALUE, Integer.MIN_VALUE);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeAddInt_oe_106_oe
+joda-time_3907_101,"public void testSafeAddLong_oe_101_oe() {
+        try {
+            FieldUtils.safeAdd(Long.MAX_VALUE, 1L);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeAddLong_oe_101_oe
+joda-time_3907_102,"public void testSafeAddLong_oe_102_oe() {
+        try {
+            FieldUtils.safeAdd(Long.MAX_VALUE, 100L);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeAddLong_oe_102_oe
+joda-time_3907_103,"public void testSafeAddLong_oe_103_oe() {
+        try {
+            FieldUtils.safeAdd(Long.MAX_VALUE, Long.MAX_VALUE);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeAddLong_oe_103_oe
+joda-time_3907_104,"public void testSafeAddLong_oe_104_oe() {
+        try {
+            FieldUtils.safeAdd(Long.MIN_VALUE, -1L);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeAddLong_oe_104_oe
+joda-time_3907_105,"public void testSafeAddLong_oe_105_oe() {
+        try {
+            FieldUtils.safeAdd(Long.MIN_VALUE, -100L);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeAddLong_oe_105_oe
+joda-time_3907_106,"public void testSafeAddLong_oe_106_oe() {
+        try {
+            FieldUtils.safeAdd(Long.MIN_VALUE, Long.MIN_VALUE);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeAddLong_oe_106_oe
+joda-time_3908_101,"public void testSafeSubtractLong_oe_101_oe() {
+        try {
+            FieldUtils.safeSubtract(Long.MIN_VALUE, 1L);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeSubtractLong_oe_101_oe
+joda-time_3908_102,"public void testSafeSubtractLong_oe_102_oe() {
+        try {
+            FieldUtils.safeSubtract(Long.MIN_VALUE, 100L);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeSubtractLong_oe_102_oe
+joda-time_3908_103,"public void testSafeSubtractLong_oe_103_oe() {
+        try {
+            FieldUtils.safeSubtract(Long.MIN_VALUE, Long.MAX_VALUE);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeSubtractLong_oe_103_oe
+joda-time_3908_104,"public void testSafeSubtractLong_oe_104_oe() {
+        try {
+            FieldUtils.safeSubtract(Long.MAX_VALUE, -1L);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeSubtractLong_oe_104_oe
+joda-time_3908_105,"public void testSafeSubtractLong_oe_105_oe() {
+        try {
+            FieldUtils.safeSubtract(Long.MAX_VALUE, -100L);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeSubtractLong_oe_105_oe
+joda-time_3908_106,"public void testSafeSubtractLong_oe_106_oe() {
+        try {
+            FieldUtils.safeSubtract(Long.MAX_VALUE, Long.MIN_VALUE);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeSubtractLong_oe_106_oe
+joda-time_3909_101,"public void testSafeMultiplyLongLong_oe_101_oe() {
+        try {
+            FieldUtils.safeMultiply(Long.MIN_VALUE, -1L);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeMultiplyLongLong_oe_101_oe
+joda-time_3909_102,"public void testSafeMultiplyLongLong_oe_102_oe() {
+        try {
+            FieldUtils.safeMultiply(-1L, Long.MIN_VALUE);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeMultiplyLongLong_oe_102_oe
+joda-time_3909_103,"public void testSafeMultiplyLongLong_oe_103_oe() {
+        try {
+            FieldUtils.safeMultiply(Long.MIN_VALUE, 100L);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeMultiplyLongLong_oe_103_oe
+joda-time_3909_104,"public void testSafeMultiplyLongLong_oe_104_oe() {
+        try {
+            FieldUtils.safeMultiply(Long.MIN_VALUE, Long.MAX_VALUE);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeMultiplyLongLong_oe_104_oe
+joda-time_3909_105,"public void testSafeMultiplyLongLong_oe_105_oe() {
+        try {
+            FieldUtils.safeMultiply(Long.MAX_VALUE, Long.MIN_VALUE);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeMultiplyLongLong_oe_105_oe
+joda-time_3910_101,"public void testSafeMultiplyLongInt_oe_101_oe() {
+        try {
+            FieldUtils.safeMultiply(Long.MIN_VALUE, -1);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeMultiplyLongInt_oe_101_oe
+joda-time_3910_102,"public void testSafeMultiplyLongInt_oe_102_oe() {
+        try {
+            FieldUtils.safeMultiply(Long.MIN_VALUE, 100);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeMultiplyLongInt_oe_102_oe
+joda-time_3910_103,"public void testSafeMultiplyLongInt_oe_103_oe() {
+        try {
+            FieldUtils.safeMultiply(Long.MIN_VALUE, Integer.MAX_VALUE);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeMultiplyLongInt_oe_103_oe
+joda-time_3910_104,"public void testSafeMultiplyLongInt_oe_104_oe() {
+        try {
+            FieldUtils.safeMultiply(Long.MAX_VALUE, Integer.MIN_VALUE);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeMultiplyLongInt_oe_104_oe
+joda-time_3911_101,"public void testSafeDivideLongLong_oe_101_oe() {
+        try {
+            FieldUtils.safeDivide(Long.MIN_VALUE, -1L);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeDivideLongLong_oe_101_oe
+joda-time_3911_102,"public void testSafeDivideLongLong_oe_102_oe() {
+        try {
+            FieldUtils.safeDivide(1L, 0L);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeDivideLongLong_oe_102_oe
+joda-time_3912_101,"public void testSafeDivideRoundingModeLong_oe_101_oe() {
+        try {
+            FieldUtils.safeDivide(Long.MIN_VALUE, -1L, RoundingMode.UNNECESSARY);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeDivideRoundingModeLong_oe_101_oe
+joda-time_3912_102,"public void testSafeDivideRoundingModeLong_oe_102_oe() {
+        try {
+            FieldUtils.safeDivide(1L, 0L, RoundingMode.UNNECESSARY);
+            fail();
+        } catch (ArithmeticException e) {
+        }
+    }
+",TestFieldUtils::testSafeDivideRoundingModeLong_oe_102_oe
+joda-time_3970_101,"public void test_constructor_oe_101_oe() {
+        try {
+            new ScaledDurationField(null, DurationFieldType.minutes(), 10);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestScaledDurationField::test_constructor_oe_101_oe
+joda-time_3970_102,"public void test_constructor_oe_102_oe() {
+        try {
+            new ScaledDurationField(MillisDurationField.INSTANCE, null, 10);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestScaledDurationField::test_constructor_oe_102_oe
+joda-time_3970_103,"public void test_constructor_oe_103_oe() {
+        try {
+            new ScaledDurationField(MillisDurationField.INSTANCE, DurationFieldType.minutes(), 0);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestScaledDurationField::test_constructor_oe_103_oe
+joda-time_3970_104,"public void test_constructor_oe_104_oe() {
+        try {
+            new ScaledDurationField(MillisDurationField.INSTANCE, DurationFieldType.minutes(), 1);
+            fail();
+        } catch (IllegalArgumentException ex) {}
+    }
+",TestScaledDurationField::test_constructor_oe_104_oe
+joda-time_3978_101,"public void test_getValue_long_oe_101_oe() {
+        try {
+            iField.getValue(LONG_INTEGER_MAX + 1L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestScaledDurationField::test_getValue_long_oe_101_oe
+joda-time_3980_101,"public void test_getValue_long_long_oe_101_oe() {
+        try {
+            iField.getValue(LONG_INTEGER_MAX + 1L, 567L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestScaledDurationField::test_getValue_long_long_oe_101_oe
+joda-time_3983_101,"public void test_getMillis_long_oe_101_oe() {
+        try {
+            iField.getMillis(LONG_MAX);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestScaledDurationField::test_getMillis_long_oe_101_oe
+joda-time_3985_101,"public void test_getMillis_long_long_oe_101_oe() {
+        try {
+            iField.getMillis(LONG_MAX, 567L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestScaledDurationField::test_getMillis_long_long_oe_101_oe
+joda-time_3986_101,"public void test_add_long_int_oe_101_oe() {
+        try {
+            iField.add(LONG_MAX, 1);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestScaledDurationField::test_add_long_int_oe_101_oe
+joda-time_3987_101,"public void test_add_long_long_oe_101_oe() {
+        try {
+            iField.add(LONG_MAX, 1L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestScaledDurationField::test_add_long_long_oe_101_oe
+joda-time_3987_102,"public void test_add_long_long_oe_102_oe() {
+        try {
+            iField.add(1L, LONG_MAX);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestScaledDurationField::test_add_long_long_oe_102_oe
+joda-time_3988_101,"public void test_getDifference_long_int_oe_101_oe() {
+        try {
+            iField.getDifference(LONG_MAX, -1L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestScaledDurationField::test_getDifference_long_int_oe_101_oe
+joda-time_3989_101,"public void test_getDifferenceAsLong_long_long_oe_101_oe() {
+        try {
+            iField.getDifferenceAsLong(LONG_MAX, -1L);
+            fail();
+        } catch (ArithmeticException ex) {}
+    }
+",TestScaledDurationField::test_getDifferenceAsLong_long_long_oe_101_oe
+joda-time_3992_102,"public void test_compareTo_oe_102_oe() {
+        try {
+            iField.compareTo(null);
+            fail();
+        } catch (NullPointerException ex) {}
+    }
+",TestScaledDurationField::test_compareTo_oe_102_oe
+joda-time_4067_101,"public void testCompileOnBrokenTimeZoneFile_oe_101_oe() throws Exception {
+        try {
+            Provider provider = compileAndLoad(BROKEN_TIMEZONE_FILE);
+            fail();
+        } catch(NoSuchElementException nsee) {
+            // This used to be thrown in the Rule constructor
+        } catch(IllegalArgumentException iae) {
+        }
+    }
+",TestCompiler::testCompileOnBrokenTimeZoneFile_oe_101_oe
+joda-time_4068_101,"public void testCompileOnBrokenTimeZoneFile_2_oe_101_oe() throws Exception {
+        try {
+            Provider provider = compileAndLoad(BROKEN_TIMEZONE_FILE_2);
+            fail();
+        } catch (NoSuchElementException nsee) {
+            // This thrown from the Zone constructor
+        } catch (IllegalArgumentException iae) {
+        }
+    }
+",TestCompiler::testCompileOnBrokenTimeZoneFile_2_oe_101_oe

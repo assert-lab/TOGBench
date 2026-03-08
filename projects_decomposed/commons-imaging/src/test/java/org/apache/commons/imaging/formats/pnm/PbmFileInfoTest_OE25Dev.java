@@ -36,6 +36,7 @@ public class PbmFileInfoTest_OE25Dev{
 
       try {
         pbmFileInfo.getRGB(inputStream);
+        // removed other assertion
       } catch(final IOException e) {
          assertEquals("PBM: Unexpected EOF",e.getMessage());
   }
@@ -50,7 +51,9 @@ public class PbmFileInfoTest_OE25Dev{
 
       try {
         pbmFileInfo.getRGB(inputStream);
+        // removed other assertion
       } catch(final IOException e) {
+         // removed other assertion
          assertEquals(PbmFileInfo.class.getName(), e.getStackTrace()[0].getClassName());
   }
   }

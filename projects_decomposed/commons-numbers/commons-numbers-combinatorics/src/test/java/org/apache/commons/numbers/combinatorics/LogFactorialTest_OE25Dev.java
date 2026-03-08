@@ -60,6 +60,8 @@ class LogFactorialTest_OE25Dev {
     void testDelegation_1_oe() {
         final LogFactorial f = LogFactorial.create();
 
+        // Starting at 21 because for smaller arguments, there is no delegation to the
+        // "LogGamma" class.
         for (int i = 21; i < 10000; i++) {
             final double expected = LogGamma.value(i + 1);
             Assertions.assertEquals(expected,f.value(i),0d,i + "! ");
@@ -68,6 +70,8 @@ class LogFactorialTest_OE25Dev {
 
     @Test
     void testCompareDirectWithoutCache_1_oe() {
+        // This test shows that delegating to the "Gamma" class leads to difference
+        // wrt the "direct" computation.
 
         final int max = 100;
         final LogFactorial f = LogFactorial.create();
@@ -91,31 +95,40 @@ class LogFactorialTest_OE25Dev {
 
     @Test
     void testZeroCache_1_oe() {
+        // Ensure that no exception is thrown.
         final LogFactorial f = LogFactorial.create().withCache(0);
         Assertions.assertEquals(0, f.value(0));
     }
 
     @Test
     void testZeroCache_2_oe() {
+        // Ensure that no exception is thrown.
         final LogFactorial f = LogFactorial.create().withCache(0);
+        // removed other assertion
         Assertions.assertEquals(0, f.value(1));
     }
 
     @Test
     void testUselessCache_1_oe() {
+        // Ensure that no exception is thrown.
         LogFactorial f = LogFactorial.create().withCache(1);
         Assertions.assertEquals(0, f.value(0));
     }
 
     @Test
     void testUselessCache_2_oe() {
+        // Ensure that no exception is thrown.
         LogFactorial f = LogFactorial.create().withCache(1);
+        // removed other assertion
         Assertions.assertEquals(0, f.value(1));
     }
 
     @Test
     void testUselessCache_3_oe() {
+        // Ensure that no exception is thrown.
         LogFactorial f = LogFactorial.create().withCache(1);
+        // removed other assertion
+        // removed other assertion
 
         f = LogFactorial.create().withCache(2);
         Assertions.assertEquals(0, f.value(0));
@@ -123,9 +136,13 @@ class LogFactorialTest_OE25Dev {
 
     @Test
     void testUselessCache_4_oe() {
+        // Ensure that no exception is thrown.
         LogFactorial f = LogFactorial.create().withCache(1);
+        // removed other assertion
+        // removed other assertion
 
         f = LogFactorial.create().withCache(2);
+        // removed other assertion
         Assertions.assertEquals(0, f.value(1));
     }
 

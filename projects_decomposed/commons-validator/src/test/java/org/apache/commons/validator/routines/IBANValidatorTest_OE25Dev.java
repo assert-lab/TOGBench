@@ -306,6 +306,7 @@ public class IBANValidatorTest_OE25Dev {
     @Test
     public void testValid_2_oe() {
         for(String f : validIBANFormat) {
+            // removed other assertion
             assertTrue("Missing validator: "+f, VALIDATOR.hasValidator(f));
     }
     }
@@ -313,6 +314,8 @@ public class IBANValidatorTest_OE25Dev {
     @Test
     public void testValid_3_oe() {
         for(String f : validIBANFormat) {
+            // removed other assertion
+            // removed other assertion
             assertTrue(f, VALIDATOR.isValid(f));
     }
     }
@@ -336,6 +339,7 @@ public class IBANValidatorTest_OE25Dev {
 
     @Test
     public void testHasValidator_2_oe() {
+        // removed other assertion
         assertFalse("gb", VALIDATOR.hasValidator("gb"));
     }
 
@@ -346,6 +350,7 @@ public class IBANValidatorTest_OE25Dev {
 
     @Test
     public void testGetValidator_2_oe() {
+        // removed other assertion
         assertNull("gb", VALIDATOR.getValidator("gb"));
     }
 
@@ -394,6 +399,7 @@ public class IBANValidatorTest_OE25Dev {
     public void testSorted_2_oe() {
         IBANValidator validator = new IBANValidator();
         Validator[] vals = validator.getDefaultValidators();
+        // removed other assertion
         for(int i=1; i < vals.length; i++) {
             if (vals[i].countryCode.compareTo(vals[i-1].countryCode) <= 0) {
                 fail("Not sorted: "+vals[i].countryCode+ " <= " + vals[i-1].countryCode);

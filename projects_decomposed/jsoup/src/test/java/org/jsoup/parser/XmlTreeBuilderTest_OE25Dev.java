@@ -39,11 +39,13 @@ public class XmlTreeBuilderTest_OE25Dev {
         String xml = "<doc id=2 href='/bar'>Foo <br /><link>One</link><link>Two</link></doc>";
         XmlTreeBuilder tb = new XmlTreeBuilder();
         Document doc = tb.parse(xml, "http://foo.com/");
+        // removed other assertion
         assertEquals(doc.getElementById("2").absUrl("href"), "http://foo.com/bar");
     }
 
     @Test
     public void testPopToClose_1_oe() {
+        // test: </val> closes Two, </bar> ignored
         String xml = "<doc><val>One<val>Two</val></bar>Three</doc>";
         XmlTreeBuilder tb = new XmlTreeBuilder();
         Document doc = tb.parse(xml, "http://foo.com/");
@@ -69,6 +71,7 @@ public class XmlTreeBuilderTest_OE25Dev {
     public void testSupplyParserToConnection_1_oe() throws IOException {
         String xmlUrl = "http://direct.infohound.net/tools/jsoup-xml-test.xml";
 
+        // parse with both xml and html parser, ensure different
         Document xmlDoc = Jsoup.connect(xmlUrl).parser(Parser.xmlParser()).get();
         Document htmlDoc = Jsoup.connect(xmlUrl).parser(Parser.htmlParser()).get();
         Document autoXmlDoc = Jsoup.connect(xmlUrl).get(); // check connection auto detects xml, uses xml parser
@@ -80,10 +83,12 @@ public class XmlTreeBuilderTest_OE25Dev {
     public void testSupplyParserToConnection_2_oe() throws IOException {
         String xmlUrl = "http://direct.infohound.net/tools/jsoup-xml-test.xml";
 
+        // parse with both xml and html parser, ensure different
         Document xmlDoc = Jsoup.connect(xmlUrl).parser(Parser.xmlParser()).get();
         Document htmlDoc = Jsoup.connect(xmlUrl).parser(Parser.htmlParser()).get();
         Document autoXmlDoc = Jsoup.connect(xmlUrl).get(); // check connection auto detects xml, uses xml parser
 
+        // removed other assertion
         assertNotEquals(htmlDoc, xmlDoc);
     }
 
@@ -91,10 +96,14 @@ public class XmlTreeBuilderTest_OE25Dev {
     public void testSupplyParserToConnection_4_oe() throws IOException {
         String xmlUrl = "http://direct.infohound.net/tools/jsoup-xml-test.xml";
 
+        // parse with both xml and html parser, ensure different
         Document xmlDoc = Jsoup.connect(xmlUrl).parser(Parser.xmlParser()).get();
         Document htmlDoc = Jsoup.connect(xmlUrl).parser(Parser.htmlParser()).get();
         Document autoXmlDoc = Jsoup.connect(xmlUrl).get(); // check connection auto detects xml, uses xml parser
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, htmlDoc.select("head").size()); // html parser normalises;
     }
 
@@ -102,10 +111,15 @@ public class XmlTreeBuilderTest_OE25Dev {
     public void testSupplyParserToConnection_5_oe() throws IOException {
         String xmlUrl = "http://direct.infohound.net/tools/jsoup-xml-test.xml";
 
+        // parse with both xml and html parser, ensure different
         Document xmlDoc = Jsoup.connect(xmlUrl).parser(Parser.xmlParser()).get();
         Document htmlDoc = Jsoup.connect(xmlUrl).parser(Parser.htmlParser()).get();
         Document autoXmlDoc = Jsoup.connect(xmlUrl).get(); // check connection auto detects xml, uses xml parser
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0, xmlDoc.select("head").size()); // xml parser does not;
     }
 
@@ -113,10 +127,16 @@ public class XmlTreeBuilderTest_OE25Dev {
     public void testSupplyParserToConnection_6_oe() throws IOException {
         String xmlUrl = "http://direct.infohound.net/tools/jsoup-xml-test.xml";
 
+        // parse with both xml and html parser, ensure different
         Document xmlDoc = Jsoup.connect(xmlUrl).parser(Parser.xmlParser()).get();
         Document htmlDoc = Jsoup.connect(xmlUrl).parser(Parser.htmlParser()).get();
         Document autoXmlDoc = Jsoup.connect(xmlUrl).get(); // check connection auto detects xml, uses xml parser
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0, autoXmlDoc.select("head").size()); // xml parser does not;
     }
 
@@ -130,13 +150,16 @@ public class XmlTreeBuilderTest_OE25Dev {
 
     @Test
     public void testDoesNotForceSelfClosingKnownTags_1_oe() {
+        // html will force "<br>one</br>" to logically "<br />One<br />". XML should be stay "<br>one</br> -- don't recognise tag.
         Document htmlDoc = Jsoup.parse("<br>one</br>");
         assertEquals("<br>one<br>", htmlDoc.body().html());
     }
 
     @Test
     public void testDoesNotForceSelfClosingKnownTags_2_oe() {
+        // html will force "<br>one</br>" to logically "<br />One<br />". XML should be stay "<br>one</br> -- don't recognise tag.
         Document htmlDoc = Jsoup.parse("<br>one</br>");
+        // removed other assertion
 
         Document xmlDoc = Jsoup.parse("<br>one</br>", "", Parser.xmlParser());
         assertEquals("<br>one</br>", xmlDoc.html());
@@ -151,12 +174,15 @@ public class XmlTreeBuilderTest_OE25Dev {
     @Test public void handlesXmlDeclarationAsDeclaration_2_oe() {
         String html = "<?xml encoding='UTF-8' ?><body>One</body><!-- comment -->";
         Document doc = Jsoup.parse(html, "", Parser.xmlParser());
+        // removed other assertion
         assertEquals("#declaration", doc.childNode(0).nodeName());
         }
 
     @Test public void handlesXmlDeclarationAsDeclaration_3_oe() {
         String html = "<?xml encoding='UTF-8' ?><body>One</body><!-- comment -->";
         Document doc = Jsoup.parse(html, "", Parser.xmlParser());
+        // removed other assertion
+        // removed other assertion
         assertEquals("#comment", doc.childNode(2).nodeName());
         }
 
@@ -169,6 +195,7 @@ public class XmlTreeBuilderTest_OE25Dev {
     @Test public void xmlFragment_2_oe() {
         String xml = "<one src='/foo/' />Two<three><four /></three>";
         List<Node> nodes = Parser.parseXmlFragment(xml, "http://example.com/");
+        // removed other assertion
 
         assertEquals("http://example.com/foo/", nodes.get(0).absUrl("src"));
         }
@@ -176,14 +203,19 @@ public class XmlTreeBuilderTest_OE25Dev {
     @Test public void xmlFragment_3_oe() {
         String xml = "<one src='/foo/' />Two<three><four /></three>";
         List<Node> nodes = Parser.parseXmlFragment(xml, "http://example.com/");
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("one", nodes.get(0).nodeName());
         }
 
     @Test public void xmlFragment_4_oe() {
         String xml = "<one src='/foo/' />Two<three><four /></three>";
         List<Node> nodes = Parser.parseXmlFragment(xml, "http://example.com/");
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Two", ((TextNode)nodes.get(1)).text());
         }
 
@@ -212,6 +244,7 @@ public class XmlTreeBuilderTest_OE25Dev {
         File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI());
         InputStream inStream = new FileInputStream(xmlFile);
         Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
+        // removed other assertion
         assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?><data>äöåéü</data>",TextUtil.stripNewlines(doc.html()));
     }
 
@@ -228,6 +261,7 @@ public class XmlTreeBuilderTest_OE25Dev {
         String xml = "<?xml version='1' encoding='UTF-8' something='else'?><val>One</val>";
         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
         XmlDeclaration decl = (XmlDeclaration) doc.childNode(0);
+        // removed other assertion
         assertEquals("UTF-8", decl.attr("encoding"));
     }
 
@@ -236,6 +270,8 @@ public class XmlTreeBuilderTest_OE25Dev {
         String xml = "<?xml version='1' encoding='UTF-8' something='else'?><val>One</val>";
         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
         XmlDeclaration decl = (XmlDeclaration) doc.childNode(0);
+        // removed other assertion
+        // removed other assertion
         assertEquals("else", decl.attr("something"));
     }
 
@@ -244,6 +280,9 @@ public class XmlTreeBuilderTest_OE25Dev {
         String xml = "<?xml version='1' encoding='UTF-8' something='else'?><val>One</val>";
         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
         XmlDeclaration decl = (XmlDeclaration) doc.childNode(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("version=\"1\" encoding=\"UTF-8\" something=\"else\"", decl.getWholeDeclaration());
     }
 
@@ -252,6 +291,10 @@ public class XmlTreeBuilderTest_OE25Dev {
         String xml = "<?xml version='1' encoding='UTF-8' something='else'?><val>One</val>";
         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
         XmlDeclaration decl = (XmlDeclaration) doc.childNode(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("<?xml version=\"1\" encoding=\"UTF-8\" something=\"else\"?>", decl.outerHtml());
     }
 
@@ -268,6 +311,7 @@ public class XmlTreeBuilderTest_OE25Dev {
         String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<?myProcessingInstruction My Processing instruction.?>";
         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
         XmlDeclaration decl = (XmlDeclaration) doc.childNode(2);
+        // removed other assertion
         assertTrue(decl.hasAttr("My"));
     }
 
@@ -276,6 +320,8 @@ public class XmlTreeBuilderTest_OE25Dev {
         String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<?myProcessingInstruction My Processing instruction.?>";
         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
         XmlDeclaration decl = (XmlDeclaration) doc.childNode(2);
+        // removed other assertion
+        // removed other assertion
         assertEquals("<?myProcessingInstruction My Processing instruction.?>", decl.outerHtml());
     }
 
@@ -343,6 +389,7 @@ public class XmlTreeBuilderTest_OE25Dev {
         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
 
         Element div = doc.getElementById("1");
+        // removed other assertion
         assertEquals(0, div.children().size());
         }
 
@@ -351,6 +398,8 @@ public class XmlTreeBuilderTest_OE25Dev {
         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
 
         Element div = doc.getElementById("1");
+        // removed other assertion
+        // removed other assertion
         assertEquals(1,div.childNodeSize());// no elements,one text node assertEquals("<div id=\"1\"><![CDATA[\n<html>\n <foo><&amp;]]></div>",div.outerHtml());
         }
 
@@ -359,6 +408,9 @@ public class XmlTreeBuilderTest_OE25Dev {
         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
 
         Element div = doc.getElementById("1");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         CDataNode cdata = (CDataNode) div.textNodes().get(0);
         assertEquals("\n<html>\n <foo><&amp;", cdata.text());
@@ -373,6 +425,7 @@ public class XmlTreeBuilderTest_OE25Dev {
     @Test public void cdataPreservesWhiteSpace_2_oe() {
         String xml = "<script type=\"text/javascript\">//<![CDATA[\n\n  foo();\n//]]></script>";
         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
+        // removed other assertion
 
         assertEquals("//\n\n  foo();\n//", doc.selectFirst("script").text());
         }
@@ -386,12 +439,14 @@ public class XmlTreeBuilderTest_OE25Dev {
 
     @Test
     public void handlesLTinScript_1_oe() {
+        // https://github.com/jhy/jsoup/issues/1139
         String html = "<script> var a=\"<?\"; var b=\"?>\"; </script>";
         Document doc = Jsoup.parse(html, "", Parser.xmlParser());
         assertEquals("<script> var a=\"<!--?\"; var b=\"?-->\"; </script>", doc.html()); // converted from pseudo xmldecl to comment;
     }
 
     @Test public void dropsDuplicateAttributes_1_oe() {
+        // case sensitive, so should drop Four and Five
         String html = "<p One=One ONE=Two one=Three One=Four ONE=Five two=Six two=Seven Two=Eight>Text</p>";
         Parser parser = Parser.xmlParser().setTrackErrors(10);
         Document doc = parser.parseInput(html, "");
@@ -408,25 +463,36 @@ public class XmlTreeBuilderTest_OE25Dev {
     @Test public void readerClosedAfterParse_2_oe() {
         Document doc = Jsoup.parse("Hello", "", Parser.xmlParser());
         TreeBuilder treeBuilder = doc.parser().getTreeBuilder();
+        // removed other assertion
         assertNull(treeBuilder.tokeniser);
         }
 
     @Test public void xmlParserEnablesXmlOutputAndEscapes_1_oe() {
+        // Test that when using the XML parser, the output mode and escape mode default to XHTML entities
+        // https://github.com/jhy/jsoup/issues/1420
         Document doc = Jsoup.parse("<p one='&lt;two&gt;&copy'>Three</p>", "", Parser.xmlParser());
         assertEquals(doc.outputSettings().syntax(), Syntax.xml);
         }
 
     @Test public void xmlParserEnablesXmlOutputAndEscapes_2_oe() {
+        // Test that when using the XML parser, the output mode and escape mode default to XHTML entities
+        // https://github.com/jhy/jsoup/issues/1420
         Document doc = Jsoup.parse("<p one='&lt;two&gt;&copy'>Three</p>", "", Parser.xmlParser());
+        // removed other assertion
         assertEquals(doc.outputSettings().escapeMode(), Entities.EscapeMode.xhtml);
         }
 
     @Test public void xmlParserEnablesXmlOutputAndEscapes_3_oe() {
+        // Test that when using the XML parser, the output mode and escape mode default to XHTML entities
+        // https://github.com/jhy/jsoup/issues/1420
         Document doc = Jsoup.parse("<p one='&lt;two&gt;&copy'>Three</p>", "", Parser.xmlParser());
+        // removed other assertion
+        // removed other assertion
         assertEquals("<p one=\"&lt;two>©\">Three</p>", doc.html()); // only the < should be escaped;
         }
 
     @Test public void xmlSyntaxEscapesLtInAttributes_1_oe() {
+        // Regardless of the entity escape mode, make sure < is escaped in attributes when in XML
         Document doc = Jsoup.parse("<p one='&lt;two&gt;&copy'>Three</p>", "", Parser.xmlParser());
         doc.outputSettings().escapeMode(Entities.EscapeMode.extended);
         doc.outputSettings().charset("ascii"); // to make sure &copy; is output
@@ -434,9 +500,11 @@ public class XmlTreeBuilderTest_OE25Dev {
         }
 
     @Test public void xmlSyntaxEscapesLtInAttributes_2_oe() {
+        // Regardless of the entity escape mode, make sure < is escaped in attributes when in XML
         Document doc = Jsoup.parse("<p one='&lt;two&gt;&copy'>Three</p>", "", Parser.xmlParser());
         doc.outputSettings().escapeMode(Entities.EscapeMode.extended);
         doc.outputSettings().charset("ascii"); // to make sure &copy; is output
+        // removed other assertion
         assertEquals("<p one=\"&lt;two>&copy;\">Three</p>", doc.html());
         }
 
@@ -449,6 +517,7 @@ public class XmlTreeBuilderTest_OE25Dev {
     @Test void xmlOutputCorrectsInvalidAttributeNames_2_oe() {
         String xml = "<body style=\"color: red\" \" name\"><div =\"\"></div></body>";
         Document doc = Jsoup.parse(xml, Parser.xmlParser());
+        // removed other assertion
 
         String out = doc.html();
         assertEquals("<body style=\"color: red\" name=\"\"><div></div></body>", out);
@@ -475,6 +544,7 @@ public class XmlTreeBuilderTest_OE25Dev {
         Tag t2 = els.get(1).tag();
         Tag t3 = els.get(2).tag();
         Tag t4 = els.get(3).tag();
+        // removed other assertion
         assertEquals("FOO", t3.getName());
         }
 
@@ -487,6 +557,8 @@ public class XmlTreeBuilderTest_OE25Dev {
         Tag t2 = els.get(1).tag();
         Tag t3 = els.get(2).tag();
         Tag t4 = els.get(3).tag();
+        // removed other assertion
+        // removed other assertion
         assertSame(t1, t2);
         }
 
@@ -499,6 +571,9 @@ public class XmlTreeBuilderTest_OE25Dev {
         Tag t2 = els.get(1).tag();
         Tag t3 = els.get(2).tag();
         Tag t4 = els.get(3).tag();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertSame(t3, t4);
         }
 

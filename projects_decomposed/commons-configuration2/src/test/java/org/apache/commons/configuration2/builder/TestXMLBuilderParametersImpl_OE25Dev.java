@@ -94,6 +94,7 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
         BeanHelper.setProperty(params, "fileName", "test.xml");
         BeanHelper.setProperty(params, "entityResolver", resolver);
         BeanHelper.setProperty(params, "documentBuilder", builder);
+        // removed other assertion
         final Map<String, Object> paramsMap = params.getParameters();
         assertEquals("Wrong exception flag", Boolean.TRUE, paramsMap.get("throwExceptionOnMissing"));
     }
@@ -107,7 +108,9 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
         BeanHelper.setProperty(params, "fileName", "test.xml");
         BeanHelper.setProperty(params, "entityResolver", resolver);
         BeanHelper.setProperty(params, "documentBuilder", builder);
+        // removed other assertion
         final Map<String, Object> paramsMap = params.getParameters();
+        // removed other assertion
         assertSame("Wrong resolver", resolver, paramsMap.get("entityResolver"));
     }
 
@@ -120,7 +123,10 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
         BeanHelper.setProperty(params, "fileName", "test.xml");
         BeanHelper.setProperty(params, "entityResolver", resolver);
         BeanHelper.setProperty(params, "documentBuilder", builder);
+        // removed other assertion
         final Map<String, Object> paramsMap = params.getParameters();
+        // removed other assertion
+        // removed other assertion
         assertSame("Wrong builder", builder, paramsMap.get("documentBuilder"));
     }
 
@@ -147,6 +153,7 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
 
         params2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = params2.getParameters();
+        // removed other assertion
         assertEquals("Entity resolver not set", resolver, parameters.get("entityResolver"));
     }
 
@@ -160,6 +167,8 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
 
         params2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = params2.getParameters();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Document builder not set", builder, parameters.get("documentBuilder"));
     }
 
@@ -173,6 +182,9 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
 
         params2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = params2.getParameters();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Validation flag not set", Boolean.TRUE, parameters.get("validating"));
     }
 
@@ -186,6 +198,10 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
 
         params2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = params2.getParameters();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Schema flag not set", Boolean.TRUE, parameters.get("schemaValidation"));
     }
 

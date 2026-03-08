@@ -36,6 +36,7 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         final OAuth2AccessToken token = service.getAccessTokenPasswordGrant("user1", "password1");
+        // removed other assertion
 
         final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
 
@@ -49,9 +50,11 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         final OAuth2AccessToken token = service.getAccessTokenPasswordGrant("user1", "password1");
+        // removed other assertion
 
         final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
 
+        // removed other assertion
         assertEquals(OAuth20ServiceUnit.EXPIRES, response.get("expires_in").asInt());
     }
 
@@ -62,9 +65,12 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         final OAuth2AccessToken token = service.getAccessTokenPasswordGrant("user1", "password1");
+        // removed other assertion
 
         final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
 
+        // removed other assertion
+        // removed other assertion
 
         final String authorize = Base64.encode(
                 String.format("%s:%s", service.getApiKey(), service.getApiSecret()).getBytes(Charset.forName("UTF-8")));
@@ -79,13 +85,17 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         final OAuth2AccessToken token = service.getAccessTokenPasswordGrant("user1", "password1");
+        // removed other assertion
 
         final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
 
+        // removed other assertion
+        // removed other assertion
 
         final String authorize = Base64.encode(
                 String.format("%s:%s", service.getApiKey(), service.getApiSecret()).getBytes(Charset.forName("UTF-8")));
 
+        // removed other assertion
 
         assertEquals("user1", response.get("query-username").asText());
     }
@@ -97,14 +107,19 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         final OAuth2AccessToken token = service.getAccessTokenPasswordGrant("user1", "password1");
+        // removed other assertion
 
         final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
 
+        // removed other assertion
+        // removed other assertion
 
         final String authorize = Base64.encode(
                 String.format("%s:%s", service.getApiKey(), service.getApiSecret()).getBytes(Charset.forName("UTF-8")));
 
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("password1", response.get("query-password").asText());
     }
 
@@ -115,14 +130,20 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         final OAuth2AccessToken token = service.getAccessTokenPasswordGrant("user1", "password1");
+        // removed other assertion
 
         final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
 
+        // removed other assertion
+        // removed other assertion
 
         final String authorize = Base64.encode(
                 String.format("%s:%s", service.getApiKey(), service.getApiSecret()).getBytes(Charset.forName("UTF-8")));
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("password", response.get("query-grant_type").asText());
     }
 
@@ -145,6 +166,7 @@ public class OAuth20ServiceTest_OE25Dev {
 
         final OAuth2AccessToken token = service.getAccessTokenPasswordGrantAsync("user1", "password1").get();
 
+        // removed other assertion
 
         final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
 
@@ -159,9 +181,11 @@ public class OAuth20ServiceTest_OE25Dev {
 
         final OAuth2AccessToken token = service.getAccessTokenPasswordGrantAsync("user1", "password1").get();
 
+        // removed other assertion
 
         final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
 
+        // removed other assertion
         assertEquals(OAuth20ServiceUnit.EXPIRES, response.get("expires_in").asInt());
     }
 
@@ -173,9 +197,12 @@ public class OAuth20ServiceTest_OE25Dev {
 
         final OAuth2AccessToken token = service.getAccessTokenPasswordGrantAsync("user1", "password1").get();
 
+        // removed other assertion
 
         final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
 
+        // removed other assertion
+        // removed other assertion
 
         final String authorize = Base64.encode(
                 String.format("%s:%s", service.getApiKey(), service.getApiSecret()).getBytes(Charset.forName("UTF-8")));
@@ -191,13 +218,17 @@ public class OAuth20ServiceTest_OE25Dev {
 
         final OAuth2AccessToken token = service.getAccessTokenPasswordGrantAsync("user1", "password1").get();
 
+        // removed other assertion
 
         final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
 
+        // removed other assertion
+        // removed other assertion
 
         final String authorize = Base64.encode(
                 String.format("%s:%s", service.getApiKey(), service.getApiSecret()).getBytes(Charset.forName("UTF-8")));
 
+        // removed other assertion
 
         assertEquals("user1", response.get("query-username").asText());
     }
@@ -210,14 +241,19 @@ public class OAuth20ServiceTest_OE25Dev {
 
         final OAuth2AccessToken token = service.getAccessTokenPasswordGrantAsync("user1", "password1").get();
 
+        // removed other assertion
 
         final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
 
+        // removed other assertion
+        // removed other assertion
 
         final String authorize = Base64.encode(
                 String.format("%s:%s", service.getApiKey(), service.getApiSecret()).getBytes(Charset.forName("UTF-8")));
 
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("password1", response.get("query-password").asText());
     }
 
@@ -229,14 +265,20 @@ public class OAuth20ServiceTest_OE25Dev {
 
         final OAuth2AccessToken token = service.getAccessTokenPasswordGrantAsync("user1", "password1").get();
 
+        // removed other assertion
 
         final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
 
+        // removed other assertion
+        // removed other assertion
 
         final String authorize = Base64.encode(
                 String.format("%s:%s", service.getApiKey(), service.getApiSecret()).getBytes(Charset.forName("UTF-8")));
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("password", response.get("query-grant_type").asText());
     }
 
@@ -257,6 +299,7 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
         assertEquals("xyz", authorization.getState());
     }
 
@@ -267,6 +310,8 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
         assertEquals("SplxlOB", authorization.getCode());
@@ -279,8 +324,11 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
         assertEquals("xyz", authorization.getState());
     }
 
@@ -291,8 +339,12 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB");
         assertEquals("SplxlOB", authorization.getCode());
@@ -305,10 +357,15 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB");
+        // removed other assertion
         assertEquals("xyz", authorization.getState());
     }
 
@@ -319,10 +376,16 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&");
         assertEquals("SplxlOB", authorization.getCode());
@@ -335,12 +398,19 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&");
+        // removed other assertion
         assertEquals("xyz", authorization.getState());
     }
 
@@ -351,12 +421,20 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=");
         assertEquals("SplxlOB", authorization.getCode());
@@ -369,14 +447,23 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=");
+        // removed other assertion
         assertEquals(null, authorization.getState());
     }
 
@@ -387,14 +474,24 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB");
         assertEquals("SplxlOB", authorization.getCode());
@@ -407,16 +504,27 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB");
+        // removed other assertion
         assertEquals(null, authorization.getState());
     }
 
@@ -427,16 +535,28 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=");
         assertEquals(null, authorization.getCode());
@@ -449,18 +569,31 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=");
+        // removed other assertion
         assertEquals(null, authorization.getState());
     }
 
@@ -471,18 +604,32 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code");
         assertEquals(null, authorization.getCode());
@@ -495,20 +642,35 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code");
+        // removed other assertion
         assertEquals(null, authorization.getState());
     }
 
@@ -519,20 +681,36 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?");
         assertEquals(null, authorization.getCode());
@@ -545,22 +723,39 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?");
+        // removed other assertion
         assertEquals(null, authorization.getState());
     }
 
@@ -571,22 +766,40 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb");
         assertEquals(null, authorization.getCode());
@@ -599,24 +812,43 @@ public class OAuth20ServiceTest_OE25Dev {
                 .build(new OAuth20ApiUnit());
 
         OAuth2Authorization authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=xyz");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB&state=");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=SplxlOB");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code=");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?code");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb?");
+        // removed other assertion
+        // removed other assertion
 
         authorization = service.extractAuthorization("https://cl.ex.com/cb");
+        // removed other assertion
         assertEquals(null, authorization.getState());
     }
 

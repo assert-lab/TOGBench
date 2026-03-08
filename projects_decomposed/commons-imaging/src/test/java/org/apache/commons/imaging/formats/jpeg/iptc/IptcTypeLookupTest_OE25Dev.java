@@ -33,6 +33,7 @@ public class IptcTypeLookupTest_OE25Dev{
     public void testGetIptcTypeWithPositive_2_oe() {
         final IptcType iptcType = IptcTypeLookup.getIptcType(1117);
 
+        // removed other assertion
         assertEquals("Unknown", iptcType.getName());
     }
 

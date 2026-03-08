@@ -1,0 +1,616 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+net_17_1,"    public void testNET641_1_oe() {
+        boolean a = new SubnetUtils(""192.168.1.0/00"").getInfo().isInRange(""0.0.0.0"");
+        assertFalse(a);
+    }",SubnetUtilsTest::testNET641_1_oe,org.apache.commons.net.util.SubnetUtils.SubnetInfo,isInRange(final String address),"/**
+         * Returns true if the parameter <code>address</code> is in the
+         * range of usable endpoint addresses for this subnet. This excludes the
+         * network and broadcast addresses. Use {@link SubnetUtils#setInclusiveHostCount(boolean)}
+         * to change this.
+         * @param address A dot-delimited IPv4 address, e.g. ""192.168.0.1""
+         * @return True if in range, false otherwise
+         */","public boolean isInRange(final String address) {
+            return isInRange(toInteger(address));
+        }"
+net_17_2,"    public void testNET641_2_oe() {
+        boolean a = new SubnetUtils(""192.168.1.0/30"").getInfo().isInRange(""0.0.0.0"");
+        assertFalse(a);
+    }",SubnetUtilsTest::testNET641_2_oe,org.apache.commons.net.util.SubnetUtils.SubnetInfo,isInRange(final String address),"/**
+         * Returns true if the parameter <code>address</code> is in the
+         * range of usable endpoint addresses for this subnet. This excludes the
+         * network and broadcast addresses. Use {@link SubnetUtils#setInclusiveHostCount(boolean)}
+         * to change this.
+         * @param address A dot-delimited IPv4 address, e.g. ""192.168.0.1""
+         * @return True if in range, false otherwise
+         */","public boolean isInRange(final String address) {
+            return isInRange(toInteger(address));
+        }"
+net_17_3,"    public void testNET641_3_oe() {
+        boolean a = new SubnetUtils(""192.168.1.0/31"").getInfo().isInRange(""0.0.0.0"");
+        assertFalse(a);
+    }",SubnetUtilsTest::testNET641_3_oe,org.apache.commons.net.util.SubnetUtils.SubnetInfo,isInRange(final String address),"/**
+         * Returns true if the parameter <code>address</code> is in the
+         * range of usable endpoint addresses for this subnet. This excludes the
+         * network and broadcast addresses. Use {@link SubnetUtils#setInclusiveHostCount(boolean)}
+         * to change this.
+         * @param address A dot-delimited IPv4 address, e.g. ""192.168.0.1""
+         * @return True if in range, false otherwise
+         */","public boolean isInRange(final String address) {
+            return isInRange(toInteger(address));
+        }"
+net_17_4,"    public void testNET641_4_oe() {
+        boolean a = new SubnetUtils(""192.168.1.0/32"").getInfo().isInRange(""0.0.0.0"");
+        assertFalse(a);
+    }",SubnetUtilsTest::testNET641_4_oe,org.apache.commons.net.util.SubnetUtils.SubnetInfo,isInRange(final String address),"/**
+         * Returns true if the parameter <code>address</code> is in the
+         * range of usable endpoint addresses for this subnet. This excludes the
+         * network and broadcast addresses. Use {@link SubnetUtils#setInclusiveHostCount(boolean)}
+         * to change this.
+         * @param address A dot-delimited IPv4 address, e.g. ""192.168.0.1""
+         * @return True if in range, false otherwise
+         */","public boolean isInRange(final String address) {
+            return isInRange(toInteger(address));
+        }"
+net_24_1,"    public void testConstants_1_oe()
+    {
+        int a = 110;
+        assertEquals(a, POP3.DEFAULT_PORT);
+    }",POP3ConstructorTest::testConstants_1_oe,,,,
+net_24_2,"    public void testConstants_2_oe()
+    {
+        int a = -1;
+        assertEquals(a, POP3.DISCONNECTED_STATE);
+    }",POP3ConstructorTest::testConstants_2_oe,,,,
+net_24_3,"    public void testConstants_3_oe()
+    {
+        int a = 0;
+        assertEquals(a, POP3.AUTHORIZATION_STATE);
+    }",POP3ConstructorTest::testConstants_3_oe,,,,
+net_24_4,"    public void testConstants_4_oe()
+    {
+        int a = 1;
+        assertEquals(a, POP3.TRANSACTION_STATE);
+    }",POP3ConstructorTest::testConstants_4_oe,,,,
+net_24_5,"    public void testConstants_5_oe()
+    {
+        int a = 2;
+        assertEquals(a, POP3.UPDATE_STATE);
+    }",POP3ConstructorTest::testConstants_5_oe,,,,
+net_24_6,"    public void testConstants_6_oe()
+    {
+
+        int a = 0;
+        assertEquals(a, POP3Command.USER);
+    }",POP3ConstructorTest::testConstants_6_oe,,,,
+net_24_7,"    public void testConstants_7_oe()
+    {
+
+        int a = 1;
+        assertEquals(a, POP3Command.PASS);
+    }",POP3ConstructorTest::testConstants_7_oe,,,,
+net_24_8,"    public void testConstants_8_oe()
+    {
+
+        int a = 2;
+        assertEquals(a, POP3Command.QUIT);
+    }",POP3ConstructorTest::testConstants_8_oe,,,,
+net_24_9,"    public void testConstants_9_oe()
+    {
+
+        int a = 3;
+        assertEquals(a, POP3Command.STAT);
+    }",POP3ConstructorTest::testConstants_9_oe,,,,
+net_24_10,"    public void testConstants_10_oe()
+    {
+
+        int a = 4;
+        assertEquals(a, POP3Command.LIST);
+    }",POP3ConstructorTest::testConstants_10_oe,,,,
+net_24_11,"    public void testConstants_11_oe()
+    {
+
+        int a = 5;
+        assertEquals(a, POP3Command.RETR);
+    }",POP3ConstructorTest::testConstants_11_oe,,,,
+net_24_12,"    public void testConstants_12_oe()
+    {
+
+        int a = 6;
+        assertEquals(a, POP3Command.DELE);
+    }",POP3ConstructorTest::testConstants_12_oe,,,,
+net_24_13,"    public void testConstants_13_oe()
+    {
+
+        int a = 7;
+        assertEquals(a, POP3Command.NOOP);
+    }",POP3ConstructorTest::testConstants_13_oe,,,,
+net_24_14,"    public void testConstants_14_oe()
+    {
+
+        int a = 8;
+        assertEquals(a, POP3Command.RSET);
+    }",POP3ConstructorTest::testConstants_14_oe,,,,
+net_24_15,"    public void testConstants_15_oe()
+    {
+
+        int a = 9;
+        assertEquals(a, POP3Command.APOP);
+    }",POP3ConstructorTest::testConstants_15_oe,,,,
+net_24_16,"    public void testConstants_16_oe()
+    {
+
+        int a = 10;
+        assertEquals(a, POP3Command.TOP);
+    }",POP3ConstructorTest::testConstants_16_oe,,,,
+net_24_17,"    public void testConstants_17_oe()
+    {
+
+        int a = 11;
+        assertEquals(a, POP3Command.UIDL);
+    }",POP3ConstructorTest::testConstants_17_oe,,,,
+net_160_1,"    @Test
+    public void testToString_1_oe() {
+        Object a = header;
+        assertNotNull(a);
+    }",SimpleSMTPHeaderTestCase::testToString_1_oe,,,,
+net_160_2,"    @Test
+    public void testToString_2_oe() {
+        Object a = checkDate(header.toString());
+        assertEquals(""From: from@here.invalid\nTo: to@there.invalid\nSubject: Test email\n\n"", a);
+    }",SimpleSMTPHeaderTestCase::testToString_2_oe,,,,
+net_173_1,"    @Test
+    public void testIsBase64_1_oe() {
+        boolean a = Base64.isBase64((byte)'b');
+        assertTrue(a);
+    }",Base64Test::testIsBase64_1_oe,org.apache.commons.net.util.Base64,isBase64(final byte octet),"/**
+     * Returns whether or not the <code>octet</code> is in the base 64 alphabet.
+     *
+     * @param octet
+     *            The value to test
+     * @return <code>true</code> if the value is defined in the the base 64 alphabet, <code>false</code> otherwise.
+     * @since 1.4
+     */","public static boolean isBase64(final byte octet) {
+        return octet == PAD || (octet >= 0 && octet < DECODE_TABLE.length && DECODE_TABLE[octet] != -1);
+    }"
+net_173_2,"    @Test
+    public void testIsBase64_2_oe() {
+        boolean a = Base64.isBase64((byte)' ');
+        assertFalse(a);
+    }",Base64Test::testIsBase64_2_oe,org.apache.commons.net.util.Base64,isBase64(final byte octet),"/**
+     * Returns whether or not the <code>octet</code> is in the base 64 alphabet.
+     *
+     * @param octet
+     *            The value to test
+     * @return <code>true</code> if the value is defined in the the base 64 alphabet, <code>false</code> otherwise.
+     * @since 1.4
+     */","public static boolean isBase64(final byte octet) {
+        return octet == PAD || (octet >= 0 && octet < DECODE_TABLE.length && DECODE_TABLE[octet] != -1);
+    }"
+net_174_1,"    @Test
+    public void testIsArrayByteBase64_1_oe() {
+        boolean a = Base64.isArrayByteBase64(new byte[]{'b',' '});
+        assertTrue(a);
+    }",Base64Test::testIsArrayByteBase64_1_oe,org.apache.commons.net.util.Base64,isArrayByteBase64(final byte[] arrayOctet),"/**
+     * Tests a given byte array to see if it contains only valid characters within the Base64 alphabet. Currently the
+     * method treats whitespace as valid.
+     *
+     * @param arrayOctet
+     *            byte array to test
+     * @return <code>true</code> if all bytes are valid characters in the Base64 alphabet or if the byte array is empty;
+     *         false, otherwise
+     */","public static boolean isArrayByteBase64(final byte[] arrayOctet) {
+        for (final byte element : arrayOctet) {
+            if (!isBase64(element) && !isWhiteSpace(element)) {
+                return false;
+            }
+        }
+        return true;
+    }"
+net_174_2,"    @Test
+    public void testIsArrayByteBase64_2_oe() {
+        boolean a = Base64.isArrayByteBase64(new byte[]{'?'});
+        assertFalse(a);
+    }",Base64Test::testIsArrayByteBase64_2_oe,org.apache.commons.net.util.Base64,isArrayByteBase64(final byte[] arrayOctet),"/**
+     * Tests a given byte array to see if it contains only valid characters within the Base64 alphabet. Currently the
+     * method treats whitespace as valid.
+     *
+     * @param arrayOctet
+     *            byte array to test
+     * @return <code>true</code> if all bytes are valid characters in the Base64 alphabet or if the byte array is empty;
+     *         false, otherwise
+     */","public static boolean isArrayByteBase64(final byte[] arrayOctet) {
+        for (final byte element : arrayOctet) {
+            if (!isBase64(element) && !isWhiteSpace(element)) {
+                return false;
+            }
+        }
+        return true;
+    }"
+net_196_1,"    public void testConstructors_1_oe()
+    {
+        Object a = opthand1.getOptionCode();
+        assertEquals(a, TelnetOption.ECHO);
+    }",EchoOptionHandlerTest::testConstructors_1_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getOptionCode(),"/**
+     * Returns the option code for this option.
+     * <p>
+     * @return Option code.
+     */","public int getOptionCode()
+    {
+        return optionCode;
+    }"
+net_208_1,"    public void testConstructors_1_oe()
+    {
+        Object a = opthand1.getOptionCode();
+        assertEquals(a, TelnetOption.TERMINAL_TYPE);
+    }",TerminalTypeOptionHandlerTest::testConstructors_1_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getOptionCode(),"/**
+     * Returns the option code for this option.
+     * <p>
+     * @return Option code.
+     */","public int getOptionCode()
+    {
+        return optionCode;
+    }"
+net_211_1,"    public void testConstructors_1_oe()
+    {
+        Object a = opthand1.getOptionCode();
+        assertEquals(a, TelnetOption.SUPPRESS_GO_AHEAD);
+    }",SuppressGAOptionHandlerTest::testConstructors_1_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getOptionCode(),"/**
+     * Returns the option code for this option.
+     * <p>
+     * @return Option code.
+     */","public int getOptionCode()
+    {
+        return optionCode;
+    }"
+net_214_1,"    public void testisValidOption_1_oe()
+    {
+        boolean a = TelnetOption.isValidOption(0);
+        assertTrue(a);
+    }",TelnetOptionTest::testisValidOption_1_oe,org.apache.commons.net.telnet.TelnetOption,isValidOption(final int code),"/**
+     * Determines if a given option code is valid.  Returns true if valid,
+     * false if not.
+     *
+     * @param code  The option code to test.
+     * @return True if the option code is valid, false if not.
+     **/","public static final boolean isValidOption(final int code)
+    {
+        return code <= LAST_OPTION;
+    }"
+net_214_2,"    public void testisValidOption_2_oe()
+    {
+        boolean a = TelnetOption.isValidOption(91);
+        assertTrue(a);
+    }",TelnetOptionTest::testisValidOption_2_oe,org.apache.commons.net.telnet.TelnetOption,isValidOption(final int code),"/**
+     * Determines if a given option code is valid.  Returns true if valid,
+     * false if not.
+     *
+     * @param code  The option code to test.
+     * @return True if the option code is valid, false if not.
+     **/","public static final boolean isValidOption(final int code)
+    {
+        return code <= LAST_OPTION;
+    }"
+net_214_3,"    public void testisValidOption_3_oe()
+    {
+        boolean a = TelnetOption.isValidOption(255);
+        assertTrue(a);
+    }",TelnetOptionTest::testisValidOption_3_oe,org.apache.commons.net.telnet.TelnetOption,isValidOption(final int code),"/**
+     * Determines if a given option code is valid.  Returns true if valid,
+     * false if not.
+     *
+     * @param code  The option code to test.
+     * @return True if the option code is valid, false if not.
+     **/","public static final boolean isValidOption(final int code)
+    {
+        return code <= LAST_OPTION;
+    }"
+net_214_4,"    public void testisValidOption_4_oe()
+    {
+        boolean a = !TelnetOption.isValidOption(256);
+        assertTrue(a);
+    }",TelnetOptionTest::testisValidOption_4_oe,org.apache.commons.net.telnet.TelnetOption,isValidOption(final int code),"/**
+     * Determines if a given option code is valid.  Returns true if valid,
+     * false if not.
+     *
+     * @param code  The option code to test.
+     * @return True if the option code is valid, false if not.
+     **/","public static final boolean isValidOption(final int code)
+    {
+        return code <= LAST_OPTION;
+    }"
+net_215_1,"    public void testGetOption_1_oe()
+    {
+        Object a = TelnetOption.getOption(0);
+        assertEquals(a, ""BINARY"");
+    }",TelnetOptionTest::testGetOption_1_oe,org.apache.commons.net.telnet.TelnetOption,getOption(final int code),"/**
+     * Returns the string representation of the telnet protocol option
+     * corresponding to the given option code.
+     *
+     * @param code The option code of the telnet protocol option
+     * @return The string representation of the telnet protocol option.
+     */","public static final String getOption(final int code)
+    {
+        if(optionString[code].isEmpty())
+        {
+            return ""UNASSIGNED"";
+        }
+        return optionString[code];
+    }"
+net_215_2,"    public void testGetOption_2_oe()
+    {
+        Object a = TelnetOption.getOption(91);
+        assertEquals(a, ""UNASSIGNED"");
+    }",TelnetOptionTest::testGetOption_2_oe,org.apache.commons.net.telnet.TelnetOption,getOption(final int code),"/**
+     * Returns the string representation of the telnet protocol option
+     * corresponding to the given option code.
+     *
+     * @param code The option code of the telnet protocol option
+     * @return The string representation of the telnet protocol option.
+     */","public static final String getOption(final int code)
+    {
+        if(optionString[code].isEmpty())
+        {
+            return ""UNASSIGNED"";
+        }
+        return optionString[code];
+    }"
+net_215_3,"    public void testGetOption_3_oe()
+    {
+        Object a = TelnetOption.getOption(255);
+        assertEquals(a, ""Extended-Options-List"");
+    }",TelnetOptionTest::testGetOption_3_oe,org.apache.commons.net.telnet.TelnetOption,getOption(final int code),"/**
+     * Returns the string representation of the telnet protocol option
+     * corresponding to the given option code.
+     *
+     * @param code The option code of the telnet protocol option
+     * @return The string representation of the telnet protocol option.
+     */","public static final String getOption(final int code)
+    {
+        if(optionString[code].isEmpty())
+        {
+            return ""UNASSIGNED"";
+        }
+        return optionString[code];
+    }"
+net_216_1,"    public void testConstructors_1_oe()
+    {
+        Object a = TelnetOption.WINDOW_SIZE;
+        assertEquals(a, opthand1.getOptionCode());
+    }",WindowSizeOptionHandlerTest::testConstructors_1_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getOptionCode(),"/**
+     * Returns the option code for this option.
+     * <p>
+     * @return Option code.
+     */","public int getOptionCode()
+    {
+        return optionCode;
+    }"
+net_221_1,"    public void testConstructors_1_oe()
+    {
+        boolean a = exc1.getMessage().indexOf(msg1) >= 0;
+        assertTrue(a);
+    }",InvalidTelnetOptionExceptionTest::testConstructors_1_oe,org.apache.commons.net.ftp.parser.FTPTimestampParserImpl,indexOf(final int calendarUnit),,"private static int indexOf(final int calendarUnit) {
+        int i;
+        for(i = 0; i <CALENDAR_UNITS.length; i++) {
+            if (calendarUnit == CALENDAR_UNITS[i]) {
+                return i;
+            }
+        }
+        return 0;
+    }"
+net_221_2,"    public void testConstructors_2_oe()
+    {
+        boolean a = exc1.getMessage().indexOf("""" +code1) >= 0;
+        assertTrue(a);
+    }",InvalidTelnetOptionExceptionTest::testConstructors_2_oe,org.apache.commons.net.ftp.parser.FTPTimestampParserImpl,indexOf(final int calendarUnit),,"private static int indexOf(final int calendarUnit) {
+        int i;
+        for(i = 0; i <CALENDAR_UNITS.length; i++) {
+            if (calendarUnit == CALENDAR_UNITS[i]) {
+                return i;
+            }
+        }
+        return 0;
+    }"
+net_222_1,"    public void testConstructors_1_oe()
+    {
+        boolean a = !opthand1.getInitLocal();
+        assertTrue(a);
+    }",TelnetOptionHandlerTestAbstract::testConstructors_1_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getInitLocal(),"/**
+     * Returns a boolean indicating whether to send a WILL request
+     * to the other end upon connection.
+     * <p>
+     * @return true if a WILL request shall be sent upon connection.
+     */","public boolean getInitLocal()
+    {
+        return initialLocal;
+    }"
+net_222_2,"    public void testConstructors_2_oe()
+    {
+        boolean a = !opthand1.getInitRemote();
+        assertTrue(a);
+    }",TelnetOptionHandlerTestAbstract::testConstructors_2_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getInitRemote(),"/**
+     * Returns a boolean indicating whether to send a DO request
+     * to the other end upon connection.
+     * <p>
+     * @return true if a DO request shall be sent upon connection.
+     */","public boolean getInitRemote()
+    {
+        return initialRemote;
+    }"
+net_222_3,"    public void testConstructors_3_oe()
+    {
+        boolean a = !opthand1.getAcceptLocal();
+        assertTrue(a);
+    }",TelnetOptionHandlerTestAbstract::testConstructors_3_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getAcceptLocal(),"/**
+     * Returns a boolean indicating whether to accept a DO
+     * request coming from the other end.
+     * <p>
+     * @return true if a DO request shall be accepted.
+     */","public boolean getAcceptLocal()
+    {
+        return acceptLocal;
+    }"
+net_222_4,"    public void testConstructors_4_oe()
+    {
+        boolean a = !opthand1.getAcceptRemote();
+        assertTrue(a);
+    }",TelnetOptionHandlerTestAbstract::testConstructors_4_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getAcceptRemote(),"/**
+     * Returns a boolean indicating whether to accept a WILL
+     * request coming from the other end.
+     * <p>
+     * @return true if a WILL request shall be accepted.
+     */","public boolean getAcceptRemote()
+    {
+        return acceptRemote;
+    }"
+net_222_5,"    public void testConstructors_5_oe()
+    {
+
+        boolean a = opthand2.getInitLocal();
+        assertTrue(a);
+    }",TelnetOptionHandlerTestAbstract::testConstructors_5_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getInitLocal(),"/**
+     * Returns a boolean indicating whether to send a WILL request
+     * to the other end upon connection.
+     * <p>
+     * @return true if a WILL request shall be sent upon connection.
+     */","public boolean getInitLocal()
+    {
+        return initialLocal;
+    }"
+net_222_6,"    public void testConstructors_6_oe()
+    {
+
+        boolean a = opthand2.getInitRemote();
+        assertTrue(a);
+    }",TelnetOptionHandlerTestAbstract::testConstructors_6_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getInitRemote(),"/**
+     * Returns a boolean indicating whether to send a DO request
+     * to the other end upon connection.
+     * <p>
+     * @return true if a DO request shall be sent upon connection.
+     */","public boolean getInitRemote()
+    {
+        return initialRemote;
+    }"
+net_222_7,"    public void testConstructors_7_oe()
+    {
+
+        boolean a = opthand2.getAcceptLocal();
+        assertTrue(a);
+    }",TelnetOptionHandlerTestAbstract::testConstructors_7_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getAcceptLocal(),"/**
+     * Returns a boolean indicating whether to accept a DO
+     * request coming from the other end.
+     * <p>
+     * @return true if a DO request shall be accepted.
+     */","public boolean getAcceptLocal()
+    {
+        return acceptLocal;
+    }"
+net_222_8,"    public void testConstructors_8_oe()
+    {
+
+        boolean a = opthand2.getAcceptRemote();
+        assertTrue(a);
+    }",TelnetOptionHandlerTestAbstract::testConstructors_8_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getAcceptRemote(),"/**
+     * Returns a boolean indicating whether to accept a WILL
+     * request coming from the other end.
+     * <p>
+     * @return true if a WILL request shall be accepted.
+     */","public boolean getAcceptRemote()
+    {
+        return acceptRemote;
+    }"
+net_222_9,"    public void testConstructors_9_oe()
+    {
+
+
+        boolean a = !opthand3.getInitLocal();
+        assertTrue(a);
+    }",TelnetOptionHandlerTestAbstract::testConstructors_9_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getInitLocal(),"/**
+     * Returns a boolean indicating whether to send a WILL request
+     * to the other end upon connection.
+     * <p>
+     * @return true if a WILL request shall be sent upon connection.
+     */","public boolean getInitLocal()
+    {
+        return initialLocal;
+    }"
+net_222_10,"    public void testConstructors_10_oe()
+    {
+
+
+        boolean a = !opthand3.getInitRemote();
+        assertTrue(a);
+    }",TelnetOptionHandlerTestAbstract::testConstructors_10_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getInitRemote(),"/**
+     * Returns a boolean indicating whether to send a DO request
+     * to the other end upon connection.
+     * <p>
+     * @return true if a DO request shall be sent upon connection.
+     */","public boolean getInitRemote()
+    {
+        return initialRemote;
+    }"
+net_222_11,"    public void testConstructors_11_oe()
+    {
+
+
+        boolean a = !opthand3.getAcceptLocal();
+        assertTrue(a);
+    }",TelnetOptionHandlerTestAbstract::testConstructors_11_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getAcceptLocal(),"/**
+     * Returns a boolean indicating whether to accept a DO
+     * request coming from the other end.
+     * <p>
+     * @return true if a DO request shall be accepted.
+     */","public boolean getAcceptLocal()
+    {
+        return acceptLocal;
+    }"
+net_222_12,"    public void testConstructors_12_oe()
+    {
+
+
+        boolean a = !opthand3.getAcceptRemote();
+        assertTrue(a);
+    }",TelnetOptionHandlerTestAbstract::testConstructors_12_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getAcceptRemote(),"/**
+     * Returns a boolean indicating whether to accept a WILL
+     * request coming from the other end.
+     * <p>
+     * @return true if a WILL request shall be accepted.
+     */","public boolean getAcceptRemote()
+    {
+        return acceptRemote;
+    }"
+net_225_1,"    public void testConstructors_1_oe()
+    {
+        Object a = opthand1.getOptionCode();
+        assertEquals(a, 4);
+    }",SimpleOptionHandlerTest::testConstructors_1_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getOptionCode(),"/**
+     * Returns the option code for this option.
+     * <p>
+     * @return Option code.
+     */","public int getOptionCode()
+    {
+        return optionCode;
+    }"
+net_225_2,"    public void testConstructors_2_oe()
+    {
+        Object a = opthand2.getOptionCode();
+        assertEquals(a, 8);
+    }",SimpleOptionHandlerTest::testConstructors_2_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getOptionCode(),"/**
+     * Returns the option code for this option.
+     * <p>
+     * @return Option code.
+     */","public int getOptionCode()
+    {
+        return optionCode;
+    }"
+net_225_3,"    public void testConstructors_3_oe()
+    {
+        Object a = opthand3.getOptionCode();
+        assertEquals(a, 91);
+    }",SimpleOptionHandlerTest::testConstructors_3_oe,org.apache.commons.net.telnet.TelnetOptionHandler,getOptionCode(),"/**
+     * Returns the option code for this option.
+     * <p>
+     * @return Option code.
+     */","public int getOptionCode()
+    {
+        return optionCode;
+    }"

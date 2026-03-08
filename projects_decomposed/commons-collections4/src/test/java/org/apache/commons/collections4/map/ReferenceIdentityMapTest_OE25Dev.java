@@ -85,10 +85,81 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
 //    }
 
     //-----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testBasics() {
+        final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
+        assertEquals(0, map.size());
+
+        map.put((K) I1A, (V) I2A);
+        assertEquals(1, map.size());
+        assertSame(I2A, map.get(I1A));
+        assertSame(null, map.get(I1B));
+        assertEquals(true, map.containsKey(I1A));
+        assertEquals(false, map.containsKey(I1B));
+        assertEquals(true, map.containsValue(I2A));
+        assertEquals(false, map.containsValue(I2B));
+
+        map.put((K) I1A, (V) I2B);
+        assertEquals(1, map.size());
+        assertSame(I2B, map.get(I1A));
+        assertSame(null, map.get(I1B));
+        assertEquals(true, map.containsKey(I1A));
+        assertEquals(false, map.containsKey(I1B));
+        assertEquals(false, map.containsValue(I2A));
+        assertEquals(true, map.containsValue(I2B));
+
+        map.put((K) I1B, (V) I2B);
+        assertEquals(2, map.size());
+        assertSame(I2B, map.get(I1A));
+        assertSame(I2B, map.get(I1B));
+        assertEquals(true, map.containsKey(I1A));
+        assertEquals(true, map.containsKey(I1B));
+        assertEquals(false, map.containsValue(I2A));
+        assertEquals(true, map.containsValue(I2B));
+    }
 
     //-----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testHashEntry() {
+        final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
+
+        map.put((K) I1A, (V) I2A);
+        map.put((K) I1B, (V) I2A);
+
+        final Map.Entry<K, V> entry1 = map.entrySet().iterator().next();
+        final Iterator<Map.Entry<K, V>> it = map.entrySet().iterator();
+        final Map.Entry<K, V> entry2 = it.next();
+        final Map.Entry<K, V> entry3 = it.next();
+
+        assertEquals(true, entry1.equals(entry2));
+        assertEquals(true, entry2.equals(entry1));
+        assertEquals(false, entry1.equals(entry3));
+    }
 
     //-----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testNullHandling() {
+        resetFull();
+        assertEquals(null, getMap().get(null));
+        assertEquals(false, getMap().containsKey(null));
+        assertEquals(false, getMap().containsValue(null));
+        assertEquals(null, getMap().remove(null));
+        assertEquals(false, getMap().entrySet().contains(null));
+        assertEquals(false, getMap().keySet().contains(null));
+        assertEquals(false, getMap().values().contains(null));
+        try {
+            getMap().put(null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+        try {
+            getMap().put((K) new Object(), null);
+            fail();
+        } catch (final NullPointerException ex) {}
+        try {
+            getMap().put(null, (V) new Object());
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
 
     //-----------------------------------------------------------------------
 /*

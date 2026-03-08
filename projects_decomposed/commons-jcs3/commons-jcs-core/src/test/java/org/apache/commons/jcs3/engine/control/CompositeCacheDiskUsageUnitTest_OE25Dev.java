@@ -338,6 +338,7 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
 
     public void testSpoolAllowed_1_oe()
     {
+        // SETUP
         final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
         cattr.setCacheName(CACHE_NAME);
         cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.SWAP );
@@ -352,13 +353,16 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
 
         final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
 
+        // DO WORK
         cache.spoolToDisk( inputElement );
 
+        // VERIFY
         assertEquals( "Wrong number of calls to the disk cache update.", 1, mock.updateCount );
     }
 
     public void testSpoolAllowed_2_oe()
     {
+        // SETUP
         final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
         cattr.setCacheName(CACHE_NAME);
         cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.SWAP );
@@ -373,13 +377,17 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
 
         final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
 
+        // DO WORK
         cache.spoolToDisk( inputElement );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong element updated.", inputElement, mock.lastUpdatedItem );
     }
 
     public void testSpoolNotAllowed_1_oe()
     {
+        // SETUP
         final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
         cattr.setCacheName(CACHE_NAME);
         cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.UPDATE );
@@ -394,14 +402,17 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
 
         final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
 
+        // DO WORK
         cache.spoolToDisk( inputElement );
 
+        // VERIFY
         assertEquals( "Wrong number of calls to the disk cache update.", 0, mock.updateCount );
     }
 
     public void testUpdateAllowed_1_oe()
         throws IOException
     {
+        // SETUP
         final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
         cattr.setCacheName(CACHE_NAME);
         cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.UPDATE );
@@ -416,14 +427,17 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
 
         final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
 
+        // DO WORK
         cache.updateAuxiliaries( inputElement, true );
 
+        // VERIFY
         assertEquals( "Wrong number of calls to the disk cache update.", 1, mock.updateCount );
     }
 
     public void testUpdateAllowed_2_oe()
         throws IOException
     {
+        // SETUP
         final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
         cattr.setCacheName(CACHE_NAME);
         cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.UPDATE );
@@ -438,14 +452,18 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
 
         final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
 
+        // DO WORK
         cache.updateAuxiliaries( inputElement, true );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong element updated.", inputElement, mock.lastUpdatedItem );
     }
 
     public void testUpdateAllowed_localFalse_1_oe()
         throws IOException
     {
+        // SETUP
         final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
         cattr.setCacheName(CACHE_NAME);
         cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.UPDATE );
@@ -460,14 +478,17 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
 
         final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
 
+        // DO WORK
         cache.updateAuxiliaries( inputElement, false );
 
+        // VERIFY
         assertEquals( "Wrong number of calls to the disk cache update.", 1, mock.updateCount );
     }
 
     public void testUpdateAllowed_localFalse_2_oe()
         throws IOException
     {
+        // SETUP
         final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
         cattr.setCacheName(CACHE_NAME);
         cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.UPDATE );
@@ -482,14 +503,18 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
 
         final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
 
+        // DO WORK
         cache.updateAuxiliaries( inputElement, false );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong element updated.", inputElement, mock.lastUpdatedItem );
     }
 
     public void testUpdateNotAllowed_1_oe()
         throws IOException
     {
+        // SETUP
         final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
         cattr.setCacheName(CACHE_NAME);
         cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.SWAP );
@@ -504,14 +529,17 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
 
         final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
 
+        // DO WORK
         cache.updateAuxiliaries( inputElement, true );
 
+        // VERIFY
         assertEquals( "Wrong number of calls to the disk cache update.", 0, mock.updateCount );
     }
 
     public void testUpdateAllowed_withOtherCaches_1_oe()
         throws IOException
     {
+        // SETUP
         final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
         cattr.setCacheName(CACHE_NAME);
         cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.UPDATE );
@@ -529,14 +557,17 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
 
         final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
 
+        // DO WORK
         cache.updateAuxiliaries( inputElement, false );
 
+        // VERIFY
         assertEquals( "Wrong number of calls to the disk cache update.", 1, mock.updateCount );
     }
 
     public void testUpdateAllowed_withOtherCaches_2_oe()
         throws IOException
     {
+        // SETUP
         final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
         cattr.setCacheName(CACHE_NAME);
         cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.UPDATE );
@@ -554,14 +585,18 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
 
         final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
 
+        // DO WORK
         cache.updateAuxiliaries( inputElement, false );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong element updated.", inputElement, mock.lastUpdatedItem );
     }
 
     public void testUpdateAllowed_withOtherCaches_3_oe()
         throws IOException
     {
+        // SETUP
         final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
         cattr.setCacheName(CACHE_NAME);
         cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.UPDATE );
@@ -579,8 +614,12 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
 
         final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
 
+        // DO WORK
         cache.updateAuxiliaries( inputElement, false );
 
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
 
         assertEquals( "Wrong number of calls to the lateral cache update.", 1, mockLateral.updateCount );
     }
@@ -588,6 +627,7 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
     public void testUpdateAllowed_withOtherCaches_4_oe()
         throws IOException
     {
+        // SETUP
         final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
         cattr.setCacheName(CACHE_NAME);
         cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.UPDATE );
@@ -605,9 +645,14 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
 
         final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
 
+        // DO WORK
         cache.updateAuxiliaries( inputElement, false );
 
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals( "Wrong element updated with lateral.", inputElement, mockLateral.lastUpdatedItem );
     }
 

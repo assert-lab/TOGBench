@@ -112,6 +112,7 @@ public class ZeroCopyFileTest_OE25Dev extends AbstractBasicTest {
           return response;
         }
       }).get();
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -139,6 +140,8 @@ public class ZeroCopyFileTest_OE25Dev extends AbstractBasicTest {
           return response;
         }
       }).get();
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getResponseBody(), SIMPLE_TEXT_FILE_STRING);
   }
   }
@@ -166,6 +169,9 @@ public class ZeroCopyFileTest_OE25Dev extends AbstractBasicTest {
           return response;
         }
       }).get();
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertTrue(operationCompleted.get());
   }
   }
@@ -193,6 +199,10 @@ public class ZeroCopyFileTest_OE25Dev extends AbstractBasicTest {
           return response;
         }
       }).get();
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertTrue(headerSent.get());
   }
   }
@@ -211,6 +221,7 @@ public class ZeroCopyFileTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient client = asyncHttpClient()) {
       Future<Response> f = client.preparePut("http://localhost:" + port1 + "/").setBody(SIMPLE_TEXT_FILE).execute();
       Response resp = f.get();
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -220,6 +231,8 @@ public class ZeroCopyFileTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient client = asyncHttpClient()) {
       Future<Response> f = client.preparePut("http://localhost:" + port1 + "/").setBody(SIMPLE_TEXT_FILE).execute();
       Response resp = f.get();
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getResponseBody(), SIMPLE_TEXT_FILE_STRING);
   }
   }
@@ -283,6 +296,7 @@ public class ZeroCopyFileTest_OE25Dev extends AbstractBasicTest {
             return null;
           }
         }).get();
+        // removed other assertion
         assertEquals(SIMPLE_TEXT_FILE.length(), tmp.length());
   }
   }
@@ -357,6 +371,7 @@ public class ZeroCopyFileTest_OE25Dev extends AbstractBasicTest {
             return null;
           }
         }).get();
+        // removed other assertion
         assertEquals(SIMPLE_TEXT_FILE.length(), tmp.length());
   }
   }

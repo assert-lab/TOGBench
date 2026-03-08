@@ -25,6 +25,7 @@ public class ConnectIT_OE25Dev {
 
     @Test
     public void canInterruptBodyStringRead_1_oe() throws InterruptedException {
+        // todo - implement in interruptable channels, so it's immediate
         final String[] body = new String[1];
         Thread runner = new Thread(() -> {
             try {
@@ -46,6 +47,7 @@ public class ConnectIT_OE25Dev {
 
     @Test
     public void canInterruptBodyStringRead_2_oe() throws InterruptedException {
+        // todo - implement in interruptable channels, so it's immediate
         final String[] body = new String[1];
         Thread runner = new Thread(() -> {
             try {
@@ -62,6 +64,7 @@ public class ConnectIT_OE25Dev {
         runner.start();
         Thread.sleep(1000 * 3);
         runner.interrupt();
+        // removed other assertion
         runner.join();
 
         assertTrue(body[0].length() > 0);
@@ -69,6 +72,7 @@ public class ConnectIT_OE25Dev {
 
     @Test
     public void canInterruptBodyStringRead_3_oe() throws InterruptedException {
+        // todo - implement in interruptable channels, so it's immediate
         final String[] body = new String[1];
         Thread runner = new Thread(() -> {
             try {
@@ -85,13 +89,16 @@ public class ConnectIT_OE25Dev {
         runner.start();
         Thread.sleep(1000 * 3);
         runner.interrupt();
+        // removed other assertion
         runner.join();
 
+        // removed other assertion
         assertTrue(body[0].contains("<p>Are you still there?"));
     }
 
     @Test
     public void canInterruptDocumentRead_1_oe() throws InterruptedException {
+        // todo - implement in interruptable channels, so it's immediate
         final String[] body = new String[1];
         Thread runner = new Thread(() -> {
             try {
@@ -113,6 +120,7 @@ public class ConnectIT_OE25Dev {
 
     @Test
     public void canInterruptDocumentRead_2_oe() throws InterruptedException {
+        // todo - implement in interruptable channels, so it's immediate
         final String[] body = new String[1];
         Thread runner = new Thread(() -> {
             try {
@@ -129,6 +137,7 @@ public class ConnectIT_OE25Dev {
         runner.start();
         Thread.sleep(1000 * 3);
         runner.interrupt();
+        // removed other assertion
         runner.join();
 
         assertEquals(0, body[0].length()); // doesn't ready a failed doc;
@@ -158,6 +167,7 @@ public class ConnectIT_OE25Dev {
         } catch (SocketTimeoutException e) {
             long end = System.currentTimeMillis();
             long took = end - start;
+            // removed other assertion
             assertTrue(took < timeout * 1.8, ("Time taken was " + took));
     }
     }
@@ -172,6 +182,8 @@ public class ConnectIT_OE25Dev {
         } catch (SocketTimeoutException e) {
             long end = System.currentTimeMillis();
             long took = end - start;
+            // removed other assertion
+            // removed other assertion
             threw = true;
         }
 
@@ -180,6 +192,7 @@ public class ConnectIT_OE25Dev {
 
     @Test
     public void slowReadOk_1_oe() throws IOException {
+        // make sure that a slow read that is under the request timeout is still OK
         Document doc = Jsoup.connect(SlowRider.Url)
             .data(SlowRider.MaxTimeParam, "2000") // the request completes in 2 seconds
             .get();
@@ -223,8 +236,10 @@ public class ConnectIT_OE25Dev {
         try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
             .execute().bodyStream()) {
 
+            // removed other assertion
             stream = (ConstrainableInputStream) inputStream;
 
+            // simulates parse which does a limited read first
             stream.mark(bufferSize);
             ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
 
@@ -244,13 +259,16 @@ public class ConnectIT_OE25Dev {
         try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
             .execute().bodyStream()) {
 
+            // removed other assertion
             stream = (ConstrainableInputStream) inputStream;
 
+            // simulates parse which does a limited read first
             stream.mark(bufferSize);
             ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
 
             byte[] array = firstBytes.array();
             String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
             assertEquals(bufferSize, array.length);
     }
     }
@@ -265,13 +283,17 @@ public class ConnectIT_OE25Dev {
         try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
             .execute().bodyStream()) {
 
+            // removed other assertion
             stream = (ConstrainableInputStream) inputStream;
 
+            // simulates parse which does a limited read first
             stream.mark(bufferSize);
             ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
 
             byte[] array = firstBytes.array();
             String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            // removed other assertion
 
             boolean fullyRead = stream.read() == -1;
             assertFalse(fullyRead);
@@ -288,16 +310,22 @@ public class ConnectIT_OE25Dev {
         try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
             .execute().bodyStream()) {
 
+            // removed other assertion
             stream = (ConstrainableInputStream) inputStream;
 
+            // simulates parse which does a limited read first
             stream.mark(bufferSize);
             ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
 
             byte[] array = firstBytes.array();
             String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            // removed other assertion
 
             boolean fullyRead = stream.read() == -1;
+            // removed other assertion
 
+            // reset and read again
             stream.reset();
             ByteBuffer fullRead = stream.readToByteBuffer(0);
             byte[] fullArray = fullRead.array();
@@ -315,19 +343,26 @@ public class ConnectIT_OE25Dev {
         try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
             .execute().bodyStream()) {
 
+            // removed other assertion
             stream = (ConstrainableInputStream) inputStream;
 
+            // simulates parse which does a limited read first
             stream.mark(bufferSize);
             ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
 
             byte[] array = firstBytes.array();
             String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            // removed other assertion
 
             boolean fullyRead = stream.read() == -1;
+            // removed other assertion
 
+            // reset and read again
             stream.reset();
             ByteBuffer fullRead = stream.readToByteBuffer(0);
             byte[] fullArray = fullRead.array();
+            // removed other assertion
             String fullText = new String(fullArray, StandardCharsets.UTF_8);
             assertTrue(fullText.startsWith(firstText));
     }
@@ -351,8 +386,10 @@ public class ConnectIT_OE25Dev {
         String url = FileServlet.urlTo("/htmltests/large.html"); // 280 K
         ConstrainableInputStream stream;
         try (BufferedInputStream inputStream = Jsoup.connect(url).execute().bodyStream()) {
+            // removed other assertion
             stream = (ConstrainableInputStream) inputStream;
 
+            // simulates parse which does a limited read first
             stream.mark(bufferSize);
             ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
             byte[] array = firstBytes.array();
@@ -368,12 +405,15 @@ public class ConnectIT_OE25Dev {
         String url = FileServlet.urlTo("/htmltests/large.html"); // 280 K
         ConstrainableInputStream stream;
         try (BufferedInputStream inputStream = Jsoup.connect(url).execute().bodyStream()) {
+            // removed other assertion
             stream = (ConstrainableInputStream) inputStream;
 
+            // simulates parse which does a limited read first
             stream.mark(bufferSize);
             ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
             byte[] array = firstBytes.array();
             String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
             assertEquals(bufferSize, array.length);
     }
     }
@@ -385,13 +425,18 @@ public class ConnectIT_OE25Dev {
         String url = FileServlet.urlTo("/htmltests/large.html"); // 280 K
         ConstrainableInputStream stream;
         try (BufferedInputStream inputStream = Jsoup.connect(url).execute().bodyStream()) {
+            // removed other assertion
             stream = (ConstrainableInputStream) inputStream;
 
+            // simulates parse which does a limited read first
             stream.mark(bufferSize);
             ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
             byte[] array = firstBytes.array();
             String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            // removed other assertion
 
+            // reset and read fully
             stream.reset();
             ByteBuffer fullRead = stream.readToByteBuffer(0);
             byte[] fullArray = fullRead.array();
@@ -406,16 +451,22 @@ public class ConnectIT_OE25Dev {
         String url = FileServlet.urlTo("/htmltests/large.html"); // 280 K
         ConstrainableInputStream stream;
         try (BufferedInputStream inputStream = Jsoup.connect(url).execute().bodyStream()) {
+            // removed other assertion
             stream = (ConstrainableInputStream) inputStream;
 
+            // simulates parse which does a limited read first
             stream.mark(bufferSize);
             ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
             byte[] array = firstBytes.array();
             String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            // removed other assertion
 
+            // reset and read fully
             stream.reset();
             ByteBuffer fullRead = stream.readToByteBuffer(0);
             byte[] fullArray = fullRead.array();
+            // removed other assertion
             String fullText = new String(fullArray, StandardCharsets.UTF_8);
             assertTrue(fullText.startsWith(firstText));
     }

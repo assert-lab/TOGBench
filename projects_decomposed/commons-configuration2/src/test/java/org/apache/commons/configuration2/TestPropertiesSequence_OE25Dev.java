@@ -122,6 +122,7 @@ public class TestPropertiesSequence_OE25Dev {
         final List<String> keysSimpleConfiguration = ConfigurationAssert.keysToList(a);
         final List<String> keysCompositeConfiguration = ConfigurationAssert.keysToList(b);
 
+        // removed other assertion
         assertEquals(keysSimpleConfiguration.size(), keysCompositeConfiguration.size());
     }
 
@@ -145,6 +146,8 @@ public class TestPropertiesSequence_OE25Dev {
         final List<String> keysSimpleConfiguration = ConfigurationAssert.keysToList(a);
         final List<String> keysCompositeConfiguration = ConfigurationAssert.keysToList(b);
 
+        // removed other assertion
+        // removed other assertion
 
         for (int i = 0; i < keysSimpleConfiguration.size(); i++) {
             assertEquals(keysSimpleConfiguration.get(i), keysCompositeConfiguration.get(i));
@@ -206,6 +209,7 @@ public class TestPropertiesSequence_OE25Dev {
         final List<String> keysSimpleConfiguration = ConfigurationAssert.keysToList(a);
         final List<String> keysCompositeConfiguration = ConfigurationAssert.keysToList(b);
 
+        // removed other assertion
         assertEquals(keysSimpleConfiguration.size(), keysCompositeConfiguration.size());
     }
 
@@ -235,6 +239,8 @@ public class TestPropertiesSequence_OE25Dev {
         final List<String> keysSimpleConfiguration = ConfigurationAssert.keysToList(a);
         final List<String> keysCompositeConfiguration = ConfigurationAssert.keysToList(b);
 
+        // removed other assertion
+        // removed other assertion
 
         for (int i = 0; i < keysSimpleConfiguration.size(); i++) {
             assertEquals(keysSimpleConfiguration.get(i), keysCompositeConfiguration.get(i));

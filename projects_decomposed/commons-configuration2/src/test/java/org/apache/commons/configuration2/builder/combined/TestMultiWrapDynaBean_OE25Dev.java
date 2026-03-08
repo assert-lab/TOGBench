@@ -186,6 +186,7 @@ public class TestMultiWrapDynaBean_OE25Dev {
     @Test
     public void testGetDynaClass_2_oe() {
         final DynaClass cls = createBean(false).getDynaClass();
+        // removed other assertion
         assertNotNull("Property not found (2)", cls.getDynaProperty("text"));
     }
 
@@ -249,6 +250,7 @@ public class TestMultiWrapDynaBean_OE25Dev {
         PropertyUtils.setProperty(bean, "throwExceptionOnMissing", Boolean.TRUE);
         PropertyUtils.setProperty(bean, "listDelimiterHandler", listHandler);
         final Map<String, Object> map = params.getParameters();
+        // removed other assertion
         assertEquals("List delimiter handler not set", listHandler, map.get("listDelimiterHandler"));
     }
 

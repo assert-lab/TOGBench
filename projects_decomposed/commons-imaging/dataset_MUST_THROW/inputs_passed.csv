@@ -1,0 +1,63 @@
+id,test_prefix,test_name,focal_method,docstring
+commons-imaging_158_101,"@Test
+    public void testBadCoordinates_oe_101_oe() {
+        try{
+            final int []sample = new int[100];
+            final TiffRasterData raster = new TiffRasterDataInt(10, 10, sample);
+            raster.getIntValue(11, 11);
+            fail(""Access method getValue() did not detect bad coordinates"");
+        }catch(final IllegalArgumentException illArgEx){
+            // success!
+        }
+    }
+",TiffRasterDataIntTest::testBadCoordinates_oe_101_oe,"@Override
+    public float getValue(final int x, final int y) {
+        int index = checkCoordinatesAndComputeIndex(x, y, 0);
+        return data[index];
+    }","/**
+     * Gets the value stored at the specified raster coordinates.
+     *
+     * @param x integer coordinate in the columnar direction
+     * @param y integer coordinate in the row direction
+     * @return the value stored at the specified location; potentially a
+     * Float&#46;NaN.
+     */"
+commons-imaging_158_102,"@Test
+    public void testBadCoordinates_oe_102_oe() {
+        try{
+            final int []sample = new int[100];
+            final TiffRasterData raster = new TiffRasterDataInt(10, 10, sample);
+            raster.setValue(11, 11, 5.0f);
+            fail(""Access method setValue() did not detect bad coordinates"");
+        }catch(final IllegalArgumentException illArgEx){
+            // success!
+        }
+    }
+",TiffRasterDataIntTest::testBadCoordinates_oe_102_oe,"@Override
+    public void setValue(final int x, final int y, final float value) {
+        int index = checkCoordinatesAndComputeIndex(x, y, 0);
+        data[index] = (int) value;
+    }","/**
+     * Sets the value stored at the specified raster coordinates.
+     *
+     * @param x integer coordinate in the columnar direction
+     * @param y integer coordinate in the row direction
+     * @param value the value to be stored at the specified location;
+     * potentially a Float&#46;NaN.
+     */"
+commons-imaging_259_101,"@Test
+  public void testGetFieldTypeWithNegative_oe_101_oe() {
+      try {
+        FieldType.getFieldType((-748));
+        fail(""Expecting exception: Exception"");
+      } catch(final Exception e) {
+      }
+    }
+",FieldTypeTest::testGetFieldTypeWithNegative_oe_101_oe,"public static FieldType getFieldType(final int type) throws ImageReadException {
+        for (final FieldType fieldType : ANY) {
+            if (fieldType.getType() == type) {
+                return fieldType;
+            }
+        }
+        throw new ImageReadException(""Field type "" + type + "" is unsupported"");
+    }",

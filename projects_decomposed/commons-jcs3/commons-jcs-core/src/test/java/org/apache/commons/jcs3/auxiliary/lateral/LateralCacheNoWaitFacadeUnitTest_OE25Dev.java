@@ -70,8 +70,10 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
     {
         LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
 
+        // DO WORK
         facade.addNoWait( noWait );
 
+        // VERIFY
         assertTrue( "Should be in the list.", facade.containsNoWait( noWait ) );
     }
 
@@ -79,11 +81,16 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
     {
         LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
 
+        // DO WORK
         facade.addNoWait( noWait );
 
+        // VERIFY
+        // removed other assertion
 
+        // DO WORK
         facade.removeNoWait( noWait );
 
+        // VERIFY
         assertEquals( "Should have 0", 0, facade.getNoWaitSize() );
     }
 
@@ -91,11 +98,17 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
     {
         LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
 
+        // DO WORK
         facade.addNoWait( noWait );
 
+        // VERIFY
+        // removed other assertion
 
+        // DO WORK
         facade.removeNoWait( noWait );
 
+        // VERIFY
+        // removed other assertion
         assertFalse( "Should not be in the list. ", facade.containsNoWait( noWait ) );
     }
 
@@ -106,9 +119,11 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
         final LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
         noWait2.setIdentityKey("2345");
 
+        // DO WORK
         facade.addNoWait( noWait );
         facade.addNoWait( noWait2 );
 
+        // VERIFY
         assertEquals( "Should have 2", 2, facade.getNoWaitSize() );
     }
 
@@ -119,9 +134,12 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
         final LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
         noWait2.setIdentityKey("2345");
 
+        // DO WORK
         facade.addNoWait( noWait );
         facade.addNoWait( noWait2 );
 
+        // VERIFY
+        // removed other assertion
         assertTrue( "Should be in the list.", facade.containsNoWait( noWait ) );
     }
 
@@ -132,9 +150,13 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
         final LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
         noWait2.setIdentityKey("2345");
 
+        // DO WORK
         facade.addNoWait( noWait );
         facade.addNoWait( noWait2 );
 
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
         assertTrue( "Should be in the list.", facade.containsNoWait( noWait2 ) );
     }
 
@@ -145,12 +167,19 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
         final LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
         noWait2.setIdentityKey("2345");
 
+        // DO WORK
         facade.addNoWait( noWait );
         facade.addNoWait( noWait2 );
 
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // DO WORK
         facade.removeNoWait( noWait );
 
+        // VERIFY
         assertEquals( "Should only have 1", 1, facade.getNoWaitSize() );
     }
 
@@ -161,12 +190,20 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
         final LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
         noWait2.setIdentityKey("2345");
 
+        // DO WORK
         facade.addNoWait( noWait );
         facade.addNoWait( noWait2 );
 
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // DO WORK
         facade.removeNoWait( noWait );
 
+        // VERIFY
+        // removed other assertion
         assertFalse( "Should not be in the list. ", facade.containsNoWait( noWait ) );
     }
 
@@ -177,12 +214,21 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
         final LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
         noWait2.setIdentityKey("2345");
 
+        // DO WORK
         facade.addNoWait( noWait );
         facade.addNoWait( noWait2 );
 
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // DO WORK
         facade.removeNoWait( noWait );
 
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
         assertTrue( "Should be in the list.", facade.containsNoWait( noWait2 ) );
     }
 
@@ -190,9 +236,11 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
     {
         final LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
 
+        // DO WORK
         facade.addNoWait( noWait );
         facade.addNoWait( noWait );
 
+        // VERIFY
         assertTrue( "Should be in the list.", facade.containsNoWait( noWait ) );
     }
 
@@ -200,9 +248,12 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
     {
         final LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
 
+        // DO WORK
         facade.addNoWait( noWait );
         facade.addNoWait( noWait );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Should only have 1", 1, facade.getNoWaitSize() );
     }
 
@@ -210,8 +261,10 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
     {
         final LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
 
+        // DO WORK
         facade.removeNoWait( noWait );
 
+        // VERIFY
         assertFalse( "Should not be in the list.", facade.containsNoWait( noWait ) );
     }
 

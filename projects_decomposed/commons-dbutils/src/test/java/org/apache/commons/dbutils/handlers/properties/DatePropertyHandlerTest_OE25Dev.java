@@ -41,11 +41,14 @@ public class DatePropertyHandlerTest_OE25Dev {
 
     @Test
     public void testMatch_2_oe() {
+        // removed other assertion
         assertTrue(handler.match(java.sql.Time.class, new java.util.Date()));
     }
 
     @Test
     public void testMatch_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertTrue(handler.match(java.sql.Timestamp.class, new java.util.Date()));
     }
 
@@ -56,6 +59,7 @@ public class DatePropertyHandlerTest_OE25Dev {
 
     @Test
     public void testMatchNegative_2_oe() {
+        // removed other assertion
         assertFalse(handler.match(Float.class, new java.util.Date()));
     }
 

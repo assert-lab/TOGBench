@@ -119,11 +119,13 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
     @Test
     void testBoundaries_areUnmodifiable_1_oe() {
+        // arrange
         final StubRegion region = new StubRegion(new ArrayList<>());
         final List<TestLineSegment> boundaries = region.getBoundaries();
         final TestLineSegment span = TestLine.X_AXIS.span();
 
 
+        // act/assert
         try {
     boundaries.add(span);
     fail("UnsupportedOperationException");
@@ -133,38 +135,50 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
     @Test
     void testFull_1_oe() {
+        // act
         final StubRegion region = new StubRegion(Collections.emptyList());
 
+        // assert
         Assertions.assertTrue(region.isFull());
     }
 
     @Test
     void testFull_2_oe() {
+        // act
         final StubRegion region = new StubRegion(Collections.emptyList());
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(region.isEmpty());
     }
 
     @Test
     void testGetBoundarySize_1_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
 
+        // act/assert
         Assertions.assertEquals(0, new StubRegion(Collections.emptyList()).getBoundarySize(), PartitionTestUtils.EPS);
     }
 
     @Test
     void testGetBoundarySize_3_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(2 + Math.sqrt(2),new StubRegion(Arrays.asList(new TestLineSegment(p1,p2),new TestLineSegment(p2,p3),new TestLineSegment(p3,p1))).getBoundarySize(),PartitionTestUtils.EPS);
     }
 
     @Test
     void testProject_1_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -177,11 +191,13 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 new TestLineSegment(p3, p1)
             ));
 
+        // act/assert
         Assertions.assertNull(full.project(TestPoint2D.ZERO));
     }
 
     @Test
     void testProject_2_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -194,11 +210,14 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 new TestLineSegment(p3, p1)
             ));
 
+        // act/assert
+        // removed other assertion
         Assertions.assertNull(full.project(new TestPoint2D(1, 1)));
     }
 
     @Test
     void testTrim_1_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(2, 1);
@@ -215,28 +234,36 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final TestLineSegment segment = new TestLineSegment(new TestPoint2D(-1, 0.5), new TestPoint2D(4, 0.5));
 
+        // act/assert
         Assertions.assertSame(segment, full.trim(segment));
     }
 
     @Test
     void testSplit_full_1_oe() {
+        // arrange
         final StubRegion region = new StubRegion(Collections.emptyList());
 
         final TestLine splitter = TestLine.X_AXIS;
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
     @Test
     void testSplit_full_2_oe() {
+        // arrange
         final StubRegion region = new StubRegion(Collections.emptyList());
 
         final TestLine splitter = TestLine.X_AXIS;
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final StubRegion minus = split.getMinus();
         Assertions.assertEquals(1, minus.getBoundaries().size());
@@ -244,14 +271,19 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
     @Test
     void testSplit_full_3_oe() {
+        // arrange
         final StubRegion region = new StubRegion(Collections.emptyList());
 
         final TestLine splitter = TestLine.X_AXIS;
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final StubRegion minus = split.getMinus();
+        // removed other assertion
         checkClassify(minus, RegionLocation.INSIDE, new TestPoint2D(0, 1));
         checkClassify(minus, RegionLocation.BOUNDARY, new TestPoint2D(0, 0));
         checkClassify(minus, RegionLocation.OUTSIDE, new TestPoint2D(0, -1));
@@ -262,101 +294,132 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
     @Test
     void testSplit_parallel_splitterIsOutside_plusOnly_1_oe() {
+     // arrange
         final StubRegion region = new StubRegion(
                 Collections.singletonList(new TestLineSegment(new TestPoint2D(0, 1), new TestPoint2D(1, 1))));
 
         final TestLine splitter = TestLine.X_AXIS.reverse();
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
     @Test
     void testSplit_parallel_splitterIsOutside_plusOnly_2_oe() {
+     // arrange
         final StubRegion region = new StubRegion(
                 Collections.singletonList(new TestLineSegment(new TestPoint2D(0, 1), new TestPoint2D(1, 1))));
 
         final TestLine splitter = TestLine.X_AXIS.reverse();
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertNull(split.getMinus());
     }
 
     @Test
     void testSplit_parallel_splitterIsOutside_plusOnly_3_oe() {
+     // arrange
         final StubRegion region = new StubRegion(
                 Collections.singletonList(new TestLineSegment(new TestPoint2D(0, 1), new TestPoint2D(1, 1))));
 
         final TestLine splitter = TestLine.X_AXIS.reverse();
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(region, split.getPlus());
     }
 
     @Test
     void testSplit_parallel_splitterIsOutside_minusOnly_1_oe() {
+     // arrange
         final StubRegion region = new StubRegion(
                 Collections.singletonList(new TestLineSegment(new TestPoint2D(0, 1), new TestPoint2D(1, 1))));
 
         final TestLine splitter = TestLine.X_AXIS;
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
     @Test
     void testSplit_parallel_splitterIsOutside_minusOnly_2_oe() {
+     // arrange
         final StubRegion region = new StubRegion(
                 Collections.singletonList(new TestLineSegment(new TestPoint2D(0, 1), new TestPoint2D(1, 1))));
 
         final TestLine splitter = TestLine.X_AXIS;
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertSame(region, split.getMinus());
     }
 
     @Test
     void testSplit_parallel_splitterIsOutside_minusOnly_3_oe() {
+     // arrange
         final StubRegion region = new StubRegion(
                 Collections.singletonList(new TestLineSegment(new TestPoint2D(0, 1), new TestPoint2D(1, 1))));
 
         final TestLine splitter = TestLine.X_AXIS;
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(split.getPlus());
     }
 
     @Test
     void testSplit_parallel_splitterIsInside_1_oe() {
+     // arrange
         final StubRegion region = new StubRegion(
                 Collections.singletonList(new TestLineSegment(new TestPoint2D(1, 1), new TestPoint2D(0, 1))));
 
         final TestLine splitter = TestLine.X_AXIS;
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
     @Test
     void testSplit_parallel_splitterIsInside_2_oe() {
+     // arrange
         final StubRegion region = new StubRegion(
                 Collections.singletonList(new TestLineSegment(new TestPoint2D(1, 1), new TestPoint2D(0, 1))));
 
         final TestLine splitter = TestLine.X_AXIS;
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final TestPoint2D p1 = new TestPoint2D(0, 1.5);
         final TestPoint2D p2 = new TestPoint2D(0, 0.5);
@@ -368,19 +431,24 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
     @Test
     void testSplit_parallel_splitterIsInside_3_oe() {
+     // arrange
         final StubRegion region = new StubRegion(
                 Collections.singletonList(new TestLineSegment(new TestPoint2D(1, 1), new TestPoint2D(0, 1))));
 
         final TestLine splitter = TestLine.X_AXIS;
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final TestPoint2D p1 = new TestPoint2D(0, 1.5);
         final TestPoint2D p2 = new TestPoint2D(0, 0.5);
         final TestPoint2D p3 = new TestPoint2D(0, -0.5);
 
         final StubRegion minus = split.getMinus();
+        // removed other assertion
         checkClassify(minus, RegionLocation.INSIDE, p2);
         checkClassify(minus, RegionLocation.OUTSIDE, p1, p3);
 
@@ -390,76 +458,101 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
     @Test
     void testSplit_coincident_sameOrientation_1_oe() {
+     // arrange
         final StubRegion region = new StubRegion(Collections.singletonList(TestLine.X_AXIS.span()));
 
         final TestLine splitter = TestLine.X_AXIS;
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
     @Test
     void testSplit_coincident_sameOrientation_2_oe() {
+     // arrange
         final StubRegion region = new StubRegion(Collections.singletonList(TestLine.X_AXIS.span()));
 
         final TestLine splitter = TestLine.X_AXIS;
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertSame(region, split.getMinus());
     }
 
     @Test
     void testSplit_coincident_sameOrientation_3_oe() {
+     // arrange
         final StubRegion region = new StubRegion(Collections.singletonList(TestLine.X_AXIS.span()));
 
         final TestLine splitter = TestLine.X_AXIS;
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(split.getPlus());
     }
 
     @Test
     void testSplit_coincident_oppositeOrientation_1_oe() {
+     // arrange
         final StubRegion region = new StubRegion(Collections.singletonList(TestLine.X_AXIS.span()));
 
         final TestLine splitter = TestLine.X_AXIS.reverse();
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
     @Test
     void testSplit_coincident_oppositeOrientation_2_oe() {
+     // arrange
         final StubRegion region = new StubRegion(Collections.singletonList(TestLine.X_AXIS.span()));
 
         final TestLine splitter = TestLine.X_AXIS.reverse();
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertNull(split.getMinus());
     }
 
     @Test
     void testSplit_coincident_oppositeOrientation_3_oe() {
+     // arrange
         final StubRegion region = new StubRegion(Collections.singletonList(TestLine.X_AXIS.span()));
 
         final TestLine splitter = TestLine.X_AXIS.reverse();
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(region, split.getPlus());
     }
 
     @Test
     void testSplit_finite_both_1_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, -0.5);
         final TestPoint2D p2 = new TestPoint2D(2, -0.5);
         final TestPoint2D p3 = new TestPoint2D(2, 0.5);
@@ -474,13 +567,16 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final TestLine splitter = TestLine.X_AXIS;
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
     @Test
     void testSplit_finite_both_2_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, -0.5);
         final TestPoint2D p2 = new TestPoint2D(2, -0.5);
         final TestPoint2D p3 = new TestPoint2D(2, 0.5);
@@ -495,8 +591,11 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final TestLine splitter = TestLine.X_AXIS;
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final StubRegion minus = split.getMinus();
         Assertions.assertEquals(4, minus.getBoundaries().size());
@@ -504,6 +603,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
     @Test
     void testSplit_finite_both_3_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, -0.5);
         final TestPoint2D p2 = new TestPoint2D(2, -0.5);
         final TestPoint2D p3 = new TestPoint2D(2, 0.5);
@@ -518,10 +618,14 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final TestLine splitter = TestLine.X_AXIS;
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final StubRegion minus = split.getMinus();
+        // removed other assertion
         checkClassify(minus, RegionLocation.INSIDE, new TestPoint2D(1.5, 0.25));
         checkClassify(minus, RegionLocation.BOUNDARY, new TestPoint2D(1.5, 0));
         checkClassify(minus, RegionLocation.OUTSIDE, new TestPoint2D(1.5, -0.25));
@@ -532,6 +636,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
     @Test
     void testSplit_inconsistentBoundarySplitLocations_minus_2_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(0, 0));
 
@@ -541,16 +646,20 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 ));
 
         final List<TestLineSegment> segments = region.getBoundaries();
+        // removed other assertion
 
         final TestLine splitter = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0));
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
     @Test
     void testSplit_inconsistentBoundarySplitLocations_minus_3_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(0, 0));
 
@@ -560,16 +669,21 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 ));
 
         final List<TestLineSegment> segments = region.getBoundaries();
+        // removed other assertion
 
         final TestLine splitter = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0));
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
         Assertions.assertSame(region, split.getMinus());
     }
 
     @Test
     void testSplit_inconsistentBoundarySplitLocations_minus_4_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(0, 0));
 
@@ -579,16 +693,22 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 ));
 
         final List<TestLineSegment> segments = region.getBoundaries();
+        // removed other assertion
 
         final TestLine splitter = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0));
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(split.getPlus());
     }
 
     @Test
     void testSplit_inconsistentBoundarySplitLocations_plus_2_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(0, 0));
 
@@ -598,16 +718,20 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 ));
 
         final List<TestLineSegment> segments = region.getBoundaries();
+        // removed other assertion
 
         final TestLine splitter = new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, 0));
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
     @Test
     void testSplit_inconsistentBoundarySplitLocations_plus_3_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(0, 0));
 
@@ -617,16 +741,21 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 ));
 
         final List<TestLineSegment> segments = region.getBoundaries();
+        // removed other assertion
 
         final TestLine splitter = new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, 0));
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
         Assertions.assertNull(split.getMinus());
     }
 
     @Test
     void testSplit_inconsistentBoundarySplitLocations_plus_4_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(0, 0));
 
@@ -636,16 +765,22 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 ));
 
         final List<TestLineSegment> segments = region.getBoundaries();
+        // removed other assertion
 
         final TestLine splitter = new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, 0));
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(region, split.getPlus());
     }
 
     @Test
     void testSplit_inconsistentBoundarySplitLocations_trimmedNotNull_minus_2_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(1e-8, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(-1e-8, 0));
 
@@ -655,16 +790,20 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 ));
 
         final List<TestLineSegment> segments = region.getBoundaries();
+        // removed other assertion
 
         final TestLine splitter = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0));
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
     @Test
     void testSplit_inconsistentBoundarySplitLocations_trimmedNotNull_minus_3_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(1e-8, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(-1e-8, 0));
 
@@ -674,16 +813,21 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 ));
 
         final List<TestLineSegment> segments = region.getBoundaries();
+        // removed other assertion
 
         final TestLine splitter = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0));
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
         Assertions.assertSame(region, split.getMinus());
     }
 
     @Test
     void testSplit_inconsistentBoundarySplitLocations_trimmedNotNull_minus_4_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(1e-8, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(-1e-8, 0));
 
@@ -693,16 +837,22 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 ));
 
         final List<TestLineSegment> segments = region.getBoundaries();
+        // removed other assertion
 
         final TestLine splitter = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0));
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(split.getPlus());
     }
 
     @Test
     void testSplit_inconsistentBoundarySplitLocations_trimmedNotNull_plus_2_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(1e-8, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(-1e-8, 0));
 
@@ -712,16 +862,20 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 ));
 
         final List<TestLineSegment> segments = region.getBoundaries();
+        // removed other assertion
 
         final TestLine splitter = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(-1, 0));
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
     @Test
     void testSplit_inconsistentBoundarySplitLocations_trimmedNotNull_plus_3_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(1e-8, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(-1e-8, 0));
 
@@ -731,16 +885,21 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 ));
 
         final List<TestLineSegment> segments = region.getBoundaries();
+        // removed other assertion
 
         final TestLine splitter = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(-1, 0));
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
         Assertions.assertNull(split.getMinus());
     }
 
     @Test
     void testSplit_inconsistentBoundarySplitLocations_trimmedNotNull_plus_4_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(1e-8, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(-1e-8, 0));
 
@@ -750,16 +909,22 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 ));
 
         final List<TestLineSegment> segments = region.getBoundaries();
+        // removed other assertion
 
         final TestLine splitter = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(-1, 0));
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(region, split.getPlus());
     }
 
     @Test
     void testSplit_inconsistentBoundarySplitLocations_trimmedNotNull_neither_2_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(1e-8, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(-1e-8, 0));
 
@@ -769,16 +934,20 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 ));
 
         final List<TestLineSegment> segments = region.getBoundaries();
+        // removed other assertion
 
         final TestLine splitter = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0));
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
     @Test
     void testSplit_inconsistentBoundarySplitLocations_trimmedNotNull_neither_3_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(1e-8, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(-1e-8, 0));
 
@@ -788,16 +957,21 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 ));
 
         final List<TestLineSegment> segments = region.getBoundaries();
+        // removed other assertion
 
         final TestLine splitter = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0));
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
         Assertions.assertNull(split.getMinus());
     }
 
     @Test
     void testSplit_inconsistentBoundarySplitLocations_trimmedNotNull_neither_4_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(1e-8, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(-1e-8, 0));
 
@@ -807,46 +981,61 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 ));
 
         final List<TestLineSegment> segments = region.getBoundaries();
+        // removed other assertion
 
         final TestLine splitter = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0));
 
+        // act
         final Split<StubRegion> split = region.split(splitter);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(split.getPlus());
     }
 
     @Test
     void testTransform_full_1_oe() {
+        // arrange
         final StubRegion region = new StubRegion(Collections.emptyList());
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         Assertions.assertTrue(transformed.isFull());
     }
 
     @Test
     void testTransform_full_2_oe() {
+        // arrange
         final StubRegion region = new StubRegion(Collections.emptyList());
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(transformed.isEmpty());
     }
 
     @Test
     void testTransform_infinite_1_oe() {
+        // arrange
         final TestLine line = TestLine.Y_AXIS;
 
         final StubRegion region = new StubRegion(Collections.singletonList(line.span()));
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
         Assertions.assertEquals(1, boundaries.size());
@@ -854,42 +1043,54 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
     @Test
     void testTransform_infinite_3_oe() {
+        // arrange
         final TestLine line = TestLine.Y_AXIS;
 
         final StubRegion region = new StubRegion(Collections.singletonList(line.span()));
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
+        // removed other assertion
 
         final TestLineSegment a = boundaries.get(0);
         final TestLine aLine = a.getHyperplane();
+        // removed other assertion
         Assertions.assertEquals(0.0, aLine.getDirectionX(), PartitionTestUtils.EPS);
     }
 
     @Test
     void testTransform_infinite_4_oe() {
+        // arrange
         final TestLine line = TestLine.Y_AXIS;
 
         final StubRegion region = new StubRegion(Collections.singletonList(line.span()));
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
+        // removed other assertion
 
         final TestLineSegment a = boundaries.get(0);
         final TestLine aLine = a.getHyperplane();
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.0, aLine.getDirectionY(), PartitionTestUtils.EPS);
     }
 
     @Test
     void testTransform_finite_1_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -902,8 +1103,10 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
         Assertions.assertEquals(3, boundaries.size());
@@ -911,6 +1114,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
     @Test
     void testTransform_reflection_1_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -923,8 +1127,10 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(-p.getX(), p.getY()));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
         Assertions.assertEquals(3, boundaries.size());
@@ -932,42 +1138,51 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
     @Test
     void testConvexRegionBoundaryBuilder_full_1_oe() {
+        // act
         final StubRegion region = StubRegion.fromBounds(Collections.emptyList());
 
+        // assert
         Assertions.assertSame(StubRegion.FULL, region);
     }
 
     @Test
     void testConvexRegionBoundaryBuilder_singleLine_1_oe() {
+        // act
         final StubRegion region = StubRegion.fromBounds(Collections.singletonList(TestLine.Y_AXIS));
 
+        // assert
         Assertions.assertEquals(1, region.getBoundaries().size());
     }
 
     @Test
     void testConvexRegionBoundaryBuilder_multipleLines_1_oe() {
+        // act
         final StubRegion region = StubRegion.fromBounds(Arrays.asList(
                     TestLine.X_AXIS,
                     new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, 1)),
                     TestLine.Y_AXIS.reverse()
                 ));
 
+        // assert
         Assertions.assertEquals(3, region.getBoundaries().size());
     }
 
     @Test
     void testConvexRegionBoundaryBuilder_duplicateLines_1_oe() {
+        // act
         final StubRegion region = StubRegion.fromBounds(Arrays.asList(
                 TestLine.Y_AXIS,
                 TestLine.Y_AXIS,
                 new TestLine(new TestPoint2D(0, 0), new TestPoint2D(0, 1)),
                 TestLine.Y_AXIS));
 
+        // assert
         Assertions.assertEquals(1, region.getBoundaries().size());
     }
 
     @Test
     void testConvexRegionBoundaryBuilder_1_oe() {
+        // arrange
         final List<TestLine> opposites = Arrays.asList(TestLine.X_AXIS, TestLine.X_AXIS.reverse());
         final List<TestLine> nonConvex = Arrays.asList(
                 TestLine.X_AXIS,
@@ -975,6 +1190,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, -1)),
                 new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, -2)));
 
+        // act/assert
         try {
     StubRegion.fromBounds(opposites);
     fail("IllegalArgumentException");
@@ -984,6 +1200,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
     @Test
     void testConvexRegionBoundaryBuilder_2_oe() {
+        // arrange
         final List<TestLine> opposites = Arrays.asList(TestLine.X_AXIS, TestLine.X_AXIS.reverse());
         final List<TestLine> nonConvex = Arrays.asList(
                 TestLine.X_AXIS,
@@ -991,6 +1208,8 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, -1)),
                 new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, -2)));
 
+        // act/assert
+        // removed other assertion
         try {
     StubRegion.fromBounds(nonConvex);
     fail("IllegalArgumentException");
@@ -1000,15 +1219,19 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
     @Test
     void testToString_1_oe() {
+        // arrange
         final StubRegion region = new StubRegion(Collections.emptyList());
 
+        // act
         final String str = region.toString();
 
+        // assert
         Assertions.assertEquals("StubRegion[boundaries= []]", str);
     }
 
 @Test
     void testProject_3_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1021,12 +1244,16 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 new TestLineSegment(p3, p1)
             ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, halfSpace.project(new TestPoint2D(0, 1)));
     }
 
 @Test
     void testProject_4_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1039,12 +1266,17 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 new TestLineSegment(p3, p1)
             ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, halfSpace.project(new TestPoint2D(0, 0)));
     }
 
 @Test
     void testProject_5_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1057,12 +1289,18 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 new TestLineSegment(p3, p1)
             ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, halfSpace.project(new TestPoint2D(0, -1)));
     }
 
 @Test
     void testProject_6_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1075,13 +1313,20 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 new TestLineSegment(p3, p1)
             ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(1.25, 0), triangle.project(new TestPoint2D(1.25, 0.1)));
     }
 
 @Test
     void testProject_7_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1094,13 +1339,21 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 new TestLineSegment(p3, p1)
             ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         PartitionTestUtils.assertPointsEqual(p1, triangle.project(TestPoint2D.ZERO));
     }
 
 @Test
     void testProject_8_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1113,13 +1366,22 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
                 new TestLineSegment(p3, p1)
             ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         PartitionTestUtils.assertPointsEqual(p3, triangle.project(new TestPoint2D(0, 10)));
     }
 
 @Test
     void testTrim_2_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(2, 1);
@@ -1136,6 +1398,8 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final TestLineSegment segment = new TestLineSegment(new TestPoint2D(-1, 0.5), new TestPoint2D(4, 0.5));
 
+        // act/assert
+        // removed other assertion
 
         final TestLineSegment trimmedA = halfSpace.trim(segment);
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(-1, 0.5), trimmedA.getStartPoint());
@@ -1143,6 +1407,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
 @Test
     void testTrim_3_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(2, 1);
@@ -1159,13 +1424,17 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final TestLineSegment segment = new TestLineSegment(new TestPoint2D(-1, 0.5), new TestPoint2D(4, 0.5));
 
+        // act/assert
+        // removed other assertion
 
         final TestLineSegment trimmedA = halfSpace.trim(segment);
+        // removed other assertion
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 0.5), trimmedA.getEndPoint());
     }
 
 @Test
     void testTrim_4_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(2, 1);
@@ -1182,8 +1451,12 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final TestLineSegment segment = new TestLineSegment(new TestPoint2D(-1, 0.5), new TestPoint2D(4, 0.5));
 
+        // act/assert
+        // removed other assertion
 
         final TestLineSegment trimmedA = halfSpace.trim(segment);
+        // removed other assertion
+        // removed other assertion
 
         final TestLineSegment trimmedB = square.trim(segment);
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(1, 0.5), trimmedB.getStartPoint());
@@ -1191,6 +1464,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
 @Test
     void testTrim_5_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(2, 1);
@@ -1207,15 +1481,21 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final TestLineSegment segment = new TestLineSegment(new TestPoint2D(-1, 0.5), new TestPoint2D(4, 0.5));
 
+        // act/assert
+        // removed other assertion
 
         final TestLineSegment trimmedA = halfSpace.trim(segment);
+        // removed other assertion
+        // removed other assertion
 
         final TestLineSegment trimmedB = square.trim(segment);
+        // removed other assertion
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(2, 0.5), trimmedB.getEndPoint());
     }
 
 @Test
     void testSplit_inconsistentBoundarySplitLocations_minus_1_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(0, 0));
 
@@ -1230,6 +1510,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
 @Test
     void testSplit_inconsistentBoundarySplitLocations_plus_1_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(0, 0));
 
@@ -1244,6 +1525,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
 @Test
     void testSplit_inconsistentBoundarySplitLocations_trimmedNotNull_minus_1_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(1e-8, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(-1e-8, 0));
 
@@ -1258,6 +1540,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
 @Test
     void testSplit_inconsistentBoundarySplitLocations_trimmedNotNull_plus_1_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(1e-8, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(-1e-8, 0));
 
@@ -1272,6 +1555,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
 @Test
     void testSplit_inconsistentBoundarySplitLocations_trimmedNotNull_neither_1_oe() {
+        // arrange
         final TestLine a = new TestLine(new TestPoint2D(1e-8, 0), new TestPoint2D(1, 1));
         final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(-1e-8, 0));
 
@@ -1286,16 +1570,20 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
 @Test
     void testTransform_infinite_2_oe() {
+        // arrange
         final TestLine line = TestLine.Y_AXIS;
 
         final StubRegion region = new StubRegion(Collections.singletonList(line.span()));
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
+        // removed other assertion
 
         final TestLineSegment a = boundaries.get(0);
         final TestLine aLine = a.getHyperplane();
@@ -1304,6 +1592,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
 @Test
     void testTransform_finite_2_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1316,10 +1605,13 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
+        // removed other assertion
 
         final TestLineSegment a = boundaries.get(0);
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(2, 2), a.getStartPoint());
@@ -1327,6 +1619,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
 @Test
     void testTransform_finite_3_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1339,17 +1632,22 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
+        // removed other assertion
 
         final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(3, 2), a.getEndPoint());
     }
 
 @Test
     void testTransform_finite_4_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1362,12 +1660,17 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
+        // removed other assertion
 
         final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        // removed other assertion
 
         final TestLineSegment b = boundaries.get(1);
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(3, 2), b.getStartPoint());
@@ -1375,6 +1678,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
 @Test
     void testTransform_finite_5_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1387,19 +1691,26 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
+        // removed other assertion
 
         final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        // removed other assertion
 
         final TestLineSegment b = boundaries.get(1);
+        // removed other assertion
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(2, 3), b.getEndPoint());
     }
 
 @Test
     void testTransform_finite_6_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1412,14 +1723,21 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
+        // removed other assertion
 
         final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        // removed other assertion
 
         final TestLineSegment b = boundaries.get(1);
+        // removed other assertion
+        // removed other assertion
 
         final TestLineSegment c = boundaries.get(2);
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(2, 3), c.getStartPoint());
@@ -1427,6 +1745,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
 @Test
     void testTransform_finite_7_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1439,21 +1758,30 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
+        // removed other assertion
 
         final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        // removed other assertion
 
         final TestLineSegment b = boundaries.get(1);
+        // removed other assertion
+        // removed other assertion
 
         final TestLineSegment c = boundaries.get(2);
+        // removed other assertion
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(2, 2), c.getEndPoint());
     }
 
 @Test
     void testTransform_reflection_2_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1466,10 +1794,13 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(-p.getX(), p.getY()));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
+        // removed other assertion
 
         final TestLineSegment a = boundaries.get(0);
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(-2, 0), a.getStartPoint());
@@ -1477,6 +1808,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
 @Test
     void testTransform_reflection_3_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1489,17 +1821,22 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(-p.getX(), p.getY()));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
+        // removed other assertion
 
         final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(-1, 0), a.getEndPoint());
     }
 
 @Test
     void testTransform_reflection_4_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1512,12 +1849,17 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(-p.getX(), p.getY()));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
+        // removed other assertion
 
         final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        // removed other assertion
 
         final TestLineSegment b = boundaries.get(1);
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(-1, 1), b.getStartPoint());
@@ -1525,6 +1867,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
 @Test
     void testTransform_reflection_5_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1537,19 +1880,26 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(-p.getX(), p.getY()));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
+        // removed other assertion
 
         final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        // removed other assertion
 
         final TestLineSegment b = boundaries.get(1);
+        // removed other assertion
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(-2, 0), b.getEndPoint());
     }
 
 @Test
     void testTransform_reflection_6_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1562,14 +1912,21 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(-p.getX(), p.getY()));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
+        // removed other assertion
 
         final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        // removed other assertion
 
         final TestLineSegment b = boundaries.get(1);
+        // removed other assertion
+        // removed other assertion
 
         final TestLineSegment c = boundaries.get(2);
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(-1, 0), c.getStartPoint());
@@ -1577,6 +1934,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
 @Test
     void testTransform_reflection_7_oe() {
+        // arrange
         final TestPoint2D p1 = new TestPoint2D(1, 0);
         final TestPoint2D p2 = new TestPoint2D(2, 0);
         final TestPoint2D p3 = new TestPoint2D(1, 1);
@@ -1589,16 +1947,24 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
 
         final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(-p.getX(), p.getY()));
 
+        // act
         final StubRegion transformed = region.transform(transform);
 
+        // assert
         final List<TestLineSegment> boundaries = transformed.getBoundaries();
 
+        // removed other assertion
 
         final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        // removed other assertion
 
         final TestLineSegment b = boundaries.get(1);
+        // removed other assertion
+        // removed other assertion
 
         final TestLineSegment c = boundaries.get(2);
+        // removed other assertion
         PartitionTestUtils.assertPointsEqual(new TestPoint2D(-1, 1), c.getEndPoint());
     }
 

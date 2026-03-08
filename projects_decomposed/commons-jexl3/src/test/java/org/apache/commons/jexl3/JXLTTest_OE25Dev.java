@@ -327,6 +327,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         context.set("froboz", froboz);
         final JxltEngine.Expression check = JXLT.createExpression("${ froboz.plus10() }");
         final Object o = check.evaluate(context);
+        // removed other assertion
         Assert.assertEquals("Result is not 42", 42, froboz.getValue());
     }
 
@@ -336,6 +337,8 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         context.set("froboz", froboz);
         final JxltEngine.Expression check = JXLT.createExpression("${ froboz.plus10() }");
         final Object o = check.evaluate(context);
+        // removed other assertion
+        // removed other assertion
         final Set<List<String>> evars = check.getVariables();
         Assert.assertEquals(1, evars.size());
     }
@@ -357,6 +360,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JxltEngine.Expression assign = JXLT.createExpression("${froboz.value = 42}");
         final JxltEngine.Expression check = JXLT.createExpression("${froboz.value}");
         Object o = assign.evaluate(context);
+        // removed other assertion
         o = check.evaluate(context);
         Assert.assertEquals("Result is not 10", new Integer(42), o);
     }
@@ -376,6 +380,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JxltEngine.Expression expr = JXLT.createExpression(source);
         context.set("p", "Mr");
         context.set("name", "Doe");
+        // removed other assertion
         Object o = expr.evaluate(context);
         Assert.assertEquals("Dear Mr Doe;", o);
     }
@@ -386,7 +391,9 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JxltEngine.Expression expr = JXLT.createExpression(source);
         context.set("p", "Mr");
         context.set("name", "Doe");
+        // removed other assertion
         Object o = expr.evaluate(context);
+        // removed other assertion
         context.set("p", "Ms");
         context.set("name", "Jones");
         o = expr.evaluate(context);
@@ -399,10 +406,13 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JxltEngine.Expression expr = JXLT.createExpression(source);
         context.set("p", "Mr");
         context.set("name", "Doe");
+        // removed other assertion
         Object o = expr.evaluate(context);
+        // removed other assertion
         context.set("p", "Ms");
         context.set("name", "Jones");
         o = expr.evaluate(context);
+        // removed other assertion
         Assert.assertEquals(source, getSource(expr.toString()));
     }
 
@@ -417,6 +427,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
     public void testPrepareEvaluate_2_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
+        // removed other assertion
 
         final Set<List<String>> evars = expr.getVariables();
         Assert.assertEquals(1, evars.size());
@@ -426,8 +437,10 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
     public void testPrepareEvaluate_3_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
+        // removed other assertion
 
         final Set<List<String>> evars = expr.getVariables();
+        // removed other assertion
         Assert.assertTrue(contains(evars, Collections.singletonList("name")));
     }
 
@@ -435,8 +448,11 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
     public void testPrepareEvaluate_4_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
+        // removed other assertion
 
         final Set<List<String>> evars = expr.getVariables();
+        // removed other assertion
+        // removed other assertion
         context.set("name", "Doe");
         final JxltEngine.Expression phase1 = expr.prepare(context);
         final String as = phase1.asString();
@@ -447,11 +463,15 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
     public void testPrepareEvaluate_5_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
+        // removed other assertion
 
         final Set<List<String>> evars = expr.getVariables();
+        // removed other assertion
+        // removed other assertion
         context.set("name", "Doe");
         final JxltEngine.Expression phase1 = expr.prepare(context);
         final String as = phase1.asString();
+        // removed other assertion
         final Set<List<String>> evars1 = phase1.getVariables();
         Assert.assertEquals(1, evars1.size());
     }
@@ -460,12 +480,17 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
     public void testPrepareEvaluate_6_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
+        // removed other assertion
 
         final Set<List<String>> evars = expr.getVariables();
+        // removed other assertion
+        // removed other assertion
         context.set("name", "Doe");
         final JxltEngine.Expression phase1 = expr.prepare(context);
         final String as = phase1.asString();
+        // removed other assertion
         final Set<List<String>> evars1 = phase1.getVariables();
+        // removed other assertion
         Assert.assertTrue(contains(evars1, Collections.singletonList("p")));
     }
 
@@ -473,12 +498,18 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
     public void testPrepareEvaluate_7_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
+        // removed other assertion
 
         final Set<List<String>> evars = expr.getVariables();
+        // removed other assertion
+        // removed other assertion
         context.set("name", "Doe");
         final JxltEngine.Expression phase1 = expr.prepare(context);
         final String as = phase1.asString();
+        // removed other assertion
         final Set<List<String>> evars1 = phase1.getVariables();
+        // removed other assertion
+        // removed other assertion
         vars.clear();
         context.set("p", "Mr");
         context.set("name", "Should not be used in 2nd phase");
@@ -490,16 +521,23 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
     public void testPrepareEvaluate_8_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
+        // removed other assertion
 
         final Set<List<String>> evars = expr.getVariables();
+        // removed other assertion
+        // removed other assertion
         context.set("name", "Doe");
         final JxltEngine.Expression phase1 = expr.prepare(context);
         final String as = phase1.asString();
+        // removed other assertion
         final Set<List<String>> evars1 = phase1.getVariables();
+        // removed other assertion
+        // removed other assertion
         vars.clear();
         context.set("p", "Mr");
         context.set("name", "Should not be used in 2nd phase");
         final Object o = phase1.evaluate(context);
+        // removed other assertion
 
         final String p1 = getSource(phase1.toString());
         Assert.assertEquals(source, getSource(phase1.toString()));
@@ -509,18 +547,26 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
     public void testPrepareEvaluate_9_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
+        // removed other assertion
 
         final Set<List<String>> evars = expr.getVariables();
+        // removed other assertion
+        // removed other assertion
         context.set("name", "Doe");
         final JxltEngine.Expression phase1 = expr.prepare(context);
         final String as = phase1.asString();
+        // removed other assertion
         final Set<List<String>> evars1 = phase1.getVariables();
+        // removed other assertion
+        // removed other assertion
         vars.clear();
         context.set("p", "Mr");
         context.set("name", "Should not be used in 2nd phase");
         final Object o = phase1.evaluate(context);
+        // removed other assertion
 
         final String p1 = getSource(phase1.toString());
+        // removed other assertion
         Assert.assertEquals(source, getSource(expr.toString()));
     }
 
@@ -539,6 +585,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JxltEngine.Expression expr = JXLT.createExpression(source);
 
         final Set<List<String>> evars = expr.getVariables();
+        // removed other assertion
         Assert.assertTrue(contains(evars, Collections.singletonList("hi")));
     }
 
@@ -548,6 +595,8 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JxltEngine.Expression expr = JXLT.createExpression(source);
 
         final Set<List<String>> evars = expr.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         context.set("hi", "greeting");
         context.set("greeting.world", "Hello World!");
@@ -560,9 +609,12 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JxltEngine.Expression expr = JXLT.createExpression(source);
 
         final Set<List<String>> evars = expr.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         context.set("hi", "greeting");
         context.set("greeting.world", "Hello World!");
+        // removed other assertion
         final Object o = expr.evaluate(context);
         Assert.assertEquals("Hello World!", o);
     }
@@ -573,10 +625,14 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JxltEngine.Expression expr = JXLT.createExpression(source);
 
         final Set<List<String>> evars = expr.getVariables();
+        // removed other assertion
+        // removed other assertion
 
         context.set("hi", "greeting");
         context.set("greeting.world", "Hello World!");
+        // removed other assertion
         final Object o = expr.evaluate(context);
+        // removed other assertion
 
         Assert.assertEquals(source, getSource(expr.toString()));
     }
@@ -602,6 +658,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final StringWriter strw = new StringWriter();
         expr.evaluate(context, strw, "greeting");
         final String o = strw.toString();
+        // removed other assertion
 
         Assert.assertEquals(source, getSource(expr.toString()));
     }
@@ -621,6 +678,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final String source = "${'Hello ' + 'World!'}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
         final JxltEngine.Expression prepared = expr.prepare(none);
+        // removed other assertion
         final Object o = expr.evaluate(none);
         Assert.assertTrue("expression should be immediate", expr.isImmediate());
     }
@@ -631,7 +689,9 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final String source = "${'Hello ' + 'World!'}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
         final JxltEngine.Expression prepared = expr.prepare(none);
+        // removed other assertion
         final Object o = expr.evaluate(none);
+        // removed other assertion
         Assert.assertEquals("Hello World!", o);
     }
 
@@ -641,7 +701,10 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final String source = "${'Hello ' + 'World!'}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
         final JxltEngine.Expression prepared = expr.prepare(none);
+        // removed other assertion
         final Object o = expr.evaluate(none);
+        // removed other assertion
+        // removed other assertion
 
         Assert.assertEquals(source, getSource(expr.toString()));
     }
@@ -659,6 +722,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         final String source = "Hello World!";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
+        // removed other assertion
         final Object o = expr.evaluate(none);
         Assert.assertTrue("expression should be immediate", expr.isImmediate());
     }
@@ -668,7 +732,9 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         final String source = "Hello World!";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
+        // removed other assertion
         final Object o = expr.evaluate(none);
+        // removed other assertion
         Assert.assertEquals("Hello World!", o);
     }
 
@@ -677,7 +743,10 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         final String source = "Hello World!";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
+        // removed other assertion
         final Object o = expr.evaluate(none);
+        // removed other assertion
+        // removed other assertion
 
         Assert.assertEquals(source, getSource(expr.toString()));
     }
@@ -687,6 +756,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         final String source = "${size({'map':123,'map2':456})}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
+        //Assert.assertTrue("prepare should return same expression", expr.prepare(none) == expr);
         final Object o = expr.evaluate(none);
         Assert.assertTrue("expression should be immediate", expr.isImmediate());
     }
@@ -696,7 +766,9 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         final String source = "${size({'map':123,'map2':456})}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
+        //Assert.assertTrue("prepare should return same expression", expr.prepare(none) == expr);
         final Object o = expr.evaluate(none);
+        // removed other assertion
         Assert.assertEquals(2, o);
     }
 
@@ -705,7 +777,10 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         final String source = "${size({'map':123,'map2':456})}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
+        //Assert.assertTrue("prepare should return same expression", expr.prepare(none) == expr);
         final Object o = expr.evaluate(none);
+        // removed other assertion
+        // removed other assertion
 
         Assert.assertEquals(source, getSource(expr.toString()));
     }
@@ -715,6 +790,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         final String source = "#{size({'map':123,'map2':456})}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
+        //Assert.assertTrue("prepare should return same expression", expr.prepare(none) == expr);
         final Object o = expr.evaluate(none);
         Assert.assertTrue("expression should be deferred", expr.isDeferred());
     }
@@ -724,7 +800,9 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         final String source = "#{size({'map':123,'map2':456})}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
+        //Assert.assertTrue("prepare should return same expression", expr.prepare(none) == expr);
         final Object o = expr.evaluate(none);
+        // removed other assertion
         Assert.assertEquals(2, o);
     }
 
@@ -733,7 +811,10 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         final String source = "#{size({'map':123,'map2':456})}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
+        //Assert.assertTrue("prepare should return same expression", expr.prepare(none) == expr);
         final Object o = expr.evaluate(none);
+        // removed other assertion
+        // removed other assertion
 
         Assert.assertEquals(source, getSource(expr.toString()));
     }
@@ -743,6 +824,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         final String source = "#{ ${size({'1':2,'2': 3})} }";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
+        //Assert.assertTrue("prepare should return same expression", expr.prepare(none) == expr);
         final Object o = expr.evaluate(none);
         Assert.assertTrue("expression should be deferred", expr.isDeferred());
     }
@@ -752,7 +834,9 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         final String source = "#{ ${size({'1':2,'2': 3})} }";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
+        //Assert.assertTrue("prepare should return same expression", expr.prepare(none) == expr);
         final Object o = expr.evaluate(none);
+        // removed other assertion
         Assert.assertEquals(2, o);
     }
 
@@ -761,7 +845,10 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         final String source = "#{ ${size({'1':2,'2': 3})} }";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
+        //Assert.assertTrue("prepare should return same expression", expr.prepare(none) == expr);
         final Object o = expr.evaluate(none);
+        // removed other assertion
+        // removed other assertion
 
         Assert.assertEquals(source, getSource(expr.toString()));
     }
@@ -779,6 +866,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         final String source = "#{'world'}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
+        // removed other assertion
         final String as = expr.prepare(none).asString();
         Assert.assertEquals("prepare should return immediate version", "${'world'}", as);
     }
@@ -788,7 +876,9 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         final String source = "#{'world'}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
+        // removed other assertion
         final String as = expr.prepare(none).asString();
+        // removed other assertion
         final Object o = expr.evaluate(none);
         Assert.assertEquals("world", o);
     }
@@ -798,8 +888,11 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         final String source = "#{'world'}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
+        // removed other assertion
         final String as = expr.prepare(none).asString();
+        // removed other assertion
         final Object o = expr.evaluate(none);
+        // removed other assertion
 
         Assert.assertEquals(source, getSource(expr.toString()));
     }
@@ -809,6 +902,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         JxltEngine.Expression expr;
         Object o;
+        // $ and # are escapable in TemplateEngine
         expr = JXLT.createExpression("\\#{'world'}");
         o = expr.evaluate(none);
         Assert.assertEquals("#{'world'}", o);
@@ -819,8 +913,10 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlContext none = null;
         JxltEngine.Expression expr;
         Object o;
+        // $ and # are escapable in TemplateEngine
         expr = JXLT.createExpression("\\#{'world'}");
         o = expr.evaluate(none);
+        // removed other assertion
         expr = JXLT.createExpression("\\${'world'}");
         o = expr.evaluate(none);
         Assert.assertEquals("${'world'}", o);
@@ -878,6 +974,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         strw = new StringWriter();
         t.evaluate(context, strw);
         output = strw.toString();
+        // removed other assertion
 
         strw = new StringWriter();
         context.set("x", "");
@@ -898,11 +995,13 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         strw = new StringWriter();
         t.evaluate(context, strw);
         output = strw.toString();
+        // removed other assertion
 
         strw = new StringWriter();
         context.set("x", "");
         t.evaluate(context, strw);
         output = strw.toString();
+        // removed other assertion
 
         final String dstr = t.toString();
         Assert.assertNotNull(dstr);
@@ -927,6 +1026,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
 
         final JxltEngine.Template t = JXLT.createTemplate("$$", new StringReader(source), (String[]) null);
         final String dstr = t.asString();
+        // removed other assertion
 
         final String[] ps = t.getParameters();
         Assert.assertTrue(Arrays.asList(ps).contains("x"));
@@ -940,8 +1040,10 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
 
         final JxltEngine.Template t = JXLT.createTemplate("$$", new StringReader(source), (String[]) null);
         final String dstr = t.asString();
+        // removed other assertion
 
         final String[] ps = t.getParameters();
+        // removed other assertion
 
         strw = new StringWriter();
         t.evaluate(context, strw, 42);
@@ -968,6 +1070,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
 
         final JxltEngine.Template t = JXLT.createTemplate("$$", new StringReader(source), "x");
         final String dstr = t.asString();
+        // removed other assertion
 
         strw = new StringWriter();
         t.evaluate(context, strw, 42);
@@ -983,10 +1086,12 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
 
         final JxltEngine.Template t = JXLT.createTemplate("$$", new StringReader(source), "x");
         final String dstr = t.asString();
+        // removed other assertion
 
         strw = new StringWriter();
         t.evaluate(context, strw, 42);
         output = strw.toString();
+        // removed other assertion
 
         strw = new StringWriter();
         t.evaluate(context, strw, "");
@@ -1013,6 +1118,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
 
         final JxltEngine.Template t = JXLT.createTemplate("$$", new StringReader(source), "x");
         final String dstr = t.asString();
+        // removed other assertion
 
         strw = new StringWriter();
         t.evaluate(context, strw, 42);
@@ -1041,6 +1147,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final int[] args = {42};
         final JxltEngine.Template tl10n = JXLT.createTemplate(source, "list");
         final String dstr = tl10n.asString();
+        // removed other assertion
         final Set<List<String>> vars = tl10n.getVariables();
         Assert.assertFalse(vars.isEmpty());
     }
@@ -1054,7 +1161,9 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final int[] args = {42};
         final JxltEngine.Template tl10n = JXLT.createTemplate(source, "list");
         final String dstr = tl10n.asString();
+        // removed other assertion
         final Set<List<String>> vars = tl10n.getVariables();
+        // removed other assertion
         context.set("l10n", "valeur");
         final JxltEngine.Template tpFR = tl10n.prepare(context);
         context.set("l10n", "value");
@@ -1077,7 +1186,9 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final int[] args = {42};
         final JxltEngine.Template tl10n = JXLT.createTemplate(source, "list");
         final String dstr = tl10n.asString();
+        // removed other assertion
         final Set<List<String>> vars = tl10n.getVariables();
+        // removed other assertion
         context.set("l10n", "valeur");
         final JxltEngine.Template tpFR = tl10n.prepare(context);
         context.set("l10n", "value");
@@ -1088,6 +1199,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         strw = new StringWriter();
         tpFR.evaluate(context, strw, args);
         final String outFR = strw.toString();
+        // removed other assertion
 
         context.set("l10n", null);
         strw = new StringWriter();
@@ -1145,6 +1257,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
                 + "The value 5 is under fourty-two\n"
                 + "Life, the universe, and everything\n"
                 + "The value 169 is over fourty-two\n";
+        // removed other assertion
 
         final String dstr = t.asString();
         Assert.assertNotNull(dstr);
@@ -1173,8 +1286,10 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
                 + "The value 5 is under fourty-two\n"
                 + "Life, the universe, and everything\n"
                 + "The value 169 is over fourty-two\n";
+        // removed other assertion
 
         final String dstr = t.asString();
+        // removed other assertion
 
         final TemplateDebugger td = new TemplateDebugger();
         final String refactored = refactor(td, t);
@@ -1204,11 +1319,14 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
                 + "The value 5 is under fourty-two\n"
                 + "Life, the universe, and everything\n"
                 + "The value 169 is over fourty-two\n";
+        // removed other assertion
 
         final String dstr = t.asString();
+        // removed other assertion
 
         final TemplateDebugger td = new TemplateDebugger();
         final String refactored = refactor(td, t);
+        // removed other assertion
         Assert.assertEquals(test42, refactored);
     }
 
@@ -1231,6 +1349,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
 
         final Debugger sd = new Debugger();
         final String rscript = sd.debug(script)? sd.toString() : null;
+        // removed other assertion
 
         final TemplateDebugger td = new TemplateDebugger();
         final String refactored = td.debug(script)? td.toString() : null;
@@ -1245,9 +1364,11 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
 
         final Debugger sd = new Debugger();
         final String rscript = sd.debug(script)? sd.toString() : null;
+        // removed other assertion
 
         final TemplateDebugger td = new TemplateDebugger();
         final String refactored = td.debug(script)? td.toString() : null;
+        // removed other assertion
         Assert.assertEquals(refactored, rscript);
     }
 
@@ -1297,6 +1418,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         t.evaluate(context, strw);
         final String output = strw.toString();
         final String ctl = "<report>\n\n\n\n\n        11\n</report>\n";
+        // removed other assertion
 
         final TemplateDebugger td = new TemplateDebugger();
         final String refactored = refactor(td, t);
@@ -1320,9 +1442,11 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         t.evaluate(context, strw);
         final String output = strw.toString();
         final String ctl = "<report>\n\n\n\n\n        11\n</report>\n";
+        // removed other assertion
 
         final TemplateDebugger td = new TemplateDebugger();
         final String refactored = refactor(td, t);
+        // removed other assertion
         Assert.assertEquals(rpt, refactored);
     }
 
@@ -1371,6 +1495,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
                 count += 1;
             }
         }
+        // removed other assertion
         Assert.assertTrue(output.indexOf("42") > 0);
     }
 
@@ -1395,6 +1520,8 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
                 count += 1;
             }
         }
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(output.indexOf("43") > 0);
     }
 
@@ -1419,6 +1546,9 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
                 count += 1;
             }
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(output.indexOf("44") > 0);
     }
 
@@ -1443,6 +1573,10 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
                 count += 1;
             }
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(output.indexOf("45") > 0);
     }
 
@@ -1489,6 +1623,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
                 count += 1;
             }
         }
+        // removed other assertion
         Assert.assertTrue(output.indexOf("42") > 0);
     }
 
@@ -1512,6 +1647,8 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
                 count += 1;
             }
         }
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(output.indexOf("43") > 0);
     }
 
@@ -1535,6 +1672,9 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
                 count += 1;
             }
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(output.indexOf("44") > 0);
     }
 
@@ -1558,6 +1698,10 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
                 count += 1;
             }
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(output.indexOf("45") > 0);
     }
 
@@ -1581,6 +1725,11 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
                 count += 1;
             }
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final TemplateDebugger td = new TemplateDebugger();
         final String xxx = refactor(td, t);
@@ -1607,9 +1756,15 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
                 count += 1;
             }
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final TemplateDebugger td = new TemplateDebugger();
         final String xxx = refactor(td, t);
+        // removed other assertion
         Assert.assertEquals(rpt, xxx);
     }
 
@@ -1647,6 +1802,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JexlScript script = ENGINE.createScript(expr);
         context.set("user", "Dimitri");
         Object value = script.execute(context);
+        // removed other assertion
         context.set("user", "Rahul");
         value = script.execute(context);
         Assert.assertEquals(expr, "Hello \nRahul", value);
@@ -1700,6 +1856,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
     public void testInterpolationParameter_2_oe() throws Exception {
         final String expr =  "(user)->{`Hello \n${user}`}";
         Object value = ENGINE.createScript(expr).execute(context, "Henrib");
+        // removed other assertion
         value = ENGINE.createScript(expr).execute(context, "Dimitri");
         Assert.assertEquals(expr, "Hello \nDimitri", value);
     }
@@ -1718,6 +1875,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
              "where ${w}\n"
         ));
         final StringWriter strw = new StringWriter();
+        //vars.clear();
         t.evaluate(context, strw);
         final String output = strw.toString();
         Assert.assertTrue(output.contains("table1") && output.contains("table2"));
@@ -1871,6 +2029,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         strw = new StringWriter();
         t315.evaluate(context, strw);
         output = strw.toString();
+        // removed other assertion
 
         s315 = "<foo/>#";
         t315 = JXLT.createTemplate("$$", new StringReader(s315));
@@ -1892,12 +2051,14 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         strw = new StringWriter();
         t315.evaluate(context, strw);
         output = strw.toString();
+        // removed other assertion
 
         s315 = "<foo/>#";
         t315 = JXLT.createTemplate("$$", new StringReader(s315));
          strw = new StringWriter();
         t315.evaluate(context, strw);
         output = strw.toString();
+        // removed other assertion
 
         s315 = "<bar/>\\";
         t315 = JXLT.createTemplate("$$", new StringReader(s315));
@@ -1948,6 +2109,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final Writer strw0 = new StringWriter();
         tmplt0.evaluate(ctxt, strw0);
         final String output0 = strw0.toString();
+        // removed other assertion
 
         final String src = "$$ #pragma script.mode pro50\n" + src0;
 
@@ -1975,6 +2137,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final Writer strw = new StringWriter();
         try {
             tmplt.evaluate(ctxt, strw);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
             Assert.assertEquals("tab", xvar.getVariable());
     }
@@ -1997,7 +2160,9 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final Writer strw = new StringWriter();
         try {
             tmplt.evaluate(ctxt, strw);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
             Assert.assertFalse(xvar.isUndefined());
     }
     }
@@ -2027,6 +2192,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         opts.setSafe(true);
         try {
             tmplt.evaluate(ctxt, strw);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
             Assert.fail("safe should prevent local shade");
     }
@@ -2057,12 +2223,15 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         opts.setSafe(true);
         try {
             tmplt.evaluate(ctxt, strw);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         opts.setStrict(true);
         opts.setSafe(false);
         try {
             tmplt.evaluate(ctxt, strw);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
             Assert.assertTrue("tab".equals(xvar.getVariable()));
     }
@@ -2093,13 +2262,17 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         opts.setSafe(true);
         try {
             tmplt.evaluate(ctxt, strw);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         opts.setStrict(true);
         opts.setSafe(false);
         try {
             tmplt.evaluate(ctxt, strw);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
             Assert.assertTrue(xvar.isUndefined());
     }
     }
@@ -2129,13 +2302,18 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         opts.setSafe(true);
         try {
             tmplt.evaluate(ctxt, strw);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         opts.setStrict(true);
         opts.setSafe(false);
         try {
             tmplt.evaluate(ctxt, strw);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
+            // removed other assertion
         } catch (final JexlException xany) {
             Assert.assertTrue(xany.getMessage().contains("tab"));
     }
@@ -2164,6 +2342,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
                 + "Hello\n"
                 + "$$*/";
         tmplt = jxlt.createTemplate(src);
+        // removed other assertion
         final Writer strw = new StringWriter();
         tmplt.evaluate(ctxt, strw);
         Assert.assertTrue(strw.toString().isEmpty());
@@ -2200,6 +2379,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
                 + "three\n"
                 + "$$*/\n";
         tmplt = jxlt.createTemplate(src);
+        // removed other assertion
         final Writer strw = new StringWriter();
         tmplt.evaluate(ctxt, strw);
         Assert.assertEquals("42\n", strw.toString());
@@ -2234,6 +2414,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final JxltEngine jxlt = jexl.createJxltEngine();
         JxltEngine.Template tmplt;
         tmplt = jxlt.createTemplate(src);
+        // removed other assertion
         final Writer strw = new StringWriter();
         tmplt.evaluate(ctxt, strw);
         String result = strw.toString();
@@ -2245,6 +2426,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final String src = "Hello ${user}";
         final JexlContext ctxt = new MapContext();
         ctxt.set("user", "Francesco");
+        /// this uberspect can not access jexl3 classes (besides test)
         Uberspect uberspect = new Uberspect(LogFactory.getLog(JXLTTest.class), null, NOJEXL3);
         Method method = uberspect.getMethod(TemplateInterpreter.class, "print", new Object[]{Integer.TYPE});
         Assert.assertNull(method);
@@ -2255,8 +2437,11 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         final String src = "Hello ${user}";
         final JexlContext ctxt = new MapContext();
         ctxt.set("user", "Francesco");
+        /// this uberspect can not access jexl3 classes (besides test)
         Uberspect uberspect = new Uberspect(LogFactory.getLog(JXLTTest.class), null, NOJEXL3);
         Method method = uberspect.getMethod(TemplateInterpreter.class, "print", new Object[]{Integer.TYPE});
+        // removed other assertion
+        // ensures JXLT sandboxed still executes
         final JexlEngine jexl= new JexlBuilder().uberspect(uberspect).create();
         final JxltEngine jxlt = jexl.createJxltEngine();
 
@@ -2269,6 +2454,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testSanboxed311i_1_oe() throws Exception {
+        /// this uberspect can not access jexl3 classes (besides test)
         Uberspect uberspect = new Uberspect(LogFactory.getLog(JXLTTest.class), null, NOJEXL3);
         Method method = uberspect.getMethod(TemplateInterpreter.class, "print", new Object[]{Integer.TYPE});
         final JexlEngine jexl= new JexlBuilder().uberspect(uberspect).create();

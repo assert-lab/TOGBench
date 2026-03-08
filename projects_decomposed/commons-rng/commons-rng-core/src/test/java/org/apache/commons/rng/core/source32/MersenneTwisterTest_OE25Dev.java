@@ -164,7 +164,9 @@ class MersenneTwisterTest_OE25Dev {
 
     @Test
     void testConstructorWithEmptySeed_1_oe() {
+        // An empty seed is allowed
          MersenneTwister rng = new MersenneTwister(new int[0]);
+        // It should be functional so check it returns different values.
         Assertions.assertNotEquals(rng.nextInt(),rng.nextInt(),"Empty seed creates sequence with same values");
     }
 

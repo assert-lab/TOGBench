@@ -246,6 +246,7 @@ public class BodyDeferringAsyncHandlerTest_OE25Dev extends AbstractBasicTest {
       BodyDeferringAsyncHandler bdah = new BodyDeferringAsyncHandler(cos);
       Future<Response> f = r.execute(bdah);
       Response resp = bdah.getResponse();
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -259,6 +260,8 @@ public class BodyDeferringAsyncHandlerTest_OE25Dev extends AbstractBasicTest {
       BodyDeferringAsyncHandler bdah = new BodyDeferringAsyncHandler(cos);
       Future<Response> f = r.execute(bdah);
       Response resp = bdah.getResponse();
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getHeader(CONTENT_LENGTH), String.valueOf(CONTENT_LENGTH_VALUE));
   }
   }
@@ -272,6 +275,11 @@ public class BodyDeferringAsyncHandlerTest_OE25Dev extends AbstractBasicTest {
       BodyDeferringAsyncHandler bdah = new BodyDeferringAsyncHandler(cos);
       Future<Response> f = r.execute(bdah);
       Response resp = bdah.getResponse();
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // we got headers only, it's probably not all yet here (we have BIG file
+      // downloading)
       assertTrue(cos.getByteCount() <= CONTENT_LENGTH_VALUE);
   }
   }
@@ -285,8 +293,17 @@ public class BodyDeferringAsyncHandlerTest_OE25Dev extends AbstractBasicTest {
       BodyDeferringAsyncHandler bdah = new BodyDeferringAsyncHandler(cos);
       Future<Response> f = r.execute(bdah);
       Response resp = bdah.getResponse();
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // we got headers only, it's probably not all yet here (we have BIG file
+      // downloading)
+      // removed other assertion
 
+      // now be polite and wait for body arrival too (otherwise we would be
+      // dropping the "line" on server)
       f.get();
+      // it all should be here now
       assertEquals(cos.getByteCount(), CONTENT_LENGTH_VALUE);
   }
   }
@@ -323,6 +340,7 @@ public class BodyDeferringAsyncHandlerTest_OE25Dev extends AbstractBasicTest {
       BodyDeferringInputStream is = new BodyDeferringInputStream(f, bdah, pis);
 
       Response resp = is.getAsapResponse();
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -341,6 +359,8 @@ public class BodyDeferringAsyncHandlerTest_OE25Dev extends AbstractBasicTest {
       BodyDeferringInputStream is = new BodyDeferringInputStream(f, bdah, pis);
 
       Response resp = is.getAsapResponse();
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getHeader(CONTENT_LENGTH), String.valueOf(CONTENT_LENGTH_VALUE));
   }
   }
@@ -379,6 +399,10 @@ public class BodyDeferringAsyncHandlerTest_OE25Dev extends AbstractBasicTest {
       BodyDeferringInputStream is = new BodyDeferringInputStream(f, bdah, pis);
 
       Response resp = is.getAsapResponse();
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // "consume" the body, but our code needs input stream
       CountingOutputStream cos = new CountingOutputStream();
       try {
         copy(is, cos);
@@ -387,6 +411,9 @@ public class BodyDeferringAsyncHandlerTest_OE25Dev extends AbstractBasicTest {
         cos.close();
       }
 
+      // now we don't need to be polite, since consuming and closing
+      // BodyDeferringInputStream does all.
+      // it all should be here now
       assertEquals(cos.getByteCount(), CONTENT_LENGTH_VALUE);
   }
   }

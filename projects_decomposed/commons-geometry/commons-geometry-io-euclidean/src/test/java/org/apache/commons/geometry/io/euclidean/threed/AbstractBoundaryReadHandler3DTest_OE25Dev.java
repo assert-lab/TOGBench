@@ -41,6 +41,8 @@ import org.apache.commons.numbers.core.Precision;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class AbstractBoundaryReadHandler3DTest_OE25Dev {
 
     private static final double TEST_EPS = 1e-10;
@@ -109,126 +111,167 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
 
     @Test
     void testRead_1_oe() {
+        // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
         final TestReadHandler3D handler = new TestReadHandler3D(facets);
 
         final GeometryInput in = new StreamGeometryInput(new ByteArrayInputStream(new byte[0]));
 
+        // act
         final BoundarySource3D result = handler.read(in, TEST_PRECISION);
 
+        // assert
         Assertions.assertSame(in, handler.inArg);
     }
 
     @Test
     void testRead_2_oe() {
+        // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
         final TestReadHandler3D handler = new TestReadHandler3D(facets);
 
         final GeometryInput in = new StreamGeometryInput(new ByteArrayInputStream(new byte[0]));
 
+        // act
         final BoundarySource3D result = handler.read(in, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertEquals(BoundaryList3D.class, result.getClass());
     }
 
     @Test
     void testRead_3_oe() {
+        // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
         final TestReadHandler3D handler = new TestReadHandler3D(facets);
 
         final GeometryInput in = new StreamGeometryInput(new ByteArrayInputStream(new byte[0]));
 
+        // act
         final BoundarySource3D result = handler.read(in, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(2, result.toList().getBoundaries().size());
     }
 
     @Test
     void testReadTriangleMesh_1_oe() {
+        // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
         final TestReadHandler3D handler = new TestReadHandler3D(facets);
 
         final GeometryInput in = new StreamGeometryInput(new ByteArrayInputStream(new byte[0]));
 
+        // act
         final TriangleMesh result = handler.readTriangleMesh(in, TEST_PRECISION);
 
+        // assert
         Assertions.assertSame(in, handler.inArg);
     }
 
     @Test
     void testReadTriangleMesh_2_oe() {
+        // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
         final TestReadHandler3D handler = new TestReadHandler3D(facets);
 
         final GeometryInput in = new StreamGeometryInput(new ByteArrayInputStream(new byte[0]));
 
+        // act
         final TriangleMesh result = handler.readTriangleMesh(in, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertEquals(SimpleTriangleMesh.class, result.getClass());
     }
 
     @Test
     void testReadTriangleMesh_3_oe() {
+        // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
         final TestReadHandler3D handler = new TestReadHandler3D(facets);
 
         final GeometryInput in = new StreamGeometryInput(new ByteArrayInputStream(new byte[0]));
 
+        // act
         final TriangleMesh result = handler.readTriangleMesh(in, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(6, result.getVertexCount());
     }
 
     @Test
     void testReadTriangleMesh_4_oe() {
+        // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
         final TestReadHandler3D handler = new TestReadHandler3D(facets);
 
         final GeometryInput in = new StreamGeometryInput(new ByteArrayInputStream(new byte[0]));
 
+        // act
         final TriangleMesh result = handler.readTriangleMesh(in, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(4, result.getFaceCount());
     }
 
     @Test
     void testFacetIterator_1_oe() {
+        // arrange
         final StubFacetDefinitionReader reader = new StubFacetDefinitionReader(Arrays.asList(FACET_1, FACET_2));
         final FacetDefinitionReaderIterator it = new FacetDefinitionReaderIterator(reader);
 
+        // act/assert
         Assertions.assertTrue(it.hasNext());
     }
 
     @Test
     void testFacetIterator_2_oe() {
+        // arrange
         final StubFacetDefinitionReader reader = new StubFacetDefinitionReader(Arrays.asList(FACET_1, FACET_2));
         final FacetDefinitionReaderIterator it = new FacetDefinitionReaderIterator(reader);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertSame(FACET_1, it.next());
     }
 
     @Test
     void testFacetIterator_3_oe() {
+        // arrange
         final StubFacetDefinitionReader reader = new StubFacetDefinitionReader(Arrays.asList(FACET_1, FACET_2));
         final FacetDefinitionReaderIterator it = new FacetDefinitionReaderIterator(reader);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(it.hasNext());
     }
 
     @Test
     void testBoundaries_1_oe() {
+        // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
         final TestReadHandler3D handler = new TestReadHandler3D(facets);
 
         final CloseCountInputStream inputStream = new CloseCountInputStream(new ByteArrayInputStream(new byte[0]));
         final GeometryInput in = new StreamGeometryInput(inputStream);
 
+        // act
         final List<PlaneConvexSubset> list;
         try (Stream<PlaneConvexSubset> stream = handler.boundaries(in, TEST_PRECISION)) {
             list = stream.collect(Collectors.toList());
@@ -239,65 +282,82 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
 
     @Test
     void testBoundaries_2_oe() {
+        // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
         final TestReadHandler3D handler = new TestReadHandler3D(facets);
 
         final CloseCountInputStream inputStream = new CloseCountInputStream(new ByteArrayInputStream(new byte[0]));
         final GeometryInput in = new StreamGeometryInput(inputStream);
 
+        // act
         final List<PlaneConvexSubset> list;
         try (Stream<PlaneConvexSubset> stream = handler.boundaries(in, TEST_PRECISION)) {
             list = stream.collect(Collectors.toList());
 
+            // removed other assertion
         }
 
+        // assert
         Assertions.assertSame(in, handler.inArg);
     }
 
     @Test
     void testBoundaries_3_oe() {
+        // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
         final TestReadHandler3D handler = new TestReadHandler3D(facets);
 
         final CloseCountInputStream inputStream = new CloseCountInputStream(new ByteArrayInputStream(new byte[0]));
         final GeometryInput in = new StreamGeometryInput(inputStream);
 
+        // act
         final List<PlaneConvexSubset> list;
         try (Stream<PlaneConvexSubset> stream = handler.boundaries(in, TEST_PRECISION)) {
             list = stream.collect(Collectors.toList());
 
+            // removed other assertion
         }
 
+        // assert
+        // removed other assertion
 
         Assertions.assertEquals(2, list.size());
     }
 
     @Test
     void testBoundaries_4_oe() {
+        // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
         final TestReadHandler3D handler = new TestReadHandler3D(facets);
 
         final CloseCountInputStream inputStream = new CloseCountInputStream(new ByteArrayInputStream(new byte[0]));
         final GeometryInput in = new StreamGeometryInput(inputStream);
 
+        // act
         final List<PlaneConvexSubset> list;
         try (Stream<PlaneConvexSubset> stream = handler.boundaries(in, TEST_PRECISION)) {
             list = stream.collect(Collectors.toList());
 
+            // removed other assertion
         }
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(1, inputStream.getCloseCount());
     }
 
     @Test
     void testFacets_1_oe() {
+        // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
         final TestReadHandler3D handler = new TestReadHandler3D(facets);
 
         final CloseCountInputStream inputStream = new CloseCountInputStream(new ByteArrayInputStream(new byte[0]));
         final GeometryInput in = new StreamGeometryInput(inputStream);
 
+        // act
         final List<FacetDefinition> list;
         try (Stream<FacetDefinition> stream = handler.facets(in)) {
             list = stream.collect(Collectors.toList());
@@ -308,65 +368,86 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
 
     @Test
     void testFacets_2_oe() {
+        // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
         final TestReadHandler3D handler = new TestReadHandler3D(facets);
 
         final CloseCountInputStream inputStream = new CloseCountInputStream(new ByteArrayInputStream(new byte[0]));
         final GeometryInput in = new StreamGeometryInput(inputStream);
 
+        // act
         final List<FacetDefinition> list;
         try (Stream<FacetDefinition> stream = handler.facets(in)) {
             list = stream.collect(Collectors.toList());
 
+            // removed other assertion
         }
 
+        // assert
         Assertions.assertSame(in, handler.inArg);
     }
 
     @Test
     void testFacets_3_oe() {
+        // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
         final TestReadHandler3D handler = new TestReadHandler3D(facets);
 
         final CloseCountInputStream inputStream = new CloseCountInputStream(new ByteArrayInputStream(new byte[0]));
         final GeometryInput in = new StreamGeometryInput(inputStream);
 
+        // act
         final List<FacetDefinition> list;
         try (Stream<FacetDefinition> stream = handler.facets(in)) {
             list = stream.collect(Collectors.toList());
 
+            // removed other assertion
         }
 
+        // assert
+        // removed other assertion
 
         Assertions.assertEquals(2, list.size());
     }
 
     @Test
     void testFacets_4_oe() {
+        // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
         final TestReadHandler3D handler = new TestReadHandler3D(facets);
 
         final CloseCountInputStream inputStream = new CloseCountInputStream(new ByteArrayInputStream(new byte[0]));
         final GeometryInput in = new StreamGeometryInput(inputStream);
 
+        // act
         final List<FacetDefinition> list;
         try (Stream<FacetDefinition> stream = handler.facets(in)) {
             list = stream.collect(Collectors.toList());
 
+            // removed other assertion
         }
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(1, inputStream.getCloseCount());
     }
 
 @Test
     void testFacetIterator_readFails_1_oe() {
+        // arrange
         final StubFacetDefinitionReader reader = new StubFacetDefinitionReader(Arrays.asList(FACET_1, FACET_2));
         reader.fail = true;
 
         final FacetDefinitionReaderIterator it = new FacetDefinitionReaderIterator(reader);
 
-        GeometryTestUtils.assertThrowsWithMessage(it::next, IllegalStateException.class, "Read failure");
+        // act/assert
+        try {
+    it.next();
+    fail("Expected IllegalStateException with message: " + "Read failure");
+} catch (IllegalStateException e) {
+}
     }
 
 }

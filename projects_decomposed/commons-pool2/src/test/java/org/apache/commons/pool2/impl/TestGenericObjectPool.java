@@ -71,6 +71,8 @@ import org.junit.jupiter.api.Timeout;
  */
 public class TestGenericObjectPool extends TestBaseObjectPool {
 
+
+
     private class ConcurrentBorrowAndEvictThread extends Thread {
         private final boolean borrow;
         public String obj;
@@ -2506,6 +2508,31 @@ public class TestGenericObjectPool extends TestBaseObjectPool {
         }
     }
 
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void test_oe() throws Exception {
+        final long maxWait = 500; 
+        final long holdTime = 2 * maxWait; 
+        final int threads = 10; 
+        genericObjectPool.setBlockWhenExhausted(true);
+        genericObjectPool.setMaxWaitMillis(maxWait);
+        genericObjectPool.setMaxTotal(threads);
+        final WaitingTestThread[] wtt = new WaitingTestThread[threads * 2];
+        for (int i = 0; i < wtt.length; i++) {
+            wtt[i] = new WaitingTestThread(genericObjectPool,holdTime);
+        }
+        for (final WaitingTestThread element : wtt) {
+            element.start();
+        }
+        int failed = 0;
+        for (final WaitingTestThread element : wtt) {
+            element.join();
+            if (element.thrown != null){
+                failed++;
+            }
+        }
+        assertEquals(wtt.length / 2, failed,"Expected half the threads to fail");
+    }
     /**
      * This is the test case for POOL-263. It is disabled since it will always
      * pass without artificial delay being injected into GOP.returnObject() and

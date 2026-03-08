@@ -30,6 +30,8 @@ import org.apache.commons.geometry.io.core.test.CloseCountWriter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class AbstractTextFormatWriterTest_OE25Dev {
 
     private StringWriter out = new StringWriter();
@@ -43,30 +45,41 @@ class AbstractTextFormatWriterTest_OE25Dev {
 
     @Test
     void testDefaults_1_oe() {
+        // act
         try (TestWriter writer = new TestWriter(out)) {
+            // assert
             Assertions.assertEquals("\n", writer.getLineSeparator());
     }
     }
 
     @Test
     void testDefaults_2_oe() {
+        // act
         try (TestWriter writer = new TestWriter(out)) {
+            // assert
+            // removed other assertion
             Assertions.assertNotNull(writer.getDoubleFormat());
     }
     }
 
     @Test
     void testDefaults_3_oe() {
+        // act
         try (TestWriter writer = new TestWriter(out)) {
+            // assert
+            // removed other assertion
+            // removed other assertion
             Assertions.assertSame(out, writer.getWriter());
     }
     }
 
     @Test
     void testWrite_defaultConfig_1_oe() {
+        // arrange
         final double n = 20000.0 / 3.0;
         final CloseCountWriter closeCountWriter = new CloseCountWriter(out);
         try (TestWriter writer = new TestWriter(closeCountWriter)) {
+            // act
             writer.write('a');
             writer.write("bc");
             writer.writeNewLine();
@@ -76,15 +89,18 @@ class AbstractTextFormatWriterTest_OE25Dev {
             writer.writeNewLine();
             writer.write(5);
 
+            // assert
             Assertions.assertEquals("abc\n" + n + "\nInfinity\n5", out.toString());
     }
     }
 
     @Test
     void testWrite_defaultConfig_2_oe() {
+        // arrange
         final double n = 20000.0 / 3.0;
         final CloseCountWriter closeCountWriter = new CloseCountWriter(out);
         try (TestWriter writer = new TestWriter(closeCountWriter)) {
+            // act
             writer.write('a');
             writer.write("bc");
             writer.writeNewLine();
@@ -94,6 +110,8 @@ class AbstractTextFormatWriterTest_OE25Dev {
             writer.writeNewLine();
             writer.write(5);
 
+            // assert
+            // removed other assertion
         }
 
         Assertions.assertEquals(1, closeCountWriter.getCloseCount());
@@ -101,6 +119,7 @@ class AbstractTextFormatWriterTest_OE25Dev {
 
     @Test
     void testWrite_customConfig_1_oe() {
+        // arrange
         final CloseCountWriter closeCountWriter = new CloseCountWriter(out);
         try (TestWriter writer = new TestWriter(closeCountWriter)) {
 
@@ -111,6 +130,7 @@ class AbstractTextFormatWriterTest_OE25Dev {
             final DoubleFunction<String> df = fmt::format;
             writer.setDoubleFormat(df);
 
+            // act
             writer.write('a');
             writer.write("bc");
             writer.writeNewLine();
@@ -118,12 +138,14 @@ class AbstractTextFormatWriterTest_OE25Dev {
             writer.writeNewLine();
             writer.write(5);
 
+            // assert
             Assertions.assertEquals("abc\r\n6666.67\r\n5", out.toString());
     }
     }
 
     @Test
     void testWrite_customConfig_2_oe() {
+        // arrange
         final CloseCountWriter closeCountWriter = new CloseCountWriter(out);
         try (TestWriter writer = new TestWriter(closeCountWriter)) {
 
@@ -134,6 +156,7 @@ class AbstractTextFormatWriterTest_OE25Dev {
             final DoubleFunction<String> df = fmt::format;
             writer.setDoubleFormat(df);
 
+            // act
             writer.write('a');
             writer.write("bc");
             writer.writeNewLine();
@@ -141,6 +164,8 @@ class AbstractTextFormatWriterTest_OE25Dev {
             writer.writeNewLine();
             writer.write(5);
 
+            // assert
+            // removed other assertion
         }
 
         Assertions.assertEquals(1, closeCountWriter.getCloseCount());
@@ -148,6 +173,7 @@ class AbstractTextFormatWriterTest_OE25Dev {
 
 @Test
     void testWrite_failure_1_oe() {
+        // arrange
         final Writer failWriter = new Writer() {
             @Override
             public void write(char[] cbuf, int off, int len) throws IOException {
@@ -163,13 +189,19 @@ class AbstractTextFormatWriterTest_OE25Dev {
             }
         };
 
+        // act/assert
         try (TestWriter writer = new TestWriter(failWriter)) {
-            GeometryTestUtils.assertThrowsWithMessage( () -> writer.write('a'), UncheckedIOException.class, "IOException: test");
+            try {
+    writer.write('a');
+    fail("Expected UncheckedIOException with message: " + "IOException: test");
+} catch (UncheckedIOException e) {
+}
     }
     }
 
 @Test
     void testWrite_failure_2_oe() {
+        // arrange
         final Writer failWriter = new Writer() {
             @Override
             public void write(char[] cbuf, int off, int len) throws IOException {
@@ -185,9 +217,15 @@ class AbstractTextFormatWriterTest_OE25Dev {
             }
         };
 
+        // act/assert
         try (TestWriter writer = new TestWriter(failWriter)) {
+            // removed other assertion
 
-            GeometryTestUtils.assertThrowsWithMessage( () -> writer.write("abc"), UncheckedIOException.class, "IOException: test");
+            try {
+    writer.write("abc");
+    fail("Expected UncheckedIOException with message: " + "IOException: test");
+} catch (UncheckedIOException e) {
+}
     }
     }
 

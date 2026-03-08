@@ -1,0 +1,190 @@
+START commons-jcs3/commons-jcs-core
+ ITER 1
+START commons-jcs3/commons-jcs-jcache
+ ITER 1
+START commons-jcs3/commons-jcs-jcache-openjpa
+ ITER 1
+START commons-jcs3/commons-jcs-jcache-extras
+ ITER 1
+START commons-geometry/commons-geometry-core
+ ITER 1
+START springside4/modules/utils
+ ITER 1
+START commons-geometry/commons-geometry-euclidean
+ ITER 1
+START http-request
+ ITER 1
+START commons-geometry/commons-geometry-spherical
+ ITER 1
+START commons-configuration2
+ ITER 1
+START commons-geometry/commons-geometry-io-core
+ ITER 1
+START commons-lang3
+ ITER 1
+START commons-geometry/commons-geometry-io-euclidean
+START async-http-client/extras/rxjava
+ ITER 1
+ ITER 1
+START async-http-client/netty-utils
+ ITER 1
+START springside4/modules/metrics
+ ITER 1
+ STOP async-http-client/netty-utils (no compile error, no tests)
+START async-http-client/extras/rxjava2
+ ITER 1
+ STOP springside4/modules/metrics (no compile error, no tests)
+START async-http-client/extras/registry
+ ITER 1
+ STOP async-http-client/extras/rxjava (no compile error, no tests)
+START async-http-client/extras/typesafeconfig
+ ITER 1
+ STOP commons-jcs3/commons-jcs-jcache-openjpa (no compile error, no tests)
+START async-http-client/extras/retrofit2
+ ITER 1
+ DONE commons-jcs3/commons-jcs-jcache (tests ran)
+START async-http-client/extras/simple
+ ITER 1
+ STOP commons-geometry/commons-geometry-io-core (no compile error, no tests)
+START async-http-client/client
+ ITER 1
+ DONE commons-jcs3/commons-jcs-jcache-extras (tests ran)
+START commons-vfs/commons-vfs2
+ ITER 1
+ STOP commons-geometry/commons-geometry-core (no compile error, no tests)
+START commons-vfs/commons-vfs2-jackrabbit2
+ ITER 1
+ STOP commons-geometry/commons-geometry-io-euclidean (no compile error, no tests)
+START commons-jexl3
+ ITER 1
+ STOP commons-geometry/commons-geometry-spherical (no compile error, no tests)
+START spark
+ ITER 1
+ STOP async-http-client/extras/typesafeconfig (no compile error, no tests)
+START commons-pool2
+ ITER 1
+ DONE http-request (tests ran)
+START commons-validator
+ ITER 1
+ STOP async-http-client/extras/registry (no compile error, no tests)
+START commons-dbutils
+ ITER 1
+ STOP async-http-client/extras/rxjava2 (no compile error, no tests)
+START bcel
+ ITER 1
+ DONE springside4/modules/utils (tests ran)
+START commons-weaver/processor
+ ITER 1
+ STOP commons-geometry/commons-geometry-euclidean (no compile error, no tests)
+START commons-weaver/modules/normalizer
+ ITER 1
+ DONE commons-jcs3/commons-jcs-core (tests ran)
+START commons-net
+ ITER 1
+ STOP async-http-client/extras/simple (no compile error, no tests)
+START JSON-java
+ ITER 1
+ STOP async-http-client/extras/retrofit2 (no compile error, no tests)
+START joda-time
+ ITER 1
+  [commons-weaver/processor] deleting ProvidersTest_OE25Dev.java
+ ITER 2
+  [commons-dbutils] deleting SqlNullCheckedResultSetTest_OE25Dev.java
+ ITER 2
+  [commons-weaver/modules/normalizer] deleting UtilsTest_OE25Dev.java
+ ITER 2
+ DONE commons-configuration2 (tests ran)
+START commons-rng/commons-rng-simple
+ ITER 1
+  [commons-jexl3] deleting ArithmeticTest_OE25Dev.java
+ ITER 2
+ DONE async-http-client/client (tests ran)
+START commons-rng/commons-rng-core
+ ITER 1
+ STOP commons-vfs/commons-vfs2-jackrabbit2 (no compile error, no tests)
+START commons-rng/commons-rng-examples/examples-stress
+ ITER 1
+ DONE commons-validator (tests ran)
+START commons-rng/commons-rng-examples/examples-sampling
+ ITER 1
+ DONE JSON-java (tests ran)
+START commons-rng/commons-rng-sampling
+ ITER 1
+ DONE bcel (tests ran)
+START commons-beanutils
+ ITER 1
+  [commons-lang3] deleting DurationFormatUtilsTest_OE25Dev.java
+  [commons-lang3] deleting EnumUtilsTest_OE25Dev.java
+  [commons-lang3] deleting LocaleUtilsTest_OE25Dev.java
+  [commons-lang3] deleting MutableDoubleTest_OE25Dev.java
+  [commons-lang3] deleting RangeTest_OE25Dev.java
+  [commons-lang3] deleting StringUtilsEqualsIndexOfTest_OE25Dev.java
+  [commons-lang3] deleting StringUtilsTest_OE25Dev.java
+ ITER 2
+ STOP commons-weaver/modules/normalizer (no compile error, no tests)
+START commons-numbers/commons-numbers-gamma
+ ITER 1
+ DONE commons-net (tests ran)
+START commons-numbers/commons-numbers-combinatorics
+ ITER 1
+ DONE commons-weaver/processor (tests ran)
+START commons-numbers/commons-numbers-complex
+ ITER 1
+ STOP commons-rng/commons-rng-simple (no compile error, no tests)
+START commons-numbers/commons-numbers-angle
+ ITER 1
+ DONE commons-dbutils (tests ran)
+START commons-numbers/commons-numbers-fraction
+ ITER 1
+ STOP commons-rng/commons-rng-examples/examples-stress (no compile error, no tests)
+START commons-numbers/commons-numbers-arrays
+ ITER 1
+ STOP commons-rng/commons-rng-examples/examples-sampling (no compile error, no tests)
+START commons-numbers/commons-numbers-primes
+ ITER 1
+ STOP commons-rng/commons-rng-core (no compile error, no tests)
+START commons-numbers/commons-numbers-quaternion
+ ITER 1
+ STOP commons-numbers/commons-numbers-gamma (no compile error, no tests)
+START commons-numbers/commons-numbers-rootfinder
+ ITER 1
+ STOP commons-rng/commons-rng-sampling (no compile error, no tests)
+START commons-numbers/commons-numbers-field
+ ITER 1
+ STOP commons-numbers/commons-numbers-combinatorics (no compile error, no tests)
+START commons-numbers/commons-numbers-core
+ ITER 1
+ DONE joda-time (tests ran)
+START scribejava/scribejava-core
+ ITER 1
+ STOP commons-numbers/commons-numbers-angle (no compile error, no tests)
+START commons-imaging
+ ITER 1
+ STOP commons-numbers/commons-numbers-complex (no compile error, no tests)
+START jsoup
+ ITER 1
+ STOP commons-numbers/commons-numbers-arrays (no compile error, no tests)
+ DONE commons-jexl3 (tests ran)
+START commons-collections4
+ ITER 1
+ DONE spark (tests ran)
+ STOP commons-numbers/commons-numbers-primes (no compile error, no tests)
+ STOP commons-numbers/commons-numbers-fraction (no compile error, no tests)
+ STOP commons-numbers/commons-numbers-quaternion (no compile error, no tests)
+ DONE commons-beanutils (tests ran)
+ DONE commons-vfs/commons-vfs2 (tests ran)
+ STOP commons-numbers/commons-numbers-rootfinder (no compile error, no tests)
+ STOP commons-numbers/commons-numbers-field (no compile error, no tests)
+ STOP commons-numbers/commons-numbers-core (no compile error, no tests)
+ DONE scribejava/scribejava-core (tests ran)
+  [commons-imaging] deleting PhotometricInterpreterLogLuvTest_OE25Dev.java
+ ITER 2
+ DONE jsoup (tests ran)
+  [commons-collections4] deleting NullPredicateTest_OE25Dev.java
+  [commons-collections4] deleting PredicateUtilsTest_OE25Dev.java
+ ITER 2
+ DONE commons-lang3 (tests ran)
+ DONE commons-imaging (tests ran)
+ DONE commons-collections4 (tests ran)
+  TIMEOUT
+ DONE commons-pool2 (tests ran)

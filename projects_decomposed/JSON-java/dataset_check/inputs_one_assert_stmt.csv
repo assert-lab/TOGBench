@@ -1,0 +1,1550 @@
+id,test_prefix,test_name,focal_method,docstring
+json_31_1,"    @Test
+    public void emptyPointer_1_oe() {
+        assertTrue(new JSONObject(EXPECTED_COMPLETE_DOCUMENT).similar(query("""")));
+    }",JSONPointerTest::emptyPointer_1_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_32_1,"    @Test
+    public void objectPropertyQuery_1_oe() {
+        assertEquals(""[\""bar\"",\""baz\""]"", query(""/foo"").toString());
+    }",JSONPointerTest::objectPropertyQuery_1_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_33_1,"    @Test
+    public void arrayIndexQuery_1_oe() {
+        assertEquals(""bar"", query(""/foo/0""));
+    }",JSONPointerTest::arrayIndexQuery_1_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_34_1,"    @Test
+    public void queryByEmptyKey_1_oe() {
+        assertEquals(0, query(""/""));
+    }",JSONPointerTest::queryByEmptyKey_1_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_35_1,"    @Test
+    public void queryByEmptyKeySubObject_1_oe() {
+        assertEquals( ""{\""\"":\""empty key of an object with an empty key\"",\""subKey\"":\""Some"" + "" other value\""}"", query(""/obj/"").toString());
+    }",JSONPointerTest::queryByEmptyKeySubObject_1_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_36_1,"    @Test
+    public void queryByEmptyKeySubObjectSubOject_1_oe() {
+        assertEquals(""empty key of an object with an empty key"", query(""/obj//""));
+    }",JSONPointerTest::queryByEmptyKeySubObjectSubOject_1_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_37_1,"    @Test
+    public void queryByEmptyKeySubObjectValue_1_oe() {
+        assertEquals(""Some other value"", query(""/obj//subKey""));
+    }",JSONPointerTest::queryByEmptyKeySubObjectValue_1_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_38_1,"    @Test
+    public void slashEscaping_1_oe() {
+        assertEquals(1, query(""/a~1b""));
+    }",JSONPointerTest::slashEscaping_1_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_39_1,"    @Test
+    public void tildeEscaping_1_oe() {
+        assertEquals(8, query(""/m~0n""));
+    }",JSONPointerTest::tildeEscaping_1_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_40_1,"    @Test
+    public void backslashHandling_1_oe() {
+        assertEquals(5, query(""/i\\j""));
+    }",JSONPointerTest::backslashHandling_1_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_41_1,"    @Test
+    public void quotationHandling_1_oe() {
+        assertEquals(6, query(""/k\""l""));
+    }",JSONPointerTest::quotationHandling_1_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_42_1,"    @Test
+    public void whitespaceKey_1_oe() {
+        assertEquals(7, query(""/ ""));
+    }",JSONPointerTest::whitespaceKey_1_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_43_1,"    @Test
+    public void uriFragmentNotation_1_oe() {
+        assertEquals(""[\""bar\"",\""baz\""]"", query(""#/foo"").toString());
+    }",JSONPointerTest::uriFragmentNotation_1_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_44_1,"    @Test
+    public void uriFragmentNotationRoot_1_oe() {
+        assertTrue(new JSONObject(EXPECTED_COMPLETE_DOCUMENT).similar(query(""#"")));
+    }",JSONPointerTest::uriFragmentNotationRoot_1_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_45_1,"    @Test
+    public void uriFragmentPercentHandling_1_oe() {
+        assertEquals(2, query(""#/c%25d""));
+    }",JSONPointerTest::uriFragmentPercentHandling_1_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_45_2,"    @Test
+    public void uriFragmentPercentHandling_2_oe() {
+        assertEquals(3, query(""#/e%5Ef""));
+    }",JSONPointerTest::uriFragmentPercentHandling_2_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_45_3,"    @Test
+    public void uriFragmentPercentHandling_3_oe() {
+        assertEquals(4, query(""#/g%7Ch""));
+    }",JSONPointerTest::uriFragmentPercentHandling_3_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_45_4,"    @Test
+    public void uriFragmentPercentHandling_4_oe() {
+        assertEquals(8, query(""#/m~0n""));
+    }",JSONPointerTest::uriFragmentPercentHandling_4_oe,"public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }","/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */"
+json_48_1,"    @Test
+    public void emptyPointerToString_1_oe() {
+        assertEquals("""", new JSONPointer("""").toString());
+    }",JSONPointerTest::emptyPointerToString_1_oe,,
+json_49_1,"    @Test
+    public void toURIFragment_1_oe() {
+        assertEquals(""#/c%25d"", new JSONPointer(""/c%d"").toURIFragment());
+    }",JSONPointerTest::toURIFragment_1_oe,"public String toURIFragment() {
+        try {
+            StringBuilder rval = new StringBuilder(""#"");
+            for (String token : this.refTokens) {
+                rval.append('/').append(URLEncoder.encode(token, ENCODING));
+            }
+            return rval.toString();
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+    }","/**
+     * Returns a string representing the JSONPointer path value using URI
+     * fragment identifier representation
+     * @return a uri fragment string
+     */"
+json_49_2,"    @Test
+    public void toURIFragment_2_oe() {
+        assertEquals(""#/e%5Ef"", new JSONPointer(""/e^f"").toURIFragment());
+    }",JSONPointerTest::toURIFragment_2_oe,"public String toURIFragment() {
+        try {
+            StringBuilder rval = new StringBuilder(""#"");
+            for (String token : this.refTokens) {
+                rval.append('/').append(URLEncoder.encode(token, ENCODING));
+            }
+            return rval.toString();
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+    }","/**
+     * Returns a string representing the JSONPointer path value using URI
+     * fragment identifier representation
+     * @return a uri fragment string
+     */"
+json_49_3,"    @Test
+    public void toURIFragment_3_oe() {
+        assertEquals(""#/g%7Ch"", new JSONPointer(""/g|h"").toURIFragment());
+    }",JSONPointerTest::toURIFragment_3_oe,"public String toURIFragment() {
+        try {
+            StringBuilder rval = new StringBuilder(""#"");
+            for (String token : this.refTokens) {
+                rval.append('/').append(URLEncoder.encode(token, ENCODING));
+            }
+            return rval.toString();
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+    }","/**
+     * Returns a string representing the JSONPointer path value using URI
+     * fragment identifier representation
+     * @return a uri fragment string
+     */"
+json_49_4,"    @Test
+    public void toURIFragment_4_oe() {
+        assertEquals(""#/m%7En"", new JSONPointer(""/m~n"").toURIFragment());
+    }",JSONPointerTest::toURIFragment_4_oe,"public String toURIFragment() {
+        try {
+            StringBuilder rval = new StringBuilder(""#"");
+            for (String token : this.refTokens) {
+                rval.append('/').append(URLEncoder.encode(token, ENCODING));
+            }
+            return rval.toString();
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+    }","/**
+     * Returns a string representing the JSONPointer path value using URI
+     * fragment identifier representation
+     * @return a uri fragment string
+     */"
+json_81_1,"    @Test
+    public void testUnescape_1_oe() {
+        assertEquals(""{\""xml\"":\""Can cope <;\""}"", XML.toJSONObject(""<xml>Can cope &lt;; </xml>"").toString());
+    }",XMLTest::testUnescape_1_oe,"public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }","/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */"
+json_81_2,"    @Test
+    public void testUnescape_2_oe() {
+        assertEquals(""Can cope <; "", XML.unescape(""Can cope &lt;; ""));
+    }",XMLTest::testUnescape_2_oe,"public static String unescape(String string) {
+        StringBuilder sb = new StringBuilder(string.length());
+        for (int i = 0, length = string.length(); i < length; i++) {
+            char c = string.charAt(i);
+            if (c == '&') {
+                final int semic = string.indexOf(';', i);
+                if (semic > i) {
+                    final String entity = string.substring(i + 1, semic);
+                    sb.append(XMLTokener.unescapeEntity(entity));
+                    // skip past the entity we just parsed.
+                    i += entity.length() + 1;
+                } else {
+                    // this shouldn't happen in most cases since the parser
+                    // errors on unclosed entries.
+                    sb.append(c);
+                }
+            } else {
+                // not part of an entity
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }","/**
+     * Removes XML escapes from the string.
+     *
+     * @param string
+     *            string to remove escapes from
+     * @return string with converted entities
+     */"
+json_81_3,"    @Test
+    public void testUnescape_3_oe() {
+
+        assertEquals(""{\""xml\"":\""Can cope & ;\""}"", XML.toJSONObject(""<xml>Can cope &amp; ; </xml>"").toString());
+    }",XMLTest::testUnescape_3_oe,"public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }","/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */"
+json_81_4,"    @Test
+    public void testUnescape_4_oe() {
+
+        assertEquals(""Can cope & ; "", XML.unescape(""Can cope &amp; ; ""));
+    }",XMLTest::testUnescape_4_oe,"public static String unescape(String string) {
+        StringBuilder sb = new StringBuilder(string.length());
+        for (int i = 0, length = string.length(); i < length; i++) {
+            char c = string.charAt(i);
+            if (c == '&') {
+                final int semic = string.indexOf(';', i);
+                if (semic > i) {
+                    final String entity = string.substring(i + 1, semic);
+                    sb.append(XMLTokener.unescapeEntity(entity));
+                    // skip past the entity we just parsed.
+                    i += entity.length() + 1;
+                } else {
+                    // this shouldn't happen in most cases since the parser
+                    // errors on unclosed entries.
+                    sb.append(c);
+                }
+            } else {
+                // not part of an entity
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }","/**
+     * Removes XML escapes from the string.
+     *
+     * @param string
+     *            string to remove escapes from
+     * @return string with converted entities
+     */"
+json_81_5,"    @Test
+    public void testUnescape_5_oe() {
+
+
+        assertEquals(""{\""xml\"":\""Can cope &;\""}"", XML.toJSONObject(""<xml>Can cope &amp;; </xml>"").toString());
+    }",XMLTest::testUnescape_5_oe,"public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }","/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */"
+json_81_6,"    @Test
+    public void testUnescape_6_oe() {
+
+
+        assertEquals(""Can cope &; "", XML.unescape(""Can cope &amp;; ""));
+    }",XMLTest::testUnescape_6_oe,"public static String unescape(String string) {
+        StringBuilder sb = new StringBuilder(string.length());
+        for (int i = 0, length = string.length(); i < length; i++) {
+            char c = string.charAt(i);
+            if (c == '&') {
+                final int semic = string.indexOf(';', i);
+                if (semic > i) {
+                    final String entity = string.substring(i + 1, semic);
+                    sb.append(XMLTokener.unescapeEntity(entity));
+                    // skip past the entity we just parsed.
+                    i += entity.length() + 1;
+                } else {
+                    // this shouldn't happen in most cases since the parser
+                    // errors on unclosed entries.
+                    sb.append(c);
+                }
+            } else {
+                // not part of an entity
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }","/**
+     * Removes XML escapes from the string.
+     *
+     * @param string
+     *            string to remove escapes from
+     * @return string with converted entities
+     */"
+json_81_7,"    @Test
+    public void testUnescape_7_oe() {
+
+
+
+        assertEquals(""{\""xml\"":\""Can cope 4;\""}"", XML.toJSONObject(""<xml>Can cope &#x34;; </xml>"").toString());
+    }",XMLTest::testUnescape_7_oe,"public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }","/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */"
+json_81_8,"    @Test
+    public void testUnescape_8_oe() {
+
+
+
+        assertEquals(""Can cope 4; "", XML.unescape(""Can cope &#x34;; ""));
+    }",XMLTest::testUnescape_8_oe,"public static String unescape(String string) {
+        StringBuilder sb = new StringBuilder(string.length());
+        for (int i = 0, length = string.length(); i < length; i++) {
+            char c = string.charAt(i);
+            if (c == '&') {
+                final int semic = string.indexOf(';', i);
+                if (semic > i) {
+                    final String entity = string.substring(i + 1, semic);
+                    sb.append(XMLTokener.unescapeEntity(entity));
+                    // skip past the entity we just parsed.
+                    i += entity.length() + 1;
+                } else {
+                    // this shouldn't happen in most cases since the parser
+                    // errors on unclosed entries.
+                    sb.append(c);
+                }
+            } else {
+                // not part of an entity
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }","/**
+     * Removes XML escapes from the string.
+     *
+     * @param string
+     *            string to remove escapes from
+     * @return string with converted entities
+     */"
+json_81_9,"    @Test
+    public void testUnescape_9_oe() {
+
+
+
+
+        assertEquals(""{\""xml\"":\""Can cope &lt;\""}"", XML.toJSONObject(""<xml>Can cope &amp;lt; </xml>"").toString());
+    }",XMLTest::testUnescape_9_oe,"public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }","/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */"
+json_81_10,"    @Test
+    public void testUnescape_10_oe() {
+
+
+
+
+        assertEquals(""Can cope &lt; "", XML.unescape(""Can cope &amp;lt; ""));
+    }",XMLTest::testUnescape_10_oe,"public static String unescape(String string) {
+        StringBuilder sb = new StringBuilder(string.length());
+        for (int i = 0, length = string.length(); i < length; i++) {
+            char c = string.charAt(i);
+            if (c == '&') {
+                final int semic = string.indexOf(';', i);
+                if (semic > i) {
+                    final String entity = string.substring(i + 1, semic);
+                    sb.append(XMLTokener.unescapeEntity(entity));
+                    // skip past the entity we just parsed.
+                    i += entity.length() + 1;
+                } else {
+                    // this shouldn't happen in most cases since the parser
+                    // errors on unclosed entries.
+                    sb.append(c);
+                }
+            } else {
+                // not part of an entity
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }","/**
+     * Removes XML escapes from the string.
+     *
+     * @param string
+     *            string to remove escapes from
+     * @return string with converted entities
+     */"
+json_81_11,"    @Test
+    public void testUnescape_11_oe() {
+
+
+
+
+        
+        assertEquals(""{\""xml\"":\""Can cope &#x34;\""}"", XML.toJSONObject(""<xml>Can cope &amp;#x34; </xml>"").toString());
+    }",XMLTest::testUnescape_11_oe,"public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }","/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */"
+json_81_12,"    @Test
+    public void testUnescape_12_oe() {
+
+
+
+
+        
+        assertEquals(""Can cope &#x34; "", XML.unescape(""Can cope &amp;#x34; ""));
+    }",XMLTest::testUnescape_12_oe,"public static String unescape(String string) {
+        StringBuilder sb = new StringBuilder(string.length());
+        for (int i = 0, length = string.length(); i < length; i++) {
+            char c = string.charAt(i);
+            if (c == '&') {
+                final int semic = string.indexOf(';', i);
+                if (semic > i) {
+                    final String entity = string.substring(i + 1, semic);
+                    sb.append(XMLTokener.unescapeEntity(entity));
+                    // skip past the entity we just parsed.
+                    i += entity.length() + 1;
+                } else {
+                    // this shouldn't happen in most cases since the parser
+                    // errors on unclosed entries.
+                    sb.append(c);
+                }
+            } else {
+                // not part of an entity
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }","/**
+     * Removes XML escapes from the string.
+     *
+     * @param string
+     *            string to remove escapes from
+     * @return string with converted entities
+     */"
+json_109_1,"    @Test
+    public void testUnescape_1_oe() {
+        assertEquals(""{\""xml\"":\""Can cope <;\""}"", XML.toJSONObject(""<xml>Can cope &lt;; </xml>"", XMLParserConfiguration.KEEP_STRINGS).toString());
+    }",XMLConfigurationTest::testUnescape_1_oe,"public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }","/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */"
+json_109_2,"    @Test
+    public void testUnescape_2_oe() {
+        assertEquals(""Can cope <; "", XML.unescape(""Can cope &lt;; ""));
+    }",XMLConfigurationTest::testUnescape_2_oe,"public static String unescape(String string) {
+        StringBuilder sb = new StringBuilder(string.length());
+        for (int i = 0, length = string.length(); i < length; i++) {
+            char c = string.charAt(i);
+            if (c == '&') {
+                final int semic = string.indexOf(';', i);
+                if (semic > i) {
+                    final String entity = string.substring(i + 1, semic);
+                    sb.append(XMLTokener.unescapeEntity(entity));
+                    // skip past the entity we just parsed.
+                    i += entity.length() + 1;
+                } else {
+                    // this shouldn't happen in most cases since the parser
+                    // errors on unclosed entries.
+                    sb.append(c);
+                }
+            } else {
+                // not part of an entity
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }","/**
+     * Removes XML escapes from the string.
+     *
+     * @param string
+     *            string to remove escapes from
+     * @return string with converted entities
+     */"
+json_109_3,"    @Test
+    public void testUnescape_3_oe() {
+
+        assertEquals(""{\""xml\"":\""Can cope & ;\""}"", XML.toJSONObject(""<xml>Can cope &amp; ; </xml>"", XMLParserConfiguration.KEEP_STRINGS).toString());
+    }",XMLConfigurationTest::testUnescape_3_oe,"public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }","/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */"
+json_109_4,"    @Test
+    public void testUnescape_4_oe() {
+
+        assertEquals(""Can cope & ; "", XML.unescape(""Can cope &amp; ; ""));
+    }",XMLConfigurationTest::testUnescape_4_oe,"public static String unescape(String string) {
+        StringBuilder sb = new StringBuilder(string.length());
+        for (int i = 0, length = string.length(); i < length; i++) {
+            char c = string.charAt(i);
+            if (c == '&') {
+                final int semic = string.indexOf(';', i);
+                if (semic > i) {
+                    final String entity = string.substring(i + 1, semic);
+                    sb.append(XMLTokener.unescapeEntity(entity));
+                    // skip past the entity we just parsed.
+                    i += entity.length() + 1;
+                } else {
+                    // this shouldn't happen in most cases since the parser
+                    // errors on unclosed entries.
+                    sb.append(c);
+                }
+            } else {
+                // not part of an entity
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }","/**
+     * Removes XML escapes from the string.
+     *
+     * @param string
+     *            string to remove escapes from
+     * @return string with converted entities
+     */"
+json_109_5,"    @Test
+    public void testUnescape_5_oe() {
+
+
+        assertEquals(""{\""xml\"":\""Can cope &;\""}"", XML.toJSONObject(""<xml>Can cope &amp;; </xml>"", XMLParserConfiguration.KEEP_STRINGS).toString());
+    }",XMLConfigurationTest::testUnescape_5_oe,"public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }","/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */"
+json_109_6,"    @Test
+    public void testUnescape_6_oe() {
+
+
+        assertEquals(""Can cope &; "", XML.unescape(""Can cope &amp;; ""));
+    }",XMLConfigurationTest::testUnescape_6_oe,"public static String unescape(String string) {
+        StringBuilder sb = new StringBuilder(string.length());
+        for (int i = 0, length = string.length(); i < length; i++) {
+            char c = string.charAt(i);
+            if (c == '&') {
+                final int semic = string.indexOf(';', i);
+                if (semic > i) {
+                    final String entity = string.substring(i + 1, semic);
+                    sb.append(XMLTokener.unescapeEntity(entity));
+                    // skip past the entity we just parsed.
+                    i += entity.length() + 1;
+                } else {
+                    // this shouldn't happen in most cases since the parser
+                    // errors on unclosed entries.
+                    sb.append(c);
+                }
+            } else {
+                // not part of an entity
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }","/**
+     * Removes XML escapes from the string.
+     *
+     * @param string
+     *            string to remove escapes from
+     * @return string with converted entities
+     */"
+json_109_7,"    @Test
+    public void testUnescape_7_oe() {
+
+
+
+        assertEquals(""{\""xml\"":\""Can cope 4;\""}"", XML.toJSONObject(""<xml>Can cope &#x34;; </xml>"", XMLParserConfiguration.KEEP_STRINGS).toString());
+    }",XMLConfigurationTest::testUnescape_7_oe,"public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }","/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */"
+json_109_8,"    @Test
+    public void testUnescape_8_oe() {
+
+
+
+        assertEquals(""Can cope 4; "", XML.unescape(""Can cope &#x34;; ""));
+    }",XMLConfigurationTest::testUnescape_8_oe,"public static String unescape(String string) {
+        StringBuilder sb = new StringBuilder(string.length());
+        for (int i = 0, length = string.length(); i < length; i++) {
+            char c = string.charAt(i);
+            if (c == '&') {
+                final int semic = string.indexOf(';', i);
+                if (semic > i) {
+                    final String entity = string.substring(i + 1, semic);
+                    sb.append(XMLTokener.unescapeEntity(entity));
+                    // skip past the entity we just parsed.
+                    i += entity.length() + 1;
+                } else {
+                    // this shouldn't happen in most cases since the parser
+                    // errors on unclosed entries.
+                    sb.append(c);
+                }
+            } else {
+                // not part of an entity
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }","/**
+     * Removes XML escapes from the string.
+     *
+     * @param string
+     *            string to remove escapes from
+     * @return string with converted entities
+     */"
+json_109_9,"    @Test
+    public void testUnescape_9_oe() {
+
+
+
+
+        assertEquals(""{\""xml\"":\""Can cope &lt;\""}"", XML.toJSONObject(""<xml>Can cope &amp;lt; </xml>"", XMLParserConfiguration.KEEP_STRINGS).toString());
+    }",XMLConfigurationTest::testUnescape_9_oe,"public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }","/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */"
+json_109_10,"    @Test
+    public void testUnescape_10_oe() {
+
+
+
+
+        assertEquals(""Can cope &lt; "", XML.unescape(""Can cope &amp;lt; ""));
+    }",XMLConfigurationTest::testUnescape_10_oe,"public static String unescape(String string) {
+        StringBuilder sb = new StringBuilder(string.length());
+        for (int i = 0, length = string.length(); i < length; i++) {
+            char c = string.charAt(i);
+            if (c == '&') {
+                final int semic = string.indexOf(';', i);
+                if (semic > i) {
+                    final String entity = string.substring(i + 1, semic);
+                    sb.append(XMLTokener.unescapeEntity(entity));
+                    // skip past the entity we just parsed.
+                    i += entity.length() + 1;
+                } else {
+                    // this shouldn't happen in most cases since the parser
+                    // errors on unclosed entries.
+                    sb.append(c);
+                }
+            } else {
+                // not part of an entity
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }","/**
+     * Removes XML escapes from the string.
+     *
+     * @param string
+     *            string to remove escapes from
+     * @return string with converted entities
+     */"
+json_109_11,"    @Test
+    public void testUnescape_11_oe() {
+
+
+
+
+        
+        assertEquals(""{\""xml\"":\""Can cope &#x34;\""}"", XML.toJSONObject(""<xml>Can cope &amp;#x34; </xml>"", XMLParserConfiguration.KEEP_STRINGS).toString());
+    }",XMLConfigurationTest::testUnescape_11_oe,"public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }","/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */"
+json_109_12,"    @Test
+    public void testUnescape_12_oe() {
+
+
+
+
+        
+        assertEquals(""Can cope &#x34; "", XML.unescape(""Can cope &amp;#x34; ""));
+    }",XMLConfigurationTest::testUnescape_12_oe,"public static String unescape(String string) {
+        StringBuilder sb = new StringBuilder(string.length());
+        for (int i = 0, length = string.length(); i < length; i++) {
+            char c = string.charAt(i);
+            if (c == '&') {
+                final int semic = string.indexOf(';', i);
+                if (semic > i) {
+                    final String entity = string.substring(i + 1, semic);
+                    sb.append(XMLTokener.unescapeEntity(entity));
+                    // skip past the entity we just parsed.
+                    i += entity.length() + 1;
+                } else {
+                    // this shouldn't happen in most cases since the parser
+                    // errors on unclosed entries.
+                    sb.append(c);
+                }
+            } else {
+                // not part of an entity
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }","/**
+     * Removes XML escapes from the string.
+     *
+     * @param string
+     *            string to remove escapes from
+     * @return string with converted entities
+     */"
+json_135_1,"    @Test
+    public void stringToValueNumbersTest_1_oe() {
+        assertTrue(""-0 Should be a Double!"",JSONObject.stringToValue(""-0"")  instanceof Double);
+    }",JSONObjectTest::stringToValueNumbersTest_1_oe,"public static Object stringToValue(String string) {
+        if ("""".equals(string)) {
+            return string;
+        }
+
+        // check JSON key words true/false/null
+        if (""true"".equalsIgnoreCase(string)) {
+            return Boolean.TRUE;
+        }
+        if (""false"".equalsIgnoreCase(string)) {
+            return Boolean.FALSE;
+        }
+        if (""null"".equalsIgnoreCase(string)) {
+            return JSONObject.NULL;
+        }
+
+        /*
+         * If it might be a number, try converting it. If a number cannot be
+         * produced, then the value will just be a string.
+         */
+
+        char initial = string.charAt(0);
+        if ((initial >= '0' && initial <= '9') || initial == '-') {
+            try {
+                return stringToNumber(string);
+            } catch (Exception ignore) {
+            }
+        }
+        return string;
+    }",
+json_135_2,"    @Test
+    public void stringToValueNumbersTest_2_oe() {
+        assertTrue(""-0.0 Should be a Double!"",JSONObject.stringToValue(""-0.0"") instanceof Double);
+    }",JSONObjectTest::stringToValueNumbersTest_2_oe,"public static Object stringToValue(String string) {
+        if ("""".equals(string)) {
+            return string;
+        }
+
+        // check JSON key words true/false/null
+        if (""true"".equalsIgnoreCase(string)) {
+            return Boolean.TRUE;
+        }
+        if (""false"".equalsIgnoreCase(string)) {
+            return Boolean.FALSE;
+        }
+        if (""null"".equalsIgnoreCase(string)) {
+            return JSONObject.NULL;
+        }
+
+        /*
+         * If it might be a number, try converting it. If a number cannot be
+         * produced, then the value will just be a string.
+         */
+
+        char initial = string.charAt(0);
+        if ((initial >= '0' && initial <= '9') || initial == '-') {
+            try {
+                return stringToNumber(string);
+            } catch (Exception ignore) {
+            }
+        }
+        return string;
+    }",
+json_135_3,"    @Test
+    public void stringToValueNumbersTest_3_oe() {
+        assertTrue(""'-' Should be a String!"",JSONObject.stringToValue(""-"") instanceof String);
+    }",JSONObjectTest::stringToValueNumbersTest_3_oe,"public static Object stringToValue(String string) {
+        if ("""".equals(string)) {
+            return string;
+        }
+
+        // check JSON key words true/false/null
+        if (""true"".equalsIgnoreCase(string)) {
+            return Boolean.TRUE;
+        }
+        if (""false"".equalsIgnoreCase(string)) {
+            return Boolean.FALSE;
+        }
+        if (""null"".equalsIgnoreCase(string)) {
+            return JSONObject.NULL;
+        }
+
+        /*
+         * If it might be a number, try converting it. If a number cannot be
+         * produced, then the value will just be a string.
+         */
+
+        char initial = string.charAt(0);
+        if ((initial >= '0' && initial <= '9') || initial == '-') {
+            try {
+                return stringToNumber(string);
+            } catch (Exception ignore) {
+            }
+        }
+        return string;
+    }",
+json_135_4,"    @Test
+    public void stringToValueNumbersTest_4_oe() {
+        assertTrue(""0.2 should be a BigDecimal!"",JSONObject.stringToValue(""0.2"")instanceof BigDecimal);
+    }",JSONObjectTest::stringToValueNumbersTest_4_oe,"public static Object stringToValue(String string) {
+        if ("""".equals(string)) {
+            return string;
+        }
+
+        // check JSON key words true/false/null
+        if (""true"".equalsIgnoreCase(string)) {
+            return Boolean.TRUE;
+        }
+        if (""false"".equalsIgnoreCase(string)) {
+            return Boolean.FALSE;
+        }
+        if (""null"".equalsIgnoreCase(string)) {
+            return JSONObject.NULL;
+        }
+
+        /*
+         * If it might be a number, try converting it. If a number cannot be
+         * produced, then the value will just be a string.
+         */
+
+        char initial = string.charAt(0);
+        if ((initial >= '0' && initial <= '9') || initial == '-') {
+            try {
+                return stringToNumber(string);
+            } catch (Exception ignore) {
+            }
+        }
+        return string;
+    }",
+json_135_5,"    @Test
+    public void stringToValueNumbersTest_5_oe() {
+        assertTrue(""Doubles should be BigDecimal,even when incorrectly converting floats!"",JSONObject.stringToValue(new Double(""0.2f"").toString())instanceof BigDecimal);
+    }",JSONObjectTest::stringToValueNumbersTest_5_oe,"public static Object stringToValue(String string) {
+        if ("""".equals(string)) {
+            return string;
+        }
+
+        // check JSON key words true/false/null
+        if (""true"".equalsIgnoreCase(string)) {
+            return Boolean.TRUE;
+        }
+        if (""false"".equalsIgnoreCase(string)) {
+            return Boolean.FALSE;
+        }
+        if (""null"".equalsIgnoreCase(string)) {
+            return JSONObject.NULL;
+        }
+
+        /*
+         * If it might be a number, try converting it. If a number cannot be
+         * produced, then the value will just be a string.
+         */
+
+        char initial = string.charAt(0);
+        if ((initial >= '0' && initial <= '9') || initial == '-') {
+            try {
+                return stringToNumber(string);
+            } catch (Exception ignore) {
+            }
+        }
+        return string;
+    }",
+json_141_1,"    @Test
+    public void jsonObjectNames_1_oe() {
+
+        assertTrue(""null names from null Object"",null == JSONObject.getNames((Object)null));
+    }",JSONObjectTest::jsonObjectNames_1_oe,"public static String[] getNames(JSONObject jo) {
+        if (jo.isEmpty()) {
+            return null;
+        }
+        return jo.keySet().toArray(new String[jo.length()]);
+    }","/**
+     * Get an array of field names from a JSONObject.
+     *
+     * @param jo
+     *            JSON object
+     * @return An array of field names, or null if there are no names.
+     */"
+json_141_2,"    @Test
+    public void jsonObjectNames_2_oe() {
+
+
+        assertTrue(""null names from Object with no fields"",null == JSONObject.getNames(new MyJsonString()));
+    }",JSONObjectTest::jsonObjectNames_2_oe,"public static String[] getNames(JSONObject jo) {
+        if (jo.isEmpty()) {
+            return null;
+        }
+        return jo.keySet().toArray(new String[jo.length()]);
+    }","/**
+     * Get an array of field names from a JSONObject.
+     *
+     * @param jo
+     *            JSON object
+     * @return An array of field names, or null if there are no names.
+     */"
+json_151_1,"    @Test
+    public void valueToString_1_oe() {
+        
+        assertTrue(""null valueToString()incorrect"",""null"".equals(JSONObject.valueToString(null)));
+    }",JSONObjectTest::valueToString_1_oe,"public static String valueToString(Object value) throws JSONException {
+    	// moves the implementation to JSONWriter as:
+    	// 1. It makes more sense to be part of the writer class
+    	// 2. For Android support this method is not available. By implementing it in the Writer
+    	//    Android users can use the writer with the built in Android JSONObject implementation.
+        return JSONWriter.valueToString(value);
+    }","/**
+     * Make a JSON text of an Object value. If the object has an
+     * value.toJSONString() method, then that method will be used to produce the
+     * JSON text. The method is required to produce a strictly conforming text.
+     * If the object does not contain a toJSONString method (which is the most
+     * common case), then a text will be produced by other means. If the value
+     * is an array or Collection, then a JSONArray will be made from it and its
+     * toJSONString method will be called. If the value is a MAP, then a
+     * JSONObject will be made from it and its toJSONString method will be
+     * called. Otherwise, the value's toString method will be called, and the
+     * result will be quoted.
+     *
+     * <p>
+     * Warning: This method assumes that the data structure is acyclical.
+     *
+     * @param value
+     *            The value to be serialized.
+     * @return a printable, displayable, transmittable representation of the
+     *         object, beginning with <code>{</code>&nbsp;<small>(left
+     *         brace)</small> and ending with <code>}</code>&nbsp;<small>(right
+     *         brace)</small>.
+     * @throws JSONException
+     *             If the value is or contains an invalid number.
+     */"
+json_153_1,"    @Test
+    public void wrapObject_1_oe() {
+        assertTrue(""null wrap()incorrect"",JSONObject.NULL == JSONObject.wrap(null));
+    }",JSONObjectTest::wrapObject_1_oe,"public static Object wrap(Object object) {
+        return wrap(object, null);
+    }","/**
+     * Wrap an object, if necessary. If the object is <code>null</code>, return the NULL
+     * object. If it is an array or collection, wrap it in a JSONArray. If it is
+     * a map, wrap it in a JSONObject. If it is a standard property (Double,
+     * String, et al) then it is already wrapped. Otherwise, if it comes from
+     * one of the java packages, turn it into a string. And if it doesn't, try
+     * to wrap it in a JSONObject. If the wrapping fails, then null is returned.
+     *
+     * @param object
+     *            The object to wrap
+     * @return The wrapped value
+     */"
+json_166_1,"    @Test
+    public void toJSONArray_1_oe() {
+        assertTrue(""toJSONArray()with null names should be null"",null == new JSONObject().toJSONArray(null));
+    }",JSONObjectTest::toJSONArray_1_oe,"public JSONArray toJSONArray(JSONArray names) throws JSONException {
+        if (names == null || names.isEmpty()) {
+            return null;
+        }
+        JSONArray ja = new JSONArray();
+        for (int i = 0; i < names.length(); i += 1) {
+            ja.put(this.opt(names.getString(i)));
+        }
+        return ja;
+    }","/**
+     * Produce a JSONArray containing the values of the members of this
+     * JSONObject.
+     *
+     * @param names
+     *            A JSONArray containing a list of key strings. This determines
+     *            the sequence of the values in the result.
+     * @return A JSONArray of values.
+     * @throws JSONException
+     *             If any of the values are non-finite numbers.
+     */"
+json_172_1,"    @Test
+    public void optQueryWithNoResult_1_oe() {
+        assertNull(new JSONObject().optQuery(""/a/b""));
+    }",JSONObjectTest::optQueryWithNoResult_1_oe,"public Object optQuery(String jsonPointer) {
+    	return optQuery(new JSONPointer(jsonPointer));
+    }","/**
+     * Queries and returns a value from this object using {@code jsonPointer}, or
+     * returns null if the query fails due to a missing key.
+     *
+     * @param jsonPointer the string representation of the JSON pointer
+     * @return the queried value or {@code null}
+     * @throws IllegalArgumentException if {@code jsonPointer} has invalid syntax
+     */"
+json_213_1,"    @Test
+    public void wrap_1_oe() {
+        assertTrue(""simple enum has no getters"", JSONObject.wrap(MyEnum.VAL2) instanceof MyEnum);
+    }",EnumTest::wrap_1_oe,"public static Object wrap(Object object) {
+        return wrap(object, null);
+    }","/**
+     * Wrap an object, if necessary. If the object is <code>null</code>, return the NULL
+     * object. If it is an array or collection, wrap it in a JSONArray. If it is
+     * a map, wrap it in a JSONObject. If it is a standard property (Double,
+     * String, et al) then it is already wrapped. Otherwise, if it comes from
+     * one of the java packages, turn it into a string. And if it doesn't, try
+     * to wrap it in a JSONObject. If the wrapping fails, then null is returned.
+     *
+     * @param object
+     *            The object to wrap
+     * @return The wrapped value
+     */"
+json_229_1,"    @Test 
+    public void length_1_oe() {
+        assertTrue(""expected empty JSONArray length 0"",new JSONArray().length()== 0);
+    }",JSONArrayTest::length_1_oe,"public int length() {
+        return this.myArrayList.size();
+    }","/**
+     * Get the number of elements in the JSONArray, included nulls.
+     *
+     * @return The length (or size).
+     */"
+json_240_1,"    @Test
+    public void optQueryWithNoResult_1_oe() {
+        assertNull(new JSONArray().optQuery(""/a/b""));
+    }",JSONArrayTest::optQueryWithNoResult_1_oe,"public Object optQuery(String jsonPointer) {
+    	return optQuery(new JSONPointer(jsonPointer));
+    }","/**
+     * Queries and returns a value from this object using {@code jsonPointer}, or
+     * returns null if the query fails due to a missing key.
+     * 
+     * @param jsonPointer the string representation of the JSON pointer
+     * @return the queried value or {@code null}
+     * @throws IllegalArgumentException if {@code jsonPointer} has invalid syntax
+     */"
+json_244_1,"    @Test
+    public void testJSONArrayInt_1_oe() {
+        assertNotNull(new JSONArray(0));
+    }",JSONArrayTest::testJSONArrayInt_1_oe,,
+json_244_2,"    @Test
+    public void testJSONArrayInt_2_oe() {
+        assertNotNull(new JSONArray(5));
+    }",JSONArrayTest::testJSONArrayInt_2_oe,,

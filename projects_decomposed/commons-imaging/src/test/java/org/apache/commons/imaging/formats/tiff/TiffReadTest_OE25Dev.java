@@ -53,6 +53,7 @@ public class TiffReadTest_OE25Dev extends TiffBaseTest {
             Debug.debug("imageFile", imageFile);
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            // removed other assertion
 
             Debug.debug("ICC profile", Imaging.getICCProfile(imageFile));
 
@@ -69,10 +70,12 @@ public class TiffReadTest_OE25Dev extends TiffBaseTest {
             Debug.debug("imageFile", imageFile);
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            // removed other assertion
 
             Debug.debug("ICC profile", Imaging.getICCProfile(imageFile));
 
             final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+            // removed other assertion
 
             final BufferedImage image = Imaging.getBufferedImage(imageFile);
             assertNotNull(image);
@@ -81,9 +84,13 @@ public class TiffReadTest_OE25Dev extends TiffBaseTest {
 
     @Test
     public void testReadDirectories_1_oe() throws Exception {
+        // same as above, but test reading the TIFF directories
         final List<File> images = getTiffImages();
         for (final File imageFile : images) {
             final String name = imageFile.getName();
+            // the "bad offsets" file will cause an exception to be thrown.
+            // It's not relevant to what this test is trying to discover.
+            // So skip it.
             if(name.toLowerCase().contains("bad")){
                 continue;
             }

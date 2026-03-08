@@ -33,31 +33,52 @@ class AngleTest_OE25Dev {
 
     @Test
     void testConstants_2_oe() {
+        // removed other assertion
         Assertions.assertEquals(0d, Angle.Rad.ZERO.getAsDouble());
     }
 
     @Test
     void testConstants_3_oe() {
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0d, Angle.Deg.ZERO.getAsDouble());
     }
 
     @Test
     void testConstants_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Math.PI, Angle.Rad.PI.getAsDouble());
     }
 
     @Test
     void testConstants_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(2 * Math.PI, Angle.Rad.TWO_PI.getAsDouble());
     }
 
     @Test
     void testConstants_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(2 * Math.PI, Angle.TWO_PI);
     }
 
     @Test
     void testConstants_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Math.PI / 2, Angle.PI_OVER_TWO);
     }
 
@@ -78,6 +99,7 @@ class AngleTest_OE25Dev {
         Angle.Turn t = Angle.Turn.of(a);
         Angle.Rad r = Angle.Rad.of(a);
         Angle.Deg d = Angle.Deg.of(a);
+        // removed other assertion
         Assertions.assertSame(r, r.toRad());
     }
 
@@ -88,6 +110,8 @@ class AngleTest_OE25Dev {
         Angle.Turn t = Angle.Turn.of(a);
         Angle.Rad r = Angle.Rad.of(a);
         Angle.Deg d = Angle.Deg.of(a);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(d, d.toDeg());
     }
 
@@ -98,6 +122,9 @@ class AngleTest_OE25Dev {
         Angle.Turn t = Angle.Turn.of(a);
         Angle.Rad r = Angle.Rad.of(a);
         Angle.Deg d = Angle.Deg.of(a);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(a, t.toRad().toDeg().toTurn().getAsDouble(), tol);
     }
 
@@ -108,6 +135,10 @@ class AngleTest_OE25Dev {
         Angle.Turn t = Angle.Turn.of(a);
         Angle.Rad r = Angle.Rad.of(a);
         Angle.Deg d = Angle.Deg.of(a);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(a, r.toTurn().toDeg().toRad().getAsDouble(), tol);
     }
 
@@ -118,6 +149,11 @@ class AngleTest_OE25Dev {
         Angle.Turn t = Angle.Turn.of(a);
         Angle.Rad r = Angle.Rad.of(a);
         Angle.Deg d = Angle.Deg.of(a);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(a, d.toTurn().toRad().toDeg().getAsDouble(), tol);
     }
 
@@ -136,6 +172,7 @@ class AngleTest_OE25Dev {
         final double nextValue = Math.nextUp(value);
 
         final Angle.Turn asTurn = Angle.Turn.of(value);
+        // removed other assertion
         Assertions.assertEquals(asTurn, asTurn);
     }
 
@@ -145,6 +182,8 @@ class AngleTest_OE25Dev {
         final double nextValue = Math.nextUp(value);
 
         final Angle.Turn asTurn = Angle.Turn.of(value);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(asTurn, Angle.Turn.of(nextValue));
     }
 
@@ -154,6 +193,9 @@ class AngleTest_OE25Dev {
         final double nextValue = Math.nextUp(value);
 
         final Angle.Turn asTurn = Angle.Turn.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(asTurn, null);
     }
 
@@ -163,6 +205,10 @@ class AngleTest_OE25Dev {
         final double nextValue = Math.nextUp(value);
 
         final Angle.Turn asTurn = Angle.Turn.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Rad asRad = Angle.Rad.of(value);
         Assertions.assertEquals(Angle.Rad.of(value), asRad);
@@ -174,8 +220,13 @@ class AngleTest_OE25Dev {
         final double nextValue = Math.nextUp(value);
 
         final Angle.Turn asTurn = Angle.Turn.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Rad asRad = Angle.Rad.of(value);
+        // removed other assertion
         Assertions.assertEquals(asRad, asRad);
     }
 
@@ -185,8 +236,14 @@ class AngleTest_OE25Dev {
         final double nextValue = Math.nextUp(value);
 
         final Angle.Turn asTurn = Angle.Turn.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Rad asRad = Angle.Rad.of(value);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(asRad, Angle.Rad.of(nextValue));
     }
 
@@ -196,8 +253,15 @@ class AngleTest_OE25Dev {
         final double nextValue = Math.nextUp(value);
 
         final Angle.Turn asTurn = Angle.Turn.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Rad asRad = Angle.Rad.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(asRad, null);
     }
 
@@ -207,8 +271,16 @@ class AngleTest_OE25Dev {
         final double nextValue = Math.nextUp(value);
 
         final Angle.Turn asTurn = Angle.Turn.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Rad asRad = Angle.Rad.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Deg asDeg = Angle.Deg.of(value);
         Assertions.assertEquals(Angle.Deg.of(value), asDeg);
@@ -220,10 +292,19 @@ class AngleTest_OE25Dev {
         final double nextValue = Math.nextUp(value);
 
         final Angle.Turn asTurn = Angle.Turn.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Rad asRad = Angle.Rad.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Deg asDeg = Angle.Deg.of(value);
+        // removed other assertion
         Assertions.assertEquals(asDeg, asDeg);
     }
 
@@ -233,10 +314,20 @@ class AngleTest_OE25Dev {
         final double nextValue = Math.nextUp(value);
 
         final Angle.Turn asTurn = Angle.Turn.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Rad asRad = Angle.Rad.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Deg asDeg = Angle.Deg.of(value);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(asDeg, Angle.Deg.of(nextValue));
     }
 
@@ -246,10 +337,21 @@ class AngleTest_OE25Dev {
         final double nextValue = Math.nextUp(value);
 
         final Angle.Turn asTurn = Angle.Turn.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Rad asRad = Angle.Rad.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Deg asDeg = Angle.Deg.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(asDeg, null);
     }
 
@@ -259,10 +361,22 @@ class AngleTest_OE25Dev {
         final double nextValue = Math.nextUp(value);
 
         final Angle.Turn asTurn = Angle.Turn.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Rad asRad = Angle.Rad.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Deg asDeg = Angle.Deg.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertNotEquals(asDeg, asTurn);
     }
@@ -273,11 +387,24 @@ class AngleTest_OE25Dev {
         final double nextValue = Math.nextUp(value);
 
         final Angle.Turn asTurn = Angle.Turn.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Rad asRad = Angle.Rad.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Deg asDeg = Angle.Deg.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(asTurn, asRad);
     }
 
@@ -287,11 +414,25 @@ class AngleTest_OE25Dev {
         final double nextValue = Math.nextUp(value);
 
         final Angle.Turn asTurn = Angle.Turn.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Rad asRad = Angle.Rad.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Angle.Deg asDeg = Angle.Deg.of(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(asRad, asDeg);
     }
 
@@ -312,6 +453,7 @@ class AngleTest_OE25Dev {
         for (double a = -15.0; a <= 15.0; a += 0.1) {
             for (double b = -15.0; b <= 15.0; b += 0.2) {
                 final double c = Angle.Rad.normalizer(b).applyAsDouble(a);
+                // removed other assertion
                 Assertions.assertTrue(c <= b + twopi);
     }
     }
@@ -323,6 +465,8 @@ class AngleTest_OE25Dev {
         for (double a = -15.0; a <= 15.0; a += 0.1) {
             for (double b = -15.0; b <= 15.0; b += 0.2) {
                 final double c = Angle.Rad.normalizer(b).applyAsDouble(a);
+                // removed other assertion
+                // removed other assertion
                 double twoK = Math.rint((a - c) / Math.PI);
                 Assertions.assertEquals(c, a - twoK * Math.PI, 1e-14);
     }
@@ -370,10 +514,12 @@ class AngleTest_OE25Dev {
         final DoubleUnaryOperator nZero = Angle.Rad.WITHIN_MINUS_PI_AND_PI;
         final DoubleUnaryOperator nPi = Angle.Rad.WITHIN_0_AND_2PI;
 
+        // arrange
         final double pi = Math.PI;
         double small = Math.ulp(Angle.TWO_PI);
         double tiny = 5e-17; // pi + tiny = pi (the value is too small to add to pi)
 
+        // act/assert
         Assertions.assertEquals(Angle.TWO_PI - small, nPi.applyAsDouble(-small));
     }
 
@@ -382,10 +528,13 @@ class AngleTest_OE25Dev {
         final DoubleUnaryOperator nZero = Angle.Rad.WITHIN_MINUS_PI_AND_PI;
         final DoubleUnaryOperator nPi = Angle.Rad.WITHIN_0_AND_2PI;
 
+        // arrange
         final double pi = Math.PI;
         double small = Math.ulp(Angle.TWO_PI);
         double tiny = 5e-17; // pi + tiny = pi (the value is too small to add to pi)
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(small, nPi.applyAsDouble(small));
     }
 
@@ -394,10 +543,14 @@ class AngleTest_OE25Dev {
         final DoubleUnaryOperator nZero = Angle.Rad.WITHIN_MINUS_PI_AND_PI;
         final DoubleUnaryOperator nPi = Angle.Rad.WITHIN_0_AND_2PI;
 
+        // arrange
         final double pi = Math.PI;
         double small = Math.ulp(Angle.TWO_PI);
         double tiny = 5e-17; // pi + tiny = pi (the value is too small to add to pi)
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(pi - small, nZero.applyAsDouble(-pi - small));
     }
@@ -407,11 +560,16 @@ class AngleTest_OE25Dev {
         final DoubleUnaryOperator nZero = Angle.Rad.WITHIN_MINUS_PI_AND_PI;
         final DoubleUnaryOperator nPi = Angle.Rad.WITHIN_0_AND_2PI;
 
+        // arrange
         final double pi = Math.PI;
         double small = Math.ulp(Angle.TWO_PI);
         double tiny = 5e-17; // pi + tiny = pi (the value is too small to add to pi)
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(-pi + small, nZero.applyAsDouble(pi + small));
     }
 
@@ -420,11 +578,17 @@ class AngleTest_OE25Dev {
         final DoubleUnaryOperator nZero = Angle.Rad.WITHIN_MINUS_PI_AND_PI;
         final DoubleUnaryOperator nPi = Angle.Rad.WITHIN_0_AND_2PI;
 
+        // arrange
         final double pi = Math.PI;
         double small = Math.ulp(Angle.TWO_PI);
         double tiny = 5e-17; // pi + tiny = pi (the value is too small to add to pi)
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0d, nPi.applyAsDouble(-tiny));
     }
@@ -434,12 +598,19 @@ class AngleTest_OE25Dev {
         final DoubleUnaryOperator nZero = Angle.Rad.WITHIN_MINUS_PI_AND_PI;
         final DoubleUnaryOperator nPi = Angle.Rad.WITHIN_0_AND_2PI;
 
+        // arrange
         final double pi = Math.PI;
         double small = Math.ulp(Angle.TWO_PI);
         double tiny = 5e-17; // pi + tiny = pi (the value is too small to add to pi)
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(tiny, nPi.applyAsDouble(tiny));
     }
 
@@ -448,12 +619,20 @@ class AngleTest_OE25Dev {
         final DoubleUnaryOperator nZero = Angle.Rad.WITHIN_MINUS_PI_AND_PI;
         final DoubleUnaryOperator nPi = Angle.Rad.WITHIN_0_AND_2PI;
 
+        // arrange
         final double pi = Math.PI;
         double small = Math.ulp(Angle.TWO_PI);
         double tiny = 5e-17; // pi + tiny = pi (the value is too small to add to pi)
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(-pi, nZero.applyAsDouble(-pi - tiny));
     }
@@ -463,18 +642,28 @@ class AngleTest_OE25Dev {
         final DoubleUnaryOperator nZero = Angle.Rad.WITHIN_MINUS_PI_AND_PI;
         final DoubleUnaryOperator nPi = Angle.Rad.WITHIN_0_AND_2PI;
 
+        // arrange
         final double pi = Math.PI;
         double small = Math.ulp(Angle.TWO_PI);
         double tiny = 5e-17; // pi + tiny = pi (the value is too small to add to pi)
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(-pi, nZero.applyAsDouble(pi + tiny));
     }
 
     @Test
     void testHashCode_1_oe() {
+        // Test assumes that the internal representation is in "turns".
         final double value = -123.456789;
         final int expected = Double.valueOf(value).hashCode();
         final int actual = Angle.Turn.of(value).hashCode();
@@ -504,6 +693,7 @@ class AngleTest_OE25Dev {
         final double aboveZero = Math.nextUp(0);
         final double belowZero = Math.nextDown(0);
 
+        // removed other assertion
         Assertions.assertEquals(aboveZero,Angle.Rad.WITHIN_0_AND_2PI.applyAsDouble(aboveZero));
     }
 
@@ -512,6 +702,8 @@ class AngleTest_OE25Dev {
         final double aboveZero = Math.nextUp(0);
         final double belowZero = Math.nextDown(0);
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(belowZero,Angle.Rad.WITHIN_MINUS_PI_AND_PI.applyAsDouble(belowZero));
     }
@@ -521,7 +713,10 @@ class AngleTest_OE25Dev {
         final double aboveZero = Math.nextUp(0);
         final double belowZero = Math.nextDown(0);
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(0,Angle.Rad.WITHIN_0_AND_2PI.applyAsDouble(belowZero));
     }
 
@@ -544,6 +739,7 @@ class AngleTest_OE25Dev {
 
         final DoubleUnaryOperator normalizer = Angle.Rad.normalizer(x);
 
+        // removed other assertion
         Assertions.assertEquals(above, normalizer.applyAsDouble(above));
     }
 
@@ -555,7 +751,12 @@ class AngleTest_OE25Dev {
 
         final DoubleUnaryOperator normalizer = Angle.Rad.normalizer(x);
 
+        // removed other assertion
+        // removed other assertion
 
+        // "below" is so close to "x" that below + Math.PI = x + Math.PI
+        // In this case, we can't return below + Math.PI because that is exactly equal to the
+        // upper bound of the range. Instead, we must return the lower bound of x.
         Assertions.assertEquals(x, normalizer.applyAsDouble(below));
     }
 

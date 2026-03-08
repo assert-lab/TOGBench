@@ -33,6 +33,7 @@ public class JettyServerTest_OE25Dev {
         int maxThreads = Whitebox.getInternalState(threadPool, "_maxThreads");
         int idleTimeout = Whitebox.getInternalState(threadPool, "_idleTimeout");
 
+        // removed other assertion
         assertEquals("Server thread pool default maxThreads should be 200", 200, maxThreads);
     }
 
@@ -46,6 +47,8 @@ public class JettyServerTest_OE25Dev {
         int maxThreads = Whitebox.getInternalState(threadPool, "_maxThreads");
         int idleTimeout = Whitebox.getInternalState(threadPool, "_idleTimeout");
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Server thread pool default idleTimeout should be 60000", 60000, idleTimeout);
     }
 
@@ -72,6 +75,7 @@ public class JettyServerTest_OE25Dev {
         int maxThreads = Whitebox.getInternalState(threadPool, "_maxThreads");
         int idleTimeout = Whitebox.getInternalState(threadPool, "_idleTimeout");
 
+        // removed other assertion
         assertEquals("Server thread pool default maxThreads should be the same as specified", 9, maxThreads);
     }
 
@@ -85,6 +89,8 @@ public class JettyServerTest_OE25Dev {
         int maxThreads = Whitebox.getInternalState(threadPool, "_maxThreads");
         int idleTimeout = Whitebox.getInternalState(threadPool, "_idleTimeout");
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Server thread pool default idleTimeout should be 60000", 60000, idleTimeout);
     }
 
@@ -92,6 +98,7 @@ public class JettyServerTest_OE25Dev {
     public void testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_2_oe() {
         try {
             new JettyServer().create(2, 0, 0);
+            // removed other assertion
         }
         catch (IllegalArgumentException expected) {
             assertEquals("max threads (2) less than min threads (8)", expected.getMessage());

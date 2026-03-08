@@ -90,12 +90,14 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
 
         final JpegPhotoshopMetadata metadata = new JpegImageParser().getPhotoshopMetadata(
                 byteSource, params);
+        // removed other assertion
 
         final File noIptcFile = removeIptc(byteSource, imageFile);
 
         final JpegPhotoshopMetadata outMetadata = new JpegImageParser().getPhotoshopMetadata(
                 new ByteSourceFile(noIptcFile), params);
 
+        // FIXME should either be null or empty
         assertTrue(outMetadata == null || outMetadata.getItems().isEmpty());
     }
 
@@ -130,6 +132,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
         final JpegImagingParameters params = new JpegImagingParameters();
 
         final JpegPhotoshopMetadata metadata = new JpegImageParser().getPhotoshopMetadata(byteSource, params);
+        // removed other assertion
 
         final List<IptcBlock> newBlocks = metadata.photoshopApp13Data.getNonIptcBlocks();
         final List<IptcRecord> newRecords = new ArrayList<>();
@@ -158,6 +161,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
         final JpegImagingParameters params = new JpegImagingParameters();
 
         final JpegPhotoshopMetadata metadata = new JpegImageParser().getPhotoshopMetadata(byteSource, params);
+        // removed other assertion
 
         final List<IptcBlock> newBlocks = metadata.photoshopApp13Data.getNonIptcBlocks();
         final List<IptcRecord> newRecords = new ArrayList<>();
@@ -175,6 +179,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
         final JpegPhotoshopMetadata outMetadata = new JpegImageParser().getPhotoshopMetadata(
                 updateByteSource, params);
 
+        // removed other assertion
         assertEquals(2, outMetadata.getItems().size());
     }
 
@@ -197,6 +202,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
         final JpegImagingParameters params = new JpegImagingParameters();
 
         final JpegPhotoshopMetadata metadata = new JpegImageParser().getPhotoshopMetadata(byteSource, params);
+        // removed other assertion
 
         final List<IptcBlock> newBlocks = metadata.photoshopApp13Data.getNonIptcBlocks();
         final List<IptcRecord> oldRecords = metadata.photoshopApp13Data.getRecords();
@@ -229,6 +235,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
         final JpegImagingParameters params = new JpegImagingParameters();
 
         final JpegPhotoshopMetadata metadata = new JpegImageParser().getPhotoshopMetadata(byteSource, params);
+        // removed other assertion
 
         final List<IptcBlock> newBlocks = metadata.photoshopApp13Data.getNonIptcBlocks();
         final List<IptcRecord> oldRecords = metadata.photoshopApp13Data.getRecords();
@@ -250,6 +257,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
         final ByteSource updateByteSource = new ByteSourceFile(updated);
         final JpegPhotoshopMetadata outMetadata = new JpegImageParser().getPhotoshopMetadata(updateByteSource, params);
 
+        // removed other assertion
         assertEquals(outMetadata.getItems().size(), newRecords.size());
     }
 
@@ -262,6 +270,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
 
         final JpegPhotoshopMetadata metadata = new JpegImageParser().getPhotoshopMetadata(
                 byteSource, params);
+        // removed other assertion
 
         final File noIptcFile = removeIptc(byteSource, imageFile);
 
@@ -299,6 +308,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
 
         final JpegPhotoshopMetadata metadata = new JpegImageParser().getPhotoshopMetadata(
                 byteSource, params);
+        // removed other assertion
 
         final File noIptcFile = removeIptc(byteSource, imageFile);
 
@@ -324,6 +334,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
         final JpegPhotoshopMetadata outMetadata = new JpegImageParser().getPhotoshopMetadata(
                 updateByteSource, params);
 
+        // removed other assertion
         assertEquals(2, outMetadata.getItems().size());
     }
 

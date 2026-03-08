@@ -27,6 +27,7 @@ public class FormElementTest_OE25Dev {
     }
 
     @Test public void hasAssociatedControls_1_oe() {
+        //"button", "fieldset", "input", "keygen", "object", "output", "select", "textarea"
         String html = "<form id=1><button id=1><fieldset id=2 /><input id=3><keygen id=4><object id=5><output id=6>" +
                 "<select id=7><option></select><textarea id=8><p id=9>";
         Document doc = Jsoup.parse(html);
@@ -62,6 +63,7 @@ public class FormElementTest_OE25Dev {
         FormElement form = (FormElement) doc.select("form").first();
         List<Connection.KeyVal> data = form.formData();
 
+        // removed other assertion
         assertEquals("one=two", data.get(0).toString());
         }
 
@@ -77,6 +79,8 @@ public class FormElementTest_OE25Dev {
         FormElement form = (FormElement) doc.select("form").first();
         List<Connection.KeyVal> data = form.formData();
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("three=four", data.get(1).toString());
         }
 
@@ -92,6 +96,9 @@ public class FormElementTest_OE25Dev {
         FormElement form = (FormElement) doc.select("form").first();
         List<Connection.KeyVal> data = form.formData();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("three=five", data.get(2).toString());
         }
 
@@ -107,6 +114,10 @@ public class FormElementTest_OE25Dev {
         FormElement form = (FormElement) doc.select("form").first();
         List<Connection.KeyVal> data = form.formData();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("six=seven", data.get(3).toString());
         }
 
@@ -122,6 +133,11 @@ public class FormElementTest_OE25Dev {
         FormElement form = (FormElement) doc.select("form").first();
         List<Connection.KeyVal> data = form.formData();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("seven=on", data.get(4).toString()); // set;
         }
 
@@ -137,6 +153,12 @@ public class FormElementTest_OE25Dev {
         FormElement form = (FormElement) doc.select("form").first();
         List<Connection.KeyVal> data = form.formData();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("eight=on", data.get(5).toString()); // default;
         }
 
@@ -166,6 +188,7 @@ public class FormElementTest_OE25Dev {
         FormElement form = ((FormElement) doc.select("form").first());
         Connection con = form.submit();
 
+        // removed other assertion
         assertEquals("http://example.com/search", con.request().url().toExternalForm());
         }
 
@@ -177,6 +200,8 @@ public class FormElementTest_OE25Dev {
         FormElement form = ((FormElement) doc.select("form").first());
         Connection con = form.submit();
 
+        // removed other assertion
+        // removed other assertion
         List<Connection.KeyVal> dataList = (List<Connection.KeyVal>) con.request().data();
         assertEquals("q=jsoup", dataList.get(0).toString());
         }
@@ -189,7 +214,10 @@ public class FormElementTest_OE25Dev {
         FormElement form = ((FormElement) doc.select("form").first());
         Connection con = form.submit();
 
+        // removed other assertion
+        // removed other assertion
         List<Connection.KeyVal> dataList = (List<Connection.KeyVal>) con.request().data();
+        // removed other assertion
 
         doc.select("form").attr("method", "post");
         Connection con2 = form.submit();
@@ -231,6 +259,7 @@ public class FormElementTest_OE25Dev {
             form.submit();
         } catch (IllegalArgumentException e) {
             threw = true;
+            // removed other assertion
         }
         assertTrue(threw);
         }
@@ -246,6 +275,7 @@ public class FormElementTest_OE25Dev {
         Document doc = Jsoup.parse("<body />");
         doc.body().html("<form action='http://example.com/search'><input name='q' value='search'>");
         Element formEl = doc.select("form").first();
+        // removed other assertion
 
         FormElement form = (FormElement) formEl;
         assertEquals(1, form.elements().size());
@@ -268,6 +298,7 @@ public class FormElementTest_OE25Dev {
         Element formEl = doc.select("form").first();
         formEl.append("<input name=foo value=bar>");
 
+        // removed other assertion
         FormElement form = (FormElement) formEl;
         assertEquals(1, form.elements().size());
         }
@@ -279,7 +310,9 @@ public class FormElementTest_OE25Dev {
         Element formEl = doc.select("form").first();
         formEl.append("<input name=foo value=bar>");
 
+        // removed other assertion
         FormElement form = (FormElement) formEl;
+        // removed other assertion
 
         List<Connection.KeyVal> data = form.formData();
         assertEquals("foo=bar", data.get(0).toString());
@@ -296,10 +329,12 @@ public class FormElementTest_OE25Dev {
         Document doc = Jsoup.parse("<form><input type=checkbox checked name=foo></form>");
         FormElement form = (FormElement) doc.select("form").first();
         List<Connection.KeyVal> data = form.formData();
+        // removed other assertion
         assertEquals("foo", data.get(0).key());
         }
 
     @Test public void adoptedFormsRetainInputs_1_oe() {
+        // test for https://github.com/jhy/jsoup/issues/249
         String html = "<html>\n" +
                 "<body>  \n" +
                 "  <table>\n" +
@@ -318,6 +353,7 @@ public class FormElementTest_OE25Dev {
         }
 
     @Test public void adoptedFormsRetainInputs_2_oe() {
+        // test for https://github.com/jhy/jsoup/issues/249
         String html = "<html>\n" +
                 "<body>  \n" +
                 "  <table>\n" +
@@ -332,10 +368,12 @@ public class FormElementTest_OE25Dev {
         Document doc = Jsoup.parse(html);
         FormElement form = (FormElement) doc.select("form").first();
         List<Connection.KeyVal> data = form.formData();
+        // removed other assertion
         assertEquals("user", data.get(0).key());
         }
 
     @Test public void adoptedFormsRetainInputs_3_oe() {
+        // test for https://github.com/jhy/jsoup/issues/249
         String html = "<html>\n" +
                 "<body>  \n" +
                 "  <table>\n" +
@@ -350,10 +388,13 @@ public class FormElementTest_OE25Dev {
         Document doc = Jsoup.parse(html);
         FormElement form = (FormElement) doc.select("form").first();
         List<Connection.KeyVal> data = form.formData();
+        // removed other assertion
+        // removed other assertion
         assertEquals("pass", data.get(1).key());
         }
 
     @Test public void adoptedFormsRetainInputs_4_oe() {
+        // test for https://github.com/jhy/jsoup/issues/249
         String html = "<html>\n" +
                 "<body>  \n" +
                 "  <table>\n" +
@@ -368,6 +409,9 @@ public class FormElementTest_OE25Dev {
         Document doc = Jsoup.parse(html);
         FormElement form = (FormElement) doc.select("form").first();
         List<Connection.KeyVal> data = form.formData();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("login", data.get(2).key());
         }
 
@@ -406,6 +450,7 @@ public class FormElementTest_OE25Dev {
         pass.remove();
 
         List<Connection.KeyVal> data = form.formData();
+        // removed other assertion
         assertEquals("user", data.get(0).key());
         }
 
@@ -425,6 +470,8 @@ public class FormElementTest_OE25Dev {
         pass.remove();
 
         List<Connection.KeyVal> data = form.formData();
+        // removed other assertion
+        // removed other assertion
         assertEquals("login", data.get(1).key());
         }
 
@@ -444,6 +491,9 @@ public class FormElementTest_OE25Dev {
         pass.remove();
 
         List<Connection.KeyVal> data = form.formData();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull(doc.selectFirst("input[name=pass]"));
         }
 
@@ -472,7 +522,9 @@ public class FormElementTest_OE25Dev {
         FormElement form = formDoc.select("form").forms().get(0);
         Document echo = form.submit().post();
 
+        // removed other assertion
         Elements els = echo.select("th:contains(Cookie: One)");
+        // ensure that the cookies are there and in path-specific order (two with same name)
         assertEquals("EchoServlet", els.get(0).nextElementSibling().text());
         }
 
@@ -487,7 +539,10 @@ public class FormElementTest_OE25Dev {
         FormElement form = formDoc.select("form").forms().get(0);
         Document echo = form.submit().post();
 
+        // removed other assertion
         Elements els = echo.select("th:contains(Cookie: One)");
+        // ensure that the cookies are there and in path-specific order (two with same name)
+        // removed other assertion
         assertEquals("Root", els.get(1).nextElementSibling().text());
         }
 
@@ -502,8 +557,13 @@ public class FormElementTest_OE25Dev {
         FormElement form = formDoc.select("form").forms().get(0);
         Document echo = form.submit().post();
 
+        // removed other assertion
         Elements els = echo.select("th:contains(Cookie: One)");
+        // ensure that the cookies are there and in path-specific order (two with same name)
+        // removed other assertion
+        // removed other assertion
 
+        // make sure that the session following kept unique requests
         assertTrue(cookieDoc.connection().response().url().toExternalForm().contains("CookieServlet"));
         }
 
@@ -518,8 +578,14 @@ public class FormElementTest_OE25Dev {
         FormElement form = formDoc.select("form").forms().get(0);
         Document echo = form.submit().post();
 
+        // removed other assertion
         Elements els = echo.select("th:contains(Cookie: One)");
+        // ensure that the cookies are there and in path-specific order (two with same name)
+        // removed other assertion
+        // removed other assertion
 
+        // make sure that the session following kept unique requests
+        // removed other assertion
         assertTrue(formDoc.connection().response().url().toExternalForm().contains("upload-form"));
         }
 
@@ -534,8 +600,15 @@ public class FormElementTest_OE25Dev {
         FormElement form = formDoc.select("form").forms().get(0);
         Document echo = form.submit().post();
 
+        // removed other assertion
         Elements els = echo.select("th:contains(Cookie: One)");
+        // ensure that the cookies are there and in path-specific order (two with same name)
+        // removed other assertion
+        // removed other assertion
 
+        // make sure that the session following kept unique requests
+        // removed other assertion
+        // removed other assertion
         assertTrue(echo.connection().response().url().toExternalForm().contains("EchoServlet"));
         }
 

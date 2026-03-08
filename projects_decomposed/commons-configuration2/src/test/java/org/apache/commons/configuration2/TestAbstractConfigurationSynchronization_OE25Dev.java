@@ -231,6 +231,7 @@ public class TestAbstractConfigurationSynchronization_OE25Dev {
 
     @Test
     public void testGetPropertySynchronized_2_oe() {
+        // removed other assertion
         assertTrue("Wrong boolean value", config.getBoolean(PROP));
     }
 

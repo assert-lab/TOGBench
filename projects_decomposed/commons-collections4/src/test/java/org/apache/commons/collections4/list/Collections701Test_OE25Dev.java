@@ -30,6 +30,31 @@ import org.junit.Test;
 public class Collections701Test_OE25Dev {
 
     @Test
+    public void testArrayList() {
+        final List<Object> list = new ArrayList<>();
+        list.add(list);
+        Assert.assertEquals(1, list.size());
+        Assert.assertEquals(list, list.get(0));
+    }
+
+    @Test
+    public void testHashSet() {
+        final Set<Object> set = new HashSet<>();
+        set.add(set);
+        Assert.assertEquals(1, set.size());
+        Assert.assertEquals(set, set.iterator().next());
+    }
+
+    @Test
+    public void testSetUniqueList() {
+        final List<Object> source = new ArrayList<>();
+        final List<Object> list = SetUniqueList.setUniqueList(source);
+        list.add(list);
+        Assert.assertEquals(1, list.size());
+        Assert.assertEquals(list, list.get(0));
+    }
+
+    @Test
     public void testArrayList_1_oe() {
         final List<Object> list = new ArrayList<>();
         list.add(list);

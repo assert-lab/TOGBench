@@ -28,6 +28,7 @@ public class QueryParserTest_OE25Dev {
                 "<a><li><strong>l2</strong></li></a>" +
                 "<p><strong>yes</strong></p>" +
                 "</body></html>");
+        // removed other assertion
         assertEquals("l2 yes", doc.select("body>p>strong,body>*>li>strong").text());
         }
 
@@ -37,6 +38,8 @@ public class QueryParserTest_OE25Dev {
                 "<a><li><strong>l2</strong></li></a>" +
                 "<p><strong>yes</strong></p>" +
                 "</body></html>");
+        // removed other assertion
+        // removed other assertion
         assertEquals("yes", doc.select(">body>*>li>strong,>body>p>strong").text());
         }
 
@@ -46,51 +49,81 @@ public class QueryParserTest_OE25Dev {
                 "<a><li><strong>l2</strong></li></a>" +
                 "<p><strong>yes</strong></p>" +
                 "</body></html>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("l2", doc.select(">body>p>strong,>body>*>li>strong").text());
         }
 
     @Test public void testOrGetsCorrectPrecedence_1_oe() {
+        // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
+        // top level or, three child ands
         Evaluator eval = QueryParser.parse("a b, c d, e f");
         assertTrue(eval instanceof CombiningEvaluator.Or);
         }
 
     @Test public void testOrGetsCorrectPrecedence_2_oe() {
+        // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
+        // top level or, three child ands
         Evaluator eval = QueryParser.parse("a b, c d, e f");
+        // removed other assertion
         CombiningEvaluator.Or or = (CombiningEvaluator.Or) eval;
         assertEquals(3, or.evaluators.size());
         }
 
     @Test public void testOrGetsCorrectPrecedence_3_oe() {
+        // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
+        // top level or, three child ands
         Evaluator eval = QueryParser.parse("a b, c d, e f");
+        // removed other assertion
         CombiningEvaluator.Or or = (CombiningEvaluator.Or) eval;
+        // removed other assertion
         for (Evaluator innerEval: or.evaluators) {
             assertTrue(innerEval instanceof CombiningEvaluator.And);
         }
         }
 
     @Test public void testOrGetsCorrectPrecedence_4_oe() {
+        // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
+        // top level or, three child ands
         Evaluator eval = QueryParser.parse("a b, c d, e f");
+        // removed other assertion
         CombiningEvaluator.Or or = (CombiningEvaluator.Or) eval;
+        // removed other assertion
         for (Evaluator innerEval: or.evaluators) {
+            // removed other assertion
             CombiningEvaluator.And and = (CombiningEvaluator.And) innerEval;
             assertEquals(2, and.evaluators.size());
         }
         }
 
     @Test public void testOrGetsCorrectPrecedence_5_oe() {
+        // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
+        // top level or, three child ands
         Evaluator eval = QueryParser.parse("a b, c d, e f");
+        // removed other assertion
         CombiningEvaluator.Or or = (CombiningEvaluator.Or) eval;
+        // removed other assertion
         for (Evaluator innerEval: or.evaluators) {
+            // removed other assertion
             CombiningEvaluator.And and = (CombiningEvaluator.And) innerEval;
+            // removed other assertion
             assertTrue(and.evaluators.get(0) instanceof StructuralEvaluator.Parent);
         }
         }
 
     @Test public void testOrGetsCorrectPrecedence_6_oe() {
+        // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
+        // top level or, three child ands
         Evaluator eval = QueryParser.parse("a b, c d, e f");
+        // removed other assertion
         CombiningEvaluator.Or or = (CombiningEvaluator.Or) eval;
+        // removed other assertion
         for (Evaluator innerEval: or.evaluators) {
+            // removed other assertion
             CombiningEvaluator.And and = (CombiningEvaluator.And) innerEval;
+            // removed other assertion
+            // removed other assertion
             assertTrue(and.evaluators.get(1) instanceof Evaluator.Tag);
         }
         }
@@ -104,6 +137,7 @@ public class QueryParserTest_OE25Dev {
     @Test public void testParsesMultiCorrectly_2_oe() {
         String query = ".foo > ol, ol > li + li";
         Evaluator eval = QueryParser.parse(query);
+        // removed other assertion
         CombiningEvaluator.Or or = (CombiningEvaluator.Or) eval;
         assertEquals(2, or.evaluators.size());
         }
@@ -111,7 +145,9 @@ public class QueryParserTest_OE25Dev {
     @Test public void testParsesMultiCorrectly_3_oe() {
         String query = ".foo > ol, ol > li + li";
         Evaluator eval = QueryParser.parse(query);
+        // removed other assertion
         CombiningEvaluator.Or or = (CombiningEvaluator.Or) eval;
+        // removed other assertion
 
         CombiningEvaluator.And andLeft = (CombiningEvaluator.And) or.evaluators.get(0);
         CombiningEvaluator.And andRight = (CombiningEvaluator.And) or.evaluators.get(1);
@@ -122,44 +158,62 @@ public class QueryParserTest_OE25Dev {
     @Test public void testParsesMultiCorrectly_4_oe() {
         String query = ".foo > ol, ol > li + li";
         Evaluator eval = QueryParser.parse(query);
+        // removed other assertion
         CombiningEvaluator.Or or = (CombiningEvaluator.Or) eval;
+        // removed other assertion
 
         CombiningEvaluator.And andLeft = (CombiningEvaluator.And) or.evaluators.get(0);
         CombiningEvaluator.And andRight = (CombiningEvaluator.And) or.evaluators.get(1);
 
+        // removed other assertion
         assertEquals(2, andLeft.evaluators.size());
         }
 
     @Test public void testParsesMultiCorrectly_5_oe() {
         String query = ".foo > ol, ol > li + li";
         Evaluator eval = QueryParser.parse(query);
+        // removed other assertion
         CombiningEvaluator.Or or = (CombiningEvaluator.Or) eval;
+        // removed other assertion
 
         CombiningEvaluator.And andLeft = (CombiningEvaluator.And) or.evaluators.get(0);
         CombiningEvaluator.And andRight = (CombiningEvaluator.And) or.evaluators.get(1);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("ol > li + li", andRight.toString());
         }
 
     @Test public void testParsesMultiCorrectly_6_oe() {
         String query = ".foo > ol, ol > li + li";
         Evaluator eval = QueryParser.parse(query);
+        // removed other assertion
         CombiningEvaluator.Or or = (CombiningEvaluator.Or) eval;
+        // removed other assertion
 
         CombiningEvaluator.And andLeft = (CombiningEvaluator.And) or.evaluators.get(0);
         CombiningEvaluator.And andRight = (CombiningEvaluator.And) or.evaluators.get(1);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(2, andRight.evaluators.size());
         }
 
     @Test public void testParsesMultiCorrectly_7_oe() {
         String query = ".foo > ol, ol > li + li";
         Evaluator eval = QueryParser.parse(query);
+        // removed other assertion
         CombiningEvaluator.Or or = (CombiningEvaluator.Or) eval;
+        // removed other assertion
 
         CombiningEvaluator.And andLeft = (CombiningEvaluator.And) or.evaluators.get(0);
         CombiningEvaluator.And andRight = (CombiningEvaluator.And) or.evaluators.get(1);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(query, eval.toString());
         }
 

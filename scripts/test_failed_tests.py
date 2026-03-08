@@ -182,6 +182,46 @@ def find_class_closing_brace(lines: List[str], class_name: str) -> int:
             break
     return close_idx
 
+def ensure_fail_import(src: str) -> str:
+    if "fail(" not in src:
+        return src
+    if "org.junit.jupiter.api.Assertions.fail(" in src:
+        return src
+    if "import static org.junit.jupiter.api.Assertions.*;" in src:
+        return src
+    if "import static org.junit.jupiter.api.Assertions.fail;" in src:
+        return src
+    if "org.junit.jupiter.api.Assertions" not in src:
+        return src
+
+    lines = src.splitlines(keepends=True)
+
+    pkg_idx = None
+    last_import_idx = None
+    for i, ln in enumerate(lines):
+        s = ln.strip()
+        if s.startswith("package "):
+            pkg_idx = i
+        elif s.startswith("import "):
+            last_import_idx = i
+        elif pkg_idx is not None and last_import_idx is None and s and not s.startswith("/*") and not s.startswith("*") and not s.startswith("//"):
+            break
+
+    insert_at = None
+    if last_import_idx is not None:
+        insert_at = last_import_idx + 1
+    elif pkg_idx is not None:
+        insert_at = pkg_idx + 1
+    else:
+        insert_at = 0
+
+    import_line = "import static org.junit.jupiter.api.Assertions.fail;\n"
+    if insert_at > 0 and lines[insert_at - 1].strip() != "":
+        lines.insert(insert_at, "\n")
+        insert_at += 1
+
+    lines.insert(insert_at, import_line)
+    return "".join(lines)
 
 def build_one_test_block(test_prefix: str) -> str:
     s = test_prefix or ""
@@ -255,7 +295,8 @@ def rebuild_one_row(project_dir: Path, meta_row: dict, inputs_row: dict) -> Tupl
         raise RuntimeError("cannot_find_method_name_in_test_prefix")
 
     tid = (inputs_row.get("id", "") or "").strip()
-    new_class = f"{test_class}_OE25Dev_{tid}" if tid else f"{test_class}_OE25Dev"
+    safe_tid = tid.replace("-", "_")
+    new_class = f"{test_class}_OE25Dev"
     if not new_class[-1:].isalnum():
         new_class += "_X"
     new_path = orig_path.parent / f"{new_class}.java"
@@ -274,6 +315,7 @@ def rebuild_one_row(project_dir: Path, meta_row: dict, inputs_row: dict) -> Tupl
     new_lines.extend(lines[close_idx + 1:])
 
     new_src = "".join(new_lines)
+    new_src = ensure_fail_import(new_src)
     new_path.write_text(new_src, encoding="utf-8", errors="ignore")
 
     pkg = get_package_name(new_src)
@@ -302,10 +344,9 @@ def main():
     proj_dir = PROJECTS_DIR / args.project
     if not proj_dir.is_dir():
         raise SystemExit(f"project not found: {args.project}")
-
-    dataset_dir = proj_dir / "dataset_left"
-    inputs_failed = dataset_dir / "inputs_left_filtered.csv"
-    meta_failed = dataset_dir / "meta_left_filtered.csv"
+    dataset_dir = proj_dir / "dataset"
+    inputs_failed = dataset_dir / "inputs_multiline.csv"
+    meta_failed = dataset_dir / "meta.csv"
     if not inputs_failed.exists() or not meta_failed.exists():
         print(f"[skip] {args.project} missing inputs_left_filtered/meta_left_filtered")
         return
@@ -368,8 +409,8 @@ def main():
                 flush=True,
             )
 
-    write_csv(dataset_dir / "inputs_passed.csv", in_fields, passed_inputs)
-    write_csv(dataset_dir / "meta_passed.csv", meta_fields, passed_meta)
+    write_csv(dataset_dir / "inputs_passed_1_many.csv", in_fields, passed_inputs)
+    # write_csv(dataset_dir / "meta_passed.csv", meta_fields, passed_meta)
 
 
     write_csv(inputs_failed, in_fields, still_failed_inputs)

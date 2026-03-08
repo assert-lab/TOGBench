@@ -183,6 +183,7 @@ public class TestEventSource_OE25Dev {
         final EventListenerTestImpl l = new EventListenerTestImpl(this);
         source.addEventListener(ConfigurationEvent.ANY, l);
         final Collection<EventListener<? super ConfigurationEvent>> listeners = source.getEventListeners(ConfigurationEvent.ANY);
+        // removed other assertion
         assertTrue("Listener not in list", listeners.contains(l));
     }
 
@@ -215,6 +216,7 @@ public class TestEventSource_OE25Dev {
 
         source.clearErrorListeners();
         final List<EventListenerRegistrationData<?>> regs = source.getEventListenerRegistrations();
+        // removed other assertion
         assertSame("Wrong remaining listener", cl, regs.get(0).getListener());
     }
 
@@ -233,6 +235,7 @@ public class TestEventSource_OE25Dev {
         source.addEventListener(ConfigurationEvent.ANY_HIERARCHICAL, new EventListenerTestImpl(source));
 
         source.clearEventListeners();
+        // removed other assertion
         assertTrue("Got HIERARCHICAL listeners", source.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL).isEmpty());
     }
 
@@ -266,6 +269,7 @@ public class TestEventSource_OE25Dev {
         final BaseEventSource source2 = new BaseEventSource();
         source.copyEventListeners(source2);
         Collection<EventListener<? super ConfigurationEvent>> listeners = source2.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL);
+        // removed other assertion
         assertTrue("l1 not found", listeners.contains(l1));
     }
 
@@ -279,6 +283,8 @@ public class TestEventSource_OE25Dev {
         final BaseEventSource source2 = new BaseEventSource();
         source.copyEventListeners(source2);
         Collection<EventListener<? super ConfigurationEvent>> listeners = source2.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL);
+        // removed other assertion
+        // removed other assertion
         assertTrue("l2 not found", listeners.contains(l2));
     }
 
@@ -292,6 +298,9 @@ public class TestEventSource_OE25Dev {
         final BaseEventSource source2 = new BaseEventSource();
         source.copyEventListeners(source2);
         Collection<EventListener<? super ConfigurationEvent>> listeners = source2.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         listeners = source2.getEventListeners(ConfigurationEvent.ANY);
         assertEquals("Wrong number of listeners (2)", 1, listeners.size());
     }
@@ -306,7 +315,11 @@ public class TestEventSource_OE25Dev {
         final BaseEventSource source2 = new BaseEventSource();
         source.copyEventListeners(source2);
         Collection<EventListener<? super ConfigurationEvent>> listeners = source2.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         listeners = source2.getEventListeners(ConfigurationEvent.ANY);
+        // removed other assertion
         assertTrue("Wrong listener", listeners.contains(l1));
     }
 
@@ -360,11 +373,14 @@ public class TestEventSource_OE25Dev {
 
     @Test
     public void testInit_2_oe() {
+        // removed other assertion
         assertFalse("Removing listener", source.removeEventListener(ConfigurationEvent.ANY, new EventListenerTestImpl(null)));
     }
 
     @Test
     public void testInit_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertFalse("Detail events are enabled", source.isDetailEvents());
     }
 
@@ -377,6 +393,7 @@ public class TestEventSource_OE25Dev {
     @Test
     public void testRemoveEventListener_2_oe() {
         final EventListenerTestImpl l = new EventListenerTestImpl(this);
+        // removed other assertion
         source.addEventListener(ConfigurationEvent.ADD_NODES, new EventListenerTestImpl(this));
         source.addEventListener(ConfigurationEvent.ANY, l);
         assertFalse("Unknown listener can be removed", source.removeEventListener(ConfigurationEvent.ANY, new EventListenerTestImpl(null)));
@@ -385,8 +402,10 @@ public class TestEventSource_OE25Dev {
     @Test
     public void testRemoveEventListener_3_oe() {
         final EventListenerTestImpl l = new EventListenerTestImpl(this);
+        // removed other assertion
         source.addEventListener(ConfigurationEvent.ADD_NODES, new EventListenerTestImpl(this));
         source.addEventListener(ConfigurationEvent.ANY, l);
+        // removed other assertion
         assertTrue("Could not remove listener", source.removeEventListener(ConfigurationEvent.ANY, l));
     }
 
@@ -416,6 +435,7 @@ public class TestEventSource_OE25Dev {
     @Test
     public void testRemoveNullEventListener_2_oe() {
         source.addEventListener(ConfigurationEvent.ANY, new EventListenerTestImpl(null));
+        // removed other assertion
         assertEquals("Listener list was modified", 1, source.getEventListeners(ConfigurationEvent.ANY).size());
     }
 
@@ -428,6 +448,7 @@ public class TestEventSource_OE25Dev {
     @Test
     public void testSetDetailEvents_2_oe() {
         source.setDetailEvents(true);
+        // removed other assertion
         source.setDetailEvents(true);
         source.setDetailEvents(false);
         assertTrue("Detail events are disabled again", source.isDetailEvents());
@@ -436,8 +457,10 @@ public class TestEventSource_OE25Dev {
     @Test
     public void testSetDetailEvents_3_oe() {
         source.setDetailEvents(true);
+        // removed other assertion
         source.setDetailEvents(true);
         source.setDetailEvents(false);
+        // removed other assertion
         source.setDetailEvents(false);
         assertFalse("Detail events are still enabled", source.isDetailEvents());
     }

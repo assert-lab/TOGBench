@@ -65,6 +65,7 @@ public class ParseTest_OE25Dev {
         File in = getFile("/htmltests/smh-biz-article-1.html.gz");
         Document doc = Jsoup.parse(in, "UTF-8",
                 "http://www.smh.com.au/business/the-boards-next-fear-the-female-quota-20100106-lteq.html");
+        // removed other assertion
 
         Elements articleBody = doc.select(".articleBody > *");
         assertEquals(17, articleBody.size());
@@ -81,6 +82,7 @@ public class ParseTest_OE25Dev {
     public void testNewsHomepage_2_oe() throws IOException {
         File in = getFile("/htmltests/news-com-au-home.html.gz");
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.news.com.au/");
+        // removed other assertion
         assertEquals("Brace yourself for Metro meltdown", doc.select(".id1225817868581 h4").text().trim());
     }
 
@@ -88,6 +90,8 @@ public class ParseTest_OE25Dev {
     public void testNewsHomepage_3_oe() throws IOException {
         File in = getFile("/htmltests/news-com-au-home.html.gz");
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.news.com.au/");
+        // removed other assertion
+        // removed other assertion
 
         Element a = doc.select("a[href=/entertainment/horoscopes]").first();
         assertEquals("/entertainment/horoscopes", a.attr("href"));
@@ -97,8 +101,11 @@ public class ParseTest_OE25Dev {
     public void testNewsHomepage_4_oe() throws IOException {
         File in = getFile("/htmltests/news-com-au-home.html.gz");
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.news.com.au/");
+        // removed other assertion
+        // removed other assertion
 
         Element a = doc.select("a[href=/entertainment/horoscopes]").first();
+        // removed other assertion
         assertEquals("http://www.news.com.au/entertainment/horoscopes", a.attr("abs:href"));
     }
 
@@ -106,8 +113,12 @@ public class ParseTest_OE25Dev {
     public void testNewsHomepage_5_oe() throws IOException {
         File in = getFile("/htmltests/news-com-au-home.html.gz");
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.news.com.au/");
+        // removed other assertion
+        // removed other assertion
 
         Element a = doc.select("a[href=/entertainment/horoscopes]").first();
+        // removed other assertion
+        // removed other assertion
 
         Element hs = doc.select("a[href*=naughty-corners-are-a-bad-idea]").first();
         assertEquals("http://www.heraldsun.com.au/news/naughty-corners-are-a-bad-idea-for-kids/story-e6frf7jo-1225817899003",hs.attr("href"));
@@ -117,10 +128,15 @@ public class ParseTest_OE25Dev {
     public void testNewsHomepage_6_oe() throws IOException {
         File in = getFile("/htmltests/news-com-au-home.html.gz");
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.news.com.au/");
+        // removed other assertion
+        // removed other assertion
 
         Element a = doc.select("a[href=/entertainment/horoscopes]").first();
+        // removed other assertion
+        // removed other assertion
 
         Element hs = doc.select("a[href*=naughty-corners-are-a-bad-idea]").first();
+        // removed other assertion
         assertEquals(hs.attr("href"), hs.attr("abs:href"));
     }
 
@@ -135,6 +151,7 @@ public class ParseTest_OE25Dev {
     public void testGoogleSearchIpod_2_oe() throws IOException {
         File in = getFile("/htmltests/google-ipod.html.gz");
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.google.com/search?hl=en&q=ipod&aq=f&oq=&aqi=g10");
+        // removed other assertion
         Elements results = doc.select("h3.r > a");
         assertEquals(12, results.size());
     }
@@ -143,7 +160,9 @@ public class ParseTest_OE25Dev {
     public void testGoogleSearchIpod_3_oe() throws IOException {
         File in = getFile("/htmltests/google-ipod.html.gz");
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.google.com/search?hl=en&q=ipod&aq=f&oq=&aqi=g10");
+        // removed other assertion
         Elements results = doc.select("h3.r > a");
+        // removed other assertion
         assertEquals("http://news.google.com/news?hl=en&q=ipod&um=1&ie=UTF-8&ei=uYlKS4SbBoGg6gPf-5XXCw&sa=X&oi=news_group&ct=title&resnum=1&ved=0CCIQsQQwAA",results.get(0).attr("href"));
     }
 
@@ -151,7 +170,10 @@ public class ParseTest_OE25Dev {
     public void testGoogleSearchIpod_4_oe() throws IOException {
         File in = getFile("/htmltests/google-ipod.html.gz");
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.google.com/search?hl=en&q=ipod&aq=f&oq=&aqi=g10");
+        // removed other assertion
         Elements results = doc.select("h3.r > a");
+        // removed other assertion
+        // removed other assertion
         assertEquals("http://www.apple.com/itunes/",results.get(1).attr("href"));
     }
 
@@ -166,12 +188,14 @@ public class ParseTest_OE25Dev {
     public void testYahooJp_2_oe() throws IOException {
         File in = getFile("/htmltests/yahoo-jp.html.gz");
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/index.html"); // http charset is utf-8.
+        // removed other assertion
         Element a = doc.select("a[href=t/2322m2]").first();
         assertEquals("http://www.yahoo.co.jp/_ylh=X3oDMTB0NWxnaGxsBF9TAzIwNzcyOTYyNjUEdGlkAzEyBHRtcGwDZ2Ex/t/2322m2",a.attr("abs:href"));// session put into <base> assertEquals("全国、人気の駅ランキング",a.text());
     }
 
     @Test
     public void testBaidu_1_oe() throws IOException {
+        // tests <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
         File in = getFile("/htmltests/baidu-cn-home.html");
         Document doc = Jsoup.parse(in, null,
                 "http://www.baidu.com/"); // http charset is gb2312, but NOT specifying it, to test http-equiv parse
@@ -181,71 +205,97 @@ public class ParseTest_OE25Dev {
 
     @Test
     public void testBaidu_2_oe() throws IOException {
+        // tests <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
         File in = getFile("/htmltests/baidu-cn-home.html");
         Document doc = Jsoup.parse(in, null,
                 "http://www.baidu.com/"); // http charset is gb2312, but NOT specifying it, to test http-equiv parse
         Element submit = doc.select("#su").first();
+        // removed other assertion
 
+        // test from attribute match
         submit = doc.select("input[value=百度一下]").first();
         assertEquals("su", submit.id());
     }
 
     @Test
     public void testBaidu_3_oe() throws IOException {
+        // tests <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
         File in = getFile("/htmltests/baidu-cn-home.html");
         Document doc = Jsoup.parse(in, null,
                 "http://www.baidu.com/"); // http charset is gb2312, but NOT specifying it, to test http-equiv parse
         Element submit = doc.select("#su").first();
+        // removed other assertion
 
+        // test from attribute match
         submit = doc.select("input[value=百度一下]").first();
+        // removed other assertion
         Element newsLink = doc.select("a:contains(新)").first();
         assertEquals("http://news.baidu.com", newsLink.absUrl("href"));
     }
 
     @Test
     public void testBaidu_4_oe() throws IOException {
+        // tests <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
         File in = getFile("/htmltests/baidu-cn-home.html");
         Document doc = Jsoup.parse(in, null,
                 "http://www.baidu.com/"); // http charset is gb2312, but NOT specifying it, to test http-equiv parse
         Element submit = doc.select("#su").first();
+        // removed other assertion
 
+        // test from attribute match
         submit = doc.select("input[value=百度一下]").first();
+        // removed other assertion
         Element newsLink = doc.select("a:contains(新)").first();
+        // removed other assertion
 
+        // check auto-detect from meta
         assertEquals("GB2312", doc.outputSettings().charset().displayName());
     }
 
     @Test
     public void testBaidu_5_oe() throws IOException {
+        // tests <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
         File in = getFile("/htmltests/baidu-cn-home.html");
         Document doc = Jsoup.parse(in, null,
                 "http://www.baidu.com/"); // http charset is gb2312, but NOT specifying it, to test http-equiv parse
         Element submit = doc.select("#su").first();
+        // removed other assertion
 
+        // test from attribute match
         submit = doc.select("input[value=百度一下]").first();
+        // removed other assertion
         Element newsLink = doc.select("a:contains(新)").first();
+        // removed other assertion
 
+        // check auto-detect from meta
+        // removed other assertion
         assertEquals("<title>百度一下，你就知道      </title>", doc.select("title").outerHtml());
     }
 
     @Test
     public void testBaiduVariant_1_oe() throws IOException {
+        // tests <meta charset> when preceded by another <meta>
         File in = getFile("/htmltests/baidu-variant.html");
         Document doc = Jsoup.parse(in, null,
                 "http://www.baidu.com/"); // http charset is gb2312, but NOT specifying it, to test http-equiv parse
+        // check auto-detect from meta
         assertEquals("GB2312", doc.outputSettings().charset().displayName());
     }
 
     @Test
     public void testBaiduVariant_2_oe() throws IOException {
+        // tests <meta charset> when preceded by another <meta>
         File in = getFile("/htmltests/baidu-variant.html");
         Document doc = Jsoup.parse(in, null,
                 "http://www.baidu.com/"); // http charset is gb2312, but NOT specifying it, to test http-equiv parse
+        // check auto-detect from meta
+        // removed other assertion
         assertEquals("<title>百度一下，你就知道</title>", doc.select("title").outerHtml());
     }
 
     @Test
     public void testHtml5Charset_1_oe() throws IOException {
+        // test that <meta charset="gb2312"> works
         File in = getFile("/htmltests/meta-charset-1.html");
         Document doc = Jsoup.parse(in, null, "http://example.com/"); //gb2312, has html5 <meta charset>
         assertEquals("新", doc.text());
@@ -253,16 +303,22 @@ public class ParseTest_OE25Dev {
 
     @Test
     public void testHtml5Charset_2_oe() throws IOException {
+        // test that <meta charset="gb2312"> works
         File in = getFile("/htmltests/meta-charset-1.html");
         Document doc = Jsoup.parse(in, null, "http://example.com/"); //gb2312, has html5 <meta charset>
+        // removed other assertion
         assertEquals("GB2312", doc.outputSettings().charset().displayName());
     }
 
     @Test
     public void testHtml5Charset_3_oe() throws IOException {
+        // test that <meta charset="gb2312"> works
         File in = getFile("/htmltests/meta-charset-1.html");
         Document doc = Jsoup.parse(in, null, "http://example.com/"); //gb2312, has html5 <meta charset>
+        // removed other assertion
+        // removed other assertion
 
+        // double check, no charset, falls back to utf8 which is incorrect
         in = getFile("/htmltests/meta-charset-2.html"); //
         doc = Jsoup.parse(in, null, "http://example.com"); // gb2312, no charset
         assertEquals("UTF-8", doc.outputSettings().charset().displayName());
@@ -270,22 +326,34 @@ public class ParseTest_OE25Dev {
 
     @Test
     public void testHtml5Charset_4_oe() throws IOException {
+        // test that <meta charset="gb2312"> works
         File in = getFile("/htmltests/meta-charset-1.html");
         Document doc = Jsoup.parse(in, null, "http://example.com/"); //gb2312, has html5 <meta charset>
+        // removed other assertion
+        // removed other assertion
 
+        // double check, no charset, falls back to utf8 which is incorrect
         in = getFile("/htmltests/meta-charset-2.html"); //
         doc = Jsoup.parse(in, null, "http://example.com"); // gb2312, no charset
+        // removed other assertion
         assertNotEquals("新", doc.text());
     }
 
     @Test
     public void testHtml5Charset_5_oe() throws IOException {
+        // test that <meta charset="gb2312"> works
         File in = getFile("/htmltests/meta-charset-1.html");
         Document doc = Jsoup.parse(in, null, "http://example.com/"); //gb2312, has html5 <meta charset>
+        // removed other assertion
+        // removed other assertion
 
+        // double check, no charset, falls back to utf8 which is incorrect
         in = getFile("/htmltests/meta-charset-2.html"); //
         doc = Jsoup.parse(in, null, "http://example.com"); // gb2312, no charset
+        // removed other assertion
+        // removed other assertion
 
+        // confirm fallback to utf8
         in = getFile("/htmltests/meta-charset-3.html");
         doc = Jsoup.parse(in, null, "http://example.com/"); // utf8, no charset
         assertEquals("UTF-8", doc.outputSettings().charset().displayName());
@@ -293,14 +361,22 @@ public class ParseTest_OE25Dev {
 
     @Test
     public void testHtml5Charset_6_oe() throws IOException {
+        // test that <meta charset="gb2312"> works
         File in = getFile("/htmltests/meta-charset-1.html");
         Document doc = Jsoup.parse(in, null, "http://example.com/"); //gb2312, has html5 <meta charset>
+        // removed other assertion
+        // removed other assertion
 
+        // double check, no charset, falls back to utf8 which is incorrect
         in = getFile("/htmltests/meta-charset-2.html"); //
         doc = Jsoup.parse(in, null, "http://example.com"); // gb2312, no charset
+        // removed other assertion
+        // removed other assertion
 
+        // confirm fallback to utf8
         in = getFile("/htmltests/meta-charset-3.html");
         doc = Jsoup.parse(in, null, "http://example.com/"); // utf8, no charset
+        // removed other assertion
         assertEquals("新", doc.text());
     }
 
@@ -316,6 +392,7 @@ public class ParseTest_OE25Dev {
 
     @Test
     public void testNytArticle_1_oe() throws IOException {
+        // has tags like <nyt_text>
         File in = getFile("/htmltests/nyt-article-1.html.gz");
         Document doc = Jsoup.parse(in, null, "http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp");
 
@@ -346,11 +423,14 @@ public class ParseTest_OE25Dev {
         Document doc = Jsoup.parse(in, null);
 
         Element form = doc.select("#form").first();
+        // removed other assertion
         assertEquals("UTF-8", doc.outputSettings().charset().name());
     }
 
     @Test
     public void testXwiki_1_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/1324
+        // this tests that when in CharacterReader we hit a buffer while marked, we preserve the mark when buffered up and can rewind
         File in = getFile("/htmltests/xwiki-1324.html.gz");
         Document doc = Jsoup.parse(in, null, "https://localhost/");
         assertEquals("XWiki Jetty HSQLDB 12.1-SNAPSHOT", doc.select("#xwikiplatformversion").text());
@@ -358,15 +438,23 @@ public class ParseTest_OE25Dev {
 
     @Test
     public void testXwiki_2_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/1324
+        // this tests that when in CharacterReader we hit a buffer while marked, we preserve the mark when buffered up and can rewind
         File in = getFile("/htmltests/xwiki-1324.html.gz");
         Document doc = Jsoup.parse(in, null, "https://localhost/");
+        // removed other assertion
 
+        // was getting busted at =userdirectory, because it hit the bufferup point but the mark was then lost. so
+        // updated to preserve the mark.
         String wantHtml = "<a class=\"list-group-item\" data-id=\"userdirectory\" href=\"/xwiki/bin/admin/XWiki/XWikiPreferences?editor=globaladmin&amp;section=userdirectory\" title=\"Customize the user directory live table.\">User Directory</a>";
         assertEquals(wantHtml, doc.select("[data-id=userdirectory]").outerHtml());
     }
 
     @Test
     public void testXwikiExpanded_1_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/1324
+        // this tests that if there is a huge illegal character reference, we can get through a buffer and rewind, and still catch that it's an invalid refence,
+        // and the parse tree is correct.
         File in = getFile("/htmltests/xwiki-edit.html.gz");
         Parser parser = Parser.htmlParser();
         Document doc = Jsoup.parse(new GZIPInputStream(new FileInputStream(in)), "UTF-8", "https://localhost/", parser.setTrackErrors(100));
@@ -377,21 +465,30 @@ public class ParseTest_OE25Dev {
 
     @Test
     public void testXwikiExpanded_2_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/1324
+        // this tests that if there is a huge illegal character reference, we can get through a buffer and rewind, and still catch that it's an invalid refence,
+        // and the parse tree is correct.
         File in = getFile("/htmltests/xwiki-edit.html.gz");
         Parser parser = Parser.htmlParser();
         Document doc = Jsoup.parse(new GZIPInputStream(new FileInputStream(in)), "UTF-8", "https://localhost/", parser.setTrackErrors(100));
         ParseErrorList errors = parser.getErrors();
 
+        // removed other assertion
         assertEquals(0,errors.size());// not an invalid reference because did not look legit;
     }
 
     @Test
     public void testXwikiExpanded_3_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/1324
+        // this tests that if there is a huge illegal character reference, we can get through a buffer and rewind, and still catch that it's an invalid refence,
+        // and the parse tree is correct.
         File in = getFile("/htmltests/xwiki-edit.html.gz");
         Parser parser = Parser.htmlParser();
         Document doc = Jsoup.parse(new GZIPInputStream(new FileInputStream(in)), "UTF-8", "https://localhost/", parser.setTrackErrors(100));
         ParseErrorList errors = parser.getErrors();
 
+        // removed other assertion
+        // removed other assertion
         String wantHtml = "<a class=\"list-group-item\" data-id=\"userdirectory\" href=\"/xwiki/bin/admin/XWiki/XWikiPreferences?editor=globaladmin&amp;RIGHTHERERIGHTHERERIGHTHERERIGHTHERE";
         assertTrue(doc.select("[data-id=userdirectory]").outerHtml().startsWith(wantHtml));
     }
@@ -407,6 +504,7 @@ public class ParseTest_OE25Dev {
         File in = getFile("/htmltests/xwiki-edit.html.gz");
         String html = getFileAsString(in);
         Document doc = Jsoup.parse(html);
+        // removed other assertion
         String wantHtml = "<a class=\"list-group-item\" data-id=\"userdirectory\" href=\"/xwiki/bin/admin/XWiki/XWikiPreferences?editor=globaladmin&amp;RIGHTHERERIGHTHERERIGHTHERERIGHTHERE";
         assertTrue(doc.select("[data-id=userdirectory]").outerHtml().startsWith(wantHtml));
         }
@@ -422,6 +520,7 @@ public class ParseTest_OE25Dev {
         File in = getFile("/htmltests/xwiki-1324.html.gz");
         String html = getFileAsString(in);
         Document doc = Jsoup.parse(html);
+        // removed other assertion
         String wantHtml = "<a class=\"list-group-item\" data-id=\"userdirectory\" href=\"/xwiki/bin/admin/XWiki/XWikiPreferences?editor=globaladmin&amp;section=userdirectory\" title=\"Customize the user directory live table.\">User Directory</a>";
         assertEquals(wantHtml, doc.select("[data-id=userdirectory]").outerHtml());
         }

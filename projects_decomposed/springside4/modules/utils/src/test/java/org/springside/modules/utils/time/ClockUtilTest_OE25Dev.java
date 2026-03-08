@@ -31,6 +31,7 @@ public class ClockUtilTest_OE25Dev {
 	public void testDummyClock_2_oe() {
 		DummyClock clock = new DummyClock();
 		clock.updateNow(111);
+		// removed other assertion
 		assertThat(clock.currentDate().getTime()).isEqualTo(111);
 	}
 
@@ -38,6 +39,8 @@ public class ClockUtilTest_OE25Dev {
 	public void testDummyClock_3_oe() {
 		DummyClock clock = new DummyClock();
 		clock.updateNow(111);
+		// removed other assertion
+		// removed other assertion
 
 		clock.updateNow(new Date(112));
 		assertThat(clock.currentTimeMillis()).isEqualTo(112);
@@ -47,8 +50,11 @@ public class ClockUtilTest_OE25Dev {
 	public void testDummyClock_4_oe() {
 		DummyClock clock = new DummyClock();
 		clock.updateNow(111);
+		// removed other assertion
+		// removed other assertion
 
 		clock.updateNow(new Date(112));
+		// removed other assertion
 		clock.increaseTime(200);
 		assertThat(clock.currentTimeMillis()).isEqualTo(312);
 	}
@@ -57,9 +63,13 @@ public class ClockUtilTest_OE25Dev {
 	public void testDummyClock_5_oe() {
 		DummyClock clock = new DummyClock();
 		clock.updateNow(111);
+		// removed other assertion
+		// removed other assertion
 
 		clock.updateNow(new Date(112));
+		// removed other assertion
 		clock.increaseTime(200);
+		// removed other assertion
 		clock.decreaseTime(100);
 		assertThat(clock.currentTimeMillis()).isEqualTo(212);
 	}
@@ -68,10 +78,15 @@ public class ClockUtilTest_OE25Dev {
 	public void testDummyClock_6_oe() {
 		DummyClock clock = new DummyClock();
 		clock.updateNow(111);
+		// removed other assertion
+		// removed other assertion
 
 		clock.updateNow(new Date(112));
+		// removed other assertion
 		clock.increaseTime(200);
+		// removed other assertion
 		clock.decreaseTime(100);
+		// removed other assertion
 
 		clock.setNanoTime(150);
 		assertThat(clock.nanoTime()).isEqualTo(150);

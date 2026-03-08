@@ -109,6 +109,7 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         FileObject[] files;
 
+        // FILE Filter
         files = zipFileObj.findFiles(new FileSelector() {
             @Override
             public boolean includeFile(final FileSelectInfo fileInfo) throws Exception {
@@ -120,6 +121,7 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
                 return true;
             }
         });
+        // removed other assertion
         Assert.assertEquals(1, files.length);
     }
 
@@ -128,6 +130,7 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         FileObject[] files;
 
+        // FILE Filter
         files = zipFileObj.findFiles(new FileSelector() {
             @Override
             public boolean includeFile(final FileSelectInfo fileInfo) throws Exception {
@@ -139,8 +142,12 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
                 return true;
             }
         });
+        // removed other assertion
+        // removed other assertion
 
+        // DIRECTORY Filter
         files = zipFileObj.findFiles(new FileFilterSelector(DirectoryFileFilter.DIRECTORY));
+        // removed other assertion
         Assert.assertEquals(1, files.length);
     }
 
@@ -157,6 +164,7 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileFilter testee = DirectoryFileFilter.DIRECTORY;
 
+        // removed other assertion
         Assert.assertFalse(testee.accept(fileInfo));
     }
 
@@ -165,6 +173,8 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileFilter testee = DirectoryFileFilter.DIRECTORY;
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(testee.accept(notExistingFileInfo));
     }
 
@@ -181,6 +191,7 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileFilter testee = FileFileFilter.FILE;
 
+        // removed other assertion
         Assert.assertFalse(testee.accept(dirInfo));
     }
 
@@ -189,6 +200,8 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileFilter testee = FileFileFilter.FILE;
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(testee.accept(notExistingFileInfo));
     }
 
@@ -197,6 +210,7 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         FileObject[] files;
 
+        // FILE Filter
         files = zipFileObj.findFiles(new FileSelector() {
             @Override
             public boolean includeFile(final FileSelectInfo fileInfo) throws Exception {
@@ -216,6 +230,7 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         FileObject[] files;
 
+        // FILE Filter
         files = zipFileObj.findFiles(new FileSelector() {
             @Override
             public boolean includeFile(final FileSelectInfo fileInfo) throws Exception {
@@ -227,7 +242,10 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
                 return true;
             }
         });
+        // removed other assertion
+        // removed other assertion
 
+        // DIRECTORY Filter
         files = zipFileObj.findFiles(new FileFilterSelector(DirectoryFileFilter.DIRECTORY));
         assertContains(files, DIR);
     }

@@ -29,6 +29,8 @@ import org.apache.commons.geometry.euclidean.threed.Vector3D;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class PolygonObjParserTest_OE25Dev {
 
     private static final double EPS = 1e-10;
@@ -110,41 +112,62 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testInitialState_1_oe() {
+        // act
         final PolygonObjParser p = parser("");
 
+        // assert
         Assertions.assertNull(p.getCurrentKeyword());
     }
 
     @Test
     void testInitialState_2_oe() {
+        // act
         final PolygonObjParser p = parser("");
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(0, p.getVertexCount());
     }
 
     @Test
     void testInitialState_3_oe() {
+        // act
         final PolygonObjParser p = parser("");
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, p.getVertexNormalCount());
     }
 
     @Test
     void testInitialState_4_oe() {
+        // act
         final PolygonObjParser p = parser("");
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, p.getTextureCoordinateCount());
     }
 
     @Test
     void testInitialState_5_oe() {
+        // act
         final PolygonObjParser p = parser("");
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(p.isFailOnNonPolygonKeywords());
     }
 
     @Test
     void testReadDataLine_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "  line\t",
                 "",
@@ -155,11 +178,13 @@ class PolygonObjParserTest_OE25Dev {
                 ".\\"
         ));
 
+        // act/assert
         Assertions.assertEquals("  line\t", p.readDataLine());
     }
 
     @Test
     void testDiscardDataLine_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "  line\t",
                 "",
@@ -170,12 +195,14 @@ class PolygonObjParserTest_OE25Dev {
                 ".\\"
         ));
 
+        // act/assert
         p.discardDataLine();
         Assertions.assertEquals(2, p.getTextParser().getLineNumber());
     }
 
     @Test
     void testDiscardDataLine_2_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "  line\t",
                 "",
@@ -186,12 +213,15 @@ class PolygonObjParserTest_OE25Dev {
                 ".\\"
         ));
 
+        // act/assert
         p.discardDataLine();
+        // removed other assertion
         Assertions.assertEquals(1, p.getTextParser().getColumnNumber());
     }
 
     @Test
     void testDiscardDataLine_3_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "  line\t",
                 "",
@@ -202,7 +232,10 @@ class PolygonObjParserTest_OE25Dev {
                 ".\\"
         ));
 
+        // act/assert
         p.discardDataLine();
+        // removed other assertion
+        // removed other assertion
 
         p.discardDataLine();
         Assertions.assertEquals(3, p.getTextParser().getLineNumber());
@@ -210,6 +243,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testDiscardDataLine_4_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "  line\t",
                 "",
@@ -220,14 +254,19 @@ class PolygonObjParserTest_OE25Dev {
                 ".\\"
         ));
 
+        // act/assert
         p.discardDataLine();
+        // removed other assertion
+        // removed other assertion
 
         p.discardDataLine();
+        // removed other assertion
         Assertions.assertEquals(1, p.getTextParser().getColumnNumber());
     }
 
     @Test
     void testDiscardDataLine_5_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "  line\t",
                 "",
@@ -238,9 +277,14 @@ class PolygonObjParserTest_OE25Dev {
                 ".\\"
         ));
 
+        // act/assert
         p.discardDataLine();
+        // removed other assertion
+        // removed other assertion
 
         p.discardDataLine();
+        // removed other assertion
+        // removed other assertion
 
         p.discardDataLine();
         Assertions.assertEquals(8, p.getTextParser().getLineNumber());
@@ -248,6 +292,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testDiscardDataLine_6_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "  line\t",
                 "",
@@ -258,16 +303,23 @@ class PolygonObjParserTest_OE25Dev {
                 ".\\"
         ));
 
+        // act/assert
         p.discardDataLine();
+        // removed other assertion
+        // removed other assertion
 
         p.discardDataLine();
+        // removed other assertion
+        // removed other assertion
 
         p.discardDataLine();
+        // removed other assertion
         Assertions.assertEquals(1, p.getTextParser().getColumnNumber());
     }
 
     @Test
     void testDiscardDataLine_7_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "  line\t",
                 "",
@@ -278,11 +330,18 @@ class PolygonObjParserTest_OE25Dev {
                 ".\\"
         ));
 
+        // act/assert
         p.discardDataLine();
+        // removed other assertion
+        // removed other assertion
 
         p.discardDataLine();
+        // removed other assertion
+        // removed other assertion
 
         p.discardDataLine();
+        // removed other assertion
+        // removed other assertion
 
         p.discardDataLine();
         Assertions.assertEquals(8, p.getTextParser().getLineNumber());
@@ -290,6 +349,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testDiscardDataLine_8_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "  line\t",
                 "",
@@ -300,18 +360,27 @@ class PolygonObjParserTest_OE25Dev {
                 ".\\"
         ));
 
+        // act/assert
         p.discardDataLine();
+        // removed other assertion
+        // removed other assertion
 
         p.discardDataLine();
+        // removed other assertion
+        // removed other assertion
 
         p.discardDataLine();
+        // removed other assertion
+        // removed other assertion
 
         p.discardDataLine();
+        // removed other assertion
         Assertions.assertEquals(1, p.getTextParser().getColumnNumber());
     }
 
     @Test
     void testReadDoubles_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "0.1 0.2 3e2 4e2 500.01",
                 "  12.001  ",
@@ -319,11 +388,13 @@ class PolygonObjParserTest_OE25Dev {
                 ""
         ));
 
+        // act/assert
         Assertions.assertArrayEquals(new double[] { 0.1, 0.2, 3e2, 4e2, 500.01 }, p.readDoubles(), EPS);
     }
 
     @Test
     void testReadDoubles_3_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "0.1 0.2 3e2 4e2 500.01",
                 "  12.001  ",
@@ -331,6 +402,9 @@ class PolygonObjParserTest_OE25Dev {
                 ""
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         p.readDataLine();
 
@@ -339,6 +413,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testReadDoubles_4_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "0.1 0.2 3e2 4e2 500.01",
                 "  12.001  ",
@@ -346,9 +421,13 @@ class PolygonObjParserTest_OE25Dev {
                 ""
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         p.readDataLine();
 
+        // removed other assertion
 
         p.readDataLine();
 
@@ -357,6 +436,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testReadDoubles_5_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "0.1 0.2 3e2 4e2 500.01",
                 "  12.001  ",
@@ -364,12 +444,17 @@ class PolygonObjParserTest_OE25Dev {
                 ""
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         p.readDataLine();
 
+        // removed other assertion
 
         p.readDataLine();
 
+        // removed other assertion
 
         p.readDataLine();
 
@@ -378,6 +463,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testFace_getDefinedCompositeNormal_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
                 "v 1 0 0",
@@ -403,12 +489,14 @@ class PolygonObjParserTest_OE25Dev {
                 Vector3D.of(-1, 1, 1));
         final IntFunction<Vector3D> normalFn = normals::get;
 
+        // act/assert
         nextMatchingKeyword("f", p);
         Assertions.assertNull(p.readFace().getDefinedCompositeNormal(normalFn));
     }
 
     @Test
     void testFace_getDefinedCompositeNormal_4_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
                 "v 1 0 0",
@@ -434,11 +522,15 @@ class PolygonObjParserTest_OE25Dev {
                 Vector3D.of(-1, 1, 1));
         final IntFunction<Vector3D> normalFn = normals::get;
 
+        // act/assert
         nextMatchingKeyword("f", p);
+        // removed other assertion
 
         nextMatchingKeyword("f", p);
+        // removed other assertion
 
         nextMatchingKeyword("f", p);
+        // removed other assertion
 
         nextMatchingKeyword("f", p);
         Assertions.assertNull(p.readFace().getDefinedCompositeNormal(normalFn));
@@ -446,6 +538,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testFace_computeNormalFromVertices_2_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
                 "v 1 0 0",
@@ -465,7 +558,9 @@ class PolygonObjParserTest_OE25Dev {
                 Vector3D.of(0, 1, 0));
         final IntFunction<Vector3D> vertexFn = vertices::get;
 
+        // act/assert
         nextMatchingKeyword("f", p);
+        // removed other assertion
 
         nextMatchingKeyword("f", p);
         Assertions.assertNull(p.readFace().computeNormalFromVertices(vertexFn));
@@ -473,6 +568,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testFace_getVertexAttributesCounterClockwise_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
                 "v 1 0 0",
@@ -495,11 +591,13 @@ class PolygonObjParserTest_OE25Dev {
         final List<PolygonObjParser.VertexAttributes> reverseAttrs = new ArrayList<>(attrs);
         Collections.reverse(reverseAttrs);
 
+        // act/assert
         Assertions.assertEquals(attrs, f.getVertexAttributesCounterClockwise(null, vertexFn));
     }
 
     @Test
     void testFace_getVertexAttributesCounterClockwise_2_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
                 "v 1 0 0",
@@ -522,12 +620,15 @@ class PolygonObjParserTest_OE25Dev {
         final List<PolygonObjParser.VertexAttributes> reverseAttrs = new ArrayList<>(attrs);
         Collections.reverse(reverseAttrs);
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertEquals(attrs, f.getVertexAttributesCounterClockwise(Vector3D.Unit.PLUS_Z, vertexFn));
     }
 
     @Test
     void testFace_getVertexAttributesCounterClockwise_3_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
                 "v 1 0 0",
@@ -550,12 +651,16 @@ class PolygonObjParserTest_OE25Dev {
         final List<PolygonObjParser.VertexAttributes> reverseAttrs = new ArrayList<>(attrs);
         Collections.reverse(reverseAttrs);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(attrs, f.getVertexAttributesCounterClockwise(Vector3D.of(1, 0, 0.1), vertexFn));
     }
 
     @Test
     void testFace_getVertexAttributesCounterClockwise_4_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
                 "v 1 0 0",
@@ -578,12 +683,17 @@ class PolygonObjParserTest_OE25Dev {
         final List<PolygonObjParser.VertexAttributes> reverseAttrs = new ArrayList<>(attrs);
         Collections.reverse(reverseAttrs);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(attrs, f.getVertexAttributesCounterClockwise(Vector3D.Unit.PLUS_X, vertexFn));
     }
 
     @Test
     void testFace_getVertexAttributesCounterClockwise_5_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
                 "v 1 0 0",
@@ -606,13 +716,19 @@ class PolygonObjParserTest_OE25Dev {
         final List<PolygonObjParser.VertexAttributes> reverseAttrs = new ArrayList<>(attrs);
         Collections.reverse(reverseAttrs);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(reverseAttrs, f.getVertexAttributesCounterClockwise(Vector3D.Unit.MINUS_Z, vertexFn));
     }
 
     @Test
     void testFace_getVertexAttributesCounterClockwise_6_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
                 "v 1 0 0",
@@ -635,13 +751,20 @@ class PolygonObjParserTest_OE25Dev {
         final List<PolygonObjParser.VertexAttributes> reverseAttrs = new ArrayList<>(attrs);
         Collections.reverse(reverseAttrs);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(reverseAttrs, f.getVertexAttributesCounterClockwise(Vector3D.of(1, 0, -0.1), vertexFn));
     }
 
     @Test
     void testFace_getVertices_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
                 "v 1 0 0",
@@ -662,12 +785,14 @@ class PolygonObjParserTest_OE25Dev {
                 Vector3D.of(0, 0, -1));
         final IntFunction<Vector3D> vertexFn = vertices::get;
 
+        // act/assert
         nextMatchingKeyword("f", p);
         Assertions.assertEquals(vertices.subList(1, 4), p.readFace().getVertices(vertexFn));
     }
 
     @Test
     void testFace_getVerticesCounterClockwise_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
                 "v 1 0 0",
@@ -690,11 +815,13 @@ class PolygonObjParserTest_OE25Dev {
         nextMatchingKeyword("f", p);
         final PolygonObjParser.Face f = p.readFace();
 
+        // act/assert
         Assertions.assertEquals(faceVertices, f.getVerticesCounterClockwise(null, vertexFn));
     }
 
     @Test
     void testFace_getVerticesCounterClockwise_2_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
                 "v 1 0 0",
@@ -717,12 +844,15 @@ class PolygonObjParserTest_OE25Dev {
         nextMatchingKeyword("f", p);
         final PolygonObjParser.Face f = p.readFace();
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertEquals(faceVertices, f.getVerticesCounterClockwise(Vector3D.Unit.PLUS_Z, vertexFn));
     }
 
     @Test
     void testFace_getVerticesCounterClockwise_3_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
                 "v 1 0 0",
@@ -745,12 +875,16 @@ class PolygonObjParserTest_OE25Dev {
         nextMatchingKeyword("f", p);
         final PolygonObjParser.Face f = p.readFace();
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(faceVertices, f.getVerticesCounterClockwise(Vector3D.of(1, 0, 0.1), vertexFn));
     }
 
     @Test
     void testFace_getVerticesCounterClockwise_4_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
                 "v 1 0 0",
@@ -773,12 +907,17 @@ class PolygonObjParserTest_OE25Dev {
         nextMatchingKeyword("f", p);
         final PolygonObjParser.Face f = p.readFace();
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(faceVertices, f.getVerticesCounterClockwise(Vector3D.Unit.PLUS_X, vertexFn));
     }
 
     @Test
     void testFace_getVerticesCounterClockwise_5_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
                 "v 1 0 0",
@@ -801,13 +940,19 @@ class PolygonObjParserTest_OE25Dev {
         nextMatchingKeyword("f", p);
         final PolygonObjParser.Face f = p.readFace();
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(reverseFaceVertices, f.getVerticesCounterClockwise(Vector3D.Unit.MINUS_Z, vertexFn));
     }
 
     @Test
     void testFace_getVerticesCounterClockwise_6_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
                 "v 1 0 0",
@@ -830,13 +975,20 @@ class PolygonObjParserTest_OE25Dev {
         nextMatchingKeyword("f", p);
         final PolygonObjParser.Face f = p.readFace();
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(reverseFaceVertices, f.getVerticesCounterClockwise(Vector3D.of(1, 0, -0.1), vertexFn));
     }
 
     @Test
     void testNextKeyword_1_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "#comment",
                 "",
@@ -855,6 +1007,7 @@ class PolygonObjParserTest_OE25Dev {
                 "# end"
         ));
 
+        // act/assert
                 final String expected0 = "o";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -862,6 +1015,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_2_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "#comment",
                 "",
@@ -880,6 +1034,8 @@ class PolygonObjParserTest_OE25Dev {
                 "# end"
         ));
 
+        // act/assert
+        // removed other assertion
                 final String expected0 = "v";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -887,6 +1043,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_3_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "#comment",
                 "",
@@ -905,6 +1062,9 @@ class PolygonObjParserTest_OE25Dev {
                 "# end"
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
                 final String expected0 = "v";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -912,6 +1072,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_4_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "#comment",
                 "",
@@ -930,6 +1091,10 @@ class PolygonObjParserTest_OE25Dev {
                 "# end"
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final String expected0 = "v";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -937,6 +1102,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_5_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "#comment",
                 "",
@@ -955,6 +1121,11 @@ class PolygonObjParserTest_OE25Dev {
                 "# end"
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final String expected0 = "g";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -962,6 +1133,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_6_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "#comment",
                 "",
@@ -980,6 +1152,12 @@ class PolygonObjParserTest_OE25Dev {
                 "# end"
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final String expected0 = "f";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -987,6 +1165,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_7_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "#comment",
                 "",
@@ -1005,6 +1184,13 @@ class PolygonObjParserTest_OE25Dev {
                 "# end"
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final String expected0 = "curv2";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -1012,6 +1198,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_8_oe_2_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "#comment",
                 "",
@@ -1030,14 +1217,24 @@ class PolygonObjParserTest_OE25Dev {
                 "# end"
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final String expected0 = null;
         final PolygonObjParser parser0 = p;
+        // removed other assertion
                 Assertions.assertEquals(expected0, parser0.getCurrentKeyword());
     }
 
     @Test
     void testNextKeyword_polygonKeywordsOnly_valid_1_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v",
                 "vn",
@@ -1051,6 +1248,7 @@ class PolygonObjParserTest_OE25Dev {
         ));
         p.setFailOnNonPolygonKeywords(true);
 
+        // act/assert
                 final String expected0 = "v";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -1058,6 +1256,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_polygonKeywordsOnly_valid_2_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v",
                 "vn",
@@ -1071,6 +1270,8 @@ class PolygonObjParserTest_OE25Dev {
         ));
         p.setFailOnNonPolygonKeywords(true);
 
+        // act/assert
+        // removed other assertion
                 final String expected0 = "vn";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -1078,6 +1279,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_polygonKeywordsOnly_valid_3_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v",
                 "vn",
@@ -1091,6 +1293,9 @@ class PolygonObjParserTest_OE25Dev {
         ));
         p.setFailOnNonPolygonKeywords(true);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
                 final String expected0 = "vt";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -1098,6 +1303,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_polygonKeywordsOnly_valid_4_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v",
                 "vn",
@@ -1111,6 +1317,10 @@ class PolygonObjParserTest_OE25Dev {
         ));
         p.setFailOnNonPolygonKeywords(true);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final String expected0 = "f";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -1118,6 +1328,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_polygonKeywordsOnly_valid_5_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v",
                 "vn",
@@ -1131,6 +1342,11 @@ class PolygonObjParserTest_OE25Dev {
         ));
         p.setFailOnNonPolygonKeywords(true);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final String expected0 = "o";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -1138,6 +1354,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_polygonKeywordsOnly_valid_6_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v",
                 "vn",
@@ -1151,6 +1368,12 @@ class PolygonObjParserTest_OE25Dev {
         ));
         p.setFailOnNonPolygonKeywords(true);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final String expected0 = "s";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -1158,6 +1381,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_polygonKeywordsOnly_valid_7_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v",
                 "vn",
@@ -1171,6 +1395,13 @@ class PolygonObjParserTest_OE25Dev {
         ));
         p.setFailOnNonPolygonKeywords(true);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final String expected0 = "g";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -1178,6 +1409,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_polygonKeywordsOnly_valid_8_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v",
                 "vn",
@@ -1191,6 +1423,14 @@ class PolygonObjParserTest_OE25Dev {
         ));
         p.setFailOnNonPolygonKeywords(true);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final String expected0 = "mtllib";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -1198,6 +1438,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_polygonKeywordsOnly_valid_9_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v",
                 "vn",
@@ -1211,6 +1452,15 @@ class PolygonObjParserTest_OE25Dev {
         ));
         p.setFailOnNonPolygonKeywords(true);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final String expected0 = "usemtl";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -1218,6 +1468,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_polygonKeywordsOnly_valid_10_oe_2_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "v",
                 "vn",
@@ -1231,16 +1482,29 @@ class PolygonObjParserTest_OE25Dev {
         ));
         p.setFailOnNonPolygonKeywords(true);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final String expected0 = null;
         final PolygonObjParser parser0 = p;
+        // removed other assertion
                 Assertions.assertEquals(expected0, parser0.getCurrentKeyword());
     }
 
     @Test
     void testNextKeyword_emptyContent_1_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser("");
 
+        // act/assert
                 final String expected0 = null;
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -1248,15 +1512,19 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testNextKeyword_emptyContent_1_oe_2_oe() {
+        // arrange
         final PolygonObjParser p = parser("");
 
+        // act/assert
                 final String expected0 = null;
         final PolygonObjParser parser0 = p;
+        // removed other assertion
                 Assertions.assertEquals(expected0, parser0.getCurrentKeyword());
     }
 
     @Test
     void testParse_1_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1283,6 +1551,7 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
+        // act/assert
                 final String expected0 = "o";
         final PolygonObjParser parser0 = p;
         Assertions.assertEquals(expected0 != null, parser0.nextKeyword());
@@ -1290,6 +1559,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testParse_3_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1316,6 +1586,9 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
                 final String expected0 = "g";
         final PolygonObjParser parser0 = p;
@@ -1324,6 +1597,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testParse_5_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1350,7 +1624,12 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final String expected0 = "s";
         final PolygonObjParser parser0 = p;
@@ -1359,6 +1638,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testParse_7_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1385,8 +1665,15 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final String expected0 = "mtllib";
         final PolygonObjParser parser0 = p;
@@ -1395,6 +1682,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testParse_9_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1421,9 +1709,18 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final String expected0 = "usemtl";
         final PolygonObjParser parser0 = p;
@@ -1432,6 +1729,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testParse_11_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1458,10 +1756,21 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final String expected0 = "v";
         final PolygonObjParser parser0 = p;
@@ -1470,6 +1779,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testParse_13_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1496,11 +1806,24 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final String expected0 = "v";
         final PolygonObjParser parser0 = p;
@@ -1509,6 +1832,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testParse_15_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1535,12 +1859,27 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final String expected0 = "v";
         final PolygonObjParser parser0 = p;
@@ -1549,6 +1888,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testParse_17_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1575,13 +1915,30 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final String expected0 = "v";
         final PolygonObjParser parser0 = p;
@@ -1590,6 +1947,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testParse_19_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1616,14 +1974,33 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final String expected0 = "vt";
         final PolygonObjParser parser0 = p;
@@ -1632,6 +2009,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testParse_21_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1658,15 +2036,36 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final String expected0 = "vt";
         final PolygonObjParser parser0 = p;
@@ -1675,6 +2074,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testParse_23_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1701,16 +2101,39 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final String expected0 = "vt";
         final PolygonObjParser parser0 = p;
@@ -1719,6 +2142,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testParse_25_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1745,17 +2169,42 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final String expected0 = "vn";
         final PolygonObjParser parser0 = p;
@@ -1764,6 +2213,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testParse_27_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1790,18 +2240,45 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final String expected0 = "f";
         final PolygonObjParser parser0 = p;
@@ -1810,6 +2287,7 @@ class PolygonObjParserTest_OE25Dev {
 
     @Test
     void testParse_29_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1836,19 +2314,48 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final String expected0 = "f";
         final PolygonObjParser parser0 = p;
@@ -1857,75 +2364,114 @@ class PolygonObjParserTest_OE25Dev {
 
 @Test
     void testNextKeyword_polygonKeywordsOnly_invalid_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "",
                 "curv2 abc"
         ));
         p.setFailOnNonPolygonKeywords(true);
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.nextKeyword(); }, IllegalStateException.class, "Parsing failed at line 2, column 1: expected keyword to be one of " + "[f, g, mtllib, o, s, usemtl, v, vn, vt] but was [curv2]");
+        // act/assert
+        try {
+     p.nextKeyword();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 2, column 1: expected keyword to be one of " + "[f, g, mtllib, o, s, usemtl, v, vn, vt] but was [curv2]");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testNextKeyword_unexpectedContent_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                     " f",
                     "-- bad comment attempt"
                 ));
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.nextKeyword(); }, IllegalStateException.class, "Parsing failed at line 1, column 2: " + "non-blank lines must begin with an OBJ keyword or comment character");
+        // act/assert
+        try {
+     p.nextKeyword();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 1, column 2: " + "non-blank lines must begin with an OBJ keyword or comment character");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadVector_parseFailures_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "0.1 0.2 a",
                 "1",
                 ""
         ));
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readVector(); }, IllegalStateException.class, "Parsing failed at line 1, column 9: expected double but found [a]");
+        // act/assert
+        try {
+     p.readVector();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 1, column 9: expected double but found [a]");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadVector_parseFailures_2_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "0.1 0.2 a",
                 "1",
                 ""
         ));
 
+        // act/assert
+        // removed other assertion
 
         p.readDataLine();
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readVector(); }, IllegalStateException.class, "Parsing failed at line 2, column 2: expected double but found end of line");
+        try {
+     p.readVector();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 2, column 2: expected double but found end of line");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadDoubles_parseFailures_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "0.1 0.2 a",
                 "b"
         ));
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readDoubles(); }, IllegalStateException.class, "Parsing failed at line 1, column 9: expected double but found [a]");
+        // act/assert
+        try {
+     p.readDoubles();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 1, column 9: expected double but found [a]");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadDoubles_parseFailures_2_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "0.1 0.2 a",
                 "b"
         ));
 
+        // act/assert
+        // removed other assertion
 
         p.readDataLine();
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readDoubles(); }, IllegalStateException.class, "Parsing failed at line 2, column 1: expected double but found [b]");
+        try {
+     p.readDoubles();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 2, column 1: expected double but found [b]");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadFace_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1956,11 +2502,13 @@ class PolygonObjParserTest_OE25Dev {
 
         nextFace(p);
 
+        // act/assert
         assertFace(new int[][] { {0, -1, -1}, {1, -1, -1}, {2, -1, -1}, {3, -1, -1}, }, p.readFace());
     }
 
 @Test
     void testReadFace_2_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -1991,6 +2539,8 @@ class PolygonObjParserTest_OE25Dev {
 
         nextFace(p);
 
+        // act/assert
+        // removed other assertion
 
         nextFace(p);
 
@@ -1999,6 +2549,7 @@ class PolygonObjParserTest_OE25Dev {
 
 @Test
     void testReadFace_3_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -2029,9 +2580,12 @@ class PolygonObjParserTest_OE25Dev {
 
         nextFace(p);
 
+        // act/assert
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
@@ -2040,6 +2594,7 @@ class PolygonObjParserTest_OE25Dev {
 
 @Test
     void testReadFace_4_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -2070,12 +2625,16 @@ class PolygonObjParserTest_OE25Dev {
 
         nextFace(p);
 
+        // act/assert
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
@@ -2084,6 +2643,7 @@ class PolygonObjParserTest_OE25Dev {
 
 @Test
     void testReadFace_5_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -2114,15 +2674,20 @@ class PolygonObjParserTest_OE25Dev {
 
         nextFace(p);
 
+        // act/assert
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
@@ -2131,6 +2696,7 @@ class PolygonObjParserTest_OE25Dev {
 
 @Test
     void testReadFace_6_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -2161,18 +2727,24 @@ class PolygonObjParserTest_OE25Dev {
 
         nextFace(p);
 
+        // act/assert
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
@@ -2181,6 +2753,7 @@ class PolygonObjParserTest_OE25Dev {
 
 @Test
     void testReadFace_7_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -2211,21 +2784,28 @@ class PolygonObjParserTest_OE25Dev {
 
         nextFace(p);
 
+        // act/assert
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
@@ -2234,6 +2814,7 @@ class PolygonObjParserTest_OE25Dev {
 
 @Test
     void testReadFace_8_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "o test",
@@ -2264,24 +2845,32 @@ class PolygonObjParserTest_OE25Dev {
 
         nextFace(p);
 
+        // act/assert
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
+        // removed other assertion
 
         nextFace(p);
 
@@ -2290,6 +2879,7 @@ class PolygonObjParserTest_OE25Dev {
 
 @Test
     void testReadFace_notEnoughVertices_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "v 0 0 0",
@@ -2298,12 +2888,18 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1 2"
         ));
 
+        // act/assert
         nextFace(p);
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readFace(); }, IllegalStateException.class, "Parsing failed at line 5, column 6: " + "face must contain at least 3 vertices but found only 2");
+        try {
+     p.readFace();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 5, column 6: " + "face must contain at least 3 vertices but found only 2");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadFace_invalidVertexIndex_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "f 1 2 3",
@@ -2315,12 +2911,18 @@ class PolygonObjParserTest_OE25Dev {
                 "f 4 2 3"
         ));
 
+        // act/assert
         nextFace(p);
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readFace(); }, IllegalStateException.class, "Parsing failed at line 2, column 3: " + "vertex index cannot be used because no values of that type have been defined");
+        try {
+     p.readFace();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 2, column 3: " + "vertex index cannot be used because no values of that type have been defined");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadFace_invalidVertexIndex_2_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "f 1 2 3",
@@ -2332,14 +2934,21 @@ class PolygonObjParserTest_OE25Dev {
                 "f 4 2 3"
         ));
 
+        // act/assert
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readFace(); }, IllegalStateException.class, "Parsing failed at line 6, column 7: " + "vertex index must evaluate to be within the range [1, 3] but was -4");
+        try {
+     p.readFace();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 6, column 7: " + "vertex index must evaluate to be within the range [1, 3] but was -4");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadFace_invalidVertexIndex_3_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "f 1 2 3",
@@ -2351,16 +2960,24 @@ class PolygonObjParserTest_OE25Dev {
                 "f 4 2 3"
         ));
 
+        // act/assert
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readFace(); }, IllegalStateException.class, "Parsing failed at line 7, column 5: " + "vertex index must evaluate to be within the range [1, 3] but was 0");
+        try {
+     p.readFace();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 7, column 5: " + "vertex index must evaluate to be within the range [1, 3] but was 0");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadFace_invalidVertexIndex_4_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "f 1 2 3",
@@ -2372,18 +2989,27 @@ class PolygonObjParserTest_OE25Dev {
                 "f 4 2 3"
         ));
 
+        // act/assert
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readFace(); }, IllegalStateException.class, "Parsing failed at line 8, column 3: " + "vertex index must evaluate to be within the range [1, 3] but was 4");
+        try {
+     p.readFace();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 8, column 3: " + "vertex index must evaluate to be within the range [1, 3] but was 4");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadFace_invalidTextureIndex_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "v 0 0 0",
@@ -2398,12 +3024,18 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/4 2/2 3/3"
         ));
 
+        // act/assert
         nextFace(p);
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readFace(); }, IllegalStateException.class, "Parsing failed at line 5, column 5: " + "texture index cannot be used because no values of that type have been defined");
+        try {
+     p.readFace();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 5, column 5: " + "texture index cannot be used because no values of that type have been defined");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadFace_invalidTextureIndex_2_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "v 0 0 0",
@@ -2418,14 +3050,21 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/4 2/2 3/3"
         ));
 
+        // act/assert
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readFace(); }, IllegalStateException.class, "Parsing failed at line 9, column 13: " + "texture index must evaluate to be within the range [1, 3] but was -4");
+        try {
+     p.readFace();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 9, column 13: " + "texture index must evaluate to be within the range [1, 3] but was -4");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadFace_invalidTextureIndex_3_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "v 0 0 0",
@@ -2440,16 +3079,24 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/4 2/2 3/3"
         ));
 
+        // act/assert
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readFace(); }, IllegalStateException.class, "Parsing failed at line 10, column 9: " + "texture index must evaluate to be within the range [1, 3] but was 0");
+        try {
+     p.readFace();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 10, column 9: " + "texture index must evaluate to be within the range [1, 3] but was 0");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadFace_invalidTextureIndex_4_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "v 0 0 0",
@@ -2464,18 +3111,27 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1/4 2/2 3/3"
         ));
 
+        // act/assert
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readFace(); }, IllegalStateException.class, "Parsing failed at line 11, column 5: " + "texture index must evaluate to be within the range [1, 3] but was 4");
+        try {
+     p.readFace();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 11, column 5: " + "texture index must evaluate to be within the range [1, 3] but was 4");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadFace_invalidNormalIndex_1_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "v 0 0 0",
@@ -2490,12 +3146,18 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1//4 2//2 3//3"
         ));
 
+        // act/assert
         nextFace(p);
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readFace(); }, IllegalStateException.class, "Parsing failed at line 5, column 6: " + "normal index cannot be used because no values of that type have been defined");
+        try {
+     p.readFace();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 5, column 6: " + "normal index cannot be used because no values of that type have been defined");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadFace_invalidNormalIndex_2_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "v 0 0 0",
@@ -2510,14 +3172,21 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1//4 2//2 3//3"
         ));
 
+        // act/assert
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readFace(); }, IllegalStateException.class, "Parsing failed at line 9, column 16: " + "normal index must evaluate to be within the range [1, 3] but was -4");
+        try {
+     p.readFace();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 9, column 16: " + "normal index must evaluate to be within the range [1, 3] but was -4");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadFace_invalidNormalIndex_3_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "v 0 0 0",
@@ -2532,16 +3201,24 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1//4 2//2 3//3"
         ));
 
+        // act/assert
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readFace(); }, IllegalStateException.class, "Parsing failed at line 10, column 11: " + "normal index must evaluate to be within the range [1, 3] but was 0");
+        try {
+     p.readFace();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 10, column 11: " + "normal index must evaluate to be within the range [1, 3] but was 0");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadFace_invalidNormalIndex_4_oe() {
+        // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
                 "v 0 0 0",
@@ -2556,14 +3233,22 @@ class PolygonObjParserTest_OE25Dev {
                 "f 1//4 2//2 3//3"
         ));
 
+        // act/assert
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
+        // removed other assertion
 
         nextFace(p);
-        GeometryTestUtils.assertThrowsWithMessage(() -> { p.readFace(); }, IllegalStateException.class, "Parsing failed at line 11, column 6: " + "normal index must evaluate to be within the range [1, 3] but was 4");
+        try {
+     p.readFace();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 11, column 6: " + "normal index must evaluate to be within the range [1, 3] but was 4");
+} catch (IllegalStateException e) {
+}
     }
 
 }

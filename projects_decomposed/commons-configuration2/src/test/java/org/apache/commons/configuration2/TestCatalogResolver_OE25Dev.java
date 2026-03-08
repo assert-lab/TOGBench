@@ -105,6 +105,7 @@ public class TestCatalogResolver_OE25Dev {
     public void testLogger_2_oe() throws Exception {
         final ConfigurationLogger log = new ConfigurationLogger(this.getClass());
         resolver.setLogger(log);
+        // removed other assertion
         assertSame("Incorrect Logger", log, resolver.getLogger());
     }
 

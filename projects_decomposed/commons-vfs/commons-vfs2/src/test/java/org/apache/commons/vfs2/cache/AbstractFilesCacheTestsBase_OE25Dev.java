@@ -70,6 +70,7 @@ public abstract class AbstractFilesCacheTestsBase_OE25Dev extends AbstractProvid
         final FileSystem fs = fo.getFileSystem();
 
         cache.clear(fs);
+        // removed other assertion
 
         cache.putFile(fo);
         assertSame(fo, cache.getFile(fs, fn));
@@ -83,8 +84,10 @@ public abstract class AbstractFilesCacheTestsBase_OE25Dev extends AbstractProvid
         final FileSystem fs = fo.getFileSystem();
 
         cache.clear(fs);
+        // removed other assertion
 
         cache.putFile(fo);
+        // removed other assertion
 
         assertFalse(cache.putFileIfAbsent(fo));
     }
@@ -97,9 +100,12 @@ public abstract class AbstractFilesCacheTestsBase_OE25Dev extends AbstractProvid
         final FileSystem fs = fo.getFileSystem();
 
         cache.clear(fs);
+        // removed other assertion
 
         cache.putFile(fo);
+        // removed other assertion
 
+        // removed other assertion
         cache.clear(fs);
         assertNull(cache.getFile(fs, fn));
     }
@@ -112,10 +118,14 @@ public abstract class AbstractFilesCacheTestsBase_OE25Dev extends AbstractProvid
         final FileSystem fs = fo.getFileSystem();
 
         cache.clear(fs);
+        // removed other assertion
 
         cache.putFile(fo);
+        // removed other assertion
 
+        // removed other assertion
         cache.clear(fs);
+        // removed other assertion
         assertTrue(cache.putFileIfAbsent(fo));
     }
 
@@ -127,10 +137,15 @@ public abstract class AbstractFilesCacheTestsBase_OE25Dev extends AbstractProvid
         final FileSystem fs = fo.getFileSystem();
 
         cache.clear(fs);
+        // removed other assertion
 
         cache.putFile(fo);
+        // removed other assertion
 
+        // removed other assertion
         cache.clear(fs);
+        // removed other assertion
+        // removed other assertion
 
         cache.removeFile(fs, fn);
         assertNull(cache.getFile(fs, fn));
@@ -144,12 +159,18 @@ public abstract class AbstractFilesCacheTestsBase_OE25Dev extends AbstractProvid
         final FileSystem fs = fo.getFileSystem();
 
         cache.clear(fs);
+        // removed other assertion
 
         cache.putFile(fo);
+        // removed other assertion
 
+        // removed other assertion
         cache.clear(fs);
+        // removed other assertion
+        // removed other assertion
 
         cache.removeFile(fs, fn);
+        // removed other assertion
         assertTrue(cache.putFileIfAbsent(fo));
     }
 
@@ -159,7 +180,9 @@ public abstract class AbstractFilesCacheTestsBase_OE25Dev extends AbstractProvid
 
         final FileObject fo1 = getWriteFolder().resolveFile("dir1");
 
+        // clean the cache for this file system
         cache.clear(fo1.getFileSystem());
+        // make sure a empty cache clean does not fail
         cache.clear(fo1.getFileSystem());
 
         final FileObject fo2 = getWriteFolder().resolveFile("dir1");

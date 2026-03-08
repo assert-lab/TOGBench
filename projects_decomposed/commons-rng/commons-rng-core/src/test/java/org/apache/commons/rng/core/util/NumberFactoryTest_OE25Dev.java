@@ -109,6 +109,7 @@ class NumberFactoryTest_OE25Dev {
 
     @Test
     void testMakeBooleanFromInt_1_oe() {
+        // Test if the bit is set differently then the booleans are opposite
          boolean b1 = NumberFactory.makeBoolean(0);
          boolean b2 = NumberFactory.makeBoolean(0xffffffff);
         Assertions.assertNotEquals(b1, b2);
@@ -116,6 +117,7 @@ class NumberFactoryTest_OE25Dev {
 
     @Test
     void testMakeBooleanFromLong_1_oe() {
+        // Test if the bit is set differently then the booleans are opposite
          boolean b1 = NumberFactory.makeBoolean(0L);
          boolean b2 = NumberFactory.makeBoolean(0xffffffffffffffffL);
         Assertions.assertNotEquals(b1, b2);
@@ -123,41 +125,77 @@ class NumberFactoryTest_OE25Dev {
 
     @Test
     void testMakeIntFromLong_1_oe() {
+        // Test the high order bits and low order bits are xor'd together
         Assertions.assertEquals(0xffffffff, NumberFactory.makeInt(0xffffffff00000000L));
     }
 
     @Test
     void testMakeIntFromLong_2_oe() {
+        // Test the high order bits and low order bits are xor'd together
+        // removed other assertion
         Assertions.assertEquals(0x00000000, NumberFactory.makeInt(0xffffffffffffffffL));
     }
 
     @Test
     void testMakeIntFromLong_3_oe() {
+        // Test the high order bits and low order bits are xor'd together
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0xffffffff, NumberFactory.makeInt(0x00000000ffffffffL));
     }
 
     @Test
     void testMakeIntFromLong_4_oe() {
+        // Test the high order bits and low order bits are xor'd together
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0x00000000, NumberFactory.makeInt(0x0000000000000000L));
     }
 
     @Test
     void testMakeIntFromLong_5_oe() {
+        // Test the high order bits and low order bits are xor'd together
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0x0f0f0f0f, NumberFactory.makeInt(0x0f0f0f0f00000000L));
     }
 
     @Test
     void testMakeIntFromLong_6_oe() {
+        // Test the high order bits and low order bits are xor'd together
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0xf0f0f0f0, NumberFactory.makeInt(0x00000000f0f0f0f0L));
     }
 
     @Test
     void testMakeIntFromLong_7_oe() {
+        // Test the high order bits and low order bits are xor'd together
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0x00000000, NumberFactory.makeInt(0x0f0f0f0f0f0f0f0fL));
     }
 
     @Test
     void testMakeIntFromLong_8_oe() {
+        // Test the high order bits and low order bits are xor'd together
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0xffffffff, NumberFactory.makeInt(0x0f0f0f0ff0f0f0f0L));
     }
 
@@ -198,6 +236,7 @@ class NumberFactoryTest_OE25Dev {
 
     @Test
     void testLongArrayToByteArrayMatchesLongToByteArray_1_oe() {
+        // Test individually the bytes are the same as the array conversion
         for (int i = 0; i < LONG_TEST_VALUES.length; i++) {
              byte[] b1 = NumberFactory.makeByteArray(LONG_TEST_VALUES[i]);
              byte[] b2 = NumberFactory.makeByteArray(new long[] {LONG_TEST_VALUES[i]});
@@ -221,6 +260,7 @@ class NumberFactoryTest_OE25Dev {
 
     @Test
     void testIntArrayToByteArrayMatchesIntToByteArray_1_oe() {
+        // Test individually the bytes are the same as the array conversion
         for (int i = 0; i < INT_TEST_VALUES.length; i++) {
              byte[] b1 = NumberFactory.makeByteArray(INT_TEST_VALUES[i]);
              byte[] b2 = NumberFactory.makeByteArray(new int[] {INT_TEST_VALUES[i]});
@@ -247,6 +287,7 @@ class NumberFactoryTest_OE25Dev {
         for (int i = 0; i <= 10; i++) {
              byte[] bytes = new byte[i];
             if (i != INT_SIZE) {
+                // removed other assertion
             } else {
                 Assertions.assertEquals(0, NumberFactory.makeInt(bytes));
     }
@@ -272,6 +313,7 @@ class NumberFactoryTest_OE25Dev {
         for (int i = 0; i <= 20; i++) {
              byte[] bytes = new byte[i];
             if (i != 0 && i % INT_SIZE != 0) {
+                // removed other assertion
             } else {
                 Assertions.assertArrayEquals(new int[i / INT_SIZE], NumberFactory.makeIntArray(bytes));
     }
@@ -297,6 +339,7 @@ class NumberFactoryTest_OE25Dev {
         for (int i = 0; i <= 10; i++) {
              byte[] bytes = new byte[i];
             if (i != LONG_SIZE) {
+                // removed other assertion
             } else {
                 Assertions.assertEquals(0L, NumberFactory.makeLong(bytes));
     }
@@ -322,6 +365,7 @@ class NumberFactoryTest_OE25Dev {
         for (int i = 0; i <= 20; i++) {
              byte[] bytes = new byte[i];
             if (i != 0 && i % LONG_SIZE != 0) {
+                // removed other assertion
             } else {
                 Assertions.assertArrayEquals(new long[i / LONG_SIZE], NumberFactory.makeLongArray(bytes));
     }
@@ -332,6 +376,10 @@ class NumberFactoryTest_OE25Dev {
     void testFloatGenerationMethods_4_oe() {
          int allBits = 0xffffffff;
 
+        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
          int noBits = 0;
         Assertions.assertEquals(0.0f, (noBits >>> 9) * 0x1.0p-23f);
@@ -341,8 +389,13 @@ class NumberFactoryTest_OE25Dev {
     void testFloatGenerationMethods_5_oe() {
          int allBits = 0xffffffff;
 
+        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
          int noBits = 0;
+        // removed other assertion
         Assertions.assertEquals(0.0f, (noBits >>> 8) * 0x1.0p-24f);
     }
 
@@ -350,8 +403,14 @@ class NumberFactoryTest_OE25Dev {
     void testFloatGenerationMethods_6_oe() {
          int allBits = 0xffffffff;
 
+        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
          int noBits = 0;
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0.0f, Float.intBitsToFloat(0x7f << 23 | noBits >>> 9) - 1.0f);
     }
 
@@ -359,6 +418,10 @@ class NumberFactoryTest_OE25Dev {
     void testDoubleGenerationMethods_4_oe() {
          long allBits = 0xffffffffffffffffL;
 
+        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
          long noBits = 0;
         Assertions.assertEquals(0.0, (noBits >>> 12) * 0x1.0p-52d);
@@ -368,8 +431,13 @@ class NumberFactoryTest_OE25Dev {
     void testDoubleGenerationMethods_5_oe() {
          long allBits = 0xffffffffffffffffL;
 
+        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
          long noBits = 0;
+        // removed other assertion
         Assertions.assertEquals(0.0, (noBits >>> 11) * 0x1.0p-53d);
     }
 
@@ -377,8 +445,14 @@ class NumberFactoryTest_OE25Dev {
     void testDoubleGenerationMethods_6_oe() {
          long allBits = 0xffffffffffffffffL;
 
+        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
          long noBits = 0;
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0.0, Double.longBitsToDouble(0x3ffL << 52 | noBits >>> 12) - 1.0);
     }
 
@@ -386,6 +460,8 @@ class NumberFactoryTest_OE25Dev {
     void testMakeDoubleFromLong_2_oe() {
          long allBits = 0xffffffffffffffffL;
          long noBits = 0;
+        // Within 1 ULP of 1.0
+        // removed other assertion
         Assertions.assertEquals(0.0, NumberFactory.makeDouble(noBits));
     }
 
@@ -393,6 +469,8 @@ class NumberFactoryTest_OE25Dev {
     void testMakeDoubleFromIntInt_2_oe() {
          int allBits = 0xffffffff;
          int noBits = 0;
+        // Within 1 ULP of 1.0
+        // removed other assertion
         Assertions.assertEquals(0.0, NumberFactory.makeDouble(noBits, noBits));
     }
 
@@ -400,6 +478,8 @@ class NumberFactoryTest_OE25Dev {
     void testMakeFloatFromInt_2_oe() {
          int allBits = 0xffffffff;
          int noBits = 0;
+        // Within 1 ULP of 1.0f
+        // removed other assertion
         Assertions.assertEquals(0.0f, NumberFactory.makeFloat(noBits), 0);
     }
 
@@ -407,6 +487,7 @@ class NumberFactoryTest_OE25Dev {
     void testFloatGenerationMethods_1_oe_1_oe() {
          int allBits = 0xffffffff;
 
+        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
                  float value0 = (allBits >>> 9) * 0x1.0p-23f;
          int maxUlps0 = 2;
         Assertions.assertTrue(value0 <= 1.0f, "Not <= 1.0f");
@@ -416,8 +497,10 @@ class NumberFactoryTest_OE25Dev {
     void testFloatGenerationMethods_1_oe_2_oe() {
          int allBits = 0xffffffff;
 
+        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
                  float value0 = (allBits >>> 9) * 0x1.0p-23f;
          int maxUlps0 = 2;
+        // removed other assertion
                 Assertions.assertTrue(Precision.equals(1.0f,value0,maxUlps0),()-> "Not equal to 1.0f within units of least precision: " + maxUlps0);
     }
 
@@ -425,6 +508,8 @@ class NumberFactoryTest_OE25Dev {
     void testFloatGenerationMethods_2_oe_1_oe() {
          int allBits = 0xffffffff;
 
+        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
+        // removed other assertion
                  float value0 = (allBits >>> 8) * 0x1.0p-24f;
          int maxUlps0 = 1;
         Assertions.assertTrue(value0 <= 1.0f, "Not <= 1.0f");
@@ -434,8 +519,11 @@ class NumberFactoryTest_OE25Dev {
     void testFloatGenerationMethods_2_oe_2_oe() {
          int allBits = 0xffffffff;
 
+        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
+        // removed other assertion
                  float value0 = (allBits >>> 8) * 0x1.0p-24f;
          int maxUlps0 = 1;
+        // removed other assertion
                 Assertions.assertTrue(Precision.equals(1.0f,value0,maxUlps0),()-> "Not equal to 1.0f within units of least precision: " + maxUlps0);
     }
 
@@ -443,6 +531,9 @@ class NumberFactoryTest_OE25Dev {
     void testFloatGenerationMethods_3_oe_1_oe() {
          int allBits = 0xffffffff;
 
+        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
+        // removed other assertion
+        // removed other assertion
                  float value0 = Float.intBitsToFloat(0x7f << 23 | allBits >>> 9) - 1.0f;
          int maxUlps0 = 2;
         Assertions.assertTrue(value0 <= 1.0f, "Not <= 1.0f");
@@ -452,8 +543,12 @@ class NumberFactoryTest_OE25Dev {
     void testFloatGenerationMethods_3_oe_2_oe() {
          int allBits = 0xffffffff;
 
+        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
+        // removed other assertion
+        // removed other assertion
                  float value0 = Float.intBitsToFloat(0x7f << 23 | allBits >>> 9) - 1.0f;
          int maxUlps0 = 2;
+        // removed other assertion
                 Assertions.assertTrue(Precision.equals(1.0f,value0,maxUlps0),()-> "Not equal to 1.0f within units of least precision: " + maxUlps0);
     }
 
@@ -461,6 +556,7 @@ class NumberFactoryTest_OE25Dev {
     void testMakeFloatFromInt_1_oe_1_oe() {
          int allBits = 0xffffffff;
          int noBits = 0;
+        // Within 1 ULP of 1.0f
                  float value0 = NumberFactory.makeFloat(allBits);
          int maxUlps0 = 1;
         Assertions.assertTrue(value0 <= 1.0f, "Not <= 1.0f");
@@ -470,8 +566,10 @@ class NumberFactoryTest_OE25Dev {
     void testMakeFloatFromInt_1_oe_2_oe() {
          int allBits = 0xffffffff;
          int noBits = 0;
+        // Within 1 ULP of 1.0f
                  float value0 = NumberFactory.makeFloat(allBits);
          int maxUlps0 = 1;
+        // removed other assertion
                 Assertions.assertTrue(Precision.equals(1.0f,value0,maxUlps0),()-> "Not equal to 1.0f within units of least precision: " + maxUlps0);
     }
 

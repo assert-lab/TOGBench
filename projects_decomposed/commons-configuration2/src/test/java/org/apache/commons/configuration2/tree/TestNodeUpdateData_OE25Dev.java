@@ -107,6 +107,7 @@ public class TestNodeUpdateData_OE25Dev {
         final NodeUpdateData<Object> data = new NodeUpdateData<>(map, null, null, null);
         map.put(result("anotherTest"), "anotherValue");
         final Map<QueryResult<Object>, Object> changedValues = data.getChangedValues();
+        // removed other assertion
         assertEquals("Wrong changed value", "value", changedValues.get(result("test")));
     }
 
@@ -127,6 +128,7 @@ public class TestNodeUpdateData_OE25Dev {
         final NodeUpdateData<Object> data = new NodeUpdateData<>(null, col, null, null);
         col.add("anotherValue");
         final Collection<Object> newValues = data.getNewValues();
+        // removed other assertion
         assertEquals("Wrong value", 42, newValues.iterator().next());
     }
 
@@ -139,12 +141,15 @@ public class TestNodeUpdateData_OE25Dev {
     @Test
     public void testInitNoData_2_oe() {
         final NodeUpdateData<Object> data = new NodeUpdateData<>(null, null, null, null);
+        // removed other assertion
         assertTrue("Got new values", data.getNewValues().isEmpty());
     }
 
     @Test
     public void testInitNoData_3_oe() {
         final NodeUpdateData<Object> data = new NodeUpdateData<>(null, null, null, null);
+        // removed other assertion
+        // removed other assertion
         assertTrue("Got removed nodes", data.getRemovedNodes().isEmpty());
     }
 
@@ -165,6 +170,7 @@ public class TestNodeUpdateData_OE25Dev {
         final NodeUpdateData<Object> data = new NodeUpdateData<>(null, null, col, null);
         col.add(result("n2"));
         final Collection<QueryResult<Object>> removedNodes = data.getRemovedNodes();
+        // removed other assertion
         assertEquals("Wrong value", result("n1"), removedNodes.iterator().next());
     }
 

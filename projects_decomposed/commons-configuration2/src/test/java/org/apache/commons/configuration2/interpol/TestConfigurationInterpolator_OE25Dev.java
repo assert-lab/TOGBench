@@ -482,6 +482,7 @@ public class TestConfigurationInterpolator_OE25Dev {
         lookups.add(setUpTestLookup("test", "value"));
         interpolator.addDefaultLookups(lookups);
         final List<Lookup> lookups2 = interpolator.getDefaultLookups();
+        // removed other assertion
         assertTrue("Wrong content", lookups2.containsAll(lookups));
     }
 
@@ -511,6 +512,7 @@ public class TestConfigurationInterpolator_OE25Dev {
 
     @Test
     public void testEnableSubstitutionInVariables_2_oe() {
+        // removed other assertion
         interpolator.addDefaultLookup(setUpTestLookup("java.version", "1.4"));
         interpolator.addDefaultLookup(setUpTestLookup("jre-1.4", "C:\\java\\1.4"));
         final String var = "${jre-${java.version}}";
@@ -519,19 +521,24 @@ public class TestConfigurationInterpolator_OE25Dev {
 
     @Test
     public void testEnableSubstitutionInVariables_3_oe() {
+        // removed other assertion
         interpolator.addDefaultLookup(setUpTestLookup("java.version", "1.4"));
         interpolator.addDefaultLookup(setUpTestLookup("jre-1.4", "C:\\java\\1.4"));
         final String var = "${jre-${java.version}}";
+        // removed other assertion
         interpolator.setEnableSubstitutionInVariables(true);
         assertTrue("Variable substitution not enabled", interpolator.isEnableSubstitutionInVariables());
     }
 
     @Test
     public void testEnableSubstitutionInVariables_4_oe() {
+        // removed other assertion
         interpolator.addDefaultLookup(setUpTestLookup("java.version", "1.4"));
         interpolator.addDefaultLookup(setUpTestLookup("jre-1.4", "C:\\java\\1.4"));
         final String var = "${jre-${java.version}}";
+        // removed other assertion
         interpolator.setEnableSubstitutionInVariables(true);
+        // removed other assertion
         assertEquals("Wrong result (2)", "C:\\java\\1.4", interpolator.interpolate(var));
     }
 
@@ -573,6 +580,7 @@ public class TestConfigurationInterpolator_OE25Dev {
             .withStringConverter(stringConverter)
             .create();
         final ConfigurationInterpolator ci = ConfigurationInterpolator.fromSpecification(spec);
+        // removed other assertion
         assertTrue("Wrong default lookup", ci.getDefaultLookups().contains(defLookup));
     }
 
@@ -589,6 +597,8 @@ public class TestConfigurationInterpolator_OE25Dev {
             .withStringConverter(stringConverter)
             .create();
         final ConfigurationInterpolator ci = ConfigurationInterpolator.fromSpecification(spec);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong number of prefix lookups", 1, ci.getLookups().size());
     }
 
@@ -605,6 +615,9 @@ public class TestConfigurationInterpolator_OE25Dev {
             .withStringConverter(stringConverter)
             .create();
         final ConfigurationInterpolator ci = ConfigurationInterpolator.fromSpecification(spec);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertSame("Wrong prefix lookup", preLookup, ci.getLookups().get("p"));
     }
 
@@ -621,6 +634,10 @@ public class TestConfigurationInterpolator_OE25Dev {
             .withStringConverter(stringConverter)
             .create();
         final ConfigurationInterpolator ci = ConfigurationInterpolator.fromSpecification(spec);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertSame("Wrong parent", interpolator, ci.getParentInterpolator());
     }
 
@@ -637,6 +654,11 @@ public class TestConfigurationInterpolator_OE25Dev {
             .withStringConverter(stringConverter)
             .create();
         final ConfigurationInterpolator ci = ConfigurationInterpolator.fromSpecification(spec);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertSame("Wrong string converter", stringConverter, ci.getStringConverter());
     }
 
@@ -672,6 +694,7 @@ public class TestConfigurationInterpolator_OE25Dev {
 
         final Map<String, Lookup> lookups = ConfigurationInterpolator.getDefaultPrefixLookups();
 
+        // removed other assertion
         for (final DefaultLookups l : included) {
             assertSame("Wrong entry for " + l, l.getLookup(), lookups.get(l.getPrefix()));
     }
@@ -688,7 +711,9 @@ public class TestConfigurationInterpolator_OE25Dev {
 
         final Map<String, Lookup> lookups = ConfigurationInterpolator.getDefaultPrefixLookups();
 
+        // removed other assertion
         for (final DefaultLookups l : included) {
+            // removed other assertion
         }
 
         for (final DefaultLookups l : excluded) {
@@ -718,6 +743,7 @@ public class TestConfigurationInterpolator_OE25Dev {
         interpolator.addDefaultLookup(setUpTestLookup("x", Arrays.asList(1, 2)));
         interpolator.addDefaultLookup(setUpTestLookup("y", "abc"));
         interpolator.setStringConverter(stringConverter);
+        // removed other assertion
         assertEquals("Wrong value", "'abc': '[1, 2]'", interpolator.interpolate("${y}: ${x}"));
     }
 
@@ -738,6 +764,7 @@ public class TestConfigurationInterpolator_OE25Dev {
         interpolator.addDefaultLookup(setUpTestLookup("y", "abc"));
         interpolator.setStringConverter(stringConverter);
         interpolator.setStringConverter(null);
+        // removed other assertion
         assertEquals("Wrong value", "abc: 1", interpolator.interpolate("${y}: ${x}"));
     }
 
@@ -748,21 +775,31 @@ public class TestConfigurationInterpolator_OE25Dev {
 
     @Test
     public void testInit_2_oe() {
+        // removed other assertion
         assertTrue("Got predefined lookups", interpolator.getLookups().isEmpty());
     }
 
     @Test
     public void testInit_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertNull("Got a parent interpolator", interpolator.getParentInterpolator());
     }
 
     @Test
     public void testInit_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNotNull("Missing string converter", interpolator.getStringConverter());
     }
 
     @Test
     public void testInit_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Incorrect string converter value","1",interpolator.getStringConverter().apply(Arrays.asList(1,2)));
     }
 
@@ -889,6 +926,7 @@ public class TestConfigurationInterpolator_OE25Dev {
     public void testInterpolationSingleVariableDefaultValue_2_oe() {
         final Object value = 42;
         interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, value));
+        // removed other assertion
         assertEquals("Wrong result", "42", interpolator.interpolate("${I_am_not_defined:-42}"));
     }
 
@@ -896,6 +934,8 @@ public class TestConfigurationInterpolator_OE25Dev {
     public void testInterpolationSingleVariableDefaultValue_3_oe() {
         final Object value = 42;
         interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, value));
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong result", "", interpolator.interpolate("${I_am_not_defined:-}"));
     }
 
@@ -932,6 +972,7 @@ public class TestConfigurationInterpolator_OE25Dev {
         final Lookup lookup = EasyMock.createMock(Lookup.class);
         EasyMock.replay(lookup);
         interpolator.registerLookup(TEST_PREFIX, lookup);
+        // removed other assertion
         assertTrue("Not in prefix set", interpolator.prefixSet().contains(TEST_PREFIX));
     }
 
@@ -940,6 +981,8 @@ public class TestConfigurationInterpolator_OE25Dev {
         final Lookup lookup = EasyMock.createMock(Lookup.class);
         EasyMock.replay(lookup);
         interpolator.registerLookup(TEST_PREFIX, lookup);
+        // removed other assertion
+        // removed other assertion
         assertTrue("Default lookups were changed", interpolator.getDefaultLookups().isEmpty());
     }
 
@@ -966,6 +1009,7 @@ public class TestConfigurationInterpolator_OE25Dev {
         lookups.put(prefix2, l2);
         interpolator.registerLookups(lookups);
         final Map<String, Lookup> lookups2 = interpolator.getLookups();
+        // removed other assertion
         assertEquals("Wrong l1", l1, lookups2.get(TEST_PREFIX));
     }
 
@@ -979,6 +1023,8 @@ public class TestConfigurationInterpolator_OE25Dev {
         lookups.put(prefix2, l2);
         interpolator.registerLookups(lookups);
         final Map<String, Lookup> lookups2 = interpolator.getLookups();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong l2", l2, lookups2.get(prefix2));
     }
 
@@ -1083,6 +1129,7 @@ public class TestConfigurationInterpolator_OE25Dev {
     @Test
     public void testResolveWithUnknownPrefix_2_oe() {
         interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
+        // removed other assertion
         assertNull("Variable with empty prefix could be resolved", interpolator.resolve(":" + TEST_NAME));
     }
 
@@ -1094,6 +1141,7 @@ public class TestConfigurationInterpolator_OE25Dev {
         try {
             new ConfigurationInterpolator.DefaultPrefixLookupsHolder(props);
 
+            // removed other assertion
         } catch (Exception exc) {
             assertEquals("Invalid default lookups definition: base64_encoder nope", exc.getMessage());
     }

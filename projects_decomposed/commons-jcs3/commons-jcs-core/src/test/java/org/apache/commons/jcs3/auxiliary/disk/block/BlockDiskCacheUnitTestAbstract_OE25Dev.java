@@ -188,6 +188,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
 
     public void testPutGetMatching_SmallWait_1_oe() throws Exception
     {
+        // SETUP
         final int items = 200;
 
         final String cacheName = "testPutGetMatching_SmallWait";
@@ -197,6 +198,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, String> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         for (int i = 0; i <= items; i++)
         {
             diskCache.update(new CacheElement<>(cacheName, i + ":key", cacheName + " data " + i));
@@ -205,11 +207,13 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
 
         final Map<String, ICacheElement<String, String>> matchingResults = diskCache.getMatching("1.8.+");
 
+        // VERIFY
         assertEquals("Wrong number returned", 10, matchingResults.size());
     }
 
     public void testPutGetMatching_NoWait_1_oe() throws Exception
     {
+        // SETUP
         final int items = 200;
 
         final String cacheName = "testPutGetMatching_NoWait";
@@ -219,6 +223,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, String> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         for (int i = 0; i <= items; i++)
         {
             diskCache.update(new CacheElement<>(cacheName, i + ":key", cacheName + " data " + i));
@@ -226,6 +231,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
 
         final Map<String, ICacheElement<String, String>> matchingResults = diskCache.getMatching("1.8.+");
 
+        // VERIFY
         assertEquals("Wrong number returned", 10, matchingResults.size());
     }
 
@@ -248,7 +254,9 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         final BlockDisk blockDisk = new BlockDisk(file, 200, elementSerializer);
 
         final int numBlocksNeeded = blockDisk.calculateTheNumberOfBlocksNeeded(data);
+        // System.out.println( numBlocksNeeded );
 
+        // get the individual sub arrays.
         final byte[][] chunks = blockDisk.getBlockChunks(data, numBlocksNeeded);
 
         byte[] resultData = new byte[0];
@@ -257,12 +265,16 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         {
             final byte[] chunk = chunks[i];
             final byte[] newTotal = new byte[data.length + chunk.length];
+            // copy data into the new array
             System.arraycopy(data, 0, newTotal, 0, data.length);
+            // copy the chunk into the new array
             System.arraycopy(chunk, 0, newTotal, data.length, chunk.length);
+            // swap the new and old.
             resultData = newTotal;
         }
 
         final Serializable result = elementSerializer.deSerialize(resultData, null);
+        // System.out.println( result );
         assertEquals("wrong string after retrieval", string, result);
     }
 
@@ -286,8 +298,10 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, String> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         diskCache.update(new CacheElement<>(cacheName, "x", string));
 
+        // VERIFY
         assertNotNull(diskCache.get("x"));
     }
 
@@ -311,8 +325,11 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, String> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         diskCache.update(new CacheElement<>(cacheName, "x", string));
 
+        // VERIFY
+        // removed other assertion
         Thread.sleep(1000);
         final ICacheElement<String, String> afterElement = diskCache.get("x");
         assertNotNull(afterElement);
@@ -338,10 +355,15 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, String> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         diskCache.update(new CacheElement<>(cacheName, "x", string));
 
+        // VERIFY
+        // removed other assertion
         Thread.sleep(1000);
         final ICacheElement<String, String> afterElement = diskCache.get("x");
+        // removed other assertion
+        // System.out.println( "afterElement = " + afterElement );
         final String after = afterElement.getVal();
 
         assertNotNull(after);
@@ -367,12 +389,18 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, String> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         diskCache.update(new CacheElement<>(cacheName, "x", string));
 
+        // VERIFY
+        // removed other assertion
         Thread.sleep(1000);
         final ICacheElement<String, String> afterElement = diskCache.get("x");
+        // removed other assertion
+        // System.out.println( "afterElement = " + afterElement );
         final String after = afterElement.getVal();
 
+        // removed other assertion
         assertEquals("wrong string after retrieval", string, after);
     }
 
@@ -387,6 +415,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         }
         string = sb.toString();
 
+        // System.out.println( "The string contains " + string.length() + " characters" );
 
         final String cacheName = "testUTF8String";
 
@@ -397,8 +426,10 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, String> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         diskCache.update(new CacheElement<>(cacheName, "x", string));
 
+        // VERIFY
         assertNotNull(diskCache.get("x"));
     }
 
@@ -413,6 +444,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         }
         string = sb.toString();
 
+        // System.out.println( "The string contains " + string.length() + " characters" );
 
         final String cacheName = "testUTF8String";
 
@@ -423,8 +455,11 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, String> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         diskCache.update(new CacheElement<>(cacheName, "x", string));
 
+        // VERIFY
+        // removed other assertion
         Thread.sleep(1000);
         final ICacheElement<String, String> afterElement = diskCache.get("x");
         assertNotNull(afterElement);
@@ -441,6 +476,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         }
         string = sb.toString();
 
+        // System.out.println( "The string contains " + string.length() + " characters" );
 
         final String cacheName = "testUTF8String";
 
@@ -451,10 +487,15 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, String> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         diskCache.update(new CacheElement<>(cacheName, "x", string));
 
+        // VERIFY
+        // removed other assertion
         Thread.sleep(1000);
         final ICacheElement<String, String> afterElement = diskCache.get("x");
+        // removed other assertion
+        // System.out.println( "afterElement = " + afterElement );
         final String after = afterElement.getVal();
 
         assertNotNull(after);
@@ -471,6 +512,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         }
         string = sb.toString();
 
+        // System.out.println( "The string contains " + string.length() + " characters" );
 
         final String cacheName = "testUTF8String";
 
@@ -481,12 +523,18 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, String> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         diskCache.update(new CacheElement<>(cacheName, "x", string));
 
+        // VERIFY
+        // removed other assertion
         Thread.sleep(1000);
         final ICacheElement<String, String> afterElement = diskCache.get("x");
+        // removed other assertion
+        // System.out.println( "afterElement = " + afterElement );
         final String after = afterElement.getVal();
 
+        // removed other assertion
         assertEquals("wrong string after retrieval", string, after);
     }
 
@@ -500,6 +548,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
             sb.append(sb.toString()); // big string
         }
         string = sb.toString();
+        // System.out.println( "The string contains " + string.length() + " characters" );
         final byte[] bytes = string.getBytes(StandardCharsets.UTF_8);
 
         final String cacheName = "testUTF8ByteArray";
@@ -511,8 +560,10 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, byte[]> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         diskCache.update(new CacheElement<>(cacheName, "x", bytes));
 
+        // VERIFY
         assertNotNull(diskCache.get("x"));
     }
 
@@ -526,6 +577,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
             sb.append(sb.toString()); // big string
         }
         string = sb.toString();
+        // System.out.println( "The string contains " + string.length() + " characters" );
         final byte[] bytes = string.getBytes(StandardCharsets.UTF_8);
 
         final String cacheName = "testUTF8ByteArray";
@@ -537,8 +589,11 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, byte[]> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         diskCache.update(new CacheElement<>(cacheName, "x", bytes));
 
+        // VERIFY
+        // removed other assertion
         Thread.sleep(1000);
         final ICacheElement<String, byte[]> afterElement = diskCache.get("x");
         assertNotNull(afterElement);
@@ -554,6 +609,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
             sb.append(sb.toString()); // big string
         }
         string = sb.toString();
+        // System.out.println( "The string contains " + string.length() + " characters" );
         final byte[] bytes = string.getBytes(StandardCharsets.UTF_8);
 
         final String cacheName = "testUTF8ByteArray";
@@ -565,10 +621,15 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, byte[]> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         diskCache.update(new CacheElement<>(cacheName, "x", bytes));
 
+        // VERIFY
+        // removed other assertion
         Thread.sleep(1000);
         final ICacheElement<String, byte[]> afterElement = diskCache.get("x");
+        // removed other assertion
+        // System.out.println( "afterElement = " + afterElement );
         final byte[] after = afterElement.getVal();
 
         assertNotNull(after);
@@ -584,6 +645,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
             sb.append(sb.toString()); // big string
         }
         string = sb.toString();
+        // System.out.println( "The string contains " + string.length() + " characters" );
         final byte[] bytes = string.getBytes(StandardCharsets.UTF_8);
 
         final String cacheName = "testUTF8ByteArray";
@@ -595,12 +657,18 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, byte[]> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         diskCache.update(new CacheElement<>(cacheName, "x", bytes));
 
+        // VERIFY
+        // removed other assertion
         Thread.sleep(1000);
         final ICacheElement<String, byte[]> afterElement = diskCache.get("x");
+        // removed other assertion
+        // System.out.println( "afterElement = " + afterElement );
         final byte[] after = afterElement.getVal();
 
+        // removed other assertion
         assertEquals("wrong bytes after retrieval", bytes.length, after.length);
     }
 
@@ -615,6 +683,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
             sb.append(sb.toString()); // big string
         }
         string = sb.toString();
+        // System.out.println( "The string contains " + string.length() + " characters" );
         before.string = string;
         before.bytes = string.getBytes(StandardCharsets.UTF_8);
 
@@ -627,8 +696,10 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, X> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         diskCache.update(new CacheElement<>(cacheName, "x", before));
 
+        // VERIFY
         assertNotNull(diskCache.get("x"));
     }
 
@@ -643,6 +714,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
             sb.append(sb.toString()); // big string
         }
         string = sb.toString();
+        // System.out.println( "The string contains " + string.length() + " characters" );
         before.string = string;
         before.bytes = string.getBytes(StandardCharsets.UTF_8);
 
@@ -655,10 +727,14 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, X> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         diskCache.update(new CacheElement<>(cacheName, "x", before));
 
+        // VERIFY
+        // removed other assertion
         Thread.sleep(1000);
         final ICacheElement<String, X> afterElement = diskCache.get("x");
+        // System.out.println( "afterElement = " + afterElement );
         final X after = (afterElement.getVal());
 
         assertNotNull(after);
@@ -675,6 +751,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
             sb.append(sb.toString()); // big string
         }
         string = sb.toString();
+        // System.out.println( "The string contains " + string.length() + " characters" );
         before.string = string;
         before.bytes = string.getBytes(StandardCharsets.UTF_8);
 
@@ -687,12 +764,17 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, X> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         diskCache.update(new CacheElement<>(cacheName, "x", before));
 
+        // VERIFY
+        // removed other assertion
         Thread.sleep(1000);
         final ICacheElement<String, X> afterElement = diskCache.get("x");
+        // System.out.println( "afterElement = " + afterElement );
         final X after = (afterElement.getVal());
 
+        // removed other assertion
         assertEquals("wrong string after retrieval", string, after.string);
     }
 
@@ -707,6 +789,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
             sb.append(sb.toString()); // big string
         }
         string = sb.toString();
+        // System.out.println( "The string contains " + string.length() + " characters" );
         before.string = string;
         before.bytes = string.getBytes(StandardCharsets.UTF_8);
 
@@ -719,12 +802,18 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         cattr.setDiskPath("target/test-sandbox/BlockDiskCacheUnitTest");
         final BlockDiskCache<String, X> diskCache = new BlockDiskCache<>(cattr);
 
+        // DO WORK
         diskCache.update(new CacheElement<>(cacheName, "x", before));
 
+        // VERIFY
+        // removed other assertion
         Thread.sleep(1000);
         final ICacheElement<String, X> afterElement = diskCache.get("x");
+        // System.out.println( "afterElement = " + afterElement );
         final X after = (afterElement.getVal());
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("wrong bytes after retrieval", string, new String(after.bytes, StandardCharsets.UTF_8));
     }
 
@@ -771,6 +860,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         diskCache.update(new CacheElement<>(cacheName, "2", value2));
         diskCache.dispose();
         diskCache = new BlockDiskCache<>(cattr);
+        // removed other assertion
         assertEquals(2, diskCache.getKeySet().size());
     }
 
@@ -794,6 +884,8 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         diskCache.update(new CacheElement<>(cacheName, "2", value2));
         diskCache.dispose();
         diskCache = new BlockDiskCache<>(cattr);
+        // removed other assertion
+        // removed other assertion
         assertEquals(value1.string, diskCache.get("1").getVal().string);
     }
 
@@ -817,6 +909,9 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
         diskCache.update(new CacheElement<>(cacheName, "2", value2));
         diskCache.dispose();
         diskCache = new BlockDiskCache<>(cattr);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(value2.string, diskCache.get("2").getVal().string);
     }
 
@@ -840,6 +935,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
             disk.processUpdate(element);
         }
 
+        // remove each
         for (int i = 0; i < cnt; i++)
         {
             disk.remove("key:" + i);
@@ -869,6 +965,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
             disk.processUpdate(element);
         }
 
+        // verify each
         for (int i = 0; i < cnt; i++)
         {
             final ICacheElement<String, String> element = disk.processGet(i + ":key");
@@ -897,11 +994,14 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
             disk.processUpdate(element);
         }
 
+        // verify each
         for (int i = 0; i < cnt; i++)
         {
             final ICacheElement<String, String> element = disk.processGet(i + ":key");
+            // removed other assertion
         }
 
+        // remove each
         for (int i = 0; i < cnt; i++)
         {
             disk.remove(i + ":");
@@ -912,6 +1012,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
 
     public void testRemove_Group_1_oe() throws IOException
     {
+        // SETUP
         final BlockDiskCacheAttributes cattr = getCacheAttributes();
         cattr.setCacheName("testRemove_Group");
         cattr.setMaxKeySize(100);
@@ -937,6 +1038,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
             disk.processUpdate(element);
         }
 
+        // verify each
         for (int i = 0; i < cnt; i++)
         {
             final GroupAttrName<String> groupAttrName = getGroupAttrName(cacheName, groupName, i + ":key");
@@ -947,6 +1049,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
 
     public void testRemove_Group_2_oe() throws IOException
     {
+        // SETUP
         final BlockDiskCacheAttributes cattr = getCacheAttributes();
         cattr.setCacheName("testRemove_Group");
         cattr.setMaxKeySize(100);
@@ -972,12 +1075,16 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
             disk.processUpdate(element);
         }
 
+        // verify each
         for (int i = 0; i < cnt; i++)
         {
             final GroupAttrName<String> groupAttrName = getGroupAttrName(cacheName, groupName, i + ":key");
             final ICacheElement<GroupAttrName<String>, String> element = disk.processGet(groupAttrName);
+            // removed other assertion
         }
 
+        // DO WORK
+        // remove the group
         disk.remove(getGroupAttrName(cacheName, groupName, null));
 
         for (int i = 0; i < cnt; i++)
@@ -985,6 +1092,7 @@ public abstract class BlockDiskCacheUnitTestAbstract_OE25Dev extends TestCase
             final GroupAttrName<String> groupAttrName = getGroupAttrName(cacheName, groupName, i + ":key");
             final ICacheElement<GroupAttrName<String>, String> element = disk.processGet(groupAttrName);
 
+            // VERIFY
             assertNull("Should not have received an element.", element);
     }
     }

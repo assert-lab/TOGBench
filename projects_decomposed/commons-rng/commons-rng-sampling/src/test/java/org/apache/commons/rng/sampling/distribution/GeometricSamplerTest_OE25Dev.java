@@ -96,6 +96,7 @@ class GeometricSamplerTest_OE25Dev {
     void testProbabilityOfSuccessIsOneGeneratesZeroForSamples_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
          SharedStateDiscreteSampler sampler = GeometricSampler.of(rng, 1);
+        // All samples should be 0
         for (int i = 0; i < 10; i++) {
             Assertions.assertEquals(0, sampler.sample(), "p=1 should have 0 for all samples");
     }
@@ -103,8 +104,12 @@ class GeometricSamplerTest_OE25Dev {
 
     @Test
     void testProbabilityOfSuccessUnderOneIsValid_1_oe() {
+        // The sampler explicitly handles probabilityOfSuccess == 1 as an edge case.
+        // Anything under it should be valid for sampling from an ExponentialDistribution.
          double probabilityOfSuccess = Math.nextDown(1);
+        // Map to the mean
          double exponentialMean = 1.0 / (-Math.log1p(-probabilityOfSuccess));
+        // As long as this is finite positive then the sampler is valid
         Assertions.assertTrue(exponentialMean > 0 && exponentialMean <= Double.MAX_VALUE);
     }
 
@@ -119,6 +124,7 @@ class GeometricSamplerTest_OE25Dev {
     void testProbabilityOfSuccessIsAlmostZeroGeneratesMaxValueForSamples_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
          SharedStateDiscreteSampler sampler = GeometricSampler.of(rng, Double.MIN_VALUE);
+        // All samples should be max value
         for (int i = 0; i < 10; i++) {
             Assertions.assertEquals(Integer.MAX_VALUE,sampler.sample(),"p=(almost 0)should have Integer.MAX_VALUE for all samples");
     }

@@ -337,6 +337,7 @@ public class TestFileLocatorUtils_OE25Dev {
     @Test
     public void testGetBasePath_2_oe() throws Exception {
         URL url = new URL("http://xyz.net/foo/bar.xml");
+        // removed other assertion
 
         url = new URL("http://xyz.net/foo/");
         assertEquals("base path of " + url, "http://xyz.net/foo/", FileLocatorUtils.getBasePath(url));
@@ -345,8 +346,10 @@ public class TestFileLocatorUtils_OE25Dev {
     @Test
     public void testGetBasePath_3_oe() throws Exception {
         URL url = new URL("http://xyz.net/foo/bar.xml");
+        // removed other assertion
 
         url = new URL("http://xyz.net/foo/");
+        // removed other assertion
 
         url = new URL("http://xyz.net/foo");
         assertEquals("base path of " + url, "http://xyz.net/", FileLocatorUtils.getBasePath(url));
@@ -355,10 +358,13 @@ public class TestFileLocatorUtils_OE25Dev {
     @Test
     public void testGetBasePath_4_oe() throws Exception {
         URL url = new URL("http://xyz.net/foo/bar.xml");
+        // removed other assertion
 
         url = new URL("http://xyz.net/foo/");
+        // removed other assertion
 
         url = new URL("http://xyz.net/foo");
+        // removed other assertion
 
         url = new URL("http://xyz.net/");
         assertEquals("base path of " + url, "http://xyz.net/", FileLocatorUtils.getBasePath(url));
@@ -367,12 +373,16 @@ public class TestFileLocatorUtils_OE25Dev {
     @Test
     public void testGetBasePath_5_oe() throws Exception {
         URL url = new URL("http://xyz.net/foo/bar.xml");
+        // removed other assertion
 
         url = new URL("http://xyz.net/foo/");
+        // removed other assertion
 
         url = new URL("http://xyz.net/foo");
+        // removed other assertion
 
         url = new URL("http://xyz.net/");
+        // removed other assertion
 
         url = new URL("http://xyz.net");
         assertEquals("base path of " + url, "http://xyz.net", FileLocatorUtils.getBasePath(url));
@@ -391,6 +401,7 @@ public class TestFileLocatorUtils_OE25Dev {
         final File directory = new File("target");
         final File reference = new File(directory, "test.txt").getAbsoluteFile();
 
+        // removed other assertion
         assertEquals(reference, FileLocatorUtils.getFile(directory.getAbsolutePath(), reference.getAbsolutePath()));
     }
 
@@ -399,6 +410,8 @@ public class TestFileLocatorUtils_OE25Dev {
         final File directory = new File("target");
         final File reference = new File(directory, "test.txt").getAbsoluteFile();
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(reference, FileLocatorUtils.getFile(directory.getAbsolutePath(), reference.getName()));
     }
 
@@ -407,6 +420,9 @@ public class TestFileLocatorUtils_OE25Dev {
         final File directory = new File("target");
         final File reference = new File(directory, "test.txt").getAbsoluteFile();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(reference, FileLocatorUtils.getFile(directory.toURI().toURL().toString(), reference.getName()));
     }
 
@@ -415,6 +431,10 @@ public class TestFileLocatorUtils_OE25Dev {
         final File directory = new File("target");
         final File reference = new File(directory, "test.txt").getAbsoluteFile();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(reference, FileLocatorUtils.getFile("invalid", reference.toURI().toURL().toString()));
     }
 
@@ -423,6 +443,11 @@ public class TestFileLocatorUtils_OE25Dev {
         final File directory = new File("target");
         final File reference = new File(directory, "test.txt").getAbsoluteFile();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(reference, FileLocatorUtils.getFile("jar:file:/C:/myjar.jar!/my-config.xml/someprops.properties", reference.getAbsolutePath()));
     }
 
@@ -433,6 +458,7 @@ public class TestFileLocatorUtils_OE25Dev {
 
     @Test
     public void testGetFileName_2_oe() throws Exception {
+        // removed other assertion
 
         URL url = new URL("http://xyz.net/foo/");
         assertNull("file for a directory URL " + url, FileLocatorUtils.getFileName(url));
@@ -440,8 +466,10 @@ public class TestFileLocatorUtils_OE25Dev {
 
     @Test
     public void testGetFileName_3_oe() throws Exception {
+        // removed other assertion
 
         URL url = new URL("http://xyz.net/foo/");
+        // removed other assertion
 
         url = new URL("http://xyz.net/foo/bar.xml");
         assertEquals("file name for a valid URL " + url, "bar.xml", FileLocatorUtils.getFileName(url));

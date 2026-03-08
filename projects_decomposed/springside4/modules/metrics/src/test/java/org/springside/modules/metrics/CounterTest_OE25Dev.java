@@ -45,6 +45,7 @@ public class CounterTest_OE25Dev {
 		clock.increaseTime(1000);
 
 		CounterMetric metric = counter.calculateMetric();
+		// removed other assertion
 		assertThat(metric.avgRate).isEqualTo(60);
 	}
 
@@ -58,6 +59,8 @@ public class CounterTest_OE25Dev {
 		clock.increaseTime(1000);
 
 		CounterMetric metric = counter.calculateMetric();
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.latestCount).isEqualTo(60);
 	}
 
@@ -71,6 +74,9 @@ public class CounterTest_OE25Dev {
 		clock.increaseTime(1000);
 
 		CounterMetric metric = counter.calculateMetric();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.latestRate).isEqualTo(60);
 	}
 
@@ -84,6 +90,10 @@ public class CounterTest_OE25Dev {
 		clock.increaseTime(1000);
 
 		CounterMetric metric = counter.calculateMetric();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		counter.inc(20);
 		clock.increaseTime(1000);
@@ -102,11 +112,16 @@ public class CounterTest_OE25Dev {
 		clock.increaseTime(1000);
 
 		CounterMetric metric = counter.calculateMetric();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		counter.inc(20);
 		clock.increaseTime(1000);
 		metric = counter.calculateMetric();
 
+		// removed other assertion
 		assertThat(metric.avgRate).isEqualTo(40);
 	}
 
@@ -120,11 +135,17 @@ public class CounterTest_OE25Dev {
 		clock.increaseTime(1000);
 
 		CounterMetric metric = counter.calculateMetric();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		counter.inc(20);
 		clock.increaseTime(1000);
 		metric = counter.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.latestCount).isEqualTo(20);
 	}
 
@@ -138,11 +159,18 @@ public class CounterTest_OE25Dev {
 		clock.increaseTime(1000);
 
 		CounterMetric metric = counter.calculateMetric();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		counter.inc(20);
 		clock.increaseTime(1000);
 		metric = counter.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.latestRate).isEqualTo(20);
 	}
 
@@ -176,6 +204,7 @@ public class CounterTest_OE25Dev {
 		clock.increaseTime(1000);
 
 		CounterMetric metric = counter.calculateMetric();
+		// removed other assertion
 		assertThat(metric.latestRate).isEqualTo(0);
 	}
 

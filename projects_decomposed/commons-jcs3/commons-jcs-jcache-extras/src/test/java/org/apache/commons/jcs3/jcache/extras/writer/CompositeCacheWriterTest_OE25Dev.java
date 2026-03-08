@@ -86,6 +86,7 @@ public class CompositeCacheWriterTest_OE25Dev
     public void checkComposite_2_oe()
     {
         cache.put("a", "b");
+        // removed other assertion
         assertEquals("b", copy2.get("a"));
     }
 
@@ -93,6 +94,8 @@ public class CompositeCacheWriterTest_OE25Dev
     public void checkComposite_3_oe()
     {
         cache.put("a", "b");
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, copy1.size());
     }
 
@@ -100,6 +103,9 @@ public class CompositeCacheWriterTest_OE25Dev
     public void checkComposite_4_oe()
     {
         cache.put("a", "b");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, copy2.size());
     }
 
@@ -107,6 +113,10 @@ public class CompositeCacheWriterTest_OE25Dev
     public void checkComposite_5_oe()
     {
         cache.put("a", "b");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         cache.remove("a");
         assertTrue(copy1.isEmpty());
     }
@@ -115,7 +125,12 @@ public class CompositeCacheWriterTest_OE25Dev
     public void checkComposite_6_oe()
     {
         cache.put("a", "b");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         cache.remove("a");
+        // removed other assertion
         assertTrue(copy2.isEmpty());
     }
 

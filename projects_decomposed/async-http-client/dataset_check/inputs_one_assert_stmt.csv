@@ -1,0 +1,347 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition,focal_method,docstring
+async_167_1,"  public void testDefaultMaxTotalConnections_1_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultMaxConnections(), -1);
+  }
+",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultMaxConnections(),,"public static int defaultMaxConnections() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + MAX_CONNECTIONS_CONFIG);
+  }","public static int defaultMaxConnections() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + MAX_CONNECTIONS_CONFIG);
+  }",
+async_168_1,"  public void testDefaultMaxConnectionPerHost_1_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultMaxConnectionsPerHost(), -1);
+  }
+",AsyncHttpClientDefaultsTest::testDefaultMaxConnectionPerHost_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultMaxConnectionsPerHost(),,"public static int defaultMaxConnectionsPerHost() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + MAX_CONNECTIONS_PER_HOST_CONFIG);
+  }","public static int defaultMaxConnectionsPerHost() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + MAX_CONNECTIONS_PER_HOST_CONFIG);
+  }",
+async_169_1,"  public void testDefaultConnectTimeOut_1_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultConnectTimeout(), 5 * 1000);
+  }
+",AsyncHttpClientDefaultsTest::testDefaultConnectTimeOut_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultConnectTimeout(),,"public static int defaultConnectTimeout() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + CONNECTION_TIMEOUT_CONFIG);
+  }","public static int defaultConnectTimeout() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + CONNECTION_TIMEOUT_CONFIG);
+  }",
+async_170_1,"  public void testDefaultPooledConnectionIdleTimeout_1_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultPooledConnectionIdleTimeout(), 60 * 1000);
+  }
+",AsyncHttpClientDefaultsTest::testDefaultPooledConnectionIdleTimeout_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultPooledConnectionIdleTimeout(),,"public static int defaultPooledConnectionIdleTimeout() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + POOLED_CONNECTION_IDLE_TIMEOUT_CONFIG);
+  }","public static int defaultPooledConnectionIdleTimeout() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + POOLED_CONNECTION_IDLE_TIMEOUT_CONFIG);
+  }",
+async_171_1,"  public void testDefaultReadTimeout_1_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultReadTimeout(), 60 * 1000);
+  }
+",AsyncHttpClientDefaultsTest::testDefaultReadTimeout_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultReadTimeout(),,"public static int defaultReadTimeout() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + READ_TIMEOUT_CONFIG);
+  }","public static int defaultReadTimeout() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + READ_TIMEOUT_CONFIG);
+  }",
+async_172_1,"  public void testDefaultRequestTimeout_1_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultRequestTimeout(), 60 * 1000);
+  }
+",AsyncHttpClientDefaultsTest::testDefaultRequestTimeout_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultRequestTimeout(),,"public static int defaultRequestTimeout() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + REQUEST_TIMEOUT_CONFIG);
+  }","public static int defaultRequestTimeout() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + REQUEST_TIMEOUT_CONFIG);
+  }",
+async_173_1,"  public void testDefaultConnectionTtl_1_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultConnectionTtl(), -1);
+  }
+",AsyncHttpClientDefaultsTest::testDefaultConnectionTtl_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultConnectionTtl(),,"public static int defaultConnectionTtl() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + CONNECTION_TTL_CONFIG);
+  }","public static int defaultConnectionTtl() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + CONNECTION_TTL_CONFIG);
+  }",
+async_174_1,"  public void testDefaultFollowRedirect_1_oe() {
+    Assert.assertFalse(AsyncHttpClientConfigDefaults.defaultFollowRedirect());
+  }
+",AsyncHttpClientDefaultsTest::testDefaultFollowRedirect_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultFollowRedirect(),,"public static boolean defaultFollowRedirect() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getBoolean(ASYNC_CLIENT_CONFIG_ROOT + FOLLOW_REDIRECT_CONFIG);
+  }","public static boolean defaultFollowRedirect() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getBoolean(ASYNC_CLIENT_CONFIG_ROOT + FOLLOW_REDIRECT_CONFIG);
+  }",
+async_175_1,"  public void testDefaultMaxRedirects_1_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultMaxRedirects(), 5);
+  }
+",AsyncHttpClientDefaultsTest::testDefaultMaxRedirects_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultMaxRedirects(),,"public static int defaultMaxRedirects() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + MAX_REDIRECTS_CONFIG);
+  }","public static int defaultMaxRedirects() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + MAX_REDIRECTS_CONFIG);
+  }",
+async_176_1,"  public void testDefaultCompressionEnforced_1_oe() {
+    Assert.assertFalse(AsyncHttpClientConfigDefaults.defaultCompressionEnforced());
+  }
+",AsyncHttpClientDefaultsTest::testDefaultCompressionEnforced_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultCompressionEnforced(),,"public static boolean defaultCompressionEnforced() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getBoolean(ASYNC_CLIENT_CONFIG_ROOT + COMPRESSION_ENFORCED_CONFIG);
+  }","public static boolean defaultCompressionEnforced() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getBoolean(ASYNC_CLIENT_CONFIG_ROOT + COMPRESSION_ENFORCED_CONFIG);
+  }",
+async_177_1,"  public void testDefaultUserAgent_1_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultUserAgent(), ""AHC/2.1"");
+  }
+",AsyncHttpClientDefaultsTest::testDefaultUserAgent_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultUserAgent(),,"public static String defaultUserAgent() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getString(ASYNC_CLIENT_CONFIG_ROOT + USER_AGENT_CONFIG);
+  }","public static String defaultUserAgent() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getString(ASYNC_CLIENT_CONFIG_ROOT + USER_AGENT_CONFIG);
+  }",
+async_178_1,"  public void testDefaultUseProxySelector_1_oe() {
+    Assert.assertFalse(AsyncHttpClientConfigDefaults.defaultUseProxySelector());
+  }
+",AsyncHttpClientDefaultsTest::testDefaultUseProxySelector_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultUseProxySelector(),,"public static boolean defaultUseProxySelector() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getBoolean(ASYNC_CLIENT_CONFIG_ROOT + USE_PROXY_SELECTOR_CONFIG);
+  }","public static boolean defaultUseProxySelector() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getBoolean(ASYNC_CLIENT_CONFIG_ROOT + USE_PROXY_SELECTOR_CONFIG);
+  }",
+async_179_1,"  public void testDefaultUseProxyProperties_1_oe() {
+    Assert.assertFalse(AsyncHttpClientConfigDefaults.defaultUseProxyProperties());
+  }
+",AsyncHttpClientDefaultsTest::testDefaultUseProxyProperties_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultUseProxyProperties(),,"public static boolean defaultUseProxyProperties() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getBoolean(ASYNC_CLIENT_CONFIG_ROOT + USE_PROXY_PROPERTIES_CONFIG);
+  }","public static boolean defaultUseProxyProperties() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getBoolean(ASYNC_CLIENT_CONFIG_ROOT + USE_PROXY_PROPERTIES_CONFIG);
+  }",
+async_180_1,"  public void testDefaultStrict302Handling_1_oe() {
+    Assert.assertFalse(AsyncHttpClientConfigDefaults.defaultStrict302Handling());
+  }
+",AsyncHttpClientDefaultsTest::testDefaultStrict302Handling_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultStrict302Handling(),,"public static boolean defaultStrict302Handling() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getBoolean(ASYNC_CLIENT_CONFIG_ROOT + STRICT_302_HANDLING_CONFIG);
+  }","public static boolean defaultStrict302Handling() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getBoolean(ASYNC_CLIENT_CONFIG_ROOT + STRICT_302_HANDLING_CONFIG);
+  }",
+async_181_1,"  public void testDefaultAllowPoolingConnection_1_oe() {
+    Assert.assertTrue(AsyncHttpClientConfigDefaults.defaultKeepAlive());
+  }
+",AsyncHttpClientDefaultsTest::testDefaultAllowPoolingConnection_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultKeepAlive(),,"public static boolean defaultKeepAlive() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getBoolean(ASYNC_CLIENT_CONFIG_ROOT + KEEP_ALIVE_CONFIG);
+  }","public static boolean defaultKeepAlive() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getBoolean(ASYNC_CLIENT_CONFIG_ROOT + KEEP_ALIVE_CONFIG);
+  }",
+async_182_1,"  public void testDefaultMaxRequestRetry_1_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultMaxRequestRetry(), 5);
+  }
+",AsyncHttpClientDefaultsTest::testDefaultMaxRequestRetry_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultMaxRequestRetry(),,"public static int defaultMaxRequestRetry() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + MAX_REQUEST_RETRY_CONFIG);
+  }","public static int defaultMaxRequestRetry() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + MAX_REQUEST_RETRY_CONFIG);
+  }",
+async_183_1,"  public void testDefaultDisableUrlEncodingForBoundRequests_1_oe() {
+    Assert.assertFalse(AsyncHttpClientConfigDefaults.defaultDisableUrlEncodingForBoundRequests());
+  }
+",AsyncHttpClientDefaultsTest::testDefaultDisableUrlEncodingForBoundRequests_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultDisableUrlEncodingForBoundRequests(),,"public static boolean defaultDisableUrlEncodingForBoundRequests() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getBoolean(ASYNC_CLIENT_CONFIG_ROOT + DISABLE_URL_ENCODING_FOR_BOUND_REQUESTS_CONFIG);
+  }","public static boolean defaultDisableUrlEncodingForBoundRequests() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getBoolean(ASYNC_CLIENT_CONFIG_ROOT + DISABLE_URL_ENCODING_FOR_BOUND_REQUESTS_CONFIG);
+  }",
+async_184_1,"  public void testDefaultUseInsecureTrustManager_1_oe() {
+    Assert.assertFalse(AsyncHttpClientConfigDefaults.defaultUseInsecureTrustManager());
+  }
+",AsyncHttpClientDefaultsTest::testDefaultUseInsecureTrustManager_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultUseInsecureTrustManager(),,"public static boolean defaultUseInsecureTrustManager() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getBoolean(ASYNC_CLIENT_CONFIG_ROOT + USE_INSECURE_TRUST_MANAGER_CONFIG);
+  }","public static boolean defaultUseInsecureTrustManager() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getBoolean(ASYNC_CLIENT_CONFIG_ROOT + USE_INSECURE_TRUST_MANAGER_CONFIG);
+  }",
+async_185_1,"  public void testDefaultHashedWheelTimerTickDuration_1_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultHashedWheelTimerTickDuration(), 100);
+  }
+",AsyncHttpClientDefaultsTest::testDefaultHashedWheelTimerTickDuration_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultHashedWheelTimerTickDuration(),,"public static int defaultHashedWheelTimerTickDuration() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + HASHED_WHEEL_TIMER_TICK_DURATION);
+  }","public static int defaultHashedWheelTimerTickDuration() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + HASHED_WHEEL_TIMER_TICK_DURATION);
+  }",
+async_186_1,"  public void testDefaultHashedWheelTimerSize_1_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultHashedWheelTimerSize(), 512);
+  }
+",AsyncHttpClientDefaultsTest::testDefaultHashedWheelTimerSize_1_oe,org.asynchttpclient.config.AsyncHttpClientConfigDefaults,defaultHashedWheelTimerSize(),,"public static int defaultHashedWheelTimerSize() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + HASHED_WHEEL_TIMER_SIZE);
+  }","public static int defaultHashedWheelTimerSize() {
+    return AsyncHttpClientConfigHelper.getAsyncHttpClientConfig().getInt(ASYNC_CLIENT_CONFIG_ROOT + HASHED_WHEEL_TIMER_SIZE);
+  }",
+async_369_1,"  @Test
+  public void computeOriginForPlainUriWithImplicitPort_1_oe() {
+    assertEquals(HttpUtils.originHeader(Uri.create(""ws://foo.com/bar"")), ""http://foo.com"");
+  }
+",HttpUtilsTest::computeOriginForPlainUriWithImplicitPort_1_oe,org.asynchttpclient.uri.Uri,create(String originalUrl),,"public static Uri create(String originalUrl) {
+    return create(null, originalUrl);
+  }","public static String originHeader(Uri uri) {
+    StringBuilder sb = StringBuilderPool.DEFAULT.stringBuilder();
+    sb.append(uri.isSecured() ? ""https://"" : ""http://"").append(uri.getHost());
+    if (uri.getExplicitPort() != uri.getSchemeDefaultPort()) {
+      sb.append(':').append(uri.getPort());
+    }
+    return sb.toString();
+  }",
+async_370_1,"  @Test
+  public void computeOriginForPlainUriWithDefaultPort_1_oe() {
+    assertEquals(HttpUtils.originHeader(Uri.create(""ws://foo.com:80/bar"")), ""http://foo.com"");
+  }
+",HttpUtilsTest::computeOriginForPlainUriWithDefaultPort_1_oe,org.asynchttpclient.uri.Uri,create(String originalUrl),,"public static Uri create(String originalUrl) {
+    return create(null, originalUrl);
+  }","public static String originHeader(Uri uri) {
+    StringBuilder sb = StringBuilderPool.DEFAULT.stringBuilder();
+    sb.append(uri.isSecured() ? ""https://"" : ""http://"").append(uri.getHost());
+    if (uri.getExplicitPort() != uri.getSchemeDefaultPort()) {
+      sb.append(':').append(uri.getPort());
+    }
+    return sb.toString();
+  }",
+async_371_1,"  @Test
+  public void computeOriginForPlainUriWithNonDefaultPort_1_oe() {
+    assertEquals(HttpUtils.originHeader(Uri.create(""ws://foo.com:81/bar"")), ""http://foo.com:81"");
+  }
+",HttpUtilsTest::computeOriginForPlainUriWithNonDefaultPort_1_oe,org.asynchttpclient.uri.Uri,create(String originalUrl),,"public static Uri create(String originalUrl) {
+    return create(null, originalUrl);
+  }","public static String originHeader(Uri uri) {
+    StringBuilder sb = StringBuilderPool.DEFAULT.stringBuilder();
+    sb.append(uri.isSecured() ? ""https://"" : ""http://"").append(uri.getHost());
+    if (uri.getExplicitPort() != uri.getSchemeDefaultPort()) {
+      sb.append(':').append(uri.getPort());
+    }
+    return sb.toString();
+  }",
+async_372_1,"  @Test
+  public void computeOriginForSecuredUriWithImplicitPort_1_oe() {
+    assertEquals(HttpUtils.originHeader(Uri.create(""wss://foo.com/bar"")), ""https://foo.com"");
+  }
+",HttpUtilsTest::computeOriginForSecuredUriWithImplicitPort_1_oe,org.asynchttpclient.uri.Uri,create(String originalUrl),,"public static Uri create(String originalUrl) {
+    return create(null, originalUrl);
+  }","public static String originHeader(Uri uri) {
+    StringBuilder sb = StringBuilderPool.DEFAULT.stringBuilder();
+    sb.append(uri.isSecured() ? ""https://"" : ""http://"").append(uri.getHost());
+    if (uri.getExplicitPort() != uri.getSchemeDefaultPort()) {
+      sb.append(':').append(uri.getPort());
+    }
+    return sb.toString();
+  }",
+async_373_1,"  @Test
+  public void computeOriginForSecuredUriWithDefaultPort_1_oe() {
+    assertEquals(HttpUtils.originHeader(Uri.create(""wss://foo.com:443/bar"")), ""https://foo.com"");
+  }
+",HttpUtilsTest::computeOriginForSecuredUriWithDefaultPort_1_oe,org.asynchttpclient.uri.Uri,create(String originalUrl),,"public static Uri create(String originalUrl) {
+    return create(null, originalUrl);
+  }","public static String originHeader(Uri uri) {
+    StringBuilder sb = StringBuilderPool.DEFAULT.stringBuilder();
+    sb.append(uri.isSecured() ? ""https://"" : ""http://"").append(uri.getHost());
+    if (uri.getExplicitPort() != uri.getSchemeDefaultPort()) {
+      sb.append(':').append(uri.getPort());
+    }
+    return sb.toString();
+  }",
+async_374_1,"  @Test
+  public void computeOriginForSecuredUriWithNonDefaultPort_1_oe() {
+    assertEquals(HttpUtils.originHeader(Uri.create(""wss://foo.com:444/bar"")), ""https://foo.com:444"");
+  }
+",HttpUtilsTest::computeOriginForSecuredUriWithNonDefaultPort_1_oe,org.asynchttpclient.uri.Uri,create(String originalUrl),,"public static Uri create(String originalUrl) {
+    return create(null, originalUrl);
+  }","public static String originHeader(Uri uri) {
+    StringBuilder sb = StringBuilderPool.DEFAULT.stringBuilder();
+    sb.append(uri.isSecured() ? ""https://"" : ""http://"").append(uri.getHost());
+    if (uri.getExplicitPort() != uri.getSchemeDefaultPort()) {
+      sb.append(':').append(uri.getPort());
+    }
+    return sb.toString();
+  }",
+async_375_1,"  @Test
+  public void testBasics_1_oe() {
+    assertEquals(Utf8UrlEncoder.encodeQueryElement(""foobar""), ""foobar"");
+  }
+",Utf8UrlEncoderTest::testBasics_1_oe,org.asynchttpclient.util.Utf8UrlEncoder,encodeQueryElement(String input),,"public static String encodeQueryElement(String input) {
+    StringBuilder sb = new StringBuilder(input.length() + 6);
+    encodeAndAppendQueryElement(sb, input);
+    return sb.toString();
+  }","public static String encodeQueryElement(String input) {
+    StringBuilder sb = new StringBuilder(input.length() + 6);
+    encodeAndAppendQueryElement(sb, input);
+    return sb.toString();
+  }",
+async_375_2,"  @Test
+  public void testBasics_2_oe() {
+    // removed other assertion
+    assertEquals(Utf8UrlEncoder.encodeQueryElement(""a&b""), ""a%26b"");
+  }
+",Utf8UrlEncoderTest::testBasics_2_oe,org.asynchttpclient.util.Utf8UrlEncoder,encodeQueryElement(String input),,"public static String encodeQueryElement(String input) {
+    StringBuilder sb = new StringBuilder(input.length() + 6);
+    encodeAndAppendQueryElement(sb, input);
+    return sb.toString();
+  }","public static String encodeQueryElement(String input) {
+    StringBuilder sb = new StringBuilder(input.length() + 6);
+    encodeAndAppendQueryElement(sb, input);
+    return sb.toString();
+  }",
+async_375_3,"  @Test
+  public void testBasics_3_oe() {
+    // removed other assertion
+    // removed other assertion
+    assertEquals(Utf8UrlEncoder.encodeQueryElement(""a+b""), ""a%2Bb"");
+  }
+",Utf8UrlEncoderTest::testBasics_3_oe,org.asynchttpclient.util.Utf8UrlEncoder,encodeQueryElement(String input),,"public static String encodeQueryElement(String input) {
+    StringBuilder sb = new StringBuilder(input.length() + 6);
+    encodeAndAppendQueryElement(sb, input);
+    return sb.toString();
+  }","public static String encodeQueryElement(String input) {
+    StringBuilder sb = new StringBuilder(input.length() + 6);
+    encodeAndAppendQueryElement(sb, input);
+    return sb.toString();
+  }",
+async_376_1,"  @Test
+  public void testPercentageEncoding_1_oe() {
+    assertEquals(Utf8UrlEncoder.percentEncodeQueryElement(""foobar""), ""foobar"");
+  }
+",Utf8UrlEncoderTest::testPercentageEncoding_1_oe,org.asynchttpclient.util.Utf8UrlEncoder,percentEncodeQueryElement(String input),,"public static String percentEncodeQueryElement(String input) {
+    if (input == null) {
+      return null;
+    }
+    StringBuilder sb = new StringBuilder(input.length() + 6);
+    encodeAndAppendPercentEncoded(sb, input);
+    return sb.toString();
+  }","public static String percentEncodeQueryElement(String input) {
+    if (input == null) {
+      return null;
+    }
+    StringBuilder sb = new StringBuilder(input.length() + 6);
+    encodeAndAppendPercentEncoded(sb, input);
+    return sb.toString();
+  }",
+async_376_2,"  @Test
+  public void testPercentageEncoding_2_oe() {
+    // removed other assertion
+    assertEquals(Utf8UrlEncoder.percentEncodeQueryElement(""foo*bar""), ""foo%2Abar"");
+  }
+",Utf8UrlEncoderTest::testPercentageEncoding_2_oe,org.asynchttpclient.util.Utf8UrlEncoder,percentEncodeQueryElement(String input),,"public static String percentEncodeQueryElement(String input) {
+    if (input == null) {
+      return null;
+    }
+    StringBuilder sb = new StringBuilder(input.length() + 6);
+    encodeAndAppendPercentEncoded(sb, input);
+    return sb.toString();
+  }","public static String percentEncodeQueryElement(String input) {
+    if (input == null) {
+      return null;
+    }
+    StringBuilder sb = new StringBuilder(input.length() + 6);
+    encodeAndAppendPercentEncoded(sb, input);
+    return sb.toString();
+  }",
+async_376_3,"  @Test
+  public void testPercentageEncoding_3_oe() {
+    // removed other assertion
+    // removed other assertion
+    assertEquals(Utf8UrlEncoder.percentEncodeQueryElement(""foo~b_ar""), ""foo~b_ar"");
+  }
+",Utf8UrlEncoderTest::testPercentageEncoding_3_oe,org.asynchttpclient.util.Utf8UrlEncoder,percentEncodeQueryElement(String input),,"public static String percentEncodeQueryElement(String input) {
+    if (input == null) {
+      return null;
+    }
+    StringBuilder sb = new StringBuilder(input.length() + 6);
+    encodeAndAppendPercentEncoded(sb, input);
+    return sb.toString();
+  }","public static String percentEncodeQueryElement(String input) {
+    if (input == null) {
+      return null;
+    }
+    StringBuilder sb = new StringBuilder(input.length() + 6);
+    encodeAndAppendPercentEncoded(sb, input);
+    return sb.toString();
+  }",

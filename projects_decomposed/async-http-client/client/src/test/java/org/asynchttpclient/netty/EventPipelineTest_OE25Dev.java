@@ -58,6 +58,8 @@ public class EventPipelineTest_OE25Dev extends AbstractBasicTest {
         @Override
         public Response onCompleted(Response response) {
           try {
+            // removed other assertion
+            // removed other assertion
           } finally {
             l.countDown();
           }

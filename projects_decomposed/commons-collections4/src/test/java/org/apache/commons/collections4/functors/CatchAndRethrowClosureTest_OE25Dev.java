@@ -60,6 +60,38 @@ public class CatchAndRethrowClosureTest_OE25Dev extends AbstractClosureTest {
     }
 
     @Test
+    public void testThrowingClosure() {
+        Closure<Integer> closure = generateNoExceptionClosure();
+        try {
+            closure.execute(Integer.valueOf(0));
+        } catch (final FunctorException ex) {
+            Assert.fail();
+        } catch (final RuntimeException ex) {
+            Assert.fail();
+        }
+
+        closure = generateIOExceptionClosure();
+        try {
+            closure.execute(Integer.valueOf(0));
+            Assert.fail();
+        } catch (final FunctorException ex) {
+            Assert.assertTrue(ex.getCause() instanceof IOException);
+        } catch (final RuntimeException ex) {
+            Assert.fail();
+        }
+
+        closure = generateNullPointerExceptionClosure();
+        try {
+            closure.execute(Integer.valueOf(0));
+            Assert.fail();
+        } catch (final FunctorException ex) {
+            Assert.fail();
+        } catch (final RuntimeException ex) {
+            Assert.assertTrue(ex instanceof NullPointerException);
+        }
+    }
+
+    @Test
     public void testThrowingClosure_1_oe() {
         Closure<Integer> closure = generateNoExceptionClosure();
         try {
@@ -92,6 +124,7 @@ public class CatchAndRethrowClosureTest_OE25Dev extends AbstractClosureTest {
         closure = generateIOExceptionClosure();
         try {
             closure.execute(Integer.valueOf(0));
+            Assert.fail();
         } catch (final FunctorException ex) {
             Assert.assertTrue(ex.getCause() instanceof IOException);
     }
@@ -134,6 +167,7 @@ public class CatchAndRethrowClosureTest_OE25Dev extends AbstractClosureTest {
         closure = generateNullPointerExceptionClosure();
         try {
             closure.execute(Integer.valueOf(0));
+            Assert.fail();
         } catch (final FunctorException ex) {
         } catch (final RuntimeException ex) {
             Assert.assertTrue(ex instanceof NullPointerException);

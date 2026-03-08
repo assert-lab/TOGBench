@@ -79,6 +79,7 @@ public class DigestAuthTest_OE25Dev extends AbstractBasicTest {
               .setRealm(digestAuthRealm(USER, ADMIN).setRealmName("MyRealm").build())
               .execute();
       Response resp = f.get(60, TimeUnit.SECONDS);
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -90,6 +91,8 @@ public class DigestAuthTest_OE25Dev extends AbstractBasicTest {
               .setRealm(digestAuthRealm(USER, ADMIN).setRealmName("MyRealm").build())
               .execute();
       Response resp = f.get(60, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
       assertNotNull(resp.getHeader("X-Auth"));
   }
   }
@@ -112,6 +115,7 @@ public class DigestAuthTest_OE25Dev extends AbstractBasicTest {
               .setRealm(digestAuthRealm(USER, ADMIN).setRealmName("MyRealm").build())
               .execute();
       Response resp = f.get(60, TimeUnit.SECONDS);
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -123,6 +127,8 @@ public class DigestAuthTest_OE25Dev extends AbstractBasicTest {
               .setRealm(digestAuthRealm(USER, ADMIN).setRealmName("MyRealm").build())
               .execute();
       Response resp = f.get(60, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
       assertNotNull(resp.getHeader("X-Auth"));
   }
   }
@@ -145,6 +151,7 @@ public class DigestAuthTest_OE25Dev extends AbstractBasicTest {
               .setRealm(digestAuthRealm("fake", ADMIN).build())
               .execute();
       Response resp = f.get(20, TimeUnit.SECONDS);
+      // removed other assertion
       assertEquals(resp.getStatusCode(), 401);
   }
   }

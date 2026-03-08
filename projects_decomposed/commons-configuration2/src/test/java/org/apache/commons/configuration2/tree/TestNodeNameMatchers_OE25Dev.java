@@ -102,12 +102,15 @@ public class TestNodeNameMatchers_OE25Dev {
     @Test
     public void testEqualsIgnoreCaseMatch_2_oe() {
         final ImmutableNode node = createNode(NODE_NAME);
+        // removed other assertion
         assertTrue("No match (2)", NodeNameMatchers.EQUALS_IGNORE_CASE.matches(node, handler, NODE_NAME.toLowerCase(Locale.ENGLISH)));
     }
 
     @Test
     public void testEqualsIgnoreCaseMatch_3_oe() {
         final ImmutableNode node = createNode(NODE_NAME);
+        // removed other assertion
+        // removed other assertion
         assertTrue("No match (3)", NodeNameMatchers.EQUALS_IGNORE_CASE.matches(node, handler, NODE_NAME.toUpperCase(Locale.ENGLISH)));
     }
 
@@ -132,6 +135,7 @@ public class TestNodeNameMatchers_OE25Dev {
     @Test
     public void testEqualsNoMatch_2_oe() {
         final ImmutableNode node = createNode(NODE_NAME);
+        // removed other assertion
         assertFalse("Match (2)", NodeNameMatchers.EQUALS.matches(node, handler, NODE_NAME.toLowerCase(Locale.ENGLISH)));
     }
 

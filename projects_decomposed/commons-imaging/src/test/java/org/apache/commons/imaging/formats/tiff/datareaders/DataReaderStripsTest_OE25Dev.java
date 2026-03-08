@@ -46,6 +46,7 @@ public class DataReaderStripsTest_OE25Dev {
         final int[] samples = {10, 355, 355, 255};
         int[] expected = {10, 99, 99, 255};
         int[] predicted = strips.applyPredictor(samples);
+        // removed other assertion
         expected = new int[]{20, 198, 198, 254};
         predicted = strips.applyPredictor(samples);
         assertArrayEquals(expected, predicted);

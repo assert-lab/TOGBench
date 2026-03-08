@@ -30,6 +30,7 @@ public class SortedArrayListTest_OE25Dev {
 		list.add("9");
 		list.add("3");
 
+		// removed other assertion
 
 		list.remove(2);
 		assertThat(list).containsExactly("1", "3", "9", "9");
@@ -44,8 +45,10 @@ public class SortedArrayListTest_OE25Dev {
 		list.add("9");
 		list.add("3");
 
+		// removed other assertion
 
 		list.remove(2);
+		// removed other assertion
 
 		assertThat(list.contains("3")).isTrue();
 	}
@@ -59,9 +62,12 @@ public class SortedArrayListTest_OE25Dev {
 		list.add("9");
 		list.add("3");
 
+		// removed other assertion
 
 		list.remove(2);
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(list.contains("2")).isFalse();
 	}
 
@@ -74,12 +80,17 @@ public class SortedArrayListTest_OE25Dev {
 		list.add("9");
 		list.add("3");
 
+		// removed other assertion
 
 		list.remove(2);
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
 		try {
 			list.add(1, "2");
+			// removed other assertion
 		} catch (Throwable t) {
 			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
 	}
@@ -94,17 +105,24 @@ public class SortedArrayListTest_OE25Dev {
 		list.add("9");
 		list.add("3");
 
+		// removed other assertion
 
 		list.remove(2);
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
 		try {
 			list.add(1, "2");
+			// removed other assertion
 		} catch (Throwable t) {
+			// removed other assertion
 		}
 
 		try {
 			list.set(1, "2");
+			// removed other assertion
 		} catch (Throwable t) {
 			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
 	}
@@ -119,18 +137,26 @@ public class SortedArrayListTest_OE25Dev {
 		list.add("9");
 		list.add("3");
 
+		// removed other assertion
 
 		list.remove(2);
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
 		try {
 			list.add(1, "2");
+			// removed other assertion
 		} catch (Throwable t) {
+			// removed other assertion
 		}
 
 		try {
 			list.set(1, "2");
+			// removed other assertion
 		} catch (Throwable t) {
+			// removed other assertion
 		}
 
 		SortedArrayList<String> list2 = ListUtil.createSortedArrayList(Ordering.natural());

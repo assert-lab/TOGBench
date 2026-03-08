@@ -445,6 +445,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     public void testGenerateClassLevelAnnotations_1_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         cg.setMajor(49);
         cg.setMinor(0);
@@ -453,6 +454,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         cg.addAnnotationEntry(createSimpleVisibleAnnotation(cp));
         cg.addAnnotationEntry(createSimpleInvisibleAnnotation(cp));
         buildClassContents(cg, cp, il);
+        //System.out.println(cg.getJavaClass().toString());
         dumpClass(cg, "HelloWorld.class");
         final JavaClass jc = getClassFrom(".", "HelloWorld");
         final AnnotationEntry[] as = jc.getAnnotationEntries();
@@ -462,6 +464,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     public void testGenerateClassLevelAnnotations_2_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         cg.setMajor(49);
         cg.setMinor(0);
@@ -470,15 +473,19 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         cg.addAnnotationEntry(createSimpleVisibleAnnotation(cp));
         cg.addAnnotationEntry(createSimpleInvisibleAnnotation(cp));
         buildClassContents(cg, cp, il);
+        //System.out.println(cg.getJavaClass().toString());
         dumpClass(cg, "HelloWorld.class");
         final JavaClass jc = getClassFrom(".", "HelloWorld");
         final AnnotationEntry[] as = jc.getAnnotationEntries();
+        // removed other assertion
+        // TODO L??;
         assertTrue( "Name of annotation 1 should be LSimpleAnnotation; but it is " + as[0].getAnnotationType(), as[0].getAnnotationType() .equals("LSimpleAnnotation;"));
     }
 
     public void testGenerateClassLevelAnnotations_3_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         cg.setMajor(49);
         cg.setMinor(0);
@@ -487,15 +494,20 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         cg.addAnnotationEntry(createSimpleVisibleAnnotation(cp));
         cg.addAnnotationEntry(createSimpleInvisibleAnnotation(cp));
         buildClassContents(cg, cp, il);
+        //System.out.println(cg.getJavaClass().toString());
         dumpClass(cg, "HelloWorld.class");
         final JavaClass jc = getClassFrom(".", "HelloWorld");
         final AnnotationEntry[] as = jc.getAnnotationEntries();
+        // removed other assertion
+        // TODO L??;
+        // removed other assertion
         assertTrue( "Name of annotation 2 should be LSimpleAnnotation; but it is " + as[1].getAnnotationType(), as[1].getAnnotationType() .equals("LSimpleAnnotation;"));
     }
 
     public void testGenerateClassLevelAnnotations_4_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         cg.setMajor(49);
         cg.setMinor(0);
@@ -504,9 +516,14 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         cg.addAnnotationEntry(createSimpleVisibleAnnotation(cp));
         cg.addAnnotationEntry(createSimpleInvisibleAnnotation(cp));
         buildClassContents(cg, cp, il);
+        //System.out.println(cg.getJavaClass().toString());
         dumpClass(cg, "HelloWorld.class");
         final JavaClass jc = getClassFrom(".", "HelloWorld");
         final AnnotationEntry[] as = jc.getAnnotationEntries();
+        // removed other assertion
+        // TODO L??;
+        // removed other assertion
+        // removed other assertion
         final ElementValuePair[] vals = as[0].getElementValuePairs();
         final ElementValuePair nvp = vals[0];
         assertTrue( "Name of element in SimpleAnnotation should be 'id' but it is " + nvp.getNameString(), nvp.getNameString().equals("id"));
@@ -515,6 +532,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     public void testGenerateClassLevelAnnotations_5_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         cg.setMajor(49);
         cg.setMinor(0);
@@ -523,11 +541,17 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         cg.addAnnotationEntry(createSimpleVisibleAnnotation(cp));
         cg.addAnnotationEntry(createSimpleInvisibleAnnotation(cp));
         buildClassContents(cg, cp, il);
+        //System.out.println(cg.getJavaClass().toString());
         dumpClass(cg, "HelloWorld.class");
         final JavaClass jc = getClassFrom(".", "HelloWorld");
         final AnnotationEntry[] as = jc.getAnnotationEntries();
+        // removed other assertion
+        // TODO L??;
+        // removed other assertion
+        // removed other assertion
         final ElementValuePair[] vals = as[0].getElementValuePairs();
         final ElementValuePair nvp = vals[0];
+        // removed other assertion
         final ElementValue ev = nvp.getValue();
         assertTrue("Type of element value should be int but it is " + ev.getElementValueType(), ev.getElementValueType() == ElementValue.PRIMITIVE_INT);
     }
@@ -535,6 +559,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     public void testGenerateClassLevelAnnotations_6_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         cg.setMajor(49);
         cg.setMinor(0);
@@ -543,18 +568,26 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         cg.addAnnotationEntry(createSimpleVisibleAnnotation(cp));
         cg.addAnnotationEntry(createSimpleInvisibleAnnotation(cp));
         buildClassContents(cg, cp, il);
+        //System.out.println(cg.getJavaClass().toString());
         dumpClass(cg, "HelloWorld.class");
         final JavaClass jc = getClassFrom(".", "HelloWorld");
         final AnnotationEntry[] as = jc.getAnnotationEntries();
+        // removed other assertion
+        // TODO L??;
+        // removed other assertion
+        // removed other assertion
         final ElementValuePair[] vals = as[0].getElementValuePairs();
         final ElementValuePair nvp = vals[0];
+        // removed other assertion
         final ElementValue ev = nvp.getValue();
+        // removed other assertion
         assertTrue("Value of element should be 4 but it is " + ev.stringifyValue(), ev.stringifyValue().equals("4"));
     }
 
     public void testGenerateClassLevelAnnotations_7_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         cg.setMajor(49);
         cg.setMinor(0);
@@ -563,22 +596,32 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         cg.addAnnotationEntry(createSimpleVisibleAnnotation(cp));
         cg.addAnnotationEntry(createSimpleInvisibleAnnotation(cp));
         buildClassContents(cg, cp, il);
+        //System.out.println(cg.getJavaClass().toString());
         dumpClass(cg, "HelloWorld.class");
         final JavaClass jc = getClassFrom(".", "HelloWorld");
         final AnnotationEntry[] as = jc.getAnnotationEntries();
+        // removed other assertion
+        // TODO L??;
+        // removed other assertion
+        // removed other assertion
         final ElementValuePair[] vals = as[0].getElementValuePairs();
         final ElementValuePair nvp = vals[0];
+        // removed other assertion
         final ElementValue ev = nvp.getValue();
+        // removed other assertion
+        // removed other assertion
         assertTrue(createTestdataFile("HelloWorld.class").delete());
     }
 
     public void testGenerateMethodLevelAnnotations1_1_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
         final InstructionList il = new InstructionList();
         buildClassContentsWithAnnotatedMethods(cg, cp, il);
+        // Check annotation is OK
         int i = cg.getMethods()[0].getAnnotationEntries().length;
         assertTrue( "Prior to dumping, main method should have 1 annotation but has " + i, i == 1);
     }
@@ -586,13 +629,17 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     public void testGenerateMethodLevelAnnotations1_2_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
         final InstructionList il = new InstructionList();
         buildClassContentsWithAnnotatedMethods(cg, cp, il);
+        // Check annotation is OK
         int i = cg.getMethods()[0].getAnnotationEntries().length;
+        // removed other assertion
         dumpClass(cg, "temp1" + File.separator + "HelloWorld.class");
         final JavaClass jc2 = getClassFrom("temp1", "HelloWorld");
+        // Check annotation is OK
         i = jc2.getMethods()[0].getAnnotationEntries().length;
         assertTrue("JavaClass should say 1 annotation on main method but says " + i, i == 1);
     }
@@ -600,15 +647,21 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     public void testGenerateMethodLevelAnnotations1_3_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
         final InstructionList il = new InstructionList();
         buildClassContentsWithAnnotatedMethods(cg, cp, il);
+        // Check annotation is OK
         int i = cg.getMethods()[0].getAnnotationEntries().length;
+        // removed other assertion
         dumpClass(cg, "temp1" + File.separator + "HelloWorld.class");
         final JavaClass jc2 = getClassFrom("temp1", "HelloWorld");
+        // Check annotation is OK
         i = jc2.getMethods()[0].getAnnotationEntries().length;
+        // removed other assertion
         final ClassGen cg2 = new ClassGen(jc2);
+        // Check it now it is a ClassGen
         final Method[] m = cg2.getMethods();
         i = m[0].getAnnotationEntries().length;
         assertTrue("The main 'Method' should have one annotation but has " + i, i == 1);
@@ -617,19 +670,27 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     public void testGenerateMethodLevelAnnotations1_4_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
         final InstructionList il = new InstructionList();
         buildClassContentsWithAnnotatedMethods(cg, cp, il);
+        // Check annotation is OK
         int i = cg.getMethods()[0].getAnnotationEntries().length;
+        // removed other assertion
         dumpClass(cg, "temp1" + File.separator + "HelloWorld.class");
         final JavaClass jc2 = getClassFrom("temp1", "HelloWorld");
+        // Check annotation is OK
         i = jc2.getMethods()[0].getAnnotationEntries().length;
+        // removed other assertion
         final ClassGen cg2 = new ClassGen(jc2);
+        // Check it now it is a ClassGen
         final Method[] m = cg2.getMethods();
         i = m[0].getAnnotationEntries().length;
+        // removed other assertion
         final MethodGen mg = new MethodGen(m[0], cg2.getClassName(), cg2
                 .getConstantPool());
+        // Check it finally when the Method is changed to a MethodGen
         i = mg.getAnnotationEntries().length;
         assertTrue("The main 'MethodGen' should have one annotation but has " + i, i == 1);
     }
@@ -637,20 +698,29 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     public void testGenerateMethodLevelAnnotations1_5_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
         final InstructionList il = new InstructionList();
         buildClassContentsWithAnnotatedMethods(cg, cp, il);
+        // Check annotation is OK
         int i = cg.getMethods()[0].getAnnotationEntries().length;
+        // removed other assertion
         dumpClass(cg, "temp1" + File.separator + "HelloWorld.class");
         final JavaClass jc2 = getClassFrom("temp1", "HelloWorld");
+        // Check annotation is OK
         i = jc2.getMethods()[0].getAnnotationEntries().length;
+        // removed other assertion
         final ClassGen cg2 = new ClassGen(jc2);
+        // Check it now it is a ClassGen
         final Method[] m = cg2.getMethods();
         i = m[0].getAnnotationEntries().length;
+        // removed other assertion
         final MethodGen mg = new MethodGen(m[0], cg2.getClassName(), cg2
                 .getConstantPool());
+        // Check it finally when the Method is changed to a MethodGen
         i = mg.getAnnotationEntries().length;
+        // removed other assertion
 
         assertTrue(wipe("temp1", "HelloWorld.class"));
     }
@@ -658,6 +728,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     public void testGenerateMethodLevelAnnotations2_1_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
         final InstructionList il = new InstructionList();
@@ -665,6 +736,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         dumpClass(cg, "temp2", "HelloWorld.class");
         final JavaClass jc2 = getClassFrom("temp2", "HelloWorld");
         final ClassGen cg2 = new ClassGen(jc2);
+        // Main method after reading the class back in
         final Method mainMethod1 = jc2.getMethods()[0];
         assertTrue("The 'Method' should have one annotations but has " + mainMethod1.getAnnotationEntries().length, mainMethod1 .getAnnotationEntries().length == 1);
     }
@@ -672,6 +744,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     public void testGenerateMethodLevelAnnotations2_2_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
         final InstructionList il = new InstructionList();
@@ -679,7 +752,9 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         dumpClass(cg, "temp2", "HelloWorld.class");
         final JavaClass jc2 = getClassFrom("temp2", "HelloWorld");
         final ClassGen cg2 = new ClassGen(jc2);
+        // Main method after reading the class back in
         final Method mainMethod1 = jc2.getMethods()[0];
+        // removed other assertion
         final MethodGen mainMethod2 = new MethodGen(mainMethod1, cg2.getClassName(),
                 cg2.getConstantPool());
         assertTrue("The 'MethodGen' should have one annotations but has " + mainMethod2.getAnnotationEntries().length, mainMethod2 .getAnnotationEntries().length == 1);
@@ -688,6 +763,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     public void testGenerateMethodLevelAnnotations2_3_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
         final InstructionList il = new InstructionList();
@@ -695,9 +771,12 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         dumpClass(cg, "temp2", "HelloWorld.class");
         final JavaClass jc2 = getClassFrom("temp2", "HelloWorld");
         final ClassGen cg2 = new ClassGen(jc2);
+        // Main method after reading the class back in
         final Method mainMethod1 = jc2.getMethods()[0];
+        // removed other assertion
         final MethodGen mainMethod2 = new MethodGen(mainMethod1, cg2.getClassName(),
                 cg2.getConstantPool());
+        // removed other assertion
         mainMethod2.addAnnotationEntry(createFruitAnnotation(cg2
                 .getConstantPool(), "Pear"));
         cg2.removeMethod(mainMethod1);
@@ -713,6 +792,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     public void testGenerateMethodLevelAnnotations2_4_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
         final InstructionList il = new InstructionList();
@@ -720,9 +800,12 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         dumpClass(cg, "temp2", "HelloWorld.class");
         final JavaClass jc2 = getClassFrom("temp2", "HelloWorld");
         final ClassGen cg2 = new ClassGen(jc2);
+        // Main method after reading the class back in
         final Method mainMethod1 = jc2.getMethods()[0];
+        // removed other assertion
         final MethodGen mainMethod2 = new MethodGen(mainMethod1, cg2.getClassName(),
                 cg2.getConstantPool());
+        // removed other assertion
         mainMethod2.addAnnotationEntry(createFruitAnnotation(cg2
                 .getConstantPool(), "Pear"));
         cg2.removeMethod(mainMethod1);
@@ -732,12 +815,14 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         final ClassGen cg3 = new ClassGen(jc3);
         final Method mainMethod3 = cg3.getMethods()[1];
         final int i = mainMethod3.getAnnotationEntries().length;
+        // removed other assertion
         assertTrue(wipe("temp2", "HelloWorld.class"));
     }
 
     public void testGenerateMethodLevelAnnotations2_5_oe()
             throws ClassNotFoundException
     {
+        // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
         final InstructionList il = new InstructionList();
@@ -745,9 +830,12 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         dumpClass(cg, "temp2", "HelloWorld.class");
         final JavaClass jc2 = getClassFrom("temp2", "HelloWorld");
         final ClassGen cg2 = new ClassGen(jc2);
+        // Main method after reading the class back in
         final Method mainMethod1 = jc2.getMethods()[0];
+        // removed other assertion
         final MethodGen mainMethod2 = new MethodGen(mainMethod1, cg2.getClassName(),
                 cg2.getConstantPool());
+        // removed other assertion
         mainMethod2.addAnnotationEntry(createFruitAnnotation(cg2
                 .getConstantPool(), "Pear"));
         cg2.removeMethod(mainMethod1);
@@ -757,6 +845,8 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         final ClassGen cg3 = new ClassGen(jc3);
         final Method mainMethod3 = cg3.getMethods()[1];
         final int i = mainMethod3.getAnnotationEntries().length;
+        // removed other assertion
+        // removed other assertion
         assertTrue(wipe("temp3", "HelloWorld.class"));
     }
 
@@ -765,6 +855,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.SimpleAnnotatedClass");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
         assertTrue("Expected one annotation but found " + annotations.length, annotations.length == 1);
     }
@@ -774,6 +865,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithEnumClass");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
         assertTrue("Expected one annotation but found " + annotations.length, annotations.length == 1);
     }
@@ -783,6 +875,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
         assertTrue("Expected one annotation but found " + annotations.length, annotations.length == 1);
     }
@@ -792,7 +885,9 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
         final AnnotationEntryGen a = annotations[0];
         assertTrue("That annotation should only have one value but has " + a.getValues().size(), a.getValues().size() == 1);
     }
@@ -802,8 +897,11 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
         final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
         final ElementValuePairGen nvp = a.getValues().get(0);
         final ElementValueGen value = nvp.getValue();
         assertTrue("Value should be ArrayElementValueGen but is " + value, value instanceof ArrayElementValueGen);
@@ -814,10 +912,14 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
         final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
         final ElementValuePairGen nvp = a.getValues().get(0);
         final ElementValueGen value = nvp.getValue();
+        // removed other assertion
         final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
         assertTrue("Array value should be size one but is " + arrayValue.getElementValuesSize(), arrayValue .getElementValuesSize() == 1);
     }
@@ -827,11 +929,16 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
         final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
         final ElementValuePairGen nvp = a.getValues().get(0);
         final ElementValueGen value = nvp.getValue();
+        // removed other assertion
         final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        // removed other assertion
         final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
         assertTrue( "Value in the array should be AnnotationElementValueGen but is " + innerValue, innerValue instanceof AnnotationElementValueGen);
     }
@@ -841,12 +948,18 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
         final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
         final ElementValuePairGen nvp = a.getValues().get(0);
         final ElementValueGen value = nvp.getValue();
+        // removed other assertion
         final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        // removed other assertion
         final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        // removed other assertion
         final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
         assertTrue("Should be called L"+PACKAGE_BASE_SIG+"/data/SimpleAnnotation; but is called: " + innerAnnotationValue.getAnnotation().getTypeName(), innerAnnotationValue.getAnnotation().getTypeSignature().equals( "L"+PACKAGE_BASE_SIG+"/data/SimpleAnnotation;"));
     }
@@ -856,14 +969,22 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
         final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
         final ElementValuePairGen nvp = a.getValues().get(0);
         final ElementValueGen value = nvp.getValue();
+        // removed other assertion
         final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        // removed other assertion
         final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        // removed other assertion
         final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+        // removed other assertion
 
+        // check the three methods
         final Method[] methods = cgen.getMethods();
         assertEquals(3, methods.length);
     }
@@ -873,26 +994,39 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
         final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
         final ElementValuePairGen nvp = a.getValues().get(0);
         final ElementValueGen value = nvp.getValue();
+        // removed other assertion
         final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        // removed other assertion
         final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        // removed other assertion
         final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+        // removed other assertion
 
+        // check the three methods
         final Method[] methods = cgen.getMethods();
+        // removed other assertion
         for (final Method method : methods)
         {
             final String methodName= method.getName();
             if(methodName.equals("<init>"))
             {
+                // removed other assertion
+                // removed other assertion
             }
             else if(methodName.equals("methodWithArrayOfZeroAnnotations"))
             {
+                // removed other assertion
             }
             else if(methodName.equals("methodWithArrayOfTwoAnnotations"))
             {
+                // removed other assertion
             }
             else
             {
@@ -906,6 +1040,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.ComplexAnnotatedClass");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
         assertTrue("Expected one annotation but found " + annotations.length, annotations.length == 1);
     }
@@ -915,7 +1050,9 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.ComplexAnnotatedClass");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
         final List<?> l = annotations[0].getValues();
         boolean found = false;
         for (final Object name : l) {
@@ -946,6 +1083,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         final ClassGen cgen = new ClassGen(jc);
         final ConstantPoolGen cp = cgen.getConstantPool();
         cgen.addAnnotationEntry(createFruitAnnotation(cp, "Pineapple"));
+        // removed other assertion
         dumpClass(cgen, "SimpleAnnotatedClass.class");
         assertTrue(wipe("SimpleAnnotatedClass.class"));
     }
@@ -965,6 +1103,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         final ClassGen cgen = new ClassGen(jc);
         final ConstantPoolGen cp = cgen.getConstantPool();
         cgen.addAnnotationEntry(createCombinedAnnotation(cp));
+        // removed other assertion
         dumpClass(cgen, "SimpleAnnotatedClass.class");
         final JavaClass jc2 = getClassFrom(".", "SimpleAnnotatedClass");
         jc2.getAnnotationEntries();
@@ -976,15 +1115,24 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
         final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
         final ElementValuePairGen nvp = a.getValues().get(0);
         final ElementValueGen value = nvp.getValue();
+        // removed other assertion
         final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        // removed other assertion
         final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        // removed other assertion
         final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+        // removed other assertion
 
+        // check the three methods
         final Method[] methods = cgen.getMethods();
+        // removed other assertion
         for (final Method method : methods)
         {
             final String methodName= method.getName();
@@ -1005,15 +1153,24 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
         final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
         final ElementValuePairGen nvp = a.getValues().get(0);
         final ElementValueGen value = nvp.getValue();
+        // removed other assertion
         final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        // removed other assertion
         final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        // removed other assertion
         final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+        // removed other assertion
 
+        // check the three methods
         final Method[] methods = cgen.getMethods();
+        // removed other assertion
         for (final Method method : methods)
         {
             final String methodName= method.getName();
@@ -1024,6 +1181,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
                 final int nExpectedArrayValues0 = 1;
                 final String methodName0= method0.getName();
                         final AnnotationEntry[] annos0= method0.getAnnotationEntries();
+                        // removed other assertion
                         if(expectedNumberAnnotations0!=0)
                         {
                             assertArrayElementValue(nExpectedArrayValues0, annos0[0]);
@@ -1037,20 +1195,31 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
         final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
         final ElementValuePairGen nvp = a.getValues().get(0);
         final ElementValueGen value = nvp.getValue();
+        // removed other assertion
         final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        // removed other assertion
         final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        // removed other assertion
         final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+        // removed other assertion
 
+        // check the three methods
         final Method[] methods = cgen.getMethods();
+        // removed other assertion
         for (final Method method : methods)
         {
             final String methodName= method.getName();
             if(methodName.equals("<init>"))
             {
+                // removed other assertion
+                // removed other assertion
             }
             else if(methodName.equals("methodWithArrayOfZeroAnnotations"))
             {
@@ -1069,20 +1238,31 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
         final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
         final ElementValuePairGen nvp = a.getValues().get(0);
         final ElementValueGen value = nvp.getValue();
+        // removed other assertion
         final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        // removed other assertion
         final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        // removed other assertion
         final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+        // removed other assertion
 
+        // check the three methods
         final Method[] methods = cgen.getMethods();
+        // removed other assertion
         for (final Method method : methods)
         {
             final String methodName= method.getName();
             if(methodName.equals("<init>"))
             {
+                // removed other assertion
+                // removed other assertion
             }
             else if(methodName.equals("methodWithArrayOfZeroAnnotations"))
             {
@@ -1091,6 +1271,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
                 final int nExpectedArrayValues0 = 0;
                 final String methodName0= method0.getName();
                         final AnnotationEntry[] annos0= method0.getAnnotationEntries();
+                        // removed other assertion
                         if(expectedNumberAnnotations0!=0)
                         {
                             assertArrayElementValue(nExpectedArrayValues0, annos0[0]);
@@ -1104,23 +1285,35 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
         final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
         final ElementValuePairGen nvp = a.getValues().get(0);
         final ElementValueGen value = nvp.getValue();
+        // removed other assertion
         final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        // removed other assertion
         final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        // removed other assertion
         final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+        // removed other assertion
 
+        // check the three methods
         final Method[] methods = cgen.getMethods();
+        // removed other assertion
         for (final Method method : methods)
         {
             final String methodName= method.getName();
             if(methodName.equals("<init>"))
             {
+                // removed other assertion
+                // removed other assertion
             }
             else if(methodName.equals("methodWithArrayOfZeroAnnotations"))
             {
+                // removed other assertion
             }
             else if(methodName.equals("methodWithArrayOfTwoAnnotations"))
             {
@@ -1139,23 +1332,35 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
         final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
         final ElementValuePairGen nvp = a.getValues().get(0);
         final ElementValueGen value = nvp.getValue();
+        // removed other assertion
         final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        // removed other assertion
         final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        // removed other assertion
         final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+        // removed other assertion
 
+        // check the three methods
         final Method[] methods = cgen.getMethods();
+        // removed other assertion
         for (final Method method : methods)
         {
             final String methodName= method.getName();
             if(methodName.equals("<init>"))
             {
+                // removed other assertion
+                // removed other assertion
             }
             else if(methodName.equals("methodWithArrayOfZeroAnnotations"))
             {
+                // removed other assertion
             }
             else if(methodName.equals("methodWithArrayOfTwoAnnotations"))
             {
@@ -1164,6 +1369,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
                 final int nExpectedArrayValues0 = 2;
                 final String methodName0= method0.getName();
                         final AnnotationEntry[] annos0= method0.getAnnotationEntries();
+                        // removed other assertion
                         if(expectedNumberAnnotations0!=0)
                         {
                             assertArrayElementValue(nExpectedArrayValues0, annos0[0]);
@@ -1177,20 +1383,30 @@ public void testTransformClassToClassGen_ArrayAndAnnotationTypes_9_oe()
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
         final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
         final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
         final ElementValuePairGen nvp = a.getValues().get(0);
         final ElementValueGen value = nvp.getValue();
+        // removed other assertion
         final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        // removed other assertion
         final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        // removed other assertion
         final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+        // removed other assertion
 
+        // check the three methods
         final Method[] methods = cgen.getMethods();
+        // removed other assertion
         for (final Method method : methods)
         {
             final String methodName= method.getName();
             if(methodName.equals("<init>"))
             {
+                // removed other assertion
                 assertParameterAnnotations(method, 0, 1);
 }
 }

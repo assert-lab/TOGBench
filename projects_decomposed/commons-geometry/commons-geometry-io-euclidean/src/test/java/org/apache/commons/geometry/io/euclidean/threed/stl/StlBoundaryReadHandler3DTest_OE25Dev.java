@@ -103,19 +103,24 @@ class StlBoundaryReadHandler3DTest_OE25Dev {
 
     @Test
     void testProperties_1_oe() {
+        // assert
         Assertions.assertEquals(GeometryFormat3D.STL, handler.getFormat());
     }
 
     @Test
     void testProperties_2_oe() {
+        // assert
+        // removed other assertion
         Assertions.assertEquals(StandardCharsets.UTF_8, handler.getDefaultCharset());
     }
 
     @Test
     void testRead_notEnoughBytes_1_oe() {
+        // arrange
         final ByteArrayInputStream in = new ByteArrayInputStream(new byte[1]);
         final GeometryInput input = new StreamGeometryInput(in);
 
+        // act/assert
         try {
     handler.facetDefinitionReader(input);
     fail("IllegalStateException");
@@ -125,9 +130,11 @@ class StlBoundaryReadHandler3DTest_OE25Dev {
 
     @Test
     void testRead_closesInputOnReaderCreationFailure_1_oe() {
+        // arrange
         final CloseCountInputStream in = new CloseCountInputStream(new ByteArrayInputStream(new byte[1]));
         final GeometryInput input = new StreamGeometryInput(in);
 
+        // act/assert
         try {
     handler.facetDefinitionReader(input);
     fail("IllegalStateException");
@@ -137,6 +144,7 @@ class StlBoundaryReadHandler3DTest_OE25Dev {
 
     @Test
     void testRead_usesInputCharset_1_oe() {
+        // arrange
         final String content = "solid test\n" +
                 "facet normal 1 2 3 " +
                 "outer loop " +
@@ -150,6 +158,7 @@ class StlBoundaryReadHandler3DTest_OE25Dev {
         final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
         final GeometryInput input = new StreamGeometryInput(in, null, StandardCharsets.UTF_16);
 
+        // act/assert
         try (FacetDefinitionReader reader = handler.facetDefinitionReader(input)) {
             Assertions.assertNotNull(reader.readFacet());
     }
@@ -157,6 +166,7 @@ class StlBoundaryReadHandler3DTest_OE25Dev {
 
     @Test
     void testRead_setDefaultCharset_1_oe() {
+        // arrange
         final String content = "solid test\n" +
                 "facet normal 1 2 3 " +
                 "outer loop " +
@@ -170,8 +180,10 @@ class StlBoundaryReadHandler3DTest_OE25Dev {
         final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
         final GeometryInput input = new StreamGeometryInput(in);
 
+        // act
         handler.setDefaultCharset(StandardCharsets.UTF_16);
 
+        // assert
         try (FacetDefinitionReader reader = handler.facetDefinitionReader(input)) {
             Assertions.assertNotNull(reader.readFacet());
     }
@@ -179,6 +191,7 @@ class StlBoundaryReadHandler3DTest_OE25Dev {
 
     @Test
     void testRead_incorrectCharset_1_oe() {
+        // arrange
         final String content = "solid test\n" +
                 "facet normal 1 2 3 " +
                 "outer loop " +
@@ -192,6 +205,7 @@ class StlBoundaryReadHandler3DTest_OE25Dev {
         final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
         final GeometryInput input = new StreamGeometryInput(in);
 
+        // act/assert
         try (FacetDefinitionReader reader = handler.facetDefinitionReader(input)) {
             Assertions.assertNotNull(reader.readFacet());
     }
@@ -199,6 +213,7 @@ class StlBoundaryReadHandler3DTest_OE25Dev {
 
     @Test
     void testRead_incorrectCharset_2_oe() {
+        // arrange
         final String content = "solid test\n" +
                 "facet normal 1 2 3 " +
                 "outer loop " +
@@ -212,7 +227,9 @@ class StlBoundaryReadHandler3DTest_OE25Dev {
         final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
         final GeometryInput input = new StreamGeometryInput(in);
 
+        // act/assert
         try (FacetDefinitionReader reader = handler.facetDefinitionReader(input)) {
+            // removed other assertion
             Assertions.assertNotNull(reader.readFacet());
     }
     }

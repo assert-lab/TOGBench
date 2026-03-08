@@ -31,11 +31,14 @@ public class CharacterReaderTest_OE25Dev {
 
     @Test public void consume_2_oe() {
         CharacterReader r = new CharacterReader("one");
+        // removed other assertion
         assertEquals('o', r.current());
         }
 
     @Test public void consume_3_oe() {
         CharacterReader r = new CharacterReader("one");
+        // removed other assertion
+        // removed other assertion
         assertEquals('o', r.consume());
         }
 
@@ -55,6 +58,7 @@ public class CharacterReaderTest_OE25Dev {
         CharacterReader r = new CharacterReader("one");
         r.consume();
         r.mark();
+        // removed other assertion
         assertEquals('n', r.consume());
         }
 
@@ -62,6 +66,10 @@ public class CharacterReaderTest_OE25Dev {
         CharacterReader r = new CharacterReader("one");
         r.consume();
         r.mark();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         r.rewindToMark();
         assertEquals(1, r.pos());
         }
@@ -70,7 +78,12 @@ public class CharacterReaderTest_OE25Dev {
         CharacterReader r = new CharacterReader("one");
         r.consume();
         r.mark();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         r.rewindToMark();
+        // removed other assertion
         assertEquals('n', r.consume());
         }
 
@@ -78,7 +91,13 @@ public class CharacterReaderTest_OE25Dev {
         CharacterReader r = new CharacterReader("one");
         r.consume();
         r.mark();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         r.rewindToMark();
+        // removed other assertion
+        // removed other assertion
         assertFalse(r.isEmpty());
         }
 
@@ -93,6 +112,7 @@ public class CharacterReaderTest_OE25Dev {
         String in = "one two three";
         CharacterReader r = new CharacterReader(in);
         String toEnd = r.consumeToEnd();
+        // removed other assertion
         assertTrue(r.isEmpty());
         }
 
@@ -107,6 +127,7 @@ public class CharacterReaderTest_OE25Dev {
         String in = "blah blah";
         CharacterReader r = new CharacterReader(in);
 
+        // removed other assertion
         assertEquals(3, r.nextIndexOf('h'));
         }
 
@@ -114,6 +135,8 @@ public class CharacterReaderTest_OE25Dev {
         String in = "blah blah";
         CharacterReader r = new CharacterReader(in);
 
+        // removed other assertion
+        // removed other assertion
         String pull = r.consumeTo('h');
         assertEquals("bla", pull);
         }
@@ -122,7 +145,10 @@ public class CharacterReaderTest_OE25Dev {
         String in = "blah blah";
         CharacterReader r = new CharacterReader(in);
 
+        // removed other assertion
+        // removed other assertion
         String pull = r.consumeTo('h');
+        // removed other assertion
         r.consume();
         assertEquals(2, r.nextIndexOf('l'));
         }
@@ -131,8 +157,12 @@ public class CharacterReaderTest_OE25Dev {
         String in = "blah blah";
         CharacterReader r = new CharacterReader(in);
 
+        // removed other assertion
+        // removed other assertion
         String pull = r.consumeTo('h');
+        // removed other assertion
         r.consume();
+        // removed other assertion
         assertEquals(" blah", r.consumeToEnd());
         }
 
@@ -140,8 +170,13 @@ public class CharacterReaderTest_OE25Dev {
         String in = "blah blah";
         CharacterReader r = new CharacterReader(in);
 
+        // removed other assertion
+        // removed other assertion
         String pull = r.consumeTo('h');
+        // removed other assertion
         r.consume();
+        // removed other assertion
+        // removed other assertion
         assertEquals(-1, r.nextIndexOf('x'));
         }
 
@@ -156,6 +191,7 @@ public class CharacterReaderTest_OE25Dev {
         String in = "One Two something Two Three Four";
         CharacterReader r = new CharacterReader(in);
 
+        // removed other assertion
         assertEquals(4, r.nextIndexOf("Two"));
         }
 
@@ -163,6 +199,8 @@ public class CharacterReaderTest_OE25Dev {
         String in = "One Two something Two Three Four";
         CharacterReader r = new CharacterReader(in);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("One Two ", r.consumeTo("something"));
         }
 
@@ -208,31 +246,57 @@ public class CharacterReaderTest_OE25Dev {
 
     @Test public void matches_2_oe() {
         CharacterReader r = new CharacterReader("One Two Three");
+        // removed other assertion
         assertTrue(r.matches("One Two Three"));
         }
 
     @Test public void matches_3_oe() {
         CharacterReader r = new CharacterReader("One Two Three");
+        // removed other assertion
+        // removed other assertion
         assertTrue(r.matches("One"));
         }
 
     @Test public void matches_4_oe() {
         CharacterReader r = new CharacterReader("One Two Three");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(r.matches("one"));
         }
 
     @Test public void matches_5_oe() {
         CharacterReader r = new CharacterReader("One Two Three");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals('O', r.consume());
         }
 
     @Test public void matches_8_oe() {
         CharacterReader r = new CharacterReader("One Two Three");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(r.matches("ne Two Three Four"));
         }
 
     @Test public void matches_10_oe() {
         CharacterReader r = new CharacterReader("One Two Three");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(r.matches("ne"));
         }
 
@@ -245,60 +309,120 @@ public class CharacterReaderTest_OE25Dev {
     @Test
     public void matchesIgnoreCase_2_oe() {
         CharacterReader r = new CharacterReader("One Two Three");
+        // removed other assertion
         assertTrue(r.matchesIgnoreCase("o"));
     }
 
     @Test
     public void matchesIgnoreCase_3_oe() {
         CharacterReader r = new CharacterReader("One Two Three");
+        // removed other assertion
+        // removed other assertion
         assertTrue(r.matches('O'));
     }
 
     @Test
     public void matchesIgnoreCase_4_oe() {
         CharacterReader r = new CharacterReader("One Two Three");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(r.matches('o'));
     }
 
     @Test
     public void matchesIgnoreCase_5_oe() {
         CharacterReader r = new CharacterReader("One Two Three");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(r.matchesIgnoreCase("One Two Three"));
     }
 
     @Test
     public void matchesIgnoreCase_6_oe() {
         CharacterReader r = new CharacterReader("One Two Three");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(r.matchesIgnoreCase("ONE two THREE"));
     }
 
     @Test
     public void matchesIgnoreCase_7_oe() {
         CharacterReader r = new CharacterReader("One Two Three");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(r.matchesIgnoreCase("One"));
     }
 
     @Test
     public void matchesIgnoreCase_8_oe() {
         CharacterReader r = new CharacterReader("One Two Three");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(r.matchesIgnoreCase("one"));
     }
 
     @Test
     public void matchesIgnoreCase_9_oe() {
         CharacterReader r = new CharacterReader("One Two Three");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals('O', r.consume());
     }
 
     @Test
     public void matchesIgnoreCase_12_oe() {
         CharacterReader r = new CharacterReader("One Two Three");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(r.matchesIgnoreCase("ne Two Three Four"));
     }
 
     @Test
     public void matchesIgnoreCase_14_oe() {
         CharacterReader r = new CharacterReader("One Two Three");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(r.matchesIgnoreCase("ne"));
     }
 
@@ -309,11 +433,15 @@ public class CharacterReaderTest_OE25Dev {
 
     @Test public void containsIgnoreCase_2_oe() {
         CharacterReader r = new CharacterReader("One TWO three");
+        // removed other assertion
         assertTrue(r.containsIgnoreCase("three"));
         }
 
     @Test public void containsIgnoreCase_3_oe() {
         CharacterReader r = new CharacterReader("One TWO three");
+        // removed other assertion
+        // removed other assertion
+        // weird one: does not find one, because it scans for consistent case only
         assertFalse(r.containsIgnoreCase("one"));
         }
 
@@ -328,6 +456,7 @@ public class CharacterReaderTest_OE25Dev {
         String html = "<p><p><p></title><p></TITLE><p>" + BufferBuster("Foo Bar Qux ") + "<foo><bar></title>";
         CharacterReader r = new CharacterReader(html);
 
+        // removed other assertion
         assertFalse(r.containsIgnoreCase("</not>"));
         }
 
@@ -335,6 +464,8 @@ public class CharacterReaderTest_OE25Dev {
         String html = "<p><p><p></title><p></TITLE><p>" + BufferBuster("Foo Bar Qux ") + "<foo><bar></title>";
         CharacterReader r = new CharacterReader(html);
 
+        // removed other assertion
+        // removed other assertion
         assertFalse(r.containsIgnoreCase("</not>"));// cached,but we only test functionally here assertTrue(r.containsIgnoreCase("</title>"));
         }
 
@@ -342,6 +473,9 @@ public class CharacterReaderTest_OE25Dev {
         String html = "<p><p><p></title><p></TITLE><p>" + BufferBuster("Foo Bar Qux ") + "<foo><bar></title>";
         CharacterReader r = new CharacterReader(html);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         r.consumeTo("</title>");
         assertTrue(r.containsIgnoreCase("</title>"));
         }
@@ -350,7 +484,11 @@ public class CharacterReaderTest_OE25Dev {
         String html = "<p><p><p></title><p></TITLE><p>" + BufferBuster("Foo Bar Qux ") + "<foo><bar></title>";
         CharacterReader r = new CharacterReader(html);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         r.consumeTo("</title>");
+        // removed other assertion
         r.consumeTo("<p>");
         assertTrue(r.matches("<p>"));
         }
@@ -359,8 +497,13 @@ public class CharacterReaderTest_OE25Dev {
         String html = "<p><p><p></title><p></TITLE><p>" + BufferBuster("Foo Bar Qux ") + "<foo><bar></title>";
         CharacterReader r = new CharacterReader(html);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         r.consumeTo("</title>");
+        // removed other assertion
         r.consumeTo("<p>");
+        // removed other assertion
 
         assertTrue(r.containsIgnoreCase("</title>"));
         }
@@ -369,9 +512,15 @@ public class CharacterReaderTest_OE25Dev {
         String html = "<p><p><p></title><p></TITLE><p>" + BufferBuster("Foo Bar Qux ") + "<foo><bar></title>";
         CharacterReader r = new CharacterReader(html);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         r.consumeTo("</title>");
+        // removed other assertion
         r.consumeTo("<p>");
+        // removed other assertion
 
+        // removed other assertion
         assertTrue(r.containsIgnoreCase("</title>"));
         }
 
@@ -379,9 +528,16 @@ public class CharacterReaderTest_OE25Dev {
         String html = "<p><p><p></title><p></TITLE><p>" + BufferBuster("Foo Bar Qux ") + "<foo><bar></title>";
         CharacterReader r = new CharacterReader(html);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         r.consumeTo("</title>");
+        // removed other assertion
         r.consumeTo("<p>");
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse(r.containsIgnoreCase("</not>"));
         }
 
@@ -389,9 +545,17 @@ public class CharacterReaderTest_OE25Dev {
         String html = "<p><p><p></title><p></TITLE><p>" + BufferBuster("Foo Bar Qux ") + "<foo><bar></title>";
         CharacterReader r = new CharacterReader(html);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         r.consumeTo("</title>");
+        // removed other assertion
         r.consumeTo("<p>");
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(r.containsIgnoreCase("</not>"));
         }
 
@@ -399,9 +563,18 @@ public class CharacterReaderTest_OE25Dev {
         String html = "<p><p><p></title><p></TITLE><p>" + BufferBuster("Foo Bar Qux ") + "<foo><bar></title>";
         CharacterReader r = new CharacterReader(html);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         r.consumeTo("</title>");
+        // removed other assertion
         r.consumeTo("<p>");
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         r.consumeTo("</TITLE>");
         r.consumeTo("<p>");
@@ -412,12 +585,22 @@ public class CharacterReaderTest_OE25Dev {
         String html = "<p><p><p></title><p></TITLE><p>" + BufferBuster("Foo Bar Qux ") + "<foo><bar></title>";
         CharacterReader r = new CharacterReader(html);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         r.consumeTo("</title>");
+        // removed other assertion
         r.consumeTo("<p>");
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         r.consumeTo("</TITLE>");
         r.consumeTo("<p>");
+        // removed other assertion
         assertFalse(r.containsIgnoreCase("</title>"));// because we haven't buffered up yet,we don't know r.consumeTo("<foo>");
         }
 
@@ -425,12 +608,23 @@ public class CharacterReaderTest_OE25Dev {
         String html = "<p><p><p></title><p></TITLE><p>" + BufferBuster("Foo Bar Qux ") + "<foo><bar></title>";
         CharacterReader r = new CharacterReader(html);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         r.consumeTo("</title>");
+        // removed other assertion
         r.consumeTo("<p>");
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         r.consumeTo("</TITLE>");
         r.consumeTo("<p>");
+        // removed other assertion
+        // removed other assertion
         assertFalse(r.matches("<foo>"));// buffer underrun r.consumeTo("<foo>");
         }
 
@@ -443,12 +637,17 @@ public class CharacterReaderTest_OE25Dev {
     @Test public void matchesAny_2_oe() {
         char[] scan = {' ', '\n', '\t'};
         CharacterReader r = new CharacterReader("One\nTwo\tThree");
+        // removed other assertion
         assertEquals("One", r.consumeToAny(scan));
         }
 
     @Test public void matchesAny_5_oe() {
         char[] scan = {' ', '\n', '\t'};
         CharacterReader r = new CharacterReader("One\nTwo\tThree");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(r.matchesAny(scan));
         }
 
@@ -479,6 +678,7 @@ public class CharacterReaderTest_OE25Dev {
         r.consume();
         String five = r.consumeTo('\t');
 
+        // removed other assertion
         assertEquals("Check", two);
         }
 
@@ -494,6 +694,8 @@ public class CharacterReaderTest_OE25Dev {
         r.consume();
         String five = r.consumeTo('\t');
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Check", three);
         }
 
@@ -509,6 +711,9 @@ public class CharacterReaderTest_OE25Dev {
         r.consume();
         String five = r.consumeTo('\t');
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("CHOKE", four);
         }
 
@@ -524,6 +729,10 @@ public class CharacterReaderTest_OE25Dev {
         r.consume();
         String five = r.consumeTo('\t');
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertSame(one, two);
         }
 
@@ -539,6 +748,11 @@ public class CharacterReaderTest_OE25Dev {
         r.consume();
         String five = r.consumeTo('\t');
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertSame(two, three);
         }
 
@@ -554,6 +768,12 @@ public class CharacterReaderTest_OE25Dev {
         r.consume();
         String five = r.consumeTo('\t');
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNotSame(three, four);
         }
 
@@ -569,6 +789,13 @@ public class CharacterReaderTest_OE25Dev {
         r.consume();
         String five = r.consumeTo('\t');
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNotSame(four, five);
         }
 
@@ -584,6 +811,14 @@ public class CharacterReaderTest_OE25Dev {
         r.consume();
         String five = r.consumeTo('\t');
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(five, "A string that is longer than 16 chars");
         }
 
@@ -596,18 +831,24 @@ public class CharacterReaderTest_OE25Dev {
     @Test
     public void rangeEquals_2_oe() {
         CharacterReader r = new CharacterReader("Check\tCheck\tCheck\tCHOKE");
+        // removed other assertion
         assertFalse(r.rangeEquals(0, 5, "CHOKE"));
     }
 
     @Test
     public void rangeEquals_3_oe() {
         CharacterReader r = new CharacterReader("Check\tCheck\tCheck\tCHOKE");
+        // removed other assertion
+        // removed other assertion
         assertFalse(r.rangeEquals(0, 5, "Chec"));
     }
 
     @Test
     public void rangeEquals_4_oe() {
         CharacterReader r = new CharacterReader("Check\tCheck\tCheck\tCHOKE");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(r.rangeEquals(6, 5, "Check"));
     }
@@ -615,14 +856,23 @@ public class CharacterReaderTest_OE25Dev {
     @Test
     public void rangeEquals_5_oe() {
         CharacterReader r = new CharacterReader("Check\tCheck\tCheck\tCHOKE");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse(r.rangeEquals(6, 5, "Chuck"));
     }
 
     @Test
     public void rangeEquals_6_oe() {
         CharacterReader r = new CharacterReader("Check\tCheck\tCheck\tCHOKE");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(r.rangeEquals(12, 5, "Check"));
     }
@@ -630,16 +880,29 @@ public class CharacterReaderTest_OE25Dev {
     @Test
     public void rangeEquals_7_oe() {
         CharacterReader r = new CharacterReader("Check\tCheck\tCheck\tCHOKE");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse(r.rangeEquals(12, 5, "Cheeky"));
     }
 
     @Test
     public void rangeEquals_8_oe() {
         CharacterReader r = new CharacterReader("Check\tCheck\tCheck\tCHOKE");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(r.rangeEquals(18, 5, "CHOKE"));
     }
@@ -647,9 +910,17 @@ public class CharacterReaderTest_OE25Dev {
     @Test
     public void rangeEquals_9_oe() {
         CharacterReader r = new CharacterReader("Check\tCheck\tCheck\tCHOKE");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse(r.rangeEquals(18, 5, "CHIKE"));
     }
 
@@ -662,6 +933,8 @@ public class CharacterReaderTest_OE25Dev {
     @Test
     public void empty_3_oe() {
         CharacterReader r = new CharacterReader("One");
+        // removed other assertion
+        // removed other assertion
 
         r = new CharacterReader("Two");
         String two = r.consumeToEnd();
@@ -677,8 +950,11 @@ public class CharacterReaderTest_OE25Dev {
     @Test
     public void consumeToNonexistentEndWhenAtAnd_4_oe() {
         CharacterReader r = new CharacterReader("<!");
+        // removed other assertion
+        // removed other assertion
 
         String after = r.consumeTo('>');
+        // removed other assertion
 
         assertTrue(r.isEmpty());
     }
@@ -692,13 +968,17 @@ public class CharacterReaderTest_OE25Dev {
     @Test
     public void notEmptyAtBufferSplitPoint_2_oe() {
         CharacterReader r = new CharacterReader(new StringReader("How about now"), 3);
+        // removed other assertion
         assertFalse(r.isEmpty(), "Should not be empty");
     }
 
     @Test
     public void notEmptyAtBufferSplitPoint_4_oe() {
         CharacterReader r = new CharacterReader(new StringReader("How about now"), 3);
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse(r.isEmpty());
     }
 
@@ -717,6 +997,7 @@ public class CharacterReaderTest_OE25Dev {
         CharacterReader r = new CharacterReader(br);
         for (int i = 0; i < loopCount; i++) {
             String pull = r.consumeTo('!');
+            // removed other assertion
             assertEquals('!', r.current());
         }
         }
@@ -736,6 +1017,8 @@ public class CharacterReaderTest_OE25Dev {
         CharacterReader r = new CharacterReader(br);
         for (int i = 0; i < loopCount; i++) {
             String pull = r.consumeTo('!');
+            // removed other assertion
+            // removed other assertion
             r.advance();
         }
 
@@ -749,13 +1032,16 @@ public class CharacterReaderTest_OE25Dev {
 
     @Test public void canEnableAndDisableLineNumberTracking_2_oe() {
         CharacterReader reader = new CharacterReader("Hello!");
+        // removed other assertion
         reader.trackNewlines(true);
         assertTrue(reader.isTrackNewlines());
         }
 
     @Test public void canEnableAndDisableLineNumberTracking_3_oe() {
         CharacterReader reader = new CharacterReader("Hello!");
+        // removed other assertion
         reader.trackNewlines(true);
+        // removed other assertion
         reader.trackNewlines(false);
         assertFalse(reader.isTrackNewlines());
         }
@@ -781,6 +1067,7 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
         assertTrue(track.isTrackNewlines());
@@ -795,9 +1082,12 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
         assertEquals(0, noTrack.pos());
         }
 
@@ -810,9 +1100,13 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
         assertEquals(1, noTrack.lineNumber());
         }
 
@@ -825,9 +1119,14 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, noTrack.columnNumber());
         }
 
@@ -840,9 +1139,15 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
         assertEquals(12, noTrack.pos());
         }
@@ -856,10 +1161,17 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
         assertEquals(1, noTrack.lineNumber());
         }
 
@@ -872,10 +1184,18 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
         assertEquals(13, noTrack.columnNumber());
         }
 
@@ -888,10 +1208,19 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("1:13", noTrack.cursorPos());
         }
 
@@ -904,10 +1233,21 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
         assertEquals(32778, noTrack.pos());
@@ -922,12 +1262,24 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
         assertEquals(1, noTrack.lineNumber());
         }
 
@@ -940,12 +1292,25 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
         assertEquals(noTrack.pos()+1, noTrack.columnNumber());
         }
 
@@ -958,12 +1323,26 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("1:32779", noTrack.cursorPos());
         }
 
@@ -976,13 +1355,29 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
         assertEquals(0, track.pos());
         }
 
@@ -995,13 +1390,30 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
         assertEquals(1, track.lineNumber());
         }
 
@@ -1014,13 +1426,31 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, track.columnNumber());
         }
 
@@ -1033,13 +1463,32 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         track.consumeTo('\n');
         assertEquals(1, track.lineNumber());
@@ -1054,15 +1503,35 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         track.consumeTo('\n');
+        // removed other assertion
         assertEquals(6, track.columnNumber());
         }
 
@@ -1075,15 +1544,36 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
         track.consume();
         assertEquals(2, track.lineNumber());
         }
@@ -1097,16 +1587,38 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
         track.consume();
+        // removed other assertion
         assertEquals(1, track.columnNumber());
         }
 
@@ -1119,16 +1631,39 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
         track.consume();
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("<bar>", track.consumeTo('\n'));
         }
@@ -1142,17 +1677,41 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
         track.consume();
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals(2, track.lineNumber());
         }
 
@@ -1165,18 +1724,47 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
         track.consume();
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, track.columnNumber());
         }
 
@@ -1189,18 +1777,52 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
         track.consume();
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!track.matches("[foo]"))
             track.consumeTo("[foo]");
         assertEquals(32778, track.pos());
@@ -1215,20 +1837,55 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
         track.consume();
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!track.matches("[foo]"))
             track.consumeTo("[foo]");
+        // removed other assertion
         assertEquals(4, track.lineNumber());
         }
 
@@ -1241,20 +1898,56 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
         track.consume();
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!track.matches("[foo]"))
             track.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
         assertEquals(32761, track.columnNumber());
         }
 
@@ -1267,20 +1960,57 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
         track.consume();
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!track.matches("[foo]"))
             track.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("4:32761", track.cursorPos());
         }
 
@@ -1293,20 +2023,58 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
         track.consume();
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!track.matches("[foo]"))
             track.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         track.consumeTo('\n');
         assertEquals("4:32766", track.cursorPos());
         }
@@ -1320,21 +2088,60 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
         track.consume();
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!track.matches("[foo]"))
             track.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         track.consumeTo('\n');
+        // removed other assertion
 
         track.consumeTo("[bar]");
         assertEquals(5, track.lineNumber());
@@ -1349,23 +2156,63 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
         track.consume();
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!track.matches("[foo]"))
             track.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         track.consumeTo('\n');
+        // removed other assertion
 
         track.consumeTo("[bar]");
+        // removed other assertion
         assertEquals("5:1", track.cursorPos());
         }
 
@@ -1378,23 +2225,64 @@ public class CharacterReaderTest_OE25Dev {
         String content = builder.toString();
 
         CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
         CharacterReader track = new CharacterReader(content);
         track.trackNewlines(true);
+        // removed other assertion
 
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         noTrack.consumeTo("<qux>");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!noTrack.matches("[foo]"))
             noTrack.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // and the line numbers: "<foo>\n<bar>\n<qux>\n"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
         track.consume();
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
         while (!track.matches("[foo]"))
             track.consumeTo("[foo]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         track.consumeTo('\n');
+        // removed other assertion
 
         track.consumeTo("[bar]");
+        // removed other assertion
+        // removed other assertion
         track.consumeToEnd();
         assertEquals("5:6", track.cursorPos());
         }
@@ -1418,6 +2306,7 @@ public class CharacterReaderTest_OE25Dev {
         CharacterReader reader = new CharacterReader(content);
         reader.trackNewlines(true);
 
+        // removed other assertion
         while (!reader.isEmpty())
             reader.consume();
         assertEquals(131096, reader.pos());
@@ -1431,8 +2320,10 @@ public class CharacterReaderTest_OE25Dev {
         CharacterReader reader = new CharacterReader(content);
         reader.trackNewlines(true);
 
+        // removed other assertion
         while (!reader.isEmpty())
             reader.consume();
+        // removed other assertion
         assertEquals(reader.pos() + 1, reader.columnNumber());
         }
 
@@ -1444,8 +2335,11 @@ public class CharacterReaderTest_OE25Dev {
         CharacterReader reader = new CharacterReader(content);
         reader.trackNewlines(true);
 
+        // removed other assertion
         while (!reader.isEmpty())
             reader.consume();
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, reader.lineNumber());
         }
 
@@ -1470,6 +2364,7 @@ public class CharacterReaderTest_OE25Dev {
         while (!reader.matches(scan))
             reader.consumeTo(scan);
 
+        // removed other assertion
         assertEquals(1002, reader.lineNumber());
         }
 
@@ -1482,6 +2377,8 @@ public class CharacterReaderTest_OE25Dev {
         while (!reader.matches(scan))
             reader.consumeTo(scan);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, reader.columnNumber());
         }
 
@@ -1494,6 +2391,9 @@ public class CharacterReaderTest_OE25Dev {
         while (!reader.matches(scan))
             reader.consumeTo(scan);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         reader.consumeTo(' ');
         assertEquals(1002, reader.lineNumber());
         }
@@ -1507,7 +2407,11 @@ public class CharacterReaderTest_OE25Dev {
         while (!reader.matches(scan))
             reader.consumeTo(scan);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         reader.consumeTo(' ');
+        // removed other assertion
         assertEquals(14, reader.columnNumber());
         }
 

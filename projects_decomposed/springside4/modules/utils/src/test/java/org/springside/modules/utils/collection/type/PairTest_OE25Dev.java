@@ -19,6 +19,7 @@ public class PairTest_OE25Dev {
 		Pair<String,Integer> pair = Pair.of("haha", 1);
 		Pair<String,Integer> pair2 = Pair.of("haha", 2);
 		
+		// removed other assertion
 		assertThat(pair.hashCode()!=pair2.hashCode()).isTrue();
 	}
 
@@ -27,6 +28,8 @@ public class PairTest_OE25Dev {
 		Pair<String,Integer> pair = Pair.of("haha", 1);
 		Pair<String,Integer> pair2 = Pair.of("haha", 2);
 		
+		// removed other assertion
+		// removed other assertion
 		assertThat(pair.toString()).isEqualTo("Pair [first=haha, second=1]");
 	}
 

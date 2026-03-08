@@ -187,6 +187,7 @@ public class JCSvsCommonsLRUMapPerformanceTest_OE25Dev
         }
 
         doWork();
+        // removed other assertion
         assertTrue( this.ratioGet < target );
     }
 

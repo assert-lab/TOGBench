@@ -36,7 +36,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-io-euclidean ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean
-[INFO] Storing buildNumber: 53df724e8c4d67547212d860dfed689b7c447fa6 at timestamp: 1772566623238
+[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772768433738
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-geometry-io-euclidean ---
@@ -57,7 +57,7 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-geometry-io-euclidean ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 48 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/target/test-classes
+[INFO] Compiling 24 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/target/test-classes
 [INFO] 
 [INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-geometry-io-euclidean ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
@@ -70,65 +70,16 @@ main:
 [INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/target/jacoco.exec
 [INFO] 
 [INFO] --- maven-surefire-plugin:3.0.0-M7:test (default-test) @ commons-geometry-io-euclidean ---
-[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.geometry.io.euclidean.DocumentationExamplesTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.392 s - in org.apache.commons.geometry.io.euclidean.DocumentationExamplesTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.TextStlWriterTest_OE25Dev
-[INFO] Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.296 s - in org.apache.commons.geometry.io.euclidean.threed.stl.TextStlWriterTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryReadHandler3DTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryReadHandler3DTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryWriteHandler3DTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.261 s - in org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryWriteHandler3DTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.StlFacetDefinitionReadersTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.apache.commons.geometry.io.euclidean.threed.stl.StlFacetDefinitionReadersTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.TextStlFacetDefinitionReaderTest_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in org.apache.commons.geometry.io.euclidean.threed.stl.TextStlFacetDefinitionReaderTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlFacetDefinitionReaderTest_OE25Dev
-[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 s - in org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlFacetDefinitionReaderTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlWriterTest_OE25Dev
-[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 s - in org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlWriterTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.BoundaryIOManager3DTest_OE25Dev
-[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in org.apache.commons.geometry.io.euclidean.threed.BoundaryIOManager3DTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.FacetDefinitionsTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s - in org.apache.commons.geometry.io.euclidean.threed.FacetDefinitionsTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3DTest_OE25Dev
-[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s - in org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3DTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.SimpleFacetDefinitionTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in org.apache.commons.geometry.io.euclidean.threed.SimpleFacetDefinitionTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryReadHandler3DTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryReadHandler3DTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjFacetDefinitionReaderTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjFacetDefinitionReaderTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjTriangleMeshReaderTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjTriangleMeshReaderTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev
-[INFO] Tests run: 96, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.229 s - in org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryWriteHandler3DTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryWriteHandler3DTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriterTest_OE25Dev
-[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriterTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryReadHandler3DTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryReadHandler3DTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryWriteHandler3DTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryWriteHandler3DTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev
-[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionReaderTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionReaderTest_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 445, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  25.275 s
-[INFO] Finished at: 2026-03-03T13:37:24-06:00
+[INFO] Total time:  16.469 s
+[INFO] Finished at: 2026-03-05T21:40:45-06:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project commons-geometry-io-euclidean: No tests matching pattern "*_OE25Dev#*_oe" were executed! (Set -Dsurefire.failIfNoSpecifiedTests=false to ignore this error.) -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

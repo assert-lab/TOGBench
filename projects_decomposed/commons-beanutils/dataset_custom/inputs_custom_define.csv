@@ -1,0 +1,40 @@
+id,test_prefix,test_name,custom_assert_name,custom_assert_method,custom_assert_file
+bean_45_1,"    public void testGetAccessibleMethod_1_oe() {
+        final Method method = MethodUtils.getAccessibleMethod
+                (TestBean.class, ""setStringProperty"", String.class);
+
+        assertMethod(method, ""setStringProperty"");
+    }",MethodUtilsTestCase::testGetAccessibleMethod_1_oe,assertMethod,"    private static void assertMethod(final Method method, final String methodName) {
+        assertNotNull(method);
+        assertEquals(""Method is not named correctly"",methodName,method.getName());
+        assertTrue(""Method is not public"",Modifier.isPublic(method.getModifiers()));
+    }
+",src/test/java/org/apache/commons/beanutils/MethodUtilsTestCase.java
+bean_46_1,"    public void testGetAccessibleMethodFromInterface_1_oe() {
+        Method method;
+        method = MethodUtils.getAccessibleMethod
+                (PrivateBeanFactory.create().getClass(),
+                        ""methodBar"",
+                        String.class);
+
+        assertMethod(method, ""methodBar"");
+    }",MethodUtilsTestCase::testGetAccessibleMethodFromInterface_1_oe,assertMethod,"    private static void assertMethod(final Method method, final String methodName) {
+        assertNotNull(method);
+        assertEquals(""Method is not named correctly"",methodName,method.getName());
+        assertTrue(""Method is not public"",Modifier.isPublic(method.getModifiers()));
+    }
+",src/test/java/org/apache/commons/beanutils/MethodUtilsTestCase.java
+bean_47_1,"    public void testGetAccessibleMethodIndirectInterface_1_oe() {
+        Method method;
+        method = MethodUtils.getAccessibleMethod
+                (PrivateBeanFactory.createSubclass().getClass(),
+                        ""methodBaz"",
+                        String.class);
+
+        assertMethod(method, ""methodBaz"");
+    }",MethodUtilsTestCase::testGetAccessibleMethodIndirectInterface_1_oe,assertMethod,"    private static void assertMethod(final Method method, final String methodName) {
+        assertNotNull(method);
+        assertEquals(""Method is not named correctly"",methodName,method.getName());
+        assertTrue(""Method is not public"",Modifier.isPublic(method.getModifiers()));
+    }
+",src/test/java/org/apache/commons/beanutils/MethodUtilsTestCase.java

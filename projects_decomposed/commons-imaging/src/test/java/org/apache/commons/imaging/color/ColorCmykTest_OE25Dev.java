@@ -70,6 +70,7 @@ public class ColorCmykTest_OE25Dev {
 
     @Test
     public void testHashCodeAndEquals_2_oe() {
+        // removed other assertion
         assertThat(color.hashCode(), is(colorCopy.hashCode()));
     }
 

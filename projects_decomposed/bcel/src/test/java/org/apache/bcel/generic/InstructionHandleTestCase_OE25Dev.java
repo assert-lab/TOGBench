@@ -40,6 +40,7 @@ public class InstructionHandleTestCase_OE25Dev {
     @Test(expected=ClassGenException.class)
     public void testsetInstructionNull_2_oe() {
         final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
+        // removed other assertion
         ih.setInstruction(null);
         Assert.assertNotNull(ih);
     }
@@ -53,6 +54,7 @@ public class InstructionHandleTestCase_OE25Dev {
     @Test
     public void testsetInstructionI_2_oe() {
         final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
+        // removed other assertion
         ih.setInstruction(new NOP());
         Assert.assertNotNull(ih);
     }
@@ -60,6 +62,7 @@ public class InstructionHandleTestCase_OE25Dev {
     @Test(expected=ClassGenException.class)
     public void testsetInstructionnotI_2_oe() {
         final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
+        // removed other assertion
         ih.setInstruction(new GOTO(null));
         Assert.assertNotNull(ih);
     }

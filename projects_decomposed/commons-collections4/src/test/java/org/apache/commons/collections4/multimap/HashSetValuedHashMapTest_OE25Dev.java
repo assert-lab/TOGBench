@@ -52,6 +52,78 @@ public static Test suite() {
     }
 
     // -----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testSetValuedMapAdd() {
+        final SetValuedMap<K, V> setMap = makeObject();
+        assertTrue(setMap.get((K) "whatever") instanceof Set);
+
+        final Set<V> set = setMap.get((K) "A");
+        assertTrue(set.add((V) "a1"));
+        assertTrue(set.add((V) "a2"));
+        assertFalse(set.add((V) "a1"));
+        assertEquals(2, setMap.size());
+        assertTrue(setMap.containsKey("A"));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testSetValuedMapRemove() {
+        final SetValuedMap<K, V> setMap = makeObject();
+        assertTrue(setMap.get((K) "whatever") instanceof Set);
+
+        final Set<V> set = setMap.get((K) "A");
+        assertTrue(set.add((V) "a1"));
+        assertTrue(set.add((V) "a2"));
+        assertFalse(set.add((V) "a1"));
+        assertEquals(2, setMap.size());
+        assertTrue(setMap.containsKey("A"));
+
+        assertTrue(set.remove("a1"));
+        assertTrue(set.remove("a2"));
+        assertFalse(set.remove("a1"));
+
+        assertEquals(0, setMap.size());
+        assertFalse(setMap.containsKey("A"));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testSetValuedMapRemoveViaIterator() {
+        final SetValuedMap<K, V> setMap = makeObject();
+        assertTrue(setMap.get((K) "whatever") instanceof Set);
+
+        final Set<V> set = setMap.get((K) "A");
+        set.add((V) "a1");
+        set.add((V) "a2");
+        set.add((V) "a1");
+
+        final Iterator<V> it = set.iterator();
+        while (it.hasNext()) {
+            it.next();
+            it.remove();
+        }
+        assertEquals(0, setMap.size());
+        assertFalse(setMap.containsKey("A"));
+    }
+
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public void testSetValuedMapEqualsHashCodeContract() {
+        final SetValuedMap map1 = makeObject();
+        final SetValuedMap map2 = makeObject();
+
+        map1.put("a", "a1");
+        map1.put("a", "a2");
+        map2.put("a", "a2");
+        map2.put("a", "a1");
+        assertEquals(map1, map2);
+        assertEquals(map1.hashCode(), map2.hashCode());
+
+        map2.put("a", "a2");
+        assertEquals(map1, map2);
+        assertEquals(map1.hashCode(), map2.hashCode());
+
+        map2.put("a", "a3");
+        assertNotSame(map1, map2);
+        assertNotSame(map1.hashCode(), map2.hashCode());
+    }
 
 //    public void testCreate() throws Exception {
 //        writeExternalFormToDisk((java.io.Serializable) makeObject(),

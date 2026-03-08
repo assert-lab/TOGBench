@@ -130,6 +130,7 @@ public class Issues300Test_OE25Dev {
             try {
                 final Object o = s.execute(null);
                 if (i > 0) {
+                    // removed other assertion
                 }
             } catch (final Exception ex) {
                 Assert.assertTrue(ex.getMessage().contains("x"));
@@ -186,8 +187,10 @@ public class Issues300Test_OE25Dev {
 
         final JexlContext context = new MapContext(map);
         Object value = e304.evaluate(context);
+        // removed other assertion
         map.put("overview.limit.var", 42);
         value = e304.evaluate(context);
+        // removed other assertion
 
         final String allkw = "e304.if.else.do.while.new.true.false.null.var.function.empty.size.not.and.or.ne.eq.le.lt.gt.ge";
         map.put(allkw, 42);
@@ -213,6 +216,7 @@ public class Issues300Test_OE25Dev {
         e = jexl.createScript("{; var x = 1;}");
         final String str0 = e.getParsedText();
         e = jexl.createScript(str0);
+        // removed other assertion
         final String str1 = e.getParsedText();
         Assert.assertEquals(str0, str1);
     }
@@ -232,6 +236,7 @@ public class Issues300Test_OE25Dev {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlScript e = jexl.createScript("x.y ?: 2");
         final Object o1 = e.execute(null);
+        // removed other assertion
         ctxt.set("x.y", null);
         final Object o2 = e.execute(ctxt);
         Assert.assertEquals(2, o2);
@@ -250,6 +255,7 @@ public class Issues300Test_OE25Dev {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlScript e = jexl.createScript("x.y ?: 2", "x");
         Object o = e.execute(null, new Object());
+        // removed other assertion
         o = e.execute(null);
         Assert.assertEquals(2, o);
     }
@@ -267,6 +273,7 @@ public class Issues300Test_OE25Dev {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlScript e = jexl.createScript("x?.y ?: 2", "x");
         final Object o1 = e.execute(null, new Object());
+        // removed other assertion
         final Object o2 = e.execute(null);
         Assert.assertEquals(2, o2);
     }
@@ -284,6 +291,7 @@ public class Issues300Test_OE25Dev {
         final JexlEngine jexl = new JexlBuilder().safe(true).create();
         final JexlScript e = jexl.createScript("x.y ?: 2", "x");
         Object o = e.execute(null, new Object());
+        // removed other assertion
         o = e.execute(null);
         Assert.assertEquals(2, o);
     }
@@ -301,6 +309,7 @@ public class Issues300Test_OE25Dev {
         final JexlEngine jexl = new JexlBuilder().safe(true).create();
         final JexlScript e = jexl.createScript("x.y[z.t] ?: 2", "x");
         Object o = e.execute(null, new Object());
+        // removed other assertion
         o = e.execute(null);
         Assert.assertEquals(2, o);
     }
@@ -318,6 +327,7 @@ public class Issues300Test_OE25Dev {
         final JexlInfo info = new JexlInfo("template", 1, 1);
         try {
             final JxltEngine.Template tmplt = jxlt.createTemplate(info, src);
+            // removed other assertion
         } catch (final JexlException.Parsing xerror) {
             Assert.assertEquals(4, xerror.getInfo().getLine());
     }
@@ -336,6 +346,7 @@ public class Issues300Test_OE25Dev {
         final JexlInfo info = new JexlInfo("template", 1, 1);
         try {
             final JxltEngine.Template tmplt = jxlt.createTemplate(info, src);
+            // removed other assertion
         } catch (final JexlException.Parsing xerror) {
             Assert.assertEquals(4, xerror.getInfo().getLine());
     }
@@ -356,6 +367,7 @@ public class Issues300Test_OE25Dev {
             final JxltEngine.Template tmplt = jxlt.createTemplate(info, src);
             final String src1 = tmplt.asString();
             final String src2 = tmplt.toString();
+            // removed other assertion
         } catch (final JexlException.Parsing xerror) {
             Assert.assertEquals(4, xerror.getInfo().getLine());
     }
@@ -382,6 +394,7 @@ public class Issues300Test_OE25Dev {
         Object result;
         script = jexl.createScript("cell()");
         result = script.execute(ctxt);
+        // removed other assertion
         script = jexl.createScript("x.cell()", "x");
         result = script.execute(ctxt, Arrays.asList(10, 20));
         Assert.assertEquals(42, result);
@@ -396,8 +409,10 @@ public class Issues300Test_OE25Dev {
         Object result;
         script = jexl.createScript("cell()");
         result = script.execute(ctxt);
+        // removed other assertion
         script = jexl.createScript("x.cell()", "x");
         result = script.execute(ctxt, Arrays.asList(10, 20));
+        // removed other assertion
         script = jexl.createScript("cell('1', '2')");
         result = script.execute(ctxt);
         Assert.assertEquals(2, result);
@@ -412,10 +427,13 @@ public class Issues300Test_OE25Dev {
         Object result;
         script = jexl.createScript("cell()");
         result = script.execute(ctxt);
+        // removed other assertion
         script = jexl.createScript("x.cell()", "x");
         result = script.execute(ctxt, Arrays.asList(10, 20));
+        // removed other assertion
         script = jexl.createScript("cell('1', '2')");
         result = script.execute(ctxt);
+        // removed other assertion
         script = jexl.createScript("x.cell('1', '2')", "x");
         result = script.execute(ctxt, Arrays.asList(10, 20));
         Assert.assertEquals(44, result);
@@ -430,12 +448,16 @@ public class Issues300Test_OE25Dev {
         Object result;
         script = jexl.createScript("cell()");
         result = script.execute(ctxt);
+        // removed other assertion
         script = jexl.createScript("x.cell()", "x");
         result = script.execute(ctxt, Arrays.asList(10, 20));
+        // removed other assertion
         script = jexl.createScript("cell('1', '2')");
         result = script.execute(ctxt);
+        // removed other assertion
         script = jexl.createScript("x.cell('1', '2')", "x");
         result = script.execute(ctxt, Arrays.asList(10, 20));
+        // removed other assertion
 
         vars.put("TVALOGAR", null);
         String jexlExp = "TVALOGAR==null?'SIMON':'SIMONAZO'";
@@ -453,17 +475,22 @@ public class Issues300Test_OE25Dev {
         Object result;
         script = jexl.createScript("cell()");
         result = script.execute(ctxt);
+        // removed other assertion
         script = jexl.createScript("x.cell()", "x");
         result = script.execute(ctxt, Arrays.asList(10, 20));
+        // removed other assertion
         script = jexl.createScript("cell('1', '2')");
         result = script.execute(ctxt);
+        // removed other assertion
         script = jexl.createScript("x.cell('1', '2')", "x");
         result = script.execute(ctxt, Arrays.asList(10, 20));
+        // removed other assertion
 
         vars.put("TVALOGAR", null);
         String jexlExp = "TVALOGAR==null?'SIMON':'SIMONAZO'";
         script = jexl.createScript(jexlExp);
         result = script.execute(ctxt);
+        // removed other assertion
 
         jexlExp = "TVALOGAR.PEPITO==null?'SIMON':'SIMONAZO'";
         script = jexl.createScript(jexlExp);
@@ -484,17 +511,22 @@ public class Issues300Test_OE25Dev {
         Object result;
         script = jexl.createScript("cell()");
         result = script.execute(ctxt);
+        // removed other assertion
         script = jexl.createScript("x.cell()", "x");
         result = script.execute(ctxt, Arrays.asList(10, 20));
+        // removed other assertion
         script = jexl.createScript("cell('1', '2')");
         result = script.execute(ctxt);
+        // removed other assertion
         script = jexl.createScript("x.cell('1', '2')", "x");
         result = script.execute(ctxt, Arrays.asList(10, 20));
+        // removed other assertion
 
         vars.put("TVALOGAR", null);
         String jexlExp = "TVALOGAR==null?'SIMON':'SIMONAZO'";
         script = jexl.createScript(jexlExp);
         result = script.execute(ctxt);
+        // removed other assertion
 
         jexlExp = "TVALOGAR.PEPITO==null?'SIMON':'SIMONAZO'";
         script = jexl.createScript(jexlExp);
@@ -503,6 +535,7 @@ public class Issues300Test_OE25Dev {
         tva.put("PEPITO", null);
         vars.put("TVALOGAR", tva);
         result = script.execute(ctxt);
+        // removed other assertion
 
         vars.remove("TVALOGAR");
         ctxt.set("TVALOGAR.PEPITO", null);
@@ -531,6 +564,7 @@ public class Issues300Test_OE25Dev {
         Object result;
         script = jexl.createScript("a?? 42 + 10", "a");
         result = script.execute(ctxt, 32);
+        // removed other assertion
         result = script.execute(ctxt, (Object) null);
         Assert.assertEquals(52, result);
     }
@@ -544,7 +578,9 @@ public class Issues300Test_OE25Dev {
         Object result;
         script = jexl.createScript("a?? 42 + 10", "a");
         result = script.execute(ctxt, 32);
+        // removed other assertion
         result = script.execute(ctxt, (Object) null);
+        // removed other assertion
         script = jexl.createScript("- a??42 + +10", "a");
         result = script.execute(ctxt, 32);
         Assert.assertEquals(-32, result);
@@ -559,9 +595,12 @@ public class Issues300Test_OE25Dev {
         Object result;
         script = jexl.createScript("a?? 42 + 10", "a");
         result = script.execute(ctxt, 32);
+        // removed other assertion
         result = script.execute(ctxt, (Object) null);
+        // removed other assertion
         script = jexl.createScript("- a??42 + +10", "a");
         result = script.execute(ctxt, 32);
+        // removed other assertion
         result = script.execute(ctxt, (Object) null);
         Assert.assertEquals(52, result);
     }
@@ -575,10 +614,15 @@ public class Issues300Test_OE25Dev {
         Object result;
         script = jexl.createScript("a?? 42 + 10", "a");
         result = script.execute(ctxt, 32);
+        // removed other assertion
         result = script.execute(ctxt, (Object) null);
+        // removed other assertion
         script = jexl.createScript("- a??42 + +10", "a");
         result = script.execute(ctxt, 32);
+        // removed other assertion
         result = script.execute(ctxt, (Object) null);
+        // removed other assertion
+        // long version of ternary
         script = jexl.createScript("a? a : +42 + 10", "a");
         result = script.execute(ctxt, 32);
         Assert.assertEquals(32, result);
@@ -593,12 +637,18 @@ public class Issues300Test_OE25Dev {
         Object result;
         script = jexl.createScript("a?? 42 + 10", "a");
         result = script.execute(ctxt, 32);
+        // removed other assertion
         result = script.execute(ctxt, (Object) null);
+        // removed other assertion
         script = jexl.createScript("- a??42 + +10", "a");
         result = script.execute(ctxt, 32);
+        // removed other assertion
         result = script.execute(ctxt, (Object) null);
+        // removed other assertion
+        // long version of ternary
         script = jexl.createScript("a? a : +42 + 10", "a");
         result = script.execute(ctxt, 32);
+        // removed other assertion
         result = script.execute(ctxt, (Object) null);
         Assert.assertEquals(52, result);
     }
@@ -612,13 +662,21 @@ public class Issues300Test_OE25Dev {
         Object result;
         script = jexl.createScript("a?? 42 + 10", "a");
         result = script.execute(ctxt, 32);
+        // removed other assertion
         result = script.execute(ctxt, (Object) null);
+        // removed other assertion
         script = jexl.createScript("- a??42 + +10", "a");
         result = script.execute(ctxt, 32);
+        // removed other assertion
         result = script.execute(ctxt, (Object) null);
+        // removed other assertion
+        // long version of ternary
         script = jexl.createScript("a? a : +42 + 10", "a");
         result = script.execute(ctxt, 32);
+        // removed other assertion
         result = script.execute(ctxt, (Object) null);
+        // removed other assertion
+        // short one, elvis, equivalent
         script = jexl.createScript("a ?: +42 + 10", "a");
         result = script.execute(ctxt, 32);
         Assert.assertEquals(32, result);
@@ -633,15 +691,24 @@ public class Issues300Test_OE25Dev {
         Object result;
         script = jexl.createScript("a?? 42 + 10", "a");
         result = script.execute(ctxt, 32);
+        // removed other assertion
         result = script.execute(ctxt, (Object) null);
+        // removed other assertion
         script = jexl.createScript("- a??42 + +10", "a");
         result = script.execute(ctxt, 32);
+        // removed other assertion
         result = script.execute(ctxt, (Object) null);
+        // removed other assertion
+        // long version of ternary
         script = jexl.createScript("a? a : +42 + 10", "a");
         result = script.execute(ctxt, 32);
+        // removed other assertion
         result = script.execute(ctxt, (Object) null);
+        // removed other assertion
+        // short one, elvis, equivalent
         script = jexl.createScript("a ?: +42 + 10", "a");
         result = script.execute(ctxt, 32);
+        // removed other assertion
         result = script.execute(ctxt, (Object) null);
         Assert.assertEquals(52, result);
     }
@@ -671,6 +738,7 @@ public class Issues300Test_OE25Dev {
                         + "()-> {x + x }; f",
                 "x");
         result = script.execute(ctxt, 21);
+        // removed other assertion
         script = (JexlScript) result;
         info = JexlInfo.from(script);
         Assert.assertNotNull(info);
@@ -687,8 +755,10 @@ public class Issues300Test_OE25Dev {
                         + "()-> {x + x }; f",
                 "x");
         result = script.execute(ctxt, 21);
+        // removed other assertion
         script = (JexlScript) result;
         info = JexlInfo.from(script);
+        // removed other assertion
         Assert.assertEquals("test317", info.getName());
     }
 
@@ -703,8 +773,11 @@ public class Issues300Test_OE25Dev {
                         + "()-> {x + x }; f",
                 "x");
         result = script.execute(ctxt, 21);
+        // removed other assertion
         script = (JexlScript) result;
         info = JexlInfo.from(script);
+        // removed other assertion
+        // removed other assertion
         result = script.execute(ctxt, 21);
         Assert.assertEquals(42, result);
     }
@@ -742,6 +815,7 @@ public class Issues300Test_OE25Dev {
         strw = new StringWriter();
         template.evaluate(ctxt, strw);
         output = strw.toString();
+        // removed other assertion
 
         ctxt.set("session.user", new User322());
         strw = new StringWriter();
@@ -765,11 +839,13 @@ public class Issues300Test_OE25Dev {
         strw = new StringWriter();
         template.evaluate(ctxt, strw);
         output = strw.toString();
+        // removed other assertion
 
         ctxt.set("session.user", new User322());
         strw = new StringWriter();
         template.evaluate(ctxt, strw);
         output = strw.toString();
+        // removed other assertion
 
         ctxt.set("session.user.name", "user322");
         strw = new StringWriter();
@@ -786,9 +862,11 @@ public class Issues300Test_OE25Dev {
         JexlScript script;
         Object result;
 
+        // nothing in context, ex
         try {
             script = jexl.createScript("a.n.t.variable");
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
             Assert.assertTrue(xvar.toString().contains("a.n.t"));
     }
@@ -802,12 +880,16 @@ public class Issues300Test_OE25Dev {
         JexlScript script;
         Object result;
 
+        // nothing in context, ex
         try {
             script = jexl.createScript("a.n.t.variable");
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
 
+        // defined and null
         jc.set("a.n.t.variable", null);
         script = jexl.createScript("a.n.t.variable");
         result = script.execute(jc);
@@ -822,20 +904,27 @@ public class Issues300Test_OE25Dev {
         JexlScript script;
         Object result;
 
+        // nothing in context, ex
         try {
             script = jexl.createScript("a.n.t.variable");
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
 
+        // defined and null
         jc.set("a.n.t.variable", null);
         script = jexl.createScript("a.n.t.variable");
         result = script.execute(jc);
+        // removed other assertion
 
+        // defined and null, dereference
         jc.set("a.n.t", null);
         try {
             script = jexl.createScript("a.n.t[0].variable");
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
             Assert.assertTrue(xvar.toString().contains("a.n.t"));
     }
@@ -849,27 +938,37 @@ public class Issues300Test_OE25Dev {
         JexlScript script;
         Object result;
 
+        // nothing in context, ex
         try {
             script = jexl.createScript("a.n.t.variable");
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
 
+        // defined and null
         jc.set("a.n.t.variable", null);
         script = jexl.createScript("a.n.t.variable");
         result = script.execute(jc);
+        // removed other assertion
 
+        // defined and null, dereference
         jc.set("a.n.t", null);
         try {
             script = jexl.createScript("a.n.t[0].variable");
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
 
+        // undefined, dereference
         vars.remove("a.n.t");
         try {
             script = jexl.createScript("a.n.t[0].variable");
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
             Assert.assertTrue(xvar.toString().contains("a.n.t"));
     }
@@ -883,34 +982,47 @@ public class Issues300Test_OE25Dev {
         JexlScript script;
         Object result;
 
+        // nothing in context, ex
         try {
             script = jexl.createScript("a.n.t.variable");
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
 
+        // defined and null
         jc.set("a.n.t.variable", null);
         script = jexl.createScript("a.n.t.variable");
         result = script.execute(jc);
+        // removed other assertion
 
+        // defined and null, dereference
         jc.set("a.n.t", null);
         try {
             script = jexl.createScript("a.n.t[0].variable");
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
 
+        // undefined, dereference
         vars.remove("a.n.t");
         try {
             script = jexl.createScript("a.n.t[0].variable");
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
+        // defined, derefence undefined property
         final List<Object> inner = new ArrayList<Object>();
         vars.put("a.n.t", inner);
         try {
             script = jexl.createScript("a.n.t[0].variable");
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Property xprop) {
             Assert.assertTrue(xprop.toString().contains("0"));
     }
@@ -924,40 +1036,56 @@ public class Issues300Test_OE25Dev {
         JexlScript script;
         Object result;
 
+        // nothing in context, ex
         try {
             script = jexl.createScript("a.n.t.variable");
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
 
+        // defined and null
         jc.set("a.n.t.variable", null);
         script = jexl.createScript("a.n.t.variable");
         result = script.execute(jc);
+        // removed other assertion
 
+        // defined and null, dereference
         jc.set("a.n.t", null);
         try {
             script = jexl.createScript("a.n.t[0].variable");
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
 
+        // undefined, dereference
         vars.remove("a.n.t");
         try {
             script = jexl.createScript("a.n.t[0].variable");
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
+        // defined, derefence undefined property
         final List<Object> inner = new ArrayList<Object>();
         vars.put("a.n.t", inner);
         try {
             script = jexl.createScript("a.n.t[0].variable");
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Property xprop) {
+            // removed other assertion
         }
+        // defined, derefence undefined property
         inner.add(42);
         try {
             script = jexl.createScript("a.n.t[0].variable");
             result = script.execute(jc);
+            // removed other assertion
         } catch (final JexlException.Property xprop) {
             Assert.assertTrue(xprop.toString().contains("variable"));
     }
@@ -976,6 +1104,7 @@ public class Issues300Test_OE25Dev {
         final JexlEngine jexl = new JexlBuilder().create();
         final String src42 = "new('java.lang.Integer', 42)";
         final JexlExpression expr0 = jexl.createExpression(src42);
+        // removed other assertion
         final String parsed = expr0.getParsedText();
         Assert.assertEquals(src42, parsed);
     }
@@ -985,9 +1114,12 @@ public class Issues300Test_OE25Dev {
         final JexlEngine jexl = new JexlBuilder().create();
         final String src42 = "new('java.lang.Integer', 42)";
         final JexlExpression expr0 = jexl.createExpression(src42);
+        // removed other assertion
         final String parsed = expr0.getParsedText();
+        // removed other assertion
         try {
             final JexlExpression expr = jexl.createExpression("new()");
+            // removed other assertion
         } catch (final JexlException.Parsing xparse) {
             Assert.assertTrue(xparse.toString().contains(")"));
     }
@@ -1038,6 +1170,7 @@ public class Issues300Test_OE25Dev {
 
         script = jexl.createScript("map[null] = 42", "map");
         result = script.execute(jc, map);
+        // removed other assertion
         script = jexl.createScript("map[key]", "map", "key");
         result = script.execute(jc, map, null);
         Assert.assertEquals(42, result);
@@ -1064,8 +1197,10 @@ public class Issues300Test_OE25Dev {
 
         script = jexl.createScript("map[null] = 42", "map");
         result = script.execute(jc, map);
+        // removed other assertion
         script = jexl.createScript("map[key]", "map", "key");
         result = script.execute(jc, map, null);
+        // removed other assertion
         result = script.execute(jc, map, "42");
         Assert.assertEquals(42, result);
     }
@@ -1073,6 +1208,8 @@ public class Issues300Test_OE25Dev {
     @Test
     public void test330_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
+        // Extended form of: 'literal' + VARIABLE   'literal'
+        // missing + operator here ---------------^
         final String longExpression = ""
                 + //
                 "'THIS IS A VERY VERY VERY VERY VERY VERY VERY "
@@ -1082,6 +1219,7 @@ public class Issues300Test_OE25Dev {
                 "error: missing + between VARIABLE and literal'";
         try {
             jexl.createExpression(longExpression);
+            // removed other assertion
         } catch (final JexlException.Parsing exception) {
             Assert.assertTrue(exception.getMessage().contains("VARIABLE"));
     }
@@ -1104,6 +1242,7 @@ public class Issues300Test_OE25Dev {
         JexlEngine jexl = new JexlBuilder().safe(true).create();
         JexlScript script = jexl.createScript(src);
         Object result = script.execute(null);
+        // safe navigation is lenient wrt null
         Assert.assertFalse((Boolean) result);
     }
 
@@ -1113,12 +1252,16 @@ public class Issues300Test_OE25Dev {
         JexlEngine jexl = new JexlBuilder().safe(true).create();
         JexlScript script = jexl.createScript(src);
         Object result = script.execute(null);
+        // safe navigation is lenient wrt null
+        // removed other assertion
 
         jexl = new JexlBuilder().strict(true).safe(false).create();
         JexlContext ctxt = new MapContext();
         script = jexl.createScript(src);
+        // A and A.B undefined
         try {
             result = script.execute(ctxt);
+            // removed other assertion
         } catch (JexlException xany) {
             Assert.assertNotNull(xany);
     }
@@ -1130,17 +1273,24 @@ public class Issues300Test_OE25Dev {
         JexlEngine jexl = new JexlBuilder().safe(true).create();
         JexlScript script = jexl.createScript(src);
         Object result = script.execute(null);
+        // safe navigation is lenient wrt null
+        // removed other assertion
 
         jexl = new JexlBuilder().strict(true).safe(false).create();
         JexlContext ctxt = new MapContext();
         script = jexl.createScript(src);
+        // A and A.B undefined
         try {
             result = script.execute(ctxt);
+            // removed other assertion
         } catch (JexlException xany) {
+            // removed other assertion
         }
+        // A is null, A.B is undefined
         ctxt.set("A", null);
         try {
             result = script.execute(ctxt);
+            // removed other assertion
         } catch (JexlException xany) {
             Assert.assertNotNull(xany);
     }
@@ -1152,19 +1302,28 @@ public class Issues300Test_OE25Dev {
         JexlEngine jexl = new JexlBuilder().safe(true).create();
         JexlScript script = jexl.createScript(src);
         Object result = script.execute(null);
+        // safe navigation is lenient wrt null
+        // removed other assertion
 
         jexl = new JexlBuilder().strict(true).safe(false).create();
         JexlContext ctxt = new MapContext();
         script = jexl.createScript(src);
+        // A and A.B undefined
         try {
             result = script.execute(ctxt);
+            // removed other assertion
         } catch (JexlException xany) {
+            // removed other assertion
         }
+        // A is null, A.B is undefined
         ctxt.set("A", null);
         try {
             result = script.execute(ctxt);
+            // removed other assertion
         } catch (JexlException xany) {
+            // removed other assertion
         }
+        // A.B is null
         ctxt.set("A.B", null);
         result = script.execute(ctxt);
         Assert.assertFalse((Boolean) result);

@@ -126,6 +126,7 @@ public class TiffRasterDataTest_OE25Dev {
                 final int index = y * width + height;
                 instance.setValue(x, y, index);
                 final int test = (int) instance.getValue(x, y);
+                // removed other assertion
                 instance.setIntValue(x, y, index);
                 final int iTest = instance.getIntValue(x, y);
                 assertEquals(index, iTest, "Get/set value test failed at (" + x + "," + y + ")");
@@ -150,6 +151,7 @@ public class TiffRasterDataTest_OE25Dev {
             for (int x = 0; x < width; x++) {
                 final int index = y * width + x;
                 final int test = (int) raster.getValue(x, y);
+                // removed other assertion
                 final int iTest = raster.getIntValue(x, y);
                 assertEquals(index, iTest, "Get into source data test failed at (" + x + "," + y + ")");
     }
@@ -177,6 +179,7 @@ public class TiffRasterDataTest_OE25Dev {
                 final int index = y * width + height;
                 instance.setValue(x, y, 1, index);
                 final int test = (int) instance.getValue(x, y, 1);
+                // removed other assertion
                 instance.setIntValue(x, y, 1, index);
                 final int iTest = instance.getIntValue(x, y, 1);
                 assertEquals(index, iTest, "Get/set value test failed at (" + x + "," + y + ")");
@@ -201,6 +204,7 @@ public class TiffRasterDataTest_OE25Dev {
             for (int x = 0; x < width; x++) {
                 final int index = y * width + x;
                 final int test = (int) raster.getValue(x, y, 0);
+                // removed other assertion
                 final int iTest = raster.getIntValue(x, y, 0);
                 assertEquals(index, iTest, "Get into source data test failed at (" + x + "," + y + ")");
     }
@@ -218,6 +222,7 @@ public class TiffRasterDataTest_OE25Dev {
     public void testGetSimpleStatistics_0args_2_oe() {
 
         final TiffRasterStatistics result = raster.getSimpleStatistics();
+        // removed other assertion
         assertEquals(width * height - 1, result.getMaxValue(), "Max value failure");
     }
 
@@ -225,11 +230,15 @@ public class TiffRasterDataTest_OE25Dev {
     public void testGetSimpleStatistics_0args_3_oe() {
 
         final TiffRasterStatistics result = raster.getSimpleStatistics();
+        // removed other assertion
+        // removed other assertion
         assertEquals(meanValue, result.getMeanValue(), "Mean value failure");
     }
 
     @Test
     public void testGetSimpleStatistics_float_1_oe() {
+        // exclude the maximum value (width*height-1).  This will result
+        // in a max value of width*height-2
         final TiffRasterStatistics result = raster.getSimpleStatistics(width * height - 1);
         assertEquals(width * height - 2, result.getMaxValue(), "Max value failure");
     }
@@ -253,6 +262,7 @@ public class TiffRasterDataTest_OE25Dev {
     @Test
     public void testGetData_2_oe() {
         final float[] result = raster.getData();
+        // removed other assertion
         int samplesPerPixel = raster.getSamplesPerPixel();
         assertEquals(1, samplesPerPixel, "Incorrect number of samples per pixel");
     }
@@ -286,6 +296,7 @@ public class TiffRasterDataTest_OE25Dev {
 
     @Test
     public void testBadConstructor_2_oe() throws Exception {
+        // removed other assertion
         try {
     new TiffRasterDataFloat(10, -1);
     fail("IllegalArgumentException: Constructor did not detect bad height");
@@ -295,6 +306,8 @@ public class TiffRasterDataTest_OE25Dev {
 
     @Test
     public void testBadConstructor_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
         try {
     new TiffRasterDataFloat(1, 1, 0);
     fail("IllegalArgumentException: Constructor did not detect bad samplesPerPixel");
@@ -304,6 +317,9 @@ public class TiffRasterDataTest_OE25Dev {
 
     @Test
     public void testBadConstructor_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final float []f = new float[10];
         try {
@@ -315,8 +331,12 @@ public class TiffRasterDataTest_OE25Dev {
 
     @Test
     public void testBadConstructor_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final float []f = new float[10];
+        // removed other assertion
         try {
     new TiffRasterDataFloat(2, 3, 2, f);
     fail("IllegalArgumentException: Constructor did not detect insufficient input array size");
@@ -339,6 +359,7 @@ public class TiffRasterDataTest_OE25Dev {
     public void testBadCoordinates_2_oe() throws Exception {
         final float []f = new float[100];
         final TiffRasterData instance = new TiffRasterDataFloat(10, 10, 1, f);
+        // removed other assertion
         try {
     instance.setValue(11, 11, 5.0f);
     fail("IllegalArgumentException: Access method setValue() did not detect bad coordinates");
@@ -350,6 +371,8 @@ public class TiffRasterDataTest_OE25Dev {
     public void testBadCoordinates_3_oe() throws Exception {
         final float []f = new float[100];
         final TiffRasterData instance = new TiffRasterDataFloat(10, 10, 1, f);
+        // removed other assertion
+        // removed other assertion
         try {
     instance.getValue(1, 1, 2);
     fail("IllegalArgumentException: Access method setValue() did not detect bad sample index");

@@ -26,6 +26,9 @@ public class IMAPTest_OE25Dev {
 
     @Test
     public void checkGenerator_1_oe() {
+        // This test assumes:
+        // - 26 letters in the generator alphabet
+        // - the generator uses a fixed size tag
         final IMAP imap = new IMAP();
         final String initial = imap.generateCommandID();
         int expected = 1;
@@ -47,6 +50,9 @@ public class IMAPTest_OE25Dev {
 
     @Test
     public void checkGenerator_2_oe() {
+        // This test assumes:
+        // - 26 letters in the generator alphabet
+        // - the generator uses a fixed size tag
         final IMAP imap = new IMAP();
         final String initial = imap.generateCommandID();
         int expected = 1;
@@ -63,6 +69,7 @@ public class IMAPTest_OE25Dev {
                 break;
             }
         }
+        // removed other assertion
         Assert.assertTrue("Expected to see the original value again", matched);
     }
 

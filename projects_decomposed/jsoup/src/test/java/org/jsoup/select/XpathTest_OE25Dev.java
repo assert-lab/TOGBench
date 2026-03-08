@@ -131,6 +131,7 @@ public class XpathTest_OE25Dev {
         Document doc = Jsoup.parse(html);
 
         Elements els = doc.selectXpath("//div/p");
+        // removed other assertion
         assertEquals("One", els.get(0).text());
     }
 
@@ -140,6 +141,8 @@ public class XpathTest_OE25Dev {
         Document doc = Jsoup.parse(html);
 
         Elements els = doc.selectXpath("//div/p");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Two", els.get(1).text());
     }
 
@@ -156,6 +159,7 @@ public class XpathTest_OE25Dev {
         Document doc = Jsoup.parse(html);
 
         Element div = doc.selectFirst("div");
+        // removed other assertion
         Element w3cDiv = div.selectXpath(".").first(); // self
         assertSame(div, w3cDiv);
         }
@@ -165,7 +169,9 @@ public class XpathTest_OE25Dev {
         Document doc = Jsoup.parse(html);
 
         Element div = doc.selectFirst("div");
+        // removed other assertion
         Element w3cDiv = div.selectXpath(".").first(); // self
+        // removed other assertion
 
         Elements els = div.selectXpath("p");
         assertEquals(1, els.size());
@@ -176,9 +182,12 @@ public class XpathTest_OE25Dev {
         Document doc = Jsoup.parse(html);
 
         Element div = doc.selectFirst("div");
+        // removed other assertion
         Element w3cDiv = div.selectXpath(".").first(); // self
+        // removed other assertion
 
         Elements els = div.selectXpath("p");
+        // removed other assertion
         assertEquals("One", els.get(0).text());
         }
 
@@ -187,9 +196,13 @@ public class XpathTest_OE25Dev {
         Document doc = Jsoup.parse(html);
 
         Element div = doc.selectFirst("div");
+        // removed other assertion
         Element w3cDiv = div.selectXpath(".").first(); // self
+        // removed other assertion
 
         Elements els = div.selectXpath("p");
+        // removed other assertion
+        // removed other assertion
         assertEquals("p", els.get(0).tagName());
         }
 
@@ -198,9 +211,14 @@ public class XpathTest_OE25Dev {
         Document doc = Jsoup.parse(html);
 
         Element div = doc.selectFirst("div");
+        // removed other assertion
         Element w3cDiv = div.selectXpath(".").first(); // self
+        // removed other assertion
 
         Elements els = div.selectXpath("p");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals(1,div.selectXpath("//body").size());// the whole document is visible on the div context assertEquals(1,doc.selectXpath("//body").size());
         }
@@ -218,6 +236,8 @@ public class XpathTest_OE25Dev {
             doc.selectXpath("//???");
         } catch (Selector.SelectorParseException e) {
             threw = true;
+            // checks exception message within jsoup's control, rest may be JDK impl specific
+            // was - Could not evaluate XPath query [//???]: javax.xml.transform.TransformerException: A location step was expected following the '/' or '//' token.
             assertTrue(e.getMessage().startsWith("Could not evaluate XPath query [//???]:"));
     }
     }
@@ -230,6 +250,9 @@ public class XpathTest_OE25Dev {
             doc.selectXpath("//???");
         } catch (Selector.SelectorParseException e) {
             threw = true;
+            // checks exception message within jsoup's control, rest may be JDK impl specific
+            // was - Could not evaluate XPath query [//???]: javax.xml.transform.TransformerException: A location step was expected following the '/' or '//' token.
+            // removed other assertion
         }
         assertTrue(threw);
     }
@@ -249,6 +272,7 @@ public class XpathTest_OE25Dev {
         Elements fromCss = doc.select(css);
         Elements fromXpath = doc.selectXpath(xpath);
 
+        // removed other assertion
         assertTrue(fromXpath.size() >= 1);
     }
 
@@ -258,6 +282,9 @@ public class XpathTest_OE25Dev {
         Elements fromCss = doc.select(css);
         Elements fromXpath = doc.selectXpath(xpath);
 
+        // removed other assertion
+        // removed other assertion
+        // tests same size, order, and contents
         assertEquals(fromCss, fromXpath);
     }
 
@@ -265,6 +292,7 @@ public class XpathTest_OE25Dev {
         String html = "<div><p>One<p><a>Two</a><p>Three and some more";
         Document doc = Jsoup.parse(html);
 
+        //  as text nodes:
         List<TextNode> text = doc.selectXpath("//body//p//text()", TextNode.class);
         assertEquals(3, text.size());
         }
@@ -273,7 +301,9 @@ public class XpathTest_OE25Dev {
         String html = "<div><p>One<p><a>Two</a><p>Three and some more";
         Document doc = Jsoup.parse(html);
 
+        //  as text nodes:
         List<TextNode> text = doc.selectXpath("//body//p//text()", TextNode.class);
+        // removed other assertion
         assertEquals("One", text.get(0).text());
         }
 
@@ -281,7 +311,10 @@ public class XpathTest_OE25Dev {
         String html = "<div><p>One<p><a>Two</a><p>Three and some more";
         Document doc = Jsoup.parse(html);
 
+        //  as text nodes:
         List<TextNode> text = doc.selectXpath("//body//p//text()", TextNode.class);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Two", text.get(1).text());
         }
 
@@ -289,7 +322,11 @@ public class XpathTest_OE25Dev {
         String html = "<div><p>One<p><a>Two</a><p>Three and some more";
         Document doc = Jsoup.parse(html);
 
+        //  as text nodes:
         List<TextNode> text = doc.selectXpath("//body//p//text()", TextNode.class);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Three and some more", text.get(2).text());
         }
 
@@ -297,8 +334,14 @@ public class XpathTest_OE25Dev {
         String html = "<div><p>One<p><a>Two</a><p>Three and some more";
         Document doc = Jsoup.parse(html);
 
+        //  as text nodes:
         List<TextNode> text = doc.selectXpath("//body//p//text()", TextNode.class);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        //  as just nodes:
         List<Node> nodes = doc.selectXpath("//body//p//text()", Node.class);
         assertEquals(3, nodes.size());
         }
@@ -307,9 +350,16 @@ public class XpathTest_OE25Dev {
         String html = "<div><p>One<p><a>Two</a><p>Three and some more";
         Document doc = Jsoup.parse(html);
 
+        //  as text nodes:
         List<TextNode> text = doc.selectXpath("//body//p//text()", TextNode.class);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        //  as just nodes:
         List<Node> nodes = doc.selectXpath("//body//p//text()", Node.class);
+        // removed other assertion
         assertEquals("One", nodes.get(0).outerHtml());
         }
 
@@ -317,9 +367,17 @@ public class XpathTest_OE25Dev {
         String html = "<div><p>One<p><a>Two</a><p>Three and some more";
         Document doc = Jsoup.parse(html);
 
+        //  as text nodes:
         List<TextNode> text = doc.selectXpath("//body//p//text()", TextNode.class);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        //  as just nodes:
         List<Node> nodes = doc.selectXpath("//body//p//text()", Node.class);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Two", nodes.get(1).outerHtml());
         }
 
@@ -327,9 +385,18 @@ public class XpathTest_OE25Dev {
         String html = "<div><p>One<p><a>Two</a><p>Three and some more";
         Document doc = Jsoup.parse(html);
 
+        //  as text nodes:
         List<TextNode> text = doc.selectXpath("//body//p//text()", TextNode.class);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        //  as just nodes:
         List<Node> nodes = doc.selectXpath("//body//p//text()", Node.class);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Three and some more", nodes.get(2).outerHtml());
         }
 
@@ -342,12 +409,15 @@ public class XpathTest_OE25Dev {
 @Test void selectByAttribute_2_oe() {
         Document doc = Jsoup.parse("<p><a href='/foo'>Foo</a><a href='/bar'>Bar</a><a>None</a>");
         List<String> hrefs = doc.selectXpath("//a[@href]").eachAttr("href");
+        // removed other assertion
         assertEquals("/foo", hrefs.get(0));
         }
 
 @Test void selectByAttribute_3_oe() {
         Document doc = Jsoup.parse("<p><a href='/foo'>Foo</a><a href='/bar'>Bar</a><a>None</a>");
         List<String> hrefs = doc.selectXpath("//a[@href]").eachAttr("href");
+        // removed other assertion
+        // removed other assertion
         assertEquals("/bar", hrefs.get(1));
         }
 
@@ -360,6 +430,7 @@ public class XpathTest_OE25Dev {
 @Test void selectOutsideOfElementTree_2_oe() {
         Document doc = Jsoup.parse("<p>One<p>Two<p>Three");
         Elements ps = doc.selectXpath("//p");
+        // removed other assertion
 
         Element p1 = ps.get(0);
         assertEquals("One", p1.text());
@@ -368,8 +439,10 @@ public class XpathTest_OE25Dev {
 @Test void selectOutsideOfElementTree_3_oe() {
         Document doc = Jsoup.parse("<p>One<p>Two<p>Three");
         Elements ps = doc.selectXpath("//p");
+        // removed other assertion
 
         Element p1 = ps.get(0);
+        // removed other assertion
 
         Elements sibs = p1.selectXpath("following-sibling::p");
         assertEquals(2, sibs.size());
@@ -378,47 +451,64 @@ public class XpathTest_OE25Dev {
 @Test void selectOutsideOfElementTree_4_oe() {
         Document doc = Jsoup.parse("<p>One<p>Two<p>Three");
         Elements ps = doc.selectXpath("//p");
+        // removed other assertion
 
         Element p1 = ps.get(0);
+        // removed other assertion
 
         Elements sibs = p1.selectXpath("following-sibling::p");
+        // removed other assertion
         assertEquals("Two", sibs.get(0).text());
         }
 
 @Test void selectOutsideOfElementTree_5_oe() {
         Document doc = Jsoup.parse("<p>One<p>Two<p>Three");
         Elements ps = doc.selectXpath("//p");
+        // removed other assertion
 
         Element p1 = ps.get(0);
+        // removed other assertion
 
         Elements sibs = p1.selectXpath("following-sibling::p");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Three", sibs.get(1).text());
         }
 
 @Test void selectAncestorsOnContextElement_1_oe() {
+        // https://github.com/jhy/jsoup/issues/1652
         Document doc = Jsoup.parse("<div><p>Hello");
         Element p = doc.selectFirst("p");
         assertNotNull(p);
         }
 
 @Test void selectAncestorsOnContextElement_2_oe() {
+        // https://github.com/jhy/jsoup/issues/1652
         Document doc = Jsoup.parse("<div><p>Hello");
         Element p = doc.selectFirst("p");
+        // removed other assertion
         Elements chain = p.selectXpath("ancestor-or-self::*");
         assertEquals(4, chain.size());
         }
 
 @Test void selectAncestorsOnContextElement_3_oe() {
+        // https://github.com/jhy/jsoup/issues/1652
         Document doc = Jsoup.parse("<div><p>Hello");
         Element p = doc.selectFirst("p");
+        // removed other assertion
         Elements chain = p.selectXpath("ancestor-or-self::*");
+        // removed other assertion
         assertEquals("html", chain.get(0).tagName());
         }
 
 @Test void selectAncestorsOnContextElement_4_oe() {
+        // https://github.com/jhy/jsoup/issues/1652
         Document doc = Jsoup.parse("<div><p>Hello");
         Element p = doc.selectFirst("p");
+        // removed other assertion
         Elements chain = p.selectXpath("ancestor-or-self::*");
+        // removed other assertion
+        // removed other assertion
         assertEquals("p", chain.get(3).tagName());
         }
 
@@ -435,11 +525,13 @@ public class XpathTest_OE25Dev {
         String xhtml = "<html xmlns='http://www.w3.org/1999/xhtml'><body id='One'><div>hello</div></body></html>";
         Document doc = Jsoup.parse(xhtml, Parser.xmlParser());
         Elements elements = doc.selectXpath("//body");
+        // removed other assertion
         assertEquals("One", elements.first().id());
     }
 
 @Test
     public void supportsPrefixes_1_oe() {
+        // example from https://www.w3.org/TR/xml-names/
         String xml = "<?xml version=\"1.0\"?>\n" +
             "<bk:book xmlns:bk='urn:loc.gov:books'\n" +
             "         xmlns:isbn='urn:ISBN:0-395-36341-6'>\n" +
@@ -448,12 +540,14 @@ public class XpathTest_OE25Dev {
             "</bk:book>";
         Document doc = Jsoup.parse(xml, Parser.xmlParser());
 
+        //Elements elements = doc.selectXpath("//bk:book/bk:title");
         Elements elements = doc.selectXpath("//book/title");
         assertEquals(1, elements.size());
     }
 
 @Test
     public void supportsPrefixes_2_oe() {
+        // example from https://www.w3.org/TR/xml-names/
         String xml = "<?xml version=\"1.0\"?>\n" +
             "<bk:book xmlns:bk='urn:loc.gov:books'\n" +
             "         xmlns:isbn='urn:ISBN:0-395-36341-6'>\n" +
@@ -462,7 +556,9 @@ public class XpathTest_OE25Dev {
             "</bk:book>";
         Document doc = Jsoup.parse(xml, Parser.xmlParser());
 
+        //Elements elements = doc.selectXpath("//bk:book/bk:title");
         Elements elements = doc.selectXpath("//book/title");
+        // removed other assertion
         assertEquals("Cheaper by the Dozen", elements.first().text());
     }
 

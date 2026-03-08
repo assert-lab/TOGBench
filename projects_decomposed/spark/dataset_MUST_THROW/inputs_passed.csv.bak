@@ -1,0 +1,37 @@
+id,test_prefix,test_name
+spark_255_101,"@Test
+    public void testCreateSocketConnector_whenServerIsNull_thenThrowException_oe_101_oe() {
+        try {
+            SocketConnectorFactory.createSocketConnector(null, ""host"", 80);
+            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
+        } catch(IllegalArgumentException ex) {
+        }
+    }
+",SocketConnectorFactoryTest::testCreateSocketConnector_whenServerIsNull_thenThrowException_oe_101_oe
+spark_258_101,"@Test
+    public void testCreateSecureSocketConnector_whenServerIsNull_oe_101_oe() {
+        try {
+            SocketConnectorFactory.createSecureSocketConnector(null, ""localhost"", 80, null);
+            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
+        } catch(IllegalArgumentException ex) {
+        }
+    }
+",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenServerIsNull_oe_101_oe
+spark_268_101,"@Test
+    public void testCannotCreateInvalidHandlers_oe_101_oe() {
+        try {
+            WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(InvalidHandler.class));
+            fail(""Handler creation should have thrown an IllegalArgumentException"");
+        } catch (IllegalArgumentException ex) {
+        }
+    }
+",WebSocketCreatorFactoryTest::testCannotCreateInvalidHandlers_oe_101_oe
+spark_269_101,"@Test
+    public void testCreate_whenInstantiationException_oe_101_oe() throws Exception {
+        try {
+            WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(FailingHandler.class));
+            fail(""Handler creation should have thrown a RunTimeException"");
+        } catch(RuntimeException ex) {
+        }
+    }
+",WebSocketCreatorFactoryTest::testCreate_whenInstantiationException_oe_101_oe

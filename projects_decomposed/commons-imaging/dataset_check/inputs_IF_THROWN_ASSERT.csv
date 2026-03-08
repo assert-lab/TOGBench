@@ -1,0 +1,455 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+imag_75_2,"    @Test
+    public void testGetColorBufferedImageThrowsIllegalArgumentException_2_oe() {
+        final RgbBufferedImageFactory rgbBufferedImageFactory = new RgbBufferedImageFactory();
+
+        try {
+            rgbBufferedImageFactory.getColorBufferedImage(0, 0, true);
+        } catch(final IllegalArgumentException e) {
+            assertEquals(""Width (0) and height (0) cannot be <= 0"",e.getMessage());
+    }
+    }",RgbBufferedImageFactoryTest::testGetColorBufferedImageThrowsIllegalArgumentException_2_oe,org.apache.commons.imaging.common.RgbBufferedImageFactory,"getColorBufferedImage(final int width, final int height,
+            final boolean hasAlpha)",,"@Override
+    public BufferedImage getColorBufferedImage(final int width, final int height,
+            final boolean hasAlpha) {
+        if (hasAlpha) {
+            return new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        }
+        return new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+    }"
+imag_75_3,"    @Test
+    public void testGetColorBufferedImageThrowsIllegalArgumentException_3_oe() {
+        final RgbBufferedImageFactory rgbBufferedImageFactory = new RgbBufferedImageFactory();
+
+        try {
+            rgbBufferedImageFactory.getColorBufferedImage(0, 0, true);
+        } catch(final IllegalArgumentException e) {
+            assertEquals(DirectColorModel.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }",RgbBufferedImageFactoryTest::testGetColorBufferedImageThrowsIllegalArgumentException_3_oe,org.apache.commons.imaging.internal.Debug,"getStackTrace(final Throwable e, final int limit)",,"private static String getStackTrace(final Throwable e, final int limit) {
+        return getStackTrace(e, limit, 0);
+    }"
+imag_86_2,"    @Test
+    public void testReadWithNonNull_2_oe() {
+        final RleReader rleReader = new RleReader(false);
+        final byte[] byteArray = new byte[1];
+        final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray, (byte) (-64), (byte) (-64));
+
+        try {
+            rleReader.read(byteArrayInputStream, byteArray);
+        } catch(final Exception e) {
+            assertEquals(""Premature end of file reading image data"",e.getMessage());
+    }
+    }",RleReaderTest::testReadWithNonNull_2_oe,org.apache.commons.imaging.formats.pcx.RleReader,"void read(final InputStream is, final byte[] samples)",,"void read(final InputStream is, final byte[] samples) throws IOException, ImageReadException {
+        if (isCompressed) {
+            final int prefill = Math.min(count, samples.length);
+            Arrays.fill(samples, 0, prefill, sample);
+            count -= prefill;
+
+            for (int bytesRead = prefill; bytesRead < samples.length;) {
+                final byte b = BinaryFunctions.readByte(""RleByte"", is, ""Error reading image data"");
+                if ((b & 0xc0) == 0xc0) {
+                    count = b & 0x3f;
+                    sample = BinaryFunctions.readByte(""RleValue"", is, ""Error reading image data"");
+                } else {
+                    count = 1;
+                    sample = b;
+                }
+                final int samplesToAdd = Math.min(count, samples.length - bytesRead);
+                Arrays.fill(samples, bytesRead, bytesRead + samplesToAdd, sample);
+                bytesRead += samplesToAdd;
+                count -= samplesToAdd;
+            }
+        } else {
+            int r;
+            for (int bytesRead = 0; bytesRead < samples.length; bytesRead += r) {
+                r = is.read(samples, bytesRead, samples.length - bytesRead);
+                if (r < 0) {
+                    throw new ImageReadException(
+                            ""Premature end of file reading image data"");
+                }
+            }
+        }
+    }"
+imag_86_3,"    @Test
+    public void testReadWithNonNull_3_oe() {
+        final RleReader rleReader = new RleReader(false);
+        final byte[] byteArray = new byte[1];
+        final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray, (byte) (-64), (byte) (-64));
+
+        try {
+            rleReader.read(byteArrayInputStream, byteArray);
+        } catch(final Exception e) {
+            assertEquals(RleReader.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }",RleReaderTest::testReadWithNonNull_3_oe,org.apache.commons.imaging.internal.Debug,"getStackTrace(final Throwable e, final int limit)",,"private static String getStackTrace(final Throwable e, final int limit) {
+        return getStackTrace(e, limit, 0);
+    }"
+imag_92_2,"    @Test
+    public void testCreatesNegSizeSegment_2_oe() throws IOException {
+        final byte[] bytes = new byte[8];
+        bytes[0] = (byte) 0xff;
+        bytes[1] = (byte) 0xd8;
+        bytes[2] = (byte) 0xe1;
+        bytes[3] = (byte) 0xff;
+        bytes[4] = (byte) 0x01;
+        bytes[5] = (byte) 0x00;
+        bytes[6] = (byte) 0x00;
+        bytes[7] = (byte) 0x00;
+
+        try {
+            final InputStream inputStream = new ByteArrayInputStream(bytes);
+            final ByteSource bs = new ByteSourceInputStream(inputStream, ""NegSizeSegment"");
+            final JpegImageParser p = new JpegImageParser();
+            p.getBufferedImage(bs, new JpegImagingParameters());
+        } catch (final ImageReadException e) {
+            assertEquals(""Invalid segment size"", e.getMessage());
+    }
+    }",NegSizeSegmentTest::testCreatesNegSizeSegment_2_oe,org.apache.commons.imaging.formats.jpeg.JpegImageParser,"getBufferedImage(final ByteSource byteSource,
+            final JpegImagingParameters params)",,"@Override
+    public final BufferedImage getBufferedImage(final ByteSource byteSource,
+            final JpegImagingParameters params) throws ImageReadException, IOException {
+        final JpegDecoder jpegDecoder = new JpegDecoder();
+        return jpegDecoder.decode(byteSource);
+    }"
+imag_92_3,"    @Test
+    public void testCreatesNegSizeSegment_3_oe() throws IOException {
+        final byte[] bytes = new byte[8];
+        bytes[0] = (byte) 0xff;
+        bytes[1] = (byte) 0xd8;
+        bytes[2] = (byte) 0xe1;
+        bytes[3] = (byte) 0xff;
+        bytes[4] = (byte) 0x01;
+        bytes[5] = (byte) 0x00;
+        bytes[6] = (byte) 0x00;
+        bytes[7] = (byte) 0x00;
+
+        try {
+            final InputStream inputStream = new ByteArrayInputStream(bytes);
+            final ByteSource bs = new ByteSourceInputStream(inputStream, ""NegSizeSegment"");
+            final JpegImageParser p = new JpegImageParser();
+            p.getBufferedImage(bs, new JpegImagingParameters());
+        } catch (final ImageReadException e) {
+            assertEquals(JpegUtils.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }",NegSizeSegmentTest::testCreatesNegSizeSegment_3_oe,org.apache.commons.imaging.internal.Debug,"getStackTrace(final Throwable e, final int limit)",,"private static String getStackTrace(final Throwable e, final int limit) {
+        return getStackTrace(e, limit, 0);
+    }"
+imag_98_2,"  @Test
+  public void testCreatesJfifSegment_2_oe() throws IOException {
+      final byte[] byteArray = new byte[25];
+
+      try {
+        new JfifSegment((-2275), byteArray);
+      } catch(final ImageReadException e) {
+         assertEquals(""Not a Valid JPEG File: missing JFIF string"",e.getMessage());
+  }
+  }",JfifSegmentTest::testCreatesJfifSegment_2_oe,,,,
+imag_98_3,"  @Test
+  public void testCreatesJfifSegment_3_oe() throws IOException {
+      final byte[] byteArray = new byte[25];
+
+      try {
+        new JfifSegment((-2275), byteArray);
+      } catch(final ImageReadException e) {
+         assertEquals(JfifSegment.class.getName(), e.getStackTrace()[0].getClassName());
+  }
+  }",JfifSegmentTest::testCreatesJfifSegment_3_oe,org.apache.commons.imaging.internal.Debug,"getStackTrace(final Throwable e, final int limit)",,"private static String getStackTrace(final Throwable e, final int limit) {
+        return getStackTrace(e, limit, 0);
+    }"
+imag_122_2,"    @Test
+    public void testCreatesJpegXmpParserAndCallsParseXmpJpegSegment_2_oe() {
+        final JpegXmpParser jpegXmpParser = new JpegXmpParser();
+        final byte[] byteArray = new byte[1];
+
+        try {
+            jpegXmpParser.parseXmpJpegSegment(byteArray);
+        } catch(final Exception e) {
+            assertEquals(""Invalid JPEG XMP Segment."",e.getMessage());
+    }
+    }",JpegXmpParserTest::testCreatesJpegXmpParserAndCallsParseXmpJpegSegment_2_oe,org.apache.commons.imaging.formats.jpeg.xmp.JpegXmpParser,parseXmpJpegSegment(final byte[] segmentData),,"public String parseXmpJpegSegment(final byte[] segmentData)
+            throws ImageReadException {
+        if (!isXmpJpegSegment(segmentData)) {
+            throw new ImageReadException(""Invalid JPEG XMP Segment."");
+        }
+        final int index = JpegConstants.XMP_IDENTIFIER.size();
+
+        // segment data is UTF-8 encoded xml.
+        return new String(segmentData, index, segmentData.length - index, StandardCharsets.UTF_8);
+    }"
+imag_122_3,"    @Test
+    public void testCreatesJpegXmpParserAndCallsParseXmpJpegSegment_3_oe() {
+        final JpegXmpParser jpegXmpParser = new JpegXmpParser();
+        final byte[] byteArray = new byte[1];
+
+        try {
+            jpegXmpParser.parseXmpJpegSegment(byteArray);
+        } catch(final Exception e) {
+            assertEquals(JpegXmpParser.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }",JpegXmpParserTest::testCreatesJpegXmpParserAndCallsParseXmpJpegSegment_3_oe,org.apache.commons.imaging.internal.Debug,"getStackTrace(final Throwable e, final int limit)",,"private static String getStackTrace(final Throwable e, final int limit) {
+        return getStackTrace(e, limit, 0);
+    }"
+imag_125_2,"  @Test
+  public void testGetRGBThrowsIOException_2_oe() throws IOException {
+      final PbmFileInfo pbmFileInfo = new PbmFileInfo(2764, 354, true);
+      final byte[] byteArray = new byte[2];
+      final InputStream inputStream = new ByteArrayInputStream(byteArray);
+      inputStream.read(byteArray);
+
+      try {
+        pbmFileInfo.getRGB(inputStream);
+      } catch(final IOException e) {
+         assertEquals(""PBM: Unexpected EOF"",e.getMessage());
+  }
+  }",PbmFileInfoTest::testGetRGBThrowsIOException_2_oe,org.apache.commons.imaging.formats.pnm.PbmFileInfo,getRGB(final InputStream is),,"@Override
+    public int getRGB(final InputStream is) throws IOException {
+        if (bitsInCache < 1) {
+            final int bits = is.read();
+            if (bits < 0) {
+                throw new IOException(""PBM: Unexpected EOF"");
+            }
+            bitCache = 0xff & bits;
+            bitsInCache += 8;
+        }
+
+        final int bit = 0x1 & (bitCache >> 7);
+        bitCache <<= 1;
+        bitsInCache--;
+
+        if (bit == 0) {
+            return 0xffffffff;
+        }
+        if (bit == 1) {
+            return 0xff000000;
+        }
+        throw new IOException(""PBM: bad bit: "" + bit);
+    }"
+imag_125_3,"  @Test
+  public void testGetRGBThrowsIOException_3_oe() throws IOException {
+      final PbmFileInfo pbmFileInfo = new PbmFileInfo(2764, 354, true);
+      final byte[] byteArray = new byte[2];
+      final InputStream inputStream = new ByteArrayInputStream(byteArray);
+      inputStream.read(byteArray);
+
+      try {
+        pbmFileInfo.getRGB(inputStream);
+      } catch(final IOException e) {
+         assertEquals(PbmFileInfo.class.getName(), e.getStackTrace()[0].getClassName());
+  }
+  }",PbmFileInfoTest::testGetRGBThrowsIOException_3_oe,org.apache.commons.imaging.internal.Debug,"getStackTrace(final Throwable e, final int limit)",,"private static String getStackTrace(final Throwable e, final int limit) {
+        return getStackTrace(e, limit, 0);
+    }"
+imag_206_2,"  @Test
+  public void testGetFieldTypeWithNegative_2_oe() {
+      try {
+        FieldType.getFieldType((-748));
+      } catch(final Exception e) {
+         assertEquals(""Field type -748 is unsupported"",e.getMessage());
+  }
+  }",FieldTypeTest::testGetFieldTypeWithNegative_2_oe,org.apache.commons.imaging.formats.tiff.fieldtypes.FieldType,getFieldType(final int type),,"public static FieldType getFieldType(final int type) throws ImageReadException {
+        for (final FieldType fieldType : ANY) {
+            if (fieldType.getType() == type) {
+                return fieldType;
+            }
+        }
+        throw new ImageReadException(""Field type "" + type + "" is unsupported"");
+    }"
+imag_206_3,"  @Test
+  public void testGetFieldTypeWithNegative_3_oe() {
+      try {
+        FieldType.getFieldType((-748));
+      } catch(final Exception e) {
+         assertEquals(FieldType.class.getName(), e.getStackTrace()[0].getClassName());
+  }
+  }",FieldTypeTest::testGetFieldTypeWithNegative_3_oe,org.apache.commons.imaging.internal.Debug,"getStackTrace(final Throwable e, final int limit)",,"private static String getStackTrace(final Throwable e, final int limit) {
+        return getStackTrace(e, limit, 0);
+    }"
+imag_207_2,"    @Test
+    public void testWriteDataWithNonNull_2_oe() {
+        final FieldTypeLong fieldTypeLong = FieldType.IFD;
+        final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;
+
+        try {
+            fieldTypeLong.writeData(byteOrder, byteOrder);
+        } catch (final Exception e) {
+            assertEquals(""Invalid data: BIG_ENDIAN (java.nio.ByteOrder)"", e.getMessage());
+    }
+    }",FieldTypeLongTest::testWriteDataWithNonNull_2_oe,org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeLong,"writeData(final Object o, final ByteOrder byteOrder)",,"@Override
+    public byte[] writeData(final Object o, final ByteOrder byteOrder) throws ImageWriteException {
+        if (o instanceof Integer) {
+            return ByteConversions.toBytes((Integer) o, byteOrder);
+        }
+        if (o instanceof int[]) {
+            final int[] numbers = (int[]) o;
+            return ByteConversions.toBytes(numbers, byteOrder);
+        }
+        if (!(o instanceof Integer[])) {
+            throw new ImageWriteException(""Invalid data"", o);
+        }
+        final Integer[] numbers = (Integer[]) o;
+        final int[] values = new int[numbers.length];
+        for (int i = 0; i < values.length; i++) {
+            values[i] = numbers[i];
+        }
+        return ByteConversions.toBytes(values, byteOrder);
+    }"
+imag_207_3,"    @Test
+    public void testWriteDataWithNonNull_3_oe() {
+        final FieldTypeLong fieldTypeLong = FieldType.IFD;
+        final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;
+
+        try {
+            fieldTypeLong.writeData(byteOrder, byteOrder);
+        } catch (final Exception e) {
+            assertEquals(FieldTypeLong.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }",FieldTypeLongTest::testWriteDataWithNonNull_3_oe,org.apache.commons.imaging.internal.Debug,"getStackTrace(final Throwable e, final int limit)",,"private static String getStackTrace(final Throwable e, final int limit) {
+        return getStackTrace(e, limit, 0);
+    }"
+imag_210_2,"    @Test
+    public void testCreatesFieldTypeShortAndCallsWriteData_2_oe() {
+        final FieldTypeShort fieldTypeShort = new FieldTypeShort(1234, """");
+        final ByteOrder byteOrder = ByteOrder.LITTLE_ENDIAN;
+
+        try {
+            fieldTypeShort.writeData("""", byteOrder);
+        } catch (final Exception e) {
+            assertEquals(""Invalid data:  (java.lang.String)"", e.getMessage());
+    }
+    }",FieldTypeShortTest::testCreatesFieldTypeShortAndCallsWriteData_2_oe,org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeShort,"writeData(final Object o, final ByteOrder byteOrder)",,"@Override
+    public byte[] writeData(final Object o, final ByteOrder byteOrder) throws ImageWriteException {
+        if (o instanceof Short) {
+            return ByteConversions.toBytes(((Short) o).shortValue(), byteOrder);
+        }
+        if (o instanceof short[]) {
+            final short[] numbers = (short[]) o;
+            return ByteConversions.toBytes(numbers, byteOrder);
+        }
+        if (!(o instanceof Short[])) {
+            throw new ImageWriteException(""Invalid data"", o);
+        }
+        final Short[] numbers = (Short[]) o;
+        final short[] values = new short[numbers.length];
+        for (int i = 0; i < values.length; i++) {
+            values[i] = numbers[i].shortValue();
+        }
+        return ByteConversions.toBytes(values, byteOrder);
+    }"
+imag_210_3,"    @Test
+    public void testCreatesFieldTypeShortAndCallsWriteData_3_oe() {
+        final FieldTypeShort fieldTypeShort = new FieldTypeShort(1234, """");
+        final ByteOrder byteOrder = ByteOrder.LITTLE_ENDIAN;
+
+        try {
+            fieldTypeShort.writeData("""", byteOrder);
+        } catch (final Exception e) {
+            assertEquals(FieldTypeShort.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }",FieldTypeShortTest::testCreatesFieldTypeShortAndCallsWriteData_3_oe,org.apache.commons.imaging.internal.Debug,"getStackTrace(final Throwable e, final int limit)",,"private static String getStackTrace(final Throwable e, final int limit) {
+        return getStackTrace(e, limit, 0);
+    }"
+imag_273_2,"    @Test
+    public void testCreatesPngChunkText_2_oe() {
+        final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;
+        try {
+            new PngChunkText(1214, 1214, 0, byteArray);
+        } catch(final Throwable e) {
+            assertEquals(""PNG tEXt chunk keyword is not terminated."",e.getMessage());
+    }
+    }",PngChunkTextTest::testCreatesPngChunkText_2_oe,,,,
+imag_273_3,"    @Test
+    public void testCreatesPngChunkText_3_oe() {
+        final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;
+        try {
+            new PngChunkText(1214, 1214, 0, byteArray);
+        } catch(final Throwable e) {
+            assertEquals(PngChunkText.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }",PngChunkTextTest::testCreatesPngChunkText_3_oe,org.apache.commons.imaging.internal.Debug,"getStackTrace(final Throwable e, final int limit)",,"private static String getStackTrace(final Throwable e, final int limit) {
+        return getStackTrace(e, limit, 0);
+    }"
+imag_274_2,"    @Test
+    public void testFilterWithNegativeAndNegative_2_oe() {
+        final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;
+        final TransparencyFilterIndexedColor transparencyFilterIndexedColor = new TransparencyFilterIndexedColor(byteArray);
+
+        try {
+            transparencyFilterIndexedColor.filter((-416), (-398));
+        } catch(final Exception e) {
+            assertEquals(""TransparencyFilterIndexedColor index: -398, bytes.length: 0"",e.getMessage());
+    }
+    }",TransparencyFilterIndexedColorTest::testFilterWithNegativeAndNegative_2_oe,org.apache.commons.imaging.formats.png.transparencyfilters.TransparencyFilterIndexedColor,"filter(final int rgb, final int index)",,"@Override
+    public int filter(final int rgb, final int index) throws ImageReadException, IOException {
+        final int length = getLength();
+        if (index >= length) { // TODO see below - is this check correct?
+            return rgb;
+        }
+
+        if ((index < 0) || (index > length)) { // TODO check for > length cannot be true because of check above
+            throw new ImageReadException(
+                    ""TransparencyFilterIndexedColor index: "" + index + "", bytes.length: "" + length);
+        }
+
+        final int alpha = getByte(index);
+        return ((0xff & alpha) << 24) | (0x00ffffff & rgb);
+    }"
+imag_274_3,"    @Test
+    public void testFilterWithNegativeAndNegative_3_oe() {
+        final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;
+        final TransparencyFilterIndexedColor transparencyFilterIndexedColor = new TransparencyFilterIndexedColor(byteArray);
+
+        try {
+            transparencyFilterIndexedColor.filter((-416), (-398));
+        } catch(final Exception e) {
+            assertEquals(TransparencyFilterIndexedColor.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }",TransparencyFilterIndexedColorTest::testFilterWithNegativeAndNegative_3_oe,org.apache.commons.imaging.internal.Debug,"getStackTrace(final Throwable e, final int limit)",,"private static String getStackTrace(final Throwable e, final int limit) {
+        return getStackTrace(e, limit, 0);
+    }"
+imag_309_2,"  @Test
+  public void testFailsToCreateDataParserIndexedThrowsArrayIndexOutOfBoundsException_2_oe() {
+      final byte[] byteArray = new byte[24];
+      try {
+        new DataParserIndexed(byteArray);
+      } catch(final ArrayIndexOutOfBoundsException e) {
+         assertTrue(e.getMessage().contains(""256""));
+  }
+  }",DataParserIndexedTest::testFailsToCreateDataParserIndexedThrowsArrayIndexOutOfBoundsException_2_oe,org.apache.commons.imaging.palette.ColorSpaceSubset,"contains(int red, int green, int blue)",,"public final boolean contains(int red, int green, int blue) {
+        red >>= (8 - precision);
+        if (mins[0] > red) {
+            return false;
+        }
+        if (maxs[0] < red) {
+            return false;
+        }
+
+        green >>= (8 - precision);
+        if (mins[1] > green) {
+            return false;
+        }
+        if (maxs[1] < green) {
+            return false;
+        }
+
+        blue >>= (8 - precision);
+        if (mins[2] > blue) {
+            return false;
+        }
+        if (maxs[2] < blue) {
+            return false;
+        }
+
+        return true;
+    }"
+imag_309_3,"  @Test
+  public void testFailsToCreateDataParserIndexedThrowsArrayIndexOutOfBoundsException_3_oe() {
+      final byte[] byteArray = new byte[24];
+      try {
+        new DataParserIndexed(byteArray);
+      } catch(final ArrayIndexOutOfBoundsException e) {
+         assertEquals(DataParserIndexed.class.getName(), e.getStackTrace()[0].getClassName());
+  }
+  }",DataParserIndexedTest::testFailsToCreateDataParserIndexedThrowsArrayIndexOutOfBoundsException_3_oe,org.apache.commons.imaging.internal.Debug,"getStackTrace(final Throwable e, final int limit)",,"private static String getStackTrace(final Throwable e, final int limit) {
+        return getStackTrace(e, limit, 0);
+    }"

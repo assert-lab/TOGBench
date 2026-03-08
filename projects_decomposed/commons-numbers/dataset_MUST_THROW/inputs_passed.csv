@@ -1,0 +1,945 @@
+id,test_prefix,test_name,focal_method,docstring
+commons-numbers_529_101,"@Test
+    void testRoundDouble_oe_101_oe() {
+        try {
+            Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
+            Assertions.fail();
+        } catch (ArithmeticException ex) {
+            // expected
+        }
+    }
+",PrecisionTest::testRoundDouble_oe_101_oe,"public static double round(double x, int scale) {
+        return round(x, scale, RoundingMode.HALF_UP);
+    }","/**
+     * Rounds the given value to the specified number of decimal places.
+     * The value is rounded using the {@link RoundingMode#HALF_UP} method.
+     *
+     * @param x Value to round.
+     * @param scale Number of digits to the right of the decimal point.
+     * @return the rounded value.
+     */"
+commons-numbers_568_101,"@Test
+    void testGcd_oe_101_oe() {
+        try {
+            // gcd(Integer.MIN_VALUE, 0) > Integer.MAX_VALUE
+            ArithmeticUtils.gcd(Integer.MIN_VALUE, 0);
+            Assertions.fail(""expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+    }
+",ArithmeticUtilsTest::testGcd_oe_101_oe,"public static int gcd(int p, int q) {
+        // Perform the gcd algorithm on negative numbers, so that -2^31 does not
+        // need to be handled separately
+        int a = p > 0 ? -p : p;
+        int b = q > 0 ? -q : q;
+
+        int negatedGcd;
+        if (a == 0) {
+            negatedGcd = b;
+        } else if (b == 0) {
+            negatedGcd = a;
+        } else {
+            // Make ""a"" and ""b"" odd, keeping track of common power of 2.
+            final int aTwos = Integer.numberOfTrailingZeros(a);
+            final int bTwos = Integer.numberOfTrailingZeros(b);
+            a >>= aTwos;
+            b >>= bTwos;
+            final int shift = Math.min(aTwos, bTwos);
+
+            // ""a"" and ""b"" are negative and odd.
+            // If a < b then ""gdc(a, b)"" is equal to ""gcd(a - b, b)"".
+            // If a > b then ""gcd(a, b)"" is equal to ""gcd(b - a, a)"".
+            // Hence, in the successive iterations:
+            //  ""a"" becomes the negative absolute difference of the current values,
+            //  ""b"" becomes that value of the two that is closer to zero.
+            while (a != b) {
+                final int delta = a - b;
+                b = Math.max(a, b);
+                a = delta > 0 ? -delta : delta;
+
+                // Remove any power of 2 in ""a"" (""b"" is guaranteed to be odd).
+                a >>= Integer.numberOfTrailingZeros(a);
+            }
+
+            // Recover the common power of 2.
+            negatedGcd = a << shift;
+        }
+        if (negatedGcd == Integer.MIN_VALUE) {
+            throw new NumbersArithmeticException(""overflow: gcd({0}, {1}) is 2^31"",
+                                              p, q);
+        } else {
+            return -negatedGcd;
+        }
+    }","/**
+     * Computes the greatest common divisor of the absolute value of two
+     * numbers, using a modified version of the ""binary gcd"" method.
+     * See Knuth 4.5.2 algorithm B.
+     * The algorithm is due to Josef Stein (1961).
+     * <br>
+     * Special cases:
+     * <ul>
+     *  <li>The invocations
+     *   {@code gcd(Integer.MIN_VALUE, Integer.MIN_VALUE)},
+     *   {@code gcd(Integer.MIN_VALUE, 0)} and
+     *   {@code gcd(0, Integer.MIN_VALUE)} throw an
+     *   {@code ArithmeticException}, because the result would be 2^31, which
+     *   is too large for an int value.</li>
+     *  <li>The result of {@code gcd(x, x)}, {@code gcd(0, x)} and
+     *   {@code gcd(x, 0)} is the absolute value of {@code x}, except
+     *   for the special cases above.</li>
+     *  <li>The invocation {@code gcd(0, 0)} is the only one which returns
+     *   {@code 0}.</li>
+     * </ul>
+     *
+     * @param p Number.
+     * @param q Number.
+     * @return the greatest common divisor (never negative).
+     * @throws ArithmeticException if the result cannot be represented as
+     * a non-negative {@code int} value.
+     */"
+commons-numbers_568_102,"@Test
+    void testGcd_oe_102_oe() {
+        try {
+            // gcd(0, Integer.MIN_VALUE) > Integer.MAX_VALUE
+            ArithmeticUtils.gcd(0, Integer.MIN_VALUE);
+            Assertions.fail(""expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+    }
+",ArithmeticUtilsTest::testGcd_oe_102_oe,"public static int gcd(int p, int q) {
+        // Perform the gcd algorithm on negative numbers, so that -2^31 does not
+        // need to be handled separately
+        int a = p > 0 ? -p : p;
+        int b = q > 0 ? -q : q;
+
+        int negatedGcd;
+        if (a == 0) {
+            negatedGcd = b;
+        } else if (b == 0) {
+            negatedGcd = a;
+        } else {
+            // Make ""a"" and ""b"" odd, keeping track of common power of 2.
+            final int aTwos = Integer.numberOfTrailingZeros(a);
+            final int bTwos = Integer.numberOfTrailingZeros(b);
+            a >>= aTwos;
+            b >>= bTwos;
+            final int shift = Math.min(aTwos, bTwos);
+
+            // ""a"" and ""b"" are negative and odd.
+            // If a < b then ""gdc(a, b)"" is equal to ""gcd(a - b, b)"".
+            // If a > b then ""gcd(a, b)"" is equal to ""gcd(b - a, a)"".
+            // Hence, in the successive iterations:
+            //  ""a"" becomes the negative absolute difference of the current values,
+            //  ""b"" becomes that value of the two that is closer to zero.
+            while (a != b) {
+                final int delta = a - b;
+                b = Math.max(a, b);
+                a = delta > 0 ? -delta : delta;
+
+                // Remove any power of 2 in ""a"" (""b"" is guaranteed to be odd).
+                a >>= Integer.numberOfTrailingZeros(a);
+            }
+
+            // Recover the common power of 2.
+            negatedGcd = a << shift;
+        }
+        if (negatedGcd == Integer.MIN_VALUE) {
+            throw new NumbersArithmeticException(""overflow: gcd({0}, {1}) is 2^31"",
+                                              p, q);
+        } else {
+            return -negatedGcd;
+        }
+    }","/**
+     * Computes the greatest common divisor of the absolute value of two
+     * numbers, using a modified version of the ""binary gcd"" method.
+     * See Knuth 4.5.2 algorithm B.
+     * The algorithm is due to Josef Stein (1961).
+     * <br>
+     * Special cases:
+     * <ul>
+     *  <li>The invocations
+     *   {@code gcd(Integer.MIN_VALUE, Integer.MIN_VALUE)},
+     *   {@code gcd(Integer.MIN_VALUE, 0)} and
+     *   {@code gcd(0, Integer.MIN_VALUE)} throw an
+     *   {@code ArithmeticException}, because the result would be 2^31, which
+     *   is too large for an int value.</li>
+     *  <li>The result of {@code gcd(x, x)}, {@code gcd(0, x)} and
+     *   {@code gcd(x, 0)} is the absolute value of {@code x}, except
+     *   for the special cases above.</li>
+     *  <li>The invocation {@code gcd(0, 0)} is the only one which returns
+     *   {@code 0}.</li>
+     * </ul>
+     *
+     * @param p Number.
+     * @param q Number.
+     * @return the greatest common divisor (never negative).
+     * @throws ArithmeticException if the result cannot be represented as
+     * a non-negative {@code int} value.
+     */"
+commons-numbers_568_103,"@Test
+    void testGcd_oe_103_oe() {
+        try {
+            // gcd(Integer.MIN_VALUE, Integer.MIN_VALUE) > Integer.MAX_VALUE
+            ArithmeticUtils.gcd(Integer.MIN_VALUE, Integer.MIN_VALUE);
+            Assertions.fail(""expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+    }
+",ArithmeticUtilsTest::testGcd_oe_103_oe,"public static int gcd(int p, int q) {
+        // Perform the gcd algorithm on negative numbers, so that -2^31 does not
+        // need to be handled separately
+        int a = p > 0 ? -p : p;
+        int b = q > 0 ? -q : q;
+
+        int negatedGcd;
+        if (a == 0) {
+            negatedGcd = b;
+        } else if (b == 0) {
+            negatedGcd = a;
+        } else {
+            // Make ""a"" and ""b"" odd, keeping track of common power of 2.
+            final int aTwos = Integer.numberOfTrailingZeros(a);
+            final int bTwos = Integer.numberOfTrailingZeros(b);
+            a >>= aTwos;
+            b >>= bTwos;
+            final int shift = Math.min(aTwos, bTwos);
+
+            // ""a"" and ""b"" are negative and odd.
+            // If a < b then ""gdc(a, b)"" is equal to ""gcd(a - b, b)"".
+            // If a > b then ""gcd(a, b)"" is equal to ""gcd(b - a, a)"".
+            // Hence, in the successive iterations:
+            //  ""a"" becomes the negative absolute difference of the current values,
+            //  ""b"" becomes that value of the two that is closer to zero.
+            while (a != b) {
+                final int delta = a - b;
+                b = Math.max(a, b);
+                a = delta > 0 ? -delta : delta;
+
+                // Remove any power of 2 in ""a"" (""b"" is guaranteed to be odd).
+                a >>= Integer.numberOfTrailingZeros(a);
+            }
+
+            // Recover the common power of 2.
+            negatedGcd = a << shift;
+        }
+        if (negatedGcd == Integer.MIN_VALUE) {
+            throw new NumbersArithmeticException(""overflow: gcd({0}, {1}) is 2^31"",
+                                              p, q);
+        } else {
+            return -negatedGcd;
+        }
+    }","/**
+     * Computes the greatest common divisor of the absolute value of two
+     * numbers, using a modified version of the ""binary gcd"" method.
+     * See Knuth 4.5.2 algorithm B.
+     * The algorithm is due to Josef Stein (1961).
+     * <br>
+     * Special cases:
+     * <ul>
+     *  <li>The invocations
+     *   {@code gcd(Integer.MIN_VALUE, Integer.MIN_VALUE)},
+     *   {@code gcd(Integer.MIN_VALUE, 0)} and
+     *   {@code gcd(0, Integer.MIN_VALUE)} throw an
+     *   {@code ArithmeticException}, because the result would be 2^31, which
+     *   is too large for an int value.</li>
+     *  <li>The result of {@code gcd(x, x)}, {@code gcd(0, x)} and
+     *   {@code gcd(x, 0)} is the absolute value of {@code x}, except
+     *   for the special cases above.</li>
+     *  <li>The invocation {@code gcd(0, 0)} is the only one which returns
+     *   {@code 0}.</li>
+     * </ul>
+     *
+     * @param p Number.
+     * @param q Number.
+     * @return the greatest common divisor (never negative).
+     * @throws ArithmeticException if the result cannot be represented as
+     * a non-negative {@code int} value.
+     */"
+commons-numbers_570_101,"@Test
+    void  testGcdLong_oe_101_oe() {
+        try {
+            // gcd(Long.MIN_VALUE, 0) > Long.MAX_VALUE
+            ArithmeticUtils.gcd(Long.MIN_VALUE, 0);
+            Assertions.fail(""expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+    }
+",ArithmeticUtilsTest::testGcdLong_oe_101_oe,"public static int gcd(int p, int q) {
+        // Perform the gcd algorithm on negative numbers, so that -2^31 does not
+        // need to be handled separately
+        int a = p > 0 ? -p : p;
+        int b = q > 0 ? -q : q;
+
+        int negatedGcd;
+        if (a == 0) {
+            negatedGcd = b;
+        } else if (b == 0) {
+            negatedGcd = a;
+        } else {
+            // Make ""a"" and ""b"" odd, keeping track of common power of 2.
+            final int aTwos = Integer.numberOfTrailingZeros(a);
+            final int bTwos = Integer.numberOfTrailingZeros(b);
+            a >>= aTwos;
+            b >>= bTwos;
+            final int shift = Math.min(aTwos, bTwos);
+
+            // ""a"" and ""b"" are negative and odd.
+            // If a < b then ""gdc(a, b)"" is equal to ""gcd(a - b, b)"".
+            // If a > b then ""gcd(a, b)"" is equal to ""gcd(b - a, a)"".
+            // Hence, in the successive iterations:
+            //  ""a"" becomes the negative absolute difference of the current values,
+            //  ""b"" becomes that value of the two that is closer to zero.
+            while (a != b) {
+                final int delta = a - b;
+                b = Math.max(a, b);
+                a = delta > 0 ? -delta : delta;
+
+                // Remove any power of 2 in ""a"" (""b"" is guaranteed to be odd).
+                a >>= Integer.numberOfTrailingZeros(a);
+            }
+
+            // Recover the common power of 2.
+            negatedGcd = a << shift;
+        }
+        if (negatedGcd == Integer.MIN_VALUE) {
+            throw new NumbersArithmeticException(""overflow: gcd({0}, {1}) is 2^31"",
+                                              p, q);
+        } else {
+            return -negatedGcd;
+        }
+    }","/**
+     * Computes the greatest common divisor of the absolute value of two
+     * numbers, using a modified version of the ""binary gcd"" method.
+     * See Knuth 4.5.2 algorithm B.
+     * The algorithm is due to Josef Stein (1961).
+     * <br>
+     * Special cases:
+     * <ul>
+     *  <li>The invocations
+     *   {@code gcd(Integer.MIN_VALUE, Integer.MIN_VALUE)},
+     *   {@code gcd(Integer.MIN_VALUE, 0)} and
+     *   {@code gcd(0, Integer.MIN_VALUE)} throw an
+     *   {@code ArithmeticException}, because the result would be 2^31, which
+     *   is too large for an int value.</li>
+     *  <li>The result of {@code gcd(x, x)}, {@code gcd(0, x)} and
+     *   {@code gcd(x, 0)} is the absolute value of {@code x}, except
+     *   for the special cases above.</li>
+     *  <li>The invocation {@code gcd(0, 0)} is the only one which returns
+     *   {@code 0}.</li>
+     * </ul>
+     *
+     * @param p Number.
+     * @param q Number.
+     * @return the greatest common divisor (never negative).
+     * @throws ArithmeticException if the result cannot be represented as
+     * a non-negative {@code int} value.
+     */"
+commons-numbers_570_102,"@Test
+    void  testGcdLong_oe_102_oe() {
+        try {
+            // gcd(0, Long.MIN_VALUE) > Long.MAX_VALUE
+            ArithmeticUtils.gcd(0, Long.MIN_VALUE);
+            Assertions.fail(""expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+    }
+",ArithmeticUtilsTest::testGcdLong_oe_102_oe,"public static int gcd(int p, int q) {
+        // Perform the gcd algorithm on negative numbers, so that -2^31 does not
+        // need to be handled separately
+        int a = p > 0 ? -p : p;
+        int b = q > 0 ? -q : q;
+
+        int negatedGcd;
+        if (a == 0) {
+            negatedGcd = b;
+        } else if (b == 0) {
+            negatedGcd = a;
+        } else {
+            // Make ""a"" and ""b"" odd, keeping track of common power of 2.
+            final int aTwos = Integer.numberOfTrailingZeros(a);
+            final int bTwos = Integer.numberOfTrailingZeros(b);
+            a >>= aTwos;
+            b >>= bTwos;
+            final int shift = Math.min(aTwos, bTwos);
+
+            // ""a"" and ""b"" are negative and odd.
+            // If a < b then ""gdc(a, b)"" is equal to ""gcd(a - b, b)"".
+            // If a > b then ""gcd(a, b)"" is equal to ""gcd(b - a, a)"".
+            // Hence, in the successive iterations:
+            //  ""a"" becomes the negative absolute difference of the current values,
+            //  ""b"" becomes that value of the two that is closer to zero.
+            while (a != b) {
+                final int delta = a - b;
+                b = Math.max(a, b);
+                a = delta > 0 ? -delta : delta;
+
+                // Remove any power of 2 in ""a"" (""b"" is guaranteed to be odd).
+                a >>= Integer.numberOfTrailingZeros(a);
+            }
+
+            // Recover the common power of 2.
+            negatedGcd = a << shift;
+        }
+        if (negatedGcd == Integer.MIN_VALUE) {
+            throw new NumbersArithmeticException(""overflow: gcd({0}, {1}) is 2^31"",
+                                              p, q);
+        } else {
+            return -negatedGcd;
+        }
+    }","/**
+     * Computes the greatest common divisor of the absolute value of two
+     * numbers, using a modified version of the ""binary gcd"" method.
+     * See Knuth 4.5.2 algorithm B.
+     * The algorithm is due to Josef Stein (1961).
+     * <br>
+     * Special cases:
+     * <ul>
+     *  <li>The invocations
+     *   {@code gcd(Integer.MIN_VALUE, Integer.MIN_VALUE)},
+     *   {@code gcd(Integer.MIN_VALUE, 0)} and
+     *   {@code gcd(0, Integer.MIN_VALUE)} throw an
+     *   {@code ArithmeticException}, because the result would be 2^31, which
+     *   is too large for an int value.</li>
+     *  <li>The result of {@code gcd(x, x)}, {@code gcd(0, x)} and
+     *   {@code gcd(x, 0)} is the absolute value of {@code x}, except
+     *   for the special cases above.</li>
+     *  <li>The invocation {@code gcd(0, 0)} is the only one which returns
+     *   {@code 0}.</li>
+     * </ul>
+     *
+     * @param p Number.
+     * @param q Number.
+     * @return the greatest common divisor (never negative).
+     * @throws ArithmeticException if the result cannot be represented as
+     * a non-negative {@code int} value.
+     */"
+commons-numbers_570_103,"@Test
+    void  testGcdLong_oe_103_oe() {
+        try {
+            // gcd(Long.MIN_VALUE, Long.MIN_VALUE) > Long.MAX_VALUE
+            ArithmeticUtils.gcd(Long.MIN_VALUE, Long.MIN_VALUE);
+            Assertions.fail(""expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+    }
+",ArithmeticUtilsTest::testGcdLong_oe_103_oe,"public static int gcd(int p, int q) {
+        // Perform the gcd algorithm on negative numbers, so that -2^31 does not
+        // need to be handled separately
+        int a = p > 0 ? -p : p;
+        int b = q > 0 ? -q : q;
+
+        int negatedGcd;
+        if (a == 0) {
+            negatedGcd = b;
+        } else if (b == 0) {
+            negatedGcd = a;
+        } else {
+            // Make ""a"" and ""b"" odd, keeping track of common power of 2.
+            final int aTwos = Integer.numberOfTrailingZeros(a);
+            final int bTwos = Integer.numberOfTrailingZeros(b);
+            a >>= aTwos;
+            b >>= bTwos;
+            final int shift = Math.min(aTwos, bTwos);
+
+            // ""a"" and ""b"" are negative and odd.
+            // If a < b then ""gdc(a, b)"" is equal to ""gcd(a - b, b)"".
+            // If a > b then ""gcd(a, b)"" is equal to ""gcd(b - a, a)"".
+            // Hence, in the successive iterations:
+            //  ""a"" becomes the negative absolute difference of the current values,
+            //  ""b"" becomes that value of the two that is closer to zero.
+            while (a != b) {
+                final int delta = a - b;
+                b = Math.max(a, b);
+                a = delta > 0 ? -delta : delta;
+
+                // Remove any power of 2 in ""a"" (""b"" is guaranteed to be odd).
+                a >>= Integer.numberOfTrailingZeros(a);
+            }
+
+            // Recover the common power of 2.
+            negatedGcd = a << shift;
+        }
+        if (negatedGcd == Integer.MIN_VALUE) {
+            throw new NumbersArithmeticException(""overflow: gcd({0}, {1}) is 2^31"",
+                                              p, q);
+        } else {
+            return -negatedGcd;
+        }
+    }","/**
+     * Computes the greatest common divisor of the absolute value of two
+     * numbers, using a modified version of the ""binary gcd"" method.
+     * See Knuth 4.5.2 algorithm B.
+     * The algorithm is due to Josef Stein (1961).
+     * <br>
+     * Special cases:
+     * <ul>
+     *  <li>The invocations
+     *   {@code gcd(Integer.MIN_VALUE, Integer.MIN_VALUE)},
+     *   {@code gcd(Integer.MIN_VALUE, 0)} and
+     *   {@code gcd(0, Integer.MIN_VALUE)} throw an
+     *   {@code ArithmeticException}, because the result would be 2^31, which
+     *   is too large for an int value.</li>
+     *  <li>The result of {@code gcd(x, x)}, {@code gcd(0, x)} and
+     *   {@code gcd(x, 0)} is the absolute value of {@code x}, except
+     *   for the special cases above.</li>
+     *  <li>The invocation {@code gcd(0, 0)} is the only one which returns
+     *   {@code 0}.</li>
+     * </ul>
+     *
+     * @param p Number.
+     * @param q Number.
+     * @return the greatest common divisor (never negative).
+     * @throws ArithmeticException if the result cannot be represented as
+     * a non-negative {@code int} value.
+     */"
+commons-numbers_571_101,"@Test
+    void testLcm_oe_101_oe() {
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Integer.MIN_VALUE, 1);
+            Assertions.fail(""Expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+    }
+",ArithmeticUtilsTest::testLcm_oe_101_oe,"public static int lcm(int a, int b) {
+        if (a == 0 || b == 0) {
+            return 0;
+        }
+        final int lcm = Math.abs(Math.multiplyExact(a / gcd(a, b), b));
+        if (lcm == Integer.MIN_VALUE) {
+            throw new NumbersArithmeticException(""overflow: lcm({0}, {1}) is 2^31"",
+                                              a, b);
+        }
+        return lcm;
+    }","/**
+     * <p>
+     * Returns the least common multiple of the absolute value of two numbers,
+     * using the formula {@code lcm(a,b) = (a / gcd(a,b)) * b}.
+     * </p>
+     * Special cases:
+     * <ul>
+     * <li>The invocations {@code lcm(Integer.MIN_VALUE, n)} and
+     * {@code lcm(n, Integer.MIN_VALUE)}, where {@code abs(n)} is a
+     * power of 2, throw an {@code ArithmeticException}, because the result
+     * would be 2^31, which is too large for an int value.</li>
+     * <li>The result of {@code lcm(0, x)} and {@code lcm(x, 0)} is
+     * {@code 0} for any {@code x}.
+     * </ul>
+     *
+     * @param a Number.
+     * @param b Number.
+     * @return the least common multiple, never negative.
+     * @throws ArithmeticException if the result cannot be represented as
+     * a non-negative {@code int} value.
+     */"
+commons-numbers_571_102,"@Test
+    void testLcm_oe_102_oe() {
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Integer.MIN_VALUE, 1 << 20);
+            Assertions.fail(""Expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+    }
+",ArithmeticUtilsTest::testLcm_oe_102_oe,"public static int lcm(int a, int b) {
+        if (a == 0 || b == 0) {
+            return 0;
+        }
+        final int lcm = Math.abs(Math.multiplyExact(a / gcd(a, b), b));
+        if (lcm == Integer.MIN_VALUE) {
+            throw new NumbersArithmeticException(""overflow: lcm({0}, {1}) is 2^31"",
+                                              a, b);
+        }
+        return lcm;
+    }","/**
+     * <p>
+     * Returns the least common multiple of the absolute value of two numbers,
+     * using the formula {@code lcm(a,b) = (a / gcd(a,b)) * b}.
+     * </p>
+     * Special cases:
+     * <ul>
+     * <li>The invocations {@code lcm(Integer.MIN_VALUE, n)} and
+     * {@code lcm(n, Integer.MIN_VALUE)}, where {@code abs(n)} is a
+     * power of 2, throw an {@code ArithmeticException}, because the result
+     * would be 2^31, which is too large for an int value.</li>
+     * <li>The result of {@code lcm(0, x)} and {@code lcm(x, 0)} is
+     * {@code 0} for any {@code x}.
+     * </ul>
+     *
+     * @param a Number.
+     * @param b Number.
+     * @return the least common multiple, never negative.
+     * @throws ArithmeticException if the result cannot be represented as
+     * a non-negative {@code int} value.
+     */"
+commons-numbers_571_103,"@Test
+    void testLcm_oe_103_oe() {
+        try {
+            ArithmeticUtils.lcm(Integer.MAX_VALUE, Integer.MAX_VALUE - 1);
+            Assertions.fail(""Expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+    }
+",ArithmeticUtilsTest::testLcm_oe_103_oe,"public static int lcm(int a, int b) {
+        if (a == 0 || b == 0) {
+            return 0;
+        }
+        final int lcm = Math.abs(Math.multiplyExact(a / gcd(a, b), b));
+        if (lcm == Integer.MIN_VALUE) {
+            throw new NumbersArithmeticException(""overflow: lcm({0}, {1}) is 2^31"",
+                                              a, b);
+        }
+        return lcm;
+    }","/**
+     * <p>
+     * Returns the least common multiple of the absolute value of two numbers,
+     * using the formula {@code lcm(a,b) = (a / gcd(a,b)) * b}.
+     * </p>
+     * Special cases:
+     * <ul>
+     * <li>The invocations {@code lcm(Integer.MIN_VALUE, n)} and
+     * {@code lcm(n, Integer.MIN_VALUE)}, where {@code abs(n)} is a
+     * power of 2, throw an {@code ArithmeticException}, because the result
+     * would be 2^31, which is too large for an int value.</li>
+     * <li>The result of {@code lcm(0, x)} and {@code lcm(x, 0)} is
+     * {@code 0} for any {@code x}.
+     * </ul>
+     *
+     * @param a Number.
+     * @param b Number.
+     * @return the least common multiple, never negative.
+     * @throws ArithmeticException if the result cannot be represented as
+     * a non-negative {@code int} value.
+     */"
+commons-numbers_572_101,"@Test
+    void testLcmLong_oe_101_oe() {
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Long.MIN_VALUE, 1);
+            Assertions.fail(""Expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+    }
+",ArithmeticUtilsTest::testLcmLong_oe_101_oe,"public static int lcm(int a, int b) {
+        if (a == 0 || b == 0) {
+            return 0;
+        }
+        final int lcm = Math.abs(Math.multiplyExact(a / gcd(a, b), b));
+        if (lcm == Integer.MIN_VALUE) {
+            throw new NumbersArithmeticException(""overflow: lcm({0}, {1}) is 2^31"",
+                                              a, b);
+        }
+        return lcm;
+    }","/**
+     * <p>
+     * Returns the least common multiple of the absolute value of two numbers,
+     * using the formula {@code lcm(a,b) = (a / gcd(a,b)) * b}.
+     * </p>
+     * Special cases:
+     * <ul>
+     * <li>The invocations {@code lcm(Integer.MIN_VALUE, n)} and
+     * {@code lcm(n, Integer.MIN_VALUE)}, where {@code abs(n)} is a
+     * power of 2, throw an {@code ArithmeticException}, because the result
+     * would be 2^31, which is too large for an int value.</li>
+     * <li>The result of {@code lcm(0, x)} and {@code lcm(x, 0)} is
+     * {@code 0} for any {@code x}.
+     * </ul>
+     *
+     * @param a Number.
+     * @param b Number.
+     * @return the least common multiple, never negative.
+     * @throws ArithmeticException if the result cannot be represented as
+     * a non-negative {@code int} value.
+     */"
+commons-numbers_572_102,"@Test
+    void testLcmLong_oe_102_oe() {
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Long.MIN_VALUE, 1 << 20);
+            Assertions.fail(""Expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+    }
+",ArithmeticUtilsTest::testLcmLong_oe_102_oe,"public static int lcm(int a, int b) {
+        if (a == 0 || b == 0) {
+            return 0;
+        }
+        final int lcm = Math.abs(Math.multiplyExact(a / gcd(a, b), b));
+        if (lcm == Integer.MIN_VALUE) {
+            throw new NumbersArithmeticException(""overflow: lcm({0}, {1}) is 2^31"",
+                                              a, b);
+        }
+        return lcm;
+    }","/**
+     * <p>
+     * Returns the least common multiple of the absolute value of two numbers,
+     * using the formula {@code lcm(a,b) = (a / gcd(a,b)) * b}.
+     * </p>
+     * Special cases:
+     * <ul>
+     * <li>The invocations {@code lcm(Integer.MIN_VALUE, n)} and
+     * {@code lcm(n, Integer.MIN_VALUE)}, where {@code abs(n)} is a
+     * power of 2, throw an {@code ArithmeticException}, because the result
+     * would be 2^31, which is too large for an int value.</li>
+     * <li>The result of {@code lcm(0, x)} and {@code lcm(x, 0)} is
+     * {@code 0} for any {@code x}.
+     * </ul>
+     *
+     * @param a Number.
+     * @param b Number.
+     * @return the least common multiple, never negative.
+     * @throws ArithmeticException if the result cannot be represented as
+     * a non-negative {@code int} value.
+     */"
+commons-numbers_572_103,"@Test
+    void testLcmLong_oe_103_oe() {
+        try {
+            ArithmeticUtils.lcm(Long.MAX_VALUE, Long.MAX_VALUE - 1);
+            Assertions.fail(""Expecting ArithmeticException"");
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+    }
+",ArithmeticUtilsTest::testLcmLong_oe_103_oe,"public static int lcm(int a, int b) {
+        if (a == 0 || b == 0) {
+            return 0;
+        }
+        final int lcm = Math.abs(Math.multiplyExact(a / gcd(a, b), b));
+        if (lcm == Integer.MIN_VALUE) {
+            throw new NumbersArithmeticException(""overflow: lcm({0}, {1}) is 2^31"",
+                                              a, b);
+        }
+        return lcm;
+    }","/**
+     * <p>
+     * Returns the least common multiple of the absolute value of two numbers,
+     * using the formula {@code lcm(a,b) = (a / gcd(a,b)) * b}.
+     * </p>
+     * Special cases:
+     * <ul>
+     * <li>The invocations {@code lcm(Integer.MIN_VALUE, n)} and
+     * {@code lcm(n, Integer.MIN_VALUE)}, where {@code abs(n)} is a
+     * power of 2, throw an {@code ArithmeticException}, because the result
+     * would be 2^31, which is too large for an int value.</li>
+     * <li>The result of {@code lcm(0, x)} and {@code lcm(x, 0)} is
+     * {@code 0} for any {@code x}.
+     * </ul>
+     *
+     * @param a Number.
+     * @param b Number.
+     * @return the least common multiple, never negative.
+     * @throws ArithmeticException if the result cannot be represented as
+     * a non-negative {@code int} value.
+     */"
+commons-numbers_573_101,"@Test
+    void testPow_oe_101_oe() {
+        try {
+            ArithmeticUtils.pow(21, -7);
+            Assertions.fail(""Expecting IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+    }
+",ArithmeticUtilsTest::testPow_oe_101_oe,"public static int pow(final int k,
+                          final int e) {
+        if (e < 0) {
+            throw new IllegalArgumentException(NEGATIVE_EXPONENT_1 + e + NEGATIVE_EXPONENT_2);
+        }
+
+        if (k == 0) {
+            return e == 0 ? 1 : 0;
+        }
+
+        if (k == 1) {
+            return 1;
+        }
+
+        if (k == -1) {
+            return (e & 1) == 0 ? 1 : -1;
+        }
+
+        if (e >= 31) {
+            throw new ArithmeticException(""integer overflow"");
+        }
+
+        int exp = e;
+        int result = 1;
+        int k2p    = k;
+        while (true) {
+            if ((exp & 0x1) != 0) {
+                result = Math.multiplyExact(result, k2p);
+            }
+
+            exp >>= 1;
+            if (exp == 0) {
+                break;
+            }
+
+            k2p = Math.multiplyExact(k2p, k2p);
+        }
+
+        return result;
+    }","/**
+     * Raise an int to an int power.
+     *
+     * <p>Special cases:</p>
+     * <ul>
+     *   <li>{@code k^0} returns {@code 1} (including {@code k=0})
+     *   <li>{@code k^1} returns {@code k} (including {@code k=0})
+     *   <li>{@code 0^0} returns {@code 1}
+     *   <li>{@code 0^e} returns {@code 0}
+     *   <li>{@code 1^e} returns {@code 1}
+     *   <li>{@code (-1)^e} returns {@code -1 or 1} if {@code e} is odd or even
+     * </ul>
+     *
+     * @param k Number to raise.
+     * @param e Exponent (must be positive or zero).
+     * @return \( k^e \)
+     * @throws IllegalArgumentException if {@code e < 0}.
+     * @throws ArithmeticException if the result would overflow.
+     */"
+commons-numbers_573_102,"@Test
+    void testPow_oe_102_oe() {
+        try {
+            ArithmeticUtils.pow(21, -7);
+            Assertions.fail(""Expecting IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+    }
+",ArithmeticUtilsTest::testPow_oe_102_oe,"public static int pow(final int k,
+                          final int e) {
+        if (e < 0) {
+            throw new IllegalArgumentException(NEGATIVE_EXPONENT_1 + e + NEGATIVE_EXPONENT_2);
+        }
+
+        if (k == 0) {
+            return e == 0 ? 1 : 0;
+        }
+
+        if (k == 1) {
+            return 1;
+        }
+
+        if (k == -1) {
+            return (e & 1) == 0 ? 1 : -1;
+        }
+
+        if (e >= 31) {
+            throw new ArithmeticException(""integer overflow"");
+        }
+
+        int exp = e;
+        int result = 1;
+        int k2p    = k;
+        while (true) {
+            if ((exp & 0x1) != 0) {
+                result = Math.multiplyExact(result, k2p);
+            }
+
+            exp >>= 1;
+            if (exp == 0) {
+                break;
+            }
+
+            k2p = Math.multiplyExact(k2p, k2p);
+        }
+
+        return result;
+    }","/**
+     * Raise an int to an int power.
+     *
+     * <p>Special cases:</p>
+     * <ul>
+     *   <li>{@code k^0} returns {@code 1} (including {@code k=0})
+     *   <li>{@code k^1} returns {@code k} (including {@code k=0})
+     *   <li>{@code 0^0} returns {@code 1}
+     *   <li>{@code 0^e} returns {@code 0}
+     *   <li>{@code 1^e} returns {@code 1}
+     *   <li>{@code (-1)^e} returns {@code -1 or 1} if {@code e} is odd or even
+     * </ul>
+     *
+     * @param k Number to raise.
+     * @param e Exponent (must be positive or zero).
+     * @return \( k^e \)
+     * @throws IllegalArgumentException if {@code e < 0}.
+     * @throws ArithmeticException if the result would overflow.
+     */"
+commons-numbers_573_103,"@Test
+    void testPow_oe_103_oe() {
+        try {
+            ArithmeticUtils.pow(21L, -7);
+            Assertions.fail(""Expecting IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+    }
+",ArithmeticUtilsTest::testPow_oe_103_oe,"public static int pow(final int k,
+                          final int e) {
+        if (e < 0) {
+            throw new IllegalArgumentException(NEGATIVE_EXPONENT_1 + e + NEGATIVE_EXPONENT_2);
+        }
+
+        if (k == 0) {
+            return e == 0 ? 1 : 0;
+        }
+
+        if (k == 1) {
+            return 1;
+        }
+
+        if (k == -1) {
+            return (e & 1) == 0 ? 1 : -1;
+        }
+
+        if (e >= 31) {
+            throw new ArithmeticException(""integer overflow"");
+        }
+
+        int exp = e;
+        int result = 1;
+        int k2p    = k;
+        while (true) {
+            if ((exp & 0x1) != 0) {
+                result = Math.multiplyExact(result, k2p);
+            }
+
+            exp >>= 1;
+            if (exp == 0) {
+                break;
+            }
+
+            k2p = Math.multiplyExact(k2p, k2p);
+        }
+
+        return result;
+    }","/**
+     * Raise an int to an int power.
+     *
+     * <p>Special cases:</p>
+     * <ul>
+     *   <li>{@code k^0} returns {@code 1} (including {@code k=0})
+     *   <li>{@code k^1} returns {@code k} (including {@code k=0})
+     *   <li>{@code 0^0} returns {@code 1}
+     *   <li>{@code 0^e} returns {@code 0}
+     *   <li>{@code 1^e} returns {@code 1}
+     *   <li>{@code (-1)^e} returns {@code -1 or 1} if {@code e} is odd or even
+     * </ul>
+     *
+     * @param k Number to raise.
+     * @param e Exponent (must be positive or zero).
+     * @return \( k^e \)
+     * @throws IllegalArgumentException if {@code e < 0}.
+     * @throws ArithmeticException if the result would overflow.
+     */"

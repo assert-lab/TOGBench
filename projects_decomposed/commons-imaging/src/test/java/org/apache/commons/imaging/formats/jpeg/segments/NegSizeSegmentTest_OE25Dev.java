@@ -50,6 +50,7 @@ public class NegSizeSegmentTest_OE25Dev {
             final ByteSource bs = new ByteSourceInputStream(inputStream, "NegSizeSegment");
             final JpegImageParser p = new JpegImageParser();
             p.getBufferedImage(bs, new JpegImagingParameters());
+            // removed other assertion
         } catch (final ImageReadException e) {
             assertEquals("Invalid segment size", e.getMessage());
     }
@@ -72,7 +73,9 @@ public class NegSizeSegmentTest_OE25Dev {
             final ByteSource bs = new ByteSourceInputStream(inputStream, "NegSizeSegment");
             final JpegImageParser p = new JpegImageParser();
             p.getBufferedImage(bs, new JpegImagingParameters());
+            // removed other assertion
         } catch (final ImageReadException e) {
+            // removed other assertion
             assertEquals(JpegUtils.class.getName(), e.getStackTrace()[0].getClassName());
     }
     }

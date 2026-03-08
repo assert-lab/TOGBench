@@ -95,6 +95,7 @@ public class UrlConnectTest_OE25Dev {
         Connection.Response res = Jsoup.connect("http://www.baidu.com/").timeout(10*1000).execute();
         Document doc = res.parse();
 
+        // removed other assertion
         assertEquals("GBK", res.charset());
     }
 
@@ -103,6 +104,8 @@ public class UrlConnectTest_OE25Dev {
         Connection.Response res = Jsoup.connect("http://www.baidu.com/").timeout(10*1000).execute();
         Document doc = res.parse();
 
+        // removed other assertion
+        // removed other assertion
         assert(res.hasCookie("BAIDUID"));
     }
 
@@ -111,6 +114,9 @@ public class UrlConnectTest_OE25Dev {
         Connection.Response res = Jsoup.connect("http://www.baidu.com/").timeout(10*1000).execute();
         Document doc = res.parse();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("text/html;charset=gbk", res.contentType());
     }
 
@@ -138,6 +144,7 @@ public class UrlConnectTest_OE25Dev {
     public void followsNewTempRedirect_2_oe() throws IOException {
         Connection con = Jsoup.connect("http://direct.infohound.net/tools/307.pl"); // http://jsoup.org
         Document doc = con.get();
+        // removed other assertion
         assertEquals("https://jsoup.org/", con.response().url().toString());
     }
 
@@ -156,6 +163,7 @@ public class UrlConnectTest_OE25Dev {
                 .data("Argument", "Riposte")
                 .method(Connection.Method.POST);
         Connection.Response res = con.execute();
+        // removed other assertion
         assertEquals(Connection.Method.GET, res.method());
     }
 
@@ -176,6 +184,7 @@ public class UrlConnectTest_OE25Dev {
 
 @Test
     public void followsRelativeDotRedirect_1_oe() throws IOException {
+        // redirects to "./ok.html", should resolve to http://direct.infohound.net/tools/ok.html
         Connection con = Jsoup.connect("http://direct.infohound.net/tools/302-rel-dot.pl"); // to ./ok.html
         Document doc = con.post();
         assertTrue(doc.title().contains("OK"));
@@ -183,13 +192,16 @@ public class UrlConnectTest_OE25Dev {
 
 @Test
     public void followsRelativeDotRedirect_2_oe() throws IOException {
+        // redirects to "./ok.html", should resolve to http://direct.infohound.net/tools/ok.html
         Connection con = Jsoup.connect("http://direct.infohound.net/tools/302-rel-dot.pl"); // to ./ok.html
         Document doc = con.post();
+        // removed other assertion
         assertEquals(doc.location(), "http://direct.infohound.net/tools/ok.html");
     }
 
 @Test
     public void followsRelativeDotRedirect2_1_oe() throws IOException {
+        //redirects to "esportspenedes.cat/./ep/index.php", should resolve to "esportspenedes.cat/ep/index.php"
         Connection con = Jsoup.connect("http://esportspenedes.cat")  // note lack of trailing / - server should redir to / first, then to ./ep/...; but doesn't'
                 .timeout(10000);
         Document doc = con.post();
@@ -223,6 +235,7 @@ public class UrlConnectTest_OE25Dev {
         Connection con = Jsoup.connect("http://direct.infohound.net/tools/500.pl").ignoreHttpErrors(true);
         Connection.Response res = con.execute();
         Document doc = res.parse();
+        // removed other assertion
         assertEquals("Application Error", res.statusMessage());
     }
 
@@ -231,6 +244,8 @@ public class UrlConnectTest_OE25Dev {
         Connection con = Jsoup.connect("http://direct.infohound.net/tools/500.pl").ignoreHttpErrors(true);
         Connection.Response res = con.execute();
         Document doc = res.parse();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Woops", doc.select("h1").first().text());
     }
 
@@ -247,6 +262,7 @@ public class UrlConnectTest_OE25Dev {
         Connection con = Jsoup.connect("http://direct.infohound.net/tools/500-no-content.pl").ignoreHttpErrors(true);
         Connection.Response res = con.execute();
         Document doc = res.parse();
+        // removed other assertion
         assertEquals("Application Error", res.statusMessage());
     }
 
@@ -263,6 +279,7 @@ public class UrlConnectTest_OE25Dev {
         Connection con = Jsoup.connect("http://direct.infohound.net/tools/200-no-content.pl").ignoreHttpErrors(true);
         Connection.Response res = con.execute();
         Document doc = res.parse();
+        // removed other assertion
         assertEquals("All Good", res.statusMessage());
     }
 
@@ -283,6 +300,7 @@ public class UrlConnectTest_OE25Dev {
             .userAgent(browserUa);
         Connection.Response res = con.execute();
         Document doc = res.parse();
+        // removed other assertion
 
         con = Jsoup
             .connect("http://direct.infohound.net/tools/200-no-content.pl")
@@ -304,6 +322,7 @@ public class UrlConnectTest_OE25Dev {
     public void doesntRedirectIfSoConfigured_2_oe() throws IOException {
         Connection con = Jsoup.connect("http://direct.infohound.net/tools/302.pl").followRedirects(false);
         Connection.Response res = con.execute();
+        // removed other assertion
         assertEquals("http://jsoup.org", res.header("Location"));
     }
 
@@ -318,6 +337,7 @@ public class UrlConnectTest_OE25Dev {
     public void redirectsResponseCookieToNextResponse_2_oe() throws IOException {
         Connection con = Jsoup.connect("http://direct.infohound.net/tools/302-cookie.pl");
         Connection.Response res = con.execute();
+        // removed other assertion
         Document doc = res.parse();
         assertEquals("token=asdfg123; uid=jhy", ihVal("HTTP_COOKIE", doc)); // confirms that redirected hit saw cookie;
     }
@@ -338,6 +358,7 @@ public class UrlConnectTest_OE25Dev {
         try {
             Document doc = Jsoup.connect("http://direct.infohound.net/tools/loop.pl").get();
         } catch (IOException e) {
+            // removed other assertion
             threw = true;
         }
         assertTrue(threw);
@@ -345,6 +366,7 @@ public class UrlConnectTest_OE25Dev {
 
 @Test
     public void handlesDodgyCharset_1_oe() throws IOException {
+        // tests that when we get back "UFT8", that it is recognised as unsupported, and falls back to default instead
         String url = "http://direct.infohound.net/tools/bad-charset.pl";
         Connection.Response res = Jsoup.connect(url).execute();
         assertEquals("text/html;charset=UFT8",res.header("Content-Type"));// from the header assertNull(res.charset());// tried to get from header,not supported,so returns null Document doc = res.parse();// would throw an error if charset unsupported assertTrue(doc.text().contains("Hello!"));
@@ -352,20 +374,30 @@ public class UrlConnectTest_OE25Dev {
 
 @Test
     public void handlesDodgyCharset_2_oe() throws IOException {
+        // tests that when we get back "UFT8", that it is recognised as unsupported, and falls back to default instead
         String url = "http://direct.infohound.net/tools/bad-charset.pl";
         Connection.Response res = Jsoup.connect(url).execute();
+        // removed other assertion
         assertEquals("UTF-8", res.charset()); // set from default on parse;
     }
 
 @Test
     public void testUnsafeFail_1_oe() throws Exception {
         String url = WEBSITE_WITH_INVALID_CERTIFICATE;
-        assertThrows(IOException.class, () -> Jsoup.connect(url).execute());
+        try {
+    Jsoup.connect(url).execute();
+    fail("Expected IOException");
+} catch (IOException e) {
+}
     }
 
 @Test
     public void testSNIFail_1_oe() throws Exception {
-        assertThrows(IOException.class, () -> Jsoup.connect(WEBSITE_WITH_SNI).execute());
+        try {
+    Jsoup.connect(WEBSITE_WITH_SNI).execute();
+    fail("Expected IOException");
+} catch (IOException e) {
+}
     }
 
 @Test
@@ -437,20 +469,12 @@ public class UrlConnectTest_OE25Dev {
     }
 
 @Test
-    public void proxyGetAndSet_1_oe() throws IOException {
-        String url = "https://jsoup.org";
-        Proxy proxy = new Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved("localhost", 8889)); // invalid
-        final Connection con = Jsoup.connect(url).proxy(proxy);
-
-        assert con.request().proxy() == proxy;
-    }
-
-@Test
     public void proxyGetAndSet_2_oe() throws IOException {
         String url = "https://jsoup.org";
         Proxy proxy = new Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved("localhost", 8889)); // invalid
         final Connection con = Jsoup.connect(url).proxy(proxy);
 
+        // removed other assertion
         con.request().proxy(null); // disable
         Document doc = con.get();
         assertTrue(doc.title().contains("jsoup")); // would fail if actually went via proxy;
@@ -470,161 +494,265 @@ public class UrlConnectTest_OE25Dev {
 
 @Test
     public void canSpecifyResponseCharset_1_oe() throws IOException {
+        // both these docs have <80> in there as euro/control char depending on charset
         String noCharsetUrl = "http://direct.infohound.net/tools/Windows-1252-nocharset.html";
         String charsetUrl = "http://direct.infohound.net/tools/Windows-1252-charset.html";
 
+        // included in meta
         Connection.Response res1 = Jsoup.connect(charsetUrl).execute();
         assertNull(res1.charset());// not set in headers;
     }
 
 @Test
     public void canSpecifyResponseCharset_2_oe() throws IOException {
+        // both these docs have <80> in there as euro/control char depending on charset
         String noCharsetUrl = "http://direct.infohound.net/tools/Windows-1252-nocharset.html";
         String charsetUrl = "http://direct.infohound.net/tools/Windows-1252-charset.html";
 
+        // included in meta
         Connection.Response res1 = Jsoup.connect(charsetUrl).execute();
+        // removed other assertion
         final Document doc1 = res1.parse();
         assertEquals("windows-1252",doc1.charset().displayName());// but determined at parse time;
     }
 
 @Test
     public void canSpecifyResponseCharset_3_oe() throws IOException {
+        // both these docs have <80> in there as euro/control char depending on charset
         String noCharsetUrl = "http://direct.infohound.net/tools/Windows-1252-nocharset.html";
         String charsetUrl = "http://direct.infohound.net/tools/Windows-1252-charset.html";
 
+        // included in meta
         Connection.Response res1 = Jsoup.connect(charsetUrl).execute();
+        // removed other assertion
         final Document doc1 = res1.parse();
+        // removed other assertion
         assertEquals("Cost is €100",doc1.select("p").text());
     }
 
 @Test
     public void canSpecifyResponseCharset_4_oe() throws IOException {
+        // both these docs have <80> in there as euro/control char depending on charset
         String noCharsetUrl = "http://direct.infohound.net/tools/Windows-1252-nocharset.html";
         String charsetUrl = "http://direct.infohound.net/tools/Windows-1252-charset.html";
 
+        // included in meta
         Connection.Response res1 = Jsoup.connect(charsetUrl).execute();
+        // removed other assertion
         final Document doc1 = res1.parse();
+        // removed other assertion
+        // removed other assertion
         assertTrue(doc1.text().contains("€"));
     }
 
 @Test
     public void canSpecifyResponseCharset_5_oe() throws IOException {
+        // both these docs have <80> in there as euro/control char depending on charset
         String noCharsetUrl = "http://direct.infohound.net/tools/Windows-1252-nocharset.html";
         String charsetUrl = "http://direct.infohound.net/tools/Windows-1252-charset.html";
 
+        // included in meta
         Connection.Response res1 = Jsoup.connect(charsetUrl).execute();
+        // removed other assertion
         final Document doc1 = res1.parse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // no meta, no override
         Connection.Response res2 = Jsoup.connect(noCharsetUrl).execute();
         assertNull(res2.charset());// not set in headers;
     }
 
 @Test
     public void canSpecifyResponseCharset_6_oe() throws IOException {
+        // both these docs have <80> in there as euro/control char depending on charset
         String noCharsetUrl = "http://direct.infohound.net/tools/Windows-1252-nocharset.html";
         String charsetUrl = "http://direct.infohound.net/tools/Windows-1252-charset.html";
 
+        // included in meta
         Connection.Response res1 = Jsoup.connect(charsetUrl).execute();
+        // removed other assertion
         final Document doc1 = res1.parse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // no meta, no override
         Connection.Response res2 = Jsoup.connect(noCharsetUrl).execute();
+        // removed other assertion
         final Document doc2 = res2.parse();
         assertEquals("UTF-8",doc2.charset().displayName());// so defaults to utf-8;
     }
 
 @Test
     public void canSpecifyResponseCharset_7_oe() throws IOException {
+        // both these docs have <80> in there as euro/control char depending on charset
         String noCharsetUrl = "http://direct.infohound.net/tools/Windows-1252-nocharset.html";
         String charsetUrl = "http://direct.infohound.net/tools/Windows-1252-charset.html";
 
+        // included in meta
         Connection.Response res1 = Jsoup.connect(charsetUrl).execute();
+        // removed other assertion
         final Document doc1 = res1.parse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // no meta, no override
         Connection.Response res2 = Jsoup.connect(noCharsetUrl).execute();
+        // removed other assertion
         final Document doc2 = res2.parse();
+        // removed other assertion
         assertEquals("Cost is �100",doc2.select("p").text());
     }
 
 @Test
     public void canSpecifyResponseCharset_8_oe() throws IOException {
+        // both these docs have <80> in there as euro/control char depending on charset
         String noCharsetUrl = "http://direct.infohound.net/tools/Windows-1252-nocharset.html";
         String charsetUrl = "http://direct.infohound.net/tools/Windows-1252-charset.html";
 
+        // included in meta
         Connection.Response res1 = Jsoup.connect(charsetUrl).execute();
+        // removed other assertion
         final Document doc1 = res1.parse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // no meta, no override
         Connection.Response res2 = Jsoup.connect(noCharsetUrl).execute();
+        // removed other assertion
         final Document doc2 = res2.parse();
+        // removed other assertion
+        // removed other assertion
         assertTrue(doc2.text().contains("�"));
     }
 
 @Test
     public void canSpecifyResponseCharset_9_oe() throws IOException {
+        // both these docs have <80> in there as euro/control char depending on charset
         String noCharsetUrl = "http://direct.infohound.net/tools/Windows-1252-nocharset.html";
         String charsetUrl = "http://direct.infohound.net/tools/Windows-1252-charset.html";
 
+        // included in meta
         Connection.Response res1 = Jsoup.connect(charsetUrl).execute();
+        // removed other assertion
         final Document doc1 = res1.parse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // no meta, no override
         Connection.Response res2 = Jsoup.connect(noCharsetUrl).execute();
+        // removed other assertion
         final Document doc2 = res2.parse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // no meta, let's override
         Connection.Response res3 = Jsoup.connect(noCharsetUrl).execute();
         assertNull(res3.charset());// not set in headers;
     }
 
 @Test
     public void canSpecifyResponseCharset_10_oe() throws IOException {
+        // both these docs have <80> in there as euro/control char depending on charset
         String noCharsetUrl = "http://direct.infohound.net/tools/Windows-1252-nocharset.html";
         String charsetUrl = "http://direct.infohound.net/tools/Windows-1252-charset.html";
 
+        // included in meta
         Connection.Response res1 = Jsoup.connect(charsetUrl).execute();
+        // removed other assertion
         final Document doc1 = res1.parse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // no meta, no override
         Connection.Response res2 = Jsoup.connect(noCharsetUrl).execute();
+        // removed other assertion
         final Document doc2 = res2.parse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // no meta, let's override
         Connection.Response res3 = Jsoup.connect(noCharsetUrl).execute();
+        // removed other assertion
         res3.charset("windows-1252");
         assertEquals("windows-1252",res3.charset());// read back;
     }
 
 @Test
     public void canSpecifyResponseCharset_11_oe() throws IOException {
+        // both these docs have <80> in there as euro/control char depending on charset
         String noCharsetUrl = "http://direct.infohound.net/tools/Windows-1252-nocharset.html";
         String charsetUrl = "http://direct.infohound.net/tools/Windows-1252-charset.html";
 
+        // included in meta
         Connection.Response res1 = Jsoup.connect(charsetUrl).execute();
+        // removed other assertion
         final Document doc1 = res1.parse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // no meta, no override
         Connection.Response res2 = Jsoup.connect(noCharsetUrl).execute();
+        // removed other assertion
         final Document doc2 = res2.parse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // no meta, let's override
         Connection.Response res3 = Jsoup.connect(noCharsetUrl).execute();
+        // removed other assertion
         res3.charset("windows-1252");
+        // removed other assertion
         final Document doc3 = res3.parse();
         assertEquals("windows-1252",doc3.charset().displayName());// from override assertEquals("Cost is €100",doc3.select("p").text());
     }
 
 @Test
     public void canSpecifyResponseCharset_12_oe() throws IOException {
+        // both these docs have <80> in there as euro/control char depending on charset
         String noCharsetUrl = "http://direct.infohound.net/tools/Windows-1252-nocharset.html";
         String charsetUrl = "http://direct.infohound.net/tools/Windows-1252-charset.html";
 
+        // included in meta
         Connection.Response res1 = Jsoup.connect(charsetUrl).execute();
+        // removed other assertion
         final Document doc1 = res1.parse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // no meta, no override
         Connection.Response res2 = Jsoup.connect(noCharsetUrl).execute();
+        // removed other assertion
         final Document doc2 = res2.parse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // no meta, let's override
         Connection.Response res3 = Jsoup.connect(noCharsetUrl).execute();
+        // removed other assertion
         res3.charset("windows-1252");
+        // removed other assertion
         final Document doc3 = res3.parse();
+        // removed other assertion
         assertTrue(doc3.text().contains("€"));
     }
 
 @Test
     public void handlesUnescapedRedirects_1_oe() throws IOException {
+        // URL locations should be url safe (ascii) but are often not, so we should try to guess
+        // in this case the location header is utf-8, but defined in spec as iso8859, so detect, convert, encode
         String url = "http://direct.infohound.net/tools/302-utf.pl";
         String urlEscaped = "http://direct.infohound.net/tools/test%F0%9F%92%A9.html";
 
@@ -635,21 +763,28 @@ public class UrlConnectTest_OE25Dev {
 
 @Test
     public void handlesUnescapedRedirects_2_oe() throws IOException {
+        // URL locations should be url safe (ascii) but are often not, so we should try to guess
+        // in this case the location header is utf-8, but defined in spec as iso8859, so detect, convert, encode
         String url = "http://direct.infohound.net/tools/302-utf.pl";
         String urlEscaped = "http://direct.infohound.net/tools/test%F0%9F%92%A9.html";
 
         Connection.Response res = Jsoup.connect(url).execute();
         Document doc = res.parse();
+        // removed other assertion
         assertEquals(doc.location(), urlEscaped);
     }
 
 @Test
     public void handlesUnescapedRedirects_3_oe() throws IOException {
+        // URL locations should be url safe (ascii) but are often not, so we should try to guess
+        // in this case the location header is utf-8, but defined in spec as iso8859, so detect, convert, encode
         String url = "http://direct.infohound.net/tools/302-utf.pl";
         String urlEscaped = "http://direct.infohound.net/tools/test%F0%9F%92%A9.html";
 
         Connection.Response res = Jsoup.connect(url).execute();
         Document doc = res.parse();
+        // removed other assertion
+        // removed other assertion
 
         Connection.Response res2 = Jsoup.connect(url).followRedirects(false).execute();
         assertEquals("/tools/test\uD83D\uDCA9.html", res2.header("Location"));
@@ -662,6 +797,7 @@ public class UrlConnectTest_OE25Dev {
 
 @Test public void handlesEscapesInRedirecct_2_oe() throws IOException {
         Document doc = Jsoup.connect("http://infohound.net/tools/302-escaped.pl").get();
+        // removed other assertion
 
         doc = Jsoup.connect("http://infohound.net/tools/302-white.pl").get();
         assertEquals("http://infohound.net/tools/q.pl?q=one%20two", doc.location());
@@ -684,6 +820,7 @@ public class UrlConnectTest_OE25Dev {
 
         Connection.Response res = Jsoup.connect(url).execute();
         Document doc = res.parse();
+        // removed other assertion
         assertEquals(urlEscaped, doc.location());
     }
 
@@ -703,7 +840,13 @@ public class UrlConnectTest_OE25Dev {
 
 @Test public void handlesEscapedRedirectUrls_1_oe() throws IOException {
         String url = "http://www.altalex.com/documents/news/2016/12/06/questioni-civilistiche-conseguenti-alla-depenalizzazione";
+        // sends: Location:http://shop.wki.it/shared/sso/sso.aspx?sso=&url=http%3a%2f%2fwww.altalex.com%2fsession%2fset%2f%3freturnurl%3dhttp%253a%252f%252fwww.altalex.com%253a80%252fdocuments%252fnews%252f2016%252f12%252f06%252fquestioni-civilistiche-conseguenti-alla-depenalizzazione
+        // then to: http://www.altalex.com/session/set/?returnurl=http%3a%2f%2fwww.altalex.com%3a80%2fdocuments%2fnews%2f2016%2f12%2f06%2fquestioni-civilistiche-conseguenti-alla-depenalizzazione&sso=RDRG6T684G4AK2E7U591UGR923
+        // then : http://www.altalex.com:80/documents/news/2016/12/06/questioni-civilistiche-conseguenti-alla-depenalizzazione
 
+        // bug is that jsoup goes to
+        // 	GET /shared/sso/sso.aspx?sso=&url=http%253a%252f%252fwww.altalex.com%252fsession%252fset%252f%253freturnurl%253dhttp%25253a%25252f%25252fwww.altalex.com%25253a80%25252fdocuments%25252fnews%25252f2016%25252f12%25252f06%25252fquestioni-civilistiche-conseguenti-alla-depenalizzazione HTTP/1.1
+        // i.e. double escaped
 
         Connection.Response res = Jsoup.connect(url)
                 .proxy("localhost", 8888)
@@ -719,12 +862,14 @@ public class UrlConnectTest_OE25Dev {
 
 @Test public void handlesUnicodeInQuery_2_oe() throws IOException {
         Document doc = Jsoup.connect("https://www.google.pl/search?q=gąska").get();
+        // removed other assertion
 
         doc = Jsoup.connect("http://mov-world.net/archiv/TV/A/%23No.Title/").get();
         assertEquals("Index of /archiv/TV/A/%23No.Title", doc.title());
         }
 
 @Test public void handlesSuperDeepPage_1_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/955
 
         long start = System.currentTimeMillis();
         String url = "http://sv.stargate.wikia.com/wiki/M2J";
@@ -733,22 +878,30 @@ public class UrlConnectTest_OE25Dev {
         }
 
 @Test public void handlesSuperDeepPage_2_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/955
 
         long start = System.currentTimeMillis();
         String url = "http://sv.stargate.wikia.com/wiki/M2J";
         Document doc = Jsoup.connect(url).get();
+        // removed other assertion
         assertEquals(110160, doc.select("dd").size());
         }
 
 @Test public void handlesSuperDeepPage_3_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/955
 
         long start = System.currentTimeMillis();
         String url = "http://sv.stargate.wikia.com/wiki/M2J";
         Document doc = Jsoup.connect(url).get();
+        // removed other assertion
+        // removed other assertion
+        // those are all <dl><dd> stacked in each other. wonder how that got generated?
         assertTrue(System.currentTimeMillis() - start < 1000);
         }
 
 @Test public void handles966_1_oe() throws IOException {
+        // http://szshb.nxszs.gov.cn/
+        // https://github.com/jhy/jsoup/issues/966
 
         Document doc = Jsoup.connect("http://szshb.nxszs.gov.cn/").get();
 
@@ -766,6 +919,7 @@ public class UrlConnectTest_OE25Dev {
         String url = "https://räksmörgås.josefsson.org/";
         Document doc = Jsoup.connect(url).get();
 
+        // removed other assertion
         assertTrue(doc.title().contains("Räksmörgås.josefßon.org"));
         }
 

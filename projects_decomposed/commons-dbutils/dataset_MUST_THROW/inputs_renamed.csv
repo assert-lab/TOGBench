@@ -1,0 +1,38 @@
+id,test_prefix,test_name
+commons-dbutils_2_101,"public void testLoadThrowsIllegalArgumentException_oe_101_oe() throws IOException {
+        try {
+            queryLoader.load(""e"");
+            fail(""Expecting exception: IllegalArgumentException"");
+        } catch(IllegalArgumentException e) {
+        }
+    }
+",QueryLoaderTest::testLoadThrowsIllegalArgumentException_oe_101_oe
+commons-dbutils_18_101,"@Test
+    public void commitAndCloseWithException_oe_101_oe() throws Exception {
+        try {
+            DbUtils.commitAndClose(mockConnection);
+            fail(""DbUtils.commitAndClose() swallowed SQLEception!"");
+        } catch (SQLException e) {
+            // we expect this exception
+        }
+    }
+",DbUtilsTest::commitAndCloseWithException_oe_101_oe
+commons-dbutils_19_101,"@Test
+    public void rollbackAndCloseWithException_oe_101_oe() throws Exception {
+        try {
+            DbUtils.rollbackAndClose(mockConnection);
+            fail(""DbUtils.rollbackAndClose() swallowed SQLException!"");
+        } catch (SQLException e) {
+            // we expect this exeption
+        }
+    }
+",DbUtilsTest::rollbackAndCloseWithException_oe_101_oe
+commons-dbutils_33_101,"@Test
+    public void testRethrowThrowsRuntimeException_oe_101_oe() {
+        try {
+            resultSetIterator.rethrow(sQLException);
+            fail(""Expecting exception: RuntimeException"");
+        } catch(RuntimeException e) {
+        }
+    }
+",ResultSetIteratorTest::testRethrowThrowsRuntimeException_oe_101_oe

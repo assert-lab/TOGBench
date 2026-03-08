@@ -49,6 +49,7 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
       assertEquals(emptyStats.getTotalActiveConnectionCount(), 0);
   }
   }
@@ -60,6 +61,8 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(emptyStats.getTotalIdleConnectionCount(), 0);
   }
   }
@@ -71,6 +74,9 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(emptyStats.getTotalConnectionCount(), 0);
   }
   }
@@ -82,6 +88,10 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertNull(emptyStats.getStatsPerHost().get(hostname));
   }
   }
@@ -93,6 +103,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -114,6 +129,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -124,6 +144,7 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
       assertEquals(activeStats.getTotalActiveConnectionCount(), 5);
   }
   }
@@ -135,6 +156,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -145,6 +171,8 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(activeStats.getTotalIdleConnectionCount(), 0);
   }
   }
@@ -156,6 +184,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -166,6 +199,9 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(activeStats.getTotalConnectionCount(), 5);
   }
   }
@@ -177,6 +213,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -187,6 +228,10 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(activeStats.getStatsPerHost().get(hostname).getHostConnectionCount(), 5);
   }
   }
@@ -198,6 +243,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -208,6 +258,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -226,6 +281,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -236,6 +296,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -243,6 +308,7 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
       assertEquals(idleStats.getTotalActiveConnectionCount(), 0);
   }
   }
@@ -254,6 +320,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -264,6 +335,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -271,6 +347,8 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(idleStats.getTotalIdleConnectionCount(), 5);
   }
   }
@@ -282,6 +360,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -292,6 +375,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -299,6 +387,9 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(idleStats.getTotalConnectionCount(), 5);
   }
   }
@@ -310,6 +401,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -320,6 +416,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -327,6 +428,10 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(idleStats.getStatsPerHost().get(hostname).getHostConnectionCount(), 5);
   }
   }
@@ -338,6 +443,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -348,6 +458,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -355,7 +470,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -377,6 +498,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -387,6 +513,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -394,7 +525,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -405,6 +542,7 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
       assertEquals(activeCachedStats.getTotalActiveConnectionCount(), 3);
   }
   }
@@ -416,6 +554,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -426,6 +569,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -433,7 +581,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -444,6 +598,8 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(activeCachedStats.getTotalIdleConnectionCount(), 2);
   }
   }
@@ -455,6 +611,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -465,6 +626,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -472,7 +638,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -483,6 +655,9 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(activeCachedStats.getTotalConnectionCount(), 5);
   }
   }
@@ -494,6 +669,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -504,6 +684,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -511,7 +696,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -522,6 +713,10 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(activeCachedStats.getStatsPerHost().get(hostname).getHostConnectionCount(), 5);
   }
   }
@@ -533,6 +728,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -543,6 +743,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -550,7 +755,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -561,6 +772,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       repeatedFutures.forEach(future -> future.toCompletableFuture().join());
 
@@ -579,6 +795,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -589,6 +810,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -596,7 +822,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -607,6 +839,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       repeatedFutures.forEach(future -> future.toCompletableFuture().join());
 
@@ -614,6 +851,7 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleCachedStats = client.getClientStats();
 
+      // removed other assertion
       assertEquals(idleCachedStats.getTotalActiveConnectionCount(), 0);
   }
   }
@@ -625,6 +863,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -635,6 +878,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -642,7 +890,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -653,6 +907,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       repeatedFutures.forEach(future -> future.toCompletableFuture().join());
 
@@ -660,6 +919,8 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(idleCachedStats.getTotalIdleConnectionCount(), 3);
   }
   }
@@ -671,6 +932,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -681,6 +947,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -688,7 +959,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -699,6 +976,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       repeatedFutures.forEach(future -> future.toCompletableFuture().join());
 
@@ -706,6 +988,9 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(idleCachedStats.getTotalConnectionCount(), 3);
   }
   }
@@ -717,6 +1002,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -727,6 +1017,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -734,7 +1029,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -745,6 +1046,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       repeatedFutures.forEach(future -> future.toCompletableFuture().join());
 
@@ -752,6 +1058,10 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(idleCachedStats.getStatsPerHost().get(hostname).getHostConnectionCount(), 3);
   }
   }
@@ -763,6 +1073,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -773,6 +1088,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -780,7 +1100,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -791,6 +1117,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       repeatedFutures.forEach(future -> future.toCompletableFuture().join());
 
@@ -798,6 +1129,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       Thread.sleep(5000);
 
@@ -814,6 +1150,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -824,6 +1165,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -831,7 +1177,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -842,6 +1194,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       repeatedFutures.forEach(future -> future.toCompletableFuture().join());
 
@@ -849,11 +1206,17 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       Thread.sleep(5000);
 
       final ClientStats timeoutStats = client.getClientStats();
 
+      // removed other assertion
       assertEquals(timeoutStats.getTotalActiveConnectionCount(), 0);
   }
   }
@@ -865,6 +1228,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -875,6 +1243,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -882,7 +1255,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -893,6 +1272,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       repeatedFutures.forEach(future -> future.toCompletableFuture().join());
 
@@ -900,11 +1284,18 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       Thread.sleep(5000);
 
       final ClientStats timeoutStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(timeoutStats.getTotalIdleConnectionCount(), 0);
   }
   }
@@ -916,6 +1307,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -926,6 +1322,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -933,7 +1334,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -944,6 +1351,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       repeatedFutures.forEach(future -> future.toCompletableFuture().join());
 
@@ -951,11 +1363,19 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       Thread.sleep(5000);
 
       final ClientStats timeoutStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(timeoutStats.getTotalConnectionCount(), 0);
   }
   }
@@ -967,6 +1387,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -977,6 +1402,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -984,7 +1414,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -995,6 +1431,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       repeatedFutures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1002,11 +1443,20 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       Thread.sleep(5000);
 
       final ClientStats timeoutStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertNull(timeoutStats.getStatsPerHost().get(hostname));
   }
   }
@@ -1029,6 +1479,7 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
       assertEquals(emptyStats.getTotalActiveConnectionCount(), 0);
   }
   }
@@ -1040,6 +1491,8 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(emptyStats.getTotalIdleConnectionCount(), 0);
   }
   }
@@ -1051,6 +1504,9 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(emptyStats.getTotalConnectionCount(), 0);
   }
   }
@@ -1062,6 +1518,10 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertNull(emptyStats.getStatsPerHost().get(hostname));
   }
   }
@@ -1073,6 +1533,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1094,6 +1559,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1104,6 +1574,7 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
       assertEquals(activeStats.getTotalActiveConnectionCount(), 5);
   }
   }
@@ -1115,6 +1586,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1125,6 +1601,8 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(activeStats.getTotalIdleConnectionCount(), 0);
   }
   }
@@ -1136,6 +1614,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1146,6 +1629,9 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(activeStats.getTotalConnectionCount(), 5);
   }
   }
@@ -1157,6 +1643,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1167,6 +1658,10 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(activeStats.getStatsPerHost().get(hostname).getHostConnectionCount(), 5);
   }
   }
@@ -1178,6 +1673,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1188,6 +1688,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1206,6 +1711,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1216,6 +1726,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1223,6 +1738,7 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
       assertEquals(idleStats.getTotalActiveConnectionCount(), 0);
   }
   }
@@ -1234,6 +1750,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1244,6 +1765,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1251,6 +1777,8 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(idleStats.getTotalIdleConnectionCount(), 0);
   }
   }
@@ -1262,6 +1790,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1272,6 +1805,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1279,6 +1817,9 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(idleStats.getTotalConnectionCount(), 0);
   }
   }
@@ -1290,6 +1831,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1300,6 +1846,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1307,6 +1858,10 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertNull(idleStats.getStatsPerHost().get(hostname));
   }
   }
@@ -1318,6 +1873,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1328,6 +1888,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1335,7 +1900,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1357,6 +1928,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1367,6 +1943,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1374,7 +1955,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1385,6 +1972,7 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
       assertEquals(activeCachedStats.getTotalActiveConnectionCount(), 3);
   }
   }
@@ -1396,6 +1984,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1406,6 +1999,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1413,7 +2011,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1424,6 +2028,8 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(activeCachedStats.getTotalIdleConnectionCount(), 0);
   }
   }
@@ -1435,6 +2041,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1445,6 +2056,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1452,7 +2068,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1463,6 +2085,9 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(activeCachedStats.getTotalConnectionCount(), 3);
   }
   }
@@ -1474,6 +2099,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1484,6 +2114,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1491,7 +2126,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1502,6 +2143,10 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(activeCachedStats.getStatsPerHost().get(hostname).getHostConnectionCount(), 3);
   }
   }
@@ -1513,6 +2158,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1523,6 +2173,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1530,7 +2185,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1541,6 +2202,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       repeatedFutures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1559,6 +2225,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1569,6 +2240,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1576,7 +2252,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1587,6 +2269,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       repeatedFutures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1594,6 +2281,7 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleCachedStats = client.getClientStats();
 
+      // removed other assertion
       assertEquals(idleCachedStats.getTotalActiveConnectionCount(), 0);
   }
   }
@@ -1605,6 +2293,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1615,6 +2308,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1622,7 +2320,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1633,6 +2337,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       repeatedFutures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1640,6 +2349,8 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(idleCachedStats.getTotalIdleConnectionCount(), 0);
   }
   }
@@ -1651,6 +2362,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1661,6 +2377,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1668,7 +2389,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1679,6 +2406,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       repeatedFutures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1686,6 +2418,9 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(idleCachedStats.getTotalConnectionCount(), 0);
   }
   }
@@ -1697,6 +2432,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats emptyStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       final List<ListenableFuture<Response>> futures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1707,6 +2447,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       futures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1714,7 +2459,13 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
+      // Let's make sure the active count is correct when reusing cached connections.
 
       final List<ListenableFuture<Response>> repeatedFutures =
               Stream.generate(() -> client.prepareGet(url).setHeader("LockThread", "6").execute())
@@ -1725,6 +2476,11 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats activeCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
 
       repeatedFutures.forEach(future -> future.toCompletableFuture().join());
 
@@ -1732,6 +2488,10 @@ public class ClientStatsTest_OE25Dev extends AbstractBasicTest {
 
       final ClientStats idleCachedStats = client.getClientStats();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertNull(idleCachedStats.getStatsPerHost().get(hostname));
   }
   }

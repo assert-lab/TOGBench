@@ -110,6 +110,7 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = ",123";
         String XXXX    = "XXXX"; 
         Byte expected = Byte.valueOf((byte)123);
+        // removed other assertion
         assertEquals("validate(A) locale ", expected, ByteValidator.getInstance().validate(localeVal, locale));
     }
 
@@ -122,6 +123,8 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = ",123";
         String XXXX    = "XXXX"; 
         Byte expected = Byte.valueOf((byte)123);
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(A) pattern", expected, ByteValidator.getInstance().validate(patternVal, pattern));
     }
 
@@ -134,6 +137,9 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = ",123";
         String XXXX    = "XXXX"; 
         Byte expected = Byte.valueOf((byte)123);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(A) both",    expected, ByteValidator.getInstance().validate(germanPatternVal, pattern, Locale.GERMAN));
     }
 
@@ -146,6 +152,10 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = ",123";
         String XXXX    = "XXXX"; 
         Byte expected = Byte.valueOf((byte)123);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue("isValid(A) default", ByteValidator.getInstance().isValid(defaultVal));
     }
@@ -159,7 +169,12 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = ",123";
         String XXXX    = "XXXX"; 
         Byte expected = Byte.valueOf((byte)123);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue("isValid(A) locale ", ByteValidator.getInstance().isValid(localeVal, locale));
     }
 
@@ -172,7 +187,13 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = ",123";
         String XXXX    = "XXXX"; 
         Byte expected = Byte.valueOf((byte)123);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid(A) pattern", ByteValidator.getInstance().isValid(patternVal, pattern));
     }
 
@@ -185,7 +206,14 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = ",123";
         String XXXX    = "XXXX"; 
         Byte expected = Byte.valueOf((byte)123);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid(A) both",    ByteValidator.getInstance().isValid(germanPatternVal, pattern, Locale.GERMAN));
     }
 
@@ -198,7 +226,15 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = ",123";
         String XXXX    = "XXXX"; 
         Byte expected = Byte.valueOf((byte)123);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertNull("validate(B) default", ByteValidator.getInstance().validate(XXXX));
     }
@@ -212,8 +248,17 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = ",123";
         String XXXX    = "XXXX"; 
         Byte expected = Byte.valueOf((byte)123);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertNull("validate(B) locale ", ByteValidator.getInstance().validate(XXXX, locale));
     }
 
@@ -226,8 +271,18 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = ",123";
         String XXXX    = "XXXX"; 
         Byte expected = Byte.valueOf((byte)123);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertNull("validate(B) pattern", ByteValidator.getInstance().validate(XXXX, pattern));
     }
 
@@ -240,8 +295,19 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = ",123";
         String XXXX    = "XXXX"; 
         Byte expected = Byte.valueOf((byte)123);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("validate(B) both",    ByteValidator.getInstance().validate(patternVal, pattern, Locale.GERMAN));
     }
 
@@ -254,8 +320,20 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = ",123";
         String XXXX    = "XXXX"; 
         Byte expected = Byte.valueOf((byte)123);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("isValid(B) default", ByteValidator.getInstance().isValid(XXXX));
     }
@@ -269,9 +347,22 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = ",123";
         String XXXX    = "XXXX"; 
         Byte expected = Byte.valueOf((byte)123);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("isValid(B) locale ", ByteValidator.getInstance().isValid(XXXX, locale));
     }
 
@@ -284,9 +375,23 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = ",123";
         String XXXX    = "XXXX"; 
         Byte expected = Byte.valueOf((byte)123);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid(B) pattern", ByteValidator.getInstance().isValid(XXXX, pattern));
     }
 
@@ -299,9 +404,24 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = ",123";
         String XXXX    = "XXXX"; 
         Byte expected = Byte.valueOf((byte)123);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid(B) both",    ByteValidator.getInstance().isValid(patternVal, pattern, Locale.GERMAN));
     }
 
@@ -316,6 +436,7 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         byte min = (byte)10;
         byte max = (byte)20;
 
+        // Test isInRange()
         assertFalse("isInRange() < min",   validator.isInRange(number9,  min, max));
     }
 
@@ -330,6 +451,8 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         byte min = (byte)10;
         byte max = (byte)20;
 
+        // Test isInRange()
+        // removed other assertion
         assertTrue("isInRange() = min",    validator.isInRange(number10, min, max));
     }
 
@@ -344,6 +467,9 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         byte min = (byte)10;
         byte max = (byte)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
         assertTrue("isInRange() in range", validator.isInRange(number11, min, max));
     }
 
@@ -358,6 +484,10 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         byte min = (byte)10;
         byte max = (byte)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isInRange() = max",    validator.isInRange(number20, min, max));
     }
 
@@ -372,6 +502,11 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         byte min = (byte)10;
         byte max = (byte)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isInRange() > max",   validator.isInRange(number21, min, max));
     }
 
@@ -386,7 +521,14 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         byte min = (byte)10;
         byte max = (byte)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
         assertFalse("minValue() < min",    validator.minValue(number9,  min));
     }
 
@@ -401,7 +543,15 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         byte min = (byte)10;
         byte max = (byte)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
         assertTrue("minValue() = min",     validator.minValue(number10, min));
     }
 
@@ -416,7 +566,16 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         byte min = (byte)10;
         byte max = (byte)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
         assertTrue("minValue() > min",     validator.minValue(number11, min));
     }
 
@@ -431,8 +590,19 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         byte min = (byte)10;
         byte max = (byte)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
         assertTrue("maxValue() < max",     validator.maxValue(number19, max));
     }
 
@@ -447,8 +617,20 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         byte min = (byte)10;
         byte max = (byte)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
         assertTrue("maxValue() = max",     validator.maxValue(number20, max));
     }
 
@@ -463,8 +645,21 @@ public class ByteValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         byte min = (byte)10;
         byte max = (byte)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
         assertFalse("maxValue() > max",    validator.maxValue(number21, max));
     }
 

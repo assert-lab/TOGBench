@@ -383,6 +383,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     @Test
     public void testGetDescriptors_2_oe() {
         final DynaProperty pd[] = bean.getDynaClass().getDynaProperties();
+        // removed other assertion
         final int count[] = new int[properties.length];
         for (final DynaProperty element : pd) {
             final String name = element.getName();
@@ -403,6 +404,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     @Test
     public void testGetDescriptors_3_oe() {
         final DynaProperty pd[] = bean.getDynaClass().getDynaProperties();
+        // removed other assertion
         final int count[] = new int[properties.length];
         for (final DynaProperty element : pd) {
             final String name = element.getName();
@@ -415,6 +417,7 @@ public class TestConfigurationDynaBean_OE25Dev {
 
         for (int j = 0; j < properties.length; j++) {
             if (count[j] < 0) {
+                // removed other assertion
             } else if (count[j] > 1) {
                 fail("Duplicate property " + properties[j]);
     }
@@ -435,6 +438,8 @@ public class TestConfigurationDynaBean_OE25Dev {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
+            // removed other assertion
+            // removed other assertion
             assertEquals("intArray " + i + " returned incorrect value.", i * 10, ((Integer) value).intValue());
     }
     }
@@ -444,6 +449,9 @@ public class TestConfigurationDynaBean_OE25Dev {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("intIndexed", i);
 
@@ -456,9 +464,14 @@ public class TestConfigurationDynaBean_OE25Dev {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("intIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
             assertEquals("intIndexed index " + i + "returned correct " + i, i * 10, ((Integer) value).intValue());
     }
     }
@@ -468,9 +481,15 @@ public class TestConfigurationDynaBean_OE25Dev {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("intIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("listIndexed", i);
 
@@ -483,12 +502,20 @@ public class TestConfigurationDynaBean_OE25Dev {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("intIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("listIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
             assertEquals("listIndexed index " + i + "returned correct " + i, "String " + i, value);
     }
     }
@@ -498,12 +525,21 @@ public class TestConfigurationDynaBean_OE25Dev {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("intIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("listIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("stringArray", i);
 
@@ -516,15 +552,25 @@ public class TestConfigurationDynaBean_OE25Dev {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("intIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("listIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("stringArray", i);
 
+            // removed other assertion
             assertFalse("stringArray index " + i + " returned array instead of String.", value.getClass().isArray());
     }
     }
@@ -534,15 +580,27 @@ public class TestConfigurationDynaBean_OE25Dev {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("intIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("listIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("stringArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertEquals("stringArray returned correct " + i, "String " + i, value);
     }
     }
@@ -552,15 +610,28 @@ public class TestConfigurationDynaBean_OE25Dev {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("intIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("listIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("stringArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("stringIndexed", i);
 
@@ -573,18 +644,33 @@ public class TestConfigurationDynaBean_OE25Dev {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("intIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("listIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("stringArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("stringIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
             assertEquals("stringIndexed returned correct " + i, "String " + i, value);
     }
     }
@@ -593,6 +679,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     public void testGetMappedArguments_2_oe() {
         try {
             final Object value = bean.get("mappedProperty", "unknown");
+            // removed other assertion
         } catch (final Throwable t) {
             fail("Threw " + t + " instead of returning null");
     }
@@ -607,6 +694,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     @Test
     public void testGetMappedValues_2_oe() {
         Object value = bean.get("mappedProperty", "key1");
+        // removed other assertion
 
         value = bean.get("mappedProperty", "key2");
         assertEquals("Can find second value", "Second Value", value);
@@ -615,8 +703,10 @@ public class TestConfigurationDynaBean_OE25Dev {
     @Test
     public void testGetMappedValues_3_oe() {
         Object value = bean.get("mappedProperty", "key1");
+        // removed other assertion
 
         value = bean.get("mappedProperty", "key2");
+        // removed other assertion
 
         value = bean.get("mappedProperty", "key3");
         assertNotNull("Cannot find third value", value);
@@ -631,6 +721,8 @@ public class TestConfigurationDynaBean_OE25Dev {
     @Test
     public void testGetSimpleBoolean_3_oe() {
         final Object value = bean.get("booleanProperty");
+        // removed other assertion
+        // removed other assertion
         assertTrue("Got correct value", ((Boolean) value).booleanValue());
     }
 
@@ -643,6 +735,8 @@ public class TestConfigurationDynaBean_OE25Dev {
     @Test
     public void testGetSimpleDouble_3_oe() {
         final Object value = bean.get("doubleProperty");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Got correct value", ((Double) value).doubleValue(), Double.MAX_VALUE, 0.005);
     }
 
@@ -655,6 +749,8 @@ public class TestConfigurationDynaBean_OE25Dev {
     @Test
     public void testGetSimpleFloat_3_oe() {
         final Object value = bean.get("floatProperty");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Got correct value", ((Float) value).floatValue(), Float.MAX_VALUE, 0.005f);
     }
 
@@ -667,6 +763,8 @@ public class TestConfigurationDynaBean_OE25Dev {
     @Test
     public void testGetSimpleInt_3_oe() {
         final Object value = bean.get("intProperty");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Incorrect value", ((Integer) value).intValue(), Integer.MAX_VALUE);
     }
 
@@ -679,6 +777,8 @@ public class TestConfigurationDynaBean_OE25Dev {
     @Test
     public void testGetSimpleLong_3_oe() {
         final Object value = bean.get("longProperty");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Returned value of Incorrect value", ((Long) value).longValue(), Long.MAX_VALUE);
     }
 
@@ -691,6 +791,8 @@ public class TestConfigurationDynaBean_OE25Dev {
     @Test
     public void testGetSimpleShort_3_oe() {
         final Object value = bean.get("shortProperty");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Got correct value", ((Short) value).shortValue(), Short.MAX_VALUE);
     }
 
@@ -703,6 +805,8 @@ public class TestConfigurationDynaBean_OE25Dev {
     @Test
     public void testGetSimpleString_3_oe() {
         final Object value = bean.get("stringProperty");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Got correct value", value, "This is a string");
     }
 
@@ -713,6 +817,7 @@ public class TestConfigurationDynaBean_OE25Dev {
 
     @Test
     public void testMappedContains_2_oe() {
+        // removed other assertion
         assertFalse("Can see unknown key", bean.contains("mappedProperty", "Unknown Key"));
     }
 
@@ -723,21 +828,27 @@ public class TestConfigurationDynaBean_OE25Dev {
 
     @Test
     public void testMappedRemove_2_oe() {
+        // removed other assertion
         bean.remove("mappedProperty", "key1");
         assertFalse("Can not see first key", bean.contains("mappedProperty", "key1"));
     }
 
     @Test
     public void testMappedRemove_3_oe() {
+        // removed other assertion
         bean.remove("mappedProperty", "key1");
+        // removed other assertion
 
         assertFalse("Can not see unknown key", bean.contains("mappedProperty", "key4"));
     }
 
     @Test
     public void testMappedRemove_4_oe() {
+        // removed other assertion
         bean.remove("mappedProperty", "key1");
+        // removed other assertion
 
+        // removed other assertion
         bean.remove("mappedProperty", "key4");
         assertFalse("Can not see unknown key", bean.contains("mappedProperty", "key4"));
     }
@@ -755,6 +866,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         final ConfigurationDynaBean nested = (ConfigurationDynaBean) bean.get("mappedProperty");
 
         final String value = (String) nested.get("key1");
+        // removed other assertion
 
         nested.set("key1", "undefined");
         assertEquals("Incorrect value returned", "undefined", bean.get("mappedProperty.key1"));
@@ -783,6 +895,8 @@ public class TestConfigurationDynaBean_OE25Dev {
         bean.set("objectArray", 1, "New Value 1");
         final Object value = bean.get("objectArray", 1);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Returned correct new value 1", "New Value 1", value);
     }
 
@@ -799,6 +913,8 @@ public class TestConfigurationDynaBean_OE25Dev {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Returned correct new value 0", 1, ((Integer) value).intValue());
     }
 
@@ -807,6 +923,9 @@ public class TestConfigurationDynaBean_OE25Dev {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
@@ -819,10 +938,15 @@ public class TestConfigurationDynaBean_OE25Dev {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Returned correct new value 1", 11, ((Integer) value).intValue());
     }
 
@@ -831,10 +955,16 @@ public class TestConfigurationDynaBean_OE25Dev {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("listIndexed", 2, "New Value 2");
         value = bean.get("listIndexed", 2);
@@ -847,14 +977,22 @@ public class TestConfigurationDynaBean_OE25Dev {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("listIndexed", 2, "New Value 2");
         value = bean.get("listIndexed", 2);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Returned correct new value 2", "New Value 2", value);
     }
 
@@ -863,14 +1001,23 @@ public class TestConfigurationDynaBean_OE25Dev {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("listIndexed", 2, "New Value 2");
         value = bean.get("listIndexed", 2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("stringArray", 3, "New Value 3");
         value = bean.get("stringArray", 3);
@@ -883,18 +1030,29 @@ public class TestConfigurationDynaBean_OE25Dev {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("listIndexed", 2, "New Value 2");
         value = bean.get("listIndexed", 2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("stringArray", 3, "New Value 3");
         value = bean.get("stringArray", 3);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Returned correct new value 3", "New Value 3", value);
     }
 
@@ -903,18 +1061,30 @@ public class TestConfigurationDynaBean_OE25Dev {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("listIndexed", 2, "New Value 2");
         value = bean.get("listIndexed", 2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("stringArray", 3, "New Value 3");
         value = bean.get("stringArray", 3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("stringIndexed", 4, "New Value 4");
         value = bean.get("stringIndexed", 4);
@@ -927,22 +1097,36 @@ public class TestConfigurationDynaBean_OE25Dev {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("listIndexed", 2, "New Value 2");
         value = bean.get("listIndexed", 2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("stringArray", 3, "New Value 3");
         value = bean.get("stringArray", 3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("stringIndexed", 4, "New Value 4");
         value = bean.get("stringIndexed", 4);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Returned correct new value 4", "New Value 4", value);
     }
 
@@ -955,6 +1139,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     @Test
     public void testSetMappedValues_2_oe() {
         bean.set("mappedProperty", "First Key", "New First Value");
+        // removed other assertion
 
         bean.set("mappedProperty", "Fourth Key", "Fourth Value");
         assertEquals("Can set new value", "Fourth Value", bean.get("mappedProperty", "Fourth Key"));
@@ -1021,6 +1206,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
+            // removed other assertion
             ObjectAssert.assertInstanceOf("intArray index " + i, Integer.class, value);
     }
     }
@@ -1030,9 +1216,13 @@ public class TestConfigurationDynaBean_OE25Dev {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("intIndexed", i);
 
+            // removed other assertion
             ObjectAssert.assertInstanceOf("intIndexed index " + i, Integer.class, value);
     }
     }
@@ -1042,12 +1232,19 @@ public class TestConfigurationDynaBean_OE25Dev {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("intIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("listIndexed", i);
 
+            // removed other assertion
             ObjectAssert.assertInstanceOf("list index " + i, String.class, value);
     }
     }
@@ -1057,15 +1254,26 @@ public class TestConfigurationDynaBean_OE25Dev {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("intIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("listIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("stringArray", i);
 
+            // removed other assertion
+            // removed other assertion
             ObjectAssert.assertInstanceOf("stringArray index " + i, String.class, value);
     }
     }
@@ -1075,18 +1283,32 @@ public class TestConfigurationDynaBean_OE25Dev {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("intIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("listIndexed", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("stringArray", i);
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             value = bean.get("stringIndexed", i);
 
+            // removed other assertion
             ObjectAssert.assertInstanceOf("stringIndexed", String.class, value);
     }
     }
@@ -1094,42 +1316,49 @@ public class TestConfigurationDynaBean_OE25Dev {
 @Test
     public void testGetSimpleBoolean_2_oe() {
         final Object value = bean.get("booleanProperty");
+        // removed other assertion
         ObjectAssert.assertInstanceOf("Got correct type", Boolean.class, value);
     }
 
 @Test
     public void testGetSimpleDouble_2_oe() {
         final Object value = bean.get("doubleProperty");
+        // removed other assertion
         ObjectAssert.assertInstanceOf("Got correct type", Double.class, value);
     }
 
 @Test
     public void testGetSimpleFloat_2_oe() {
         final Object value = bean.get("floatProperty");
+        // removed other assertion
         ObjectAssert.assertInstanceOf("Got correct type", Float.class, value);
     }
 
 @Test
     public void testGetSimpleInt_2_oe() {
         final Object value = bean.get("intProperty");
+        // removed other assertion
         ObjectAssert.assertInstanceOf("Incorrect type", Integer.class, value);
     }
 
 @Test
     public void testGetSimpleLong_2_oe() {
         final Object value = bean.get("longProperty");
+        // removed other assertion
         ObjectAssert.assertInstanceOf("Returned incorrect type", Long.class, value);
     }
 
 @Test
     public void testGetSimpleShort_2_oe() {
         final Object value = bean.get("shortProperty");
+        // removed other assertion
         ObjectAssert.assertInstanceOf("Got correct type", Short.class, value);
     }
 
 @Test
     public void testGetSimpleString_2_oe() {
         final Object value = bean.get("stringProperty");
+        // removed other assertion
         ObjectAssert.assertInstanceOf("Got correct type", String.class, value);
     }
 
@@ -1143,6 +1372,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         bean.set("objectArray", 1, "New Value 1");
         final Object value = bean.get("objectArray", 1);
 
+        // removed other assertion
         ObjectAssert.assertInstanceOf("Returned String new value 1", String.class, value);
     }
 
@@ -1151,6 +1381,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
+        // removed other assertion
         ObjectAssert.assertInstanceOf("Returned Integer new value 0", Integer.class, value);
     }
 
@@ -1159,10 +1390,14 @@ public class TestConfigurationDynaBean_OE25Dev {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
+        // removed other assertion
         ObjectAssert.assertInstanceOf("Returned Integer new value 1", Integer.class, value);
     }
 
@@ -1171,14 +1406,21 @@ public class TestConfigurationDynaBean_OE25Dev {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("listIndexed", 2, "New Value 2");
         value = bean.get("listIndexed", 2);
 
+        // removed other assertion
         ObjectAssert.assertInstanceOf("Returned String new value 2", String.class, value);
     }
 
@@ -1187,18 +1429,28 @@ public class TestConfigurationDynaBean_OE25Dev {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("listIndexed", 2, "New Value 2");
         value = bean.get("listIndexed", 2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("stringArray", 3, "New Value 3");
         value = bean.get("stringArray", 3);
 
+        // removed other assertion
         ObjectAssert.assertInstanceOf("Returned String new value 3", String.class, value);
     }
 
@@ -1207,22 +1459,35 @@ public class TestConfigurationDynaBean_OE25Dev {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("listIndexed", 2, "New Value 2");
         value = bean.get("listIndexed", 2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("stringArray", 3, "New Value 3");
         value = bean.get("stringArray", 3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         bean.set("stringIndexed", 4, "New Value 4");
         value = bean.get("stringIndexed", 4);
 
+        // removed other assertion
         ObjectAssert.assertInstanceOf("Returned String new value 4", String.class, value);
     }
 

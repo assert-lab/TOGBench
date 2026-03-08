@@ -248,6 +248,7 @@ public class TiffRoundTripInt32Test_OE25Dev extends TiffBaseTest {
             TiffRasterData rdInt = directory.getRasterData(null);
             int []test = rdInt.getIntData();
             for(int j=0; j<sample.length; j++){
+                  // removed other assertion
             }
             final TiffImagingParameters params = new TiffImagingParameters();
             params.setSubImage(2, 2, width-4, height-4);
@@ -275,10 +276,12 @@ public class TiffRoundTripInt32Test_OE25Dev extends TiffBaseTest {
             TiffRasterData rdInt = directory.getRasterData(null);
             int []test = rdInt.getIntData();
             for(int j=0; j<sample.length; j++){
+                  // removed other assertion
             }
             final TiffImagingParameters params = new TiffImagingParameters();
             params.setSubImage(2, 2, width-4, height-4);
             TiffRasterData rdSub = directory.getRasterData(params);
+            // removed other assertion
             assertEquals(height-4, rdSub.getHeight(), "Invalid sub-image height");
     }
     }
@@ -302,10 +305,13 @@ public class TiffRoundTripInt32Test_OE25Dev extends TiffBaseTest {
             TiffRasterData rdInt = directory.getRasterData(null);
             int []test = rdInt.getIntData();
             for(int j=0; j<sample.length; j++){
+                  // removed other assertion
             }
             final TiffImagingParameters params = new TiffImagingParameters();
             params.setSubImage(2, 2, width-4, height-4);
             TiffRasterData rdSub = directory.getRasterData(params);
+            // removed other assertion
+            // removed other assertion
             for(int x = 2; x<width-2; x++){
                 for(int y=2; y<height-2; y++){
                     final int a = rdInt.getIntValue(x, y);
@@ -335,14 +341,18 @@ public class TiffRoundTripInt32Test_OE25Dev extends TiffBaseTest {
             TiffRasterData rdInt = directory.getRasterData(null);
             int []test = rdInt.getIntData();
             for(int j=0; j<sample.length; j++){
+                  // removed other assertion
             }
             final TiffImagingParameters params = new TiffImagingParameters();
             params.setSubImage(2, 2, width-4, height-4);
             TiffRasterData rdSub = directory.getRasterData(params);
+            // removed other assertion
+            // removed other assertion
             for(int x = 2; x<width-2; x++){
                 for(int y=2; y<height-2; y++){
                     final int a = rdInt.getIntValue(x, y);
                     final int b = rdSub.getIntValue(x-2, y-2);
+                    // removed other assertion
                 }
             }
             final TiffImagingParameters xparams = new TiffImagingParameters();

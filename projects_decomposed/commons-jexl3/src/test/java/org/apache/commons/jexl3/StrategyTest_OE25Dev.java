@@ -145,6 +145,7 @@ public class StrategyTest_OE25Dev extends JexlTestCase {
         final JexlUberspect uberspect = jexl.getUberspect();
         final JexlUberspect.PropertyResolver rfieldp = JexlUberspect.JexlResolver.FIELD;
         final JexlPropertyGet fget = rfieldp.getPropertyGet(uberspect, map, "key");
+        // removed other assertion
         final JexlPropertySet fset = rfieldp.getPropertySet(uberspect, map, "key", "value");
         Assert.assertNull(fset);
     }
@@ -156,7 +157,9 @@ public class StrategyTest_OE25Dev extends JexlTestCase {
         final JexlUberspect uberspect = jexl.getUberspect();
         final JexlUberspect.PropertyResolver rfieldp = JexlUberspect.JexlResolver.FIELD;
         final JexlPropertyGet fget = rfieldp.getPropertyGet(uberspect, map, "key");
+        // removed other assertion
         final JexlPropertySet fset = rfieldp.getPropertySet(uberspect, map, "key", "value");
+        // removed other assertion
         final JexlUberspect.PropertyResolver rmap = JexlUberspect.JexlResolver.MAP;
         final JexlPropertyGet mget = rmap.getPropertyGet(uberspect, map, "key");
         Assert.assertNotNull(mget);
@@ -169,9 +172,12 @@ public class StrategyTest_OE25Dev extends JexlTestCase {
         final JexlUberspect uberspect = jexl.getUberspect();
         final JexlUberspect.PropertyResolver rfieldp = JexlUberspect.JexlResolver.FIELD;
         final JexlPropertyGet fget = rfieldp.getPropertyGet(uberspect, map, "key");
+        // removed other assertion
         final JexlPropertySet fset = rfieldp.getPropertySet(uberspect, map, "key", "value");
+        // removed other assertion
         final JexlUberspect.PropertyResolver rmap = JexlUberspect.JexlResolver.MAP;
         final JexlPropertyGet mget = rmap.getPropertyGet(uberspect, map, "key");
+        // removed other assertion
         final JexlPropertySet mset = rmap.getPropertySet(uberspect, map, "key", "value");
         Assert.assertNotNull(mset);
     }

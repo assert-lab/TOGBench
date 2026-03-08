@@ -117,6 +117,7 @@ public class JCSRemovalSimpleConcurrentTest_OE25Dev
         for ( int i = count; i >= 0; i-- )
         {
             final String res = jcs.get( "key:" + i + ":anotherpart" );
+            // removed other assertion
         }
 
         for ( int i = 0; i <= count; i++ )
@@ -158,6 +159,7 @@ public class JCSRemovalSimpleConcurrentTest_OE25Dev
         for ( int i = count; i >= 0; i-- )
         {
             final String res = jcs.get( i + ":key" );
+            // removed other assertion
         }
 
         for ( int i = 0; i <= count; i++ )
@@ -199,6 +201,7 @@ public class JCSRemovalSimpleConcurrentTest_OE25Dev
         for ( int i = count; i >= 0; i-- )
         {
             final String res = jcs.get( i + ":key" );
+            // removed other assertion
         }
         jcs.clear();
 
@@ -246,6 +249,7 @@ public class JCSRemovalSimpleConcurrentTest_OE25Dev
         for ( int i = count; i >= 0; i-- )
         {
             final String res = jcs.get( i + ":key" );
+            // removed other assertion
         }
 
         for ( int i = count; i >= 0; i-- )

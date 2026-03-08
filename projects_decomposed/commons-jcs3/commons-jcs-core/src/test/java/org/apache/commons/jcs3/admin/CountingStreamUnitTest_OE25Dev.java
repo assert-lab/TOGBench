@@ -62,6 +62,7 @@ public class CountingStreamUnitTest_OE25Dev
     {
         final CountingOnlyOutputStream out = new CountingOnlyOutputStream();
         out.write( 1 );
+        // removed other assertion
         out.write( 1 );
         assertEquals( "Wrong number of bytes written.", 2, out.getCount() );
     }

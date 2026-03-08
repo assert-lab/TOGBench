@@ -127,6 +127,7 @@ public class HttpsProxyTest_OE25Dev extends AbstractBasicTest {
       Response r = asyncHttpClient.executeRequest(post(getTargetUrl2())
         .setHeader("X-COMPRESS", "true")
         .setBody(body)).get();
+      // removed other assertion
       assertEquals(r.getResponseBody(), body);
   }
   }
@@ -149,6 +150,7 @@ public class HttpsProxyTest_OE25Dev extends AbstractBasicTest {
       RequestBuilder rb = get(getTargetUrl2()).setProxyServer(proxyServer("localhost", port1));
 
       Response r1 = asyncHttpClient.executeRequest(rb.build()).get();
+      // removed other assertion
 
       Response r2 = asyncHttpClient.executeRequest(rb.build()).get();
       assertEquals(r2.getStatusCode(), 200);

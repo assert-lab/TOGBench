@@ -69,6 +69,7 @@ public class BodyChunkTest_OE25Dev extends AbstractBasicTest {
 
       System.out.println("waiting for response");
       Response response = future.get();
+      // removed other assertion
       assertEquals(response.getResponseBody(), MY_MESSAGE);
   }
   }

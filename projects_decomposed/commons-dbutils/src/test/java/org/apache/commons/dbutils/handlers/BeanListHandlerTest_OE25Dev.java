@@ -52,6 +52,7 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(TestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
         assertEquals(ROWS, results.size());
     }
 
@@ -59,6 +60,8 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(TestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
@@ -69,9 +72,12 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(TestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
         assertEquals("1", row.getOne());
     }
@@ -80,10 +86,14 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(TestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
         assertEquals("2", row.getTwo());
     }
 
@@ -91,10 +101,15 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(TestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
         assertEquals(TestBean.Ordinal.THREE, row.getThree());
     }
 
@@ -102,10 +117,16 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(TestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("not set", row.getDoNotSet());
     }
 
@@ -113,10 +134,17 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(TestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(iter.hasNext());
     }
@@ -125,11 +153,19 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(TestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
 
         assertEquals("4", row.getOne());
@@ -139,13 +175,22 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(TestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
+        row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         row = iter.next();
 
-        row = iter.next();
-
+        // removed other assertion
         assertEquals("5", row.getTwo());
     }
 
@@ -153,13 +198,23 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(TestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
+        row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         row = iter.next();
 
-        row = iter.next();
-
+        // removed other assertion
+        // removed other assertion
         assertEquals(TestBean.Ordinal.SIX, row.getThree());
     }
 
@@ -167,13 +222,24 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(TestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
+        row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         row = iter.next();
 
-        row = iter.next();
-
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("not set", row.getDoNotSet());
     }
 
@@ -181,13 +247,25 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(TestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
+        row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         row = iter.next();
 
-        row = iter.next();
-
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse(iter.hasNext());
     }
@@ -203,6 +281,7 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(TestBean.class);
         List<TestBean> results = h.handle(this.emptyResultSet);
 
+        // removed other assertion
         assertTrue(results.isEmpty());
     }
 
@@ -217,6 +296,7 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(SubTestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
         assertEquals(ROWS, results.size());
     }
 
@@ -224,6 +304,8 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(SubTestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
@@ -234,9 +316,12 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(SubTestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
         assertSame(SubTestBean.class, row.getClass());
     }
@@ -245,10 +330,14 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(SubTestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
         assertEquals("1", row.getOne());
     }
@@ -257,11 +346,16 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(SubTestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("2", row.getTwo());
     }
 
@@ -269,11 +363,17 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(SubTestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(TestBean.Ordinal.THREE, row.getThree());
     }
 
@@ -281,11 +381,18 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(SubTestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("not set", row.getDoNotSet());
     }
 
@@ -293,11 +400,19 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(SubTestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(iter.hasNext());
     }
@@ -306,12 +421,21 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(SubTestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
         assertSame(SubTestBean.class, row.getClass());
     }
@@ -320,13 +444,23 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(SubTestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
         assertEquals("4", row.getOne());
     }
@@ -335,14 +469,25 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(SubTestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("5", row.getTwo());
     }
 
@@ -350,14 +495,26 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(SubTestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(TestBean.Ordinal.SIX, row.getThree());
     }
 
@@ -365,14 +522,27 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(SubTestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("not set", row.getDoNotSet());
     }
 
@@ -380,14 +550,28 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(SubTestBean.class);
         List<TestBean> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<TestBean> iter = results.iterator();
         TestBean row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse(iter.hasNext());
     }
@@ -403,6 +587,7 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<SubTestBeanInterface>> h = new BeanListHandler<SubTestBeanInterface>(SubTestBean.class);
         List<SubTestBeanInterface> results = h.handle(this.rs);
 
+        // removed other assertion
         assertEquals(ROWS, results.size());
     }
 
@@ -410,6 +595,8 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<SubTestBeanInterface>> h = new BeanListHandler<SubTestBeanInterface>(SubTestBean.class);
         List<SubTestBeanInterface> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<SubTestBeanInterface> iter = results.iterator();
         SubTestBeanInterface row = null;
@@ -420,9 +607,12 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<SubTestBeanInterface>> h = new BeanListHandler<SubTestBeanInterface>(SubTestBean.class);
         List<SubTestBeanInterface> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<SubTestBeanInterface> iter = results.iterator();
         SubTestBeanInterface row = null;
+        // removed other assertion
         row = iter.next();
         assertSame(SubTestBean.class, row.getClass());
     }
@@ -431,10 +621,14 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<SubTestBeanInterface>> h = new BeanListHandler<SubTestBeanInterface>(SubTestBean.class);
         List<SubTestBeanInterface> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<SubTestBeanInterface> iter = results.iterator();
         SubTestBeanInterface row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
         assertEquals("1", row.getOne());
     }
@@ -443,11 +637,16 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<SubTestBeanInterface>> h = new BeanListHandler<SubTestBeanInterface>(SubTestBean.class);
         List<SubTestBeanInterface> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<SubTestBeanInterface> iter = results.iterator();
         SubTestBeanInterface row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("2", row.getTwo());
     }
 
@@ -455,11 +654,17 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<SubTestBeanInterface>> h = new BeanListHandler<SubTestBeanInterface>(SubTestBean.class);
         List<SubTestBeanInterface> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<SubTestBeanInterface> iter = results.iterator();
         SubTestBeanInterface row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(TestBean.Ordinal.THREE, row.getThree());
     }
 
@@ -467,11 +672,18 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<SubTestBeanInterface>> h = new BeanListHandler<SubTestBeanInterface>(SubTestBean.class);
         List<SubTestBeanInterface> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<SubTestBeanInterface> iter = results.iterator();
         SubTestBeanInterface row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("not set", row.getDoNotSet());
     }
 
@@ -479,11 +691,19 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<SubTestBeanInterface>> h = new BeanListHandler<SubTestBeanInterface>(SubTestBean.class);
         List<SubTestBeanInterface> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<SubTestBeanInterface> iter = results.iterator();
         SubTestBeanInterface row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(iter.hasNext());
     }
@@ -492,12 +712,21 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<SubTestBeanInterface>> h = new BeanListHandler<SubTestBeanInterface>(SubTestBean.class);
         List<SubTestBeanInterface> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<SubTestBeanInterface> iter = results.iterator();
         SubTestBeanInterface row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
         assertSame(SubTestBean.class, row.getClass());
     }
@@ -506,13 +735,23 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<SubTestBeanInterface>> h = new BeanListHandler<SubTestBeanInterface>(SubTestBean.class);
         List<SubTestBeanInterface> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<SubTestBeanInterface> iter = results.iterator();
         SubTestBeanInterface row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
         assertEquals("4", row.getOne());
     }
@@ -521,14 +760,25 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<SubTestBeanInterface>> h = new BeanListHandler<SubTestBeanInterface>(SubTestBean.class);
         List<SubTestBeanInterface> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<SubTestBeanInterface> iter = results.iterator();
         SubTestBeanInterface row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("5", row.getTwo());
     }
 
@@ -536,14 +786,26 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<SubTestBeanInterface>> h = new BeanListHandler<SubTestBeanInterface>(SubTestBean.class);
         List<SubTestBeanInterface> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<SubTestBeanInterface> iter = results.iterator();
         SubTestBeanInterface row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(TestBean.Ordinal.SIX, row.getThree());
     }
 
@@ -551,14 +813,27 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<SubTestBeanInterface>> h = new BeanListHandler<SubTestBeanInterface>(SubTestBean.class);
         List<SubTestBeanInterface> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<SubTestBeanInterface> iter = results.iterator();
         SubTestBeanInterface row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("not set", row.getDoNotSet());
     }
 
@@ -566,14 +841,28 @@ public class BeanListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<SubTestBeanInterface>> h = new BeanListHandler<SubTestBeanInterface>(SubTestBean.class);
         List<SubTestBeanInterface> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<SubTestBeanInterface> iter = results.iterator();
         SubTestBeanInterface row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse(iter.hasNext());
     }

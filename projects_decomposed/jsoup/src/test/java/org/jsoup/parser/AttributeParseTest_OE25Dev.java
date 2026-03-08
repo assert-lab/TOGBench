@@ -20,6 +20,7 @@ public class AttributeParseTest_OE25Dev {
 
     @Test public void parsesRoughAttributeString_1_oe() {
         String html = "<a id=\"123\" class=\"baz = 'bar'\" style = 'border: 2px'qux zim foo = 12 mux=18 />";
+        // should be: <id=123>, <class=baz = 'bar'>, <qux=>, <zim=>, <foo=12>, <mux.=18>
 
         Element el = Jsoup.parse(html).getElementsByTag("a").get(0);
         Attributes attr = el.attributes();
@@ -28,57 +29,92 @@ public class AttributeParseTest_OE25Dev {
 
     @Test public void parsesRoughAttributeString_2_oe() {
         String html = "<a id=\"123\" class=\"baz = 'bar'\" style = 'border: 2px'qux zim foo = 12 mux=18 />";
+        // should be: <id=123>, <class=baz = 'bar'>, <qux=>, <zim=>, <foo=12>, <mux.=18>
 
         Element el = Jsoup.parse(html).getElementsByTag("a").get(0);
         Attributes attr = el.attributes();
+        // removed other assertion
         assertEquals("123", attr.get("id"));
         }
 
     @Test public void parsesRoughAttributeString_3_oe() {
         String html = "<a id=\"123\" class=\"baz = 'bar'\" style = 'border: 2px'qux zim foo = 12 mux=18 />";
+        // should be: <id=123>, <class=baz = 'bar'>, <qux=>, <zim=>, <foo=12>, <mux.=18>
 
         Element el = Jsoup.parse(html).getElementsByTag("a").get(0);
         Attributes attr = el.attributes();
+        // removed other assertion
+        // removed other assertion
         assertEquals("baz = 'bar'", attr.get("class"));
         }
 
     @Test public void parsesRoughAttributeString_4_oe() {
         String html = "<a id=\"123\" class=\"baz = 'bar'\" style = 'border: 2px'qux zim foo = 12 mux=18 />";
+        // should be: <id=123>, <class=baz = 'bar'>, <qux=>, <zim=>, <foo=12>, <mux.=18>
 
         Element el = Jsoup.parse(html).getElementsByTag("a").get(0);
         Attributes attr = el.attributes();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("border: 2px", attr.get("style"));
         }
 
     @Test public void parsesRoughAttributeString_5_oe() {
         String html = "<a id=\"123\" class=\"baz = 'bar'\" style = 'border: 2px'qux zim foo = 12 mux=18 />";
+        // should be: <id=123>, <class=baz = 'bar'>, <qux=>, <zim=>, <foo=12>, <mux.=18>
 
         Element el = Jsoup.parse(html).getElementsByTag("a").get(0);
         Attributes attr = el.attributes();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("", attr.get("qux"));
         }
 
     @Test public void parsesRoughAttributeString_6_oe() {
         String html = "<a id=\"123\" class=\"baz = 'bar'\" style = 'border: 2px'qux zim foo = 12 mux=18 />";
+        // should be: <id=123>, <class=baz = 'bar'>, <qux=>, <zim=>, <foo=12>, <mux.=18>
 
         Element el = Jsoup.parse(html).getElementsByTag("a").get(0);
         Attributes attr = el.attributes();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("", attr.get("zim"));
         }
 
     @Test public void parsesRoughAttributeString_7_oe() {
         String html = "<a id=\"123\" class=\"baz = 'bar'\" style = 'border: 2px'qux zim foo = 12 mux=18 />";
+        // should be: <id=123>, <class=baz = 'bar'>, <qux=>, <zim=>, <foo=12>, <mux.=18>
 
         Element el = Jsoup.parse(html).getElementsByTag("a").get(0);
         Attributes attr = el.attributes();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("12", attr.get("foo"));
         }
 
     @Test public void parsesRoughAttributeString_8_oe() {
         String html = "<a id=\"123\" class=\"baz = 'bar'\" style = 'border: 2px'qux zim foo = 12 mux=18 />";
+        // should be: <id=123>, <class=baz = 'bar'>, <qux=>, <zim=>, <foo=12>, <mux.=18>
 
         Element el = Jsoup.parse(html).getElementsByTag("a").get(0);
         Attributes attr = el.attributes();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("18", attr.get("mux"));
         }
 
@@ -91,6 +127,7 @@ public class AttributeParseTest_OE25Dev {
     @Test public void handlesNewLinesAndReturns_2_oe() {
         String html = "<a\r\nfoo='bar\r\nqux'\r\nbar\r\n=\r\ntwo>One</a>";
         Element el = Jsoup.parse(html).select("a").first();
+        // removed other assertion
         assertEquals("bar\r\nqux",el.attr("foo"));// currently preserves newlines in quoted attributes. todo confirm if should. assertEquals("two",el.attr("bar"));
         }
 
@@ -103,6 +140,8 @@ public class AttributeParseTest_OE25Dev {
 
     @Test public void canStartWithEq_1_oe() {
         String html = "<a =empty />";
+        // TODO this is the weirdest thing in the spec - why not consider this an attribute with an empty name, not where name is '='?
+        // am I reading it wrong? https://html.spec.whatwg.org/multipage/parsing.html#before-attribute-name-state
         Element el = Jsoup.parse(html).getElementsByTag("a").get(0);
         Attributes attr = el.attributes();
         assertEquals(1, attr.size());
@@ -110,15 +149,22 @@ public class AttributeParseTest_OE25Dev {
 
     @Test public void canStartWithEq_2_oe() {
         String html = "<a =empty />";
+        // TODO this is the weirdest thing in the spec - why not consider this an attribute with an empty name, not where name is '='?
+        // am I reading it wrong? https://html.spec.whatwg.org/multipage/parsing.html#before-attribute-name-state
         Element el = Jsoup.parse(html).getElementsByTag("a").get(0);
         Attributes attr = el.attributes();
+        // removed other assertion
         assertTrue(attr.hasKey("=empty"));
         }
 
     @Test public void canStartWithEq_3_oe() {
         String html = "<a =empty />";
+        // TODO this is the weirdest thing in the spec - why not consider this an attribute with an empty name, not where name is '='?
+        // am I reading it wrong? https://html.spec.whatwg.org/multipage/parsing.html#before-attribute-name-state
         Element el = Jsoup.parse(html).getElementsByTag("a").get(0);
         Attributes attr = el.attributes();
+        // removed other assertion
+        // removed other assertion
         assertEquals("", attr.get("=empty"));
         }
 
@@ -131,6 +177,7 @@ public class AttributeParseTest_OE25Dev {
     @Test public void strictAttributeUnescapes_2_oe() {
         String html = "<a id=1 href='?foo=bar&mid&lt=true'>One</a> <a id=2 href='?foo=bar&lt;qux&lg=1'>Two</a>";
         Elements els = Jsoup.parse(html).select("a");
+        // removed other assertion
         assertEquals("?foo=bar<qux&lg=1", els.last().attr("href"));
         }
 
@@ -151,6 +198,7 @@ public class AttributeParseTest_OE25Dev {
         String html = "<a normal=\"123\" boolean empty=\"\"></a>";
         Element el = Jsoup.parse(html).select("a").first();
 
+        // removed other assertion
         assertEquals("", el.attr("boolean"));
         }
 
@@ -158,6 +206,8 @@ public class AttributeParseTest_OE25Dev {
         String html = "<a normal=\"123\" boolean empty=\"\"></a>";
         Element el = Jsoup.parse(html).select("a").first();
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("", el.attr("empty"));
         }
 
@@ -165,6 +215,9 @@ public class AttributeParseTest_OE25Dev {
         String html = "<a normal=\"123\" boolean empty=\"\"></a>";
         Element el = Jsoup.parse(html).select("a").first();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         List<Attribute> attributes = el.attributes().asList();
         assertEquals(3, attributes.size(), "There should be 3 attribute present");
@@ -174,8 +227,12 @@ public class AttributeParseTest_OE25Dev {
         String html = "<a normal=\"123\" boolean empty=\"\"></a>";
         Element el = Jsoup.parse(html).select("a").first();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         List<Attribute> attributes = el.attributes().asList();
+        // removed other assertion
 
         assertEquals(html, el.outerHtml()); // vets boolean syntax;
         }
@@ -189,12 +246,15 @@ public class AttributeParseTest_OE25Dev {
     @Test public void dropsSlashFromAttributeName_2_oe() {
         String html = "<img /onerror='doMyJob'/>";
         Document doc = Jsoup.parse(html);
+        // removed other assertion
         assertEquals("<img onerror=\"doMyJob\">", doc.body().html());
         }
 
     @Test public void dropsSlashFromAttributeName_3_oe() {
         String html = "<img /onerror='doMyJob'/>";
         Document doc = Jsoup.parse(html);
+        // removed other assertion
+        // removed other assertion
 
         doc = Jsoup.parse(html, "", Parser.xmlParser());
         assertEquals("<img onerror=\"doMyJob\" />", doc.html());

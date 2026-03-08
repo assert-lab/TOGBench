@@ -49,11 +49,16 @@ public class AsciiFieldTest_OE25Dev extends ExifBaseTest {
         final File imageFile = getTestImageByName("Canon Powershot SD750 - 2007.12.26.n.IMG_3704.JPG");
 
         final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+        // removed other assertion
         final JpegImageMetadata jpegMetadata = (JpegImageMetadata) metadata;
 
+        // note that exif might be null if no Exif metadata is found.
         final TiffImageMetadata exif = jpegMetadata.getExif();
         final List<TiffField> fields = exif.getAllFields();
         final Map<Integer,TiffField> fieldMap = new HashMap<>();
+        // Build a simplified field tag -> field map, ignoring directory
+        // structures.
+        // Good enough for our purposes, since the image in question is known.
         for (final TiffField field : fields) {
             fieldMap.put(field.getTag(), field);
         }
@@ -78,11 +83,16 @@ public class AsciiFieldTest_OE25Dev extends ExifBaseTest {
         final File imageFile = getTestImageByName("Canon Powershot SD750 - 2007.12.26.n.IMG_3704.JPG");
 
         final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+        // removed other assertion
         final JpegImageMetadata jpegMetadata = (JpegImageMetadata) metadata;
 
+        // note that exif might be null if no Exif metadata is found.
         final TiffImageMetadata exif = jpegMetadata.getExif();
         final List<TiffField> fields = exif.getAllFields();
         final Map<Integer,TiffField> fieldMap = new HashMap<>();
+        // Build a simplified field tag -> field map, ignoring directory
+        // structures.
+        // Good enough for our purposes, since the image in question is known.
         for (final TiffField field : fields) {
             fieldMap.put(field.getTag(), field);
         }
@@ -98,6 +108,7 @@ public class AsciiFieldTest_OE25Dev extends ExifBaseTest {
                 "2007:12:25 13:34:39");
 
         for (final Map.Entry<Integer, Object> tag : expectedFieldValues.entrySet()) {
+            // removed other assertion
             final TiffField field = fieldMap.get(tag.getKey());
             assertNotNull(field);
     }
@@ -108,11 +119,16 @@ public class AsciiFieldTest_OE25Dev extends ExifBaseTest {
         final File imageFile = getTestImageByName("Canon Powershot SD750 - 2007.12.26.n.IMG_3704.JPG");
 
         final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+        // removed other assertion
         final JpegImageMetadata jpegMetadata = (JpegImageMetadata) metadata;
 
+        // note that exif might be null if no Exif metadata is found.
         final TiffImageMetadata exif = jpegMetadata.getExif();
         final List<TiffField> fields = exif.getAllFields();
         final Map<Integer,TiffField> fieldMap = new HashMap<>();
+        // Build a simplified field tag -> field map, ignoring directory
+        // structures.
+        // Good enough for our purposes, since the image in question is known.
         for (final TiffField field : fields) {
             fieldMap.put(field.getTag(), field);
         }
@@ -128,7 +144,9 @@ public class AsciiFieldTest_OE25Dev extends ExifBaseTest {
                 "2007:12:25 13:34:39");
 
         for (final Map.Entry<Integer, Object> tag : expectedFieldValues.entrySet()) {
+            // removed other assertion
             final TiffField field = fieldMap.get(tag.getKey());
+            // removed other assertion
             final Object value = field.getValue();
             assertNotNull(value);
     }
@@ -139,11 +157,16 @@ public class AsciiFieldTest_OE25Dev extends ExifBaseTest {
         final File imageFile = getTestImageByName("Canon Powershot SD750 - 2007.12.26.n.IMG_3704.JPG");
 
         final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+        // removed other assertion
         final JpegImageMetadata jpegMetadata = (JpegImageMetadata) metadata;
 
+        // note that exif might be null if no Exif metadata is found.
         final TiffImageMetadata exif = jpegMetadata.getExif();
         final List<TiffField> fields = exif.getAllFields();
         final Map<Integer,TiffField> fieldMap = new HashMap<>();
+        // Build a simplified field tag -> field map, ignoring directory
+        // structures.
+        // Good enough for our purposes, since the image in question is known.
         for (final TiffField field : fields) {
             fieldMap.put(field.getTag(), field);
         }
@@ -159,8 +182,11 @@ public class AsciiFieldTest_OE25Dev extends ExifBaseTest {
                 "2007:12:25 13:34:39");
 
         for (final Map.Entry<Integer, Object> tag : expectedFieldValues.entrySet()) {
+            // removed other assertion
             final TiffField field = fieldMap.get(tag.getKey());
+            // removed other assertion
             final Object value = field.getValue();
+            // removed other assertion
             assertEquals(value, tag.getValue());
     }
     }

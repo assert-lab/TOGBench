@@ -51,6 +51,7 @@ public class ResumableAsyncHandlerTest_OE25Dev {
     ResumableAsyncHandler handler = new ResumableAsyncHandler(proc);
     Request request = get("http://test/url").build();
     Request newRequest = handler.adjustRequestRange(request);
+    // removed other assertion
     String rangeHeader = newRequest.getHeaders().get(RANGE);
     assertNull(rangeHeader);
   }
@@ -62,7 +63,9 @@ public class ResumableAsyncHandlerTest_OE25Dev {
     ResumableAsyncHandler handler = new ResumableAsyncHandler(proc);
     Request request = get("http://test/url").build();
     Request newRequest = handler.adjustRequestRange(request);
+    // removed other assertion
     String rangeHeader = newRequest.getHeaders().get(RANGE);
+    // removed other assertion
 
     proc.put("http://test/url", 5000);
     newRequest = handler.adjustRequestRange(request);
@@ -76,10 +79,13 @@ public class ResumableAsyncHandlerTest_OE25Dev {
     ResumableAsyncHandler handler = new ResumableAsyncHandler(proc);
     Request request = get("http://test/url").build();
     Request newRequest = handler.adjustRequestRange(request);
+    // removed other assertion
     String rangeHeader = newRequest.getHeaders().get(RANGE);
+    // removed other assertion
 
     proc.put("http://test/url", 5000);
     newRequest = handler.adjustRequestRange(request);
+    // removed other assertion
     rangeHeader = newRequest.getHeaders().get(RANGE);
     assertEquals(rangeHeader, "bytes=5000-");
   }
@@ -169,6 +175,7 @@ public class ResumableAsyncHandlerTest_OE25Dev {
     AsyncHandler<Response> decoratedAsyncHandler = mock(AsyncHandler.class);
     when(decoratedAsyncHandler.onBodyPartReceived(bodyPart)).thenReturn(State.CONTINUE);
 
+    // following is needed to set the url variable
     HttpResponseStatus mockResponseStatus = mock(HttpResponseStatus.class);
     when(mockResponseStatus.getStatusCode()).thenReturn(200);
     Uri uri = Uri.create("http://non.null");

@@ -672,6 +672,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testOf_quaternion_illegalNorm_1_oe() {
+        // act/assert
         try {
     QuaternionRotation.of(Quaternion.of(0, 0, 0, 0));
     fail("IllegalStateException");
@@ -681,6 +682,8 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testOf_quaternion_illegalNorm_2_oe() {
+        // act/assert
+        // removed other assertion
         try {
     QuaternionRotation.of(Quaternion.of(1, 1, 1, Double.NaN));
     fail("IllegalStateException");
@@ -690,6 +693,9 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testOf_quaternion_illegalNorm_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         try {
     QuaternionRotation.of(Quaternion.of(1, 1, Double.POSITIVE_INFINITY, 1));
     fail("IllegalStateException");
@@ -699,6 +705,10 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testOf_quaternion_illegalNorm_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         try {
     QuaternionRotation.of(Quaternion.of(1, Double.NEGATIVE_INFINITY, 1, 1));
     fail("IllegalStateException");
@@ -708,6 +718,11 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testOf_quaternion_illegalNorm_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         try {
     QuaternionRotation.of(Quaternion.of(Double.NaN, 1, 1, 1));
     fail("IllegalStateException");
@@ -717,6 +732,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testOf_components_illegalNorm_1_oe() {
+        // act/assert
         try {
     QuaternionRotation.of(0, 0, 0, 0);
     fail("IllegalStateException");
@@ -726,6 +742,8 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testOf_components_illegalNorm_2_oe() {
+        // act/assert
+        // removed other assertion
         try {
     QuaternionRotation.of(1, 1, 1, Double.NaN);
     fail("IllegalStateException");
@@ -735,6 +753,9 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testOf_components_illegalNorm_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         try {
     QuaternionRotation.of(1, 1, Double.POSITIVE_INFINITY, 1);
     fail("IllegalStateException");
@@ -744,6 +765,10 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testOf_components_illegalNorm_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         try {
     QuaternionRotation.of(1, Double.NEGATIVE_INFINITY, 1, 1);
     fail("IllegalStateException");
@@ -753,6 +778,11 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testOf_components_illegalNorm_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         try {
     QuaternionRotation.of(Double.NaN, 1, 1, 1);
     fail("IllegalStateException");
@@ -762,37 +792,58 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testGetAngle_1_oe() {
+        // act/assert
         Assertions.assertEquals(0.0, QuaternionRotation.of(1, 0, 0, 0).getAngle(), EPS);
     }
 
     @Test
     void testGetAngle_2_oe() {
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(0.0, QuaternionRotation.of(-1, 0, 0, 0).getAngle(), EPS);
     }
 
     @Test
     void testGetAngle_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Angle.PI_OVER_TWO, QuaternionRotation.of(1, 0, 0, 1).getAngle(), EPS);
     }
 
     @Test
     void testGetAngle_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, QuaternionRotation.of(-1, 0, 0, -1).getAngle(), EPS);
     }
 
     @Test
     void testGetAngle_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Math.PI  * 2.0 / 3.0, QuaternionRotation.of(1, 1, 1, 1).getAngle(), EPS);
     }
 
     @Test
     void testGetAngle_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertEquals(Math.PI, QuaternionRotation.of(0, 0, 0, 1).getAngle(), EPS);
     }
@@ -800,10 +851,14 @@ class QuaternionRotationTest_OE25Dev {
     @Test
     void testGetAngle_matchesAxisAngleConstruction_1_oe() {
         for (double theta = -2 * Math.PI; theta <= 2 * Math.PI; theta += 0.1) {
+            // arrange
             final QuaternionRotation rot = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, theta);
 
+            // act
             final double angle = rot.getAngle();
 
+            // assert
+            // make sure that we're in the [0, pi] range
             Assertions.assertTrue(angle >= 0.0);
     }
     }
@@ -811,10 +866,15 @@ class QuaternionRotationTest_OE25Dev {
     @Test
     void testGetAngle_matchesAxisAngleConstruction_2_oe() {
         for (double theta = -2 * Math.PI; theta <= 2 * Math.PI; theta += 0.1) {
+            // arrange
             final QuaternionRotation rot = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, theta);
 
+            // act
             final double angle = rot.getAngle();
 
+            // assert
+            // make sure that we're in the [0, pi] range
+            // removed other assertion
             Assertions.assertTrue(angle <= Math.PI);
     }
     }
@@ -822,13 +882,20 @@ class QuaternionRotationTest_OE25Dev {
     @Test
     void testGetAngle_matchesAxisAngleConstruction_3_oe() {
         for (double theta = -2 * Math.PI; theta <= 2 * Math.PI; theta += 0.1) {
+            // arrange
             final QuaternionRotation rot = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, theta);
 
+            // act
             final double angle = rot.getAngle();
 
+            // assert
+            // make sure that we're in the [0, pi] range
+            // removed other assertion
+            // removed other assertion
 
             double expected = Angle.Rad.WITHIN_MINUS_PI_AND_PI.applyAsDouble(theta);
             if (PLUS_DIAGONAL.dot(rot.getAxis()) < 0) {
+                // if the axis ended up being flipped, then negate the expected angle
                 expected *= -1;
             }
 
@@ -838,6 +905,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testFromAxisAngle_invalidAxisNorm_1_oe() {
+        // act/assert
         try {
     QuaternionRotation.fromAxisAngle(Vector3D.ZERO, Angle.PI_OVER_TWO);
     fail("IllegalArgumentException");
@@ -847,6 +915,8 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testFromAxisAngle_invalidAxisNorm_2_oe() {
+        // act/assert
+        // removed other assertion
         try {
     QuaternionRotation.fromAxisAngle(Vector3D.NaN, Angle.PI_OVER_TWO);
     fail("IllegalArgumentException");
@@ -856,6 +926,9 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testFromAxisAngle_invalidAxisNorm_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         try {
     QuaternionRotation.fromAxisAngle(Vector3D.POSITIVE_INFINITY, Angle.PI_OVER_TWO);
     fail("IllegalArgumentException");
@@ -865,6 +938,10 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testFromAxisAngle_invalidAxisNorm_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         try {
     QuaternionRotation.fromAxisAngle(Vector3D.NEGATIVE_INFINITY, Angle.PI_OVER_TWO);
     fail("IllegalArgumentException");
@@ -874,52 +951,75 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testInverse_1_oe() {
+        // arrange
         final QuaternionRotation rot = QuaternionRotation.of(0.5, 0.5, 0.5, 0.5);
 
+        // act
         final QuaternionRotation neg = rot.inverse();
 
+        // assert
         Assertions.assertEquals(-0.5, neg.getQuaternion().getX(), EPS);
     }
 
     @Test
     void testInverse_2_oe() {
+        // arrange
         final QuaternionRotation rot = QuaternionRotation.of(0.5, 0.5, 0.5, 0.5);
 
+        // act
         final QuaternionRotation neg = rot.inverse();
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(-0.5, neg.getQuaternion().getY(), EPS);
     }
 
     @Test
     void testInverse_3_oe() {
+        // arrange
         final QuaternionRotation rot = QuaternionRotation.of(0.5, 0.5, 0.5, 0.5);
 
+        // act
         final QuaternionRotation neg = rot.inverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-0.5, neg.getQuaternion().getZ(), EPS);
     }
 
     @Test
     void testInverse_4_oe() {
+        // arrange
         final QuaternionRotation rot = QuaternionRotation.of(0.5, 0.5, 0.5, 0.5);
 
+        // act
         final QuaternionRotation neg = rot.inverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0.5, neg.getQuaternion().getW(), EPS);
     }
 
     @Test
     void testMultiply_sameAxis_simple_2_oe() {
+        // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.1 * Math.PI);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.4 * Math.PI);
 
+        // act
         final QuaternionRotation result = q1.multiply(q2);
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, result.getAngle(), EPS);
     }
 
     @Test
     void testMultiply_sameAxis_multiple_2_oe() {
+        // arrange
         final double oneThird = 1.0 / 3.0;
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, 0.1 * Math.PI);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, oneThird * Math.PI);
@@ -927,23 +1027,31 @@ class QuaternionRotationTest_OE25Dev {
         final QuaternionRotation q4 = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, 0.3 * Math.PI);
         final QuaternionRotation q5 = QuaternionRotation.fromAxisAngle(MINUS_DIAGONAL, -oneThird * Math.PI);
 
+        // act
         final QuaternionRotation result = q1.multiply(q2).multiply(q3).multiply(q4).multiply(q5);
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(2.0 * Math.PI / 3.0, result.getAngle(), EPS);
     }
 
     @Test
     void testMultiply_differentAxes_2_oe() {
+        // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, Angle.PI_OVER_TWO);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, Angle.PI_OVER_TWO);
 
+        // act
         final QuaternionRotation result = q1.multiply(q2);
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(2.0 * Math.PI / 3.0, result.getAngle(), EPS);
     }
 
     @Test
     void testMultiply_numericalStability_1_oe() {
+        // arrange
         final int slices = 1024;
         final double delta = (8.0 * Math.PI / 3.0) / slices;
 
@@ -951,6 +1059,7 @@ class QuaternionRotationTest_OE25Dev {
 
         final UniformRandomProvider rand = RandomSource.create(RandomSource.JDK, 2L);
 
+        // act
         for (int i = 0; i < slices; ++i) {
             final double angle = rand.nextDouble();
             final QuaternionRotation forward = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, angle);
@@ -959,11 +1068,13 @@ class QuaternionRotationTest_OE25Dev {
             q = q.multiply(forward).multiply(backward);
         }
 
+        // assert
         Assertions.assertTrue(q.getQuaternion().getW() > 0);
     }
 
     @Test
     void testMultiply_numericalStability_2_oe() {
+        // arrange
         final int slices = 1024;
         final double delta = (8.0 * Math.PI / 3.0) / slices;
 
@@ -971,6 +1082,7 @@ class QuaternionRotationTest_OE25Dev {
 
         final UniformRandomProvider rand = RandomSource.create(RandomSource.JDK, 2L);
 
+        // act
         for (int i = 0; i < slices; ++i) {
             final double angle = rand.nextDouble();
             final QuaternionRotation forward = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, angle);
@@ -979,21 +1091,28 @@ class QuaternionRotationTest_OE25Dev {
             q = q.multiply(forward).multiply(backward);
         }
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(1.0, q.getQuaternion().norm(), EPS);
     }
 
     @Test
     void testPremultiply_sameAxis_simple_2_oe() {
+        // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.1 * Math.PI);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.4 * Math.PI);
 
+        // act
         final QuaternionRotation result = q1.premultiply(q2);
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, result.getAngle(), EPS);
     }
 
     @Test
     void testPremultiply_sameAxis_multiple_2_oe() {
+        // arrange
         final double oneThird = 1.0 / 3.0;
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, 0.1 * Math.PI);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, oneThird * Math.PI);
@@ -1001,45 +1120,64 @@ class QuaternionRotationTest_OE25Dev {
         final QuaternionRotation q4 = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, 0.3 * Math.PI);
         final QuaternionRotation q5 = QuaternionRotation.fromAxisAngle(MINUS_DIAGONAL, -oneThird * Math.PI);
 
+        // act
         final QuaternionRotation result = q1.premultiply(q2).premultiply(q3).premultiply(q4).premultiply(q5);
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(2.0 * Math.PI / 3.0, result.getAngle(), EPS);
     }
 
     @Test
     void testPremultiply_differentAxes_2_oe() {
+        // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, Angle.PI_OVER_TWO);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, Angle.PI_OVER_TWO);
 
+        // act
         final QuaternionRotation result = q2.premultiply(q1);
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(2.0 * Math.PI / 3.0, result.getAngle(), EPS);
     }
 
     @Test
     void testSlerp_followsShortestPath_3_oe() {
+        // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, 0.75 * Math.PI);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, -0.75 * Math.PI);
 
+        // act
         final QuaternionRotation result = q1.slerp(q2).apply(0.5);
 
+        // assert
+        // the slerp should have followed the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Math.PI, result.getAngle(), EPS);
     }
 
     @Test
     void testSlerp_inputQuaternionsHaveMinusOneDotProduct_2_oe() {
+        // arrange
         final QuaternionRotation q1 = QuaternionRotation.of(1, 0, 0, 1); // pi/2 around +z
         final QuaternionRotation q2 = QuaternionRotation.of(-1, 0, 0, -1); // 3pi/2 around -z
 
+        // act
         final QuaternionRotation result = q1.slerp(q2).apply(0.5);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertEquals(Angle.PI_OVER_TWO, result.getAngle(), EPS);
     }
 
     @Test
     void testSlerp_outputQuaternionIsNormalizedForAllT_1_oe() {
+        // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, 0.25 * Math.PI);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, 0.75 * Math.PI);
 
@@ -1048,14 +1186,17 @@ class QuaternionRotationTest_OE25Dev {
         for (int step = 0; step <= numSteps; step++) {
             final double t = -10 + step * delta;
 
+            // act
             final QuaternionRotation result = q1.slerp(q2).apply(t);
 
+            // assert
             Assertions.assertEquals(1.0, result.getQuaternion().norm(), EPS);
     }
     }
 
     @Test
     void testAxisAngleSequenceConversion_relative_eulerSingularities_1_oe() {
+        // arrange
         final double[] eulerSingularities = {
             0.0,
             Math.PI
@@ -1072,9 +1213,11 @@ class QuaternionRotationTest_OE25Dev {
                 final AxisAngleSequence inputSeq = new AxisAngleSequence(frame, axes, angle1, singularityAngle, angle2);
                 final QuaternionRotation inputQuat = QuaternionRotation.fromAxisAngleSequence(inputSeq);
 
+                // act
                 final AxisAngleSequence resultSeq = inputQuat.toAxisAngleSequence(frame, axes);
                 final QuaternionRotation resultQuat = QuaternionRotation.fromAxisAngleSequence(resultSeq);
 
+                // assert
                 Assertions.assertEquals(frame, resultSeq.getReferenceFrame());
     }
     }
@@ -1082,6 +1225,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testAxisAngleSequenceConversion_relative_eulerSingularities_2_oe() {
+        // arrange
         final double[] eulerSingularities = {
             0.0,
             Math.PI
@@ -1098,9 +1242,12 @@ class QuaternionRotationTest_OE25Dev {
                 final AxisAngleSequence inputSeq = new AxisAngleSequence(frame, axes, angle1, singularityAngle, angle2);
                 final QuaternionRotation inputQuat = QuaternionRotation.fromAxisAngleSequence(inputSeq);
 
+                // act
                 final AxisAngleSequence resultSeq = inputQuat.toAxisAngleSequence(frame, axes);
                 final QuaternionRotation resultQuat = QuaternionRotation.fromAxisAngleSequence(resultSeq);
 
+                // assert
+                // removed other assertion
                 Assertions.assertEquals(axes, resultSeq.getAxisSequence());
     }
     }
@@ -1108,6 +1255,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testAxisAngleSequenceConversion_absolute_eulerSingularities_1_oe() {
+        // arrange
         final double[] eulerSingularities = {
             0.0,
             Math.PI
@@ -1124,9 +1272,11 @@ class QuaternionRotationTest_OE25Dev {
                 final AxisAngleSequence inputSeq = new AxisAngleSequence(frame, axes, angle1, singularityAngle, angle2);
                 final QuaternionRotation inputQuat = QuaternionRotation.fromAxisAngleSequence(inputSeq);
 
+                // act
                 final AxisAngleSequence resultSeq = inputQuat.toAxisAngleSequence(frame, axes);
                 final QuaternionRotation resultQuat = QuaternionRotation.fromAxisAngleSequence(resultSeq);
 
+                // assert
                 Assertions.assertEquals(frame, resultSeq.getReferenceFrame());
     }
     }
@@ -1134,6 +1284,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testAxisAngleSequenceConversion_absolute_eulerSingularities_2_oe() {
+        // arrange
         final double[] eulerSingularities = {
             0.0,
             Math.PI
@@ -1150,9 +1301,12 @@ class QuaternionRotationTest_OE25Dev {
                 final AxisAngleSequence inputSeq = new AxisAngleSequence(frame, axes, angle1, singularityAngle, angle2);
                 final QuaternionRotation inputQuat = QuaternionRotation.fromAxisAngleSequence(inputSeq);
 
+                // act
                 final AxisAngleSequence resultSeq = inputQuat.toAxisAngleSequence(frame, axes);
                 final QuaternionRotation resultQuat = QuaternionRotation.fromAxisAngleSequence(resultSeq);
 
+                // assert
+                // removed other assertion
                 Assertions.assertEquals(axes, resultSeq.getAxisSequence());
     }
     }
@@ -1160,6 +1314,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testAxisAngleSequenceConversion_relative_taitBryanSingularities_1_oe() {
+        // arrange
         final double[] taitBryanSingularities = {
             -Angle.PI_OVER_TWO,
             Angle.PI_OVER_TWO
@@ -1176,9 +1331,11 @@ class QuaternionRotationTest_OE25Dev {
                 final AxisAngleSequence inputSeq = new AxisAngleSequence(frame, axes, angle1, singularityAngle, angle2);
                 final QuaternionRotation inputQuat = QuaternionRotation.fromAxisAngleSequence(inputSeq);
 
+                // act
                 final AxisAngleSequence resultSeq = inputQuat.toAxisAngleSequence(frame, axes);
                 final QuaternionRotation resultQuat = QuaternionRotation.fromAxisAngleSequence(resultSeq);
 
+                // assert
                 Assertions.assertEquals(frame, resultSeq.getReferenceFrame());
     }
     }
@@ -1186,6 +1343,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testAxisAngleSequenceConversion_relative_taitBryanSingularities_2_oe() {
+        // arrange
         final double[] taitBryanSingularities = {
             -Angle.PI_OVER_TWO,
             Angle.PI_OVER_TWO
@@ -1202,9 +1360,12 @@ class QuaternionRotationTest_OE25Dev {
                 final AxisAngleSequence inputSeq = new AxisAngleSequence(frame, axes, angle1, singularityAngle, angle2);
                 final QuaternionRotation inputQuat = QuaternionRotation.fromAxisAngleSequence(inputSeq);
 
+                // act
                 final AxisAngleSequence resultSeq = inputQuat.toAxisAngleSequence(frame, axes);
                 final QuaternionRotation resultQuat = QuaternionRotation.fromAxisAngleSequence(resultSeq);
 
+                // assert
+                // removed other assertion
                 Assertions.assertEquals(axes, resultSeq.getAxisSequence());
     }
     }
@@ -1212,6 +1373,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testAxisAngleSequenceConversion_absolute_taitBryanSingularities_1_oe() {
+        // arrange
         final double[] taitBryanSingularities = {
             -Angle.PI_OVER_TWO,
             Angle.PI_OVER_TWO
@@ -1228,9 +1390,11 @@ class QuaternionRotationTest_OE25Dev {
                 final AxisAngleSequence inputSeq = new AxisAngleSequence(frame, axes, angle1, singularityAngle, angle2);
                 final QuaternionRotation inputQuat = QuaternionRotation.fromAxisAngleSequence(inputSeq);
 
+                // act
                 final AxisAngleSequence resultSeq = inputQuat.toAxisAngleSequence(frame, axes);
                 final QuaternionRotation resultQuat = QuaternionRotation.fromAxisAngleSequence(resultSeq);
 
+                // assert
                 Assertions.assertEquals(frame, resultSeq.getReferenceFrame());
     }
     }
@@ -1238,6 +1402,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testAxisAngleSequenceConversion_absolute_taitBryanSingularities_2_oe() {
+        // arrange
         final double[] taitBryanSingularities = {
             -Angle.PI_OVER_TWO,
             Angle.PI_OVER_TWO
@@ -1254,9 +1419,12 @@ class QuaternionRotationTest_OE25Dev {
                 final AxisAngleSequence inputSeq = new AxisAngleSequence(frame, axes, angle1, singularityAngle, angle2);
                 final QuaternionRotation inputQuat = QuaternionRotation.fromAxisAngleSequence(inputSeq);
 
+                // act
                 final AxisAngleSequence resultSeq = inputQuat.toAxisAngleSequence(frame, axes);
                 final QuaternionRotation resultQuat = QuaternionRotation.fromAxisAngleSequence(resultSeq);
 
+                // assert
+                // removed other assertion
                 Assertions.assertEquals(axes, resultSeq.getAxisSequence());
     }
     }
@@ -1264,8 +1432,10 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToAxisAngleSequence_invalidArgs_1_oe() {
+        // arrange
         final QuaternionRotation q = QuaternionRotation.identity();
 
+        // act/assert
         try {
     q.toAxisAngleSequence(null, AxisSequence.XYZ);
     fail("IllegalArgumentException");
@@ -1275,8 +1445,11 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToAxisAngleSequence_invalidArgs_2_oe() {
+        // arrange
         final QuaternionRotation q = QuaternionRotation.identity();
 
+        // act/assert
+        // removed other assertion
         try {
     q.toAxisAngleSequence(AxisReferenceFrame.ABSOLUTE, null);
     fail("IllegalArgumentException");
@@ -1286,296 +1459,435 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToRelativeAxisAngleSequence_1_oe() {
+        // arrange
         final QuaternionRotation q = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, TWO_THIRDS_PI);
 
+        // act
         final AxisAngleSequence seq = q.toRelativeAxisAngleSequence(AxisSequence.YZX);
 
+        // assert
         Assertions.assertEquals(AxisReferenceFrame.RELATIVE, seq.getReferenceFrame());
     }
 
     @Test
     void testToRelativeAxisAngleSequence_2_oe() {
+        // arrange
         final QuaternionRotation q = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, TWO_THIRDS_PI);
 
+        // act
         final AxisAngleSequence seq = q.toRelativeAxisAngleSequence(AxisSequence.YZX);
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(AxisSequence.YZX, seq.getAxisSequence());
     }
 
     @Test
     void testToRelativeAxisAngleSequence_3_oe() {
+        // arrange
         final QuaternionRotation q = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, TWO_THIRDS_PI);
 
+        // act
         final AxisAngleSequence seq = q.toRelativeAxisAngleSequence(AxisSequence.YZX);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, seq.getAngle1(), EPS);
     }
 
     @Test
     void testToRelativeAxisAngleSequence_4_oe() {
+        // arrange
         final QuaternionRotation q = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, TWO_THIRDS_PI);
 
+        // act
         final AxisAngleSequence seq = q.toRelativeAxisAngleSequence(AxisSequence.YZX);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, seq.getAngle2(), EPS);
     }
 
     @Test
     void testToRelativeAxisAngleSequence_5_oe() {
+        // arrange
         final QuaternionRotation q = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, TWO_THIRDS_PI);
 
+        // act
         final AxisAngleSequence seq = q.toRelativeAxisAngleSequence(AxisSequence.YZX);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, seq.getAngle3(), EPS);
     }
 
     @Test
     void testToAbsoluteAxisAngleSequence_1_oe() {
+        // arrange
         final QuaternionRotation q = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, TWO_THIRDS_PI);
 
+        // act
         final AxisAngleSequence seq = q.toAbsoluteAxisAngleSequence(AxisSequence.YZX);
 
+        // assert
         Assertions.assertEquals(AxisReferenceFrame.ABSOLUTE, seq.getReferenceFrame());
     }
 
     @Test
     void testToAbsoluteAxisAngleSequence_2_oe() {
+        // arrange
         final QuaternionRotation q = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, TWO_THIRDS_PI);
 
+        // act
         final AxisAngleSequence seq = q.toAbsoluteAxisAngleSequence(AxisSequence.YZX);
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(AxisSequence.YZX, seq.getAxisSequence());
     }
 
     @Test
     void testToAbsoluteAxisAngleSequence_3_oe() {
+        // arrange
         final QuaternionRotation q = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, TWO_THIRDS_PI);
 
+        // act
         final AxisAngleSequence seq = q.toAbsoluteAxisAngleSequence(AxisSequence.YZX);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, seq.getAngle1(), EPS);
     }
 
     @Test
     void testToAbsoluteAxisAngleSequence_4_oe() {
+        // arrange
         final QuaternionRotation q = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, TWO_THIRDS_PI);
 
+        // act
         final AxisAngleSequence seq = q.toAbsoluteAxisAngleSequence(AxisSequence.YZX);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, seq.getAngle2(), EPS);
     }
 
     @Test
     void testToAbsoluteAxisAngleSequence_5_oe() {
+        // arrange
         final QuaternionRotation q = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, TWO_THIRDS_PI);
 
+        // act
         final AxisAngleSequence seq = q.toAbsoluteAxisAngleSequence(AxisSequence.YZX);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, seq.getAngle3(), EPS);
     }
 
     @Test
     void testHashCode_1_oe() {
+        // arrange
         final double delta = 100 * Precision.EPSILON;
         final QuaternionRotation q1 = QuaternionRotation.of(1, 2, 3, 4);
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
+        // act/assert
         Assertions.assertEquals(q1.hashCode(), q2.hashCode());
     }
 
     @Test
     void testHashCode_2_oe() {
+        // arrange
         final double delta = 100 * Precision.EPSILON;
         final QuaternionRotation q1 = QuaternionRotation.of(1, 2, 3, 4);
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertNotEquals(q1.hashCode(), QuaternionRotation.of(1 + delta, 2, 3, 4).hashCode());
     }
 
     @Test
     void testHashCode_3_oe() {
+        // arrange
         final double delta = 100 * Precision.EPSILON;
         final QuaternionRotation q1 = QuaternionRotation.of(1, 2, 3, 4);
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(q1.hashCode(), QuaternionRotation.of(1, 2 + delta, 3, 4).hashCode());
     }
 
     @Test
     void testHashCode_4_oe() {
+        // arrange
         final double delta = 100 * Precision.EPSILON;
         final QuaternionRotation q1 = QuaternionRotation.of(1, 2, 3, 4);
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(q1.hashCode(), QuaternionRotation.of(1, 2, 3 + delta, 4).hashCode());
     }
 
     @Test
     void testHashCode_5_oe() {
+        // arrange
         final double delta = 100 * Precision.EPSILON;
         final QuaternionRotation q1 = QuaternionRotation.of(1, 2, 3, 4);
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(q1.hashCode(), QuaternionRotation.of(1, 2, 3, 4 + delta).hashCode());
     }
 
     @Test
     void testEquals_2_oe() {
+        // arrange
         final double delta = 100 * Precision.EPSILON;
         final QuaternionRotation q1 = QuaternionRotation.of(1, 2, 3, 4);
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(q1, q2);
     }
 
     @Test
     void testEquals_3_oe() {
+        // arrange
         final double delta = 100 * Precision.EPSILON;
         final QuaternionRotation q1 = QuaternionRotation.of(1, 2, 3, 4);
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertNotEquals(q1, QuaternionRotation.of(-1, -2, -3, 4));
     }
 
     @Test
     void testEquals_4_oe() {
+        // arrange
         final double delta = 100 * Precision.EPSILON;
         final QuaternionRotation q1 = QuaternionRotation.of(1, 2, 3, 4);
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(q1, QuaternionRotation.of(1, 2, 3, -4));
     }
 
     @Test
     void testEquals_5_oe() {
+        // arrange
         final double delta = 100 * Precision.EPSILON;
         final QuaternionRotation q1 = QuaternionRotation.of(1, 2, 3, 4);
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertNotEquals(q1, QuaternionRotation.of(1 + delta, 2, 3, 4));
     }
 
     @Test
     void testEquals_6_oe() {
+        // arrange
         final double delta = 100 * Precision.EPSILON;
         final QuaternionRotation q1 = QuaternionRotation.of(1, 2, 3, 4);
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(q1, QuaternionRotation.of(1, 2 + delta, 3, 4));
     }
 
     @Test
     void testEquals_7_oe() {
+        // arrange
         final double delta = 100 * Precision.EPSILON;
         final QuaternionRotation q1 = QuaternionRotation.of(1, 2, 3, 4);
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(q1, QuaternionRotation.of(1, 2, 3 + delta, 4));
     }
 
     @Test
     void testEquals_8_oe() {
+        // arrange
         final double delta = 100 * Precision.EPSILON;
         final QuaternionRotation q1 = QuaternionRotation.of(1, 2, 3, 4);
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(q1, QuaternionRotation.of(1, 2, 3, 4 + delta));
     }
 
     @Test
     void testToString_1_oe() {
+        // arrange
         final QuaternionRotation q = QuaternionRotation.of(1, 2, 3, 4);
         final Quaternion qField = q.getQuaternion();
 
+        // assert
         Assertions.assertEquals(qField.toString(), q.toString());
     }
 
     @Test
     void testCreateVectorRotation_simple_2_oe() {
+        // arrange
         final Vector3D u1 = Vector3D.Unit.PLUS_X;
         final Vector3D u2 = Vector3D.Unit.PLUS_Y;
 
+        // act
         final QuaternionRotation q = QuaternionRotation.createVectorRotation(u1, u2);
 
+        // assert
         final double val = Math.sqrt(2) * 0.5;
 
         checkQuaternion(q, val, 0, 0, val);
 
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, q.getAngle(), EPS);
     }
 
     @Test
     void testCreateVectorRotation_identity_2_oe() {
+        // arrange
         final Vector3D u1 = Vector3D.of(0, 2, 0);
 
+        // act
         final QuaternionRotation q = QuaternionRotation.createVectorRotation(u1, u1);
 
+        // assert
         checkQuaternion(q, 1, 0, 0, 0);
 
+        // removed other assertion
         Assertions.assertEquals(0.0, q.getAngle(), EPS);
     }
 
     @Test
     void testCreateVectorRotation_parallel_2_oe() {
+        // arrange
         final Vector3D u1 = Vector3D.of(0, 2, 0);
         final Vector3D u2 = Vector3D.of(0, 3, 0);
 
+        // act
         final QuaternionRotation q = QuaternionRotation.createVectorRotation(u1, u2);
 
+        // assert
         checkQuaternion(q, 1, 0, 0, 0);
 
+        // removed other assertion
         Assertions.assertEquals(0.0, q.getAngle(), EPS);
     }
 
     @Test
     void testCreateVectorRotation_antiparallel_1_oe() {
+        // arrange
         final Vector3D u1 = Vector3D.of(0, 2, 0);
         final Vector3D u2 = Vector3D.of(0, -3, 0);
 
+        // act
         final QuaternionRotation q = QuaternionRotation.createVectorRotation(u1, u2);
 
+        // assert
         final Vector3D axis = q.getAxis();
         Assertions.assertEquals(0.0, axis.dot(u1), EPS);
     }
 
     @Test
     void testCreateVectorRotation_antiparallel_2_oe() {
+        // arrange
         final Vector3D u1 = Vector3D.of(0, 2, 0);
         final Vector3D u2 = Vector3D.of(0, -3, 0);
 
+        // act
         final QuaternionRotation q = QuaternionRotation.createVectorRotation(u1, u2);
 
+        // assert
         final Vector3D axis = q.getAxis();
+        // removed other assertion
         Assertions.assertEquals(0.0, axis.dot(u2), EPS);
     }
 
     @Test
     void testCreateVectorRotation_antiparallel_3_oe() {
+        // arrange
         final Vector3D u1 = Vector3D.of(0, 2, 0);
         final Vector3D u2 = Vector3D.of(0, -3, 0);
 
+        // act
         final QuaternionRotation q = QuaternionRotation.createVectorRotation(u1, u2);
 
+        // assert
         final Vector3D axis = q.getAxis();
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Math.PI, q.getAngle(), EPS);
     }
 
     @Test
     void testCreateVectorRotation_invalidArgs_1_oe() {
+        // act/assert
         try {
     QuaternionRotation.createVectorRotation(Vector3D.ZERO, Vector3D.Unit.PLUS_X);
     fail("IllegalArgumentException");
@@ -1585,6 +1897,8 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testCreateVectorRotation_invalidArgs_2_oe() {
+        // act/assert
+        // removed other assertion
         try {
     QuaternionRotation.createVectorRotation(Vector3D.Unit.PLUS_X, Vector3D.ZERO);
     fail("IllegalArgumentException");
@@ -1594,6 +1908,9 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testCreateVectorRotation_invalidArgs_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         try {
     QuaternionRotation.createVectorRotation(Vector3D.NaN, Vector3D.Unit.PLUS_X);
     fail("IllegalArgumentException");
@@ -1603,6 +1920,10 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testCreateVectorRotation_invalidArgs_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         try {
     QuaternionRotation.createVectorRotation(Vector3D.Unit.PLUS_X, Vector3D.POSITIVE_INFINITY);
     fail("IllegalArgumentException");
@@ -1612,6 +1933,11 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testCreateVectorRotation_invalidArgs_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         try {
     QuaternionRotation.createVectorRotation(Vector3D.Unit.PLUS_X, Vector3D.NEGATIVE_INFINITY);
     fail("IllegalArgumentException");
@@ -1621,6 +1947,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testCreateBasisRotation_invalidArgs_1_oe() {
+        // act/assert
         try {
     QuaternionRotation.createBasisRotation( Vector3D.ZERO, Vector3D.Unit.PLUS_Y, Vector3D.Unit.PLUS_Y, Vector3D.Unit.MINUS_X);
     fail("IllegalArgumentException");
@@ -1630,6 +1957,8 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testCreateBasisRotation_invalidArgs_2_oe() {
+        // act/assert
+        // removed other assertion
         try {
     QuaternionRotation.createBasisRotation( Vector3D.Unit.PLUS_X, Vector3D.NaN, Vector3D.Unit.PLUS_Y, Vector3D.Unit.MINUS_X);
     fail("IllegalArgumentException");
@@ -1639,6 +1968,9 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testCreateBasisRotation_invalidArgs_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         try {
     QuaternionRotation.createBasisRotation( Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, Vector3D.POSITIVE_INFINITY, Vector3D.Unit.MINUS_X);
     fail("IllegalArgumentException");
@@ -1648,6 +1980,10 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testCreateBasisRotation_invalidArgs_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         try {
     QuaternionRotation.createBasisRotation( Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, Vector3D.Unit.PLUS_Y, Vector3D.NEGATIVE_INFINITY);
     fail("IllegalArgumentException");
@@ -1657,6 +1993,11 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testCreateBasisRotation_invalidArgs_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         try {
     QuaternionRotation.createBasisRotation( Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, Vector3D.Unit.MINUS_X);
     fail("IllegalArgumentException");
@@ -1666,6 +2007,12 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testCreateBasisRotation_invalidArgs_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         try {
     QuaternionRotation.createBasisRotation( Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, Vector3D.Unit.PLUS_Y, Vector3D.Unit.MINUS_Y);
     fail("IllegalArgumentException");
@@ -1675,6 +2022,8 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_1_oe_1_oe() {
+        // act/assert
+        // --- x axes
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.IDENTITY;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(PLUS_X_DIR, 0.0).toMatrix();
         assertFnEquals(expected0, transform0);
@@ -1682,6 +2031,9 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_2_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.PLUS_X_HALF_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(PLUS_X_DIR, Angle.PI_OVER_TWO).toMatrix();
@@ -1690,7 +2042,11 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_3_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.PLUS_X_HALF_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(MINUS_X_DIR, -Angle.PI_OVER_TWO).toMatrix();
         assertFnEquals(expected0, transform0);
@@ -1698,7 +2054,12 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_4_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.MINUS_X_HALF_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(MINUS_X_DIR, Angle.PI_OVER_TWO).toMatrix();
@@ -1707,8 +2068,14 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_5_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.MINUS_X_HALF_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(PLUS_X_DIR, -Angle.PI_OVER_TWO).toMatrix();
         assertFnEquals(expected0, transform0);
@@ -1716,8 +2083,15 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_6_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.X_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(PLUS_X_DIR, Math.PI).toMatrix();
@@ -1726,9 +2100,17 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_7_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.X_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(MINUS_X_DIR, Math.PI).toMatrix();
         assertFnEquals(expected0, transform0);
@@ -1736,10 +2118,20 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_8_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.IDENTITY;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(PLUS_Y_DIR, 0.0).toMatrix();
         assertFnEquals(expected0, transform0);
@@ -1747,10 +2139,21 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_9_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.PLUS_Y_HALF_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(PLUS_Y_DIR, Angle.PI_OVER_TWO).toMatrix();
@@ -1759,11 +2162,23 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_10_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.PLUS_Y_HALF_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(MINUS_Y_DIR, -Angle.PI_OVER_TWO).toMatrix();
         assertFnEquals(expected0, transform0);
@@ -1771,11 +2186,24 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_11_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.MINUS_Y_HALF_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(MINUS_Y_DIR, Angle.PI_OVER_TWO).toMatrix();
@@ -1784,12 +2212,26 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_12_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.MINUS_Y_HALF_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(PLUS_Y_DIR, -Angle.PI_OVER_TWO).toMatrix();
         assertFnEquals(expected0, transform0);
@@ -1797,12 +2239,27 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_13_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.Y_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(PLUS_Y_DIR, Math.PI).toMatrix();
@@ -1811,13 +2268,29 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_14_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.Y_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(MINUS_Y_DIR, Math.PI).toMatrix();
         assertFnEquals(expected0, transform0);
@@ -1825,14 +2298,32 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_15_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.IDENTITY;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(PLUS_Z_DIR, 0.0).toMatrix();
         assertFnEquals(expected0, transform0);
@@ -1840,14 +2331,33 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_16_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.PLUS_Z_HALF_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(PLUS_Z_DIR, Angle.PI_OVER_TWO).toMatrix();
@@ -1856,15 +2366,35 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_17_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.PLUS_Z_HALF_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(MINUS_Z_DIR, -Angle.PI_OVER_TWO).toMatrix();
         assertFnEquals(expected0, transform0);
@@ -1872,15 +2402,36 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_18_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.MINUS_Z_HALF_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(MINUS_Z_DIR, Angle.PI_OVER_TWO).toMatrix();
@@ -1889,16 +2440,38 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_19_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.MINUS_Z_HALF_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(PLUS_Z_DIR, -Angle.PI_OVER_TWO).toMatrix();
         assertFnEquals(expected0, transform0);
@@ -1906,16 +2479,39 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_20_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.Z_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(PLUS_Z_DIR, Math.PI).toMatrix();
@@ -1924,17 +2520,41 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_21_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.Z_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(MINUS_Z_DIR, Math.PI).toMatrix();
         assertFnEquals(expected0, transform0);
@@ -1942,18 +2562,44 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_22_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- diagonal
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.PLUS_DIAGONAL_TWO_THIRDS_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, TWO_THIRDS_PI).toMatrix();
         assertFnEquals(expected0, transform0);
@@ -1961,18 +2607,45 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_23_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- diagonal
+        // removed other assertion
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.PLUS_DIAGONAL_TWO_THIRDS_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(MINUS_DIAGONAL, MINUS_TWO_THIRDS_PI).toMatrix();
         assertFnEquals(expected0, transform0);
@@ -1980,18 +2653,46 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_24_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- diagonal
+        // removed other assertion
+        // removed other assertion
 
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.MINUS_DIAGONAL_TWO_THIRDS_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(MINUS_DIAGONAL, TWO_THIRDS_PI).toMatrix();
@@ -2000,19 +2701,48 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testToMatrix_25_oe_1_oe() {
+        // act/assert
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- diagonal
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final UnaryOperator<Vector3D> expected0 = StandardRotations.MINUS_DIAGONAL_TWO_THIRDS_PI;
         final AffineTransformMatrix3D transform0 = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, MINUS_TWO_THIRDS_PI).toMatrix();
         assertFnEquals(expected0, transform0);
@@ -2020,6 +2750,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testAxisAngleSequenceConversion_relative_eulerSingularities_3_oe_1_oe() {
+        // arrange
         final double[] eulerSingularities = {
             0.0,
             Math.PI
@@ -2036,9 +2767,13 @@ class QuaternionRotationTest_OE25Dev {
                 final AxisAngleSequence inputSeq = new AxisAngleSequence(frame, axes, angle1, singularityAngle, angle2);
                 final QuaternionRotation inputQuat = QuaternionRotation.fromAxisAngleSequence(inputSeq);
 
+                // act
                 final AxisAngleSequence resultSeq = inputQuat.toAxisAngleSequence(frame, axes);
                 final QuaternionRotation resultQuat = QuaternionRotation.fromAxisAngleSequence(resultSeq);
 
+                // assert
+                // removed other assertion
+                // removed other assertion
 
                                 final double expected0 = singularityAngle;
                 final double actual0 = resultSeq.getAngle2();
@@ -2052,6 +2787,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testAxisAngleSequenceConversion_relative_eulerSingularities_4_oe_1_oe() {
+        // arrange
         final double[] eulerSingularities = {
             0.0,
             Math.PI
@@ -2068,10 +2804,15 @@ class QuaternionRotationTest_OE25Dev {
                 final AxisAngleSequence inputSeq = new AxisAngleSequence(frame, axes, angle1, singularityAngle, angle2);
                 final QuaternionRotation inputQuat = QuaternionRotation.fromAxisAngleSequence(inputSeq);
 
+                // act
                 final AxisAngleSequence resultSeq = inputQuat.toAxisAngleSequence(frame, axes);
                 final QuaternionRotation resultQuat = QuaternionRotation.fromAxisAngleSequence(resultSeq);
 
+                // assert
+                // removed other assertion
+                // removed other assertion
 
+                // removed other assertion
                                 final double expected0 = 0.0;
                 final double actual0 = resultSeq.getAngle3();
                 final double diff0 = Angle.Rad.WITHIN_MINUS_PI_AND_PI.applyAsDouble(expected0 - actual0);
@@ -2084,6 +2825,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testAxisAngleSequenceConversion_absolute_eulerSingularities_3_oe_1_oe() {
+        // arrange
         final double[] eulerSingularities = {
             0.0,
             Math.PI
@@ -2100,9 +2842,13 @@ class QuaternionRotationTest_OE25Dev {
                 final AxisAngleSequence inputSeq = new AxisAngleSequence(frame, axes, angle1, singularityAngle, angle2);
                 final QuaternionRotation inputQuat = QuaternionRotation.fromAxisAngleSequence(inputSeq);
 
+                // act
                 final AxisAngleSequence resultSeq = inputQuat.toAxisAngleSequence(frame, axes);
                 final QuaternionRotation resultQuat = QuaternionRotation.fromAxisAngleSequence(resultSeq);
 
+                // assert
+                // removed other assertion
+                // removed other assertion
 
                                 final double expected0 = 0.0;
                 final double actual0 = resultSeq.getAngle1();
@@ -2116,6 +2862,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testAxisAngleSequenceConversion_absolute_eulerSingularities_4_oe_1_oe() {
+        // arrange
         final double[] eulerSingularities = {
             0.0,
             Math.PI
@@ -2132,10 +2879,15 @@ class QuaternionRotationTest_OE25Dev {
                 final AxisAngleSequence inputSeq = new AxisAngleSequence(frame, axes, angle1, singularityAngle, angle2);
                 final QuaternionRotation inputQuat = QuaternionRotation.fromAxisAngleSequence(inputSeq);
 
+                // act
                 final AxisAngleSequence resultSeq = inputQuat.toAxisAngleSequence(frame, axes);
                 final QuaternionRotation resultQuat = QuaternionRotation.fromAxisAngleSequence(resultSeq);
 
+                // assert
+                // removed other assertion
+                // removed other assertion
 
+                // removed other assertion
                                 final double expected0 = singularityAngle;
                 final double actual0 = resultSeq.getAngle2();
                 final double diff0 = Angle.Rad.WITHIN_MINUS_PI_AND_PI.applyAsDouble(expected0 - actual0);
@@ -2148,6 +2900,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testAxisAngleSequenceConversion_relative_taitBryanSingularities_3_oe_1_oe() {
+        // arrange
         final double[] taitBryanSingularities = {
             -Angle.PI_OVER_TWO,
             Angle.PI_OVER_TWO
@@ -2164,9 +2917,13 @@ class QuaternionRotationTest_OE25Dev {
                 final AxisAngleSequence inputSeq = new AxisAngleSequence(frame, axes, angle1, singularityAngle, angle2);
                 final QuaternionRotation inputQuat = QuaternionRotation.fromAxisAngleSequence(inputSeq);
 
+                // act
                 final AxisAngleSequence resultSeq = inputQuat.toAxisAngleSequence(frame, axes);
                 final QuaternionRotation resultQuat = QuaternionRotation.fromAxisAngleSequence(resultSeq);
 
+                // assert
+                // removed other assertion
+                // removed other assertion
 
                                 final double expected0 = singularityAngle;
                 final double actual0 = resultSeq.getAngle2();
@@ -2180,6 +2937,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testAxisAngleSequenceConversion_relative_taitBryanSingularities_4_oe_1_oe() {
+        // arrange
         final double[] taitBryanSingularities = {
             -Angle.PI_OVER_TWO,
             Angle.PI_OVER_TWO
@@ -2196,10 +2954,15 @@ class QuaternionRotationTest_OE25Dev {
                 final AxisAngleSequence inputSeq = new AxisAngleSequence(frame, axes, angle1, singularityAngle, angle2);
                 final QuaternionRotation inputQuat = QuaternionRotation.fromAxisAngleSequence(inputSeq);
 
+                // act
                 final AxisAngleSequence resultSeq = inputQuat.toAxisAngleSequence(frame, axes);
                 final QuaternionRotation resultQuat = QuaternionRotation.fromAxisAngleSequence(resultSeq);
 
+                // assert
+                // removed other assertion
+                // removed other assertion
 
+                // removed other assertion
                                 final double expected0 = 0.0;
                 final double actual0 = resultSeq.getAngle3();
                 final double diff0 = Angle.Rad.WITHIN_MINUS_PI_AND_PI.applyAsDouble(expected0 - actual0);
@@ -2212,6 +2975,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testAxisAngleSequenceConversion_absolute_taitBryanSingularities_3_oe_1_oe() {
+        // arrange
         final double[] taitBryanSingularities = {
             -Angle.PI_OVER_TWO,
             Angle.PI_OVER_TWO
@@ -2228,9 +2992,13 @@ class QuaternionRotationTest_OE25Dev {
                 final AxisAngleSequence inputSeq = new AxisAngleSequence(frame, axes, angle1, singularityAngle, angle2);
                 final QuaternionRotation inputQuat = QuaternionRotation.fromAxisAngleSequence(inputSeq);
 
+                // act
                 final AxisAngleSequence resultSeq = inputQuat.toAxisAngleSequence(frame, axes);
                 final QuaternionRotation resultQuat = QuaternionRotation.fromAxisAngleSequence(resultSeq);
 
+                // assert
+                // removed other assertion
+                // removed other assertion
 
                                 final double expected0 = 0.0;
                 final double actual0 = resultSeq.getAngle1();
@@ -2244,6 +3012,7 @@ class QuaternionRotationTest_OE25Dev {
 
     @Test
     void testAxisAngleSequenceConversion_absolute_taitBryanSingularities_4_oe_1_oe() {
+        // arrange
         final double[] taitBryanSingularities = {
             -Angle.PI_OVER_TWO,
             Angle.PI_OVER_TWO
@@ -2260,10 +3029,15 @@ class QuaternionRotationTest_OE25Dev {
                 final AxisAngleSequence inputSeq = new AxisAngleSequence(frame, axes, angle1, singularityAngle, angle2);
                 final QuaternionRotation inputQuat = QuaternionRotation.fromAxisAngleSequence(inputSeq);
 
+                // act
                 final AxisAngleSequence resultSeq = inputQuat.toAxisAngleSequence(frame, axes);
                 final QuaternionRotation resultQuat = QuaternionRotation.fromAxisAngleSequence(resultSeq);
 
+                // assert
+                // removed other assertion
+                // removed other assertion
 
+                // removed other assertion
                                 final double expected0 = singularityAngle;
                 final double actual0 = resultSeq.getAngle2();
                 final double diff0 = Angle.Rad.WITHIN_MINUS_PI_AND_PI.applyAsDouble(expected0 - actual0);
@@ -2276,679 +3050,1471 @@ class QuaternionRotationTest_OE25Dev {
 
 @Test
     void testIdentity_1_oe() {
+        // act
         final QuaternionRotation q = QuaternionRotation.identity();
 
+        // assert
         assertRotationEquals(StandardRotations.IDENTITY, q);
     }
 
 @Test
     void testFromAxisAngle_apply_1_oe() {
+        // act/assert
 
+        // --- x axes
         assertRotationEquals(StandardRotations.IDENTITY, QuaternionRotation.fromAxisAngle(PLUS_X_DIR, 0.0));
     }
 
 @Test
     void testFromAxisAngle_apply_2_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.PLUS_X_HALF_PI, QuaternionRotation.fromAxisAngle(PLUS_X_DIR, Angle.PI_OVER_TWO));
     }
 
 @Test
     void testFromAxisAngle_apply_3_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.PLUS_X_HALF_PI, QuaternionRotation.fromAxisAngle(MINUS_X_DIR, -Angle.PI_OVER_TWO));
     }
 
 @Test
     void testFromAxisAngle_apply_4_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.MINUS_X_HALF_PI, QuaternionRotation.fromAxisAngle(MINUS_X_DIR, Angle.PI_OVER_TWO));
     }
 
 @Test
     void testFromAxisAngle_apply_5_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.MINUS_X_HALF_PI, QuaternionRotation.fromAxisAngle(PLUS_X_DIR, -Angle.PI_OVER_TWO));
     }
 
 @Test
     void testFromAxisAngle_apply_6_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.X_PI, QuaternionRotation.fromAxisAngle(PLUS_X_DIR, Math.PI));
     }
 
 @Test
     void testFromAxisAngle_apply_7_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.X_PI, QuaternionRotation.fromAxisAngle(MINUS_X_DIR, Math.PI));
     }
 
 @Test
     void testFromAxisAngle_apply_8_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
         assertRotationEquals(StandardRotations.IDENTITY, QuaternionRotation.fromAxisAngle(PLUS_Y_DIR, 0.0));
     }
 
 @Test
     void testFromAxisAngle_apply_9_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.PLUS_Y_HALF_PI, QuaternionRotation.fromAxisAngle(PLUS_Y_DIR, Angle.PI_OVER_TWO));
     }
 
 @Test
     void testFromAxisAngle_apply_10_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.PLUS_Y_HALF_PI, QuaternionRotation.fromAxisAngle(MINUS_Y_DIR, -Angle.PI_OVER_TWO));
     }
 
 @Test
     void testFromAxisAngle_apply_11_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.MINUS_Y_HALF_PI, QuaternionRotation.fromAxisAngle(MINUS_Y_DIR, Angle.PI_OVER_TWO));
     }
 
 @Test
     void testFromAxisAngle_apply_12_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.MINUS_Y_HALF_PI, QuaternionRotation.fromAxisAngle(PLUS_Y_DIR, -Angle.PI_OVER_TWO));
     }
 
 @Test
     void testFromAxisAngle_apply_13_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.Y_PI, QuaternionRotation.fromAxisAngle(PLUS_Y_DIR, Math.PI));
     }
 
 @Test
     void testFromAxisAngle_apply_14_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.Y_PI, QuaternionRotation.fromAxisAngle(MINUS_Y_DIR, Math.PI));
     }
 
 @Test
     void testFromAxisAngle_apply_15_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
         assertRotationEquals(StandardRotations.IDENTITY, QuaternionRotation.fromAxisAngle(PLUS_Z_DIR, 0.0));
     }
 
 @Test
     void testFromAxisAngle_apply_16_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.PLUS_Z_HALF_PI, QuaternionRotation.fromAxisAngle(PLUS_Z_DIR, Angle.PI_OVER_TWO));
     }
 
 @Test
     void testFromAxisAngle_apply_17_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.PLUS_Z_HALF_PI, QuaternionRotation.fromAxisAngle(MINUS_Z_DIR, -Angle.PI_OVER_TWO));
     }
 
 @Test
     void testFromAxisAngle_apply_18_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.MINUS_Z_HALF_PI, QuaternionRotation.fromAxisAngle(MINUS_Z_DIR, Angle.PI_OVER_TWO));
     }
 
 @Test
     void testFromAxisAngle_apply_19_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.MINUS_Z_HALF_PI, QuaternionRotation.fromAxisAngle(PLUS_Z_DIR, -Angle.PI_OVER_TWO));
     }
 
 @Test
     void testFromAxisAngle_apply_20_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.Z_PI, QuaternionRotation.fromAxisAngle(PLUS_Z_DIR, Math.PI));
     }
 
 @Test
     void testFromAxisAngle_apply_21_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.Z_PI, QuaternionRotation.fromAxisAngle(MINUS_Z_DIR, Math.PI));
     }
 
 @Test
     void testFromAxisAngle_apply_22_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- diagonal
         assertRotationEquals(StandardRotations.PLUS_DIAGONAL_TWO_THIRDS_PI, QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, TWO_THIRDS_PI));
     }
 
 @Test
     void testFromAxisAngle_apply_23_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- diagonal
+        // removed other assertion
         assertRotationEquals(StandardRotations.PLUS_DIAGONAL_TWO_THIRDS_PI, QuaternionRotation.fromAxisAngle(MINUS_DIAGONAL, MINUS_TWO_THIRDS_PI));
     }
 
 @Test
     void testFromAxisAngle_apply_24_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- diagonal
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.MINUS_DIAGONAL_TWO_THIRDS_PI, QuaternionRotation.fromAxisAngle(MINUS_DIAGONAL, TWO_THIRDS_PI));
     }
 
 @Test
     void testFromAxisAngle_apply_25_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- diagonal
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.MINUS_DIAGONAL_TWO_THIRDS_PI, QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, MINUS_TWO_THIRDS_PI));
     }
 
 @Test
     void testFromAxisAngle_invalidAngle_1_oe() {
-        GeometryTestUtils.assertThrowsWithMessage(() -> QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, Double.NaN), IllegalArgumentException.class, "Invalid angle: NaN");
+        // act/assert
+        try {
+    QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, Double.NaN);
+    fail("Expected IllegalArgumentException with message: " + "Invalid angle: NaN");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testFromAxisAngle_invalidAngle_2_oe() {
-        GeometryTestUtils.assertThrowsWithMessage(() -> QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, Double.POSITIVE_INFINITY), IllegalArgumentException.class, "Invalid angle: Infinity");
+        // act/assert
+        // removed other assertion
+        try {
+    QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, Double.POSITIVE_INFINITY);
+    fail("Expected IllegalArgumentException with message: " + "Invalid angle: Infinity");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testFromAxisAngle_invalidAngle_3_oe() {
-        GeometryTestUtils.assertThrowsWithMessage(() -> QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, Double.NEGATIVE_INFINITY), IllegalArgumentException.class, "Invalid angle: -Infinity");
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        try {
+    QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, Double.NEGATIVE_INFINITY);
+    fail("Expected IllegalArgumentException with message: " + "Invalid angle: -Infinity");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testInverse_apply_1_oe() {
+        // act/assert
 
+        // --- x axes
         assertRotationEquals(StandardRotations.IDENTITY, QuaternionRotation.fromAxisAngle(PLUS_X_DIR, 0.0).inverse());
     }
 
 @Test
     void testInverse_apply_2_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.PLUS_X_HALF_PI, QuaternionRotation.fromAxisAngle(PLUS_X_DIR, -Angle.PI_OVER_TWO).inverse());
     }
 
 @Test
     void testInverse_apply_3_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.PLUS_X_HALF_PI, QuaternionRotation.fromAxisAngle(MINUS_X_DIR, Angle.PI_OVER_TWO).inverse());
     }
 
 @Test
     void testInverse_apply_4_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.MINUS_X_HALF_PI, QuaternionRotation.fromAxisAngle(MINUS_X_DIR, -Angle.PI_OVER_TWO).inverse());
     }
 
 @Test
     void testInverse_apply_5_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.MINUS_X_HALF_PI, QuaternionRotation.fromAxisAngle(PLUS_X_DIR, Angle.PI_OVER_TWO).inverse());
     }
 
 @Test
     void testInverse_apply_6_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.X_PI, QuaternionRotation.fromAxisAngle(PLUS_X_DIR, Math.PI).inverse());
     }
 
 @Test
     void testInverse_apply_7_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.X_PI, QuaternionRotation.fromAxisAngle(MINUS_X_DIR, Math.PI).inverse());
     }
 
 @Test
     void testInverse_apply_8_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
         assertRotationEquals(StandardRotations.IDENTITY, QuaternionRotation.fromAxisAngle(PLUS_Y_DIR, 0.0).inverse());
     }
 
 @Test
     void testInverse_apply_9_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.PLUS_Y_HALF_PI, QuaternionRotation.fromAxisAngle(PLUS_Y_DIR, -Angle.PI_OVER_TWO).inverse());
     }
 
 @Test
     void testInverse_apply_10_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.PLUS_Y_HALF_PI, QuaternionRotation.fromAxisAngle(MINUS_Y_DIR, Angle.PI_OVER_TWO).inverse());
     }
 
 @Test
     void testInverse_apply_11_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.MINUS_Y_HALF_PI, QuaternionRotation.fromAxisAngle(MINUS_Y_DIR, -Angle.PI_OVER_TWO).inverse());
     }
 
 @Test
     void testInverse_apply_12_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.MINUS_Y_HALF_PI, QuaternionRotation.fromAxisAngle(PLUS_Y_DIR, Angle.PI_OVER_TWO).inverse());
     }
 
 @Test
     void testInverse_apply_13_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.Y_PI, QuaternionRotation.fromAxisAngle(PLUS_Y_DIR, Math.PI).inverse());
     }
 
 @Test
     void testInverse_apply_14_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.Y_PI, QuaternionRotation.fromAxisAngle(MINUS_Y_DIR, Math.PI).inverse());
     }
 
 @Test
     void testInverse_apply_15_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
         assertRotationEquals(StandardRotations.IDENTITY, QuaternionRotation.fromAxisAngle(PLUS_Z_DIR, 0.0).inverse());
     }
 
 @Test
     void testInverse_apply_16_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.PLUS_Z_HALF_PI, QuaternionRotation.fromAxisAngle(PLUS_Z_DIR, -Angle.PI_OVER_TWO).inverse());
     }
 
 @Test
     void testInverse_apply_17_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.PLUS_Z_HALF_PI, QuaternionRotation.fromAxisAngle(MINUS_Z_DIR, Angle.PI_OVER_TWO).inverse());
     }
 
 @Test
     void testInverse_apply_18_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.MINUS_Z_HALF_PI, QuaternionRotation.fromAxisAngle(MINUS_Z_DIR, -Angle.PI_OVER_TWO).inverse());
     }
 
 @Test
     void testInverse_apply_19_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.MINUS_Z_HALF_PI, QuaternionRotation.fromAxisAngle(PLUS_Z_DIR, Angle.PI_OVER_TWO).inverse());
     }
 
 @Test
     void testInverse_apply_20_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.Z_PI, QuaternionRotation.fromAxisAngle(PLUS_Z_DIR, Math.PI).inverse());
     }
 
 @Test
     void testInverse_apply_21_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.Z_PI, QuaternionRotation.fromAxisAngle(MINUS_Z_DIR, Math.PI).inverse());
     }
 
 @Test
     void testInverse_apply_22_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- diagonal
         assertRotationEquals(StandardRotations.PLUS_DIAGONAL_TWO_THIRDS_PI, QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, MINUS_TWO_THIRDS_PI).inverse());
     }
 
 @Test
     void testInverse_apply_23_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- diagonal
+        // removed other assertion
         assertRotationEquals(StandardRotations.PLUS_DIAGONAL_TWO_THIRDS_PI, QuaternionRotation.fromAxisAngle(MINUS_DIAGONAL, TWO_THIRDS_PI).inverse());
     }
 
 @Test
     void testInverse_apply_24_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- diagonal
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.MINUS_DIAGONAL_TWO_THIRDS_PI, QuaternionRotation.fromAxisAngle(MINUS_DIAGONAL, MINUS_TWO_THIRDS_PI).inverse());
     }
 
 @Test
     void testInverse_apply_25_oe() {
+        // act/assert
 
+        // --- x axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- y axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- z axes
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // --- diagonal
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.MINUS_DIAGONAL_TWO_THIRDS_PI, QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, TWO_THIRDS_PI).inverse());
     }
 
 @Test
     void testMultiply_sameAxis_simple_3_oe() {
+        // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.1 * Math.PI);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.4 * Math.PI);
 
+        // act
         final QuaternionRotation result = q1.multiply(q2);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.PLUS_X_HALF_PI, result);
     }
 
 @Test
     void testMultiply_sameAxis_multiple_3_oe() {
+        // arrange
         final double oneThird = 1.0 / 3.0;
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, 0.1 * Math.PI);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, oneThird * Math.PI);
@@ -2956,48 +4522,67 @@ class QuaternionRotationTest_OE25Dev {
         final QuaternionRotation q4 = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, 0.3 * Math.PI);
         final QuaternionRotation q5 = QuaternionRotation.fromAxisAngle(MINUS_DIAGONAL, -oneThird * Math.PI);
 
+        // act
         final QuaternionRotation result = q1.multiply(q2).multiply(q3).multiply(q4).multiply(q5);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.PLUS_DIAGONAL_TWO_THIRDS_PI, result);
     }
 
 @Test
     void testMultiply_differentAxes_3_oe() {
+        // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, Angle.PI_OVER_TWO);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, Angle.PI_OVER_TWO);
 
+        // act
         final QuaternionRotation result = q1.multiply(q2);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.PLUS_DIAGONAL_TWO_THIRDS_PI, result);
     }
 
 @Test
     void testMultiply_differentAxes_4_oe() {
+        // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, Angle.PI_OVER_TWO);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, Angle.PI_OVER_TWO);
 
+        // act
         final QuaternionRotation result = q1.multiply(q2);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         assertRotationEquals(v -> { final Vector3D temp = StandardRotations.PLUS_Y_HALF_PI.apply(v); return StandardRotations.PLUS_X_HALF_PI.apply(temp); }, result);
     }
 
 @Test
     void testMultiply_orderOfOperations_1_oe() {
+        // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, Angle.PI_OVER_TWO);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, Math.PI);
         final QuaternionRotation q3 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.MINUS_Z, Angle.PI_OVER_TWO);
 
+        // act
         final QuaternionRotation result = q3.multiply(q2).multiply(q1);
 
+        // assert
         assertRotationEquals(v -> { Vector3D temp = StandardRotations.PLUS_X_HALF_PI.apply(v); temp = StandardRotations.Y_PI.apply(temp); return StandardRotations.MINUS_Z_HALF_PI.apply(temp); }, result);
     }
 
 @Test
     void testMultiply_numericalStability_3_oe() {
+        // arrange
         final int slices = 1024;
         final double delta = (8.0 * Math.PI / 3.0) / slices;
 
@@ -3005,6 +4590,7 @@ class QuaternionRotationTest_OE25Dev {
 
         final UniformRandomProvider rand = RandomSource.create(RandomSource.JDK, 2L);
 
+        // act
         for (int i = 0; i < slices; ++i) {
             final double angle = rand.nextDouble();
             final QuaternionRotation forward = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, angle);
@@ -3013,23 +4599,32 @@ class QuaternionRotationTest_OE25Dev {
             q = q.multiply(forward).multiply(backward);
         }
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.PLUS_DIAGONAL_TWO_THIRDS_PI, q);
     }
 
 @Test
     void testPremultiply_sameAxis_simple_3_oe() {
+        // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.1 * Math.PI);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.4 * Math.PI);
 
+        // act
         final QuaternionRotation result = q1.premultiply(q2);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.PLUS_X_HALF_PI, result);
     }
 
 @Test
     void testPremultiply_sameAxis_multiple_3_oe() {
+        // arrange
         final double oneThird = 1.0 / 3.0;
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, 0.1 * Math.PI);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, oneThird * Math.PI);
@@ -3037,141 +4632,202 @@ class QuaternionRotationTest_OE25Dev {
         final QuaternionRotation q4 = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, 0.3 * Math.PI);
         final QuaternionRotation q5 = QuaternionRotation.fromAxisAngle(MINUS_DIAGONAL, -oneThird * Math.PI);
 
+        // act
         final QuaternionRotation result = q1.premultiply(q2).premultiply(q3).premultiply(q4).premultiply(q5);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.PLUS_DIAGONAL_TWO_THIRDS_PI, result);
     }
 
 @Test
     void testPremultiply_differentAxes_3_oe() {
+        // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, Angle.PI_OVER_TWO);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, Angle.PI_OVER_TWO);
 
+        // act
         final QuaternionRotation result = q2.premultiply(q1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.PLUS_DIAGONAL_TWO_THIRDS_PI, result);
     }
 
 @Test
     void testPremultiply_differentAxes_4_oe() {
+        // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, Angle.PI_OVER_TWO);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, Angle.PI_OVER_TWO);
 
+        // act
         final QuaternionRotation result = q2.premultiply(q1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         assertRotationEquals(v -> { final Vector3D temp = StandardRotations.PLUS_Y_HALF_PI.apply(v); return StandardRotations.PLUS_X_HALF_PI.apply(temp); }, result);
     }
 
 @Test
     void testPremultiply_orderOfOperations_1_oe() {
+        // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, Angle.PI_OVER_TWO);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, Math.PI);
         final QuaternionRotation q3 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.MINUS_Z, Angle.PI_OVER_TWO);
 
+        // act
         final QuaternionRotation result = q1.premultiply(q2).premultiply(q3);
 
+        // assert
         assertRotationEquals(v -> { Vector3D temp = StandardRotations.PLUS_X_HALF_PI.apply(v); temp = StandardRotations.Y_PI.apply(temp); return StandardRotations.MINUS_Z_HALF_PI.apply(temp); }, result);
     }
 
 @Test
     void testCreateBasisRotation_simple_5_oe() {
+        // arrange
         final Vector3D u1 = Vector3D.Unit.PLUS_X;
         final Vector3D u2 = Vector3D.Unit.PLUS_Y;
 
         final Vector3D v1 = Vector3D.Unit.PLUS_Y;
         final Vector3D v2 = Vector3D.Unit.MINUS_X;
 
+        // act
         final QuaternionRotation q = QuaternionRotation.createBasisRotation(u1, u2, v1, v2);
 
+        // assert
         final QuaternionRotation qInv = q.inverse();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.PLUS_Z_HALF_PI, q);
     }
 
 @Test
     void testCreateBasisRotation_diagonalAxis_5_oe() {
+        // arrange
         final Vector3D u1 = Vector3D.Unit.PLUS_X;
         final Vector3D u2 = Vector3D.Unit.PLUS_Y;
 
         final Vector3D v1 = Vector3D.Unit.PLUS_Y;
         final Vector3D v2 = Vector3D.Unit.PLUS_Z;
 
+        // act
         final QuaternionRotation q = QuaternionRotation.createBasisRotation(u1, u2, v1, v2);
 
+        // assert
         final QuaternionRotation qInv = q.inverse();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.PLUS_DIAGONAL_TWO_THIRDS_PI, q);
     }
 
 @Test
     void testCreateBasisRotation_diagonalAxis_6_oe() {
+        // arrange
         final Vector3D u1 = Vector3D.Unit.PLUS_X;
         final Vector3D u2 = Vector3D.Unit.PLUS_Y;
 
         final Vector3D v1 = Vector3D.Unit.PLUS_Y;
         final Vector3D v2 = Vector3D.Unit.PLUS_Z;
 
+        // act
         final QuaternionRotation q = QuaternionRotation.createBasisRotation(u1, u2, v1, v2);
 
+        // assert
         final QuaternionRotation qInv = q.inverse();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertRotationEquals(StandardRotations.MINUS_DIAGONAL_TWO_THIRDS_PI, q.inverse());
     }
 
 @Test
     void testCreateBasisRotation_identity_5_oe() {
+        // arrange
         final Vector3D u1 = Vector3D.Unit.PLUS_X;
         final Vector3D u2 = Vector3D.Unit.PLUS_Y;
 
+        // act
         final QuaternionRotation q = QuaternionRotation.createBasisRotation(u1, u2, u1, u2);
 
+        // assert
         final QuaternionRotation qInv = q.inverse();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.IDENTITY, q);
     }
 
 @Test
     void testCreateBasisRotation_equivalentBases_5_oe() {
+        // arrange
         final Vector3D u1 = Vector3D.of(2, 0, 0);
         final Vector3D u2 = Vector3D.of(0, 3, 0);
 
         final Vector3D v1 = Vector3D.of(4, 0, 0);
         final Vector3D v2 = Vector3D.of(0, 5, 0);
 
+        // act
         final QuaternionRotation q = QuaternionRotation.createBasisRotation(u1, u2, v1, v2);
 
+        // assert
         final QuaternionRotation qInv = q.inverse();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.IDENTITY, q);
     }
 
 @Test
     void testCreateBasisRotation_nonOrthogonalVectors_5_oe() {
+        // arrange
         final Vector3D u1 = Vector3D.of(2, 0, 0);
         final Vector3D u2 = Vector3D.of(1, 0.5, 0);
 
         final Vector3D v1 = Vector3D.of(0, 1.5, 0);
         final Vector3D v2 = Vector3D.of(-1, 1.5, 0);
 
+        // act
         final QuaternionRotation q = QuaternionRotation.createBasisRotation(u1, u2, v1, v2);
 
+        // assert
         final QuaternionRotation qInv = q.inverse();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertRotationEquals(StandardRotations.PLUS_Z_HALF_PI, q);
     }
@@ -3180,6 +4836,7 @@ class QuaternionRotationTest_OE25Dev {
     void testFromEulerAngles_identity_1_oe() {
         for (final AxisSequence axes : AxisSequence.values()) {
 
+            // act/assert
             assertRotationEquals(StandardRotations.IDENTITY, QuaternionRotation.fromAxisAngleSequence(AxisAngleSequence.createRelative(axes, 0, 0, 0)));
     }
     }
@@ -3188,6 +4845,8 @@ class QuaternionRotationTest_OE25Dev {
     void testFromEulerAngles_identity_2_oe() {
         for (final AxisSequence axes : AxisSequence.values()) {
 
+            // act/assert
+            // removed other assertion
             assertRotationEquals(StandardRotations.IDENTITY, QuaternionRotation.fromAxisAngleSequence(AxisAngleSequence.createRelative(axes, Angle.TWO_PI, Angle.TWO_PI, Angle.TWO_PI)));
     }
     }
@@ -3196,6 +4855,9 @@ class QuaternionRotationTest_OE25Dev {
     void testFromEulerAngles_identity_3_oe() {
         for (final AxisSequence axes : AxisSequence.values()) {
 
+            // act/assert
+            // removed other assertion
+            // removed other assertion
 
             assertRotationEquals(StandardRotations.IDENTITY, QuaternionRotation.fromAxisAngleSequence(AxisAngleSequence.createAbsolute(axes, 0, 0, 0)));
     }
@@ -3205,7 +4867,11 @@ class QuaternionRotationTest_OE25Dev {
     void testFromEulerAngles_identity_4_oe() {
         for (final AxisSequence axes : AxisSequence.values()) {
 
+            // act/assert
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
             assertRotationEquals(StandardRotations.IDENTITY, QuaternionRotation.fromAxisAngleSequence(AxisAngleSequence.createAbsolute(axes, Angle.TWO_PI, Angle.TWO_PI, Angle.TWO_PI)));
     }
     }

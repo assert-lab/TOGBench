@@ -219,6 +219,7 @@ class Bounds3DTest_OE25Dev {
 
     @Test
     void testHasSize_1_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -230,11 +231,13 @@ class Bounds3DTest_OE25Dev {
 
         final Vector3D p5 = Vector3D.of(1, 1, 1);
 
+        // act/assert
         Assertions.assertFalse(Bounds3D.from(p1).hasSize(high));
     }
 
     @Test
     void testHasSize_2_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -246,11 +249,14 @@ class Bounds3DTest_OE25Dev {
 
         final Vector3D p5 = Vector3D.of(1, 1, 1);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertFalse(Bounds3D.from(p1).hasSize(low));
     }
 
     @Test
     void testHasSize_3_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -262,12 +268,16 @@ class Bounds3DTest_OE25Dev {
 
         final Vector3D p5 = Vector3D.of(1, 1, 1);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(Bounds3D.from(p1, p2).hasSize(high));
     }
 
     @Test
     void testHasSize_4_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -279,12 +289,17 @@ class Bounds3DTest_OE25Dev {
 
         final Vector3D p5 = Vector3D.of(1, 1, 1);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(Bounds3D.from(p1, p2).hasSize(low));
     }
 
     @Test
     void testHasSize_5_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -296,13 +311,19 @@ class Bounds3DTest_OE25Dev {
 
         final Vector3D p5 = Vector3D.of(1, 1, 1);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(Bounds3D.from(p1, p3).hasSize(high));
     }
 
     @Test
     void testHasSize_6_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -314,13 +335,20 @@ class Bounds3DTest_OE25Dev {
 
         final Vector3D p5 = Vector3D.of(1, 1, 1);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(Bounds3D.from(p1, p3).hasSize(low));
     }
 
     @Test
     void testHasSize_7_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -332,14 +360,22 @@ class Bounds3DTest_OE25Dev {
 
         final Vector3D p5 = Vector3D.of(1, 1, 1);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(Bounds3D.from(p1, p4).hasSize(high));
     }
 
     @Test
     void testHasSize_8_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -351,14 +387,23 @@ class Bounds3DTest_OE25Dev {
 
         final Vector3D p5 = Vector3D.of(1, 1, 1);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(Bounds3D.from(p1, p4).hasSize(low));
     }
 
     @Test
     void testHasSize_9_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -370,15 +415,25 @@ class Bounds3DTest_OE25Dev {
 
         final Vector3D p5 = Vector3D.of(1, 1, 1);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(Bounds3D.from(p1, p5).hasSize(high));
     }
 
     @Test
     void testHasSize_10_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -390,26 +445,43 @@ class Bounds3DTest_OE25Dev {
 
         final Vector3D p5 = Vector3D.of(1, 1, 1);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(Bounds3D.from(p1, p5).hasSize(low));
     }
 
     @Test
     void testIntersection_1_oe() {
+        // -- arrange
         final Bounds3D b = Bounds3D.from(Vector3D.ZERO, Vector3D.of(1, 1, 1));
 
+        // -- act/assert
 
+        // move along x-axis
         Assertions.assertNull(b.intersection(Bounds3D.from(Vector3D.of(-2, 0, 0), Vector3D.of(-1, 1, 1))));
     }
 
     @Test
     void testIntersection_2_oe() {
+        // -- arrange
         final Bounds3D b = Bounds3D.from(Vector3D.ZERO, Vector3D.of(1, 1, 1));
 
+        // -- act/assert
 
+        // move along x-axis
+        // removed other assertion
         checkIntersection(b, Vector3D.of(-1, 0, 0), Vector3D.of(0, 1, 1),
                 Vector3D.of(0, 0, 0), Vector3D.of(0, 1, 1));
         checkIntersection(b, Vector3D.of(-1, 0, 0), Vector3D.of(0.5, 1, 1),
@@ -429,9 +501,13 @@ class Bounds3DTest_OE25Dev {
 
     @Test
     void testIntersection_3_oe() {
+        // -- arrange
         final Bounds3D b = Bounds3D.from(Vector3D.ZERO, Vector3D.of(1, 1, 1));
 
+        // -- act/assert
 
+        // move along x-axis
+        // removed other assertion
         checkIntersection(b, Vector3D.of(-1, 0, 0), Vector3D.of(0, 1, 1),
                 Vector3D.of(0, 0, 0), Vector3D.of(0, 1, 1));
         checkIntersection(b, Vector3D.of(-1, 0, 0), Vector3D.of(0.5, 1, 1),
@@ -446,15 +522,21 @@ class Bounds3DTest_OE25Dev {
                 Vector3D.of(0.5, 0, 0), Vector3D.of(1, 1, 1));
         checkIntersection(b, Vector3D.of(1, 0, 0), Vector3D.of(2, 1, 1),
                 Vector3D.of(1, 0, 0), Vector3D.of(1, 1, 1));
+        // removed other assertion
 
+        // move along y-axis
         Assertions.assertNull(b.intersection(Bounds3D.from(Vector3D.of(0, -2, 0), Vector3D.of(1, -1, 1))));
     }
 
     @Test
     void testIntersection_4_oe() {
+        // -- arrange
         final Bounds3D b = Bounds3D.from(Vector3D.ZERO, Vector3D.of(1, 1, 1));
 
+        // -- act/assert
 
+        // move along x-axis
+        // removed other assertion
         checkIntersection(b, Vector3D.of(-1, 0, 0), Vector3D.of(0, 1, 1),
                 Vector3D.of(0, 0, 0), Vector3D.of(0, 1, 1));
         checkIntersection(b, Vector3D.of(-1, 0, 0), Vector3D.of(0.5, 1, 1),
@@ -469,7 +551,10 @@ class Bounds3DTest_OE25Dev {
                 Vector3D.of(0.5, 0, 0), Vector3D.of(1, 1, 1));
         checkIntersection(b, Vector3D.of(1, 0, 0), Vector3D.of(2, 1, 1),
                 Vector3D.of(1, 0, 0), Vector3D.of(1, 1, 1));
+        // removed other assertion
 
+        // move along y-axis
+        // removed other assertion
         checkIntersection(b, Vector3D.of(0, -1, 0), Vector3D.of(1, 0, 1),
                 Vector3D.of(0, 0, 0), Vector3D.of(1, 0, 1));
         checkIntersection(b, Vector3D.of(0, -1, 0), Vector3D.of(1, 0.5, 1),
@@ -489,9 +574,13 @@ class Bounds3DTest_OE25Dev {
 
     @Test
     void testIntersection_5_oe() {
+        // -- arrange
         final Bounds3D b = Bounds3D.from(Vector3D.ZERO, Vector3D.of(1, 1, 1));
 
+        // -- act/assert
 
+        // move along x-axis
+        // removed other assertion
         checkIntersection(b, Vector3D.of(-1, 0, 0), Vector3D.of(0, 1, 1),
                 Vector3D.of(0, 0, 0), Vector3D.of(0, 1, 1));
         checkIntersection(b, Vector3D.of(-1, 0, 0), Vector3D.of(0.5, 1, 1),
@@ -506,7 +595,10 @@ class Bounds3DTest_OE25Dev {
                 Vector3D.of(0.5, 0, 0), Vector3D.of(1, 1, 1));
         checkIntersection(b, Vector3D.of(1, 0, 0), Vector3D.of(2, 1, 1),
                 Vector3D.of(1, 0, 0), Vector3D.of(1, 1, 1));
+        // removed other assertion
 
+        // move along y-axis
+        // removed other assertion
         checkIntersection(b, Vector3D.of(0, -1, 0), Vector3D.of(1, 0, 1),
                 Vector3D.of(0, 0, 0), Vector3D.of(1, 0, 1));
         checkIntersection(b, Vector3D.of(0, -1, 0), Vector3D.of(1, 0.5, 1),
@@ -521,15 +613,21 @@ class Bounds3DTest_OE25Dev {
                 Vector3D.of(0, 0.5, 0), Vector3D.of(1, 1, 1));
         checkIntersection(b, Vector3D.of(0, 1, 0), Vector3D.of(1, 2, 1),
                 Vector3D.of(0, 1, 0), Vector3D.of(1, 1, 1));
+        // removed other assertion
 
+        // move along z-axis
         Assertions.assertNull(b.intersection(Bounds3D.from(Vector3D.of(0, 0, -2), Vector3D.of(1, 1, -1))));
     }
 
     @Test
     void testIntersection_6_oe() {
+        // -- arrange
         final Bounds3D b = Bounds3D.from(Vector3D.ZERO, Vector3D.of(1, 1, 1));
 
+        // -- act/assert
 
+        // move along x-axis
+        // removed other assertion
         checkIntersection(b, Vector3D.of(-1, 0, 0), Vector3D.of(0, 1, 1),
                 Vector3D.of(0, 0, 0), Vector3D.of(0, 1, 1));
         checkIntersection(b, Vector3D.of(-1, 0, 0), Vector3D.of(0.5, 1, 1),
@@ -544,7 +642,10 @@ class Bounds3DTest_OE25Dev {
                 Vector3D.of(0.5, 0, 0), Vector3D.of(1, 1, 1));
         checkIntersection(b, Vector3D.of(1, 0, 0), Vector3D.of(2, 1, 1),
                 Vector3D.of(1, 0, 0), Vector3D.of(1, 1, 1));
+        // removed other assertion
 
+        // move along y-axis
+        // removed other assertion
         checkIntersection(b, Vector3D.of(0, -1, 0), Vector3D.of(1, 0, 1),
                 Vector3D.of(0, 0, 0), Vector3D.of(1, 0, 1));
         checkIntersection(b, Vector3D.of(0, -1, 0), Vector3D.of(1, 0.5, 1),
@@ -559,7 +660,10 @@ class Bounds3DTest_OE25Dev {
                 Vector3D.of(0, 0.5, 0), Vector3D.of(1, 1, 1));
         checkIntersection(b, Vector3D.of(0, 1, 0), Vector3D.of(1, 2, 1),
                 Vector3D.of(0, 1, 0), Vector3D.of(1, 1, 1));
+        // removed other assertion
 
+        // move along z-axis
+        // removed other assertion
         checkIntersection(b, Vector3D.of(0, 0, -1), Vector3D.of(1, 1, 0),
                 Vector3D.of(0, 0, 0), Vector3D.of(1, 1, 0));
         checkIntersection(b, Vector3D.of(0, 0, -1), Vector3D.of(1, 1, 0.5),
@@ -579,17 +683,21 @@ class Bounds3DTest_OE25Dev {
 
     @Test
     void toRegion_1_oe() {
+        // arrange
         final Bounds3D b = Bounds3D.from(
                 Vector3D.of(0, 4, 8),
                 Vector3D.of(2, 6, 10));
 
+        // act
         final Parallelepiped p = b.toRegion(TEST_PRECISION);
 
+        // assert
         Assertions.assertEquals(8, p.getSize(), TEST_EPS);
     }
 
     @Test
     void toRegion_boundingBoxTooSmall_1_oe() {
+        // act/assert
         try {
     Bounds3D.from(Vector3D.ZERO, Vector3D.of(1e-12, 1e-12, 1e-12)) .toRegion(TEST_PRECISION);
     fail("IllegalArgumentException");
@@ -599,6 +707,7 @@ class Bounds3DTest_OE25Dev {
 
     @Test
     void testEq_1_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -609,11 +718,13 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b4 = Bounds3D.from(Vector3D.of(1.001, 1.001, 1.001), Vector3D.of(2.001, 2.001, 2.001));
 
+        // act/assert
         Assertions.assertTrue(b1.eq(b1, low));
     }
 
     @Test
     void testEq_2_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -624,12 +735,15 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b4 = Bounds3D.from(Vector3D.of(1.001, 1.001, 1.001), Vector3D.of(2.001, 2.001, 2.001));
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertFalse(b1.eq(b2, low));
     }
 
     @Test
     void testEq_3_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -640,12 +754,16 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b4 = Bounds3D.from(Vector3D.of(1.001, 1.001, 1.001), Vector3D.of(2.001, 2.001, 2.001));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(b1.eq(b3, low));
     }
 
     @Test
     void testEq_4_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -656,13 +774,18 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b4 = Bounds3D.from(Vector3D.of(1.001, 1.001, 1.001), Vector3D.of(2.001, 2.001, 2.001));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(b1.eq(b4, low));
     }
 
     @Test
     void testEq_5_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -673,13 +796,19 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b4 = Bounds3D.from(Vector3D.of(1.001, 1.001, 1.001), Vector3D.of(2.001, 2.001, 2.001));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(b4.eq(b1, low));
     }
 
     @Test
     void testEq_6_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -690,14 +819,21 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b4 = Bounds3D.from(Vector3D.of(1.001, 1.001, 1.001), Vector3D.of(2.001, 2.001, 2.001));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(b1.eq(b4, high));
     }
 
     @Test
     void testEq_7_oe() {
+        // arrange
         final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
 
@@ -708,14 +844,22 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b4 = Bounds3D.from(Vector3D.of(1.001, 1.001, 1.001), Vector3D.of(2.001, 2.001, 2.001));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(b4.eq(b1, high));
     }
 
     @Test
     void testHashCode_1_oe() {
+        // arrange
         final Bounds3D b1 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
         final Bounds3D b2 = Bounds3D.from(Vector3D.of(-2, 1, 1), Vector3D.of(2, 2, 2));
@@ -725,13 +869,16 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
+        // act
         final int hash = b1.hashCode();
 
+        // assert
         Assertions.assertEquals(hash, b1.hashCode());
     }
 
     @Test
     void testHashCode_2_oe() {
+        // arrange
         final Bounds3D b1 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
         final Bounds3D b2 = Bounds3D.from(Vector3D.of(-2, 1, 1), Vector3D.of(2, 2, 2));
@@ -741,14 +888,18 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
+        // act
         final int hash = b1.hashCode();
 
+        // assert
+        // removed other assertion
 
         Assertions.assertNotEquals(hash, b2.hashCode());
     }
 
     @Test
     void testHashCode_3_oe() {
+        // arrange
         final Bounds3D b1 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
         final Bounds3D b2 = Bounds3D.from(Vector3D.of(-2, 1, 1), Vector3D.of(2, 2, 2));
@@ -758,14 +909,19 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
+        // act
         final int hash = b1.hashCode();
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(hash, b3.hashCode());
     }
 
     @Test
     void testHashCode_4_oe() {
+        // arrange
         final Bounds3D b1 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
         final Bounds3D b2 = Bounds3D.from(Vector3D.of(-2, 1, 1), Vector3D.of(2, 2, 2));
@@ -775,14 +931,20 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
+        // act
         final int hash = b1.hashCode();
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(hash, b4.hashCode());
     }
 
     @Test
     void testHashCode_5_oe() {
+        // arrange
         final Bounds3D b1 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
         final Bounds3D b2 = Bounds3D.from(Vector3D.of(-2, 1, 1), Vector3D.of(2, 2, 2));
@@ -792,14 +954,21 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
+        // act
         final int hash = b1.hashCode();
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(hash, b5.hashCode());
     }
 
     @Test
     void testHashCode_6_oe() {
+        // arrange
         final Bounds3D b1 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
         final Bounds3D b2 = Bounds3D.from(Vector3D.of(-2, 1, 1), Vector3D.of(2, 2, 2));
@@ -809,15 +978,23 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
+        // act
         final int hash = b1.hashCode();
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(hash, b6.hashCode());
     }
 
     @Test
     void testEquals_2_oe() {
+        // arrange
         final Bounds3D b1 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
         final Bounds3D b2 = Bounds3D.from(Vector3D.of(-1, 1, 1), Vector3D.of(2, 2, 2));
@@ -827,12 +1004,15 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertNotEquals(b1, b2);
     }
 
     @Test
     void testEquals_3_oe() {
+        // arrange
         final Bounds3D b1 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
         final Bounds3D b2 = Bounds3D.from(Vector3D.of(-1, 1, 1), Vector3D.of(2, 2, 2));
@@ -842,12 +1022,16 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(b1, b3);
     }
 
     @Test
     void testEquals_4_oe() {
+        // arrange
         final Bounds3D b1 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
         final Bounds3D b2 = Bounds3D.from(Vector3D.of(-1, 1, 1), Vector3D.of(2, 2, 2));
@@ -857,12 +1041,17 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(b1, b4);
     }
 
     @Test
     void testEquals_5_oe() {
+        // arrange
         final Bounds3D b1 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
         final Bounds3D b2 = Bounds3D.from(Vector3D.of(-1, 1, 1), Vector3D.of(2, 2, 2));
@@ -872,12 +1061,18 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(b1, b5);
     }
 
     @Test
     void testEquals_6_oe() {
+        // arrange
         final Bounds3D b1 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
         final Bounds3D b2 = Bounds3D.from(Vector3D.of(-1, 1, 1), Vector3D.of(2, 2, 2));
@@ -887,208 +1082,346 @@ class Bounds3DTest_OE25Dev {
 
         final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(b1, b6);
     }
 
     @Test
     void testBuilder_hasBounds_1_oe() {
+        // act/assert
         Assertions.assertFalse(Bounds3D.builder().hasBounds());
     }
 
     @Test
     void testBuilder_hasBounds_2_oe() {
+        // act/assert
+        // removed other assertion
 
         Assertions.assertFalse(Bounds3D.builder().add(Vector3D.of(Double.NaN, 1, 1)).hasBounds());
     }
 
     @Test
     void testBuilder_hasBounds_3_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(Bounds3D.builder().add(Vector3D.of(1, Double.NaN, 1)).hasBounds());
     }
 
     @Test
     void testBuilder_hasBounds_4_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(Bounds3D.builder().add(Vector3D.of(1, 1, Double.NaN)).hasBounds());
     }
 
     @Test
     void testBuilder_hasBounds_5_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(Bounds3D.builder().add(Vector3D.of(Double.POSITIVE_INFINITY, 1, 1)).hasBounds());
     }
 
     @Test
     void testBuilder_hasBounds_6_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(Bounds3D.builder().add(Vector3D.of(1, Double.POSITIVE_INFINITY, 1)).hasBounds());
     }
 
     @Test
     void testBuilder_hasBounds_7_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(Bounds3D.builder().add(Vector3D.of(1, 1, Double.POSITIVE_INFINITY)).hasBounds());
     }
 
     @Test
     void testBuilder_hasBounds_8_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(Bounds3D.builder().add(Vector3D.of(Double.NEGATIVE_INFINITY, 1, 1)).hasBounds());
     }
 
     @Test
     void testBuilder_hasBounds_9_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(Bounds3D.builder().add(Vector3D.of(1, Double.NEGATIVE_INFINITY, 1)).hasBounds());
     }
 
     @Test
     void testBuilder_hasBounds_10_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(Bounds3D.builder().add(Vector3D.of(1, 1, Double.NEGATIVE_INFINITY)).hasBounds());
     }
 
     @Test
     void testBuilder_hasBounds_11_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(Bounds3D.builder().add(Vector3D.ZERO).hasBounds());
     }
 
 @Test
     void testFrom_iterable_noPoints_1_oe() {
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Bounds3D.from(new ArrayList<>()); }, IllegalStateException.class, NO_POINTS_MESSAGE);
+        // act/assert
+        try {
+     Bounds3D.from(new ArrayList<>());
+    fail("Expected IllegalStateException with message: " + NO_POINTS_MESSAGE);
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testFrom_invalidBounds_1_oe() {
+        // arrange
         final Vector3D good = Vector3D.of(1, 1, 1);
 
         final Vector3D nan = Vector3D.of(Double.NaN, 1, 1);
         final Vector3D posInf = Vector3D.of(1, Double.POSITIVE_INFINITY, 1);
         final Vector3D negInf = Vector3D.of(1, 1, Double.NEGATIVE_INFINITY);
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Bounds3D.from(Vector3D.NaN); }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
+        // act/assert
+        try {
+     Bounds3D.from(Vector3D.NaN);
+    fail("Expected IllegalStateException with message: " + INVALID_BOUNDS_PATTERN);
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testFrom_invalidBounds_2_oe() {
+        // arrange
         final Vector3D good = Vector3D.of(1, 1, 1);
 
         final Vector3D nan = Vector3D.of(Double.NaN, 1, 1);
         final Vector3D posInf = Vector3D.of(1, Double.POSITIVE_INFINITY, 1);
         final Vector3D negInf = Vector3D.of(1, 1, Double.NEGATIVE_INFINITY);
 
+        // act/assert
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Bounds3D.from(Vector3D.POSITIVE_INFINITY); }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
+        try {
+     Bounds3D.from(Vector3D.POSITIVE_INFINITY);
+    fail("Expected IllegalStateException with message: " + INVALID_BOUNDS_PATTERN);
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testFrom_invalidBounds_3_oe() {
+        // arrange
         final Vector3D good = Vector3D.of(1, 1, 1);
 
         final Vector3D nan = Vector3D.of(Double.NaN, 1, 1);
         final Vector3D posInf = Vector3D.of(1, Double.POSITIVE_INFINITY, 1);
         final Vector3D negInf = Vector3D.of(1, 1, Double.NEGATIVE_INFINITY);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Bounds3D.from(Vector3D.NEGATIVE_INFINITY); }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
+        try {
+     Bounds3D.from(Vector3D.NEGATIVE_INFINITY);
+    fail("Expected IllegalStateException with message: " + INVALID_BOUNDS_PATTERN);
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testFrom_invalidBounds_4_oe() {
+        // arrange
         final Vector3D good = Vector3D.of(1, 1, 1);
 
         final Vector3D nan = Vector3D.of(Double.NaN, 1, 1);
         final Vector3D posInf = Vector3D.of(1, Double.POSITIVE_INFINITY, 1);
         final Vector3D negInf = Vector3D.of(1, 1, Double.NEGATIVE_INFINITY);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Bounds3D.from(good, nan); }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
+        try {
+     Bounds3D.from(good, nan);
+    fail("Expected IllegalStateException with message: " + INVALID_BOUNDS_PATTERN);
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testFrom_invalidBounds_5_oe() {
+        // arrange
         final Vector3D good = Vector3D.of(1, 1, 1);
 
         final Vector3D nan = Vector3D.of(Double.NaN, 1, 1);
         final Vector3D posInf = Vector3D.of(1, Double.POSITIVE_INFINITY, 1);
         final Vector3D negInf = Vector3D.of(1, 1, Double.NEGATIVE_INFINITY);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Bounds3D.from(posInf, good); }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
+        try {
+     Bounds3D.from(posInf, good);
+    fail("Expected IllegalStateException with message: " + INVALID_BOUNDS_PATTERN);
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testFrom_invalidBounds_6_oe() {
+        // arrange
         final Vector3D good = Vector3D.of(1, 1, 1);
 
         final Vector3D nan = Vector3D.of(Double.NaN, 1, 1);
         final Vector3D posInf = Vector3D.of(1, Double.POSITIVE_INFINITY, 1);
         final Vector3D negInf = Vector3D.of(1, 1, Double.NEGATIVE_INFINITY);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Bounds3D.from(good, negInf, good); }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
+        try {
+     Bounds3D.from(good, negInf, good);
+    fail("Expected IllegalStateException with message: " + INVALID_BOUNDS_PATTERN);
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testContains_strict_1_oe() {
+        // arrange
         final Bounds3D b = Bounds3D.from(
                 Vector3D.of(0, 4, 8),
                 Vector3D.of(2, 6, 10));
 
+        // act/assert
         assertContainsStrict(b, true, b.getCentroid(), Vector3D.of(0, 4, 8), Vector3D.of(2, 6, 10), Vector3D.of(1, 5, 9), Vector3D.of(0, 5, 9), Vector3D.of(2, 5, 9), Vector3D.of(1, 4, 9), Vector3D.of(1, 6, 9), Vector3D.of(1, 5, 8), Vector3D.of(1, 5, 10));
     }
 
 @Test
     void testContains_strict_2_oe() {
+        // arrange
         final Bounds3D b = Bounds3D.from(
                 Vector3D.of(0, 4, 8),
                 Vector3D.of(2, 6, 10));
 
+        // act/assert
+        // removed other assertion
 
         assertContainsStrict(b, false, Vector3D.ZERO, Vector3D.of(-1, 5, 9), Vector3D.of(3, 5, 9), Vector3D.of(1, 3, 9), Vector3D.of(1, 7, 9), Vector3D.of(1, 5, 7), Vector3D.of(1, 5, 11), Vector3D.of(-1e-15, 4, 8), Vector3D.of(2, 6 + 1e-15, 10), Vector3D.of(0, 4, 10 + 1e-15));
     }
 
 @Test
     void testContains_precision_1_oe() {
+        // arrange
         final Bounds3D b = Bounds3D.from(
                 Vector3D.of(0, 4, 8),
                 Vector3D.of(2, 6, 10));
 
+        // act/assert
         assertContainsWithPrecision(b, true, b.getCentroid(), Vector3D.of(0, 4, 8), Vector3D.of(2, 6, 10), Vector3D.of(1, 5, 9), Vector3D.of(0, 5, 9), Vector3D.of(2, 5, 9), Vector3D.of(1, 4, 9), Vector3D.of(1, 6, 9), Vector3D.of(1, 5, 8), Vector3D.of(1, 5, 10), Vector3D.of(-1e-15, 4, 8), Vector3D.of(2, 6 + 1e-15, 10), Vector3D.of(0, 4, 10 + 1e-15));
     }
 
 @Test
     void testContains_precision_2_oe() {
+        // arrange
         final Bounds3D b = Bounds3D.from(
                 Vector3D.of(0, 4, 8),
                 Vector3D.of(2, 6, 10));
 
+        // act/assert
+        // removed other assertion
 
         assertContainsWithPrecision(b, false, Vector3D.ZERO, Vector3D.of(-1, 5, 9), Vector3D.of(3, 5, 9), Vector3D.of(1, 3, 9), Vector3D.of(1, 7, 9), Vector3D.of(1, 5, 7), Vector3D.of(1, 5, 11));
     }

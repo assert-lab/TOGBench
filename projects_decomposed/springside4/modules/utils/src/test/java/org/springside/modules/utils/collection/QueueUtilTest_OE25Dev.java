@@ -52,6 +52,8 @@ public class QueueUtilTest_OE25Dev {
 		stack.offer("1");
 		stack.offer("2");
 		
+		// removed other assertion
+		// removed other assertion
 		
 		stack2.offer("1");
 		stack2.offer("2");

@@ -1,0 +1,129 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+pool_146_4,"    @Test
+    public void testMultipleReturn_4_oe() throws Exception {
+        final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
+        try (final GenericObjectPool<Waiter> pool = new GenericObjectPool<>(factory)) {
+            pool.setTestOnReturn(true);
+            final Waiter waiter = pool.borrowObject();
+            pool.returnObject(waiter);
+            try {
+                pool.returnObject(waiter);
+            } catch (final IllegalStateException ex) {
+                assertEquals(1, waiter.getValidationCount());
+    }
+    }
+    }",TestGenericObjectPool::testMultipleReturn_4_oe,org.apache.commons.pool2.KeyedObjectPool,"void returnObject(K key, V obj)","/**
+     * Return an instance to the pool. By contract, {@code obj}
+     * <strong>must</strong> have been obtained using
+     * {@link #borrowObject borrowObject} or a related method as defined in an
+     * implementation or sub-interface using a {@code key} that is
+     * equivalent to the one used to borrow the instance in the first place.
+     *
+     * @param key the key used to obtain the object
+     * @param obj a {@link #borrowObject borrowed} instance to be returned.
+     *
+     * @throws IllegalStateException
+     *              if an attempt is made to return an object to the pool that
+     *              is in any state other than allocated (i.e. borrowed).
+     *              Attempting to return an object more than once or attempting
+     *              to return an object that was never borrowed from the pool
+     *              will trigger this exception.
+     *
+     * @throws Exception if an instance cannot be returned to the pool
+     */","void returnObject(K key, V obj) throws Exception;"
+pool_146_5,"    @Test
+    public void testMultipleReturn_5_oe() throws Exception {
+        final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
+        try (final GenericObjectPool<Waiter> pool = new GenericObjectPool<>(factory)) {
+            pool.setTestOnReturn(true);
+            final Waiter waiter = pool.borrowObject();
+            pool.returnObject(waiter);
+            try {
+                pool.returnObject(waiter);
+            } catch (final IllegalStateException ex) {
+                assertEquals(1, waiter.getPassivationCount());
+    }
+    }
+    }",TestGenericObjectPool::testMultipleReturn_5_oe,org.apache.commons.pool2.KeyedObjectPool,"void returnObject(K key, V obj)","/**
+     * Return an instance to the pool. By contract, {@code obj}
+     * <strong>must</strong> have been obtained using
+     * {@link #borrowObject borrowObject} or a related method as defined in an
+     * implementation or sub-interface using a {@code key} that is
+     * equivalent to the one used to borrow the instance in the first place.
+     *
+     * @param key the key used to obtain the object
+     * @param obj a {@link #borrowObject borrowed} instance to be returned.
+     *
+     * @throws IllegalStateException
+     *              if an attempt is made to return an object to the pool that
+     *              is in any state other than allocated (i.e. borrowed).
+     *              Attempting to return an object more than once or attempting
+     *              to return an object that was never borrowed from the pool
+     *              will trigger this exception.
+     *
+     * @throws Exception if an instance cannot be returned to the pool
+     */","void returnObject(K key, V obj) throws Exception;"
+pool_276_4,"    @Test
+    public void testMultipleReturn_4_oe() throws Exception {
+        final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
+        try (final GenericKeyedObjectPool<String, Waiter> pool = new GenericKeyedObjectPool<>(factory)) {
+            pool.setTestOnReturn(true);
+            final Waiter waiter = pool.borrowObject(""a"");
+            pool.returnObject(""a"", waiter);
+            try {
+                pool.returnObject(""a"", waiter);
+            } catch (final IllegalStateException ex) {
+                assertEquals(1, waiter.getValidationCount());
+    }
+    }
+    }",TestGenericKeyedObjectPool::testMultipleReturn_4_oe,org.apache.commons.pool2.KeyedObjectPool,"void returnObject(K key, V obj)","/**
+     * Return an instance to the pool. By contract, {@code obj}
+     * <strong>must</strong> have been obtained using
+     * {@link #borrowObject borrowObject} or a related method as defined in an
+     * implementation or sub-interface using a {@code key} that is
+     * equivalent to the one used to borrow the instance in the first place.
+     *
+     * @param key the key used to obtain the object
+     * @param obj a {@link #borrowObject borrowed} instance to be returned.
+     *
+     * @throws IllegalStateException
+     *              if an attempt is made to return an object to the pool that
+     *              is in any state other than allocated (i.e. borrowed).
+     *              Attempting to return an object more than once or attempting
+     *              to return an object that was never borrowed from the pool
+     *              will trigger this exception.
+     *
+     * @throws Exception if an instance cannot be returned to the pool
+     */","void returnObject(K key, V obj) throws Exception;"
+pool_276_5,"    @Test
+    public void testMultipleReturn_5_oe() throws Exception {
+        final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
+        try (final GenericKeyedObjectPool<String, Waiter> pool = new GenericKeyedObjectPool<>(factory)) {
+            pool.setTestOnReturn(true);
+            final Waiter waiter = pool.borrowObject(""a"");
+            pool.returnObject(""a"", waiter);
+            try {
+                pool.returnObject(""a"", waiter);
+            } catch (final IllegalStateException ex) {
+                assertEquals(1, waiter.getPassivationCount());
+    }
+    }
+    }",TestGenericKeyedObjectPool::testMultipleReturn_5_oe,org.apache.commons.pool2.KeyedObjectPool,"void returnObject(K key, V obj)","/**
+     * Return an instance to the pool. By contract, {@code obj}
+     * <strong>must</strong> have been obtained using
+     * {@link #borrowObject borrowObject} or a related method as defined in an
+     * implementation or sub-interface using a {@code key} that is
+     * equivalent to the one used to borrow the instance in the first place.
+     *
+     * @param key the key used to obtain the object
+     * @param obj a {@link #borrowObject borrowed} instance to be returned.
+     *
+     * @throws IllegalStateException
+     *              if an attempt is made to return an object to the pool that
+     *              is in any state other than allocated (i.e. borrowed).
+     *              Attempting to return an object more than once or attempting
+     *              to return an object that was never borrowed from the pool
+     *              will trigger this exception.
+     *
+     * @throws Exception if an instance cannot be returned to the pool
+     */","void returnObject(K key, V obj) throws Exception;"

@@ -36,6 +36,7 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 
 		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		// removed other assertion
 
 		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
 		assertThat(result1).isNull();
@@ -46,8 +47,10 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 
 		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		// removed other assertion
 
 		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
+		// removed other assertion
 
 		Boolean result3 = SystemPropertiesUtil.getBoolean(name, Boolean.TRUE);
 		assertThat(result3).isTrue();
@@ -58,10 +61,13 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 
 		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		// removed other assertion
 
 		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
+		// removed other assertion
 
 		Boolean result3 = SystemPropertiesUtil.getBoolean(name, Boolean.TRUE);
+		// removed other assertion
 
 		System.setProperty(name, "true");
 
@@ -74,17 +80,22 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 
 		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		// removed other assertion
 
 		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
+		// removed other assertion
 
 		Boolean result3 = SystemPropertiesUtil.getBoolean(name, Boolean.TRUE);
+		// removed other assertion
 
 		System.setProperty(name, "true");
 
 		Boolean result5 = SystemPropertiesUtil.getBoolean(name, Boolean.FALSE);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		/// int
 		Integer result6 = SystemPropertiesUtil.getInteger(name);
 		assertThat(result6).isNull();
 	}
@@ -94,18 +105,24 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 
 		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		// removed other assertion
 
 		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
+		// removed other assertion
 
 		Boolean result3 = SystemPropertiesUtil.getBoolean(name, Boolean.TRUE);
+		// removed other assertion
 
 		System.setProperty(name, "true");
 
 		Boolean result5 = SystemPropertiesUtil.getBoolean(name, Boolean.FALSE);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		/// int
 		Integer result6 = SystemPropertiesUtil.getInteger(name);
+		// removed other assertion
 
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
 		assertThat(result6).isEqualTo(1);
@@ -116,20 +133,27 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 
 		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		// removed other assertion
 
 		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
+		// removed other assertion
 
 		Boolean result3 = SystemPropertiesUtil.getBoolean(name, Boolean.TRUE);
+		// removed other assertion
 
 		System.setProperty(name, "true");
 
 		Boolean result5 = SystemPropertiesUtil.getBoolean(name, Boolean.FALSE);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		/// int
 		Integer result6 = SystemPropertiesUtil.getInteger(name);
+		// removed other assertion
 
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
@@ -141,26 +165,35 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 
 		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		// removed other assertion
 
 		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
+		// removed other assertion
 
 		Boolean result3 = SystemPropertiesUtil.getBoolean(name, Boolean.TRUE);
+		// removed other assertion
 
 		System.setProperty(name, "true");
 
 		Boolean result5 = SystemPropertiesUtil.getBoolean(name, Boolean.FALSE);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		/// int
 		Integer result6 = SystemPropertiesUtil.getInteger(name);
+		// removed other assertion
 
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// long
 		Long result7 = SystemPropertiesUtil.getLong(name);
 		assertThat(result7).isNull();
 	}
@@ -170,27 +203,37 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 
 		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		// removed other assertion
 
 		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
+		// removed other assertion
 
 		Boolean result3 = SystemPropertiesUtil.getBoolean(name, Boolean.TRUE);
+		// removed other assertion
 
 		System.setProperty(name, "true");
 
 		Boolean result5 = SystemPropertiesUtil.getBoolean(name, Boolean.FALSE);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		/// int
 		Integer result6 = SystemPropertiesUtil.getInteger(name);
+		// removed other assertion
 
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// long
 		Long result7 = SystemPropertiesUtil.getLong(name);
+		// removed other assertion
 
 		result7 = SystemPropertiesUtil.getLong(name, 1L);
 		assertThat(result7).isEqualTo(1L);
@@ -201,29 +244,40 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 
 		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		// removed other assertion
 
 		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
+		// removed other assertion
 
 		Boolean result3 = SystemPropertiesUtil.getBoolean(name, Boolean.TRUE);
+		// removed other assertion
 
 		System.setProperty(name, "true");
 
 		Boolean result5 = SystemPropertiesUtil.getBoolean(name, Boolean.FALSE);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		/// int
 		Integer result6 = SystemPropertiesUtil.getInteger(name);
+		// removed other assertion
 
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// long
 		Long result7 = SystemPropertiesUtil.getLong(name);
+		// removed other assertion
 
 		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result7 = SystemPropertiesUtil.getLong(name, 1L);
@@ -235,35 +289,48 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 
 		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		// removed other assertion
 
 		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
+		// removed other assertion
 
 		Boolean result3 = SystemPropertiesUtil.getBoolean(name, Boolean.TRUE);
+		// removed other assertion
 
 		System.setProperty(name, "true");
 
 		Boolean result5 = SystemPropertiesUtil.getBoolean(name, Boolean.FALSE);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		/// int
 		Integer result6 = SystemPropertiesUtil.getInteger(name);
+		// removed other assertion
 
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// long
 		Long result7 = SystemPropertiesUtil.getLong(name);
+		// removed other assertion
 
 		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// doulbe
 		Double result8 = SystemPropertiesUtil.getDouble(name);
 		assertThat(result8).isNull();
 	}
@@ -273,36 +340,50 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 
 		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		// removed other assertion
 
 		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
+		// removed other assertion
 
 		Boolean result3 = SystemPropertiesUtil.getBoolean(name, Boolean.TRUE);
+		// removed other assertion
 
 		System.setProperty(name, "true");
 
 		Boolean result5 = SystemPropertiesUtil.getBoolean(name, Boolean.FALSE);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		/// int
 		Integer result6 = SystemPropertiesUtil.getInteger(name);
+		// removed other assertion
 
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// long
 		Long result7 = SystemPropertiesUtil.getLong(name);
+		// removed other assertion
 
 		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// doulbe
 		Double result8 = SystemPropertiesUtil.getDouble(name);
+		// removed other assertion
 
 		result8 = SystemPropertiesUtil.getDouble(name, 1.1);
 		assertThat(result8).isEqualTo(1.1);
@@ -313,38 +394,53 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 
 		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		// removed other assertion
 
 		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
+		// removed other assertion
 
 		Boolean result3 = SystemPropertiesUtil.getBoolean(name, Boolean.TRUE);
+		// removed other assertion
 
 		System.setProperty(name, "true");
 
 		Boolean result5 = SystemPropertiesUtil.getBoolean(name, Boolean.FALSE);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		/// int
 		Integer result6 = SystemPropertiesUtil.getInteger(name);
+		// removed other assertion
 
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// long
 		Long result7 = SystemPropertiesUtil.getLong(name);
+		// removed other assertion
 
 		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// doulbe
 		Double result8 = SystemPropertiesUtil.getDouble(name);
+		// removed other assertion
 
 		result8 = SystemPropertiesUtil.getDouble(name, 1.1);
+		// removed other assertion
 
 		System.setProperty(name, "2.1");
 		result8 = SystemPropertiesUtil.getDouble(name, 1.1);
@@ -356,44 +452,61 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 
 		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		// removed other assertion
 
 		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
+		// removed other assertion
 
 		Boolean result3 = SystemPropertiesUtil.getBoolean(name, Boolean.TRUE);
+		// removed other assertion
 
 		System.setProperty(name, "true");
 
 		Boolean result5 = SystemPropertiesUtil.getBoolean(name, Boolean.FALSE);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		/// int
 		Integer result6 = SystemPropertiesUtil.getInteger(name);
+		// removed other assertion
 
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// long
 		Long result7 = SystemPropertiesUtil.getLong(name);
+		// removed other assertion
 
 		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// doulbe
 		Double result8 = SystemPropertiesUtil.getDouble(name);
+		// removed other assertion
 
 		result8 = SystemPropertiesUtil.getDouble(name, 1.1);
+		// removed other assertion
 
 		System.setProperty(name, "2.1");
 		result8 = SystemPropertiesUtil.getDouble(name, 1.1);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// String
 		String result9 = SystemPropertiesUtil.getString(name);
 		assertThat(result9).isNull();
 	}
@@ -403,45 +516,63 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 
 		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		// removed other assertion
 
 		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
+		// removed other assertion
 
 		Boolean result3 = SystemPropertiesUtil.getBoolean(name, Boolean.TRUE);
+		// removed other assertion
 
 		System.setProperty(name, "true");
 
 		Boolean result5 = SystemPropertiesUtil.getBoolean(name, Boolean.FALSE);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		/// int
 		Integer result6 = SystemPropertiesUtil.getInteger(name);
+		// removed other assertion
 
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// long
 		Long result7 = SystemPropertiesUtil.getLong(name);
+		// removed other assertion
 
 		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// doulbe
 		Double result8 = SystemPropertiesUtil.getDouble(name);
+		// removed other assertion
 
 		result8 = SystemPropertiesUtil.getDouble(name, 1.1);
+		// removed other assertion
 
 		System.setProperty(name, "2.1");
 		result8 = SystemPropertiesUtil.getDouble(name, 1.1);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// String
 		String result9 = SystemPropertiesUtil.getString(name);
+		// removed other assertion
 
 		result9 = SystemPropertiesUtil.getString(name, "1.1");
 		assertThat(result9).isEqualTo("1.1");
@@ -452,47 +583,66 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 
 		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		// removed other assertion
 
 		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
+		// removed other assertion
 
 		Boolean result3 = SystemPropertiesUtil.getBoolean(name, Boolean.TRUE);
+		// removed other assertion
 
 		System.setProperty(name, "true");
 
 		Boolean result5 = SystemPropertiesUtil.getBoolean(name, Boolean.FALSE);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		/// int
 		Integer result6 = SystemPropertiesUtil.getInteger(name);
+		// removed other assertion
 
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// long
 		Long result7 = SystemPropertiesUtil.getLong(name);
+		// removed other assertion
 
 		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		// removed other assertion
 
 		System.setProperty(name, "2");
 		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// doulbe
 		Double result8 = SystemPropertiesUtil.getDouble(name);
+		// removed other assertion
 
 		result8 = SystemPropertiesUtil.getDouble(name, 1.1);
+		// removed other assertion
 
 		System.setProperty(name, "2.1");
 		result8 = SystemPropertiesUtil.getDouble(name, 1.1);
+		// removed other assertion
 
 		System.clearProperty(name);
 
+		///// String
 		String result9 = SystemPropertiesUtil.getString(name);
+		// removed other assertion
 
 		result9 = SystemPropertiesUtil.getString(name, "1.1");
+		// removed other assertion
 
 		System.setProperty(name, "2.1");
 		result9 = SystemPropertiesUtil.getString(name, "1.1");
@@ -504,6 +654,7 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 		String envName = "ss_test" + RandomUtil.nextInt();
 
+		// default 值
 		String result = SystemPropertiesUtil.getString(name, envName, "123");
 		assertThat(result).isEqualTo("123");
 	}
@@ -513,8 +664,11 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 		String envName = "ss_test" + RandomUtil.nextInt();
 
+		// default 值
 		String result = SystemPropertiesUtil.getString(name, envName, "123");
+		// removed other assertion
 
+		// env值
 		String result2 = SystemPropertiesUtil.getString(name, "HOME", "123");
 		assertThat(result2).isNotEqualTo("123");
 	}
@@ -524,10 +678,15 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 		String envName = "ss_test" + RandomUtil.nextInt();
 
+		// default 值
 		String result = SystemPropertiesUtil.getString(name, envName, "123");
+		// removed other assertion
 
+		// env值
 		String result2 = SystemPropertiesUtil.getString(name, "HOME", "123");
+		// removed other assertion
 
+		// system properties值
 		System.setProperty(name, "456");
 		String result3 = SystemPropertiesUtil.getString(name, envName, "123");
 		assertThat(result3).isEqualTo("456");
@@ -538,15 +697,23 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 		String envName = "ss_test" + RandomUtil.nextInt();
 
+		// default 值
 		String result = SystemPropertiesUtil.getString(name, envName, "123");
+		// removed other assertion
 
+		// env值
 		String result2 = SystemPropertiesUtil.getString(name, "HOME", "123");
+		// removed other assertion
 
+		// system properties值
 		System.setProperty(name, "456");
 		String result3 = SystemPropertiesUtil.getString(name, envName, "123");
+		// removed other assertion
 
 		try {
+			// 非法字符
 			String result4 = SystemPropertiesUtil.getString(name, name, "123");
+			// removed other assertion
 		} catch (Exception e) {
 			assertThat(e).isInstanceOf(IllegalArgumentException.class);
 	}
@@ -557,6 +724,7 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 		String envName = "ss_test" + RandomUtil.nextInt();
 
+		// default 值
 		int result = SystemPropertiesUtil.getInteger(name, envName, 123);
 		assertThat(result).isEqualTo(123);
 	}
@@ -566,9 +734,13 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 		String envName = "ss_test" + RandomUtil.nextInt();
 
+		// default 值
 		int result = SystemPropertiesUtil.getInteger(name, envName, 123);
+		// removed other assertion
 
+		// env值没有数字类型的，忽略
 
+		// system properties值
 		System.setProperty(name, "456");
 		int result3 = SystemPropertiesUtil.getInteger(name, envName, 123);
 		assertThat(result3).isEqualTo(456);
@@ -579,6 +751,7 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 		String envName = "ss_test" + RandomUtil.nextInt();
 
+		// default 值
 		long result = SystemPropertiesUtil.getLong(name, envName, 123L);
 		assertThat(result).isEqualTo(123L);
 	}
@@ -588,9 +761,13 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 		String envName = "ss_test" + RandomUtil.nextInt();
 
+		// default 值
 		long result = SystemPropertiesUtil.getLong(name, envName, 123L);
+		// removed other assertion
 
+		// env值没有数字类型的，忽略
 
+		// system properties值
 		System.setProperty(name, "456");
 		long result3 = SystemPropertiesUtil.getLong(name, envName, 123L);
 		assertThat(result3).isEqualTo(456L);
@@ -601,6 +778,7 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 		String envName = "ss_test" + RandomUtil.nextInt();
 
+		// default 值
 		double result = SystemPropertiesUtil.getDouble(name, envName, 123d);
 		assertThat(result).isEqualTo(123d);
 	}
@@ -610,9 +788,13 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 		String envName = "ss_test" + RandomUtil.nextInt();
 
+		// default 值
 		double result = SystemPropertiesUtil.getDouble(name, envName, 123d);
+		// removed other assertion
 
+		// env值没有数字类型的，忽略
 
+		// system properties值
 		System.setProperty(name, "456");
 		double result3 = SystemPropertiesUtil.getDouble(name, envName, 123d);
 		assertThat(result3).isEqualTo(456d);
@@ -623,6 +805,7 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 		String envName = "ss_test" + RandomUtil.nextInt();
 
+		// default 值
 		boolean result = SystemPropertiesUtil.getBoolean(name, envName, true);
 		assertThat(result).isTrue();
 	}
@@ -632,9 +815,13 @@ public class SystemPropertiesUtilTest_OE25Dev {
 		String name = "ss.test" + RandomUtil.nextInt();
 		String envName = "ss_test" + RandomUtil.nextInt();
 
+		// default 值
 		boolean result = SystemPropertiesUtil.getBoolean(name, envName, true);
+		// removed other assertion
 
+		// env值没有boolean类型的，忽略
 
+		// system properties值
 		System.setProperty(name, "true");
 		boolean result3 = SystemPropertiesUtil.getBoolean(name, envName, false);
 		assertThat(result3).isTrue();

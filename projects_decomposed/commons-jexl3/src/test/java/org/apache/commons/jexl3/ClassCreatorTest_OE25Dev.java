@@ -202,6 +202,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testOne_1_oe() throws Exception {
+        // abort test if class creator can not run
         if (!ClassCreator.canRun) {
             logger.warn("unable to create classes");
             return;
@@ -217,6 +218,8 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
 
+        // create a class foo1 with a ctor whose body gets a value
+        // from the context to initialize its value
         final ClassCreator cctor = new ClassCreator(jexl, base);
         cctor.setSeed(1);
         cctor.setCtorBody("value = (Integer) ctxt.get(\"value\") + 10;");
@@ -229,10 +232,13 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
 
+        // create a class foo1 with a ctor whose body gets a value
+        // from the context to initialize its value
         final ClassCreator cctor = new ClassCreator(jexl, base);
         cctor.setSeed(1);
         cctor.setCtorBody("value = (Integer) ctxt.get(\"value\") + 10;");
         Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
         Assert.assertEquals("foo1", foo1.getSimpleName());
     }
 
@@ -241,10 +247,14 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
 
+        // create a class foo1 with a ctor whose body gets a value
+        // from the context to initialize its value
         final ClassCreator cctor = new ClassCreator(jexl, base);
         cctor.setSeed(1);
         cctor.setCtorBody("value = (Integer) ctxt.get(\"value\") + 10;");
         Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
         Object result = cctor.newInstance(foo1, ctxt);
         Assert.assertEquals(foo1, result.getClass());
     }
@@ -254,25 +264,40 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
 
+        // create a class foo1 with a ctor whose body gets a value
+        // from the context to initialize its value
         final ClassCreator cctor = new ClassCreator(jexl, base);
         cctor.setSeed(1);
         cctor.setCtorBody("value = (Integer) ctxt.get(\"value\") + 10;");
         Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
         Object result = cctor.newInstance(foo1, ctxt);
+        // removed other assertion
         jexl.setClassLoader(cctor.getClassLoader());
         cctor.clear();
 
+        // check we can invoke that ctor using its name or class
         final JexlScript script = jexl.createScript("(c)->{ new(c).value; }");
         result = script.execute(ctxt, foo1);
+        // removed other assertion
         result = script.execute(ctxt, foo1.getName());
+        // removed other assertion
 
+        // re-create foo1 with a different body!
         cctor.setSeed(1);
         cctor.setCtorBody("value = (Integer) ctxt.get(\"value\") + 99;");
         final Class<?> foo11 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
         foo1 = foo11;
         result = cctor.newInstance(foo1, ctxt);
+        // removed other assertion
+        // drum rolll....
         jexl.setClassLoader(foo1.getClassLoader());
         result = script.execute(ctxt, foo1.getName());
+        // tada!
+        // removed other assertion
         result = script.execute(ctxt, foo1);
         Assert.assertEquals(1099, result);
     }
@@ -298,6 +323,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         cctor.setSeed(2);
         cctor.setCtorBody("value = (Integer) ctxt.get(\"value\") + 10;");
         Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
         Assert.assertEquals("foo2", foo1.getSimpleName());
     }
 
@@ -310,6 +336,8 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         cctor.setSeed(2);
         cctor.setCtorBody("value = (Integer) ctxt.get(\"value\") + 10;");
         Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
         Object result = cctor.newInstance(foo1, ctxt);
         Assert.assertEquals(foo1, result.getClass());
     }
@@ -323,7 +351,10 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         cctor.setSeed(2);
         cctor.setCtorBody("value = (Integer) ctxt.get(\"value\") + 10;");
         Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
         Object result = cctor.newInstance(foo1, ctxt);
+        // removed other assertion
         jexl.setClassLoader(cctor.getClassLoader());
         cctor.clear();
 
@@ -345,7 +376,10 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         cctor.setSeed(2);
         cctor.setCtorBody("value = (Integer) ctxt.get(\"value\") + 10;");
         Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
         Object result = cctor.newInstance(foo1, ctxt);
+        // removed other assertion
         jexl.setClassLoader(cctor.getClassLoader());
         cctor.clear();
 
@@ -355,6 +389,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
 
         final JexlScript script = jexl2.createScript("test:getValue()");
         result = script.execute(ctxt, foo1.getName());
+        // removed other assertion
 
         cctor.setSeed(2);
         cctor.setCtorBody("value = (Integer) ctxt.get(\"value\") + 99;");
@@ -371,7 +406,10 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         cctor.setSeed(2);
         cctor.setCtorBody("value = (Integer) ctxt.get(\"value\") + 10;");
         Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
         Object result = cctor.newInstance(foo1, ctxt);
+        // removed other assertion
         jexl.setClassLoader(cctor.getClassLoader());
         cctor.clear();
 
@@ -381,10 +419,12 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
 
         final JexlScript script = jexl2.createScript("test:getValue()");
         result = script.execute(ctxt, foo1.getName());
+        // removed other assertion
 
         cctor.setSeed(2);
         cctor.setCtorBody("value = (Integer) ctxt.get(\"value\") + 99;");
         final Class<?> foo11 = cctor.createClass(true);
+        // removed other assertion
         Assert.assertNotSame(foo11, foo1);
     }
 
@@ -397,7 +437,10 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         cctor.setSeed(2);
         cctor.setCtorBody("value = (Integer) ctxt.get(\"value\") + 10;");
         Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
         Object result = cctor.newInstance(foo1, ctxt);
+        // removed other assertion
         jexl.setClassLoader(cctor.getClassLoader());
         cctor.clear();
 
@@ -407,10 +450,13 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
 
         final JexlScript script = jexl2.createScript("test:getValue()");
         result = script.execute(ctxt, foo1.getName());
+        // removed other assertion
 
         cctor.setSeed(2);
         cctor.setCtorBody("value = (Integer) ctxt.get(\"value\") + 99;");
         final Class<?> foo11 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
         foo1 = foo11;
         result = cctor.newInstance(foo1, ctxt);
         Assert.assertEquals(foo1, result.getClass());
@@ -425,7 +471,10 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         cctor.setSeed(2);
         cctor.setCtorBody("value = (Integer) ctxt.get(\"value\") + 10;");
         Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
         Object result = cctor.newInstance(foo1, ctxt);
+        // removed other assertion
         jexl.setClassLoader(cctor.getClassLoader());
         cctor.clear();
 
@@ -435,19 +484,26 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
 
         final JexlScript script = jexl2.createScript("test:getValue()");
         result = script.execute(ctxt, foo1.getName());
+        // removed other assertion
 
         cctor.setSeed(2);
         cctor.setCtorBody("value = (Integer) ctxt.get(\"value\") + 99;");
         final Class<?> foo11 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
         foo1 = foo11;
         result = cctor.newInstance(foo1, ctxt);
+        // removed other assertion
+        // drum rolll....
         jexl2.setClassLoader(foo1.getClassLoader());
         result = script.execute(ctxt, foo1.getName());
+        // tada!
         Assert.assertEquals(1099, result);
     }
 
     @Test
     public void testMany_1_oe() throws Exception {
+        // abort test if class creator can not run
         if (!ClassCreator.canRun) {
             return;
         }
@@ -455,6 +511,8 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         int gced = -1;
         final ReferenceQueue<Object> queue = new ReferenceQueue<Object>();
         final List<Reference<?>> stuff = new ArrayList<Reference<?>>();
+        // keeping a reference on methods prevent classes from being GCed
+//        List<Object> mm = new ArrayList<Object>();
         final JexlExpression expr = jexl.createExpression("foo.value");
         final JexlExpression newx = jexl.createExpression("foo = new(clazz)");
         final JexlEvalContext context = new JexlEvalContext();
@@ -479,6 +537,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testMany_2_oe() throws Exception {
+        // abort test if class creator can not run
         if (!ClassCreator.canRun) {
             return;
         }
@@ -486,6 +545,8 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         int gced = -1;
         final ReferenceQueue<Object> queue = new ReferenceQueue<Object>();
         final List<Reference<?>> stuff = new ArrayList<Reference<?>>();
+        // keeping a reference on methods prevent classes from being GCed
+//        List<Object> mm = new ArrayList<Object>();
         final JexlExpression expr = jexl.createExpression("foo.value");
         final JexlExpression newx = jexl.createExpression("foo = new(clazz)");
         final JexlEvalContext context = new JexlEvalContext();
@@ -502,9 +563,15 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
             } else {
                 clazz = cctor.getClassInstance();
                 if (clazz == null) {
+                    // removed other assertion
                     break;
                 }
             }
+            // this code verifies the assumption that holding a strong reference to a method prevents
+            // its owning class from being GCed
+//          Method m = clazz.getDeclaredMethod("getValue", new Class<?>[0]);
+//          mm.add(m);
+            // we should not be able to create foox since it is unknown to the JEXL classloader
             context.set("clazz", cctor.getClassName());
             context.set("foo", null);
             Object z = newx.evaluate(context);
@@ -523,6 +590,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
     public void testBasicCtor_2_oe() throws Exception {
         final JexlScript s = jexl.createScript("(c, v)->{ var ct2 = new(c, v); ct2.value; }");
         Object r = s.execute(null, TwoCtors.class, 10);
+        // removed other assertion
         r = s.execute(null, TwoCtors.class, 5 + 5);
         Assert.assertEquals(10, r);
     }
@@ -531,7 +599,9 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
     public void testBasicCtor_3_oe() throws Exception {
         final JexlScript s = jexl.createScript("(c, v)->{ var ct2 = new(c, v); ct2.value; }");
         Object r = s.execute(null, TwoCtors.class, 10);
+        // removed other assertion
         r = s.execute(null, TwoCtors.class, 5 + 5);
+        // removed other assertion
         r = s.execute(null, TwoCtors.class, 10d);
         Assert.assertEquals(-10, r);
     }
@@ -540,8 +610,11 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
     public void testBasicCtor_4_oe() throws Exception {
         final JexlScript s = jexl.createScript("(c, v)->{ var ct2 = new(c, v); ct2.value; }");
         Object r = s.execute(null, TwoCtors.class, 10);
+        // removed other assertion
         r = s.execute(null, TwoCtors.class, 5 + 5);
+        // removed other assertion
         r = s.execute(null, TwoCtors.class, 10d);
+        // removed other assertion
         r = s.execute(null, TwoCtors.class, 100f);
         Assert.assertEquals(-100, r);
     }
@@ -561,6 +634,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         ctxt.set("value", 42);
         JexlScript s = jexl.createScript("(c)->{ new(c).value }");
         Object r = s.execute(ctxt, ContextualCtor.class);
+        // removed other assertion
         s = jexl.createScript("(c, v)->{ new(c, v).value }");
         r = s.execute(ctxt, ContextualCtor.class, 100);
         Assert.assertEquals(142, r);

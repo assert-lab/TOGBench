@@ -98,24 +98,34 @@ public class MapUtilTest_OE25Dev {
 	@Test
 	public void generalMethod_2_oe() {
 		HashMap<String, Integer> map = MapUtil.newHashMap();
+		// removed other assertion
 		assertThat(MapUtil.isEmpty(null)).isTrue();
 	}
 
 	@Test
 	public void generalMethod_3_oe() {
 		HashMap<String, Integer> map = MapUtil.newHashMap();
+		// removed other assertion
+		// removed other assertion
 		assertThat(MapUtil.isNotEmpty(map)).isFalse();
 	}
 
 	@Test
 	public void generalMethod_4_oe() {
 		HashMap<String, Integer> map = MapUtil.newHashMap();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(MapUtil.isNotEmpty(null)).isFalse();
 	}
 
 	@Test
 	public void generalMethod_5_oe() {
 		HashMap<String, Integer> map = MapUtil.newHashMap();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		map.put("haha", 1);
 		assertThat(MapUtil.isEmpty(map)).isFalse();
@@ -124,17 +134,29 @@ public class MapUtilTest_OE25Dev {
 	@Test
 	public void generalMethod_6_oe() {
 		HashMap<String, Integer> map = MapUtil.newHashMap();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		map.put("haha", 1);
+		// removed other assertion
 		assertThat(MapUtil.isNotEmpty(map)).isTrue();
 	}
 
 	@Test
 	public void generalMethod_7_oe() {
 		HashMap<String, Integer> map = MapUtil.newHashMap();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		map.put("haha", 1);
+		// removed other assertion
+		// removed other assertion
 
+		//////////
 		ConcurrentMap<String, Integer> map2 = MapUtil.newConcurrentHashMap();
 		assertThat(MapUtil.putIfAbsentWithFinalValue(map2, "haha", 3)).isEqualTo(3);
 	}
@@ -142,10 +164,19 @@ public class MapUtilTest_OE25Dev {
 	@Test
 	public void generalMethod_10_oe() {
 		HashMap<String, Integer> map = MapUtil.newHashMap();
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		map.put("haha", 1);
+		// removed other assertion
+		// removed other assertion
 
+		//////////
 		ConcurrentMap<String, Integer> map2 = MapUtil.newConcurrentHashMap();
+		// removed other assertion
+		// removed other assertion
 
 		MapUtil.createIfAbsent(map2, "haha", new ValueCreator<Integer>() {
 			@Override
@@ -154,6 +185,7 @@ public class MapUtilTest_OE25Dev {
 			}
 		});
 
+		// removed other assertion
 
 		MapUtil.createIfAbsent(map2, "haha2", new ValueCreator<Integer>() {
 			@Override
@@ -184,6 +216,7 @@ public class MapUtilTest_OE25Dev {
 		map2 = MapUtil.newHashMapWithCapacity(10, 0.5f);
 
 		HashMap<String, Integer> map3 = MapUtil.newHashMap("1", 1);
+		// removed other assertion
 
 		HashMap<String, Integer> map4 = MapUtil.newHashMap(new String[] { "1", "2" }, new Integer[] { 1, 2 });
 		assertThat(map4).hasSize(2).containsEntry("1", 1).containsEntry("2", 2);
@@ -197,8 +230,10 @@ public class MapUtilTest_OE25Dev {
 		map2 = MapUtil.newHashMapWithCapacity(10, 0.5f);
 
 		HashMap<String, Integer> map3 = MapUtil.newHashMap("1", 1);
+		// removed other assertion
 
 		HashMap<String, Integer> map4 = MapUtil.newHashMap(new String[] { "1", "2" }, new Integer[] { 1, 2 });
+		// removed other assertion
 
 		HashMap<String, Integer> map5 = MapUtil.newHashMap(ArrayUtil.asList("1", "2", "3"), ArrayUtil.asList(1, 2, 3));
 		assertThat(map5).hasSize(3).containsEntry("1", 1).containsEntry("2", 2).containsEntry("3", 3);
@@ -213,6 +248,7 @@ public class MapUtilTest_OE25Dev {
 	@Test
 	public void jdkBuildMap_2_oe() {
 		Map<String, Integer> map1 = MapUtil.emptyMap();
+		// removed other assertion
 
 		Map<String, Integer> map2 = MapUtil.emptyMapIfNull(null);
 		assertThat(map2).isNotNull().hasSize(0);
@@ -221,8 +257,10 @@ public class MapUtilTest_OE25Dev {
 	@Test
 	public void jdkBuildMap_3_oe() {
 		Map<String, Integer> map1 = MapUtil.emptyMap();
+		// removed other assertion
 
 		Map<String, Integer> map2 = MapUtil.emptyMapIfNull(null);
+		// removed other assertion
 
 		Map<String, Integer> map3 = MapUtil.emptyMapIfNull(map1);
 		assertThat(map3).isSameAs(map1);
@@ -231,10 +269,13 @@ public class MapUtilTest_OE25Dev {
 	@Test
 	public void jdkBuildMap_4_oe() {
 		Map<String, Integer> map1 = MapUtil.emptyMap();
+		// removed other assertion
 
 		Map<String, Integer> map2 = MapUtil.emptyMapIfNull(null);
+		// removed other assertion
 
 		Map<String, Integer> map3 = MapUtil.emptyMapIfNull(map1);
+		// removed other assertion
 
 		Map<String, Integer> map4 = MapUtil.singletonMap("haha", 1);
 		assertThat(map4).hasSize(1).containsEntry("haha", 1);
@@ -243,14 +284,19 @@ public class MapUtilTest_OE25Dev {
 	@Test
 	public void jdkBuildMap_6_oe() {
 		Map<String, Integer> map1 = MapUtil.emptyMap();
+		// removed other assertion
 
 		Map<String, Integer> map2 = MapUtil.emptyMapIfNull(null);
+		// removed other assertion
 
 		Map<String, Integer> map3 = MapUtil.emptyMapIfNull(map1);
+		// removed other assertion
 
 		Map<String, Integer> map4 = MapUtil.singletonMap("haha", 1);
+		// removed other assertion
 		try {
 			map4.put("dada", 2);
+			// removed other assertion
 		} catch (Throwable t) {
 			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
 	}
@@ -259,15 +305,21 @@ public class MapUtilTest_OE25Dev {
 	@Test
 	public void jdkBuildMap_8_oe() {
 		Map<String, Integer> map1 = MapUtil.emptyMap();
+		// removed other assertion
 
 		Map<String, Integer> map2 = MapUtil.emptyMapIfNull(null);
+		// removed other assertion
 
 		Map<String, Integer> map3 = MapUtil.emptyMapIfNull(map1);
+		// removed other assertion
 
 		Map<String, Integer> map4 = MapUtil.singletonMap("haha", 1);
+		// removed other assertion
 		try {
 			map4.put("dada", 2);
+			// removed other assertion
 		} catch (Throwable t) {
+			// removed other assertion
 		}
 
 		Map<String, Integer> map5 = MapUtil.newHashMap();
@@ -275,6 +327,7 @@ public class MapUtilTest_OE25Dev {
 
 		try {
 			map6.put("a", 2);
+			// removed other assertion
 		} catch (Throwable t) {
 			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
 	}
@@ -293,6 +346,7 @@ public class MapUtilTest_OE25Dev {
 		ConcurrentMap<MyBean, MyBean> weakKeyMap = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
 		initExpireAllMap(weakKeyMap);
 		System.gc();
+		// removed other assertion
 		assertThat(weakKeyMap).hasSize(1);// key仍然在;
 	}
 
@@ -301,6 +355,8 @@ public class MapUtilTest_OE25Dev {
 		ConcurrentMap<MyBean, MyBean> weakKeyMap = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
 		initExpireAllMap(weakKeyMap);
 		System.gc();
+		// removed other assertion
+		// removed other assertion
 		ConcurrentMap<MyBean,MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10,1);
 		MyBean value = new MyBean("B");
 		initExpireKeyMap(weakKeyMap2, value);
@@ -313,10 +369,13 @@ public class MapUtilTest_OE25Dev {
 		ConcurrentMap<MyBean, MyBean> weakKeyMap = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
 		initExpireAllMap(weakKeyMap);
 		System.gc();
+		// removed other assertion
+		// removed other assertion
 		ConcurrentMap<MyBean,MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10,1);
 		MyBean value = new MyBean("B");
 		initExpireKeyMap(weakKeyMap2, value);
 		System.gc();
+		// removed other assertion
 
 		ConcurrentMap<MyBean, MyBean> weakKeyMap3 = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
 		MyBean key = new MyBean("A");
@@ -330,16 +389,21 @@ public class MapUtilTest_OE25Dev {
 		ConcurrentMap<MyBean, MyBean> weakKeyMap = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
 		initExpireAllMap(weakKeyMap);
 		System.gc();
+		// removed other assertion
+		// removed other assertion
 		ConcurrentMap<MyBean,MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10,1);
 		MyBean value = new MyBean("B");
 		initExpireKeyMap(weakKeyMap2, value);
 		System.gc();
+		// removed other assertion
 
 		ConcurrentMap<MyBean, MyBean> weakKeyMap3 = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
 		MyBean key = new MyBean("A");
 		initExpireValueMap(weakKeyMap3, key);
 		System.gc();
+		// removed other assertion
 
+		// weak value
 		ConcurrentMap<MyBean, MyBean> weakValueMap = MapUtil.createWeakValueConcurrentHashMap(10, 1);
 		initExpireAllMap(weakValueMap);
 		System.gc();
@@ -351,19 +415,25 @@ public class MapUtilTest_OE25Dev {
 		ConcurrentMap<MyBean, MyBean> weakKeyMap = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
 		initExpireAllMap(weakKeyMap);
 		System.gc();
+		// removed other assertion
+		// removed other assertion
 		ConcurrentMap<MyBean,MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10,1);
 		MyBean value = new MyBean("B");
 		initExpireKeyMap(weakKeyMap2, value);
 		System.gc();
+		// removed other assertion
 
 		ConcurrentMap<MyBean, MyBean> weakKeyMap3 = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
 		MyBean key = new MyBean("A");
 		initExpireValueMap(weakKeyMap3, key);
 		System.gc();
+		// removed other assertion
 
+		// weak value
 		ConcurrentMap<MyBean, MyBean> weakValueMap = MapUtil.createWeakValueConcurrentHashMap(10, 1);
 		initExpireAllMap(weakValueMap);
 		System.gc();
+		// removed other assertion
 		
 		ConcurrentMap<MyBean, MyBean> weakValueMap2 = MapUtil.createWeakValueConcurrentHashMap(10, 1);
 		MyBean value2 = new MyBean("B");
@@ -377,24 +447,31 @@ public class MapUtilTest_OE25Dev {
 		ConcurrentMap<MyBean, MyBean> weakKeyMap = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
 		initExpireAllMap(weakKeyMap);
 		System.gc();
+		// removed other assertion
+		// removed other assertion
 		ConcurrentMap<MyBean,MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10,1);
 		MyBean value = new MyBean("B");
 		initExpireKeyMap(weakKeyMap2, value);
 		System.gc();
+		// removed other assertion
 
 		ConcurrentMap<MyBean, MyBean> weakKeyMap3 = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
 		MyBean key = new MyBean("A");
 		initExpireValueMap(weakKeyMap3, key);
 		System.gc();
+		// removed other assertion
 
+		// weak value
 		ConcurrentMap<MyBean, MyBean> weakValueMap = MapUtil.createWeakValueConcurrentHashMap(10, 1);
 		initExpireAllMap(weakValueMap);
 		System.gc();
+		// removed other assertion
 		
 		ConcurrentMap<MyBean, MyBean> weakValueMap2 = MapUtil.createWeakValueConcurrentHashMap(10, 1);
 		MyBean value2 = new MyBean("B");
 		initExpireKeyMap(weakValueMap2, value2);
 		System.gc();
+		// removed other assertion
 
 		ConcurrentMap<MyBean, MyBean> weakValueMap3 = MapUtil.createWeakValueConcurrentHashMap(10, 1);
 		MyBean key3 = new MyBean("A");

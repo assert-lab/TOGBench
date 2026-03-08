@@ -78,6 +78,7 @@ public class AsyncHttpClientRegistryTest_OE25Dev {
   @Test
   public void testGetAndRegister_2_oe() throws IOException {
     try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      // removed other assertion
       Assert.assertNull(AsyncHttpClientRegistryImpl.getInstance().addOrReplace(TEST_AHC, ahc));
   }
   }
@@ -92,6 +93,7 @@ public class AsyncHttpClientRegistryTest_OE25Dev {
   @Test
   public void testDeRegister_2_oe() throws IOException {
     try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      // removed other assertion
       Assert.assertNull(AsyncHttpClientRegistryImpl.getInstance().addOrReplace(TEST_AHC, ahc));
   }
   }
@@ -99,6 +101,9 @@ public class AsyncHttpClientRegistryTest_OE25Dev {
   @Test
   public void testDeRegister_4_oe() throws IOException {
     try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       Assert.assertNull(AsyncHttpClientRegistryImpl.getInstance().get(TEST_AHC));
   }
   }
@@ -116,6 +121,11 @@ public class AsyncHttpClientRegistryTest_OE25Dev {
   public void testRegisterIfNew_6_oe() throws IOException {
     try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
       try (AsyncHttpClient ahc2 = AsyncHttpClientFactory.getAsyncHttpClient()) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(AsyncHttpClientRegistryImpl.getInstance().registerIfNew(TEST_AHC + 1, ahc));
   }
   }
@@ -137,6 +147,7 @@ public class AsyncHttpClientRegistryTest_OE25Dev {
     try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
       try (AsyncHttpClient ahc2 = AsyncHttpClientFactory.getAsyncHttpClient()) {
         try (AsyncHttpClient ahc3 = AsyncHttpClientFactory.getAsyncHttpClient()) {
+          // removed other assertion
           Assert.assertNull(AsyncHttpClientRegistryImpl.getInstance().addOrReplace(TEST_AHC + 2, ahc2));
   }
   }
@@ -148,6 +159,8 @@ public class AsyncHttpClientRegistryTest_OE25Dev {
     try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
       try (AsyncHttpClient ahc2 = AsyncHttpClientFactory.getAsyncHttpClient()) {
         try (AsyncHttpClient ahc3 = AsyncHttpClientFactory.getAsyncHttpClient()) {
+          // removed other assertion
+          // removed other assertion
           Assert.assertNull(AsyncHttpClientRegistryImpl.getInstance().addOrReplace(TEST_AHC + 3, ahc3));
   }
   }
@@ -159,6 +172,10 @@ public class AsyncHttpClientRegistryTest_OE25Dev {
     try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
       try (AsyncHttpClient ahc2 = AsyncHttpClientFactory.getAsyncHttpClient()) {
         try (AsyncHttpClient ahc3 = AsyncHttpClientFactory.getAsyncHttpClient()) {
+          // removed other assertion
+          // removed other assertion
+          // removed other assertion
+          // removed other assertion
           AsyncHttpClientRegistryImpl.getInstance().clearAllInstances();
           Assert.assertEquals(0, AsyncHttpClientRegistryImpl.getInstance().getAllRegisteredNames().size());
   }
@@ -171,7 +188,12 @@ public class AsyncHttpClientRegistryTest_OE25Dev {
     try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
       try (AsyncHttpClient ahc2 = AsyncHttpClientFactory.getAsyncHttpClient()) {
         try (AsyncHttpClient ahc3 = AsyncHttpClientFactory.getAsyncHttpClient()) {
+          // removed other assertion
+          // removed other assertion
+          // removed other assertion
+          // removed other assertion
           AsyncHttpClientRegistryImpl.getInstance().clearAllInstances();
+          // removed other assertion
           Assert.assertNull(AsyncHttpClientRegistryImpl.getInstance().get(TEST_AHC));
   }
   }
@@ -183,7 +205,13 @@ public class AsyncHttpClientRegistryTest_OE25Dev {
     try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
       try (AsyncHttpClient ahc2 = AsyncHttpClientFactory.getAsyncHttpClient()) {
         try (AsyncHttpClient ahc3 = AsyncHttpClientFactory.getAsyncHttpClient()) {
+          // removed other assertion
+          // removed other assertion
+          // removed other assertion
+          // removed other assertion
           AsyncHttpClientRegistryImpl.getInstance().clearAllInstances();
+          // removed other assertion
+          // removed other assertion
           Assert.assertNull(AsyncHttpClientRegistryImpl.getInstance().get(TEST_AHC + 2));
   }
   }
@@ -195,7 +223,14 @@ public class AsyncHttpClientRegistryTest_OE25Dev {
     try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
       try (AsyncHttpClient ahc2 = AsyncHttpClientFactory.getAsyncHttpClient()) {
         try (AsyncHttpClient ahc3 = AsyncHttpClientFactory.getAsyncHttpClient()) {
+          // removed other assertion
+          // removed other assertion
+          // removed other assertion
+          // removed other assertion
           AsyncHttpClientRegistryImpl.getInstance().clearAllInstances();
+          // removed other assertion
+          // removed other assertion
+          // removed other assertion
           Assert.assertNull(AsyncHttpClientRegistryImpl.getInstance().get(TEST_AHC + 3));
   }
   }

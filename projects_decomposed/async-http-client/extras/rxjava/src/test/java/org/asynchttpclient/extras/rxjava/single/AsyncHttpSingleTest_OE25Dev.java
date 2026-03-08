@@ -82,6 +82,8 @@ public class AsyncHttpSingleTest_OE25Dev {
     verifyNoMoreInteractions(handler);
 
     subscriber.awaitTerminalEvent();
+    // removed other assertion
+    // removed other assertion
 
     final List<Throwable> errorEvents = subscriber.getOnErrorEvents();
     assertEquals(errorEvents.size(), 1);
@@ -111,8 +113,11 @@ public class AsyncHttpSingleTest_OE25Dev {
     verifyNoMoreInteractions(handler);
 
     subscriber.awaitTerminalEvent();
+    // removed other assertion
+    // removed other assertion
 
     final List<Throwable> errorEvents = subscriber.getOnErrorEvents();
+    // removed other assertion
     assertThat(errorEvents.get(0), is(instanceOf(CompositeException.class)));
   }
 
@@ -140,8 +145,12 @@ public class AsyncHttpSingleTest_OE25Dev {
     verifyNoMoreInteractions(handler);
 
     subscriber.awaitTerminalEvent();
+    // removed other assertion
+    // removed other assertion
 
     final List<Throwable> errorEvents = subscriber.getOnErrorEvents();
+    // removed other assertion
+    // removed other assertion
     final CompositeException error = (CompositeException) errorEvents.get(0);
     assertEquals(error.getExceptions(), Arrays.asList(processingException, thrownException));
   }
@@ -172,6 +181,7 @@ public class AsyncHttpSingleTest_OE25Dev {
 
     final Single<?> underTest = AsyncHttpSingle.create(bridge -> {
       try {
+        // removed other assertion
 
         bridge.onStatusReceived(null);
         verify(handler).onStatusReceived(null);
@@ -211,6 +221,7 @@ public class AsyncHttpSingleTest_OE25Dev {
 
     final Single<?> underTest = AsyncHttpSingle.create(bridge -> {
       try {
+        // removed other assertion
 
         bridge.onStatusReceived(null);
         verify(handler).onStatusReceived(null);
@@ -239,6 +250,7 @@ public class AsyncHttpSingleTest_OE25Dev {
     verifyNoMoreInteractions(handler);
 
     subscriber.awaitTerminalEvent();
+    // removed other assertion
     subscriber.assertNoErrors();
   }
 
@@ -250,6 +262,7 @@ public class AsyncHttpSingleTest_OE25Dev {
 
     final Single<?> underTest = AsyncHttpSingle.create(bridge -> {
       try {
+        // removed other assertion
 
         bridge.onStatusReceived(null);
         verify(handler).onStatusReceived(null);
@@ -278,6 +291,8 @@ public class AsyncHttpSingleTest_OE25Dev {
     verifyNoMoreInteractions(handler);
 
     subscriber.awaitTerminalEvent();
+    // removed other assertion
+    // removed other assertion
     subscriber.assertCompleted();
   }
 
@@ -289,6 +304,7 @@ public class AsyncHttpSingleTest_OE25Dev {
 
     final Single<?> underTest = AsyncHttpSingle.create(bridge -> {
       try {
+        // removed other assertion
 
         bridge.onStatusReceived(null);
         verify(handler).onStatusReceived(null);
@@ -317,6 +333,9 @@ public class AsyncHttpSingleTest_OE25Dev {
     verifyNoMoreInteractions(handler);
 
     subscriber.awaitTerminalEvent();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     subscriber.assertValue(handler);
   }
 
@@ -329,6 +348,7 @@ public class AsyncHttpSingleTest_OE25Dev {
 
     final Single<?> underTest = AsyncHttpSingle.create(bridge -> {
       try {
+        // removed other assertion
 
         final ProgressAsyncHandler<?> progressBridge = (ProgressAsyncHandler<?>) bridge;
 
@@ -380,6 +400,7 @@ public class AsyncHttpSingleTest_OE25Dev {
 
     final Single<?> underTest = AsyncHttpSingle.create(bridge -> {
       try {
+        // removed other assertion
 
         final ProgressAsyncHandler<?> progressBridge = (ProgressAsyncHandler<?>) bridge;
 
@@ -419,6 +440,7 @@ public class AsyncHttpSingleTest_OE25Dev {
     inOrder.verifyNoMoreInteractions();
 
     subscriber.awaitTerminalEvent();
+    // removed other assertion
     subscriber.assertNoErrors();
   }
 
@@ -431,6 +453,7 @@ public class AsyncHttpSingleTest_OE25Dev {
 
     final Single<?> underTest = AsyncHttpSingle.create(bridge -> {
       try {
+        // removed other assertion
 
         final ProgressAsyncHandler<?> progressBridge = (ProgressAsyncHandler<?>) bridge;
 
@@ -470,6 +493,8 @@ public class AsyncHttpSingleTest_OE25Dev {
     inOrder.verifyNoMoreInteractions();
 
     subscriber.awaitTerminalEvent();
+    // removed other assertion
+    // removed other assertion
     subscriber.assertCompleted();
   }
 
@@ -482,6 +507,7 @@ public class AsyncHttpSingleTest_OE25Dev {
 
     final Single<?> underTest = AsyncHttpSingle.create(bridge -> {
       try {
+        // removed other assertion
 
         final ProgressAsyncHandler<?> progressBridge = (ProgressAsyncHandler<?>) bridge;
 
@@ -521,6 +547,9 @@ public class AsyncHttpSingleTest_OE25Dev {
     inOrder.verifyNoMoreInteractions();
 
     subscriber.awaitTerminalEvent();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     subscriber.assertValue(handler);
   }
 
@@ -546,6 +575,7 @@ public class AsyncHttpSingleTest_OE25Dev {
         bridge.onThrowable(expectedException);
         inOrder.verify(handler).onThrowable(expectedException);
 
+        // test that no further events are invoked after terminal events
         bridge.onCompleted();
         inOrder.verify(handler, never()).onCompleted();
       } catch (final Throwable t) {
@@ -586,6 +616,7 @@ public class AsyncHttpSingleTest_OE25Dev {
         bridge.onThrowable(expectedException);
         inOrder.verify(handler).onThrowable(expectedException);
 
+        // test that no further events are invoked after terminal events
         bridge.onCompleted();
         inOrder.verify(handler, never()).onCompleted();
       } catch (final Throwable t) {
@@ -601,6 +632,7 @@ public class AsyncHttpSingleTest_OE25Dev {
     inOrder.verifyNoMoreInteractions();
 
     subscriber.awaitTerminalEvent();
+    // removed other assertion
     subscriber.assertNoValues();
   }
 
@@ -626,6 +658,7 @@ public class AsyncHttpSingleTest_OE25Dev {
         bridge.onThrowable(expectedException);
         inOrder.verify(handler).onThrowable(expectedException);
 
+        // test that no further events are invoked after terminal events
         bridge.onCompleted();
         inOrder.verify(handler, never()).onCompleted();
       } catch (final Throwable t) {
@@ -641,6 +674,8 @@ public class AsyncHttpSingleTest_OE25Dev {
     inOrder.verifyNoMoreInteractions();
 
     subscriber.awaitTerminalEvent();
+    // removed other assertion
+    // removed other assertion
     subscriber.assertError(expectedException);
   }
 
@@ -693,6 +728,7 @@ public class AsyncHttpSingleTest_OE25Dev {
     verifyNoMoreInteractions(handler);
 
     subscriber.awaitTerminalEvent();
+    // removed other assertion
     subscriber.assertNoValues();
   }
 
@@ -719,6 +755,8 @@ public class AsyncHttpSingleTest_OE25Dev {
     verifyNoMoreInteractions(handler);
 
     subscriber.awaitTerminalEvent();
+    // removed other assertion
+    // removed other assertion
     subscriber.assertError(expectedException);
   }
 
@@ -773,6 +811,7 @@ public class AsyncHttpSingleTest_OE25Dev {
     verifyNoMoreInteractions(handler);
 
     subscriber.awaitTerminalEvent();
+    // removed other assertion
     subscriber.assertNoValues();
   }
 
@@ -813,6 +852,7 @@ public class AsyncHttpSingleTest_OE25Dev {
       subscriber.awaitTerminalEvent();
     }
 
+    // removed other assertion
     subscriber.assertNoErrors();
   }
 
@@ -833,6 +873,8 @@ public class AsyncHttpSingleTest_OE25Dev {
       subscriber.awaitTerminalEvent();
     }
 
+    // removed other assertion
+    // removed other assertion
     subscriber.assertCompleted();
   }
 
@@ -853,6 +895,9 @@ public class AsyncHttpSingleTest_OE25Dev {
       subscriber.awaitTerminalEvent();
     }
 
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     subscriber.assertValue(null);
   }
 

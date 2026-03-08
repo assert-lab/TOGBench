@@ -50,6 +50,7 @@ public class TiffOutputDirectoryTest_OE25Dev {
 
         final TiffOutputField field = directory.findField(TIFF_TAG_DOCUMENT_NAME);
 
+        // removed other assertion
         assertEquals(TIFF_TAG_DOCUMENT_NAME, field.tagInfo);
     }
 
@@ -59,6 +60,8 @@ public class TiffOutputDirectoryTest_OE25Dev {
 
         final TiffOutputField field = directory.findField(TIFF_TAG_DOCUMENT_NAME);
 
+        // removed other assertion
+        // removed other assertion
         final byte[] documentNameAsBytes = TIFF_TAG_DOCUMENT_NAME.encodeValue(TiffConstants.DEFAULT_TIFF_BYTE_ORDER, "Test.tiff");
         assertTrue(field.bytesEqual(documentNameAsBytes));
     }

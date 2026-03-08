@@ -283,8 +283,10 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
 
   @Test
   public void testSynchronousService_FAIL_1_oe() throws Throwable {
+    // given
     val service = synchronousSetup();
 
+    // when:
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 500, expectedContributors, "utf-8");
@@ -293,13 +295,16 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then:
     assertNull(resultRef.get());
   }
 
   @Test
   public void testSynchronousService_NOT_FOUND_1_oe() throws Throwable {
+    // given
     val service = synchronousSetup();
 
+    // when:
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 404, expectedContributors, "utf-8");
@@ -309,13 +314,16 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then:
     assertNull(resultRef.get());
   }
 
   @Test
   public void testSynchronousService_OK_1_oe_1_oe() throws Throwable {
+    // given
     val service = synchronousSetup();
 
+    // when:
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "utf-8");
@@ -324,6 +332,7 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final Collection<Contributor> expected0 = expectedContributors;
     final Collection<Contributor> actual0 = resultRef.get();
     assertNotNull(actual0, "Retrieved contributors should not be null.");
@@ -331,8 +340,10 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
 
   @Test
   public void testSynchronousService_OK_1_oe_2_oe() throws Throwable {
+    // given
     val service = synchronousSetup();
 
+    // when:
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "utf-8");
@@ -341,16 +352,20 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final Collection<Contributor> expected0 = expectedContributors;
     final Collection<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
         assertTrue(expected0.size() == actual0.size());
   }
 
   @Test
   public void testSynchronousService_OK_1_oe_3_oe() throws Throwable {
+    // given
     val service = synchronousSetup();
 
+    // when:
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "utf-8");
@@ -359,16 +374,21 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final Collection<Contributor> expected0 = expectedContributors;
     final Collection<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
         assertEquals(expected0, actual0);
   }
 
   @Test
   public void testSynchronousService_OK_WithBadEncoding_1_oe_1_oe() throws Throwable {
+    // given
     val service = synchronousSetup();
 
+    // when:
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
@@ -377,6 +397,7 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
     assertNotNull(actual0, "Retrieved contributors should not be null.");
@@ -384,8 +405,10 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
 
   @Test
   public void testSynchronousService_OK_WithBadEncoding_1_oe_2_oe() throws Throwable {
+    // given
     val service = synchronousSetup();
 
+    // when:
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
@@ -394,16 +417,20 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
         assertTrue(expected0.size() == actual0.size());
   }
 
   @Test
   public void testSynchronousService_OK_WithBadEncoding_1_oe_3_oe() throws Throwable {
+    // given
     val service = synchronousSetup();
 
+    // when:
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
@@ -412,17 +439,23 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
     
+        // first and second element should have different logins due to problems with decoding utf8 to us-ascii
         assertNotEquals(expected0.get(0).getLogin(), actual0.get(0).getLogin());
   }
 
   @Test
   public void testSynchronousService_OK_WithBadEncoding_1_oe_4_oe() throws Throwable {
+    // given
     val service = synchronousSetup();
 
+    // when:
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
@@ -431,17 +464,24 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
     
+        // first and second element should have different logins due to problems with decoding utf8 to us-ascii
+        // removed other assertion
         assertEquals(expected0.get(0).getContributions(), actual0.get(0).getContributions());
   }
 
   @Test
   public void testSynchronousService_OK_WithBadEncoding_1_oe_5_oe() throws Throwable {
+    // given
     val service = synchronousSetup();
 
+    // when:
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
@@ -450,18 +490,26 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
     
+        // first and second element should have different logins due to problems with decoding utf8 to us-ascii
+        // removed other assertion
+        // removed other assertion
     
         assertNotEquals(expected0.get(1).getLogin(), actual0.get(1).getLogin());
   }
 
   @Test
   public void testSynchronousService_OK_WithBadEncoding_1_oe_6_oe() throws Throwable {
+    // given
     val service = synchronousSetup();
 
+    // when:
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
@@ -470,18 +518,27 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
     
+        // first and second element should have different logins due to problems with decoding utf8 to us-ascii
+        // removed other assertion
+        // removed other assertion
     
+        // removed other assertion
         assertEquals(expected0.get(1).getContributions(), actual0.get(1).getContributions());
   }
 
   @Test
   public void testSynchronousService_OK_WithBadEncoding_1_oe_7_oe() throws Throwable {
+    // given
     val service = synchronousSetup();
 
+    // when:
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
@@ -490,12 +547,21 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
     
+        // first and second element should have different logins due to problems with decoding utf8 to us-ascii
+        // removed other assertion
+        // removed other assertion
     
+        // removed other assertion
+        // removed other assertion
     
+        // other elements should be equal
         for (int i0 = 2; i0 < expected0.size(); i0++) {
           assertEquals(expected0.get(i0), actual0.get(i0));
   }
@@ -503,17 +569,21 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
 
   @Test(dataProvider = "testRxJava1Service")
   public void testRxJava1Service_OK_1_oe_1_oe(RxJavaCallAdapterFactory rxJavaCallAdapterFactory) throws Throwable {
+    // given
     val service = rxjava1Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "utf-8");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).toBlocking().first();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final Collection<Contributor> expected0 = expectedContributors;
     final Collection<Contributor> actual0 = resultRef.get();
     assertNotNull(actual0, "Retrieved contributors should not be null.");
@@ -521,56 +591,71 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
 
   @Test(dataProvider = "testRxJava1Service")
   public void testRxJava1Service_OK_1_oe_2_oe(RxJavaCallAdapterFactory rxJavaCallAdapterFactory) throws Throwable {
+    // given
     val service = rxjava1Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "utf-8");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).toBlocking().first();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final Collection<Contributor> expected0 = expectedContributors;
     final Collection<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
         assertTrue(expected0.size() == actual0.size());
   }
 
   @Test(dataProvider = "testRxJava1Service")
   public void testRxJava1Service_OK_1_oe_3_oe(RxJavaCallAdapterFactory rxJavaCallAdapterFactory) throws Throwable {
+    // given
     val service = rxjava1Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "utf-8");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).toBlocking().first();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final Collection<Contributor> expected0 = expectedContributors;
     final Collection<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
         assertEquals(expected0, actual0);
   }
 
   @Test(dataProvider = "testRxJava1Service")
   public void testRxJava1Service_OK_WithBadEncoding_1_oe_1_oe(RxJavaCallAdapterFactory rxJavaCallAdapterFactory)
           throws Throwable {
+    // given
     val service = rxjava1Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).toBlocking().first();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
     assertNotNull(actual0, "Retrieved contributors should not be null.");
@@ -579,19 +664,24 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
   @Test(dataProvider = "testRxJava1Service")
   public void testRxJava1Service_OK_WithBadEncoding_1_oe_2_oe(RxJavaCallAdapterFactory rxJavaCallAdapterFactory)
           throws Throwable {
+    // given
     val service = rxjava1Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).toBlocking().first();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
         assertTrue(expected0.size() == actual0.size());
   }
@@ -599,63 +689,87 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
   @Test(dataProvider = "testRxJava1Service")
   public void testRxJava1Service_OK_WithBadEncoding_1_oe_3_oe(RxJavaCallAdapterFactory rxJavaCallAdapterFactory)
           throws Throwable {
+    // given
     val service = rxjava1Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).toBlocking().first();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
     
+        // first and second element should have different logins due to problems with decoding utf8 to us-ascii
         assertNotEquals(expected0.get(0).getLogin(), actual0.get(0).getLogin());
   }
 
   @Test(dataProvider = "testRxJava1Service")
   public void testRxJava1Service_OK_WithBadEncoding_1_oe_4_oe(RxJavaCallAdapterFactory rxJavaCallAdapterFactory)
           throws Throwable {
+    // given
     val service = rxjava1Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).toBlocking().first();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
     
+        // first and second element should have different logins due to problems with decoding utf8 to us-ascii
+        // removed other assertion
         assertEquals(expected0.get(0).getContributions(), actual0.get(0).getContributions());
   }
 
   @Test(dataProvider = "testRxJava1Service")
   public void testRxJava1Service_OK_WithBadEncoding_1_oe_5_oe(RxJavaCallAdapterFactory rxJavaCallAdapterFactory)
           throws Throwable {
+    // given
     val service = rxjava1Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).toBlocking().first();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
     
+        // first and second element should have different logins due to problems with decoding utf8 to us-ascii
+        // removed other assertion
+        // removed other assertion
     
         assertNotEquals(expected0.get(1).getLogin(), actual0.get(1).getLogin());
   }
@@ -663,45 +777,67 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
   @Test(dataProvider = "testRxJava1Service")
   public void testRxJava1Service_OK_WithBadEncoding_1_oe_6_oe(RxJavaCallAdapterFactory rxJavaCallAdapterFactory)
           throws Throwable {
+    // given
     val service = rxjava1Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).toBlocking().first();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
     
+        // first and second element should have different logins due to problems with decoding utf8 to us-ascii
+        // removed other assertion
+        // removed other assertion
     
+        // removed other assertion
         assertEquals(expected0.get(1).getContributions(), actual0.get(1).getContributions());
   }
 
   @Test(dataProvider = "testRxJava1Service")
   public void testRxJava1Service_OK_WithBadEncoding_1_oe_7_oe(RxJavaCallAdapterFactory rxJavaCallAdapterFactory)
           throws Throwable {
+    // given
     val service = rxjava1Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).toBlocking().first();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
     
+        // first and second element should have different logins due to problems with decoding utf8 to us-ascii
+        // removed other assertion
+        // removed other assertion
     
+        // removed other assertion
+        // removed other assertion
     
+        // other elements should be equal
         for (int i0 = 2; i0 < expected0.size(); i0++) {
           assertEquals(expected0.get(i0), actual0.get(i0));
   }
@@ -709,17 +845,21 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
 
   @Test(dataProvider = "testRxJava2Service")
   public void testRxJava2Service_OK_1_oe_1_oe(RxJava2CallAdapterFactory rxJavaCallAdapterFactory) throws Throwable {
+    // given
     val service = rxjava2Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "utf-8");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).blockingGet();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final Collection<Contributor> expected0 = expectedContributors;
     final Collection<Contributor> actual0 = resultRef.get();
     assertNotNull(actual0, "Retrieved contributors should not be null.");
@@ -727,56 +867,71 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
 
   @Test(dataProvider = "testRxJava2Service")
   public void testRxJava2Service_OK_1_oe_2_oe(RxJava2CallAdapterFactory rxJavaCallAdapterFactory) throws Throwable {
+    // given
     val service = rxjava2Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "utf-8");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).blockingGet();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final Collection<Contributor> expected0 = expectedContributors;
     final Collection<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
         assertTrue(expected0.size() == actual0.size());
   }
 
   @Test(dataProvider = "testRxJava2Service")
   public void testRxJava2Service_OK_1_oe_3_oe(RxJava2CallAdapterFactory rxJavaCallAdapterFactory) throws Throwable {
+    // given
     val service = rxjava2Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "utf-8");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).blockingGet();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final Collection<Contributor> expected0 = expectedContributors;
     final Collection<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
         assertEquals(expected0, actual0);
   }
 
   @Test(dataProvider = "testRxJava2Service")
   public void testRxJava2Service_OK_WithBadEncoding_1_oe_1_oe(RxJava2CallAdapterFactory rxJavaCallAdapterFactory)
           throws Throwable {
+    // given
     val service = rxjava2Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).blockingGet();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
     assertNotNull(actual0, "Retrieved contributors should not be null.");
@@ -785,19 +940,24 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
   @Test(dataProvider = "testRxJava2Service")
   public void testRxJava2Service_OK_WithBadEncoding_1_oe_2_oe(RxJava2CallAdapterFactory rxJavaCallAdapterFactory)
           throws Throwable {
+    // given
     val service = rxjava2Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).blockingGet();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
         assertTrue(expected0.size() == actual0.size());
   }
@@ -805,63 +965,87 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
   @Test(dataProvider = "testRxJava2Service")
   public void testRxJava2Service_OK_WithBadEncoding_1_oe_3_oe(RxJava2CallAdapterFactory rxJavaCallAdapterFactory)
           throws Throwable {
+    // given
     val service = rxjava2Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).blockingGet();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
     
+        // first and second element should have different logins due to problems with decoding utf8 to us-ascii
         assertNotEquals(expected0.get(0).getLogin(), actual0.get(0).getLogin());
   }
 
   @Test(dataProvider = "testRxJava2Service")
   public void testRxJava2Service_OK_WithBadEncoding_1_oe_4_oe(RxJava2CallAdapterFactory rxJavaCallAdapterFactory)
           throws Throwable {
+    // given
     val service = rxjava2Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).blockingGet();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
     
+        // first and second element should have different logins due to problems with decoding utf8 to us-ascii
+        // removed other assertion
         assertEquals(expected0.get(0).getContributions(), actual0.get(0).getContributions());
   }
 
   @Test(dataProvider = "testRxJava2Service")
   public void testRxJava2Service_OK_WithBadEncoding_1_oe_5_oe(RxJava2CallAdapterFactory rxJavaCallAdapterFactory)
           throws Throwable {
+    // given
     val service = rxjava2Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).blockingGet();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
     
+        // first and second element should have different logins due to problems with decoding utf8 to us-ascii
+        // removed other assertion
+        // removed other assertion
     
         assertNotEquals(expected0.get(1).getLogin(), actual0.get(1).getLogin());
   }
@@ -869,45 +1053,67 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
   @Test(dataProvider = "testRxJava2Service")
   public void testRxJava2Service_OK_WithBadEncoding_1_oe_6_oe(RxJava2CallAdapterFactory rxJavaCallAdapterFactory)
           throws Throwable {
+    // given
     val service = rxjava2Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).blockingGet();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
     
+        // first and second element should have different logins due to problems with decoding utf8 to us-ascii
+        // removed other assertion
+        // removed other assertion
     
+        // removed other assertion
         assertEquals(expected0.get(1).getContributions(), actual0.get(1).getContributions());
   }
 
   @Test(dataProvider = "testRxJava2Service")
   public void testRxJava2Service_OK_WithBadEncoding_1_oe_7_oe(RxJava2CallAdapterFactory rxJavaCallAdapterFactory)
           throws Throwable {
+    // given
     val service = rxjava2Setup(rxJavaCallAdapterFactory);
     val expectedContributors = generateContributors();
 
+    // when
     val resultRef = new AtomicReference<List<Contributor>>();
     withServer(server).run(srv -> {
       configureTestServer(srv, 200, expectedContributors, "us-ascii");
 
+      // execute retrofit request
       val contributors = service.contributors(OWNER, REPO).blockingGet();
       resultRef.compareAndSet(null, contributors);
     });
 
+    // then
         final List<Contributor> expected0 = expectedContributors;
     final List<Contributor> actual0 = resultRef.get();
+    // removed other assertion
         log.debug("Contributors: {} ->\n  {}", actual0.size(), actual0);
+        // removed other assertion
     
+        // first and second element should have different logins due to problems with decoding utf8 to us-ascii
+        // removed other assertion
+        // removed other assertion
     
+        // removed other assertion
+        // removed other assertion
     
+        // other elements should be equal
         for (int i0 = 2; i0 < expected0.size(); i0++) {
           assertEquals(expected0.get(i0), actual0.get(i0));
   }

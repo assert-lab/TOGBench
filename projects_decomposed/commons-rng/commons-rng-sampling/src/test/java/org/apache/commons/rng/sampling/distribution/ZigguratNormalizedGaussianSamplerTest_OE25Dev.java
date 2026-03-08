@@ -45,7 +45,10 @@ class ZigguratNormalizedGaussianSamplerTest_OE25Dev {
 
     @Test
     void testInfiniteLoop_1_oe() throws Exception {
+        // A bad implementation whose only purpose is to force access
+        // to the rarest branch.
          UniformRandomProvider bad = new UniformRandomProvider() {
+                // CHECKSTYLE: stop all
                 public long nextLong(long n) { return 0; }
                 public long nextLong() { return Long.MAX_VALUE; }
                 public int nextInt(int n) { return 0; }
@@ -55,8 +58,10 @@ class ZigguratNormalizedGaussianSamplerTest_OE25Dev {
                 public void nextBytes(byte[] bytes, int start, int len) {}
                 public void nextBytes(byte[] bytes) {}
                 public boolean nextBoolean() { return false; }
+                // CHECKSTYLE: resume all
             };
 
+        // Infinite loop (in v1.1).
         try {
     new ZigguratNormalizedGaussianSampler(bad).sample();
     fail("StackOverflowError");

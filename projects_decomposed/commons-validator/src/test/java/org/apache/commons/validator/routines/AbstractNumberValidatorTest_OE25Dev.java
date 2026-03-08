@@ -130,6 +130,7 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     }
 
     public void testFormatType_2_oe() {
+        // removed other assertion
         assertEquals("Format Type B", AbstractNumberValidator.STANDARD_FORMAT, validator.getFormatType());
     }
 
@@ -143,6 +144,7 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     public void testValidateMinMax_2_oe() {
         DecimalFormat fmt = new DecimalFormat("#");
         if (max != null) {
+            // removed other assertion
             assertNull("Test Max + 1",      validator.parse(fmt.format(maxPlusOne), "#", null));
     }
     }
@@ -150,6 +152,8 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     public void testValidateMinMax_3_oe() {
         DecimalFormat fmt = new DecimalFormat("#");
         if (max != null) {
+            // removed other assertion
+            // removed other assertion
             assertEquals("Test Min",   min, validator.parse(fmt.format(min), "#", null));
     }
     }
@@ -157,6 +161,9 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     public void testValidateMinMax_4_oe() {
         DecimalFormat fmt = new DecimalFormat("#");
         if (max != null) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertNull("Test min - 1",      validator.parse(fmt.format(minMinusOne), "#", null));
     }
     }
@@ -171,6 +178,7 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     public void testInvalidStrict_2_oe() {
         for (int i = 0; i < invalidStrict.length; i++) {
             String text = "idx=["+i+"] value=[" + invalidStrict[i] + "]";
+            // removed other assertion
             assertFalse("(B) " + text, strictValidator.isValid(invalidStrict[i], null, Locale.US));
     }
     }
@@ -178,6 +186,8 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     public void testInvalidStrict_3_oe() {
         for (int i = 0; i < invalidStrict.length; i++) {
             String text = "idx=["+i+"] value=[" + invalidStrict[i] + "]";
+            // removed other assertion
+            // removed other assertion
             assertNull("(C) "  + text, strictValidator.parse(invalidStrict[i], testPattern, null));
     }
     }
@@ -185,6 +195,9 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     public void testInvalidStrict_4_oe() {
         for (int i = 0; i < invalidStrict.length; i++) {
             String text = "idx=["+i+"] value=[" + invalidStrict[i] + "]";
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertFalse("(D) " + text, strictValidator.isValid(invalidStrict[i], testPattern, null));
     }
     }
@@ -199,6 +212,7 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     public void testInvalidNotStrict_2_oe() {
         for (int i = 0; i < invalid.length; i++) {
             String text = "idx=["+i+"] value=[" + invalid[i] + "]";
+            // removed other assertion
             assertFalse("(B) " + text, validator.isValid(invalid[i], null, Locale.US));
     }
     }
@@ -206,6 +220,8 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     public void testInvalidNotStrict_3_oe() {
         for (int i = 0; i < invalid.length; i++) {
             String text = "idx=["+i+"] value=[" + invalid[i] + "]";
+            // removed other assertion
+            // removed other assertion
             assertNull("(C) "  + text, validator.parse(invalid[i], testPattern, null));
     }
     }
@@ -213,6 +229,9 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     public void testInvalidNotStrict_4_oe() {
         for (int i = 0; i < invalid.length; i++) {
             String text = "idx=["+i+"] value=[" + invalid[i] + "]";
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertFalse("(D) " + text, validator.isValid(invalid[i], testPattern, null));
     }
     }
@@ -227,6 +246,7 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     public void testValidStrict_2_oe() {
         for (int i = 0; i < validStrict.length; i++) {
             String text = "idx=["+i+"] value=[" + validStrictCompare[i] + "]";
+            // removed other assertion
             assertTrue("(B) "    + text,                        strictValidator.isValid(validStrict[i], null, Locale.US));
     }
     }
@@ -234,6 +254,8 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     public void testValidStrict_3_oe() {
         for (int i = 0; i < validStrict.length; i++) {
             String text = "idx=["+i+"] value=[" + validStrictCompare[i] + "]";
+            // removed other assertion
+            // removed other assertion
             assertEquals("(C) "  + text, validStrictCompare[i], strictValidator.parse(validStrict[i], testPattern, null));
     }
     }
@@ -241,6 +263,9 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     public void testValidStrict_4_oe() {
         for (int i = 0; i < validStrict.length; i++) {
             String text = "idx=["+i+"] value=[" + validStrictCompare[i] + "]";
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertTrue("(D) "    + text,                        strictValidator.isValid(validStrict[i], testPattern, null));
     }
     }
@@ -255,6 +280,7 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     public void testValidNotStrict_2_oe() {
         for (int i = 0; i < valid.length; i++) {
             String text = "idx=["+i+"] value=[" + validCompare[i] + "]";
+            // removed other assertion
             assertTrue("(B) "    + text,                  validator.isValid(valid[i], null, Locale.US));
     }
     }
@@ -262,6 +288,8 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     public void testValidNotStrict_3_oe() {
         for (int i = 0; i < valid.length; i++) {
             String text = "idx=["+i+"] value=[" + validCompare[i] + "]";
+            // removed other assertion
+            // removed other assertion
             assertEquals("(C) "  + text, validCompare[i], validator.parse(valid[i], testPattern, null));
     }
     }
@@ -269,6 +297,9 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     public void testValidNotStrict_4_oe() {
         for (int i = 0; i < valid.length; i++) {
             String text = "idx=["+i+"] value=[" + validCompare[i] + "]";
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertTrue("(D) "    + text,                  validator.isValid(valid[i], testPattern, null));
     }
     }
@@ -280,32 +311,53 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
 
     public void testValidateLocale_2_oe() {
 
+        // removed other assertion
         assertNull("US Locale, DE Format", strictValidator.parse(testStringDE, null, Locale.US));
     }
 
     public void testValidateLocale_3_oe() {
 
+        // removed other assertion
+        // removed other assertion
 
+        // Default German Locale
         assertEquals("DE Locale, DE Format", testNumber, strictValidator.parse(testStringDE, null, Locale.GERMAN));
     }
 
     public void testValidateLocale_4_oe() {
 
+        // removed other assertion
+        // removed other assertion
 
+        // Default German Locale
+        // removed other assertion
         assertNull("DE Locale, US Format", strictValidator.parse(testStringUS, null, Locale.GERMAN));
     }
 
     public void testValidateLocale_5_oe() {
 
+        // removed other assertion
+        // removed other assertion
 
+        // Default German Locale
+        // removed other assertion
+        // removed other assertion
 
+        // Default Locale has been set to Locale.US in setup()
         assertEquals("Default Locale, US Format", testNumber, strictValidator.parse(testStringUS, null, null));
     }
 
     public void testValidateLocale_6_oe() {
 
+        // removed other assertion
+        // removed other assertion
 
+        // Default German Locale
+        // removed other assertion
+        // removed other assertion
 
+        // Default Locale has been set to Locale.US in setup()
+        // removed other assertion
         assertNull("Default Locale, DE Format", strictValidator.parse(testStringDE, null, null));
     }
 
@@ -316,11 +368,14 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
 
     public void testFormat_2_oe() {
         Number number = new BigDecimal("1234.5");
+        // removed other assertion
         assertEquals("DE Locale, DE Format", "1.234,5", strictValidator.format(number, Locale.GERMAN));
     }
 
     public void testFormat_3_oe() {
         Number number = new BigDecimal("1234.5");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Pattern #,#0.00", "12,34.50",  strictValidator.format(number, "#,#0.00"));
     }
 
@@ -332,6 +387,7 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
         Number number20 = Integer.valueOf(20);
         Number number21 = Integer.valueOf(21);
 
+        // Test isInRange()
         assertFalse("isInRange() < min",   strictValidator.isInRange(number9 ,  number10, number20));
     }
 
@@ -343,6 +399,8 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
         Number number20 = Integer.valueOf(20);
         Number number21 = Integer.valueOf(21);
 
+        // Test isInRange()
+        // removed other assertion
         assertTrue("isInRange() = min",    strictValidator.isInRange(number10 , number10, number20));
     }
 
@@ -354,6 +412,9 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
         Number number20 = Integer.valueOf(20);
         Number number21 = Integer.valueOf(21);
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
         assertTrue("isInRange() in range", strictValidator.isInRange(number11 , number10, number20));
     }
 
@@ -365,6 +426,10 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
         Number number20 = Integer.valueOf(20);
         Number number21 = Integer.valueOf(21);
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isInRange() = max",    strictValidator.isInRange(number20 , number10, number20));
     }
 
@@ -376,6 +441,11 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
         Number number20 = Integer.valueOf(20);
         Number number21 = Integer.valueOf(21);
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isInRange() > max",   strictValidator.isInRange(number21 , number10, number20));
     }
 
@@ -387,7 +457,14 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
         Number number20 = Integer.valueOf(20);
         Number number21 = Integer.valueOf(21);
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
         assertFalse("minValue() < min",    strictValidator.minValue(number9 ,  number10));
     }
 
@@ -399,7 +476,15 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
         Number number20 = Integer.valueOf(20);
         Number number21 = Integer.valueOf(21);
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
         assertTrue("minValue() = min",     strictValidator.minValue(number10 , number10));
     }
 
@@ -411,7 +496,16 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
         Number number20 = Integer.valueOf(20);
         Number number21 = Integer.valueOf(21);
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
         assertTrue("minValue() > min",     strictValidator.minValue(number11 , number10));
     }
 
@@ -423,8 +517,19 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
         Number number20 = Integer.valueOf(20);
         Number number21 = Integer.valueOf(21);
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
         assertTrue("maxValue() < max",     strictValidator.maxValue(number19 , number20));
     }
 
@@ -436,8 +541,20 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
         Number number20 = Integer.valueOf(20);
         Number number21 = Integer.valueOf(21);
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
         assertTrue("maxValue() = max",     strictValidator.maxValue(number20 , number20));
     }
 
@@ -449,12 +566,26 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
         Number number20 = Integer.valueOf(20);
         Number number21 = Integer.valueOf(21);
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
         assertFalse("maxValue() > max",    strictValidator.maxValue(number21 , number20));
     }
 
     public void testSerialization_1_oe() {
+        // Serialize the check digit routine
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
             ObjectOutputStream oos = new ObjectOutputStream(baos);
@@ -467,6 +598,7 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     }
 
     public void testSerialization_2_oe() {
+        // Serialize the check digit routine
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
             ObjectOutputStream oos = new ObjectOutputStream(baos);
@@ -474,8 +606,10 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
             oos.flush();
             oos.close();
         } catch (Exception e) {
+            // removed other assertion
         }
 
+        // Deserialize the test object
         Object result = null;
         try {
             ByteArrayInputStream bais =
@@ -489,6 +623,7 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
     }
 
     public void testSerialization_3_oe() {
+        // Serialize the check digit routine
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
             ObjectOutputStream oos = new ObjectOutputStream(baos);
@@ -496,8 +631,10 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
             oos.flush();
             oos.close();
         } catch (Exception e) {
+            // removed other assertion
         }
 
+        // Deserialize the test object
         Object result = null;
         try {
             ByteArrayInputStream bais =
@@ -506,6 +643,7 @@ public abstract class AbstractNumberValidatorTest_OE25Dev extends TestCase {
             result = ois.readObject();
             bais.close();
         } catch (Exception e) {
+            // removed other assertion
         }
         assertNotNull(result);
     }

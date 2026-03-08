@@ -65,11 +65,14 @@ public class TestJSONConfiguration_OE25Dev {
 
     @Test
     public void testGetProperty_dictionary_2_oe() {
+        // removed other assertion
         assertEquals("Developer", jsonConfiguration.getProperty("martin.job"));
     }
 
     @Test
     public void testGetProperty_dictionary_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals("Elite", jsonConfiguration.getProperty("martin.skill"));
     }
 
@@ -80,6 +83,7 @@ public class TestJSONConfiguration_OE25Dev {
 
     @Test
     public void testGetProperty_dictionaryInList_2_oe() {
+        // removed other assertion
         assertEquals("Washington", jsonConfiguration.getString("capitals(0).capital"));
     }
 
@@ -92,6 +96,7 @@ public class TestJSONConfiguration_OE25Dev {
     @Test
     public void testGetProperty_integer_2_oe() {
         final Object property = jsonConfiguration.getProperty("int1");
+        // removed other assertion
         assertEquals(37, property);
     }
 
@@ -124,10 +129,12 @@ public class TestJSONConfiguration_OE25Dev {
 
     @Test
     public void testSave_1_oe() throws IOException, ConfigurationException {
+        // save the Configuration as a String...
         final StringWriter sw = new StringWriter();
         jsonConfiguration.write(sw);
         final String output = sw.toString();
 
+        // ..and then try parsing it back
         final ObjectMapper mapper = new ObjectMapper();
         final MapType type = mapper.getTypeFactory().constructMapType(Map.class, String.class, Object.class);
         final Map<String, Object> parsed = mapper.readValue(output, type);
@@ -136,25 +143,32 @@ public class TestJSONConfiguration_OE25Dev {
 
     @Test
     public void testSave_2_oe() throws IOException, ConfigurationException {
+        // save the Configuration as a String...
         final StringWriter sw = new StringWriter();
         jsonConfiguration.write(sw);
         final String output = sw.toString();
 
+        // ..and then try parsing it back
         final ObjectMapper mapper = new ObjectMapper();
         final MapType type = mapper.getTypeFactory().constructMapType(Map.class, String.class, Object.class);
         final Map<String, Object> parsed = mapper.readValue(output, type);
+        // removed other assertion
         assertEquals("value1", parsed.get("key1"));
     }
 
     @Test
     public void testSave_3_oe() throws IOException, ConfigurationException {
+        // save the Configuration as a String...
         final StringWriter sw = new StringWriter();
         jsonConfiguration.write(sw);
         final String output = sw.toString();
 
+        // ..and then try parsing it back
         final ObjectMapper mapper = new ObjectMapper();
         final MapType type = mapper.getTypeFactory().constructMapType(Map.class, String.class, Object.class);
         final Map<String, Object> parsed = mapper.readValue(output, type);
+        // removed other assertion
+        // removed other assertion
 
         final Map key2 = (Map) parsed.get("key2");
         assertEquals("value23", key2.get("key3"));
@@ -162,15 +176,20 @@ public class TestJSONConfiguration_OE25Dev {
 
     @Test
     public void testSave_4_oe() throws IOException, ConfigurationException {
+        // save the Configuration as a String...
         final StringWriter sw = new StringWriter();
         jsonConfiguration.write(sw);
         final String output = sw.toString();
 
+        // ..and then try parsing it back
         final ObjectMapper mapper = new ObjectMapper();
         final MapType type = mapper.getTypeFactory().constructMapType(Map.class, String.class, Object.class);
         final Map<String, Object> parsed = mapper.readValue(output, type);
+        // removed other assertion
+        // removed other assertion
 
         final Map key2 = (Map) parsed.get("key2");
+        // removed other assertion
 
         final List<String> key5 = (List<String>) ((Map) parsed.get("key4")).get("key5");
         assertEquals(2, key5.size());
@@ -178,49 +197,70 @@ public class TestJSONConfiguration_OE25Dev {
 
     @Test
     public void testSave_5_oe() throws IOException, ConfigurationException {
+        // save the Configuration as a String...
         final StringWriter sw = new StringWriter();
         jsonConfiguration.write(sw);
         final String output = sw.toString();
 
+        // ..and then try parsing it back
         final ObjectMapper mapper = new ObjectMapper();
         final MapType type = mapper.getTypeFactory().constructMapType(Map.class, String.class, Object.class);
         final Map<String, Object> parsed = mapper.readValue(output, type);
+        // removed other assertion
+        // removed other assertion
 
         final Map key2 = (Map) parsed.get("key2");
+        // removed other assertion
 
         final List<String> key5 = (List<String>) ((Map) parsed.get("key4")).get("key5");
+        // removed other assertion
         assertEquals("col1", key5.get(0));
     }
 
     @Test
     public void testSave_6_oe() throws IOException, ConfigurationException {
+        // save the Configuration as a String...
         final StringWriter sw = new StringWriter();
         jsonConfiguration.write(sw);
         final String output = sw.toString();
 
+        // ..and then try parsing it back
         final ObjectMapper mapper = new ObjectMapper();
         final MapType type = mapper.getTypeFactory().constructMapType(Map.class, String.class, Object.class);
         final Map<String, Object> parsed = mapper.readValue(output, type);
+        // removed other assertion
+        // removed other assertion
 
         final Map key2 = (Map) parsed.get("key2");
+        // removed other assertion
 
         final List<String> key5 = (List<String>) ((Map) parsed.get("key4")).get("key5");
+        // removed other assertion
+        // removed other assertion
         assertEquals("col2", key5.get(1));
     }
 
     @Test
     public void testSave_7_oe() throws IOException, ConfigurationException {
+        // save the Configuration as a String...
         final StringWriter sw = new StringWriter();
         jsonConfiguration.write(sw);
         final String output = sw.toString();
 
+        // ..and then try parsing it back
         final ObjectMapper mapper = new ObjectMapper();
         final MapType type = mapper.getTypeFactory().constructMapType(Map.class, String.class, Object.class);
         final Map<String, Object> parsed = mapper.readValue(output, type);
+        // removed other assertion
+        // removed other assertion
 
         final Map key2 = (Map) parsed.get("key2");
+        // removed other assertion
 
         final List<String> key5 = (List<String>) ((Map) parsed.get("key4")).get("key5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<?> capitals = (List<?>) parsed.get("capitals");
         final Map<?, ?> capUk = (Map<?, ?>) capitals.get(1);

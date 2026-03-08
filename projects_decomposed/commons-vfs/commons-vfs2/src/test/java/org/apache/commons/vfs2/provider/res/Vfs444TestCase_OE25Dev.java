@@ -119,6 +119,7 @@ public class Vfs444TestCase_OE25Dev extends AbstractProviderTestConfig {
             final FileName file = getManager().resolveName(root, "test.zip");
             final String uri = file.getURI();
             final FileObject result = getManager().resolveFile(uri);
+            // removed other assertion
             Assert.assertTrue(result.exists());
         }
 

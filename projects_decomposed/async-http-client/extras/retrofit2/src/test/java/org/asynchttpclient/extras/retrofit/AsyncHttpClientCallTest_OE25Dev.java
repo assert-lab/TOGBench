@@ -216,12 +216,15 @@ public class AsyncHttpClientCallTest_OE25Dev {
                                               int expectedStarted,
                                               int expectedOk,
                                               int expectedFailed) {
+        // given
 
+        // counters
         val numStarted = new AtomicInteger();
         val numOk = new AtomicInteger();
         val numFailed = new AtomicInteger();
         val numRequestCustomizer = new AtomicInteger();
 
+        // prepare http client mock
         this.httpClient = mock(AsyncHttpClient.class);
 
         val mockRequest = mock(org.asynchttpclient.Request.class);
@@ -237,6 +240,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
             return null;
         });
 
+        // create call instance
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(REQUEST)
@@ -246,6 +250,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
                 .requestCustomizer(rb -> numRequestCustomizer.incrementAndGet())
                 .build();
 
+        // when
         Assert.assertFalse(call.isExecuted());
     }
 
@@ -254,12 +259,15 @@ public class AsyncHttpClientCallTest_OE25Dev {
                                               int expectedStarted,
                                               int expectedOk,
                                               int expectedFailed) {
+        // given
 
+        // counters
         val numStarted = new AtomicInteger();
         val numOk = new AtomicInteger();
         val numFailed = new AtomicInteger();
         val numRequestCustomizer = new AtomicInteger();
 
+        // prepare http client mock
         this.httpClient = mock(AsyncHttpClient.class);
 
         val mockRequest = mock(org.asynchttpclient.Request.class);
@@ -275,6 +283,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
             return null;
         });
 
+        // create call instance
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(REQUEST)
@@ -284,6 +293,8 @@ public class AsyncHttpClientCallTest_OE25Dev {
                 .requestCustomizer(rb -> numRequestCustomizer.incrementAndGet())
                 .build();
 
+        // when
+        // removed other assertion
         Assert.assertFalse(call.isCanceled());
     }
 
@@ -292,12 +303,15 @@ public class AsyncHttpClientCallTest_OE25Dev {
                                               int expectedStarted,
                                               int expectedOk,
                                               int expectedFailed) {
+        // given
 
+        // counters
         val numStarted = new AtomicInteger();
         val numOk = new AtomicInteger();
         val numFailed = new AtomicInteger();
         val numRequestCustomizer = new AtomicInteger();
 
+        // prepare http client mock
         this.httpClient = mock(AsyncHttpClient.class);
 
         val mockRequest = mock(org.asynchttpclient.Request.class);
@@ -313,6 +327,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
             return null;
         });
 
+        // create call instance
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(REQUEST)
@@ -322,11 +337,15 @@ public class AsyncHttpClientCallTest_OE25Dev {
                 .requestCustomizer(rb -> numRequestCustomizer.incrementAndGet())
                 .build();
 
+        // when
+        // removed other assertion
+        // removed other assertion
         try {
             call.execute();
         } catch (Exception e) {
         }
 
+        // then
         assertTrue(call.isExecuted());
     }
 
@@ -335,12 +354,15 @@ public class AsyncHttpClientCallTest_OE25Dev {
                                               int expectedStarted,
                                               int expectedOk,
                                               int expectedFailed) {
+        // given
 
+        // counters
         val numStarted = new AtomicInteger();
         val numOk = new AtomicInteger();
         val numFailed = new AtomicInteger();
         val numRequestCustomizer = new AtomicInteger();
 
+        // prepare http client mock
         this.httpClient = mock(AsyncHttpClient.class);
 
         val mockRequest = mock(org.asynchttpclient.Request.class);
@@ -356,6 +378,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
             return null;
         });
 
+        // create call instance
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(REQUEST)
@@ -365,11 +388,16 @@ public class AsyncHttpClientCallTest_OE25Dev {
                 .requestCustomizer(rb -> numRequestCustomizer.incrementAndGet())
                 .build();
 
+        // when
+        // removed other assertion
+        // removed other assertion
         try {
             call.execute();
         } catch (Exception e) {
         }
 
+        // then
+        // removed other assertion
         Assert.assertFalse(call.isCanceled());
     }
 
@@ -378,12 +406,15 @@ public class AsyncHttpClientCallTest_OE25Dev {
                                               int expectedStarted,
                                               int expectedOk,
                                               int expectedFailed) {
+        // given
 
+        // counters
         val numStarted = new AtomicInteger();
         val numOk = new AtomicInteger();
         val numFailed = new AtomicInteger();
         val numRequestCustomizer = new AtomicInteger();
 
+        // prepare http client mock
         this.httpClient = mock(AsyncHttpClient.class);
 
         val mockRequest = mock(org.asynchttpclient.Request.class);
@@ -399,6 +430,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
             return null;
         });
 
+        // create call instance
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(REQUEST)
@@ -408,11 +440,17 @@ public class AsyncHttpClientCallTest_OE25Dev {
                 .requestCustomizer(rb -> numRequestCustomizer.incrementAndGet())
                 .build();
 
+        // when
+        // removed other assertion
+        // removed other assertion
         try {
             call.execute();
         } catch (Exception e) {
         }
 
+        // then
+        // removed other assertion
+        // removed other assertion
         assertTrue(numRequestCustomizer.get()== 1);// request customizer must be always invoked. assertTrue(numStarted.get()== expectedStarted);
     }
 
@@ -421,12 +459,15 @@ public class AsyncHttpClientCallTest_OE25Dev {
                                               int expectedStarted,
                                               int expectedOk,
                                               int expectedFailed) {
+        // given
 
+        // counters
         val numStarted = new AtomicInteger();
         val numOk = new AtomicInteger();
         val numFailed = new AtomicInteger();
         val numRequestCustomizer = new AtomicInteger();
 
+        // prepare http client mock
         this.httpClient = mock(AsyncHttpClient.class);
 
         val mockRequest = mock(org.asynchttpclient.Request.class);
@@ -442,6 +483,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
             return null;
         });
 
+        // create call instance
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(REQUEST)
@@ -451,11 +493,18 @@ public class AsyncHttpClientCallTest_OE25Dev {
                 .requestCustomizer(rb -> numRequestCustomizer.incrementAndGet())
                 .build();
 
+        // when
+        // removed other assertion
+        // removed other assertion
         try {
             call.execute();
         } catch (Exception e) {
         }
 
+        // then
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(numOk.get() == expectedOk);
     }
 
@@ -464,12 +513,15 @@ public class AsyncHttpClientCallTest_OE25Dev {
                                               int expectedStarted,
                                               int expectedOk,
                                               int expectedFailed) {
+        // given
 
+        // counters
         val numStarted = new AtomicInteger();
         val numOk = new AtomicInteger();
         val numFailed = new AtomicInteger();
         val numRequestCustomizer = new AtomicInteger();
 
+        // prepare http client mock
         this.httpClient = mock(AsyncHttpClient.class);
 
         val mockRequest = mock(org.asynchttpclient.Request.class);
@@ -485,6 +537,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
             return null;
         });
 
+        // create call instance
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(REQUEST)
@@ -494,11 +547,19 @@ public class AsyncHttpClientCallTest_OE25Dev {
                 .requestCustomizer(rb -> numRequestCustomizer.incrementAndGet())
                 .build();
 
+        // when
+        // removed other assertion
+        // removed other assertion
         try {
             call.execute();
         } catch (Exception e) {
         }
 
+        // then
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(numFailed.get() == expectedFailed);
     }
 
@@ -507,12 +568,15 @@ public class AsyncHttpClientCallTest_OE25Dev {
                                               int expectedStarted,
                                               int expectedOk,
                                               int expectedFailed) {
+        // given
 
+        // counters
         val numStarted = new AtomicInteger();
         val numOk = new AtomicInteger();
         val numFailed = new AtomicInteger();
         val numRequestCustomizer = new AtomicInteger();
 
+        // prepare http client mock
         this.httpClient = mock(AsyncHttpClient.class);
 
         val mockRequest = mock(org.asynchttpclient.Request.class);
@@ -528,6 +592,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
             return null;
         });
 
+        // create call instance
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(REQUEST)
@@ -537,19 +602,31 @@ public class AsyncHttpClientCallTest_OE25Dev {
                 .requestCustomizer(rb -> numRequestCustomizer.incrementAndGet())
                 .build();
 
+        // when
+        // removed other assertion
+        // removed other assertion
         try {
             call.execute();
         } catch (Exception e) {
         }
 
+        // then
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // try with non-blocking call
         numStarted.set(0);
         numOk.set(0);
         numFailed.set(0);
         val clonedCall = call.clone();
 
+        // when
         clonedCall.enqueue(null);
 
+        // then
         assertTrue(clonedCall.isExecuted());
     }
 
@@ -558,12 +635,15 @@ public class AsyncHttpClientCallTest_OE25Dev {
                                               int expectedStarted,
                                               int expectedOk,
                                               int expectedFailed) {
+        // given
 
+        // counters
         val numStarted = new AtomicInteger();
         val numOk = new AtomicInteger();
         val numFailed = new AtomicInteger();
         val numRequestCustomizer = new AtomicInteger();
 
+        // prepare http client mock
         this.httpClient = mock(AsyncHttpClient.class);
 
         val mockRequest = mock(org.asynchttpclient.Request.class);
@@ -579,6 +659,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
             return null;
         });
 
+        // create call instance
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(REQUEST)
@@ -588,19 +669,32 @@ public class AsyncHttpClientCallTest_OE25Dev {
                 .requestCustomizer(rb -> numRequestCustomizer.incrementAndGet())
                 .build();
 
+        // when
+        // removed other assertion
+        // removed other assertion
         try {
             call.execute();
         } catch (Exception e) {
         }
 
+        // then
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // try with non-blocking call
         numStarted.set(0);
         numOk.set(0);
         numFailed.set(0);
         val clonedCall = call.clone();
 
+        // when
         clonedCall.enqueue(null);
 
+        // then
+        // removed other assertion
         Assert.assertFalse(clonedCall.isCanceled());
     }
 
@@ -609,12 +703,15 @@ public class AsyncHttpClientCallTest_OE25Dev {
                                               int expectedStarted,
                                               int expectedOk,
                                               int expectedFailed) {
+        // given
 
+        // counters
         val numStarted = new AtomicInteger();
         val numOk = new AtomicInteger();
         val numFailed = new AtomicInteger();
         val numRequestCustomizer = new AtomicInteger();
 
+        // prepare http client mock
         this.httpClient = mock(AsyncHttpClient.class);
 
         val mockRequest = mock(org.asynchttpclient.Request.class);
@@ -630,6 +727,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
             return null;
         });
 
+        // create call instance
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(REQUEST)
@@ -639,19 +737,33 @@ public class AsyncHttpClientCallTest_OE25Dev {
                 .requestCustomizer(rb -> numRequestCustomizer.incrementAndGet())
                 .build();
 
+        // when
+        // removed other assertion
+        // removed other assertion
         try {
             call.execute();
         } catch (Exception e) {
         }
 
+        // then
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // try with non-blocking call
         numStarted.set(0);
         numOk.set(0);
         numFailed.set(0);
         val clonedCall = call.clone();
 
+        // when
         clonedCall.enqueue(null);
 
+        // then
+        // removed other assertion
+        // removed other assertion
         assertTrue(numRequestCustomizer.get()== 2);// request customizer must be always invoked. assertTrue(numStarted.get()== expectedStarted);
     }
 
@@ -660,12 +772,15 @@ public class AsyncHttpClientCallTest_OE25Dev {
                                               int expectedStarted,
                                               int expectedOk,
                                               int expectedFailed) {
+        // given
 
+        // counters
         val numStarted = new AtomicInteger();
         val numOk = new AtomicInteger();
         val numFailed = new AtomicInteger();
         val numRequestCustomizer = new AtomicInteger();
 
+        // prepare http client mock
         this.httpClient = mock(AsyncHttpClient.class);
 
         val mockRequest = mock(org.asynchttpclient.Request.class);
@@ -681,6 +796,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
             return null;
         });
 
+        // create call instance
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(REQUEST)
@@ -690,19 +806,34 @@ public class AsyncHttpClientCallTest_OE25Dev {
                 .requestCustomizer(rb -> numRequestCustomizer.incrementAndGet())
                 .build();
 
+        // when
+        // removed other assertion
+        // removed other assertion
         try {
             call.execute();
         } catch (Exception e) {
         }
 
+        // then
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // try with non-blocking call
         numStarted.set(0);
         numOk.set(0);
         numFailed.set(0);
         val clonedCall = call.clone();
 
+        // when
         clonedCall.enqueue(null);
 
+        // then
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(numOk.get() == expectedOk);
     }
 
@@ -711,12 +842,15 @@ public class AsyncHttpClientCallTest_OE25Dev {
                                               int expectedStarted,
                                               int expectedOk,
                                               int expectedFailed) {
+        // given
 
+        // counters
         val numStarted = new AtomicInteger();
         val numOk = new AtomicInteger();
         val numFailed = new AtomicInteger();
         val numRequestCustomizer = new AtomicInteger();
 
+        // prepare http client mock
         this.httpClient = mock(AsyncHttpClient.class);
 
         val mockRequest = mock(org.asynchttpclient.Request.class);
@@ -732,6 +866,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
             return null;
         });
 
+        // create call instance
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(REQUEST)
@@ -741,55 +876,83 @@ public class AsyncHttpClientCallTest_OE25Dev {
                 .requestCustomizer(rb -> numRequestCustomizer.incrementAndGet())
                 .build();
 
+        // when
+        // removed other assertion
+        // removed other assertion
         try {
             call.execute();
         } catch (Exception e) {
         }
 
+        // then
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // try with non-blocking call
         numStarted.set(0);
         numOk.set(0);
         numFailed.set(0);
         val clonedCall = call.clone();
 
+        // when
         clonedCall.enqueue(null);
 
+        // then
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(numFailed.get() == expectedFailed);
     }
 
     @Test(dataProvider = "third")
     void toIOExceptionShouldProduceExpectedResult_1_oe(Throwable exception) {
+        // given
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(REQUEST)
                 .build();
 
+        // when
         val result = call.toIOException(exception);
 
+        // then
         Assert.assertNotNull(result);
     }
 
     @Test(dataProvider = "third")
     void toIOExceptionShouldProduceExpectedResult_2_oe(Throwable exception) {
+        // given
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(REQUEST)
                 .build();
 
+        // when
         val result = call.toIOException(exception);
 
+        // then
+        // removed other assertion
         assertTrue(result instanceof IOException);
     }
 
     @Test(dataProvider = "third")
     void toIOExceptionShouldProduceExpectedResult_3_oe(Throwable exception) {
+        // given
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(REQUEST)
                 .build();
 
+        // when
         val result = call.toIOException(exception);
 
+        // then
+        // removed other assertion
+        // removed other assertion
 
         if (exception.getMessage() == null) {
             assertTrue(result.getMessage() == exception.toString());
@@ -798,15 +961,21 @@ public class AsyncHttpClientCallTest_OE25Dev {
 
     @Test(dataProvider = "third")
     void toIOExceptionShouldProduceExpectedResult_4_oe(Throwable exception) {
+        // given
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(REQUEST)
                 .build();
 
+        // when
         val result = call.toIOException(exception);
 
+        // then
+        // removed other assertion
+        // removed other assertion
 
         if (exception.getMessage() == null) {
+            // removed other assertion
         } else {
             assertTrue(result.getMessage() == exception.getMessage());
     }
@@ -814,15 +983,19 @@ public class AsyncHttpClientCallTest_OE25Dev {
 
     @Test(dataProvider = "4th")
     <T> void runConsumerShouldTolerateBadConsumers_1_oe(Consumer<T> consumer, T argument) {
+        // when
         runConsumer(consumer, argument);
 
+        // then
         assertTrue(true);
     }
 
     @Test(dataProvider = "5th")
     <T> void runConsumersShouldTolerateBadConsumers_1_oe(Collection<Consumer<T>> consumers, T argument) {
+        // when
         runConsumers(consumers, argument);
 
+        // then
         assertTrue(true);
     }
 
@@ -857,6 +1030,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
 
         org.asynchttpclient.Request ahcRequest = capture.getValue();
 
+        // removed other assertion
         assertEquals(ahcRequest.getHeaders().get("content-type"),"application/json","Content-Type header not found");
     }
 
@@ -875,6 +1049,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
 
         okhttp3.Response response = whenRequestIsMade(httpClient, REQUEST);
 
+        // removed other assertion
         assertEquals(response.header("Server"), "nginx");
     }
 
@@ -884,6 +1059,8 @@ public class AsyncHttpClientCallTest_OE25Dev {
 
         okhttp3.Response response = whenRequestIsMade(httpClient, REQUEST);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(response.body().contentType(), null);
     }
 
@@ -893,6 +1070,9 @@ public class AsyncHttpClientCallTest_OE25Dev {
 
         okhttp3.Response response = whenRequestIsMade(httpClient, REQUEST);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(response.body().string(), "test");
     }
 
@@ -911,6 +1091,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
 
         okhttp3.Response response = whenRequestIsMade(httpClient, REQUEST);
 
+        // removed other assertion
         assertEquals(response.header("Server"), "nginx");
     }
 
@@ -920,6 +1101,8 @@ public class AsyncHttpClientCallTest_OE25Dev {
 
         okhttp3.Response response = whenRequestIsMade(httpClient, REQUEST);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(response.body().contentType(), MediaType.parse("text/plain"));
     }
 
@@ -929,6 +1112,9 @@ public class AsyncHttpClientCallTest_OE25Dev {
 
         okhttp3.Response response = whenRequestIsMade(httpClient, REQUEST);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(response.body().string(), "test");
     }
 
@@ -947,6 +1133,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
 
         okhttp3.Response response = whenRequestIsMade(httpClient, REQUEST);
 
+        // removed other assertion
         assertEquals(response.header("Server"), "nginx");
     }
 
@@ -956,152 +1143,205 @@ public class AsyncHttpClientCallTest_OE25Dev {
 
         okhttp3.Response response = whenRequestIsMade(httpClient, REQUEST);
 
+        // removed other assertion
+        // removed other assertion
         assertNotEquals(response.body(), null);
     }
 
     @Test
     void shouldReturnTimeoutSpecifiedInAHCInstanceConfig_1_oe() {
+        // given:
         val cfgBuilder = new DefaultAsyncHttpClientConfig.Builder();
         AsyncHttpClientConfig config = null;
 
+        // and: setup call
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(requestWithBody())
                 .build();
 
+        // when: set read timeout to 5s, req timeout to 6s
         config = cfgBuilder.setReadTimeout((int) SECONDS.toMillis(5))
                 .setRequestTimeout((int) SECONDS.toMillis(6))
                 .build();
         when(httpClient.getConfig()).thenReturn(config);
 
+        // then: expect request timeout
         assertEquals(call.getRequestTimeoutMillis(), SECONDS.toMillis(6));
     }
 
     @Test
     void shouldReturnTimeoutSpecifiedInAHCInstanceConfig_2_oe() {
+        // given:
         val cfgBuilder = new DefaultAsyncHttpClientConfig.Builder();
         AsyncHttpClientConfig config = null;
 
+        // and: setup call
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(requestWithBody())
                 .build();
 
+        // when: set read timeout to 5s, req timeout to 6s
         config = cfgBuilder.setReadTimeout((int) SECONDS.toMillis(5))
                 .setRequestTimeout((int) SECONDS.toMillis(6))
                 .build();
         when(httpClient.getConfig()).thenReturn(config);
 
+        // then: expect request timeout
+        // removed other assertion
         assertEquals(call.timeout().timeoutNanos(), SECONDS.toNanos(6));
     }
 
     @Test
     void shouldReturnTimeoutSpecifiedInAHCInstanceConfig_3_oe() {
+        // given:
         val cfgBuilder = new DefaultAsyncHttpClientConfig.Builder();
         AsyncHttpClientConfig config = null;
 
+        // and: setup call
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(requestWithBody())
                 .build();
 
+        // when: set read timeout to 5s, req timeout to 6s
         config = cfgBuilder.setReadTimeout((int) SECONDS.toMillis(5))
                 .setRequestTimeout((int) SECONDS.toMillis(6))
                 .build();
         when(httpClient.getConfig()).thenReturn(config);
 
+        // then: expect request timeout
+        // removed other assertion
+        // removed other assertion
 
+        // when: set read timeout to 10 seconds, req timeout to 7s
         config = cfgBuilder.setReadTimeout((int) SECONDS.toMillis(10))
                 .setRequestTimeout((int) SECONDS.toMillis(7))
                 .build();
         when(httpClient.getConfig()).thenReturn(config);
 
+        // then: expect request timeout
         assertEquals(call.getRequestTimeoutMillis(), SECONDS.toMillis(7));
     }
 
     @Test
     void shouldReturnTimeoutSpecifiedInAHCInstanceConfig_4_oe() {
+        // given:
         val cfgBuilder = new DefaultAsyncHttpClientConfig.Builder();
         AsyncHttpClientConfig config = null;
 
+        // and: setup call
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(requestWithBody())
                 .build();
 
+        // when: set read timeout to 5s, req timeout to 6s
         config = cfgBuilder.setReadTimeout((int) SECONDS.toMillis(5))
                 .setRequestTimeout((int) SECONDS.toMillis(6))
                 .build();
         when(httpClient.getConfig()).thenReturn(config);
 
+        // then: expect request timeout
+        // removed other assertion
+        // removed other assertion
 
+        // when: set read timeout to 10 seconds, req timeout to 7s
         config = cfgBuilder.setReadTimeout((int) SECONDS.toMillis(10))
                 .setRequestTimeout((int) SECONDS.toMillis(7))
                 .build();
         when(httpClient.getConfig()).thenReturn(config);
 
+        // then: expect request timeout
+        // removed other assertion
         assertEquals(call.timeout().timeoutNanos(), SECONDS.toNanos(7));
     }
 
     @Test
     void shouldReturnTimeoutSpecifiedInAHCInstanceConfig_5_oe() {
+        // given:
         val cfgBuilder = new DefaultAsyncHttpClientConfig.Builder();
         AsyncHttpClientConfig config = null;
 
+        // and: setup call
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(requestWithBody())
                 .build();
 
+        // when: set read timeout to 5s, req timeout to 6s
         config = cfgBuilder.setReadTimeout((int) SECONDS.toMillis(5))
                 .setRequestTimeout((int) SECONDS.toMillis(6))
                 .build();
         when(httpClient.getConfig()).thenReturn(config);
 
+        // then: expect request timeout
+        // removed other assertion
+        // removed other assertion
 
+        // when: set read timeout to 10 seconds, req timeout to 7s
         config = cfgBuilder.setReadTimeout((int) SECONDS.toMillis(10))
                 .setRequestTimeout((int) SECONDS.toMillis(7))
                 .build();
         when(httpClient.getConfig()).thenReturn(config);
 
+        // then: expect request timeout
+        // removed other assertion
+        // removed other assertion
 
+        // when: set request timeout to a negative value, just for fun.
         config = cfgBuilder.setRequestTimeout(-1000)
                 .setReadTimeout(2000)
                 .build();
 
         when(httpClient.getConfig()).thenReturn(config);
 
+        // then: expect request timeout, but as positive value
         assertEquals(call.getRequestTimeoutMillis(), SECONDS.toMillis(1));
     }
 
     @Test
     void shouldReturnTimeoutSpecifiedInAHCInstanceConfig_6_oe() {
+        // given:
         val cfgBuilder = new DefaultAsyncHttpClientConfig.Builder();
         AsyncHttpClientConfig config = null;
 
+        // and: setup call
         val call = AsyncHttpClientCall.builder()
                 .httpClientSupplier(httpClientSupplier)
                 .request(requestWithBody())
                 .build();
 
+        // when: set read timeout to 5s, req timeout to 6s
         config = cfgBuilder.setReadTimeout((int) SECONDS.toMillis(5))
                 .setRequestTimeout((int) SECONDS.toMillis(6))
                 .build();
         when(httpClient.getConfig()).thenReturn(config);
 
+        // then: expect request timeout
+        // removed other assertion
+        // removed other assertion
 
+        // when: set read timeout to 10 seconds, req timeout to 7s
         config = cfgBuilder.setReadTimeout((int) SECONDS.toMillis(10))
                 .setRequestTimeout((int) SECONDS.toMillis(7))
                 .build();
         when(httpClient.getConfig()).thenReturn(config);
 
+        // then: expect request timeout
+        // removed other assertion
+        // removed other assertion
 
+        // when: set request timeout to a negative value, just for fun.
         config = cfgBuilder.setRequestTimeout(-1000)
                 .setReadTimeout(2000)
                 .build();
 
         when(httpClient.getConfig()).thenReturn(config);
 
+        // then: expect request timeout, but as positive value
+        // removed other assertion
         assertEquals(call.timeout().timeoutNanos(), SECONDS.toNanos(1));
     }
 

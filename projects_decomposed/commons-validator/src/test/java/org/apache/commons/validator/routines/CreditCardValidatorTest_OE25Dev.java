@@ -142,14 +142,35 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
     public void testIsValid_11_oe() {
         CreditCardValidator ccv = new CreditCardValidator();
         
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(ccv.isValid(VALID_DISCOVER65));
     }
 
     public void testIsValid_12_oe() {
         CreditCardValidator ccv = new CreditCardValidator();
         
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse(ccv.isValid(ERROR_VISA));
     }
@@ -157,49 +178,137 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
     public void testIsValid_13_oe() {
         CreditCardValidator ccv = new CreditCardValidator();
         
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse(ccv.isValid(ERROR_SHORT_VISA));
     }
 
     public void testIsValid_14_oe() {
         CreditCardValidator ccv = new CreditCardValidator();
         
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse(ccv.isValid(ERROR_AMEX));
     }
 
     public void testIsValid_15_oe() {
         CreditCardValidator ccv = new CreditCardValidator();
         
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(ccv.isValid(ERROR_MASTERCARD));
     }
 
     public void testIsValid_16_oe() {
         CreditCardValidator ccv = new CreditCardValidator();
         
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(ccv.isValid(ERROR_DISCOVER));
     }
 
     public void testIsValid_17_oe() {
         CreditCardValidator ccv = new CreditCardValidator();
         
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(ccv.isValid(ERROR_DISCOVER65));
     }
 
     public void testIsValid_18_oe() {
         CreditCardValidator ccv = new CreditCardValidator();
         
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // disallow Visa so it should fail even with good number
         ccv = new CreditCardValidator(CreditCardValidator.AMEX);
         assertFalse(ccv.isValid("4417123456789113"));
     }
@@ -215,6 +324,7 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CreditCardValidator ccv = new CreditCardValidator(new CodeValidator[]
                {CreditCardValidator.VISA_VALIDATOR, CreditCardValidator.AMEX_VALIDATOR});
         
+        // removed other assertion
         assertTrue(ccv.isValid(VALID_SHORT_VISA));
     }
 
@@ -222,6 +332,8 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CreditCardValidator ccv = new CreditCardValidator(new CodeValidator[]
                {CreditCardValidator.VISA_VALIDATOR, CreditCardValidator.AMEX_VALIDATOR});
         
+        // removed other assertion
+        // removed other assertion
         assertTrue(ccv.isValid(VALID_AMEX));
     }
 
@@ -229,6 +341,9 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CreditCardValidator ccv = new CreditCardValidator(new CodeValidator[]
                {CreditCardValidator.VISA_VALIDATOR, CreditCardValidator.AMEX_VALIDATOR});
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(ccv.isValid(VALID_MASTERCARD));
     }
 
@@ -236,6 +351,10 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CreditCardValidator ccv = new CreditCardValidator(new CodeValidator[]
                {CreditCardValidator.VISA_VALIDATOR, CreditCardValidator.AMEX_VALIDATOR});
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(ccv.isValid(VALID_DISCOVER));
     }
 
@@ -243,6 +362,11 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CreditCardValidator ccv = new CreditCardValidator(new CodeValidator[]
                {CreditCardValidator.VISA_VALIDATOR, CreditCardValidator.AMEX_VALIDATOR});
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse(ccv.isValid(ERROR_VISA));
     }
@@ -251,7 +375,13 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CreditCardValidator ccv = new CreditCardValidator(new CodeValidator[]
                {CreditCardValidator.VISA_VALIDATOR, CreditCardValidator.AMEX_VALIDATOR});
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse(ccv.isValid(ERROR_SHORT_VISA));
     }
 
@@ -259,7 +389,14 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CreditCardValidator ccv = new CreditCardValidator(new CodeValidator[]
                {CreditCardValidator.VISA_VALIDATOR, CreditCardValidator.AMEX_VALIDATOR});
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse(ccv.isValid(ERROR_AMEX));
     }
 
@@ -267,7 +404,15 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CreditCardValidator ccv = new CreditCardValidator(new CodeValidator[]
                {CreditCardValidator.VISA_VALIDATOR, CreditCardValidator.AMEX_VALIDATOR});
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(ccv.isValid(ERROR_MASTERCARD));
     }
 
@@ -275,7 +420,16 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CreditCardValidator ccv = new CreditCardValidator(new CodeValidator[]
                {CreditCardValidator.VISA_VALIDATOR, CreditCardValidator.AMEX_VALIDATOR});
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(ccv.isValid(ERROR_DISCOVER));
     }
 
@@ -284,6 +438,8 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
         assertFalse("Length 12",      regex.isValid("343456789012"));
     }
 
@@ -292,6 +448,9 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
         assertFalse("Length 13",      regex.isValid("3434567890123"));
     }
 
@@ -300,6 +459,10 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 14",      regex.isValid("34345678901234"));
     }
 
@@ -308,6 +471,11 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Length 15",       regex.isValid("343456789012345"));
     }
 
@@ -316,6 +484,12 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 16",      regex.isValid("3434567890123456"));
     }
 
@@ -324,6 +498,13 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 17",      regex.isValid("34345678901234567"));
     }
 
@@ -332,6 +513,14 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 18",      regex.isValid("343456789012345678"));
     }
 
@@ -340,6 +529,15 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 33",      regex.isValid("333456789012345"));
     }
 
@@ -348,6 +546,16 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Prefix 34",       regex.isValid("343456789012345"));
     }
 
@@ -356,6 +564,17 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 35",      regex.isValid("353456789012345"));
     }
 
@@ -364,6 +583,18 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 36",      regex.isValid("363456789012345"));
     }
 
@@ -372,6 +603,19 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Prefix 37",       regex.isValid("373456789012345"));
     }
 
@@ -380,6 +624,20 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 38",      regex.isValid("383456789012345"));
     }
 
@@ -388,6 +646,21 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 41",      regex.isValid("413456789012345"));
     }
 
@@ -396,6 +669,22 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Invalid Char",   regex.isValid("3434567x9012345"));
     }
 
@@ -404,7 +693,25 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
         assertTrue("Valid regex",     regex.isValid(ERROR_AMEX));
     }
 
@@ -413,7 +720,26 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
         assertFalse("Invalid",        validator.isValid(ERROR_AMEX));
     }
 
@@ -422,7 +748,27 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
         assertNull("validate()",      validator.validate(ERROR_AMEX));
     }
 
@@ -431,7 +777,28 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(VALID_AMEX,      validator.validate(VALID_AMEX));
     }
 
@@ -440,7 +807,29 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue("Amex",            validator.isValid(VALID_AMEX));
     }
@@ -450,8 +839,31 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("Diners",         validator.isValid(VALID_DINERS));
     }
 
@@ -460,8 +872,32 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("Discover",       validator.isValid(VALID_DISCOVER));
     }
 
@@ -470,8 +906,33 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Mastercard",     validator.isValid(VALID_MASTERCARD));
     }
 
@@ -480,8 +941,34 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Visa",           validator.isValid(VALID_VISA));
     }
 
@@ -490,8 +977,35 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Visa Short",     validator.isValid(VALID_SHORT_VISA));
     }
 
@@ -500,8 +1014,36 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
         assertTrue("Valid-A",         validator.isValid("371449635398431"));
     }
@@ -511,9 +1053,38 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
         assertTrue("Valid-B",         validator.isValid("340000000000009"));
     }
 
@@ -522,9 +1093,39 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
+        // removed other assertion
         assertTrue("Valid-C",         validator.isValid("370000000000002"));
     }
 
@@ -533,9 +1134,40 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 15 and start with a "34" or "37"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Valid-D",         validator.isValid("378734493671000"));
     }
 
@@ -546,47 +1178,83 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
 
     public void testAmexOption_2_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.AMEX);
+        // removed other assertion
         assertNull("validate()",      validator.validate(ERROR_AMEX));
     }
 
     public void testAmexOption_3_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.AMEX);
+        // removed other assertion
+        // removed other assertion
         assertEquals(VALID_AMEX,      validator.validate(VALID_AMEX));
     }
 
     public void testAmexOption_4_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.AMEX);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue("Amex",            validator.isValid(VALID_AMEX));
     }
 
     public void testAmexOption_5_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.AMEX);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("Diners",         validator.isValid(VALID_DINERS));
     }
 
     public void testAmexOption_6_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.AMEX);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("Discover",       validator.isValid(VALID_DISCOVER));
     }
 
     public void testAmexOption_7_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.AMEX);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Mastercard",     validator.isValid(VALID_MASTERCARD));
     }
 
     public void testAmexOption_8_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.AMEX);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Visa",           validator.isValid(VALID_VISA));
     }
 
     public void testAmexOption_9_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.AMEX);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Visa Short",     validator.isValid(VALID_SHORT_VISA));
     }
 
@@ -595,6 +1263,8 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
         assertFalse("Length 12-300",  regex.isValid("300456789012"));
     }
 
@@ -603,6 +1273,9 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
         assertFalse("Length 12-36",   regex.isValid("363456789012"));
     }
 
@@ -611,6 +1284,10 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 13-300",  regex.isValid("3004567890123"));
     }
 
@@ -619,6 +1296,11 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 13-36",   regex.isValid("3634567890123"));
     }
 
@@ -627,6 +1309,12 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Length 14-300",   regex.isValid("30045678901234"));
     }
 
@@ -635,6 +1323,13 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Length 14-36",    regex.isValid("36345678901234"));
     }
 
@@ -643,6 +1338,14 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 15-300",  regex.isValid("300456789012345"));
     }
 
@@ -651,6 +1354,15 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 15-36",   regex.isValid("363456789012345"));
     }
 
@@ -659,6 +1371,16 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 16-300",  regex.isValid("3004567890123456"));
     }
 
@@ -667,6 +1389,17 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 16-36",   regex.isValid("3634567890123456"));
     }
 
@@ -675,6 +1408,18 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 17-300",  regex.isValid("30045678901234567"));
     }
 
@@ -683,6 +1428,19 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 17-36",   regex.isValid("36345678901234567"));
     }
 
@@ -691,6 +1449,20 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 18-300",  regex.isValid("300456789012345678"));
     }
 
@@ -699,6 +1471,21 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 18-36",   regex.isValid("363456789012345678"));
     }
 
@@ -707,6 +1494,22 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue("Prefix 300",      regex.isValid("30045678901234"));
     }
@@ -716,7 +1519,24 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue("Prefix 301",      regex.isValid("30145678901234"));
     }
 
@@ -725,7 +1545,25 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("Prefix 302",      regex.isValid("30245678901234"));
     }
 
@@ -734,7 +1572,26 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Prefix 303",      regex.isValid("30345678901234"));
     }
 
@@ -743,7 +1600,27 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Prefix 304",      regex.isValid("30445678901234"));
     }
 
@@ -752,7 +1629,28 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Prefix 305",      regex.isValid("30545678901234"));
     }
 
@@ -761,7 +1659,29 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 306",     regex.isValid("30645678901234"));
     }
 
@@ -770,7 +1690,30 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 3094",    regex.isValid("30945678901234"));
     }
 
@@ -779,7 +1722,31 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue( "Prefix 3095",    regex.isValid("30955678901234"));
     }
 
@@ -788,7 +1755,32 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 3096",    regex.isValid("30965678901234"));
     }
 
@@ -797,7 +1789,33 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 35",      regex.isValid("35345678901234"));
     }
 
@@ -806,7 +1824,34 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Prefix 36",       regex.isValid("36345678901234"));
     }
 
@@ -815,7 +1860,35 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 37",      regex.isValid("37345678901234"));
     }
 
@@ -824,7 +1897,36 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Prefix 38",       regex.isValid("38345678901234"));
     }
 
@@ -833,7 +1935,37 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Prefix 39",       regex.isValid("39345678901234"));
     }
 
@@ -842,7 +1974,38 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("Invalid Char-A", regex.isValid("3004567x901234"));
     }
@@ -852,8 +2015,40 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("Invalid Char-B", regex.isValid("3634567x901234"));
     }
 
@@ -862,9 +2057,43 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
         assertTrue("Valid regex",     regex.isValid(ERROR_DINERS));
     }
 
@@ -873,9 +2102,44 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
         assertFalse("Invalid",        validator.isValid(ERROR_DINERS));
     }
 
@@ -884,9 +2148,45 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
         assertNull("validate()",      validator.validate(ERROR_DINERS));
     }
 
@@ -895,9 +2195,46 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(VALID_DINERS,    validator.validate(VALID_DINERS));
     }
 
@@ -906,9 +2243,47 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("Amex",           validator.isValid(VALID_AMEX));
     }
@@ -918,10 +2293,49 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue("Diners",          validator.isValid(VALID_DINERS));
     }
 
@@ -930,10 +2344,50 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("Discover",       validator.isValid(VALID_DISCOVER));
     }
 
@@ -942,10 +2396,51 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Mastercard",     validator.isValid(VALID_MASTERCARD));
     }
 
@@ -954,10 +2449,52 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Visa",           validator.isValid(VALID_VISA));
     }
 
@@ -966,10 +2503,53 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Visa Short",     validator.isValid(VALID_SHORT_VISA));
     }
 
@@ -978,10 +2558,54 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
         assertTrue("Valid-A",         validator.isValid("30000000000004"));
     }
@@ -991,11 +2615,56 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
         assertTrue("Valid-B",         validator.isValid("30123456789019"));
     }
 
@@ -1004,11 +2673,57 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DINERS_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 14 and start with a "300-305" or "3095" or "36" or "38" or "39"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
+        // removed other assertion
         assertTrue("Valid-C",         validator.isValid("36432685260294"));
     }
 
@@ -1019,47 +2734,83 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
 
     public void testDinersOption_2_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DINERS);
+        // removed other assertion
         assertNull("validate()",      validator.validate(ERROR_DINERS));
     }
 
     public void testDinersOption_3_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DINERS);
+        // removed other assertion
+        // removed other assertion
         assertEquals(VALID_DINERS,    validator.validate(VALID_DINERS));
     }
 
     public void testDinersOption_4_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DINERS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("Amex",           validator.isValid(VALID_AMEX));
     }
 
     public void testDinersOption_5_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DINERS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue("Diners",          validator.isValid(VALID_DINERS));
     }
 
     public void testDinersOption_6_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DINERS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("Discover",       validator.isValid(VALID_DISCOVER));
     }
 
     public void testDinersOption_7_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DINERS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Mastercard",     validator.isValid(VALID_MASTERCARD));
     }
 
     public void testDinersOption_8_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DINERS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Visa",           validator.isValid(VALID_VISA));
     }
 
     public void testDinersOption_9_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DINERS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Visa Short",     validator.isValid(VALID_SHORT_VISA));
     }
 
@@ -1068,6 +2819,8 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
         assertFalse("Length 12-6011", regex.isValid("601156789012"));
     }
 
@@ -1076,6 +2829,9 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
         assertFalse("Length 12-65",   regex.isValid("653456789012"));
     }
 
@@ -1084,6 +2840,10 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 13-6011", regex.isValid("6011567890123"));
     }
 
@@ -1092,6 +2852,11 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 13-65",   regex.isValid("6534567890123"));
     }
 
@@ -1100,6 +2865,12 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 14-6011", regex.isValid("60115678901234"));
     }
 
@@ -1108,6 +2879,13 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 14-65",   regex.isValid("65345678901234"));
     }
 
@@ -1116,6 +2894,14 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 15-6011", regex.isValid("601156789012345"));
     }
 
@@ -1124,6 +2910,15 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 15-65",   regex.isValid("653456789012345"));
     }
 
@@ -1132,6 +2927,16 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Length 16-6011",  regex.isValid("6011567890123456"));
     }
 
@@ -1140,6 +2945,17 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Length 16-644",   regex.isValid("6444567890123456"));
     }
 
@@ -1148,6 +2964,18 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Length 16-648",   regex.isValid("6484567890123456"));
     }
 
@@ -1156,6 +2984,19 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Length 16-65",    regex.isValid("6534567890123456"));
     }
 
@@ -1164,6 +3005,20 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 17-65",   regex.isValid("65345678901234567"));
     }
 
@@ -1172,6 +3027,21 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 18-6011", regex.isValid("601156789012345678"));
     }
 
@@ -1180,6 +3050,22 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 18-65",   regex.isValid("653456789012345678"));
     }
 
@@ -1188,6 +3074,23 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("Prefix 640",     regex.isValid("6404567890123456"));
     }
@@ -1197,7 +3100,25 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("Prefix 641",     regex.isValid("6414567890123456"));
     }
 
@@ -1206,7 +3127,26 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 642",     regex.isValid("6424567890123456"));
     }
 
@@ -1215,7 +3155,27 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 643",     regex.isValid("6434567890123456"));
     }
 
@@ -1224,7 +3184,28 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 6010",    regex.isValid("6010567890123456"));
     }
 
@@ -1233,7 +3214,29 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 6012",    regex.isValid("6012567890123456"));
     }
 
@@ -1242,7 +3245,30 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Invalid Char",   regex.isValid("6011567x90123456"));
     }
 
@@ -1251,8 +3277,33 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
         assertTrue("Valid regex",     regex.isValid(ERROR_DISCOVER));
     }
 
@@ -1261,8 +3312,34 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
         assertTrue("Valid regex65",   regex.isValid(ERROR_DISCOVER65));
     }
 
@@ -1271,8 +3348,35 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
         assertFalse("Invalid",        validator.isValid(ERROR_DISCOVER));
     }
 
@@ -1281,8 +3385,36 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Invalid65",      validator.isValid(ERROR_DISCOVER65));
     }
 
@@ -1291,8 +3423,37 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("validate()",      validator.validate(ERROR_DISCOVER));
     }
 
@@ -1301,8 +3462,38 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(VALID_DISCOVER,  validator.validate(VALID_DISCOVER));
     }
 
@@ -1311,8 +3502,39 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(VALID_DISCOVER65, validator.validate(VALID_DISCOVER65));
     }
 
@@ -1321,8 +3543,40 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("Amex",           validator.isValid(VALID_AMEX));
     }
@@ -1332,9 +3586,42 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("Diners",         validator.isValid(VALID_DINERS));
     }
 
@@ -1343,9 +3630,43 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("Discover",        validator.isValid(VALID_DISCOVER));
     }
 
@@ -1354,9 +3675,44 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Discover",        validator.isValid(VALID_DISCOVER65));
     }
 
@@ -1365,9 +3721,45 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Mastercard",     validator.isValid(VALID_MASTERCARD));
     }
 
@@ -1376,9 +3768,46 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Visa",           validator.isValid(VALID_VISA));
     }
 
@@ -1387,9 +3816,47 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Visa Short",     validator.isValid(VALID_SHORT_VISA));
     }
 
@@ -1398,9 +3865,48 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
         assertTrue("Valid-A",         validator.isValid("6011111111111117"));
     }
@@ -1410,10 +3916,50 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
         assertTrue("Valid-B",         validator.isValid("6011000000000004"));
     }
 
@@ -1422,10 +3968,51 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.DISCOVER_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with either "6011" or or "64[4-9]" or "65"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
+        // removed other assertion
         assertTrue("Valid-C",         validator.isValid("6011000000000012"));
     }
 
@@ -1436,63 +4023,129 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
 
     public void testDiscoverOption_2_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DISCOVER);
+        // removed other assertion
         assertFalse("Invalid65",      validator.isValid(ERROR_DISCOVER65));
     }
 
     public void testDiscoverOption_3_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DISCOVER);
+        // removed other assertion
+        // removed other assertion
         assertNull("validate()",      validator.validate(ERROR_DISCOVER));
     }
 
     public void testDiscoverOption_4_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DISCOVER);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(VALID_DISCOVER,  validator.validate(VALID_DISCOVER));
     }
 
     public void testDiscoverOption_5_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DISCOVER);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(VALID_DISCOVER65, validator.validate(VALID_DISCOVER65));
     }
 
     public void testDiscoverOption_6_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DISCOVER);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("Amex",           validator.isValid(VALID_AMEX));
     }
 
     public void testDiscoverOption_7_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DISCOVER);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("Diners",         validator.isValid(VALID_DINERS));
     }
 
     public void testDiscoverOption_8_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DISCOVER);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("Discover",        validator.isValid(VALID_DISCOVER));
     }
 
     public void testDiscoverOption_9_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DISCOVER);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Discover",        validator.isValid(VALID_DISCOVER65));
     }
 
     public void testDiscoverOption_10_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DISCOVER);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Mastercard",     validator.isValid(VALID_MASTERCARD));
     }
 
     public void testDiscoverOption_11_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DISCOVER);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Visa",           validator.isValid(VALID_VISA));
     }
 
     public void testDiscoverOption_12_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.DISCOVER);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Visa Short",     validator.isValid(VALID_SHORT_VISA));
     }
 
@@ -1501,6 +4154,8 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
         assertFalse("Length 12",      regex.isValid("513456789012"));
     }
 
@@ -1509,6 +4164,9 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
         assertFalse("Length 13",      regex.isValid("5134567890123"));
     }
 
@@ -1517,6 +4175,10 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 14",      regex.isValid("51345678901234"));
     }
 
@@ -1525,6 +4187,11 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 15",      regex.isValid("513456789012345"));
     }
 
@@ -1533,6 +4200,12 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Length 16",       regex.isValid("5134567890123456"));
     }
 
@@ -1541,6 +4214,13 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 17",      regex.isValid("51345678901234567"));
     }
 
@@ -1549,6 +4229,14 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 18",      regex.isValid("513456789012345678"));
     }
 
@@ -1557,6 +4245,15 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 41",      regex.isValid("4134567890123456"));
     }
 
@@ -1565,6 +4262,16 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 50",      regex.isValid("5034567890123456"));
     }
 
@@ -1573,6 +4280,17 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Prefix 51",       regex.isValid("5134567890123456"));
     }
 
@@ -1581,6 +4299,18 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Prefix 52",       regex.isValid("5234567890123456"));
     }
 
@@ -1589,6 +4319,19 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Prefix 53",       regex.isValid("5334567890123456"));
     }
 
@@ -1597,6 +4340,20 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Prefix 54",       regex.isValid("5434567890123456"));
     }
 
@@ -1605,6 +4362,21 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Prefix 55",       regex.isValid("5534567890123456"));
     }
 
@@ -1613,6 +4385,22 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 56",      regex.isValid("5634567890123456"));
     }
 
@@ -1621,6 +4409,23 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Prefix 61",      regex.isValid("6134567890123456"));
     }
 
@@ -1629,6 +4434,24 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Invalid Char",   regex.isValid("5134567x90123456"));
     }
 
@@ -1637,7 +4460,27 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
         assertTrue("Valid regex",     regex.isValid(ERROR_MASTERCARD));
     }
 
@@ -1646,7 +4489,28 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
         assertFalse("Invalid",        validator.isValid(ERROR_MASTERCARD));
     }
 
@@ -1655,7 +4519,29 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
         assertNull("validate()",      validator.validate(ERROR_MASTERCARD));
     }
 
@@ -1664,7 +4550,30 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(VALID_MASTERCARD, validator.validate(VALID_MASTERCARD));
     }
 
@@ -1673,7 +4582,31 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("Amex",           validator.isValid(VALID_AMEX));
     }
@@ -1683,8 +4616,33 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("Diners",         validator.isValid(VALID_DINERS));
     }
 
@@ -1693,8 +4651,34 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("Discover",       validator.isValid(VALID_DISCOVER));
     }
 
@@ -1703,8 +4687,35 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Mastercard",      validator.isValid(VALID_MASTERCARD));
     }
 
@@ -1713,8 +4724,36 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Visa",           validator.isValid(VALID_VISA));
     }
 
@@ -1723,8 +4762,37 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Visa Short",     validator.isValid(VALID_SHORT_VISA));
     }
 
@@ -1733,8 +4801,38 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
         assertTrue("Valid-A",         validator.isValid("5500000000000004"));
     }
@@ -1744,9 +4842,40 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
         assertTrue("Valid-B",         validator.isValid("5424000000000015"));
     }
 
@@ -1755,9 +4884,41 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
+        // removed other assertion
         assertTrue("Valid-C",         validator.isValid("5301250070000191"));
     }
 
@@ -1766,9 +4927,42 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Valid-D",         validator.isValid("5123456789012346"));
     }
 
@@ -1777,9 +4971,43 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Valid-E",         validator.isValid("5555555555554444"));
     }
 
@@ -1788,9 +5016,44 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
         RegexValidator rev = validator.getRegexValidator();
         final String PAD = "0000000000";
@@ -1802,12 +5065,48 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
         RegexValidator rev = validator.getRegexValidator();
         final String PAD = "0000000000";
+        // removed other assertion
         for(int i=222100; i <= 272099; i++) {
             String j = Integer.toString(i)+PAD;
             assertTrue(j, rev.isValid(j));
@@ -1819,14 +5118,51 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.MASTERCARD_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
         RegexValidator rev = validator.getRegexValidator();
         final String PAD = "0000000000";
+        // removed other assertion
         for(int i=222100; i <= 272099; i++) {
             String j = Integer.toString(i)+PAD;
+            // removed other assertion
         }
         assertFalse("272100",rev.isValid("272100"+PAD));
     }
@@ -1838,47 +5174,83 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
 
     public void testMastercardOption_2_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.MASTERCARD);
+        // removed other assertion
         assertNull("validate()",      validator.validate(ERROR_MASTERCARD));
     }
 
     public void testMastercardOption_3_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.MASTERCARD);
+        // removed other assertion
+        // removed other assertion
         assertEquals(VALID_MASTERCARD, validator.validate(VALID_MASTERCARD));
     }
 
     public void testMastercardOption_4_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.MASTERCARD);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("Amex",           validator.isValid(VALID_AMEX));
     }
 
     public void testMastercardOption_5_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.MASTERCARD);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("Diners",         validator.isValid(VALID_DINERS));
     }
 
     public void testMastercardOption_6_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.MASTERCARD);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("Discover",       validator.isValid(VALID_DISCOVER));
     }
 
     public void testMastercardOption_7_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.MASTERCARD);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Mastercard",      validator.isValid(VALID_MASTERCARD));
     }
 
     public void testMastercardOption_8_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.MASTERCARD);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Visa",           validator.isValid(VALID_VISA));
     }
 
     public void testMastercardOption_9_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.MASTERCARD);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Visa Short",     validator.isValid(VALID_SHORT_VISA));
     }
 
@@ -1887,6 +5259,8 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
         assertFalse("Length 12",      regex.isValid("423456789012"));
     }
 
@@ -1895,6 +5269,9 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
         assertTrue("Length 13",       regex.isValid("4234567890123"));
     }
 
@@ -1903,6 +5280,10 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 14",      regex.isValid("42345678901234"));
     }
 
@@ -1911,6 +5292,11 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 15",      regex.isValid("423456789012345"));
     }
 
@@ -1919,6 +5305,12 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Length 16",       regex.isValid("4234567890123456"));
     }
 
@@ -1927,6 +5319,13 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 17",      regex.isValid("42345678901234567"));
     }
 
@@ -1935,6 +5334,14 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Length 18",      regex.isValid("423456789012345678"));
     }
 
@@ -1943,6 +5350,15 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Invalid Pref-A", regex.isValid("3234567890123"));
     }
 
@@ -1951,6 +5367,16 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Invalid Pref-B", regex.isValid("3234567890123456"));
     }
 
@@ -1959,6 +5385,17 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Invalid Char-A", regex.isValid("4234567x90123"));
     }
 
@@ -1967,6 +5404,18 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Invalid Char-B", regex.isValid("4234567x90123456"));
     }
 
@@ -1975,7 +5424,21 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
         assertTrue("Valid regex",     regex.isValid(ERROR_VISA));
     }
 
@@ -1984,7 +5447,22 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
         assertTrue("Valid regex-S",   regex.isValid(ERROR_SHORT_VISA));
     }
 
@@ -1993,7 +5471,23 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
         assertFalse("Invalid",        validator.isValid(ERROR_VISA));
     }
 
@@ -2002,7 +5496,24 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Invalid-S",      validator.isValid(ERROR_SHORT_VISA));
     }
 
@@ -2011,7 +5522,25 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("validate()",      validator.validate(ERROR_VISA));
     }
 
@@ -2020,7 +5549,26 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(VALID_VISA,      validator.validate(VALID_VISA));
     }
 
@@ -2029,7 +5577,27 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(VALID_SHORT_VISA, validator.validate(VALID_SHORT_VISA));
     }
 
@@ -2038,7 +5606,28 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("Amex",           validator.isValid(VALID_AMEX));
     }
@@ -2048,8 +5637,30 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("Diners",         validator.isValid(VALID_DINERS));
     }
 
@@ -2058,8 +5669,31 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("Discover",       validator.isValid(VALID_DISCOVER));
     }
 
@@ -2068,8 +5702,32 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Mastercard",     validator.isValid(VALID_MASTERCARD));
     }
 
@@ -2078,8 +5736,33 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Visa",            validator.isValid(VALID_VISA));
     }
 
@@ -2088,8 +5771,34 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Visa Short",      validator.isValid(VALID_SHORT_VISA));
     }
 
@@ -2098,8 +5807,35 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
         assertTrue("Valid-A",         validator.isValid("4111111111111111"));
     }
@@ -2109,9 +5845,37 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
         assertTrue("Valid-C",         validator.isValid("4543059999999982"));
     }
 
@@ -2120,9 +5884,38 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
+        // removed other assertion
         assertTrue("Valid-B",         validator.isValid("4462000000000003"));
     }
 
@@ -2131,9 +5924,39 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 13 or 16, must start with a "4"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Valid-D",validator.isValid("4508750000000009"));// Electron assertTrue("Valid-E",validator.isValid("4012888888881881"));
     }
 
@@ -2144,57 +5967,112 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
 
     public void testVisaOption_2_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VISA);
+        // removed other assertion
         assertFalse("Invalid-S",      validator.isValid(ERROR_SHORT_VISA));
     }
 
     public void testVisaOption_3_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VISA);
+        // removed other assertion
+        // removed other assertion
         assertNull("validate()",      validator.validate(ERROR_VISA));
     }
 
     public void testVisaOption_4_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VISA);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(VALID_VISA,      validator.validate(VALID_VISA));
     }
 
     public void testVisaOption_5_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VISA);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(VALID_SHORT_VISA, validator.validate(VALID_SHORT_VISA));
     }
 
     public void testVisaOption_6_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VISA);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("Amex",           validator.isValid(VALID_AMEX));
     }
 
     public void testVisaOption_7_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VISA);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("Diners",         validator.isValid(VALID_DINERS));
     }
 
     public void testVisaOption_8_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VISA);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("Discover",       validator.isValid(VALID_DISCOVER));
     }
 
     public void testVisaOption_9_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VISA);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Mastercard",     validator.isValid(VALID_MASTERCARD));
     }
 
     public void testVisaOption_10_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VISA);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Visa",            validator.isValid(VALID_VISA));
     }
 
     public void testVisaOption_11_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VISA);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Visa Short",      validator.isValid(VALID_SHORT_VISA));
     }
 
@@ -2205,57 +6083,112 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
 
     public void testVPayOption_2_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VPAY);
+        // removed other assertion
         assertTrue("Valid",           validator.isValid(VALID_VPAY2));
     }
 
     public void testVPayOption_3_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VPAY);
+        // removed other assertion
+        // removed other assertion
         assertFalse("Invalid",        validator.isValid(ERROR_VPAY));
     }
 
     public void testVPayOption_4_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VPAY);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(VALID_VPAY,      validator.validate(VALID_VPAY));
     }
 
     public void testVPayOption_5_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VPAY);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(VALID_VPAY2,      validator.validate(VALID_VPAY2));
     }
 
     public void testVPayOption_6_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VPAY);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("Amex",           validator.isValid(VALID_AMEX));
     }
 
     public void testVPayOption_7_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VPAY);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("Diners",         validator.isValid(VALID_DINERS));
     }
 
     public void testVPayOption_8_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VPAY);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("Discover",       validator.isValid(VALID_DISCOVER));
     }
 
     public void testVPayOption_9_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VPAY);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Mastercard",     validator.isValid(VALID_MASTERCARD));
     }
 
     public void testVPayOption_10_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VPAY);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Visa",            validator.isValid(VALID_VISA));
     }
 
     public void testVPayOption_11_oe() {
         CreditCardValidator validator = new CreditCardValidator(CreditCardValidator.VPAY);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Visa Short",      validator.isValid(VALID_SHORT_VISA));
     }
 
@@ -2265,6 +6198,8 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = new CodeValidator(MASTERCARD_REGEX_SEP, LuhnCheckDigit.LUHN_CHECK_DIGIT);
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
         assertEquals("Number",  "5134567890123456", regex.validate("5134567890123456"));
     }
 
@@ -2274,6 +6209,9 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = new CodeValidator(MASTERCARD_REGEX_SEP, LuhnCheckDigit.LUHN_CHECK_DIGIT);
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
         assertEquals("Hyphen",  "5134567890123456", regex.validate("5134-5678-9012-3456"));
     }
 
@@ -2283,6 +6221,10 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = new CodeValidator(MASTERCARD_REGEX_SEP, LuhnCheckDigit.LUHN_CHECK_DIGIT);
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
         assertEquals("Space",   "5134567890123456", regex.validate("5134 5678 9012 3456"));
     }
 
@@ -2292,6 +6234,11 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = new CodeValidator(MASTERCARD_REGEX_SEP, LuhnCheckDigit.LUHN_CHECK_DIGIT);
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("MixedA",  "5134567890123456", regex.validate("5134-5678 9012-3456"));
     }
 
@@ -2301,6 +6248,12 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = new CodeValidator(MASTERCARD_REGEX_SEP, LuhnCheckDigit.LUHN_CHECK_DIGIT);
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("MixedB",  "5134567890123456", regex.validate("5134 5678-9012 3456"));
     }
 
@@ -2310,6 +6263,13 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = new CodeValidator(MASTERCARD_REGEX_SEP, LuhnCheckDigit.LUHN_CHECK_DIGIT);
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("Invalid Separator A",  regex.isValid("5134.5678.9012.3456"));
     }
@@ -2320,7 +6280,15 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = new CodeValidator(MASTERCARD_REGEX_SEP, LuhnCheckDigit.LUHN_CHECK_DIGIT);
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("Invalid Separator B",  regex.isValid("5134_5678_9012_3456"));
     }
 
@@ -2330,7 +6298,16 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = new CodeValidator(MASTERCARD_REGEX_SEP, LuhnCheckDigit.LUHN_CHECK_DIGIT);
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("Invalid Grouping A",   regex.isValid("513-45678-9012-3456"));
     }
 
@@ -2340,7 +6317,17 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = new CodeValidator(MASTERCARD_REGEX_SEP, LuhnCheckDigit.LUHN_CHECK_DIGIT);
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Invalid Grouping B",   regex.isValid("5134-567-89012-3456"));
     }
 
@@ -2350,7 +6337,18 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = new CodeValidator(MASTERCARD_REGEX_SEP, LuhnCheckDigit.LUHN_CHECK_DIGIT);
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Invalid Grouping C",   regex.isValid("5134-5678-901-23456"));
     }
 
@@ -2360,8 +6358,21 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = new CodeValidator(MASTERCARD_REGEX_SEP, LuhnCheckDigit.LUHN_CHECK_DIGIT);
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
         assertEquals("Valid-A", "5500000000000004", validator.validate("5500-0000-0000-0004"));
     }
 
@@ -2371,8 +6382,22 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = new CodeValidator(MASTERCARD_REGEX_SEP, LuhnCheckDigit.LUHN_CHECK_DIGIT);
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
         assertEquals("Valid-B", "5424000000000015", validator.validate("5424 0000 0000 0015"));
     }
 
@@ -2382,8 +6407,23 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = new CodeValidator(MASTERCARD_REGEX_SEP, LuhnCheckDigit.LUHN_CHECK_DIGIT);
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
         assertEquals("Valid-C", "5301250070000191", validator.validate("5301-250070000191"));
     }
 
@@ -2393,8 +6433,24 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         CodeValidator validator = new CodeValidator(MASTERCARD_REGEX_SEP, LuhnCheckDigit.LUHN_CHECK_DIGIT);
         RegexValidator regex    = validator.getRegexValidator();
 
+        // ****** Test Regular Expression ******
+        // length 16 and start with a "51-55"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // *********** Test Validator **********
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Valid-D", "5123456789012346", validator.validate("5123456789012346"));
     }
 
@@ -2408,6 +6464,7 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
     public void testGeneric_2_oe() {
         CreditCardValidator ccv = CreditCardValidator.genericCreditCardValidator();
         for(String s : VALID_CARDS) {
+            // removed other assertion
         }
         for(String s : ERROR_CARDS) {
             assertFalse(s, ccv.isValid(s));
@@ -2431,6 +6488,7 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                 new CreditCardRange("644","65", 8, 8)
             }, 
             null);
+        // removed other assertion
         assertTrue(cv.isValid("199000"));
     }
 
@@ -2441,6 +6499,8 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                 new CreditCardRange("644","65", 8, 8)
             }, 
             null);
+        // removed other assertion
+        // removed other assertion
         assertFalse(cv.isValid("000000"));
     }
 
@@ -2451,6 +6511,9 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                 new CreditCardRange("644","65", 8, 8)
             }, 
             null);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(cv.isValid("099999"));
     }
 
@@ -2461,6 +6524,10 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                 new CreditCardRange("644","65", 8, 8)
             }, 
             null);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(cv.isValid("200000"));
     }
 
@@ -2471,6 +6538,11 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                 new CreditCardRange("644","65", 8, 8)
             }, 
             null);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse(cv.isValid("64399999"));
     }
@@ -2482,7 +6554,13 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                 new CreditCardRange("644","65", 8, 8)
             }, 
             null);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue(cv.isValid("64400000"));
     }
 
@@ -2493,7 +6571,14 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                 new CreditCardRange("644","65", 8, 8)
             }, 
             null);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(cv.isValid("64900000"));
     }
 
@@ -2504,7 +6589,15 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                 new CreditCardRange("644","65", 8, 8)
             }, 
             null);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(cv.isValid("65000000"));
     }
 
@@ -2515,7 +6608,16 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                 new CreditCardRange("644","65", 8, 8)
             }, 
             null);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(cv.isValid("65999999"));
     }
 
@@ -2526,7 +6628,17 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                 new CreditCardRange("644","65", 8, 8)
             }, 
             null);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(cv.isValid("66000000"));
     }
 
@@ -2538,12 +6650,14 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                 CreditCardValidator.MASTERCARD_VALIDATOR,
                 CreditCardValidator.DISCOVER_VALIDATOR,
             },
+            // Add missing validator
             new CreditCardRange[]{
                 new CreditCardRange("300", "305", 14, 14), // Diners
                 new CreditCardRange("3095", null, 14, 14), // Diners
                 new CreditCardRange("36",   null, 14, 14), // Diners
                 new CreditCardRange("38",   "39", 14, 14), // Diners
             }
+            // we don't have any VPAY examples yet that aren't handled by VISA
             );
         for(String s : VALID_CARDS) {
             assertTrue(s, ccv.isValid(s));
@@ -2558,14 +6672,17 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                 CreditCardValidator.MASTERCARD_VALIDATOR,
                 CreditCardValidator.DISCOVER_VALIDATOR,
             },
+            // Add missing validator
             new CreditCardRange[]{
                 new CreditCardRange("300", "305", 14, 14), // Diners
                 new CreditCardRange("3095", null, 14, 14), // Diners
                 new CreditCardRange("36",   null, 14, 14), // Diners
                 new CreditCardRange("38",   "39", 14, 14), // Diners
             }
+            // we don't have any VPAY examples yet that aren't handled by VISA
             );
         for(String s : VALID_CARDS) {
+            // removed other assertion
         }
         for(String s : ERROR_CARDS) {
             assertFalse(s, ccv.isValid(s));
@@ -2577,65 +6694,143 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
     }
 
     public void testValidLength_2_oe() {
+        // removed other assertion
         assertFalse(CreditCardValidator.validLength(15, new CreditCardRange("", "", 14, 14)));
     }
 
     public void testValidLength_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertFalse(CreditCardValidator.validLength(13, new CreditCardRange("", "", 14, 14)));
     }
 
     public void testValidLength_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse(CreditCardValidator.validLength(14, new CreditCardRange("", "", 15, 17)));
     }
 
     public void testValidLength_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue(CreditCardValidator.validLength(15, new CreditCardRange("", "", 15, 17)));
     }
 
     public void testValidLength_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(CreditCardValidator.validLength(16, new CreditCardRange("", "", 15, 17)));
     }
 
     public void testValidLength_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(CreditCardValidator.validLength(17, new CreditCardRange("", "", 15, 17)));
     }
 
     public void testValidLength_8_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(CreditCardValidator.validLength(18, new CreditCardRange("", "", 15, 17)));
     }
 
     public void testValidLength_9_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse(CreditCardValidator.validLength(14, new CreditCardRange("", "", new int[]{15, 17})));
     }
 
     public void testValidLength_10_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue(CreditCardValidator.validLength(15, new CreditCardRange("", "", new int[]{15, 17})));
     }
 
     public void testValidLength_11_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse(CreditCardValidator.validLength(16, new CreditCardRange("", "", new int[]{15, 17})));
     }
 
     public void testValidLength_12_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(CreditCardValidator.validLength(17, new CreditCardRange("", "", new int[]{15, 17})));
     }
 
     public void testValidLength_13_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(CreditCardValidator.validLength(18, new CreditCardRange("", "", new int[]{15, 17})));
     }
 
@@ -2654,6 +6849,7 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                     new CreditCardRange("305", "4", new int[]{13, 16}),
                 }
             );
+        // removed other assertion
         assertEquals(16, VALID_VISA.length());
     }
 
@@ -2663,6 +6859,8 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                     new CreditCardRange("305", "4", new int[]{13, 16}),
                 }
             );
+        // removed other assertion
+        // removed other assertion
         assertEquals(14, VALID_DINERS.length());
     }
 
@@ -2672,6 +6870,9 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                     new CreditCardRange("305", "4", new int[]{13, 16}),
                 }
             );
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(ccv.isValid(VALID_SHORT_VISA));
     }
 
@@ -2681,6 +6882,10 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                     new CreditCardRange("305", "4", new int[]{13, 16}),
                 }
             );
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(ccv.isValid(VALID_VISA));
     }
 
@@ -2690,6 +6895,11 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                     new CreditCardRange("305", "4", new int[]{13, 16}),
                 }
             );
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(ccv.isValid(ERROR_SHORT_VISA));
     }
 
@@ -2699,6 +6909,12 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                     new CreditCardRange("305", "4", new int[]{13, 16}),
                 }
             );
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(ccv.isValid(ERROR_VISA));
     }
 
@@ -2708,6 +6924,13 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                     new CreditCardRange("305", "4", new int[]{13, 16}),
                 }
             );
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(ccv.isValid(VALID_DINERS));
     }
 
@@ -2717,8 +6940,17 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
                     new CreditCardRange("305", "4", new int[]{13, 16}),
                 }
             );
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         ccv = new CreditCardValidator(
             new CreditCardRange[]{
+                    // add 14 as a valid length
                     new CreditCardRange("305", "4", new int[]{13, 14, 16}),
                 }
             );

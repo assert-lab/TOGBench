@@ -70,10 +70,12 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
     }
 
     public void testFormatType_2_oe() {
+        // removed other assertion
         assertEquals("Format Type B", AbstractNumberValidator.PERCENT_FORMAT, PercentValidator.getInstance().getFormatType());
     }
 
     public void testValid_1_oe() {
+        // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
 
@@ -86,6 +88,7 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
     }
 
     public void testValid_2_oe() {
+        // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
 
@@ -94,10 +97,12 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         BigDecimal negative = new BigDecimal("-0.12");
         BigDecimal hundred  = new BigDecimal("1.00");
 
+        // removed other assertion
         assertEquals("Default negtve", negative, validator.validate("-12%"));
     }
 
     public void testValid_3_oe() {
+        // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
 
@@ -106,11 +111,15 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         BigDecimal negative = new BigDecimal("-0.12");
         BigDecimal hundred  = new BigDecimal("1.00");
 
+        // removed other assertion
+        // removed other assertion
 
+        // Invalid UK
         assertEquals("UK locale",      expected, validator.validate("12%",   Locale.UK));
     }
 
     public void testValid_4_oe() {
+        // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
 
@@ -119,11 +128,16 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         BigDecimal negative = new BigDecimal("-0.12");
         BigDecimal hundred  = new BigDecimal("1.00");
 
+        // removed other assertion
+        // removed other assertion
 
+        // Invalid UK
+        // removed other assertion
         assertEquals("UK negative",    negative, validator.validate("-12%",  Locale.UK));
     }
 
     public void testValid_5_oe() {
+        // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
 
@@ -132,11 +146,17 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         BigDecimal negative = new BigDecimal("-0.12");
         BigDecimal hundred  = new BigDecimal("1.00");
 
+        // removed other assertion
+        // removed other assertion
 
+        // Invalid UK
+        // removed other assertion
+        // removed other assertion
         assertEquals("UK No symbol",   expected, validator.validate("12",    Locale.UK));
     }
 
     public void testValid_6_oe() {
+        // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
 
@@ -145,12 +165,20 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         BigDecimal negative = new BigDecimal("-0.12");
         BigDecimal hundred  = new BigDecimal("1.00");
 
+        // removed other assertion
+        // removed other assertion
 
+        // Invalid UK
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Invalid US - can't find a Locale with different symbols!
         assertEquals("US locale",      expected, validator.validate("12%",   Locale.US));
     }
 
     public void testValid_7_oe() {
+        // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
 
@@ -159,12 +187,21 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         BigDecimal negative = new BigDecimal("-0.12");
         BigDecimal hundred  = new BigDecimal("1.00");
 
+        // removed other assertion
+        // removed other assertion
 
+        // Invalid UK
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Invalid US - can't find a Locale with different symbols!
+        // removed other assertion
         assertEquals("US negative",    negative, validator.validate("-12%",  Locale.US));
     }
 
     public void testValid_8_oe() {
+        // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
 
@@ -173,12 +210,22 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         BigDecimal negative = new BigDecimal("-0.12");
         BigDecimal hundred  = new BigDecimal("1.00");
 
+        // removed other assertion
+        // removed other assertion
 
+        // Invalid UK
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Invalid US - can't find a Locale with different symbols!
+        // removed other assertion
+        // removed other assertion
         assertEquals("US No symbol",   expected, validator.validate("12",    Locale.US));
     }
 
     public void testValid_9_oe() {
+        // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
 
@@ -187,8 +234,18 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         BigDecimal negative = new BigDecimal("-0.12");
         BigDecimal hundred  = new BigDecimal("1.00");
 
+        // removed other assertion
+        // removed other assertion
 
+        // Invalid UK
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Invalid US - can't find a Locale with different symbols!
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("100%",           hundred, validator.validate("100%"));
     }
@@ -196,39 +253,63 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
     public void testInvalid_1_oe() {
         BigDecimalValidator validator = PercentValidator.getInstance();
 
+        // Invalid Missing
         assertFalse("isValid() Null Value",    validator.isValid(null));
     }
 
     public void testInvalid_2_oe() {
         BigDecimalValidator validator = PercentValidator.getInstance();
 
+        // Invalid Missing
+        // removed other assertion
         assertFalse("isValid() Empty Value",   validator.isValid(""));
     }
 
     public void testInvalid_3_oe() {
         BigDecimalValidator validator = PercentValidator.getInstance();
 
+        // Invalid Missing
+        // removed other assertion
+        // removed other assertion
         assertNull("validate() Null Value",    validator.validate(null));
     }
 
     public void testInvalid_4_oe() {
         BigDecimalValidator validator = PercentValidator.getInstance();
 
+        // Invalid Missing
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("validate() Empty Value",   validator.validate(""));
     }
 
     public void testInvalid_5_oe() {
         BigDecimalValidator validator = PercentValidator.getInstance();
 
+        // Invalid Missing
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Invalid UK
         assertFalse("UK wrong symbol",validator.isValid("12@",Locale.UK));// ??? assertFalse("UK wrong negative",validator.isValid("(12%)",Locale.UK));
     }
 
     public void testInvalid_6_oe() {
         BigDecimalValidator validator = PercentValidator.getInstance();
 
+        // Invalid Missing
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Invalid UK
+        // removed other assertion
 
+        // Invalid US - can't find a Locale with different symbols!
         assertFalse("US wrong symbol",validator.isValid("12@",Locale.US));// ??? assertFalse("US wrong negative",validator.isValid("(12%)",Locale.US));
     }
 

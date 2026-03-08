@@ -70,6 +70,7 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
 
+        // Empty
         Assert.assertFalse(new AndFileFilter().accept(any));
     }
 
@@ -78,7 +79,10 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
 
+        // Empty
+        // removed other assertion
 
+        // True
         Assert.assertTrue(new AndFileFilter(new True()).accept(any));
     }
 
@@ -87,7 +91,11 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
 
+        // Empty
+        // removed other assertion
 
+        // True
+        // removed other assertion
         Assert.assertTrue(new AndFileFilter(new True(), new True()).accept(any));
     }
 
@@ -96,8 +104,14 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
 
+        // Empty
+        // removed other assertion
 
+        // True
+        // removed other assertion
+        // removed other assertion
 
+        // False
         Assert.assertFalse(new AndFileFilter(new False()).accept(any));
     }
 
@@ -106,8 +120,15 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
 
+        // Empty
+        // removed other assertion
 
+        // True
+        // removed other assertion
+        // removed other assertion
 
+        // False
+        // removed other assertion
         Assert.assertFalse(new AndFileFilter(new False(), new False()).accept(any));
     }
 
@@ -116,8 +137,16 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
 
+        // Empty
+        // removed other assertion
 
+        // True
+        // removed other assertion
+        // removed other assertion
 
+        // False
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(new AndFileFilter(new False(), new True()).accept(any));
     }
 
@@ -126,8 +155,17 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
 
+        // Empty
+        // removed other assertion
 
+        // True
+        // removed other assertion
+        // removed other assertion
 
+        // False
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(new AndFileFilter(new True(), new False()).accept(any));
     }
 
@@ -136,6 +174,7 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
 
+        // Empty
         Assert.assertFalse(new AndFileFilter().accept(any));
     }
 
@@ -144,7 +183,10 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
 
+        // Empty
+        // removed other assertion
 
+        // True
         Assert.assertTrue(new AndFileFilter(new True()).accept(any));
     }
 
@@ -153,7 +195,11 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
 
+        // Empty
+        // removed other assertion
 
+        // True
+        // removed other assertion
         Assert.assertTrue(new AndFileFilter(new True(), new True()).accept(any));
     }
 
@@ -162,8 +208,14 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
 
+        // Empty
+        // removed other assertion
 
+        // True
+        // removed other assertion
+        // removed other assertion
 
+        // False
         Assert.assertFalse(new AndFileFilter(new False()).accept(any));
     }
 
@@ -172,8 +224,15 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
 
+        // Empty
+        // removed other assertion
 
+        // True
+        // removed other assertion
+        // removed other assertion
 
+        // False
+        // removed other assertion
         Assert.assertFalse(new AndFileFilter(new False(), new False()).accept(any));
     }
 
@@ -182,8 +241,16 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
 
+        // Empty
+        // removed other assertion
 
+        // True
+        // removed other assertion
+        // removed other assertion
 
+        // False
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(new AndFileFilter(new False(), new True()).accept(any));
     }
 
@@ -192,41 +259,57 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
 
+        // Empty
+        // removed other assertion
 
+        // True
+        // removed other assertion
+        // removed other assertion
 
+        // False
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(new AndFileFilter(new True(), new False()).accept(any));
     }
 
 @Test
     public void testAddFileFilter_1_oe() {
 
+        // PREPARE
         final FileFilter filter1 = new DummyFilter();
         final FileFilter filter2 = new DummyFilter();
         final FileFilter filter3 = new DummyFilter();
 
+        // TEST
         final AndFileFilter testee = new AndFileFilter();
         testee.addFileFilter(filter1);
         testee.addFileFilter(filter2);
         testee.addFileFilter(filter3);
 
+        // VERIFY
         assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
     }
 
 @Test
     public void testAndFileFilterFileFilter_1_oe() {
 
+        // PREPARE
         final FileFilter filter1 = new DummyFilter();
         final FileFilter filter2 = new DummyFilter();
         final FileFilter filter3 = new DummyFilter();
 
+        // TEST
         final AndFileFilter testee = new AndFileFilter(filter1, filter2, filter3);
 
+        // VERIFY
         assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
     }
 
 @Test
     public void testAndFileFilterList_1_oe() {
 
+        // PREPARE
         final FileFilter filter1 = new DummyFilter();
         final FileFilter filter2 = new DummyFilter();
         final FileFilter filter3 = new DummyFilter();
@@ -235,27 +318,33 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
         list.add(filter2);
         list.add(filter3);
 
+        // TEST
         final AndFileFilter testee = new AndFileFilter(list);
 
+        // VERIFY
         assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
     }
 
 @Test
     public void testRemoveFileFilter_1_oe() {
 
+        // PREPARE
         final FileFilter filter1 = new DummyFilter();
         final FileFilter filter2 = new DummyFilter();
         final FileFilter filter3 = new DummyFilter();
         final AndFileFilter testee = new AndFileFilter(filter1, filter2, filter3);
 
+        // TEST
         testee.removeFileFilter(filter2);
 
+        // VERIFY
         assertContainsOnly(testee.getFileFilters(), filter1, filter3);
     }
 
 @Test
     public void testSetFileFilters_1_oe() {
 
+        // PREPARE
         final FileFilter filter1 = new DummyFilter();
         final FileFilter filter2 = new DummyFilter();
         final FileFilter filter3 = new DummyFilter();
@@ -265,8 +354,10 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
         list.add(filter3);
         final AndFileFilter testee = new AndFileFilter();
 
+        // TEST
         testee.setFileFilters(list);
 
+        // VERIFY
         assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
     }
 

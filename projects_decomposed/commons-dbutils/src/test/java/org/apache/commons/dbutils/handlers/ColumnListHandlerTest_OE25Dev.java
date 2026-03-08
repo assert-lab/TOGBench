@@ -38,6 +38,7 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>();
         List<String> results = h.handle(this.rs);
 
+        // removed other assertion
         assertEquals(ROWS, results.size());
     }
 
@@ -45,6 +46,8 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>();
         List<String> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("1", results.get(0));
     }
@@ -53,7 +56,10 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>();
         List<String> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("4", results.get(1));
     }
 
@@ -68,6 +74,7 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>(2);
         List<String> results = h.handle(this.rs);
 
+        // removed other assertion
         assertEquals(ROWS, results.size());
     }
 
@@ -75,6 +82,8 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>(2);
         List<String> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("2", results.get(0));
     }
@@ -83,7 +92,10 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>(2);
         List<String> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("5", results.get(1));
     }
 
@@ -98,6 +110,7 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Integer>> h = new ColumnListHandler<Integer>("intTest");
         List<Integer> results = h.handle(this.rs);
 
+        // removed other assertion
         assertEquals(ROWS, results.size());
     }
 
@@ -105,6 +118,8 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Integer>> h = new ColumnListHandler<Integer>("intTest");
         List<Integer> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         assertEquals(new Integer(1), results.get(0));
     }
@@ -113,7 +128,10 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Integer>> h = new ColumnListHandler<Integer>("intTest");
         List<Integer> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals(new Integer(3), results.get(1));
     }
 
@@ -128,6 +146,7 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>();
         List<String> results = h.handle(this.emptyResultSet);
 
+        // removed other assertion
         assertTrue(results.isEmpty());
     }
 

@@ -99,6 +99,7 @@ public class SessionIT_OE25Dev {
                     for (int i = 0; i < urls.length; i++) {
                         try {
                             Document doc = session.newRequest().url(urls[i]).get();
+                            // removed other assertion
                         } catch (IOException e) {
                             throw new UncheckedIOException(e);
                         }
@@ -111,6 +112,7 @@ public class SessionIT_OE25Dev {
             threads[threadNum] = thread;
         }
 
+        // now join them all
         for (Thread thread : threads) {
             thread.join();
         }

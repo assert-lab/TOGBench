@@ -156,6 +156,7 @@ public class SoftReferenceMemoryCacheUnitTest_OE25Dev
             cache.remove( i + ":key" );
         }
 
+        // Test that first items are not in the cache
         for ( int i = max; i >= 0; i-- )
         {
             final String value = cache.get( i + ":key" );
@@ -178,6 +179,7 @@ public class SoftReferenceMemoryCacheUnitTest_OE25Dev
 
         cache.clear();
 
+        // Test that first items are not in the cache
         for ( int i = max; i >= 0; i-- )
         {
             final String value = cache.get( i + ":key" );
@@ -227,6 +229,7 @@ public class SoftReferenceMemoryCacheUnitTest_OE25Dev
             cache.put( root + ":" + i + ":key", "myregion" + " data " + i );
         }
 
+        // Test that last items are in cache
         for ( int i = 0; i < items; i++ )
         {
             final String value = cache.get( root + ":" + i + ":key" );
@@ -251,11 +254,14 @@ public class SoftReferenceMemoryCacheUnitTest_OE25Dev
             cache.put( root + ":" + i + ":key", "myregion" + " data " + i );
         }
 
+        // Test that last items are in cache
         for ( int i = 0; i < items; i++ )
         {
             final String value = cache.get( root + ":" + i + ":key" );
+            // removed other assertion
         }
 
+        // remove partial
         cache.remove( root + ":" );
 
         for ( int i = 0; i < items; i++ )
@@ -281,15 +287,19 @@ public class SoftReferenceMemoryCacheUnitTest_OE25Dev
             cache.put( root + ":" + i + ":key", "myregion" + " data " + i );
         }
 
+        // Test that last items are in cache
         for ( int i = 0; i < items; i++ )
         {
             final String value = cache.get( root + ":" + i + ":key" );
+            // removed other assertion
         }
 
+        // remove partial
         cache.remove( root + ":" );
 
         for ( int i = 0; i < items; i++ )
         {
+            // removed other assertion
         }
 
         assertNotNull( "Other item should be in the cache.", cache.get( "test" ) );

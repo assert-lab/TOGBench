@@ -181,6 +181,7 @@ class UniformLongSamplerTest_OE25Dev {
          long upper = 234293789329234L;
         for ( long lower : new long[] {-13, 0, 13}) {
              long n = upper - lower + 1;
+            // Use an RNG that forces the rejection path on the first sample
              UniformRandomProvider rng1 = createRngWithFullBitsOnFirstCall();
              UniformRandomProvider rng2 = createRngWithFullBitsOnFirstCall();
              UniformLongSampler sampler = UniformLongSampler.of(rng2, lower, upper);
@@ -195,18 +196,23 @@ class UniformLongSamplerTest_OE25Dev {
          UniformRandomProvider rngZeroBits = new LongProvider() {
             @Override
             public long next() {
+                // No bits
                 return 0L;
             }
         };
          UniformRandomProvider rngAllBits = new LongProvider() {
             @Override
             public long next() {
+                // All bits
                 return -1L;
             }
         };
 
          long lower = -3;
         UniformLongSampler sampler;
+        // The upper range for a positive long is 2^63-1. So the max positive power of
+        // 2 is 2^62. However the sampler should handle a bit shift of 63 to create a range
+        // of Long.MIN_VALUE as this is a power of 2 as an unsigned long (2^63).
         for (int i = 0; i < 64; i++) {
              long range = 1L << i;
              long upper = lower + range - 1;
@@ -220,22 +226,28 @@ class UniformLongSamplerTest_OE25Dev {
          UniformRandomProvider rngZeroBits = new LongProvider() {
             @Override
             public long next() {
+                // No bits
                 return 0L;
             }
         };
          UniformRandomProvider rngAllBits = new LongProvider() {
             @Override
             public long next() {
+                // All bits
                 return -1L;
             }
         };
 
          long lower = -3;
         UniformLongSampler sampler;
+        // The upper range for a positive long is 2^63-1. So the max positive power of
+        // 2 is 2^62. However the sampler should handle a bit shift of 63 to create a range
+        // of Long.MIN_VALUE as this is a power of 2 as an unsigned long (2^63).
         for (int i = 0; i < 64; i++) {
              long range = 1L << i;
              long upper = lower + range - 1;
             sampler = UniformLongSampler.of(rngZeroBits, lower, upper);
+            // removed other assertion
             sampler = UniformLongSampler.of(rngAllBits, lower, upper);
             Assertions.assertEquals(upper, sampler.sample(), "All bits sample");
     }
@@ -245,7 +257,9 @@ class UniformLongSamplerTest_OE25Dev {
     void testSamplesWithPowerOf2RangeIsBitShift_1_oe() {
          long lower = 0;
         UniformLongSampler sampler;
+        // Power of 2 sampler used for a bit shift of 1 to 63.
         for (int i = 1; i <= 63; i++) {
+            // Upper is inclusive so subtract 1
              long upper = (1L << i) - 1;
              int shift = 64 - i;
              UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
@@ -259,12 +273,14 @@ class UniformLongSamplerTest_OE25Dev {
 
     @Test
     void testSamplesWithLargeNonPowerOf2RangeIsRejectionMethod_1_oe() {
+        // Create a range bigger than 2^63
          long upper = Long.MAX_VALUE / 2 + 1;
          long lower = Long.MIN_VALUE / 2 - 1;
          UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
          UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
          UniformLongSampler sampler = UniformLongSampler.of(rng2, lower, upper);
         for (int i = 0; i < 10; i++) {
+            // Get the expected value by the rejection method
             long expected;
             do {
                 expected = rng1.nextLong();
@@ -275,15 +291,20 @@ class UniformLongSamplerTest_OE25Dev {
 
     @Test
     void testSampleUniformityWithPowerOf2Range_1_oe() {
+        // Test using a RNG that outputs a counter of integers.
+        // The n most significant bits will be represented uniformly over a
+        // sequence that is a 2^n long.
          UniformRandomProvider rng = new LongProvider() {
             private long bits = 0;
 
             @Override
             public long next() {
+                // We reverse the bits because the most significant bits are used
                 return Long.reverse(bits++);
             }
         };
 
+        // n = upper range exclusive
          int n = 32; // power of 2
          int[] histogram = new int[n];
 
@@ -297,6 +318,7 @@ class UniformLongSamplerTest_OE25Dev {
             histogram[(int) sampler.sample()]++;
         }
 
+        // This should be even across the entire range
         for (int value : histogram) {
             Assertions.assertEquals(expected, value);
     }
@@ -310,6 +332,7 @@ class UniformLongSamplerTest_OE25Dev {
                  UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
                  UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
         
+                // Since the upper limit is inclusive
                 range0 = range0 - 1;
                  long offsetLo0 = -13;
                  long offsetHi0 = 42;
@@ -332,6 +355,7 @@ class UniformLongSamplerTest_OE25Dev {
                  UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
                  UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
         
+                // Since the upper limit is inclusive
                 range0 = range0 - 1;
                  long offsetLo0 = -13;
                  long offsetHi0 = 42;
@@ -342,6 +366,7 @@ class UniformLongSamplerTest_OE25Dev {
                      long sample10 = sampler0.sample();
                      long sample20 = samplerLo0.sample();
                      long sample30 = samplerHi0.sample();
+                    // removed other assertion
                     Assertions.assertEquals(sample10 + offsetHi0, sample30, "Incorrect positive offset sample");
     }
     }
@@ -354,6 +379,7 @@ class UniformLongSamplerTest_OE25Dev {
                  UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
                  UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
         
+                // Since the upper limit is inclusive
                 range0 = range0 - 1;
                  long offsetLo0 = -13;
                  long offsetHi0 = 42;
@@ -376,6 +402,7 @@ class UniformLongSamplerTest_OE25Dev {
                  UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
                  UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
         
+                // Since the upper limit is inclusive
                 range0 = range0 - 1;
                  long offsetLo0 = -13;
                  long offsetHi0 = 42;
@@ -386,6 +413,7 @@ class UniformLongSamplerTest_OE25Dev {
                      long sample10 = sampler0.sample();
                      long sample20 = samplerLo0.sample();
                      long sample30 = samplerHi0.sample();
+                    // removed other assertion
                     Assertions.assertEquals(sample10 + offsetHi0, sample30, "Incorrect positive offset sample");
     }
     }
@@ -398,6 +426,7 @@ class UniformLongSamplerTest_OE25Dev {
                  UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
                  UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
         
+                // Since the upper limit is inclusive
                 range0 = range0 - 1;
                  long offsetLo0 = -13;
                  long offsetHi0 = 42;
@@ -420,6 +449,7 @@ class UniformLongSamplerTest_OE25Dev {
                  UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
                  UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
         
+                // Since the upper limit is inclusive
                 range0 = range0 - 1;
                  long offsetLo0 = -13;
                  long offsetHi0 = 42;
@@ -430,6 +460,7 @@ class UniformLongSamplerTest_OE25Dev {
                      long sample10 = sampler0.sample();
                      long sample20 = samplerLo0.sample();
                      long sample30 = samplerHi0.sample();
+                    // removed other assertion
                     Assertions.assertEquals(sample10 + offsetHi0, sample30, "Incorrect positive offset sample");
     }
     }
@@ -447,6 +478,8 @@ class UniformLongSamplerTest_OE25Dev {
 
     @Test
     void testSharedStateSamplerWithLargeRange_1_oe_1_oe() {
+        // Set the range so rejection below or above the threshold occurs with approximately
+        // p=0.25 for each bound.
                  long lower0 = Long.MIN_VALUE / 2 - 1;
          long upper0 = Long.MAX_VALUE / 2 + 1;
          UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(0L);
@@ -498,6 +531,7 @@ class UniformLongSamplerTest_OE25Dev {
 
     @Test
     void testToStringWithPowerOf2Range_1_oe_1_oe() {
+        // Note the range is upper - lower + 1
                  long lower0 = 0;
          long upper0 = 31;
          UniformRandomProvider rng0 = RandomSource.SPLIT_MIX_64.create(0L);

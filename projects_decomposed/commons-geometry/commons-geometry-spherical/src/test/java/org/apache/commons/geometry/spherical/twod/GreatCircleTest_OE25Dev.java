@@ -259,11 +259,16 @@ class GreatCircleTest_OE25Dev {
 
     @Test
     void testFromPoints_invalidPoints_4_oe() {
+        // arrange
         final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
         final Point2S p2 = Point2S.of(Math.PI, Angle.PI_OVER_TWO);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         try {
     GreatCircles.fromPoints(p1, Point2S.NaN, TEST_PRECISION);
@@ -274,12 +279,18 @@ class GreatCircleTest_OE25Dev {
 
     @Test
     void testFromPoints_invalidPoints_5_oe() {
+        // arrange
         final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
         final Point2S p2 = Point2S.of(Math.PI, Angle.PI_OVER_TWO);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         try {
     GreatCircles.fromPoints(Point2S.NaN, p2, TEST_PRECISION);
     fail("IllegalArgumentException");
@@ -289,12 +300,19 @@ class GreatCircleTest_OE25Dev {
 
     @Test
     void testFromPoints_invalidPoints_6_oe() {
+        // arrange
         final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
         final Point2S p2 = Point2S.of(Math.PI, Angle.PI_OVER_TWO);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         try {
     GreatCircles.fromPoints(p1, Point2S.of(Double.POSITIVE_INFINITY, Angle.PI_OVER_TWO), TEST_PRECISION);
     fail("IllegalArgumentException");
@@ -304,12 +322,20 @@ class GreatCircleTest_OE25Dev {
 
     @Test
     void testFromPoints_invalidPoints_7_oe() {
+        // arrange
         final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
         final Point2S p2 = Point2S.of(Math.PI, Angle.PI_OVER_TWO);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         try {
     GreatCircles.fromPoints(Point2S.of(Double.POSITIVE_INFINITY, Angle.PI_OVER_TWO), p2, TEST_PRECISION);
     fail("IllegalArgumentException");
@@ -319,10 +345,13 @@ class GreatCircleTest_OE25Dev {
 
     @Test
     void testOffset_point_1_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
         for (double polar = -Angle.PI_OVER_TWO; polar <= Angle.PI_OVER_TWO; polar += 0.1) {
             Assertions.assertEquals(0, circle.offset(Point2S.of(Angle.PI_OVER_TWO, polar)), TEST_EPS);
     }
@@ -330,499 +359,971 @@ class GreatCircleTest_OE25Dev {
 
     @Test
     void testOffset_point_2_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
         for (double polar = -Angle.PI_OVER_TWO; polar <= Angle.PI_OVER_TWO; polar += 0.1) {
+            // removed other assertion
             Assertions.assertEquals(0, circle.offset(Point2S.of(-Angle.PI_OVER_TWO, polar)), TEST_EPS);
     }
     }
 
     @Test
     void testOffset_point_3_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
         for (double polar = -Angle.PI_OVER_TWO; polar <= Angle.PI_OVER_TWO; polar += 0.1) {
+            // removed other assertion
+            // removed other assertion
         }
 
+        // +1/-1
         Assertions.assertEquals(-1, circle.offset(Point2S.of(Angle.PI_OVER_TWO + 1, Angle.PI_OVER_TWO)), TEST_EPS);
     }
 
     @Test
     void testOffset_point_4_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
         for (double polar = -Angle.PI_OVER_TWO; polar <= Angle.PI_OVER_TWO; polar += 0.1) {
+            // removed other assertion
+            // removed other assertion
         }
 
+        // +1/-1
+        // removed other assertion
         Assertions.assertEquals(1, circle.offset(Point2S.of(-Angle.PI_OVER_TWO + 1, Angle.PI_OVER_TWO)), TEST_EPS);
     }
 
     @Test
     void testOffset_point_5_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
         for (double polar = -Angle.PI_OVER_TWO; polar <= Angle.PI_OVER_TWO; polar += 0.1) {
+            // removed other assertion
+            // removed other assertion
         }
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
 
+        // poles
         Assertions.assertEquals(-Angle.PI_OVER_TWO, circle.offset(Point2S.of(Math.PI, Angle.PI_OVER_TWO)), TEST_EPS);
     }
 
     @Test
     void testOffset_point_6_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
         for (double polar = -Angle.PI_OVER_TWO; polar <= Angle.PI_OVER_TWO; polar += 0.1) {
+            // removed other assertion
+            // removed other assertion
         }
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
 
+        // poles
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, circle.offset(Point2S.of(0.0, Angle.PI_OVER_TWO)), TEST_EPS);
     }
 
     @Test
     void testOffset_vector_1_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
         Assertions.assertEquals(0, circle.offset(Vector3D.of(0, 1, 0)), TEST_EPS);
     }
 
     @Test
     void testOffset_vector_2_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
         Assertions.assertEquals(0, circle.offset(Vector3D.of(0, 0, 1)), TEST_EPS);
     }
 
     @Test
     void testOffset_vector_3_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, circle.offset(Vector3D.of(0, -1, 0)), TEST_EPS);
     }
 
     @Test
     void testOffset_vector_4_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, circle.offset(Vector3D.of(0, 0, -1)), TEST_EPS);
     }
 
     @Test
     void testOffset_vector_5_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
         Assertions.assertEquals(-0.25 * Math.PI, circle.offset(Vector3D.of(-1, 1, 0)), TEST_EPS);
     }
 
     @Test
     void testOffset_vector_6_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
         Assertions.assertEquals(-0.25 * Math.PI, circle.offset(Vector3D.of(-1, 0, 1)), TEST_EPS);
     }
 
     @Test
     void testOffset_vector_7_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-0.25 * Math.PI, circle.offset(Vector3D.of(-1, -1, 0)), TEST_EPS);
     }
 
     @Test
     void testOffset_vector_8_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-0.25 * Math.PI, circle.offset(Vector3D.of(-1, 0, -1)), TEST_EPS);
     }
 
     @Test
     void testOffset_vector_9_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0.25 * Math.PI, circle.offset(Vector3D.of(1, 1, 0)), TEST_EPS);
     }
 
     @Test
     void testOffset_vector_10_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(0.25 * Math.PI, circle.offset(Vector3D.of(1, 0, 1)), TEST_EPS);
     }
 
     @Test
     void testOffset_vector_11_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0.25 * Math.PI, circle.offset(Vector3D.of(1, -1, 0)), TEST_EPS);
     }
 
     @Test
     void testOffset_vector_12_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0.25 * Math.PI, circle.offset(Vector3D.of(1, 0, -1)), TEST_EPS);
     }
 
     @Test
     void testOffset_vector_13_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // poles
         Assertions.assertEquals(-Angle.PI_OVER_TWO, circle.offset(Vector3D.Unit.MINUS_X), TEST_EPS);
     }
 
     @Test
     void testOffset_vector_14_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // poles
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, circle.offset(Vector3D.Unit.PLUS_X), TEST_EPS);
     }
 
     @Test
     void testAzimuth_point_1_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
         Assertions.assertEquals(Angle.PI_OVER_TWO, circle.azimuth(Point2S.from(Vector3D.of(0, 1, 0))), TEST_EPS);
     }
 
     @Test
     void testAzimuth_point_2_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
         Assertions.assertEquals(0.0, circle.azimuth(Point2S.from(Vector3D.of(0, 0, 1))), TEST_EPS);
     }
 
     @Test
     void testAzimuth_point_3_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.5 * Math.PI, circle.azimuth(Point2S.from(Vector3D.of(0, -1, 0))), TEST_EPS);
     }
 
     @Test
     void testAzimuth_point_4_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Math.PI, circle.azimuth(Point2S.from(Vector3D.of(0, 0, -1))), TEST_EPS);
     }
 
     @Test
     void testAzimuth_point_5_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
         Assertions.assertEquals(Angle.PI_OVER_TWO, circle.azimuth(Point2S.from(Vector3D.of(-1, 1, 0))), TEST_EPS);
     }
 
     @Test
     void testAzimuth_point_6_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
         Assertions.assertEquals(0.0, circle.azimuth(Point2S.from(Vector3D.of(-1, 0, 1))), TEST_EPS);
     }
 
     @Test
     void testAzimuth_point_7_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.5 * Math.PI, circle.azimuth(Point2S.from(Vector3D.of(-1, -1, 0))), TEST_EPS);
     }
 
     @Test
     void testAzimuth_point_8_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Math.PI, circle.azimuth(Point2S.from(Vector3D.of(-1, 0, -1))), TEST_EPS);
     }
 
     @Test
     void testAzimuth_point_9_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Angle.PI_OVER_TWO, circle.azimuth(Point2S.from(Vector3D.of(1, 1, 0))), TEST_EPS);
     }
 
     @Test
     void testAzimuth_point_10_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(0.0, circle.azimuth(Point2S.from(Vector3D.of(1, 0, 1))), TEST_EPS);
     }
 
     @Test
     void testAzimuth_point_11_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.5 * Math.PI, circle.azimuth(Point2S.from(Vector3D.of(1, -1, 0))), TEST_EPS);
     }
 
     @Test
     void testAzimuth_point_12_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Math.PI, circle.azimuth(Point2S.from(Vector3D.of(1, 0, -1))), TEST_EPS);
     }
 
     @Test
     void testAzimuth_point_13_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // poles
         Assertions.assertEquals(0, circle.azimuth(Point2S.from(Vector3D.Unit.MINUS_X)), TEST_EPS);
     }
 
     @Test
     void testAzimuth_point_14_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // poles
+        // removed other assertion
         Assertions.assertEquals(0, circle.azimuth(Point2S.from(Vector3D.Unit.PLUS_X)), TEST_EPS);
     }
 
     @Test
     void testAzimuth_vector_1_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
         Assertions.assertEquals(Angle.PI_OVER_TWO, circle.azimuth(Vector3D.of(0, 1, 0)), TEST_EPS);
     }
 
     @Test
     void testAzimuth_vector_2_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
         Assertions.assertEquals(0.0, circle.azimuth(Vector3D.of(0, 0, 1)), TEST_EPS);
     }
 
     @Test
     void testAzimuth_vector_3_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.5 * Math.PI, circle.azimuth(Vector3D.of(0, -1, 0)), TEST_EPS);
     }
 
     @Test
     void testAzimuth_vector_4_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Math.PI, circle.azimuth(Vector3D.of(0, 0, -1)), TEST_EPS);
     }
 
     @Test
     void testAzimuth_vector_5_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
         Assertions.assertEquals(Angle.PI_OVER_TWO, circle.azimuth(Vector3D.of(-1, 1, 0)), TEST_EPS);
     }
 
     @Test
     void testAzimuth_vector_6_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
         Assertions.assertEquals(0.0, circle.azimuth(Vector3D.of(-1, 0, 1)), TEST_EPS);
     }
 
     @Test
     void testAzimuth_vector_7_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.5 * Math.PI, circle.azimuth(Vector3D.of(-1, -1, 0)), TEST_EPS);
     }
 
     @Test
     void testAzimuth_vector_8_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Math.PI, circle.azimuth(Vector3D.of(-1, 0, -1)), TEST_EPS);
     }
 
     @Test
     void testAzimuth_vector_9_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Angle.PI_OVER_TWO, circle.azimuth(Vector3D.of(1, 1, 0)), TEST_EPS);
     }
 
     @Test
     void testAzimuth_vector_10_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(0.0, circle.azimuth(Vector3D.of(1, 0, 1)), TEST_EPS);
     }
 
     @Test
     void testAzimuth_vector_11_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.5 * Math.PI, circle.azimuth(Vector3D.of(1, -1, 0)), TEST_EPS);
     }
 
     @Test
     void testAzimuth_vector_12_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Math.PI, circle.azimuth(Vector3D.of(1, 0, -1)), TEST_EPS);
     }
 
     @Test
     void testAzimuth_vector_13_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // poles
         Assertions.assertEquals(0, circle.azimuth(Vector3D.Unit.MINUS_X), TEST_EPS);
     }
 
     @Test
     void testAzimuth_vector_14_oe() {
+        // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.MINUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // --- act/assert
 
+        // on circle
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // +1/-1
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // poles
+        // removed other assertion
         Assertions.assertEquals(0, circle.azimuth(Vector3D.Unit.PLUS_X), TEST_EPS);
     }
 
     @Test
     void testTransform_rotateAroundPole_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(
                 Point2S.of(0, Angle.PI_OVER_TWO),
                 Point2S.of(1, Angle.PI_OVER_TWO),
@@ -830,13 +1331,16 @@ class GreatCircleTest_OE25Dev {
 
         final Transform2S t = Transform2S.createRotation(circle.getPolePoint(), 0.25 * Math.PI);
 
+        // act
         final GreatCircle result = circle.transform(t);
 
+        // assert
         Assertions.assertNotSame(circle, result);
     }
 
     @Test
     void testTransform_rotateAroundNonPole_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(
                 Point2S.of(0, Angle.PI_OVER_TWO),
                 Point2S.of(1, Angle.PI_OVER_TWO),
@@ -844,13 +1348,16 @@ class GreatCircleTest_OE25Dev {
 
         final Transform2S t = Transform2S.createRotation(Point2S.of(0, Angle.PI_OVER_TWO), Angle.PI_OVER_TWO);
 
+        // act
         final GreatCircle result = circle.transform(t);
 
+        // assert
         Assertions.assertNotSame(circle, result);
     }
 
     @Test
     void testTransform_piMinusAzimuth_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(
                 Point2S.of(0, Angle.PI_OVER_TWO),
                 Point2S.of(1, Angle.PI_OVER_TWO),
@@ -859,113 +1366,155 @@ class GreatCircleTest_OE25Dev {
         final Transform2S t = Transform2S.createReflection(Point2S.PLUS_J)
                 .rotate(Point2S.PLUS_K, Math.PI);
 
+        // act
         final GreatCircle result = circle.transform(t);
 
+        // assert
         Assertions.assertNotSame(circle, result);
     }
 
     @Test
     void testSimilarOrientation_1_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPole(Vector3D.Unit.MINUS_Z, TEST_PRECISION);
         final GreatCircle d = GreatCircles.fromPole(Vector3D.Unit.from(1, 1, -1), TEST_PRECISION);
         final GreatCircle e = GreatCircles.fromPole(Vector3D.Unit.from(1, 1, 1), TEST_PRECISION);
 
+        // act/assert
         Assertions.assertTrue(a.similarOrientation(a));
     }
 
     @Test
     void testSimilarOrientation_2_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPole(Vector3D.Unit.MINUS_Z, TEST_PRECISION);
         final GreatCircle d = GreatCircles.fromPole(Vector3D.Unit.from(1, 1, -1), TEST_PRECISION);
         final GreatCircle e = GreatCircles.fromPole(Vector3D.Unit.from(1, 1, 1), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertFalse(a.similarOrientation(b));
     }
 
     @Test
     void testSimilarOrientation_3_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPole(Vector3D.Unit.MINUS_Z, TEST_PRECISION);
         final GreatCircle d = GreatCircles.fromPole(Vector3D.Unit.from(1, 1, -1), TEST_PRECISION);
         final GreatCircle e = GreatCircles.fromPole(Vector3D.Unit.from(1, 1, 1), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(a.similarOrientation(c));
     }
 
     @Test
     void testSimilarOrientation_4_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPole(Vector3D.Unit.MINUS_Z, TEST_PRECISION);
         final GreatCircle d = GreatCircles.fromPole(Vector3D.Unit.from(1, 1, -1), TEST_PRECISION);
         final GreatCircle e = GreatCircles.fromPole(Vector3D.Unit.from(1, 1, 1), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(a.similarOrientation(d));
     }
 
     @Test
     void testSimilarOrientation_5_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPole(Vector3D.Unit.MINUS_Z, TEST_PRECISION);
         final GreatCircle d = GreatCircles.fromPole(Vector3D.Unit.from(1, 1, -1), TEST_PRECISION);
         final GreatCircle e = GreatCircles.fromPole(Vector3D.Unit.from(1, 1, 1), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(a.similarOrientation(e));
     }
 
     @Test
     void testSpan_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // act
         final GreatArc span = circle.span();
 
+        // assert
         Assertions.assertSame(circle, span.getCircle());
     }
 
     @Test
     void testSpan_2_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // act
         final GreatArc span = circle.span();
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(span.getInterval().isFull());
     }
 
     @Test
     void testSpan_3_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // act
         final GreatArc span = circle.span();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertNull(span.getStartPoint());
     }
 
     @Test
     void testSpan_4_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // act
         final GreatArc span = circle.span();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(span.getEndPoint());
     }
 
     @Test
     void testArc_points_2s_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // act/assert
         checkArc(circle.arc(Point2S.of(1, Angle.PI_OVER_TWO), Point2S.of(0, 1)),
                 Point2S.of(Angle.PI_OVER_TWO, Angle.PI_OVER_TWO), Point2S.of(0, 0));
 
@@ -974,8 +1523,10 @@ class GreatCircleTest_OE25Dev {
 
     @Test
     void testArc_points_1s_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // act/assert
         checkArc(circle.arc(Point1S.of(Math.PI), Point1S.of(1.5 * Math.PI)),
                 Point2S.of(0, Math.PI), Point2S.of(Angle.PI_OVER_TWO, Angle.PI_OVER_TWO));
 
@@ -984,8 +1535,10 @@ class GreatCircleTest_OE25Dev {
 
     @Test
     void testArc_azimuths_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // act/assert
         checkArc(circle.arc(Math.PI, 1.5 * Math.PI),
                 Point2S.of(0, Math.PI), Point2S.of(Angle.PI_OVER_TWO, Angle.PI_OVER_TWO));
 
@@ -994,26 +1547,34 @@ class GreatCircleTest_OE25Dev {
 
     @Test
     void testArc_interval_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
         final AngularInterval.Convex interval = AngularInterval.Convex.of(1, 2, TEST_PRECISION);
 
+        // act
         final GreatArc arc = circle.arc(interval);
 
+        // assert
         Assertions.assertSame(circle, arc.getCircle());
     }
 
     @Test
     void testArc_interval_2_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
         final AngularInterval.Convex interval = AngularInterval.Convex.of(1, 2, TEST_PRECISION);
 
+        // act
         final GreatArc arc = circle.arc(interval);
 
+        // assert
+        // removed other assertion
         Assertions.assertSame(interval, arc.getInterval());
     }
 
     @Test
     void testIntersection_parallel_1_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, precision);
@@ -1022,11 +1583,13 @@ class GreatCircleTest_OE25Dev {
         final GreatCircle d = GreatCircles.fromPole(Vector3D.Unit.MINUS_X, precision);
         final GreatCircle e = GreatCircles.fromPole(Vector3D.Unit.of(-1, 1e-4, 1e-4), precision);
 
+        // act/assert
         Assertions.assertNull(a.intersection(b));
     }
 
     @Test
     void testIntersection_parallel_2_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, precision);
@@ -1035,11 +1598,14 @@ class GreatCircleTest_OE25Dev {
         final GreatCircle d = GreatCircles.fromPole(Vector3D.Unit.MINUS_X, precision);
         final GreatCircle e = GreatCircles.fromPole(Vector3D.Unit.of(-1, 1e-4, 1e-4), precision);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertNull(a.intersection(c));
     }
 
     @Test
     void testIntersection_parallel_3_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, precision);
@@ -1048,11 +1614,15 @@ class GreatCircleTest_OE25Dev {
         final GreatCircle d = GreatCircles.fromPole(Vector3D.Unit.MINUS_X, precision);
         final GreatCircle e = GreatCircles.fromPole(Vector3D.Unit.of(-1, 1e-4, 1e-4), precision);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(a.intersection(d));
     }
 
     @Test
     void testIntersection_parallel_4_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, precision);
@@ -1061,11 +1631,16 @@ class GreatCircleTest_OE25Dev {
         final GreatCircle d = GreatCircles.fromPole(Vector3D.Unit.MINUS_X, precision);
         final GreatCircle e = GreatCircles.fromPole(Vector3D.Unit.of(-1, 1e-4, 1e-4), precision);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(a.intersection(e));
     }
 
     @Test
     void testAngle_withoutReferencePoint_1_oe() {
+     // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1080,11 +1655,13 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
         Assertions.assertEquals(0, a.angle(a), TEST_EPS);
     }
 
     @Test
     void testAngle_withoutReferencePoint_2_oe() {
+     // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1099,11 +1676,14 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(Math.PI, a.angle(b), TEST_EPS);
     }
 
     @Test
     void testAngle_withoutReferencePoint_3_oe() {
+     // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1118,12 +1698,16 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Angle.PI_OVER_TWO, a.angle(c), TEST_EPS);
     }
 
     @Test
     void testAngle_withoutReferencePoint_4_oe() {
+     // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1138,12 +1722,17 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, c.angle(a), TEST_EPS);
     }
 
     @Test
     void testAngle_withoutReferencePoint_5_oe() {
+     // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1158,13 +1747,19 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Angle.PI_OVER_TWO, a.angle(d), TEST_EPS);
     }
 
     @Test
     void testAngle_withoutReferencePoint_6_oe() {
+     // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1179,13 +1774,20 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, d.angle(a), TEST_EPS);
     }
 
     @Test
     void testAngle_withoutReferencePoint_7_oe() {
+     // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1200,14 +1802,22 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0.25 * Math.PI, a.angle(e), TEST_EPS);
     }
 
     @Test
     void testAngle_withoutReferencePoint_8_oe() {
+     // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1222,14 +1832,23 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(0.25 * Math.PI, e.angle(a), TEST_EPS);
     }
 
     @Test
     void testAngle_withoutReferencePoint_9_oe() {
+     // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1244,15 +1863,25 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0.75 * Math.PI, a.angle(f), TEST_EPS);
     }
 
     @Test
     void testAngle_withoutReferencePoint_10_oe() {
+     // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1267,15 +1896,26 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(0.75 * Math.PI, f.angle(a), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_1_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1290,11 +1930,13 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
         Assertions.assertEquals(0, a.angle(a, Point2S.PLUS_J), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_2_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1309,11 +1951,14 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(0, a.angle(a, Point2S.MINUS_J), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_3_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1328,12 +1973,16 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(-Math.PI, a.angle(b, Point2S.PLUS_J), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_4_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1348,12 +1997,17 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(-Math.PI, a.angle(b, Point2S.MINUS_J), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_5_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1368,13 +2022,19 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Angle.PI_OVER_TWO, a.angle(c, Point2S.PLUS_I), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_6_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1389,13 +2049,20 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(-Angle.PI_OVER_TWO, a.angle(c, Point2S.MINUS_I), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_7_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1410,14 +2077,22 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(-Angle.PI_OVER_TWO, c.angle(a, Point2S.PLUS_I), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_8_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1432,14 +2107,23 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, c.angle(a, Point2S.MINUS_I), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_9_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1454,15 +2138,25 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Angle.PI_OVER_TWO, a.angle(d, Point2S.PLUS_J), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_10_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1477,15 +2171,26 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(-Angle.PI_OVER_TWO, a.angle(d, Point2S.MINUS_J), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_11_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1500,16 +2205,28 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(-Angle.PI_OVER_TWO, d.angle(a, Point2S.PLUS_J), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_12_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1524,16 +2241,29 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, d.angle(a, Point2S.MINUS_J), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_13_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1548,17 +2278,31 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0.25 * Math.PI, a.angle(e, Point2S.PLUS_J), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_14_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1573,17 +2317,32 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(-0.25 * Math.PI, a.angle(e, Point2S.MINUS_J), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_15_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1598,18 +2357,34 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(-0.25 * Math.PI, e.angle(a, Point2S.PLUS_J), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_16_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1624,18 +2399,35 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(0.25 * Math.PI, e.angle(a, Point2S.MINUS_J), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_17_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1650,19 +2442,37 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0.75 * Math.PI, a.angle(f, Point2S.PLUS_J), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_18_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1677,19 +2487,38 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(-0.75 * Math.PI, a.angle(f, Point2S.MINUS_J), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_19_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1704,20 +2533,40 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(-0.75 * Math.PI, f.angle(a, Point2S.PLUS_J), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_20_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle c = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_K, TEST_PRECISION);
@@ -1732,42 +2581,68 @@ class GreatCircleTest_OE25Dev {
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(0.75 * Math.PI, f.angle(a, Point2S.MINUS_J), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_pointEquidistanceFromIntersections_1_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.of(1, 0, 1),
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
         Assertions.assertEquals(-0.25 * Math.PI, a.angle(b, Point2S.PLUS_I), TEST_EPS);
     }
 
     @Test
     void testAngle_withReferencePoint_pointEquidistanceFromIntersections_2_oe() {
+        // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoleAndU(
                 Vector3D.Unit.of(1, 0, 1),
                 Vector3D.Unit.PLUS_Y,
                 TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(-0.25 * Math.PI, a.angle(b, Point2S.MINUS_I), TEST_EPS);
     }
 
     @Test
     void testEq_1_oe() {
+        // arrange
         final double eps = 1e-3;
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(eps);
 
@@ -1782,11 +2657,13 @@ class GreatCircleTest_OE25Dev {
         final GreatCircle g = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X,
                 Precision.doubleEquivalenceOfEpsilon(eps));
 
+        // act/assert
         Assertions.assertTrue(a.eq(a, precision));
     }
 
     @Test
     void testEq_2_oe() {
+        // arrange
         final double eps = 1e-3;
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(eps);
 
@@ -1801,12 +2678,15 @@ class GreatCircleTest_OE25Dev {
         final GreatCircle g = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X,
                 Precision.doubleEquivalenceOfEpsilon(eps));
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertFalse(a.eq(b, precision));
     }
 
     @Test
     void testEq_3_oe() {
+        // arrange
         final double eps = 1e-3;
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(eps);
 
@@ -1821,12 +2701,16 @@ class GreatCircleTest_OE25Dev {
         final GreatCircle g = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X,
                 Precision.doubleEquivalenceOfEpsilon(eps));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(a.eq(c, precision));
     }
 
     @Test
     void testEq_4_oe() {
+        // arrange
         final double eps = 1e-3;
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(eps);
 
@@ -1841,13 +2725,18 @@ class GreatCircleTest_OE25Dev {
         final GreatCircle g = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X,
                 Precision.doubleEquivalenceOfEpsilon(eps));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(a.eq(d, precision));
     }
 
     @Test
     void testEq_5_oe() {
+        // arrange
         final double eps = 1e-3;
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(eps);
 
@@ -1862,13 +2751,19 @@ class GreatCircleTest_OE25Dev {
         final GreatCircle g = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X,
                 Precision.doubleEquivalenceOfEpsilon(eps));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(a.eq(e, precision));
     }
 
     @Test
     void testEq_6_oe() {
+        // arrange
         final double eps = 1e-3;
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(eps);
 
@@ -1883,13 +2778,20 @@ class GreatCircleTest_OE25Dev {
         final GreatCircle g = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X,
                 Precision.doubleEquivalenceOfEpsilon(eps));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(e.eq(a, precision));
     }
 
     @Test
     void testEq_7_oe() {
+        // arrange
         final double eps = 1e-3;
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(eps);
 
@@ -1904,14 +2806,22 @@ class GreatCircleTest_OE25Dev {
         final GreatCircle g = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X,
                 Precision.doubleEquivalenceOfEpsilon(eps));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(a.eq(f, precision));
     }
 
     @Test
     void testEq_8_oe() {
+        // arrange
         final double eps = 1e-3;
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(eps);
 
@@ -1926,14 +2836,23 @@ class GreatCircleTest_OE25Dev {
         final GreatCircle g = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X,
                 Precision.doubleEquivalenceOfEpsilon(eps));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(f.eq(a, precision));
     }
 
     @Test
     void testEq_9_oe() {
+        // arrange
         final double eps = 1e-3;
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(eps);
 
@@ -1948,15 +2867,25 @@ class GreatCircleTest_OE25Dev {
         final GreatCircle g = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X,
                 Precision.doubleEquivalenceOfEpsilon(eps));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(g.eq(e, precision));
     }
 
     @Test
     void testEq_10_oe() {
+        // arrange
         final double eps = 1e-3;
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(eps);
 
@@ -1971,15 +2900,26 @@ class GreatCircleTest_OE25Dev {
         final GreatCircle g = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X,
                 Precision.doubleEquivalenceOfEpsilon(eps));
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(e.eq(g, precision));
     }
 
     @Test
     void testHashCode_1_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final GreatCircle a = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -1990,13 +2930,16 @@ class GreatCircleTest_OE25Dev {
 
         final GreatCircle e = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
 
+        // act
         final int hash = a.hashCode();
 
+        // act/assert
         Assertions.assertEquals(hash, a.hashCode());
     }
 
     @Test
     void testHashCode_2_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final GreatCircle a = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -2007,14 +2950,18 @@ class GreatCircleTest_OE25Dev {
 
         final GreatCircle e = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
 
+        // act
         final int hash = a.hashCode();
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertNotEquals(hash, b.hashCode());
     }
 
     @Test
     void testHashCode_3_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final GreatCircle a = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -2025,14 +2972,19 @@ class GreatCircleTest_OE25Dev {
 
         final GreatCircle e = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
 
+        // act
         final int hash = a.hashCode();
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(hash, c.hashCode());
     }
 
     @Test
     void testHashCode_4_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final GreatCircle a = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -2043,14 +2995,20 @@ class GreatCircleTest_OE25Dev {
 
         final GreatCircle e = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
 
+        // act
         final int hash = a.hashCode();
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(hash, d.hashCode());
     }
 
     @Test
     void testHashCode_5_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final GreatCircle a = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -2061,15 +3019,22 @@ class GreatCircleTest_OE25Dev {
 
         final GreatCircle e = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
 
+        // act
         final int hash = a.hashCode();
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(hash, e.hashCode());
     }
 
     @Test
     void testEquals_2_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final GreatCircle a = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -2080,12 +3045,15 @@ class GreatCircleTest_OE25Dev {
 
         final GreatCircle e = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertNotEquals(a, b);
     }
 
     @Test
     void testEquals_3_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final GreatCircle a = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -2096,12 +3064,16 @@ class GreatCircleTest_OE25Dev {
 
         final GreatCircle e = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(a, c);
     }
 
     @Test
     void testEquals_4_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final GreatCircle a = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -2112,12 +3084,17 @@ class GreatCircleTest_OE25Dev {
 
         final GreatCircle e = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(a, d);
     }
 
     @Test
     void testEquals_5_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final GreatCircle a = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -2128,13 +3105,19 @@ class GreatCircleTest_OE25Dev {
 
         final GreatCircle e = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(a, e);
     }
 
     @Test
     void testEquals_6_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final GreatCircle a = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -2145,36 +3128,63 @@ class GreatCircleTest_OE25Dev {
 
         final GreatCircle e = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(e, a);
     }
 
 @Test
     void testFromPoints_invalidPoints_1_oe() {
+        // arrange
         final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
         final Point2S p2 = Point2S.of(Math.PI, Angle.PI_OVER_TWO);
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { GreatCircles.fromPoints(p1, p1, TEST_PRECISION); }, IllegalArgumentException.class, Pattern.compile("^.*points are equal$"));
+        // act/assert
+        try {
+     GreatCircles.fromPoints(p1, p1, TEST_PRECISION);
+    fail("Expected IllegalArgumentException with message: " + Pattern.compile("^.*points are equal$"));
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testFromPoints_invalidPoints_2_oe() {
+        // arrange
         final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
         final Point2S p2 = Point2S.of(Math.PI, Angle.PI_OVER_TWO);
 
+        // act/assert
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { GreatCircles.fromPoints(p1, Point2S.of(1e-12, Angle.PI_OVER_TWO), TEST_PRECISION); }, IllegalArgumentException.class, Pattern.compile("^.*points are equal$"));
+        try {
+     GreatCircles.fromPoints(p1, Point2S.of(1e-12, Angle.PI_OVER_TWO), TEST_PRECISION);
+    fail("Expected IllegalArgumentException with message: " + Pattern.compile("^.*points are equal$"));
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testFromPoints_invalidPoints_3_oe() {
+        // arrange
         final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
         final Point2S p2 = Point2S.of(Math.PI, Angle.PI_OVER_TWO);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { GreatCircles.fromPoints( Point2S.from(Vector3D.Unit.PLUS_X), Point2S.from(Vector3D.Unit.MINUS_X), TEST_PRECISION); }, IllegalArgumentException.class, Pattern.compile("^.*points are antipodal$"));
+        try {
+     GreatCircles.fromPoints( Point2S.from(Vector3D.Unit.PLUS_X), Point2S.from(Vector3D.Unit.MINUS_X), TEST_PRECISION);
+    fail("Expected IllegalArgumentException with message: " + Pattern.compile("^.*points are antipodal$"));
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

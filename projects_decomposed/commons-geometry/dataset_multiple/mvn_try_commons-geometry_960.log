@@ -1,0 +1,29 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[657,22] incompatible types: invalid method reference
+    xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[663,22] incompatible types: invalid method reference
+    emptyTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[669,22] incompatible types: invalid method reference
+    yAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[675,22] incompatible types: invalid method reference
+    fullTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[681,22] incompatible types: invalid method reference
+    xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-core: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[657,22] incompatible types: invalid method reference
+[ERROR]     xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[663,22] incompatible types: invalid method reference
+[ERROR]     emptyTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[669,22] incompatible types: invalid method reference
+[ERROR]     yAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[675,22] incompatible types: invalid method reference
+[ERROR]     fullTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[681,22] incompatible types: invalid method reference
+[ERROR]     xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

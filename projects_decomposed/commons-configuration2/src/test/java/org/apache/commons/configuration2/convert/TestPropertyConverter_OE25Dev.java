@@ -164,6 +164,9 @@ public class TestPropertyConverter_OE25Dev {
 
     @Test
     public void testToBigDecimalDoubleConstructor_1_oe() {
+        // If the conversion uses new BigDecimal(0.1) the result is not exact due to round off.
+        // The result is 0.1000000000000000055511151231257827021181583404541015625.
+        // See Sonar rule: https://rules.sonarsource.com/java/type/Bug/RSPEC-2111
         final double d = 0.1;
         assertEquals("Incorrect BigDecimal value", new BigDecimal(d), PropertyConverter.toBigDecimal(d));
     }
@@ -171,6 +174,9 @@ public class TestPropertyConverter_OE25Dev {
     @Test
     @Ignore
     public void testToBigDecimalStringConstructor_1_oe() {
+        // If the conversion uses new BigDecimal(0.1) the result is not exact due to round off.
+        // The result is 0.1000000000000000055511151231257827021181583404541015625.
+        // See Sonar rule: https://rules.sonarsource.com/java/type/Bug/RSPEC-2111
         final double d = 0.1;
         assertEquals("Incorrect BigDecimal value", new BigDecimal(Double.toString(d)), PropertyConverter.toBigDecimal(d));
     }
@@ -238,6 +244,7 @@ public class TestPropertyConverter_OE25Dev {
     @Test
     public void testToNumberDirect_2_oe() {
         final Integer i = Integer.valueOf(42);
+        // removed other assertion
         final BigDecimal d = new BigDecimal("3.1415");
         assertSame("Wrong BigDecimal", d, PropertyConverter.toNumber(d, Integer.class));
     }
@@ -261,6 +268,7 @@ public class TestPropertyConverter_OE25Dev {
 
     @Test
     public void testToNumberFromString_2_oe() {
+        // removed other assertion
         assertEquals("Incorrect Short value", Short.valueOf((short) 10), PropertyConverter.toNumber(new StringBuffer("10"), Short.class));
     }
 

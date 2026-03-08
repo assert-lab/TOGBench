@@ -38,6 +38,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
 
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
         assertEquals(ROWS, results.size());
     }
 
@@ -46,6 +47,8 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
 
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<String, Map<String, Object>> entry : results.entrySet())
@@ -60,11 +63,14 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
 
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<String, Map<String, Object>> entry : results.entrySet())
         {
             Object key = entry.getKey();
+            // removed other assertion
             row = entry.getValue();
             assertNotNull(row);
     }
@@ -75,12 +81,16 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
 
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<String, Map<String, Object>> entry : results.entrySet())
         {
             Object key = entry.getKey();
+            // removed other assertion
             row = entry.getValue();
+            // removed other assertion
             assertEquals(COLS, row.keySet().size());
     }
     }
@@ -90,12 +100,17 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
 
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<String, Map<String, Object>> entry : results.entrySet())
         {
             Object key = entry.getKey();
+            // removed other assertion
             row = entry.getValue();
+            // removed other assertion
+            // removed other assertion
         }
         row = results.get("1");
         assertEquals("1", row.get("one"));
@@ -106,14 +121,20 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
 
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<String, Map<String, Object>> entry : results.entrySet())
         {
             Object key = entry.getKey();
+            // removed other assertion
             row = entry.getValue();
+            // removed other assertion
+            // removed other assertion
         }
         row = results.get("1");
+        // removed other assertion
         assertEquals("2", row.get("TWO"));
     }
 
@@ -122,14 +143,21 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
 
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<String, Map<String, Object>> entry : results.entrySet())
         {
             Object key = entry.getKey();
+            // removed other assertion
             row = entry.getValue();
+            // removed other assertion
+            // removed other assertion
         }
         row = results.get("1");
+        // removed other assertion
+        // removed other assertion
         assertEquals("THREE", row.get("Three"));
     }
 
@@ -144,6 +172,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>(2);
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
         assertEquals(ROWS, results.size());
     }
 
@@ -151,6 +180,8 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>(2);
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<String, Map<String, Object>> entry : results.entrySet())
@@ -164,11 +195,14 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>(2);
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<String, Map<String, Object>> entry : results.entrySet())
         {
             Object key = entry.getKey();
+            // removed other assertion
             row = entry.getValue();
             assertNotNull(row);
     }
@@ -178,12 +212,16 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>(2);
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<String, Map<String, Object>> entry : results.entrySet())
         {
             Object key = entry.getKey();
+            // removed other assertion
             row = entry.getValue();
+            // removed other assertion
             assertEquals(COLS, row.keySet().size());
     }
     }
@@ -192,12 +230,17 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>(2);
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<String, Map<String, Object>> entry : results.entrySet())
         {
             Object key = entry.getKey();
+            // removed other assertion
             row = entry.getValue();
+            // removed other assertion
+            // removed other assertion
         }
         row = results.get("5");
         assertEquals("4", row.get("one"));
@@ -207,14 +250,20 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>(2);
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<String, Map<String, Object>> entry : results.entrySet())
         {
             Object key = entry.getKey();
+            // removed other assertion
             row = entry.getValue();
+            // removed other assertion
+            // removed other assertion
         }
         row = results.get("5");
+        // removed other assertion
         assertEquals("5", row.get("TWO"));
     }
 
@@ -222,14 +271,21 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>(2);
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<String, Map<String, Object>> entry : results.entrySet())
         {
             Object key = entry.getKey();
+            // removed other assertion
             row = entry.getValue();
+            // removed other assertion
+            // removed other assertion
         }
         row = results.get("5");
+        // removed other assertion
+        // removed other assertion
         assertEquals("SIX", row.get("Three"));
     }
 
@@ -244,6 +300,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<Integer,Map<String,Object>>> h = new KeyedHandler<Integer>("intTest");
         Map<Integer,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
         assertEquals(ROWS, results.size());
     }
 
@@ -251,6 +308,8 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<Integer,Map<String,Object>>> h = new KeyedHandler<Integer>("intTest");
         Map<Integer,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<Integer, Map<String, Object>> entry : results.entrySet())
@@ -264,11 +323,14 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<Integer,Map<String,Object>>> h = new KeyedHandler<Integer>("intTest");
         Map<Integer,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<Integer, Map<String, Object>> entry : results.entrySet())
         {
             Object key = entry.getKey();
+            // removed other assertion
             row = entry.getValue();
             assertNotNull(row);
     }
@@ -278,12 +340,16 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<Integer,Map<String,Object>>> h = new KeyedHandler<Integer>("intTest");
         Map<Integer,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<Integer, Map<String, Object>> entry : results.entrySet())
         {
             Object key = entry.getKey();
+            // removed other assertion
             row = entry.getValue();
+            // removed other assertion
             assertEquals(COLS, row.keySet().size());
     }
     }
@@ -292,12 +358,17 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<Integer,Map<String,Object>>> h = new KeyedHandler<Integer>("intTest");
         Map<Integer,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<Integer, Map<String, Object>> entry : results.entrySet())
         {
             Object key = entry.getKey();
+            // removed other assertion
             row = entry.getValue();
+            // removed other assertion
+            // removed other assertion
         }
         row = results.get(Integer.valueOf(3));
         assertEquals("4", row.get("one"));
@@ -307,14 +378,20 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<Integer,Map<String,Object>>> h = new KeyedHandler<Integer>("intTest");
         Map<Integer,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<Integer, Map<String, Object>> entry : results.entrySet())
         {
             Object key = entry.getKey();
+            // removed other assertion
             row = entry.getValue();
+            // removed other assertion
+            // removed other assertion
         }
         row = results.get(Integer.valueOf(3));
+        // removed other assertion
         assertEquals("5", row.get("TWO"));
     }
 
@@ -322,14 +399,21 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Map<Integer,Map<String,Object>>> h = new KeyedHandler<Integer>("intTest");
         Map<Integer,Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Map<String,Object> row = null;
         for(Entry<Integer, Map<String, Object>> entry : results.entrySet())
         {
             Object key = entry.getKey();
+            // removed other assertion
             row = entry.getValue();
+            // removed other assertion
+            // removed other assertion
         }
         row = results.get(Integer.valueOf(3));
+        // removed other assertion
+        // removed other assertion
         assertEquals("SIX", row.get("Three"));
     }
 
@@ -342,6 +426,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
     public void testEmptyResultSetHandle_2_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>();
         Map<String,Map<String,Object>> results = h.handle(this.emptyResultSet);
+        // removed other assertion
         assertTrue(results.isEmpty());
     }
 

@@ -84,14 +84,17 @@ public class TimeTCPClientTest_OE25Dev extends TestCase
         final TimeTCPClient client = new TimeTCPClient();
         try
         {
+            // Not sure why code used to use getLocalHost.
             final InetAddress localHost = InetAddress.getByName("localhost"); // WAS InetAddress.getLocalHost();
             try
             {
+                // We want to timeout if a response takes longer than 60 seconds
                 client.setDefaultTimeout(60000);
                 client.connect(localHost, _port);
                 clientTime = client.getDate().getTime();
                 time = System.currentTimeMillis();
             } catch (final IOException e) { // catch the first connect error; assume second will work if this does
+                // removed other assertion
                 throw e;
             } finally
             {
@@ -102,6 +105,7 @@ public class TimeTCPClientTest_OE25Dev extends TestCase
 
             try
             {
+                // We want to timeout if a response takes longer than 60 seconds
                 client.setDefaultTimeout(60000);
                 client.connect(localHost, _port);
                 clientTime2 = (client.getTime() - TimeTCPClient.SECONDS_1900_TO_1970)*1000L;
@@ -117,6 +121,7 @@ public class TimeTCPClientTest_OE25Dev extends TestCase
             closeConnections();
         }
 
+        // current time shouldn't differ from time reported via network by 5 seconds
         assertTrue(Math.abs(time - clientTime) < 5000);
     }
 
@@ -129,14 +134,17 @@ public class TimeTCPClientTest_OE25Dev extends TestCase
         final TimeTCPClient client = new TimeTCPClient();
         try
         {
+            // Not sure why code used to use getLocalHost.
             final InetAddress localHost = InetAddress.getByName("localhost"); // WAS InetAddress.getLocalHost();
             try
             {
+                // We want to timeout if a response takes longer than 60 seconds
                 client.setDefaultTimeout(60000);
                 client.connect(localHost, _port);
                 clientTime = client.getDate().getTime();
                 time = System.currentTimeMillis();
             } catch (final IOException e) { // catch the first connect error; assume second will work if this does
+                // removed other assertion
                 throw e;
             } finally
             {
@@ -147,6 +155,7 @@ public class TimeTCPClientTest_OE25Dev extends TestCase
 
             try
             {
+                // We want to timeout if a response takes longer than 60 seconds
                 client.setDefaultTimeout(60000);
                 client.connect(localHost, _port);
                 clientTime2 = (client.getTime() - TimeTCPClient.SECONDS_1900_TO_1970)*1000L;
@@ -162,6 +171,8 @@ public class TimeTCPClientTest_OE25Dev extends TestCase
             closeConnections();
         }
 
+        // current time shouldn't differ from time reported via network by 5 seconds
+        // removed other assertion
         assertTrue(Math.abs(time2 - clientTime2) < 5000);
     }
 

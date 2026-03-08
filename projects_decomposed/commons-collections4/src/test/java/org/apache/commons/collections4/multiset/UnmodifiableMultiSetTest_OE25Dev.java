@@ -75,6 +75,21 @@ public class UnmodifiableMultiSetTest_OE25Dev<E> extends AbstractMultiSetTest<E>
 
     //-----------------------------------------------------------------------
 
+    public void testUnmodifiable() {
+        assertTrue(makeObject() instanceof Unmodifiable);
+        assertTrue(makeFullCollection() instanceof Unmodifiable);
+    }
+
+    public void testDecorateFactory() {
+        final MultiSet<E> multiset = makeFullCollection();
+        assertSame(multiset, UnmodifiableMultiSet.unmodifiableMultiSet(multiset));
+
+        try {
+            UnmodifiableMultiSet.unmodifiableMultiSet(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
     //-----------------------------------------------------------------------
 
     @Override
@@ -100,6 +115,13 @@ public class UnmodifiableMultiSetTest_OE25Dev<E> extends AbstractMultiSetTest<E>
     public void testDecorateFactory_1_oe() {
         final MultiSet<E> multiset = makeFullCollection();
         assertSame(multiset, UnmodifiableMultiSet.unmodifiableMultiSet(multiset));
+    }
+
+public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableMultiSet.unmodifiableMultiSet(null);
+            fail();
+        } catch (final NullPointerException ex) {}
     }
 
 }

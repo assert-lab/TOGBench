@@ -1,0 +1,1343 @@
+id,test_prefix,test_name
+coll_3_101,"@Test
+    public void max_oe_101_oe() {
+        try {
+            ComparatorUtils.max(1, null, null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",ComparatorUtilsTest::max_oe_101_oe
+coll_3_102,"@Test
+    public void max_oe_102_oe() {
+        try {
+            ComparatorUtils.max(null, 10, null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",ComparatorUtilsTest::max_oe_102_oe
+coll_4_101,"@Test
+    public void min_oe_101_oe() {
+        try {
+            ComparatorUtils.min(1, null, null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",ComparatorUtilsTest::min_oe_101_oe
+coll_4_102,"@Test
+    public void min_oe_102_oe() {
+        try {
+            ComparatorUtils.min(null, 10, null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",ComparatorUtilsTest::min_oe_102_oe
+coll_7_101,"@Test
+    public void difference_oe_101_oe() {
+        try {
+            SetUtils.difference(setA, null);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",SetUtilsTest::difference_oe_101_oe
+coll_7_102,"@Test
+    public void difference_oe_102_oe() {
+        try {
+            SetUtils.difference(null, setA);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",SetUtilsTest::difference_oe_102_oe
+coll_8_101,"@Test
+    public void disjunction_oe_101_oe() {
+        try {
+            SetUtils.disjunction(setA, null);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",SetUtilsTest::disjunction_oe_101_oe
+coll_8_102,"@Test
+    public void disjunction_oe_102_oe() {
+        try {
+            SetUtils.disjunction(null, setA);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",SetUtilsTest::disjunction_oe_102_oe
+coll_9_101,"@Test
+    public void intersection_oe_101_oe() {
+        try {
+            SetUtils.intersection(setA, null);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",SetUtilsTest::intersection_oe_101_oe
+coll_9_102,"@Test
+    public void intersection_oe_102_oe() {
+        try {
+            SetUtils.intersection(null, setA);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",SetUtilsTest::intersection_oe_102_oe
+coll_15_101,"@Test
+    public void testpredicatedSet_oe_101_oe() {
+        try {
+            SetUtils.predicatedSet(new HashSet<>(), null);
+            fail(""Expecting NullPointerException for null predicate."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",SetUtilsTest::testpredicatedSet_oe_101_oe
+coll_18_101,"@Test
+    public void union_oe_101_oe() {
+        try {
+            SetUtils.union(setA, null);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",SetUtilsTest::union_oe_101_oe
+coll_18_102,"@Test
+    public void union_oe_102_oe() {
+        try {
+            SetUtils.union(null, setA);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",SetUtilsTest::union_oe_102_oe
+coll_25_101,"@Test
+    public void testPredicatedList_oe_101_oe() {
+        try {
+            ListUtils.predicatedList(new ArrayList<>(), null);
+            fail(""Expecting IllegalArgumentException for null predicate."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",ListUtilsTest::testPredicatedList_oe_101_oe
+coll_32_101,"@Test
+    public void testRetainAll_oe_101_oe() {
+        try {
+            ListUtils.retainAll(null, null);
+            fail(""expecting NullPointerException"");
+        } catch(final NullPointerException npe){} // this is what we want
+    }
+",ListUtilsTest::testRetainAll_oe_101_oe
+coll_33_101,"@Test
+    public void testRemoveAll_oe_101_oe() {
+        try {
+            ListUtils.removeAll(null, null);
+            fail(""expecting NullPointerException"");
+        } catch(final NullPointerException npe) {} // this is what we want
+    }
+",ListUtilsTest::testRemoveAll_oe_101_oe
+coll_38_101,"@Test
+    public void testLongestCommonSubsequenceWithString_oe_101_oe() {
+      try {
+          ListUtils.longestCommonSubsequence((String) null, null);
+          fail(""failed to check for null argument"");
+      } catch (final NullPointerException e) {}
+    }
+",ListUtilsTest::testLongestCommonSubsequenceWithString_oe_101_oe
+coll_38_102,"@Test
+    public void testLongestCommonSubsequenceWithString_oe_102_oe() {
+      try {
+          ListUtils.longestCommonSubsequence(""A"", null);
+          fail(""failed to check for null argument"");
+      } catch (final NullPointerException e) {}
+    }
+",ListUtilsTest::testLongestCommonSubsequenceWithString_oe_102_oe
+coll_38_103,"@Test
+    public void testLongestCommonSubsequenceWithString_oe_103_oe() {
+      try {
+          ListUtils.longestCommonSubsequence(null, ""A"");
+          fail(""failed to check for null argument"");
+      } catch (final NullPointerException e) {}
+    }
+",ListUtilsTest::testLongestCommonSubsequenceWithString_oe_103_oe
+coll_115_101,"@Test
+    public void testIfTransformer_oe_101_oe() {
+        try {
+            TransformerUtils.ifTransformer(null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",TransformerUtilsTest::testIfTransformer_oe_101_oe
+coll_115_102,"@Test
+    public void testIfTransformer_oe_102_oe() {
+        try {
+            TransformerUtils.ifTransformer(TruePredicate.truePredicate(), null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",TransformerUtilsTest::testIfTransformer_oe_102_oe
+coll_115_103,"@Test
+    public void testIfTransformer_oe_103_oe() {
+        try {
+            TransformerUtils.ifTransformer(null, ConstantTransformer.constantTransformer(""A""));
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",TransformerUtilsTest::testIfTransformer_oe_103_oe
+coll_115_104,"@Test
+    public void testIfTransformer_oe_104_oe() {
+        try {
+            TransformerUtils.ifTransformer(null, null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",TransformerUtilsTest::testIfTransformer_oe_104_oe
+coll_117_101,"@Test
+    public void testSwitchMapTransformer_oe_101_oe() {
+        try {
+            TransformerUtils.switchMapTransformer(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",TransformerUtilsTest::testSwitchMapTransformer_oe_101_oe
+coll_118_101,"@Test
+    public void testInvokerTransformer_oe_101_oe() {
+        try {
+            TransformerUtils.invokerTransformer(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",TransformerUtilsTest::testInvokerTransformer_oe_101_oe
+coll_118_102,"@Test
+    public void testInvokerTransformer_oe_102_oe() {
+        try {
+            TransformerUtils.invokerTransformer(""noSuchMethod"").transform(new Object());
+            fail();
+        } catch (final FunctorException ex) {}
+    }
+",TransformerUtilsTest::testInvokerTransformer_oe_102_oe
+coll_119_101,"@Test
+    public void testInvokerTransformer2_oe_101_oe() {
+        try {
+            TransformerUtils.invokerTransformer(null, null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",TransformerUtilsTest::testInvokerTransformer2_oe_101_oe
+coll_119_102,"@Test
+    public void testInvokerTransformer2_oe_102_oe() {
+        try {
+            TransformerUtils.invokerTransformer(""noSuchMethod"", new Class[] { Object.class },
+                    new Object[] { cString }).transform(new Object());
+            fail();
+        } catch (final FunctorException ex) {}
+    }
+",TransformerUtilsTest::testInvokerTransformer2_oe_102_oe
+coll_119_103,"@Test
+    public void testInvokerTransformer2_oe_103_oe() {
+        try {
+            TransformerUtils.invokerTransformer(""badArgs"", null, new Object[] { cString });
+            fail();
+        } catch (final IllegalArgumentException ex) {}
+    }
+",TransformerUtilsTest::testInvokerTransformer2_oe_103_oe
+coll_119_104,"@Test
+    public void testInvokerTransformer2_oe_104_oe() {
+        try {
+            TransformerUtils.invokerTransformer(""badArgs"", new Class[] { Object.class }, null);
+            fail();
+        } catch (final IllegalArgumentException ex) {}
+    }
+",TransformerUtilsTest::testInvokerTransformer2_oe_104_oe
+coll_119_105,"@Test
+    public void testInvokerTransformer2_oe_105_oe() {
+        try {
+            TransformerUtils.invokerTransformer(""badArgs"", new Class[] {}, new Object[] { cString });
+            fail();
+        } catch (final IllegalArgumentException ex) {}
+    }
+",TransformerUtilsTest::testInvokerTransformer2_oe_105_oe
+coll_121_101,"@Test
+    public void testInstantiateTransformerNull_oe_101_oe() {
+        try {
+            TransformerUtils.instantiateTransformer(null, new Object[] { ""str"" });
+            fail();
+        } catch (final IllegalArgumentException ex) {}
+    }
+",TransformerUtilsTest::testInstantiateTransformerNull_oe_101_oe
+coll_121_102,"@Test
+    public void testInstantiateTransformerNull_oe_102_oe() {
+        try {
+            TransformerUtils.instantiateTransformer(new Class[] {}, new Object[] { ""str"" });
+            fail();
+        } catch (final IllegalArgumentException ex) {}
+    }
+",TransformerUtilsTest::testInstantiateTransformerNull_oe_102_oe
+coll_138_101,"@Test
+    public void collate_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableOdd).collate(null).toList();
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",FluentIterableTest::collate_oe_101_oe
+coll_140_101,"@Test
+    public void filter_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableA).filter(null).toList();
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",FluentIterableTest::filter_oe_101_oe
+coll_141_101,"@Test
+    public void forEach_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableA).forEach((Closure<Integer>) null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",FluentIterableTest::forEach_oe_101_oe
+coll_142_101,"@Test
+    public void limit_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableA).limit(-2).toList();
+            fail(""expecting IllegalArgumentException"");
+        } catch (final IllegalArgumentException iae) {
+            // expected
+        }
+    }
+",FluentIterableTest::limit_oe_101_oe
+coll_144_101,"@Test
+    public void skip_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableA).skip(-4).toList();
+            fail(""expecting IllegalArgumentException"");
+        } catch (final IllegalArgumentException iae) {
+            // expected
+        }
+    }
+",FluentIterableTest::skip_oe_101_oe
+coll_145_101,"@Test
+    public void transform_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableA).transform(null).toList();
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",FluentIterableTest::transform_oe_101_oe
+coll_150_101,"@Test
+    public void allMatch_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableEven).allMatch(null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",FluentIterableTest::allMatch_oe_101_oe
+coll_151_101,"@Test
+    public void anyMatch_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableEven).anyMatch(null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",FluentIterableTest::anyMatch_oe_101_oe
+coll_153_101,"@Test
+    public void size_oe_101_oe() {
+        try {
+            FluentIterable.of((Iterable<?>) null).size();
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",FluentIterableTest::size_oe_101_oe
+coll_156_101,"@Test
+    public void copyInto_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableA).copyInto(null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",FluentIterableTest::copyInto_oe_101_oe
+coll_158_101,"@Test
+    public void get_oe_101_oe() {
+        try {
+            FluentIterable.of(iterableEven).get(-1);
+            fail(""expecting IndexOutOfBoundsException"");
+        } catch (final IndexOutOfBoundsException ioe) {
+            // expected
+        }
+    }
+",FluentIterableTest::get_oe_101_oe
+coll_158_102,"@Test
+    public void get_oe_102_oe() {
+        try {
+            FluentIterable.of(iterableEven).get(IterableUtils.size(iterableEven));
+            fail(""expecting IndexOutOfBoundsException"");
+        } catch (final IndexOutOfBoundsException ioe) {
+            // expected
+        }
+    }
+",FluentIterableTest::get_oe_102_oe
+coll_167_101,"@Test
+    public void indexOf_oe_101_oe() {
+        try {
+            IterableUtils.indexOf(iterableA, null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",IterableUtilsTest::indexOf_oe_101_oe
+coll_175_101,"@Test
+    public void testToStringWithNullArguments_oe_101_oe() {
+        try {
+            IterableUtils.toString(new ArrayList<Integer>(), null, """", ""("", "")"");
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",IterableUtilsTest::testToStringWithNullArguments_oe_101_oe
+coll_175_102,"@Test
+    public void testToStringWithNullArguments_oe_102_oe() {
+        try {
+            IterableUtils.toString(new ArrayList<Integer>(), new Transformer<Integer, String>() {
+                @Override
+                public String transform(final Integer input) {
+                    fail(""not supposed to reach here"");
+                    return """";
+                }
+            }, null, ""("", "")"");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",IterableUtilsTest::testToStringWithNullArguments_oe_102_oe
+coll_175_103,"@Test
+    public void testToStringWithNullArguments_oe_103_oe() {
+        try {
+            IterableUtils.toString(new ArrayList<Integer>(), new Transformer<Integer, String>() {
+                @Override
+                public String transform(final Integer input) {
+                    fail(""not supposed to reach here"");
+                    return """";
+                }
+            }, """", null, "")"");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",IterableUtilsTest::testToStringWithNullArguments_oe_103_oe
+coll_175_104,"@Test
+    public void testToStringWithNullArguments_oe_104_oe() {
+        try {
+            IterableUtils.toString(new ArrayList<Integer>(), new Transformer<Integer, String>() {
+                @Override
+                public String transform(final Integer input) {
+                    fail(""not supposed to reach here"");
+                    return """";
+                }
+            }, """", ""("", null);
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",IterableUtilsTest::testToStringWithNullArguments_oe_104_oe
+coll_180_101,"@Test
+    public void testSynchronizedBag_oe_101_oe() {
+        try {
+            BagUtils.synchronizedBag(null);
+            fail(""Expecting NullPointerException for null bag."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testSynchronizedBag_oe_101_oe
+coll_181_101,"@Test
+    public void testUnmodifiableBag_oe_101_oe() {
+        try {
+            BagUtils.unmodifiableBag(null);
+            fail(""Expecting NullPointerException for null bag."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testUnmodifiableBag_oe_101_oe
+coll_182_101,"@Test
+    public void testPredicatedBag_oe_101_oe() {
+        try {
+            BagUtils.predicatedBag(null,truePredicate);
+            fail(""Expecting NullPointerException for null bag."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testPredicatedBag_oe_101_oe
+coll_182_102,"@Test
+    public void testPredicatedBag_oe_102_oe() {
+        try {
+            BagUtils.predicatedBag(new HashBag<>(), null);
+            fail(""Expecting NullPointerException for null predicate."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testPredicatedBag_oe_102_oe
+coll_183_101,"@Test
+    public void testTransformedBag_oe_101_oe() {
+        try {
+            BagUtils.transformingBag(null, nopTransformer);
+            fail(""Expecting NullPointerException for null bag."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testTransformedBag_oe_101_oe
+coll_183_102,"@Test
+    public void testTransformedBag_oe_102_oe() {
+        try {
+            BagUtils.transformingBag(new HashBag<>(), null);
+            fail(""Expecting NullPointerException for null transformer."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testTransformedBag_oe_102_oe
+coll_184_101,"@Test
+    public void testSynchronizedSortedBag_oe_101_oe() {
+        try {
+            BagUtils.synchronizedSortedBag(null);
+            fail(""Expecting NullPointerException for null bag."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testSynchronizedSortedBag_oe_101_oe
+coll_185_101,"@Test
+    public void testUnmodifiableSortedBag_oe_101_oe() {
+        try {
+            BagUtils.unmodifiableSortedBag(null);
+            fail(""Expecting NullPointerException for null bag."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testUnmodifiableSortedBag_oe_101_oe
+coll_186_101,"@Test
+    public void testPredicatedSortedBag_oe_101_oe() {
+        try {
+            BagUtils.predicatedSortedBag(null, truePredicate);
+            fail(""Expecting NullPointerException for null bag."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testPredicatedSortedBag_oe_101_oe
+coll_186_102,"@Test
+    public void testPredicatedSortedBag_oe_102_oe() {
+        try {
+            BagUtils.predicatedSortedBag(new TreeBag<>(), null);
+            fail(""Expecting NullPointerException for null predicate."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testPredicatedSortedBag_oe_102_oe
+coll_187_101,"@Test
+    public void testTransformedSortedBag_oe_101_oe() {
+        try {
+            BagUtils.transformingSortedBag(null, nopTransformer);
+            fail(""Expecting NullPointerException for null bag."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testTransformedSortedBag_oe_101_oe
+coll_187_102,"@Test
+    public void testTransformedSortedBag_oe_102_oe() {
+        try {
+            BagUtils.transformingSortedBag(new TreeBag<>(), null);
+            fail(""Expecting NullPointerException for null transformer."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",BagUtilsTest::testTransformedSortedBag_oe_102_oe
+coll_190_101,"@Test
+    public void testUnmodifiableTrie_oe_101_oe() {
+        try {
+            TrieUtils.unmodifiableTrie(null);
+            fail(""Expecting NullPointerException for null trie."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",TrieUtilsTest::testUnmodifiableTrie_oe_101_oe
+coll_191_101,"@Test
+    public void testSynchronizedQueue_oe_101_oe() {
+        try {
+            QueueUtils.synchronizedQueue(null);
+            fail(""Expecting NullPointerException for null queue."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",QueueUtilsTest::testSynchronizedQueue_oe_101_oe
+coll_192_101,"@Test
+    public void testUnmodifiableQueue_oe_101_oe() {
+        try {
+            QueueUtils.unmodifiableQueue(null);
+            fail(""Expecting NullPointerException for null queue."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",QueueUtilsTest::testUnmodifiableQueue_oe_101_oe
+coll_193_101,"@Test
+    public void testPredicatedQueue_oe_101_oe() {
+        try {
+            QueueUtils.predicatedQueue(null, truePredicate);
+            fail(""Expecting NullPointerException for null queue."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",QueueUtilsTest::testPredicatedQueue_oe_101_oe
+coll_193_102,"@Test
+    public void testPredicatedQueue_oe_102_oe() {
+        try {
+            QueueUtils.predicatedQueue(new LinkedList<>(), null);
+            fail(""Expecting NullPointerException for null predicate."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",QueueUtilsTest::testPredicatedQueue_oe_102_oe
+coll_194_101,"@Test
+    public void testTransformedQueue_oe_101_oe() {
+        try {
+            QueueUtils.transformingQueue(null, nopTransformer);
+            fail(""Expecting NullPointerException for null queue."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",QueueUtilsTest::testTransformedQueue_oe_101_oe
+coll_194_102,"@Test
+    public void testTransformedQueue_oe_102_oe() {
+        try {
+            QueueUtils.transformingQueue(new LinkedList<>(), null);
+            fail(""Expecting NullPointerException for null transformer."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",QueueUtilsTest::testTransformedQueue_oe_102_oe
+coll_200_101,"@Test
+    public void testWhileClosure_oe_101_oe() {
+        try {
+            ClosureUtils.whileClosure(null, ClosureUtils.nopClosure());
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",ClosureUtilsTest::testWhileClosure_oe_101_oe
+coll_200_102,"@Test
+    public void testWhileClosure_oe_102_oe() {
+        try {
+            ClosureUtils.whileClosure(FalsePredicate.falsePredicate(), null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",ClosureUtilsTest::testWhileClosure_oe_102_oe
+coll_200_103,"@Test
+    public void testWhileClosure_oe_103_oe() {
+        try {
+            ClosureUtils.whileClosure(null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",ClosureUtilsTest::testWhileClosure_oe_103_oe
+coll_201_101,"@Test
+    public void testDoWhileClosure_oe_101_oe() {
+        try {
+            ClosureUtils.doWhileClosure(null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",ClosureUtilsTest::testDoWhileClosure_oe_101_oe
+coll_205_101,"@Test
+    public void testSwitchMapClosure_oe_101_oe() {
+        try {
+            ClosureUtils.switchMapClosure(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",ClosureUtilsTest::testSwitchMapClosure_oe_101_oe
+coll_250_101,"@Test
+    public void testTransformedPredicate_oe_101_oe() {
+        try {
+            PredicateUtils.transformedPredicate(null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",PredicateUtilsTest::testTransformedPredicate_oe_101_oe
+coll_299_101,"@Test
+    public void testSizeIsEmpty_Other_oe_101_oe() {
+        try {
+            CollectionUtils.sizeIsEmpty(""not a list"");
+            fail(""Expecting IllegalArgumentException"");
+        } catch (final IllegalArgumentException ex) {
+        }
+    }
+",CollectionUtilsTest::testSizeIsEmpty_Other_oe_101_oe
+coll_319_101,"@Test
+    public void predicatedCollection_oe_101_oe() {
+        try {
+            CollectionUtils.predicatedCollection(new ArrayList<Number>(), null);
+            fail(""Expecting NullPointerException for null predicate."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",CollectionUtilsTest::predicatedCollection_oe_101_oe
+coll_320_101,"@Test
+    public void isFull_oe_101_oe() {
+        try {
+            CollectionUtils.isFull(null);
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",CollectionUtilsTest::isFull_oe_101_oe
+coll_322_101,"@Test
+    public void maxSize_oe_101_oe() {
+        try {
+            CollectionUtils.maxSize(null);
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",CollectionUtilsTest::maxSize_oe_101_oe
+coll_324_101,"@Test
+    public void testRetainAll_oe_101_oe() {
+        try {
+            CollectionUtils.retainAll(null, null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+        } // this is what we want
+    }
+",CollectionUtilsTest::testRetainAll_oe_101_oe
+coll_325_101,"@Test
+    public void testRemoveAll_oe_101_oe() {
+        try {
+            CollectionUtils.removeAll(null, null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+        } // this is what we want
+    }
+",CollectionUtilsTest::testRemoveAll_oe_101_oe
+coll_326_101,"@Test
+    public void testTransformedCollection_oe_101_oe() {
+        try {
+            CollectionUtils.transformingCollection(new ArrayList<>(), null);
+            fail(""Expecting NullPointerException for null transformer."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",CollectionUtilsTest::testTransformedCollection_oe_101_oe
+coll_328_101,"@Test
+    @Deprecated
+    public void testSynchronizedCollection_oe_101_oe() {
+        try {
+            CollectionUtils.synchronizedCollection(null);
+            fail(""Expecting NullPointerException for null collection."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",CollectionUtilsTest::testSynchronizedCollection_oe_101_oe
+coll_329_101,"@Test
+    @Deprecated
+    public void testUnmodifiableCollection_oe_101_oe() {
+        try {
+            CollectionUtils.unmodifiableCollection(null);
+            fail(""Expecting NullPointerException for null collection."");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+",CollectionUtilsTest::testUnmodifiableCollection_oe_101_oe
+coll_344_101,"@Test
+    public void testRemoveAllWithEquator_oe_101_oe() {
+        try {
+            CollectionUtils.removeAll(null, null, DefaultEquator.defaultEquator());
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+        } // this is what we want
+    }
+",CollectionUtilsTest::testRemoveAllWithEquator_oe_101_oe
+coll_345_101,"@Test
+    public void testRetainAllWithEquator_oe_101_oe() {
+        try {
+            CollectionUtils.retainAll(null, null, null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+        } // this is what we want
+    }
+",CollectionUtilsTest::testRetainAllWithEquator_oe_101_oe
+coll_349_101,"@Test
+    public void testAsIterableNull_oe_101_oe() {
+        try {
+            IteratorUtils.asIterable(null);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+",IteratorUtilsTest::testAsIterableNull_oe_101_oe
+coll_351_101,"@Test
+    public void testAsMultipleIterableNull_oe_101_oe() {
+        try {
+            IteratorUtils.asMultipleUseIterable(null);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+",IteratorUtilsTest::testAsMultipleIterableNull_oe_101_oe
+coll_352_101,"@Test
+    public void testCollatedIterator_oe_101_oe() {
+        try {
+            IteratorUtils.collatedIterator(null, collectionOdd.iterator(), null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",IteratorUtilsTest::testCollatedIterator_oe_101_oe
+coll_352_102,"@Test
+    public void testCollatedIterator_oe_102_oe() {
+        try {
+            IteratorUtils.collatedIterator(null, null, collectionEven.iterator());
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",IteratorUtilsTest::testCollatedIterator_oe_102_oe
+coll_353_101,"@Test
+    public void testEmptyIterator_oe_101_oe() {
+        try {
+            IteratorUtils.EMPTY_ITERATOR.next();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+    }
+",IteratorUtilsTest::testEmptyIterator_oe_101_oe
+coll_353_102,"@Test
+    public void testEmptyIterator_oe_102_oe() {
+        try {
+            IteratorUtils.EMPTY_ITERATOR.remove();
+            fail();
+        } catch (final IllegalStateException ex) {}
+    }
+",IteratorUtilsTest::testEmptyIterator_oe_102_oe
+coll_354_101,"@Test
+    public void testEmptyListIterator_oe_101_oe() {
+        try {
+            IteratorUtils.EMPTY_LIST_ITERATOR.next();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+    }
+",IteratorUtilsTest::testEmptyListIterator_oe_101_oe
+coll_354_102,"@Test
+    public void testEmptyListIterator_oe_102_oe() {
+        try {
+            IteratorUtils.EMPTY_LIST_ITERATOR.previous();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+    }
+",IteratorUtilsTest::testEmptyListIterator_oe_102_oe
+coll_354_103,"@Test
+    public void testEmptyListIterator_oe_103_oe() {
+        try {
+            IteratorUtils.EMPTY_LIST_ITERATOR.remove();
+            fail();
+        } catch (final IllegalStateException ex) {}
+    }
+",IteratorUtilsTest::testEmptyListIterator_oe_103_oe
+coll_354_104,"@Test
+    public void testEmptyListIterator_oe_104_oe() {
+        try {
+            IteratorUtils.emptyListIterator().set(null);
+            fail();
+        } catch (final IllegalStateException ex) {}
+    }
+",IteratorUtilsTest::testEmptyListIterator_oe_104_oe
+coll_354_105,"@Test
+    public void testEmptyListIterator_oe_105_oe() {
+        try {
+            IteratorUtils.emptyListIterator().add(null);
+            fail();
+        } catch (final UnsupportedOperationException ex) {}
+    }
+",IteratorUtilsTest::testEmptyListIterator_oe_105_oe
+coll_364_101,"@Test
+    public void testIndexOf_oe_101_oe() {
+        try {
+            IteratorUtils.indexOf(iterableA.iterator(), null);
+            fail(""expecting NullPointerException"");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+",IteratorUtilsTest::testIndexOf_oe_101_oe
+coll_367_101,"@Test
+    public void testToArray_oe_101_oe() {
+        try {
+        	IteratorUtils.toArray(null);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+",IteratorUtilsTest::testToArray_oe_101_oe
+coll_368_102,"@Test
+    public void testToArray2_oe_102_oe() {
+        try {
+        	IteratorUtils.toArray(null, String.class);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+",IteratorUtilsTest::testToArray2_oe_102_oe
+coll_371_101,"@Test
+    public void testToListIteratorNull_oe_101_oe() {
+        try {
+            IteratorUtils.toListIterator(null);
+            fail(""Expecting NullPointerException"");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+",IteratorUtilsTest::testToListIteratorNull_oe_101_oe
+coll_377_102,"@Test
+    public void testUnmodifiableMultiSet_oe_102_oe() {
+        try {
+            MultiSetUtils.unmodifiableMultiSet(null);
+            fail(""Expecting NPE"");
+        } catch (final NullPointerException e) {
+        }
+    }
+",MultiSetUtilsTest::testUnmodifiableMultiSet_oe_102_oe
+coll_379_102,"@Test
+    public void testPredicatedMultiSet_oe_102_oe() {
+        try {
+            MultiSetUtils.predicatedMultiSet(multiSet, null);
+            fail(""Expecting NPE"");
+        } catch (final NullPointerException e) {
+        }
+    }
+",MultiSetUtilsTest::testPredicatedMultiSet_oe_102_oe
+coll_391_101,"@Test
+    public void testConstructorEx_oe_101_oe() throws Exception {
+        try {
+            new LoopingListIterator<>(null);
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",LoopingListIteratorTest::testConstructorEx_oe_101_oe
+coll_411_101,"@Test
+    public void testNegativeOffset_oe_101_oe() {
+        try {
+            new SkippingIterator<>(testList.iterator(), -1);
+            fail(""Expected IllegalArgumentException."");
+        } catch (final IllegalArgumentException iae) { /* Success case */
+        }
+    }
+",SkippingIteratorTest::testNegativeOffset_oe_101_oe
+coll_426_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableMapIterator.unmodifiableMapIterator(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableMapIteratorTest::testDecorateFactory_oe_101_oe
+coll_442_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableListIterator.umodifiableListIterator(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableListIteratorTest::testDecorateFactory_oe_101_oe
+coll_451_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableIterator.unmodifiableIterator(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableIteratorTest::testDecorateFactory_oe_101_oe
+coll_459_101,"public void testNullArray_oe_101_oe() {
+        try {
+            makeArrayIterator(null);
+
+            fail(""Constructor should throw a NullPointerException when constructed with a null array"");
+        } catch (final NullPointerException e) {
+            // expected
+        }
+    }
+",ObjectArrayIteratorTest::testNullArray_oe_101_oe
+coll_462_101,"public void testNullArray_oe_101_oe() {
+        try {
+            new ArrayIterator<>(null);
+            fail(""Constructor should throw a NullPointerException when constructed with a null array"");
+        } catch (final NullPointerException e) {
+            // expected
+        }
+    }
+",ArrayIteratorTest::testNullArray_oe_101_oe
+coll_466_101,"public void testNullConstructor_oe_101_oe(){
+        try{
+            new NodeListIterator((Node) null);
+            fail(""NullPointerException expected!"");
+        }catch(final NullPointerException e){
+            // expected.
+        }
+    }
+",NodeListIteratorTest::testNullConstructor_oe_101_oe
+coll_513_101,"@Test
+    public void testNegativeOffset_oe_101_oe() {
+        try {
+            new BoundedIterator<>(testList.iterator(), -1, 4);
+            fail(""Expected IllegalArgumentException."");
+        } catch (final IllegalArgumentException iae) { /* Success case */
+        }
+    }
+",BoundedIteratorTest::testNegativeOffset_oe_101_oe
+coll_514_101,"@Test
+    public void testNegativeMax_oe_101_oe() {
+        try {
+            new BoundedIterator<>(testList.iterator(), 3, -1);
+            fail(""Expected IllegalArgumentException."");
+        } catch (final IllegalArgumentException iae) { /* Success case */
+        }
+    }
+",BoundedIteratorTest::testNegativeMax_oe_101_oe
+coll_528_101,"@Test
+    public void testConstructorEx_oe_101_oe() throws Exception {
+        try {
+            new LoopingIterator<>(null);
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",LoopingIteratorTest::testConstructorEx_oe_101_oe
+coll_537_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableOrderedMapIteratorTest::testDecorateFactory_oe_101_oe
+coll_576_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableBoundedCollection.unmodifiableBoundedCollection(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableBoundedCollectionTest::testDecorateFactory_oe_101_oe
+coll_619_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableCollection.unmodifiableCollection(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableCollectionTest::testDecorateFactory_oe_101_oe
+coll_663_101,"public void testDecoratorFactoryNullMap_oe_101_oe() {
+        try {
+            UnmodifiableMultiValuedMap.unmodifiableMultiValuedMap(null);
+            fail(""map must not be null"");
+        } catch (final NullPointerException e) {
+            // expected
+        }
+    }
+",UnmodifiableMultiValuedMapTest::testDecoratorFactoryNullMap_oe_101_oe
+coll_678_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableTrie.unmodifiableTrie(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableTrieTest::testDecorateFactory_oe_101_oe
+coll_699_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableQueue.unmodifiableQueue(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableQueueTest::testDecorateFactory_oe_101_oe
+coll_742_101,"public void testDecorate_oe_101_oe() {
+        try {
+            decorateBag(new TreeBag<T>(), null);
+            fail(""Expecting NullPointerException for null predicate"");
+        } catch (final NullPointerException e) {}
+    }
+",PredicatedSortedBagTest::testDecorate_oe_101_oe
+coll_742_102,"public void testDecorate_oe_102_oe() {
+        try {
+            decorateBag(nullBag, stringPredicate());
+            fail(""Expecting NullPointerException for null bag"");
+        } catch (final NullPointerException e) {}
+    }
+",PredicatedSortedBagTest::testDecorate_oe_102_oe
+coll_750_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableSortedBag.unmodifiableSortedBag(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableSortedBagTest::testDecorateFactory_oe_101_oe
+coll_757_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableBag.unmodifiableBag(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableBagTest::testDecorateFactory_oe_101_oe
+coll_780_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableBidiMap.unmodifiableBidiMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableBidiMapTest::testDecorateFactory_oe_101_oe
+coll_794_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableSortedBidiMap.unmodifiableSortedBidiMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableSortedBidiMapTest::testDecorateFactory_oe_101_oe
+coll_796_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableOrderedBidiMap.unmodifiableOrderedBidiMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableOrderedBidiMapTest::testDecorateFactory_oe_101_oe
+coll_834_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableMultiSet.unmodifiableMultiSet(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableMultiSetTest::testDecorateFactory_oe_101_oe
+coll_1004_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableList.unmodifiableList(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableListTest::testDecorateFactory_oe_101_oe
+coll_1028_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableNavigableSet.unmodifiableNavigableSet(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableNavigableSetTest::testDecorateFactory_oe_101_oe
+coll_1034_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableSortedSet.unmodifiableSortedSet(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableSortedSetTest::testDecorateFactory_oe_101_oe
+coll_1042_101,"public void testDecorator_oe_101_oe() {
+        try {
+            ListOrderedSet.listOrderedSet((List<E>) null);
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",ListOrderedSetTest::testDecorator_oe_101_oe
+coll_1042_102,"public void testDecorator_oe_102_oe() {
+        try {
+            ListOrderedSet.listOrderedSet((Set<E>) null);
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",ListOrderedSetTest::testDecorator_oe_102_oe
+coll_1042_103,"public void testDecorator_oe_103_oe() {
+        try {
+            ListOrderedSet.listOrderedSet(null, null);
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",ListOrderedSetTest::testDecorator_oe_103_oe
+coll_1042_104,"public void testDecorator_oe_104_oe() {
+        try {
+            ListOrderedSet.listOrderedSet(new HashSet<E>(), null);
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",ListOrderedSetTest::testDecorator_oe_104_oe
+coll_1042_105,"public void testDecorator_oe_105_oe() {
+        try {
+            ListOrderedSet.listOrderedSet(null, new ArrayList<E>());
+            fail();
+        } catch (final NullPointerException ex) {
+        }
+    }
+",ListOrderedSetTest::testDecorator_oe_105_oe
+coll_1046_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableSet.unmodifiableSet(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableSetTest::testDecorateFactory_oe_101_oe
+coll_1094_101,"public void testCtors_oe_101_oe() {
+        try {
+            new LRUMap<K, V>(0);
+            fail(""maxSize must be positive"");
+        } catch(final IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",LRUMapTest::testCtors_oe_101_oe
+coll_1094_102,"public void testCtors_oe_102_oe() {
+        try {
+            new LRUMap<K, V>(-1, 12, 0.75f, false);
+            fail(""maxSize must be positive"");
+        } catch(final IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",LRUMapTest::testCtors_oe_102_oe
+coll_1094_103,"public void testCtors_oe_103_oe() {
+        try {
+            new LRUMap<K, V>(10, -1);
+            fail(""initialSize must not be negative"");
+        } catch(final IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",LRUMapTest::testCtors_oe_103_oe
+coll_1094_104,"public void testCtors_oe_104_oe() {
+        try {
+            new LRUMap<K, V>(10, 12);
+            fail(""initialSize must not be larger than maxSize"");
+        } catch(final IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",LRUMapTest::testCtors_oe_104_oe
+coll_1094_105,"public void testCtors_oe_105_oe() {
+        try {
+            new LRUMap<K, V>(10, -1, 0.75f, false);
+            fail(""initialSize must not be negative"");
+        } catch(final IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",LRUMapTest::testCtors_oe_105_oe
+coll_1094_106,"public void testCtors_oe_106_oe() {
+        try {
+            new LRUMap<K, V>(10, 12, 0.75f, false);
+            fail(""initialSize must not be larger than maxSize"");
+        } catch(final IllegalArgumentException ex) {
+            // expected
+        }
+    }
+",LRUMapTest::testCtors_oe_106_oe
+coll_1205_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableOrderedMap.unmodifiableOrderedMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableOrderedMapTest::testDecorateFactory_oe_101_oe
+coll_1259_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableMap.unmodifiableMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableMapTest::testDecorateFactory_oe_101_oe
+coll_1267_101,"public void testConstructors_oe_101_oe() {
+        try {
+            final Map<String, String> map = null;
+            new PassiveExpiringMap<>(map);
+            fail(""constructor - exception should have been thrown."");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+",PassiveExpiringMapTest::testConstructors_oe_101_oe
+coll_1267_102,"public void testConstructors_oe_102_oe() {
+        try {
+            final ExpirationPolicy<String, String> policy = null;
+            new PassiveExpiringMap<>(policy);
+            fail(""constructor - exception should have been thrown."");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+",PassiveExpiringMapTest::testConstructors_oe_102_oe
+coll_1267_103,"public void testConstructors_oe_103_oe() {
+        try {
+            final TimeUnit unit = null;
+            new PassiveExpiringMap<String, String>(10L, unit);
+            fail(""constructor - exception should have been thrown."");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+",PassiveExpiringMapTest::testConstructors_oe_103_oe
+coll_1293_101,"public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableSortedMap.unmodifiableSortedMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+",UnmodifiableSortedMapTest::testDecorateFactory_oe_101_oe

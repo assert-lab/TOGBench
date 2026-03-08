@@ -189,6 +189,7 @@ class CombinationsTest_OE25Dev {
         final int n = 5;
         final int k = 3;
         final Comparator<int[]> comp = Combinations.of(n, k).comparator();
+        // removed other assertion
         Assertions.assertEquals(-1, comp.compare(new int[] {0, 1, 4}, new int[] {0, 2, 4}));
     }
 
@@ -197,6 +198,8 @@ class CombinationsTest_OE25Dev {
         final int n = 5;
         final int k = 3;
         final Comparator<int[]> comp = Combinations.of(n, k).comparator();
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, comp.compare(new int[] {1, 3, 4}, new int[] {1, 3, 4}));
     }
 
@@ -213,6 +216,7 @@ class CombinationsTest_OE25Dev {
         final int n = 5;
         final int k = 3;
         final Comparator<int[]> comp = Combinations.of(n, k).comparator();
+        // removed other assertion
         Assertions.assertEquals(-1, comp.compare(new int[] {0, 4, 1}, new int[] {0, 4, 2}));
     }
 
@@ -221,6 +225,8 @@ class CombinationsTest_OE25Dev {
         final int n = 5;
         final int k = 3;
         final Comparator<int[]> comp = Combinations.of(n, k).comparator();
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, comp.compare(new int[] {1, 4, 3}, new int[] {1, 3, 4}));
     }
 
@@ -233,6 +239,7 @@ class CombinationsTest_OE25Dev {
     @Test
     void testEmptyCombination_2_oe() {
         final Iterator<int[]> iter = Combinations.of(12345, 0).iterator();
+        // removed other assertion
         final int[] c = iter.next();
         Assertions.assertEquals(0, c.length);
     }
@@ -240,7 +247,9 @@ class CombinationsTest_OE25Dev {
     @Test
     void testEmptyCombination_3_oe() {
         final Iterator<int[]> iter = Combinations.of(12345, 0).iterator();
+        // removed other assertion
         final int[] c = iter.next();
+        // removed other assertion
         Assertions.assertFalse(iter.hasNext());
     }
 
@@ -255,6 +264,7 @@ class CombinationsTest_OE25Dev {
     void testFullSetCombination_2_oe() {
         final int n = 67;
         final Iterator<int[]> iter = Combinations.of(n, n).iterator();
+        // removed other assertion
         final int[] c = iter.next();
         Assertions.assertEquals(n, c.length);
     }
@@ -263,7 +273,9 @@ class CombinationsTest_OE25Dev {
     void testFullSetCombination_3_oe() {
         final int n = 67;
         final Iterator<int[]> iter = Combinations.of(n, n).iterator();
+        // removed other assertion
         final int[] c = iter.next();
+        // removed other assertion
 
         for (int i = 0; i < n; i++) {
             Assertions.assertEquals(i, c[i]);
@@ -274,9 +286,12 @@ class CombinationsTest_OE25Dev {
     void testFullSetCombination_4_oe() {
         final int n = 67;
         final Iterator<int[]> iter = Combinations.of(n, n).iterator();
+        // removed other assertion
         final int[] c = iter.next();
+        // removed other assertion
 
         for (int i = 0; i < n; i++) {
+            // removed other assertion
         }
 
         Assertions.assertFalse(iter.hasNext());

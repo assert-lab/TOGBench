@@ -44,6 +44,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
     public void testParseFieldsOnAIX_1_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -57,6 +58,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
     public void testParseFieldsOnAIX_2_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -65,11 +67,13 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("-rw-r-----   1 ravensm  sca          814 02 Mar 16:27 ZMIR2.m");
 
+        // removed other assertion
         assertFalse("Is not a directory.", f.isDirectory());
     }
 
     public void testParseFieldsOnAIX_3_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -78,12 +82,15 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("-rw-r-----   1 ravensm  sca          814 02 Mar 16:27 ZMIR2.m");
 
+        // removed other assertion
+        // removed other assertion
 
         assertTrue("Should have user read permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.READ_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_4_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -92,12 +99,16 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("-rw-r-----   1 ravensm  sca          814 02 Mar 16:27 ZMIR2.m");
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue("Should have user write permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.WRITE_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_5_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -106,12 +117,17 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("-rw-r-----   1 ravensm  sca          814 02 Mar 16:27 ZMIR2.m");
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("Should NOT have user execute permission.",f .hasPermission(FTPFile.USER_ACCESS,FTPFile.EXECUTE_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_6_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -120,12 +136,18 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("-rw-r-----   1 ravensm  sca          814 02 Mar 16:27 ZMIR2.m");
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Should have group read permission.",f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.READ_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_7_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -134,12 +156,19 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("-rw-r-----   1 ravensm  sca          814 02 Mar 16:27 ZMIR2.m");
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Should NOT have group write permission.",f .hasPermission(FTPFile.GROUP_ACCESS,FTPFile.WRITE_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_8_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -148,12 +177,20 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("-rw-r-----   1 ravensm  sca          814 02 Mar 16:27 ZMIR2.m");
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Should NOT have group execute permission.",f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.EXECUTE_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_9_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -162,12 +199,21 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("-rw-r-----   1 ravensm  sca          814 02 Mar 16:27 ZMIR2.m");
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Should NOT have world read permission.",f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.READ_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_10_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -176,12 +222,22 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("-rw-r-----   1 ravensm  sca          814 02 Mar 16:27 ZMIR2.m");
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Should NOT have world write permission.",f .hasPermission(FTPFile.WORLD_ACCESS,FTPFile.WRITE_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_11_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -190,12 +246,23 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("-rw-r-----   1 ravensm  sca          814 02 Mar 16:27 ZMIR2.m");
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Should NOT have world execute permission.",f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.EXECUTE_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_12_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -204,13 +271,25 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("-rw-r-----   1 ravensm  sca          814 02 Mar 16:27 ZMIR2.m");
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals(1, f.getHardLinkCount());
     }
 
     public void testParseFieldsOnAIX_13_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -219,14 +298,27 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("-rw-r-----   1 ravensm  sca          814 02 Mar 16:27 ZMIR2.m");
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         assertEquals("ravensm", f.getUser());
     }
 
     public void testParseFieldsOnAIX_14_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -235,14 +327,28 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("-rw-r-----   1 ravensm  sca          814 02 Mar 16:27 ZMIR2.m");
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("sca", f.getGroup());
     }
 
     public void testParseFieldsOnAIX_15_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -251,15 +357,30 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("-rw-r-----   1 ravensm  sca          814 02 Mar 16:27 ZMIR2.m");
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("ZMIR2.m", f.getName());
     }
 
     public void testParseFieldsOnAIX_16_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -268,15 +389,31 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("-rw-r-----   1 ravensm  sca          814 02 Mar 16:27 ZMIR2.m");
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals(814, f.getSize());
     }
 
     public void testParseFieldsOnAIX_17_oe() {
 
+        // Set a date format for this server type
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr("dd MMM HH:mm");
 
@@ -285,10 +422,26 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("-rw-r-----   1 ravensm  sca          814 02 Mar 16:27 ZMIR2.m");
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final Calendar cal = Calendar.getInstance();
 
@@ -298,6 +451,8 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         cal.set(Calendar.MINUTE, 27);
         cal.set(Calendar.SECOND, 0);
 
+        // With no year specified, it defaults to 1970
+        // TODO this is probably a bug - it should default to the current year
         cal.set(Calendar.YEAR, 1970);
 
         assertEquals(df.format(cal.getTime()),df.format(f.getTimestamp().getTime()));
@@ -326,6 +481,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
         assertFalse("Is not a directory.", f.isDirectory());
     }
 
@@ -339,6 +495,8 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("Is a symbolic link", f.isSymbolicLink());
     }
 
@@ -352,6 +510,9 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue("Should have user read permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.READ_PERMISSION));
     }
@@ -366,7 +527,11 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue("Should have user write permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.WRITE_PERMISSION));
     }
 
@@ -380,7 +545,12 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("Should have user execute permission.",f .hasPermission(FTPFile.USER_ACCESS,FTPFile.EXECUTE_PERMISSION));
     }
 
@@ -394,7 +564,13 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Should have group read permission.",f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.READ_PERMISSION));
     }
 
@@ -408,7 +584,14 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Should have group write permission.",f .hasPermission(FTPFile.GROUP_ACCESS,FTPFile.WRITE_PERMISSION));
     }
 
@@ -422,7 +605,15 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Should have group execute permission.",f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.EXECUTE_PERMISSION));
     }
 
@@ -436,7 +627,16 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Should have world read permission.",f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.READ_PERMISSION));
     }
 
@@ -450,7 +650,17 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Should have world write permission.",f .hasPermission(FTPFile.WORLD_ACCESS,FTPFile.WRITE_PERMISSION));
     }
 
@@ -464,7 +674,18 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Should have world execute permission.",f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.EXECUTE_PERMISSION));
     }
 
@@ -478,7 +699,19 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals(1, f.getHardLinkCount());
     }
@@ -493,8 +726,21 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         assertEquals("neeme", f.getUser());
     }
@@ -509,9 +755,23 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("neeme", f.getGroup());
     }
 
@@ -525,9 +785,24 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("macros", f.getName());
     }
@@ -542,10 +817,26 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals(23, f.getSize());
     }
 
@@ -559,10 +850,27 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         final FTPFile f = parser.parseFTPEntry("lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final Calendar cal = Calendar.getInstance();
 

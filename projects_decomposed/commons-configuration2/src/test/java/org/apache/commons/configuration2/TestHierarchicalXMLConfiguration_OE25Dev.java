@@ -161,6 +161,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
 
     @Test
     public void testRootElement_2_oe() throws Exception {
+        // removed other assertion
         config.setRootElementName("newRootName");
         assertEquals("newRootName", config.getRootElementName());
     }
@@ -190,6 +191,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         final FileHandler handler2 = new FileHandler(config);
         handler2.load(saveFile.toURI().toURL());
+        // removed other assertion
         assertEquals("I'm complex!", config.getProperty("element2.subelement.subsubelement"));
     }
 
@@ -204,6 +206,8 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         final FileHandler handler2 = new FileHandler(config);
         handler2.load(saveFile.toURI().toURL());
+        // removed other assertion
+        // removed other assertion
         assertEquals(8, config.getInt("test.short"));
     }
 
@@ -218,6 +222,9 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         final FileHandler handler2 = new FileHandler(config);
         handler2.load(saveFile.toURI().toURL());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("one", config.getString("list(0).item(0)[@name]"));
     }
 
@@ -232,6 +239,10 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         final FileHandler handler2 = new FileHandler(config);
         handler2.load(saveFile.toURI().toURL());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("two", config.getString("list(0).item(1)"));
     }
 
@@ -246,6 +257,11 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         final FileHandler handler2 = new FileHandler(config);
         handler2.load(saveFile.toURI().toURL());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("six", config.getString("list(1).sublist.item(1)"));
     }
 
@@ -264,6 +280,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         handler.setFile(new File(TEST_FILE3));
         handler.load();
 
+        // removed other assertion
         assertTrue(config.getString("mean").indexOf("And even longer") > 0);
     }
 
@@ -273,6 +290,8 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         handler.setFile(new File(TEST_FILE3));
         handler.load();
 
+        // removed other assertion
+        // removed other assertion
         config.clearProperty("test.entity[@name]");
         config.setProperty("element", "new value");
         config.setProperty("test(0)", "A <new> value");
@@ -297,6 +316,8 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         handler.setFile(new File(TEST_FILE3));
         handler.load();
 
+        // removed other assertion
+        // removed other assertion
         config.clearProperty("test.entity[@name]");
         config.setProperty("element", "new value");
         config.setProperty("test(0)", "A <new> value");
@@ -312,6 +333,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile.getAbsolutePath());
+        // removed other assertion
         assertEquals("1<2", config.getProperty("test.entity"));
     }
 
@@ -321,6 +343,8 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         handler.setFile(new File(TEST_FILE3));
         handler.load();
 
+        // removed other assertion
+        // removed other assertion
         config.clearProperty("test.entity[@name]");
         config.setProperty("element", "new value");
         config.setProperty("test(0)", "A <new> value");
@@ -336,6 +360,8 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile.getAbsolutePath());
+        // removed other assertion
+        // removed other assertion
         assertEquals("new value", config.getString("element"));
     }
 
@@ -345,6 +371,8 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         handler.setFile(new File(TEST_FILE3));
         handler.load();
 
+        // removed other assertion
+        // removed other assertion
         config.clearProperty("test.entity[@name]");
         config.setProperty("element", "new value");
         config.setProperty("test(0)", "A <new> value");
@@ -360,6 +388,9 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile.getAbsolutePath());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("A <new> value", config.getProperty("test(0)"));
     }
 
@@ -369,6 +400,8 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         handler.setFile(new File(TEST_FILE3));
         handler.load();
 
+        // removed other assertion
+        // removed other assertion
         config.clearProperty("test.entity[@name]");
         config.setProperty("element", "new value");
         config.setProperty("test(0)", "A <new> value");
@@ -384,6 +417,10 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile.getAbsolutePath());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals((short) 8, config.getShort("test(1).short"));
     }
 
@@ -393,6 +430,8 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         handler.setFile(new File(TEST_FILE3));
         handler.load();
 
+        // removed other assertion
+        // removed other assertion
         config.clearProperty("test.entity[@name]");
         config.setProperty("element", "new value");
         config.setProperty("test(0)", "A <new> value");
@@ -408,6 +447,11 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile.getAbsolutePath());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(9, config.getInt("test(1).int"));
     }
 
@@ -417,6 +461,8 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         handler.setFile(new File(TEST_FILE3));
         handler.load();
 
+        // removed other assertion
+        // removed other assertion
         config.clearProperty("test.entity[@name]");
         config.setProperty("element", "new value");
         config.setProperty("test(0)", "A <new> value");
@@ -432,6 +478,12 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile.getAbsolutePath());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("six", config.getProperty("list(1).sublist.item(1)"));
     }
 
@@ -441,6 +493,8 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         handler.setFile(new File(TEST_FILE3));
         handler.load();
 
+        // removed other assertion
+        // removed other assertion
         config.clearProperty("test.entity[@name]");
         config.setProperty("element", "new value");
         config.setProperty("test(0)", "A <new> value");
@@ -456,6 +510,13 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile.getAbsolutePath());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("seven", config.getProperty("list(1).sublist.item(2)"));
     }
 
@@ -465,6 +526,8 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         handler.setFile(new File(TEST_FILE3));
         handler.load();
 
+        // removed other assertion
+        // removed other assertion
         config.clearProperty("test.entity[@name]");
         config.setProperty("element", "new value");
         config.setProperty("test(0)", "A <new> value");
@@ -480,6 +543,14 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile.getAbsolutePath());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("yes", config.getProperty("clear"));
     }
 
@@ -489,6 +560,8 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         handler.setFile(new File(TEST_FILE3));
         handler.load();
 
+        // removed other assertion
+        // removed other assertion
         config.clearProperty("test.entity[@name]");
         config.setProperty("element", "new value");
         config.setProperty("test(0)", "A <new> value");
@@ -504,6 +577,15 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile.getAbsolutePath());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("now it's simple", config.getString("mean"));
     }
 
@@ -513,6 +595,8 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         handler.setFile(new File(TEST_FILE3));
         handler.load();
 
+        // removed other assertion
+        // removed other assertion
         config.clearProperty("test.entity[@name]");
         config.setProperty("element", "new value");
         config.setProperty("test(0)", "A <new> value");
@@ -528,6 +612,16 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile.getAbsolutePath());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("available", config.getString("[@topattr](0)"));
     }
 
@@ -537,6 +631,8 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         handler.setFile(new File(TEST_FILE3));
         handler.load();
 
+        // removed other assertion
+        // removed other assertion
         config.clearProperty("test.entity[@name]");
         config.setProperty("element", "new value");
         config.setProperty("test(0)", "A <new> value");
@@ -552,6 +648,17 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile.getAbsolutePath());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("successfull", config.getString("[@topattr_other]"));
     }
 
@@ -608,6 +715,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile);
+        // removed other assertion
         assertEquals("tests", config.getString("tables.table(0).name"));
     }
 
@@ -636,6 +744,8 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile);
+        // removed other assertion
+        // removed other assertion
         assertEquals("test_name", config.getString("tables.table(0).fields.field(1).name"));
     }
 
@@ -664,6 +774,9 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("int", config.getString("tables.table(1).fields.field(0).type"));
     }
 
@@ -692,6 +805,10 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(config.getBoolean("tables.table(1).fields.field(1)[@null]"));
     }
 
@@ -720,6 +837,11 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("tiger", config.getString("connection.passwd"));
     }
 
@@ -748,6 +870,12 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("system", config.getProperty("connection[@type]"));
     }
 
@@ -776,81 +904,136 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         config = new XMLConfiguration();
         handler = new FileHandler(config);
         handler.load(saveFile);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("myconfig", config.getRootElementName());
     }
 
     @Test
     public void testXmlNodeTypes_1_oe() throws Exception {
+        // Number of keys expected from test configuration file
         final int KEY_COUNT = 5;
 
+        // Load the configuration file
         final FileHandler handler = new FileHandler(config);
         handler.load(new File(TEST_FILE2).getAbsoluteFile().toURI().toURL());
 
+        // Validate comment in element ignored
         assertEquals("Comment in element must not change element value.", "Case1Text", config.getString("case1"));
     }
 
     @Test
     public void testXmlNodeTypes_2_oe() throws Exception {
+        // Number of keys expected from test configuration file
         final int KEY_COUNT = 5;
 
+        // Load the configuration file
         final FileHandler handler = new FileHandler(config);
         handler.load(new File(TEST_FILE2).getAbsoluteFile().toURI().toURL());
 
+        // Validate comment in element ignored
+        // removed other assertion
 
+        // Validate sibling comment ignored
         assertEquals("Comment as sibling must not change element value.", "Case2Text", config.getString("case2.child"));
     }
 
     @Test
     public void testXmlNodeTypes_3_oe() throws Exception {
+        // Number of keys expected from test configuration file
         final int KEY_COUNT = 5;
 
+        // Load the configuration file
         final FileHandler handler = new FileHandler(config);
         handler.load(new File(TEST_FILE2).getAbsoluteFile().toURI().toURL());
 
+        // Validate comment in element ignored
+        // removed other assertion
 
+        // Validate sibling comment ignored
+        // removed other assertion
 
+        // Validate comment ignored, CDATA processed
         assertEquals("Comment and use of CDATA must not change element value.", "Case3Text", config.getString("case3"));
     }
 
     @Test
     public void testXmlNodeTypes_4_oe() throws Exception {
+        // Number of keys expected from test configuration file
         final int KEY_COUNT = 5;
 
+        // Load the configuration file
         final FileHandler handler = new FileHandler(config);
         handler.load(new File(TEST_FILE2).getAbsoluteFile().toURI().toURL());
 
+        // Validate comment in element ignored
+        // removed other assertion
 
+        // Validate sibling comment ignored
+        // removed other assertion
 
+        // Validate comment ignored, CDATA processed
+        // removed other assertion
 
+        // Validate comment and processing instruction ignored
         assertEquals("Comment and use of PI must not change element value.", "Case4Text", config.getString("case4"));
     }
 
     @Test
     public void testXmlNodeTypes_5_oe() throws Exception {
+        // Number of keys expected from test configuration file
         final int KEY_COUNT = 5;
 
+        // Load the configuration file
         final FileHandler handler = new FileHandler(config);
         handler.load(new File(TEST_FILE2).getAbsoluteFile().toURI().toURL());
 
+        // Validate comment in element ignored
+        // removed other assertion
 
+        // Validate sibling comment ignored
+        // removed other assertion
 
+        // Validate comment ignored, CDATA processed
+        // removed other assertion
 
+        // Validate comment and processing instruction ignored
+        // removed other assertion
 
+        // Validate comment ignored in parent attribute
         assertEquals("Comment must not change attribute node value.", "Case5Text", config.getString("case5[@attr]"));
     }
 
     @Test
     public void testXmlNodeTypes_6_oe() throws Exception {
+        // Number of keys expected from test configuration file
         final int KEY_COUNT = 5;
 
+        // Load the configuration file
         final FileHandler handler = new FileHandler(config);
         handler.load(new File(TEST_FILE2).getAbsoluteFile().toURI().toURL());
 
+        // Validate comment in element ignored
+        // removed other assertion
 
+        // Validate sibling comment ignored
+        // removed other assertion
 
+        // Validate comment ignored, CDATA processed
+        // removed other assertion
 
+        // Validate comment and processing instruction ignored
+        // removed other assertion
 
+        // Validate comment ignored in parent attribute
+        // removed other assertion
 
+        // Validate non-text nodes haven't snuck in as keys
         final Iterator<String> iter = config.getKeys();
         int count = 0;
         while (iter.hasNext()) {

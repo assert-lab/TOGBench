@@ -244,10 +244,13 @@ public class ReactiveStreamsErrorTest_OE25Dev extends AbstractBasicTest {
         super.onSubscribe(s);
         new Thread(() -> {
           try {
+            // chunk 1
             s.request(1);
 
+            // there will be no read for longer than the read timeout
             Thread.sleep(1_500);
 
+            // read the rest
             s.request(Long.MAX_VALUE);
           } catch (InterruptedException e) {
             throw new RuntimeException(e);
@@ -284,6 +287,7 @@ public class ReactiveStreamsErrorTest_OE25Dev extends AbstractBasicTest {
 
     try {
       execute(responseHandler, bodyPublisher -> bodyPublisher.subscribe(subscriber));
+      // removed other assertion
     } catch (ExecutionException e) {
       expectReadTimeout(e.getCause());
     }
@@ -323,6 +327,7 @@ public class ReactiveStreamsErrorTest_OE25Dev extends AbstractBasicTest {
 
     try {
       execute(responseHandler, bodyPublisher -> bodyPublisher.subscribe(subscriber));
+      // removed other assertion
     } catch (ExecutionException e) {
       expectRequestTimeout(e.getCause());
     }
@@ -355,6 +360,7 @@ public class ReactiveStreamsErrorTest_OE25Dev extends AbstractBasicTest {
     Throwable error = null;
     try {
       execute(responseHandler, bodyPublisher -> bodyPublisher.subscribe(subscriber));
+      // removed other assertion
     } catch (ExecutionException e) {
       error = e.getCause();
       assertTrue(error instanceof RemotelyClosedException, "Unexpected error: " + e);
@@ -383,8 +389,10 @@ public class ReactiveStreamsErrorTest_OE25Dev extends AbstractBasicTest {
     Throwable error = null;
     try {
       execute(responseHandler, bodyPublisher -> bodyPublisher.subscribe(subscriber));
+      // removed other assertion
     } catch (ExecutionException e) {
       error = e.getCause();
+      // removed other assertion
     }
 
     subscriber.await();
@@ -414,12 +422,15 @@ public class ReactiveStreamsErrorTest_OE25Dev extends AbstractBasicTest {
     Throwable error = null;
     try {
       execute(responseHandler, bodyPublisher -> bodyPublisher.subscribe(subscriber));
+      // removed other assertion
     } catch (ExecutionException e) {
       error = e.getCause();
+      // removed other assertion
     }
 
     subscriber.await();
 
+    // removed other assertion
     assertEquals(subscriber.elements.size(), 1);
   }
 

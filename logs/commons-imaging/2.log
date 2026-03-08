@@ -1,0 +1,133 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< org.apache.commons:commons-imaging >-----------------
+[INFO] Building Apache Commons Imaging 1.0-alpha3
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-imaging ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-imaging ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-imaging ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-imaging ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-imaging ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-imaging ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-imaging ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-imaging ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging
+[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772768506191
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-imaging ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-imaging ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 392 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-imaging ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-imaging ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 20 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-imaging ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 323 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/xmp/XmpUpdateTest_OE25Dev.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/xmp/XmpUpdateTest_OE25Dev.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.21:check (checkAPIcompatibility) @ commons-imaging ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-imaging ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/target/jacoco.exec -Xmx512m
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ commons-imaging ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.imaging.color.ColorCmyTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in org.apache.commons.imaging.color.ColorCmyTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorXyzTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.imaging.color.ColorXyzTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorHsvTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorHsvTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorHslTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.imaging.color.ColorHslTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorCieLabTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.imaging.color.ColorCieLabTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorCieLuvTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.imaging.color.ColorCieLuvTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorHunterLabTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.imaging.color.ColorHunterLabTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorCmykTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.imaging.color.ColorCmykTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorCieLchTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.imaging.color.ColorCieLchTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.TiffRasterStatisticsTest_OE25Dev
+[ERROR] Tests run: 13, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in org.apache.commons.imaging.formats.tiff.TiffRasterStatisticsTest_OE25Dev
+[ERROR] testGetMaxValue_1_oe  Time elapsed: 0.008 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <109> but was: <109.0>
+	at org.apache.commons.imaging.formats.tiff.TiffRasterStatisticsTest_OE25Dev.testGetMaxValue_1_oe(TiffRasterStatisticsTest_OE25Dev.java:166)
+
+[ERROR] testGetMaxValue_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <108> but was: <108.0>
+	at org.apache.commons.imaging.formats.tiff.TiffRasterStatisticsTest_OE25Dev.testGetMaxValue_2_oe(TiffRasterStatisticsTest_OE25Dev.java:172)
+
+[ERROR] testGetExcludedValue_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <109> but was: <109.0>
+	at org.apache.commons.imaging.formats.tiff.TiffRasterStatisticsTest_OE25Dev.testGetExcludedValue_2_oe(TiffRasterStatisticsTest_OE25Dev.java:202)
+
+[INFO] Running org.apache.commons.imaging.formats.tiff.TiffRasterDataTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.TiffRasterDataTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.TiffRasterDataIntTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.TiffRasterDataIntTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterRgbTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterRgbTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.TestImageInfo_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.imaging.TestImageInfo_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   TiffRasterStatisticsTest_OE25Dev.testGetExcludedValue_2_oe:202 expected: <109> but was: <109.0>
+[ERROR]   TiffRasterStatisticsTest_OE25Dev.testGetMaxValue_1_oe:166 expected: <109> but was: <109.0>
+[ERROR]   TiffRasterStatisticsTest_OE25Dev.testGetMaxValue_2_oe:172 expected: <108> but was: <108.0>
+[INFO] 
+[ERROR] Tests run: 77, Failures: 3, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.993 s
+[INFO] Finished at: 2026-03-05T21:41:51-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project commons-imaging: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

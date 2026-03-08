@@ -192,11 +192,11 @@ def find_method_in_project(project_root: Path, method_name: str, test_file_path:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--project_root", required=True)
-    ap.add_argument("--dataset_dir", default="dataset")
+    ap.add_argument("--dataset_dir", default="dataset_custom")
     ap.add_argument("--inputs_custom", default="inputs_custom.csv")
     ap.add_argument("--meta_custom", default="meta_custom.csv")
-    ap.add_argument("--out_inputs", default="inputs_custom_enriched.csv")
-    ap.add_argument("--out_meta", default="meta_custom_enriched.csv")
+    ap.add_argument("--out_inputs", default="inputs_custom_define.csv")
+    ap.add_argument("--out_meta", default="meta_custom_define.csv")
     args = ap.parse_args()
 
     project_root = Path(args.project_root).resolve()

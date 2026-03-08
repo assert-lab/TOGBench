@@ -66,6 +66,7 @@ public class RgbeReadTest_OE25Dev extends RgbeBaseTest {
             Debug.debug("imageFile", imageFile);
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            // removed other assertion
 
             final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
             assertNotNull(imageInfo);
@@ -83,8 +84,10 @@ public class RgbeReadTest_OE25Dev extends RgbeBaseTest {
             Debug.debug("imageFile", imageFile);
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            // removed other assertion
 
             final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+            // removed other assertion
 
             final BufferedImage image = Imaging.getBufferedImage(imageFile);
             assertNotNull(image);
@@ -93,6 +96,7 @@ public class RgbeReadTest_OE25Dev extends RgbeBaseTest {
 
     @Test
     public void testErrorDecompressingInvalidFile_1_oe() throws Exception {
+        // From IMAGING-219
         final File inputFile = new File(
                 RgbeReadTest.class.getResource("/IMAGING-219/timeout-9713502c9c371f1654b493650c16ab17c0444369.hdr")
                         .getFile());

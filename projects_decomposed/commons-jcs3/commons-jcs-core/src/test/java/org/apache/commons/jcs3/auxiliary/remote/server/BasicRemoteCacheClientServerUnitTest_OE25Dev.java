@@ -247,6 +247,7 @@ public class BasicRemoteCacheClientServerUnitTest_OE25Dev extends Assert
     public void test1SinglePut_3_oe()
             throws Exception
             {
+        // SETUP
         final MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
 
         final RemoteCacheAttributes attributes = new RemoteCacheAttributes();
@@ -257,13 +258,17 @@ public class BasicRemoteCacheClientServerUnitTest_OE25Dev extends Assert
         final RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
         final AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
 
+        // DO WORK
         final int numPutsPrior = server.getPutCount();
         final ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), "key", "value");
         cache.update(element);
         SleepUtil.sleepAtLeast(200);
 
+        // VERIFY
         try
         {
+            // removed other assertion
+            // removed other assertion
         }
         catch (final junit.framework.AssertionFailedError e)
         {
@@ -272,8 +277,10 @@ public class BasicRemoteCacheClientServerUnitTest_OE25Dev extends Assert
             throw e;
         }
 
+        // DO WORK
         final ICacheElement<String, String> result = cache.get("key");
 
+        // VERIFY
         assertEquals("Wrong element.", element.getVal(), result.getVal());
     }
 
@@ -281,6 +288,7 @@ public class BasicRemoteCacheClientServerUnitTest_OE25Dev extends Assert
     public void test2PutRemove_3_oe()
             throws Exception
             {
+        // SETUP
         final MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
 
         final RemoteCacheAttributes attributes = new RemoteCacheAttributes();
@@ -293,13 +301,17 @@ public class BasicRemoteCacheClientServerUnitTest_OE25Dev extends Assert
         final RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, cacheEventLogger, null);
         final AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
 
+        // DO WORK
         final int numPutsPrior = server.getPutCount();
         final ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), "key", "value");
         cache.update(element);
         SleepUtil.sleepAtLeast(50);
 
+        // VERIFY
         try
         {
+            // removed other assertion
+            // removed other assertion
         }
         catch (final junit.framework.AssertionFailedError e)
         {
@@ -308,8 +320,10 @@ public class BasicRemoteCacheClientServerUnitTest_OE25Dev extends Assert
             throw e;
         }
 
+        // DO WORK
         final ICacheElement<String, String> result = cache.get("key");
 
+        // VERIFY
         assertEquals("Wrong element.", element.getVal(), result.getVal());
     }
 
@@ -317,6 +331,7 @@ public class BasicRemoteCacheClientServerUnitTest_OE25Dev extends Assert
     public void test2PutRemove_4_oe()
             throws Exception
             {
+        // SETUP
         final MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
 
         final RemoteCacheAttributes attributes = new RemoteCacheAttributes();
@@ -329,13 +344,17 @@ public class BasicRemoteCacheClientServerUnitTest_OE25Dev extends Assert
         final RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, cacheEventLogger, null);
         final AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
 
+        // DO WORK
         final int numPutsPrior = server.getPutCount();
         final ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), "key", "value");
         cache.update(element);
         SleepUtil.sleepAtLeast(50);
 
+        // VERIFY
         try
         {
+            // removed other assertion
+            // removed other assertion
         }
         catch (final junit.framework.AssertionFailedError e)
         {
@@ -344,13 +363,18 @@ public class BasicRemoteCacheClientServerUnitTest_OE25Dev extends Assert
             throw e;
         }
 
+        // DO WORK
         final ICacheElement<String, String> result = cache.get("key");
 
+        // VERIFY
+        // removed other assertion
 
+        // DO WORK
         cache.remove("key");
         SleepUtil.sleepAtLeast(200);
         final ICacheElement<String, String> resultAfterRemote = cache.get("key");
 
+        // VERIFY
         assertNull("Element resultAfterRemote should be null.", resultAfterRemote);
     }
 
@@ -365,6 +389,7 @@ public class BasicRemoteCacheClientServerUnitTest_OE25Dev extends Assert
     public void testLocalHost_2_oe() throws Exception
     {
         final InetAddress byName = InetAddress.getByName("localhost");
+        // removed other assertion
         final InetAddress localHost = HostNameUtil.getLocalHostLANAddress();
         assertTrue("Expected getLocalHostLANAddress() (" + localHost + ") to return a site local address", localHost.isSiteLocalAddress());
     }

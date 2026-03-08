@@ -202,7 +202,9 @@ public class FeaturesTest_OE25Dev extends JexlTestCase {
             "4 + (x.y = 1)",
             "if (true) x.y.z = 4"
         };
+        // these should all fail with x undeclared as local, thus x as global
         checkFeature(f, scripts);
+        // same ones with x as local should work
         for(final String str : scripts) {
             try {
                 final JexlScript e = jexl.createScript("var x = foo(); " + str);
@@ -270,6 +272,8 @@ public class FeaturesTest_OE25Dev extends JexlTestCase {
             "x.y['a'][b]"
         };
         checkFeature(f, scripts);
+        // removed other assertion
+        // same ones with constant array refs should work
         final String[] scriptsOk = new String[]{
             "x['y']",
             "x['a'][1]",
@@ -297,6 +301,7 @@ public class FeaturesTest_OE25Dev extends JexlTestCase {
             "x.y['a'](b)"
         };
         checkFeature(f, scripts);
+        // same ones with constant array refs should work
         final String[] scriptsOk = new String[]{
             "x('y')",
             "x('a')[1]",

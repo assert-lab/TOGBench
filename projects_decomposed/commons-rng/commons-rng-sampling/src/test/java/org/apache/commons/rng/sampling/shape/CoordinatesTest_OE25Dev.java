@@ -44,6 +44,7 @@ class CoordinatesTest_OE25Dev {
     void testRequireFiniteWithMessageThrows_2_oe() {
          double[] c = {0, 1, 2};
          String message = "This should be prepended";
+        // removed other assertion
          double[] bad = {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NaN};
         for (int i = 0; i < c.length; i++) {
              int ii = i;
@@ -73,6 +74,7 @@ class CoordinatesTest_OE25Dev {
          String message = "This should be prepended";
         for ( double[] c : new double[][] {{0, 1}, {0, 1, 2}}) {
              int length = c.length;
+            // removed other assertion
             try {
     Coordinates.requireLength(c, length - 1, message);
     fail("IllegalArgumentException: () -> \"Did not detect length was too long: \" + (length - 1)");

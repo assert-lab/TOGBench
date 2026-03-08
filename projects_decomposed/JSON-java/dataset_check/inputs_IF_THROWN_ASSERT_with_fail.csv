@@ -1,0 +1,2433 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+json_6_2,"    @Test
+    public void malFormedNameValueException_2_oe() {
+        String cookieStr = ""thisCookieHasNoEqualsChar"";
+        try {
+            Cookie.toJSONObject(cookieStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Expected '=' and instead saw '' at 25 [character 26 line 1]"",e.getMessage());
+    }
+    }",CookieTest::malFormedNameValueException_2_oe,org.json.Cookie,toJSONObject(String string),"/**
+     * Convert a cookie specification string into a JSONObject. The string
+     * must contain a name value pair separated by '='. The name and the value
+     * will be unescaped, possibly converting '+' and '%' sequences. The
+     * cookie properties may follow, separated by ';', also represented as
+     * name=value (except the Attribute properties like ""Secure"" or ""HttpOnly"",
+     * which do not have a value. The value {@link Boolean#TRUE} will be used for these).
+     * The name will be stored under the key ""name"", and the value will be
+     * stored under the key ""value"". This method does not do checking or
+     * validation of the parameters. It only converts the cookie string into
+     * a JSONObject. All attribute names are converted to lower case keys in the
+     * JSONObject (HttpOnly =&gt; httponly). If an attribute is specified more than
+     * once, only the value found closer to the end of the cookie-string is kept.
+     * @param string The cookie specification string.
+     * @return A JSONObject containing ""name"", ""value"", and possibly other
+     *  members.
+     * @throws JSONException If there is an error parsing the Cookie String.
+     * Cookie strings must have at least one '=' character and the 'name'
+     * portion of the cookie must not be blank.
+     */","public static JSONObject toJSONObject(String string) {
+        final JSONObject     jo = new JSONObject();
+        String         name;
+        Object         value;
+        
+        
+        JSONTokener x = new JSONTokener(string);
+        
+        name = unescape(x.nextTo('=').trim());
+        //per RFC6265, if the name is blank, the cookie should be ignored.
+        if("""".equals(name)) {
+            throw new JSONException(""Cookies must have a 'name'"");
+        }
+        jo.put(""name"", name);
+        // per RFC6265, if there is no '=', the cookie should be ignored.
+        // the 'next' call here throws an exception if the '=' is not found.
+        x.next('=');
+        jo.put(""value"", unescape(x.nextTo(';')).trim());
+        // discard the ';'
+        x.next();
+        // parse the remaining cookie attributes
+        while (x.more()) {
+            name = unescape(x.nextTo(""=;"")).trim().toLowerCase(Locale.ROOT);
+            // don't allow a cookies attributes to overwrite its name or value.
+            if(""name"".equalsIgnoreCase(name)) {
+                throw new JSONException(""Illegal attribute name: 'name'"");
+            }
+            if(""value"".equalsIgnoreCase(name)) {
+                throw new JSONException(""Illegal attribute name: 'value'"");
+            }
+            // check to see if it's a flag property
+            if (x.next() != '=') {
+                value = Boolean.TRUE;
+            } else {
+                value = unescape(x.nextTo(';')).trim();
+                x.next();
+            }
+            // only store non-blank attributes
+            if(!"""".equals(name) && !"""".equals(value)) {
+                jo.put(name, value);
+            }
+        }
+        return jo;
+    }"
+json_8_2,"    @Test
+    public void emptyStringCookieException_2_oe() {
+        String cookieStr = """";
+        try {
+            Cookie.toJSONObject(cookieStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Cookies must have a 'name'"",e.getMessage());
+    }
+    }",CookieTest::emptyStringCookieException_2_oe,org.json.Cookie,toJSONObject(String string),"/**
+     * Convert a cookie specification string into a JSONObject. The string
+     * must contain a name value pair separated by '='. The name and the value
+     * will be unescaped, possibly converting '+' and '%' sequences. The
+     * cookie properties may follow, separated by ';', also represented as
+     * name=value (except the Attribute properties like ""Secure"" or ""HttpOnly"",
+     * which do not have a value. The value {@link Boolean#TRUE} will be used for these).
+     * The name will be stored under the key ""name"", and the value will be
+     * stored under the key ""value"". This method does not do checking or
+     * validation of the parameters. It only converts the cookie string into
+     * a JSONObject. All attribute names are converted to lower case keys in the
+     * JSONObject (HttpOnly =&gt; httponly). If an attribute is specified more than
+     * once, only the value found closer to the end of the cookie-string is kept.
+     * @param string The cookie specification string.
+     * @return A JSONObject containing ""name"", ""value"", and possibly other
+     *  members.
+     * @throws JSONException If there is an error parsing the Cookie String.
+     * Cookie strings must have at least one '=' character and the 'name'
+     * portion of the cookie must not be blank.
+     */","public static JSONObject toJSONObject(String string) {
+        final JSONObject     jo = new JSONObject();
+        String         name;
+        Object         value;
+        
+        
+        JSONTokener x = new JSONTokener(string);
+        
+        name = unescape(x.nextTo('=').trim());
+        //per RFC6265, if the name is blank, the cookie should be ignored.
+        if("""".equals(name)) {
+            throw new JSONException(""Cookies must have a 'name'"");
+        }
+        jo.put(""name"", name);
+        // per RFC6265, if there is no '=', the cookie should be ignored.
+        // the 'next' call here throws an exception if the '=' is not found.
+        x.next('=');
+        jo.put(""value"", unescape(x.nextTo(';')).trim());
+        // discard the ';'
+        x.next();
+        // parse the remaining cookie attributes
+        while (x.more()) {
+            name = unescape(x.nextTo(""=;"")).trim().toLowerCase(Locale.ROOT);
+            // don't allow a cookies attributes to overwrite its name or value.
+            if(""name"".equalsIgnoreCase(name)) {
+                throw new JSONException(""Illegal attribute name: 'name'"");
+            }
+            if(""value"".equalsIgnoreCase(name)) {
+                throw new JSONException(""Illegal attribute name: 'value'"");
+            }
+            // check to see if it's a flag property
+            if (x.next() != '=') {
+                value = Boolean.TRUE;
+            } else {
+                value = unescape(x.nextTo(';')).trim();
+                x.next();
+            }
+            // only store non-blank attributes
+            if(!"""".equals(name) && !"""".equals(value)) {
+                jo.put(name, value);
+            }
+        }
+        return jo;
+    }"
+json_9_2,"    @Test
+    public void emptyNameCookieException_2_oe() {
+        String cookieStr = "" = value "";
+        try {
+            Cookie.toJSONObject(cookieStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Cookies must have a 'name'"",e.getMessage());
+    }
+    }",CookieTest::emptyNameCookieException_2_oe,org.json.Cookie,toJSONObject(String string),"/**
+     * Convert a cookie specification string into a JSONObject. The string
+     * must contain a name value pair separated by '='. The name and the value
+     * will be unescaped, possibly converting '+' and '%' sequences. The
+     * cookie properties may follow, separated by ';', also represented as
+     * name=value (except the Attribute properties like ""Secure"" or ""HttpOnly"",
+     * which do not have a value. The value {@link Boolean#TRUE} will be used for these).
+     * The name will be stored under the key ""name"", and the value will be
+     * stored under the key ""value"". This method does not do checking or
+     * validation of the parameters. It only converts the cookie string into
+     * a JSONObject. All attribute names are converted to lower case keys in the
+     * JSONObject (HttpOnly =&gt; httponly). If an attribute is specified more than
+     * once, only the value found closer to the end of the cookie-string is kept.
+     * @param string The cookie specification string.
+     * @return A JSONObject containing ""name"", ""value"", and possibly other
+     *  members.
+     * @throws JSONException If there is an error parsing the Cookie String.
+     * Cookie strings must have at least one '=' character and the 'name'
+     * portion of the cookie must not be blank.
+     */","public static JSONObject toJSONObject(String string) {
+        final JSONObject     jo = new JSONObject();
+        String         name;
+        Object         value;
+        
+        
+        JSONTokener x = new JSONTokener(string);
+        
+        name = unescape(x.nextTo('=').trim());
+        //per RFC6265, if the name is blank, the cookie should be ignored.
+        if("""".equals(name)) {
+            throw new JSONException(""Cookies must have a 'name'"");
+        }
+        jo.put(""name"", name);
+        // per RFC6265, if there is no '=', the cookie should be ignored.
+        // the 'next' call here throws an exception if the '=' is not found.
+        x.next('=');
+        jo.put(""value"", unescape(x.nextTo(';')).trim());
+        // discard the ';'
+        x.next();
+        // parse the remaining cookie attributes
+        while (x.more()) {
+            name = unescape(x.nextTo(""=;"")).trim().toLowerCase(Locale.ROOT);
+            // don't allow a cookies attributes to overwrite its name or value.
+            if(""name"".equalsIgnoreCase(name)) {
+                throw new JSONException(""Illegal attribute name: 'name'"");
+            }
+            if(""value"".equalsIgnoreCase(name)) {
+                throw new JSONException(""Illegal attribute name: 'value'"");
+            }
+            // check to see if it's a flag property
+            if (x.next() != '=') {
+                value = Boolean.TRUE;
+            } else {
+                value = unescape(x.nextTo(';')).trim();
+                x.next();
+            }
+            // only store non-blank attributes
+            if(!"""".equals(name) && !"""".equals(value)) {
+                jo.put(name, value);
+            }
+        }
+        return jo;
+    }"
+json_13_2,"    @Test
+    public void emptyXMLException_2_oe() {
+        String xmlStr = """";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Bad XML at 0 [character 1 line 1]"",e.getMessage());
+    }
+    }",JSONMLTest::emptyXMLException_2_oe,org.json.JSONML,toJSONArray(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONArray using the JsonML transform. Each XML tag is represented as
+     * a JSONArray in which the first element is the tag name. If the tag has
+     * attributes, then the second element will be JSONObject containing the
+     * name/value pairs. If the tag contains children, then strings and
+     * JSONArrays will represent the child tags.
+     * Comments, prologs, DTDs, and <pre>{@code &lt;[ [ ]]>}</pre> are ignored.
+     * @param string The source string.
+     * @return A JSONArray containing the structured data from the XML string.
+     * @throws JSONException Thrown on error converting to a JSONArray
+     */","public static JSONArray toJSONArray(String string) throws JSONException {
+        return (JSONArray)parse(new XMLTokener(string), true, null, false);
+    }"
+json_14_2,"    @Test
+    public void emptyJSONXMLException_2_oe() {
+        /**
+         * Tries to convert an empty JSONArray to XML.
+         */
+        JSONArray jsonArray = new JSONArray();
+        try {
+            JSONML.toString(jsonArray);
+        } catch (JSONException e) {
+            assertTrue(""Expecting an exception message"",""JSONArray[0] not found."". equals(e.getMessage()));
+    }
+    }",JSONMLTest::emptyJSONXMLException_2_oe,,,,
+json_15_2,"    @Test
+    public void nonXMLException_2_oe() {
+        /**
+         * Attempts to transform a nonXML string to JSON
+         */
+        String xmlStr = ""{ \""this is\"": \""not xml\""}"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Bad XML at 23 [character 24 line 1]"",e.getMessage());
+    }
+    }",JSONMLTest::nonXMLException_2_oe,org.json.JSONML,toJSONArray(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONArray using the JsonML transform. Each XML tag is represented as
+     * a JSONArray in which the first element is the tag name. If the tag has
+     * attributes, then the second element will be JSONObject containing the
+     * name/value pairs. If the tag contains children, then strings and
+     * JSONArrays will represent the child tags.
+     * Comments, prologs, DTDs, and <pre>{@code &lt;[ [ ]]>}</pre> are ignored.
+     * @param string The source string.
+     * @return A JSONArray containing the structured data from the XML string.
+     * @throws JSONException Thrown on error converting to a JSONArray
+     */","public static JSONArray toJSONArray(String string) throws JSONException {
+        return (JSONArray)parse(new XMLTokener(string), true, null, false);
+    }"
+json_17_2,"    @Test
+    public void spaceInTagException_2_oe() {
+        /**
+         * jsonArrayStr is used to build a JSONArray which is then
+         * turned into XML. For this transformation, all arrays represent
+         * elements and the first array entry is the name of the element.
+         * In this case, one of the element names has an embedded space,
+         * which is not allowed.
+         */
+        String jsonArrayStr =
+            ""[\""addresses\"",""+
+                ""{\""xsi:noNamespaceSchemaLocation\"":\""test.xsd\"",""+
+                    ""\""xmlns:xsi\"":\""http://www.w3.org/2001/XMLSchema-instance\""},""+
+                ""[\""addr esses\"",""+
+                    ""[\""name\""],""+
+                    ""[\""nocontent\""],""+
+                    ""\"">\""""+
+                ""]""+
+            ""]"";
+        JSONArray jsonArray = new JSONArray(jsonArrayStr);
+        try {
+            JSONML.toString(jsonArray);
+        } catch (JSONException e) {
+            assertTrue(""Expecting an exception message"",""'addr esses' contains a space character."". equals(e.getMessage()));
+    }
+    }",JSONMLTest::spaceInTagException_2_oe,,,,
+json_18_2,"    @Test
+    public void invalidSlashInTagException_2_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because the 'name' element
+         * contains an invalid frontslash.
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/x>\n""+
+            ""       <street>abc street</street>\n""+
+            ""    </address>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped tag at 176 [character 14 line 4]"",e.getMessage());
+    }
+    }",JSONMLTest::invalidSlashInTagException_2_oe,org.json.JSONML,toJSONArray(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONArray using the JsonML transform. Each XML tag is represented as
+     * a JSONArray in which the first element is the tag name. If the tag has
+     * attributes, then the second element will be JSONObject containing the
+     * name/value pairs. If the tag contains children, then strings and
+     * JSONArrays will represent the child tags.
+     * Comments, prologs, DTDs, and <pre>{@code &lt;[ [ ]]>}</pre> are ignored.
+     * @param string The source string.
+     * @return A JSONArray containing the structured data from the XML string.
+     * @throws JSONException Thrown on error converting to a JSONArray
+     */","public static JSONArray toJSONArray(String string) throws JSONException {
+        return (JSONArray)parse(new XMLTokener(string), true, null, false);
+    }"
+json_19_2,"    @Test
+    public void invalidBangInTagException_2_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <!>\n""+
+            ""    </address>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped meta tag at 215 [character 12 line 7]"",e.getMessage());
+    }
+    }",JSONMLTest::invalidBangInTagException_2_oe,org.json.JSONML,toJSONArray(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONArray using the JsonML transform. Each XML tag is represented as
+     * a JSONArray in which the first element is the tag name. If the tag has
+     * attributes, then the second element will be JSONObject containing the
+     * name/value pairs. If the tag contains children, then strings and
+     * JSONArrays will represent the child tags.
+     * Comments, prologs, DTDs, and <pre>{@code &lt;[ [ ]]>}</pre> are ignored.
+     * @param string The source string.
+     * @return A JSONArray containing the structured data from the XML string.
+     * @throws JSONException Thrown on error converting to a JSONArray
+     */","public static JSONArray toJSONArray(String string) throws JSONException {
+        return (JSONArray)parse(new XMLTokener(string), true, null, false);
+    }"
+json_20_2,"    @Test
+    public void invalidBangNoCloseInTagException_2_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because an element
+         * starts with '!' and has no closing tag
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <!\n""+
+            ""    </address>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped meta tag at 214 [character 12 line 7]"",e.getMessage());
+    }
+    }",JSONMLTest::invalidBangNoCloseInTagException_2_oe,org.json.JSONML,toJSONArray(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONArray using the JsonML transform. Each XML tag is represented as
+     * a JSONArray in which the first element is the tag name. If the tag has
+     * attributes, then the second element will be JSONObject containing the
+     * name/value pairs. If the tag contains children, then strings and
+     * JSONArrays will represent the child tags.
+     * Comments, prologs, DTDs, and <pre>{@code &lt;[ [ ]]>}</pre> are ignored.
+     * @param string The source string.
+     * @return A JSONArray containing the structured data from the XML string.
+     * @throws JSONException Thrown on error converting to a JSONArray
+     */","public static JSONArray toJSONArray(String string) throws JSONException {
+        return (JSONArray)parse(new XMLTokener(string), true, null, false);
+    }"
+json_21_2,"    @Test
+    public void noCloseStartTagException_2_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because an element
+         * has no closing '>'.
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <abc\n""+
+            ""    </address>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misplaced '<' at 194 [character 5 line 6]"",e.getMessage());
+    }
+    }",JSONMLTest::noCloseStartTagException_2_oe,org.json.JSONML,toJSONArray(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONArray using the JsonML transform. Each XML tag is represented as
+     * a JSONArray in which the first element is the tag name. If the tag has
+     * attributes, then the second element will be JSONObject containing the
+     * name/value pairs. If the tag contains children, then strings and
+     * JSONArrays will represent the child tags.
+     * Comments, prologs, DTDs, and <pre>{@code &lt;[ [ ]]>}</pre> are ignored.
+     * @param string The source string.
+     * @return A JSONArray containing the structured data from the XML string.
+     * @throws JSONException Thrown on error converting to a JSONArray
+     */","public static JSONArray toJSONArray(String string) throws JSONException {
+        return (JSONArray)parse(new XMLTokener(string), true, null, false);
+    }"
+json_22_2,"    @Test
+    public void noCloseEndTagException_2_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because an element
+         * has no name after the closing tag '</'.
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <abc/>\n""+
+            ""   </>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+        } catch (JSONException e) {
+            assertTrue(""Expecting an exception message"",""Expected a closing name instead of '>'."". equals(e.getMessage()));
+    }
+    }",JSONMLTest::noCloseEndTagException_2_oe,org.json.JSONML,toJSONArray(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONArray using the JsonML transform. Each XML tag is represented as
+     * a JSONArray in which the first element is the tag name. If the tag has
+     * attributes, then the second element will be JSONObject containing the
+     * name/value pairs. If the tag contains children, then strings and
+     * JSONArrays will represent the child tags.
+     * Comments, prologs, DTDs, and <pre>{@code &lt;[ [ ]]>}</pre> are ignored.
+     * @param string The source string.
+     * @return A JSONArray containing the structured data from the XML string.
+     * @throws JSONException Thrown on error converting to a JSONArray
+     */","public static JSONArray toJSONArray(String string) throws JSONException {
+        return (JSONArray)parse(new XMLTokener(string), true, null, false);
+    }"
+json_23_2,"    @Test
+    public void noCloseEndBraceException_2_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because an element
+         * has '>' after the closing tag '</' and name.
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation=\""test.xsd\"">\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <abc/>\n""+
+            ""    </address\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misplaced '<' at 206 [character 1 line 7]"",e.getMessage());
+    }
+    }",JSONMLTest::noCloseEndBraceException_2_oe,org.json.JSONML,toJSONArray(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONArray using the JsonML transform. Each XML tag is represented as
+     * a JSONArray in which the first element is the tag name. If the tag has
+     * attributes, then the second element will be JSONObject containing the
+     * name/value pairs. If the tag contains children, then strings and
+     * JSONArrays will represent the child tags.
+     * Comments, prologs, DTDs, and <pre>{@code &lt;[ [ ]]>}</pre> are ignored.
+     * @param string The source string.
+     * @return A JSONArray containing the structured data from the XML string.
+     * @throws JSONException Thrown on error converting to a JSONArray
+     */","public static JSONArray toJSONArray(String string) throws JSONException {
+        return (JSONArray)parse(new XMLTokener(string), true, null, false);
+    }"
+json_24_2,"    @Test
+    public void invalidCDATABangInTagException_2_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because an element
+         * does not have a complete CDATA string. 
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name>Joe Tester</name>\n""+
+            ""       <![[]>\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Expected 'CDATA[' at 204 [character 11 line 5]"",e.getMessage());
+    }
+    }",JSONMLTest::invalidCDATABangInTagException_2_oe,org.json.JSONML,toJSONArray(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONArray using the JsonML transform. Each XML tag is represented as
+     * a JSONArray in which the first element is the tag name. If the tag has
+     * attributes, then the second element will be JSONObject containing the
+     * name/value pairs. If the tag contains children, then strings and
+     * JSONArrays will represent the child tags.
+     * Comments, prologs, DTDs, and <pre>{@code &lt;[ [ ]]>}</pre> are ignored.
+     * @param string The source string.
+     * @return A JSONArray containing the structured data from the XML string.
+     * @throws JSONException Thrown on error converting to a JSONArray
+     */","public static JSONArray toJSONArray(String string) throws JSONException {
+        return (JSONArray)parse(new XMLTokener(string), true, null, false);
+    }"
+json_30_2,"    @Test (timeout = 6000)
+    public void testIssue484InfinteLoop1_2_oe() {
+        try {
+            JSONML.toJSONObject(""??*^M??|?CglR^F??`??>?w??PIlr^E??D^X^]?$?-^R?o??O?*??{OD?^FY??`2a????NM?b^Tq?:O?>S$^K?J?^FB.gUK?m^H??zE??^??!v]?^A???^[^A??^U?c??????h???s???g^Z???`?q^Dbi??:^QZl?)?}1^??k?0??:$V?$?Ovs(}J??^V????2;^QgQ?^_^A?^D?^U?Tg?K?`?h%c?hmGA?<!C*^P^Y?^X9?~?t?)??,z^XA???S}?Q??.q?j????]"");
+        } catch (JSONException ex) {
+            assertEquals(""Exception string did not match: "",""Unterminated string at 271 [character 272 line 1]"",ex.getMessage());
+    }
+    }",JSONMLTest::testIssue484InfinteLoop1_2_oe,org.json.JSONML,toJSONObject(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject using the JsonML transform. Each XML tag is represented as
+     * a JSONObject with a ""tagName"" property. If the tag has attributes, then
+     * the attributes will be in the JSONObject as properties. If the tag
+     * contains children, the object will have a ""childNodes"" property which
+     * will be an array of strings and JsonML JSONObjects.
+
+     * Comments, prologs, DTDs, and <pre>{@code &lt;[ [ ]]>}</pre> are ignored.
+     * @param string The XML source text.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown on error converting to a JSONObject
+     */","public static JSONObject toJSONObject(String string) throws JSONException {
+        return (JSONObject)parse(new XMLTokener(string), false, null, false);
+    }"
+json_51_5,"    @Test
+    public void queryFromJSONObject_5_oe() {
+        String str = ""{""+
+                ""\""stringKey\"":\""hello world!\"",""+
+                ""\""arrayKey\"":[0,1,2],""+
+                ""\""objectKey\"": {""+
+                    ""\""a\"":\""aVal\"",""+
+                    ""\""b\"":\""bVal\""""+
+                ""}""+
+            ""}"";    
+        JSONObject jsonObject = new JSONObject(str);
+        Object obj = jsonObject.query(""/stringKey"");
+        obj = jsonObject.query(""/arrayKey/1"");
+        obj = jsonObject.query(""/objectKey/b"");
+        try {
+            obj = jsonObject.query(""/a/b/c"");
+        } catch (JSONPointerException e) {
+            assertTrue(""Expected bad key/value exception"",""value [null] is not an array or object therefore its key b cannot be resolved"". equals(e.getMessage()));
+    }
+    }",JSONPointerTest::queryFromJSONObject_5_oe,org.json.JSONObject,query(String jsonPointer),"/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */","public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }"
+json_52_5,"    @Test
+    public void queryFromJSONObjectUsingPointer_5_oe() {
+        String str = ""{""+
+                ""\""stringKey\"":\""hello world!\"",""+
+                ""\""arrayKey\"":[0,1,2],""+
+                ""\""objectKey\"": {""+
+                    ""\""a\"":\""aVal\"",""+
+                    ""\""b\"":\""bVal\""""+
+                ""}""+
+            ""}"";    
+        JSONObject jsonObject = new JSONObject(str);
+        Object obj = jsonObject.query(new JSONPointer(""/stringKey""));
+        obj = jsonObject.query(new JSONPointer(""/arrayKey/1""));
+        obj = jsonObject.query(new JSONPointer(""/objectKey/b""));
+        try {
+            obj = jsonObject.query(new JSONPointer(""/a/b/c""));
+        } catch (JSONPointerException e) {
+            assertTrue(""Expected bad key/value exception"",""value [null] is not an array or object therefore its key b cannot be resolved"". equals(e.getMessage()));
+    }
+    }",JSONPointerTest::queryFromJSONObjectUsingPointer_5_oe,org.json.JSONObject,query(String jsonPointer),"/**
+     * Creates a JSONPointer using an initialization string and tries to
+     * match it to an item within this JSONObject. For example, given a
+     * JSONObject initialized with this document:
+     * <pre>
+     * {
+     *     ""a"":{""b"":""c""}
+     * }
+     * </pre>
+     * and this JSONPointer string:
+     * <pre>
+     * ""/a/b""
+     * </pre>
+     * Then this method will return the String ""c"".
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */","public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }"
+json_54_5,"    @Test
+    public void queryFromJSONArray_5_oe() {
+        String str = ""[""+
+                ""\""hello world!\"",""+
+                ""[0,1,2],""+
+                ""{""+
+                    ""\""a\"":\""aVal\"",""+
+                    ""\""b\"":\""bVal\""""+
+                ""}""+
+            ""]"";    
+        JSONArray jsonArray = new JSONArray(str);
+        Object obj = jsonArray.query(""/0"");
+        obj = jsonArray.query(""/1/1"");
+        obj = jsonArray.query(""/2/b"");
+        try {
+            obj = jsonArray.query(""/a/b/c"");
+        } catch (JSONPointerException e) {
+            assertTrue(""Expected bad index exception"",""a is not an array index"".equals(e.getMessage()));
+    }
+    }",JSONPointerTest::queryFromJSONArray_5_oe,org.json.JSONArray,query(String jsonPointer),"/**
+     * Creates a JSONPointer using an initialization string and tries to 
+     * match it to an item within this JSONArray. For example, given a
+     * JSONArray initialized with this document:
+     * <pre>
+     * [
+     *     {""b"":""c""}
+     * ]
+     * </pre>
+     * and this JSONPointer string: 
+     * <pre>
+     * ""/0/b""
+     * </pre>
+     * Then this method will return the String ""c""
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */","public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }"
+json_55_5,"    @Test
+    public void queryFromJSONArrayUsingPointer_5_oe() {
+        String str = ""[""+
+                ""\""hello world!\"",""+
+                ""[0,1,2],""+
+                ""{""+
+                    ""\""a\"":\""aVal\"",""+
+                    ""\""b\"":\""bVal\""""+
+                ""}""+
+            ""]"";    
+        JSONArray jsonArray = new JSONArray(str);
+        Object obj = jsonArray.query(new JSONPointer(""/0""));
+        obj = jsonArray.query(new JSONPointer(""/1/1""));
+        obj = jsonArray.query(new JSONPointer(""/2/b""));
+        try {
+            obj = jsonArray.query(new JSONPointer(""/a/b/c""));
+        } catch (JSONPointerException e) {
+            assertTrue(""Expected bad index exception"",""a is not an array index"".equals(e.getMessage()));
+    }
+    }",JSONPointerTest::queryFromJSONArrayUsingPointer_5_oe,org.json.JSONArray,query(String jsonPointer),"/**
+     * Creates a JSONPointer using an initialization string and tries to 
+     * match it to an item within this JSONArray. For example, given a
+     * JSONArray initialized with this document:
+     * <pre>
+     * [
+     *     {""b"":""c""}
+     * ]
+     * </pre>
+     * and this JSONPointer string: 
+     * <pre>
+     * ""/0/b""
+     * </pre>
+     * Then this method will return the String ""c""
+     * A JSONPointerException may be thrown from code called by this method.
+     *
+     * @param jsonPointer string that can be used to create a JSONPointer
+     * @return the item matched by the JSONPointer, otherwise null
+     */","public Object query(String jsonPointer) {
+        return query(new JSONPointer(jsonPointer));
+    }"
+json_61_2,"    @Test
+    public void shouldHandleInvalidSlashInTag_2_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/x>\n""+
+            ""       <street>abc street</street>\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped tag at 176 [character 14 line 4]"",e.getMessage());
+    }
+    }",XMLTest::shouldHandleInvalidSlashInTag_2_oe,org.json.XML,toJSONObject(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */","public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }"
+json_62_2,"    @Test
+    public void shouldHandleInvalidBangInTag_2_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <!>\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped meta tag at 214 [character 12 line 7]"",e.getMessage());
+    }
+    }",XMLTest::shouldHandleInvalidBangInTag_2_oe,org.json.XML,toJSONObject(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */","public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }"
+json_63_2,"    @Test
+    public void shouldHandleInvalidBangNoCloseInTag_2_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <!\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped meta tag at 213 [character 12 line 7]"",e.getMessage());
+    }
+    }",XMLTest::shouldHandleInvalidBangNoCloseInTag_2_oe,org.json.XML,toJSONObject(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */","public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }"
+json_64_2,"    @Test
+    public void shouldHandleNoCloseStartTag_2_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <abc\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misplaced '<' at 193 [character 4 line 6]"",e.getMessage());
+    }
+    }",XMLTest::shouldHandleNoCloseStartTag_2_oe,org.json.XML,toJSONObject(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */","public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }"
+json_65_2,"    @Test
+    public void shouldHandleInvalidCDATABangInTag_2_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name>Joe Tester</name>\n""+
+            ""       <![[]>\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Expected 'CDATA[' at 204 [character 11 line 5]"",e.getMessage());
+    }
+    }",XMLTest::shouldHandleInvalidCDATABangInTag_2_oe,org.json.XML,toJSONObject(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */","public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }"
+json_90_2,"    @Test
+    public void shouldHandleInvalidSlashInTag_2_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/x>\n""+
+            ""       <street>abc street</street>\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr, XMLParserConfiguration.KEEP_STRINGS);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped tag at 176 [character 14 line 4]"",e.getMessage());
+    }
+    }",XMLConfigurationTest::shouldHandleInvalidSlashInTag_2_oe,org.json.XML,toJSONObject(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */","public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }"
+json_91_2,"    @Test
+    public void shouldHandleInvalidBangInTag_2_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <!>\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr, XMLParserConfiguration.KEEP_STRINGS);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped meta tag at 214 [character 12 line 7]"",e.getMessage());
+    }
+    }",XMLConfigurationTest::shouldHandleInvalidBangInTag_2_oe,org.json.XML,toJSONObject(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */","public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }"
+json_92_2,"    @Test
+    public void shouldHandleInvalidBangNoCloseInTag_2_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <!\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr, XMLParserConfiguration.KEEP_STRINGS);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped meta tag at 213 [character 12 line 7]"",e.getMessage());
+    }
+    }",XMLConfigurationTest::shouldHandleInvalidBangNoCloseInTag_2_oe,org.json.XML,toJSONObject(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */","public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }"
+json_93_2,"    @Test
+    public void shouldHandleNoCloseStartTag_2_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <abc\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr, XMLParserConfiguration.KEEP_STRINGS);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misplaced '<' at 193 [character 4 line 6]"",e.getMessage());
+    }
+    }",XMLConfigurationTest::shouldHandleNoCloseStartTag_2_oe,org.json.XML,toJSONObject(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */","public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }"
+json_94_2,"    @Test
+    public void shouldHandleInvalidCDATABangInTag_2_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name>Joe Tester</name>\n""+
+            ""       <![[]>\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XMLParserConfiguration config = 
+                    new XMLParserConfiguration().withcDataTagName(""altContent"");
+            XML.toJSONObject(xmlStr, config);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Expected 'CDATA[' at 204 [character 11 line 5]"",e.getMessage());
+    }
+    }",XMLConfigurationTest::shouldHandleInvalidCDATABangInTag_2_oe,org.json.XML,toJSONObject(String string),"/**
+     * Convert a well-formed (but not necessarily valid) XML string into a
+     * JSONObject. Some information may be lost in this transformation because
+     * JSON is a data format and XML is a document format. XML uses elements,
+     * attributes, and content text, while JSON uses unordered collections of
+     * name/value pairs and arrays of values. JSON does not does not like to
+     * distinguish between elements and attributes. Sequences of similar
+     * elements are represented as JSONArrays. Content text may be placed in a
+     * ""content"" member. Comments, prologs, DTDs, and <pre>{@code 
+     * &lt;[ [ ]]>}</pre>
+     * are ignored.
+     *
+     * @param string
+     *            The source string.
+     * @return A JSONObject containing the structured data from the XML string.
+     * @throws JSONException Thrown if there is an errors while parsing the string
+     */","public static JSONObject toJSONObject(String string) throws JSONException {
+        return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
+    }"
+json_138_2,"    @Test
+    public void jsonObjectNonAndWrongValues_2_oe() {
+        String str = 
+            ""{""+
+                ""\""trueKey\"":true,""+
+                ""\""falseKey\"":false,""+
+                ""\""trueStrKey\"":\""true\"",""+
+                ""\""falseStrKey\"":\""false\"",""+
+                ""\""stringKey\"":\""hello world!\"",""+
+                ""\""intKey\"":42,""+
+                ""\""intStrKey\"":\""43\"",""+
+                ""\""longKey\"":1234567890123456789,""+
+                ""\""longStrKey\"":\""987654321098765432\"",""+
+                ""\""doubleKey\"":-23.45e7,""+
+                ""\""doubleStrKey\"":\""00001.000\"",""+
+                ""\""arrayKey\"":[0,1,2],""+
+                ""\""objectKey\"":{\""myKey\"":\""myVal\""}""+
+            ""}"";
+        JSONObject jsonObject = new JSONObject(str);
+        try {
+            jsonObject.getBoolean(""nonKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+            assertEquals(""expecting an exception message"",""JSONObject[\""nonKey\""] not found."",e.getMessage());
+    }
+    }",JSONObjectTest::jsonObjectNonAndWrongValues_2_oe,org.json.JSONObject,getBoolean(String key),"/**
+     * Get the boolean value associated with a key.
+     *
+     * @param key
+     *            A key string.
+     * @return The truth.
+     * @throws JSONException
+     *             if the value is not a Boolean or the String ""true"" or
+     *             ""false"".
+     */","public boolean getBoolean(String key) throws JSONException {
+        Object object = this.get(key);
+        if (object.equals(Boolean.FALSE)
+                || (object instanceof String && ((String) object)
+                        .equalsIgnoreCase(""false""))) {
+            return false;
+        } else if (object.equals(Boolean.TRUE)
+                || (object instanceof String && ((String) object)
+                        .equalsIgnoreCase(""true""))) {
+            return true;
+        }
+        throw wrongValueFormatException(key, ""Boolean"", object, null);
+    }"
+json_138_6,"    @Test
+    public void jsonObjectNonAndWrongValues_6_oe() {
+        String str = 
+            ""{""+
+                ""\""trueKey\"":true,""+
+                ""\""falseKey\"":false,""+
+                ""\""trueStrKey\"":\""true\"",""+
+                ""\""falseStrKey\"":\""false\"",""+
+                ""\""stringKey\"":\""hello world!\"",""+
+                ""\""intKey\"":42,""+
+                ""\""intStrKey\"":\""43\"",""+
+                ""\""longKey\"":1234567890123456789,""+
+                ""\""longStrKey\"":\""987654321098765432\"",""+
+                ""\""doubleKey\"":-23.45e7,""+
+                ""\""doubleStrKey\"":\""00001.000\"",""+
+                ""\""arrayKey\"":[0,1,2],""+
+                ""\""objectKey\"":{\""myKey\"":\""myVal\""}""+
+            ""}"";
+        JSONObject jsonObject = new JSONObject(str);
+        try {
+            jsonObject.getBoolean(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getBoolean(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getString(""nonKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+            assertEquals(""Expecting an exception message"",""JSONObject[\""nonKey\""] not found."",e.getMessage());
+    }
+    }",JSONObjectTest::jsonObjectNonAndWrongValues_6_oe,org.json.JSONObject,getString(String key),"/**
+     * Get the string associated with a key.
+     *
+     * @param key
+     *            A key string.
+     * @return A string which is the value.
+     * @throws JSONException
+     *             if there is no string value for the key.
+     */","public String getString(String key) throws JSONException {
+        Object object = this.get(key);
+        if (object instanceof String) {
+            return (String) object;
+        }
+        throw wrongValueFormatException(key, ""string"", object, null);
+    }"
+json_138_10,"    @Test
+    public void jsonObjectNonAndWrongValues_10_oe() {
+        String str = 
+            ""{""+
+                ""\""trueKey\"":true,""+
+                ""\""falseKey\"":false,""+
+                ""\""trueStrKey\"":\""true\"",""+
+                ""\""falseStrKey\"":\""false\"",""+
+                ""\""stringKey\"":\""hello world!\"",""+
+                ""\""intKey\"":42,""+
+                ""\""intStrKey\"":\""43\"",""+
+                ""\""longKey\"":1234567890123456789,""+
+                ""\""longStrKey\"":\""987654321098765432\"",""+
+                ""\""doubleKey\"":-23.45e7,""+
+                ""\""doubleStrKey\"":\""00001.000\"",""+
+                ""\""arrayKey\"":[0,1,2],""+
+                ""\""objectKey\"":{\""myKey\"":\""myVal\""}""+
+            ""}"";
+        JSONObject jsonObject = new JSONObject(str);
+        try {
+            jsonObject.getBoolean(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getBoolean(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getString(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getString(""trueKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getDouble(""nonKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""JSONObject[\""nonKey\""] not found."",e.getMessage());
+    }
+    }",JSONObjectTest::jsonObjectNonAndWrongValues_10_oe,org.json.JSONObject,getDouble(String key),"/**
+     * Get the double value associated with a key.
+     *
+     * @param key
+     *            A key string.
+     * @return The numeric value.
+     * @throws JSONException
+     *             if the key is not found or if the value is not a Number
+     *             object and cannot be converted to a number.
+     */","public double getDouble(String key) throws JSONException {
+        final Object object = this.get(key);
+        if(object instanceof Number) {
+            return ((Number)object).doubleValue();
+        }
+        try {
+            return Double.parseDouble(object.toString());
+        } catch (Exception e) {
+            throw wrongValueFormatException(key, ""double"", object, e);
+        }
+    }"
+json_138_14,"    @Test
+    public void jsonObjectNonAndWrongValues_14_oe() {
+        String str = 
+            ""{""+
+                ""\""trueKey\"":true,""+
+                ""\""falseKey\"":false,""+
+                ""\""trueStrKey\"":\""true\"",""+
+                ""\""falseStrKey\"":\""false\"",""+
+                ""\""stringKey\"":\""hello world!\"",""+
+                ""\""intKey\"":42,""+
+                ""\""intStrKey\"":\""43\"",""+
+                ""\""longKey\"":1234567890123456789,""+
+                ""\""longStrKey\"":\""987654321098765432\"",""+
+                ""\""doubleKey\"":-23.45e7,""+
+                ""\""doubleStrKey\"":\""00001.000\"",""+
+                ""\""arrayKey\"":[0,1,2],""+
+                ""\""objectKey\"":{\""myKey\"":\""myVal\""}""+
+            ""}"";
+        JSONObject jsonObject = new JSONObject(str);
+        try {
+            jsonObject.getBoolean(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getBoolean(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getString(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getString(""trueKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getDouble(""nonKey"");
+        } catch (JSONException e) {
+        }
+        try {
+            jsonObject.getDouble(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getFloat(""nonKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""JSONObject[\""nonKey\""] not found."",e.getMessage());
+    }
+    }",JSONObjectTest::jsonObjectNonAndWrongValues_14_oe,org.json.JSONObject,getFloat(String key),"/**
+     * Get the float value associated with a key.
+     *
+     * @param key
+     *            A key string.
+     * @return The numeric value.
+     * @throws JSONException
+     *             if the key is not found or if the value is not a Number
+     *             object and cannot be converted to a number.
+     */","public float getFloat(String key) throws JSONException {
+        final Object object = this.get(key);
+        if(object instanceof Number) {
+            return ((Number)object).floatValue();
+        }
+        try {
+            return Float.parseFloat(object.toString());
+        } catch (Exception e) {
+            throw wrongValueFormatException(key, ""float"", object, e);
+        }
+    }"
+json_138_18,"    @Test
+    public void jsonObjectNonAndWrongValues_18_oe() {
+        String str = 
+            ""{""+
+                ""\""trueKey\"":true,""+
+                ""\""falseKey\"":false,""+
+                ""\""trueStrKey\"":\""true\"",""+
+                ""\""falseStrKey\"":\""false\"",""+
+                ""\""stringKey\"":\""hello world!\"",""+
+                ""\""intKey\"":42,""+
+                ""\""intStrKey\"":\""43\"",""+
+                ""\""longKey\"":1234567890123456789,""+
+                ""\""longStrKey\"":\""987654321098765432\"",""+
+                ""\""doubleKey\"":-23.45e7,""+
+                ""\""doubleStrKey\"":\""00001.000\"",""+
+                ""\""arrayKey\"":[0,1,2],""+
+                ""\""objectKey\"":{\""myKey\"":\""myVal\""}""+
+            ""}"";
+        JSONObject jsonObject = new JSONObject(str);
+        try {
+            jsonObject.getBoolean(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getBoolean(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getString(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getString(""trueKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getDouble(""nonKey"");
+        } catch (JSONException e) {
+        }
+        try {
+            jsonObject.getDouble(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getFloat(""nonKey"");
+        } catch (JSONException e) {
+        }
+        try {
+            jsonObject.getFloat(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getInt(""nonKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+            assertEquals(""Expecting an exception message"",""JSONObject[\""nonKey\""] not found."",e.getMessage());
+    }
+    }",JSONObjectTest::jsonObjectNonAndWrongValues_18_oe,org.json.JSONObject,getInt(String key),"/**
+     * Get the int value associated with a key.
+     *
+     * @param key
+     *            A key string.
+     * @return The integer value.
+     * @throws JSONException
+     *             if the key is not found or if the value cannot be converted
+     *             to an integer.
+     */","public int getInt(String key) throws JSONException {
+        final Object object = this.get(key);
+        if(object instanceof Number) {
+            return ((Number)object).intValue();
+        }
+        try {
+            return Integer.parseInt(object.toString());
+        } catch (Exception e) {
+            throw wrongValueFormatException(key, ""int"", object, e);
+        }
+    }"
+json_138_22,"    @Test
+    public void jsonObjectNonAndWrongValues_22_oe() {
+        String str = 
+            ""{""+
+                ""\""trueKey\"":true,""+
+                ""\""falseKey\"":false,""+
+                ""\""trueStrKey\"":\""true\"",""+
+                ""\""falseStrKey\"":\""false\"",""+
+                ""\""stringKey\"":\""hello world!\"",""+
+                ""\""intKey\"":42,""+
+                ""\""intStrKey\"":\""43\"",""+
+                ""\""longKey\"":1234567890123456789,""+
+                ""\""longStrKey\"":\""987654321098765432\"",""+
+                ""\""doubleKey\"":-23.45e7,""+
+                ""\""doubleStrKey\"":\""00001.000\"",""+
+                ""\""arrayKey\"":[0,1,2],""+
+                ""\""objectKey\"":{\""myKey\"":\""myVal\""}""+
+            ""}"";
+        JSONObject jsonObject = new JSONObject(str);
+        try {
+            jsonObject.getBoolean(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getBoolean(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getString(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getString(""trueKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getDouble(""nonKey"");
+        } catch (JSONException e) {
+        }
+        try {
+            jsonObject.getDouble(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getFloat(""nonKey"");
+        } catch (JSONException e) {
+        }
+        try {
+            jsonObject.getFloat(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getInt(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getInt(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getLong(""nonKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+            assertEquals(""Expecting an exception message"",""JSONObject[\""nonKey\""] not found."",e.getMessage());
+    }
+    }",JSONObjectTest::jsonObjectNonAndWrongValues_22_oe,org.json.JSONObject,getLong(String key),"/**
+     * Get the long value associated with a key.
+     *
+     * @param key
+     *            A key string.
+     * @return The long value.
+     * @throws JSONException
+     *             if the key is not found or if the value cannot be converted
+     *             to a long.
+     */","public long getLong(String key) throws JSONException {
+        final Object object = this.get(key);
+        if(object instanceof Number) {
+            return ((Number)object).longValue();
+        }
+        try {
+            return Long.parseLong(object.toString());
+        } catch (Exception e) {
+            throw wrongValueFormatException(key, ""long"", object, e);
+        }
+    }"
+json_138_26,"    @Test
+    public void jsonObjectNonAndWrongValues_26_oe() {
+        String str = 
+            ""{""+
+                ""\""trueKey\"":true,""+
+                ""\""falseKey\"":false,""+
+                ""\""trueStrKey\"":\""true\"",""+
+                ""\""falseStrKey\"":\""false\"",""+
+                ""\""stringKey\"":\""hello world!\"",""+
+                ""\""intKey\"":42,""+
+                ""\""intStrKey\"":\""43\"",""+
+                ""\""longKey\"":1234567890123456789,""+
+                ""\""longStrKey\"":\""987654321098765432\"",""+
+                ""\""doubleKey\"":-23.45e7,""+
+                ""\""doubleStrKey\"":\""00001.000\"",""+
+                ""\""arrayKey\"":[0,1,2],""+
+                ""\""objectKey\"":{\""myKey\"":\""myVal\""}""+
+            ""}"";
+        JSONObject jsonObject = new JSONObject(str);
+        try {
+            jsonObject.getBoolean(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getBoolean(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getString(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getString(""trueKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getDouble(""nonKey"");
+        } catch (JSONException e) {
+        }
+        try {
+            jsonObject.getDouble(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getFloat(""nonKey"");
+        } catch (JSONException e) {
+        }
+        try {
+            jsonObject.getFloat(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getInt(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getInt(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getLong(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getLong(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getJSONArray(""nonKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+            assertEquals(""Expecting an exception message"",""JSONObject[\""nonKey\""] not found."",e.getMessage());
+    }
+    }",JSONObjectTest::jsonObjectNonAndWrongValues_26_oe,org.json.JSONObject,getJSONArray(String key),"/**
+     * Get the JSONArray value associated with a key.
+     *
+     * @param key
+     *            A key string.
+     * @return A JSONArray which is the value.
+     * @throws JSONException
+     *             if the key is not found or if the value is not a JSONArray.
+     */","public JSONArray getJSONArray(String key) throws JSONException {
+        Object object = this.get(key);
+        if (object instanceof JSONArray) {
+            return (JSONArray) object;
+        }
+        throw wrongValueFormatException(key, ""JSONArray"", object, null);
+    }"
+json_138_30,"    @Test
+    public void jsonObjectNonAndWrongValues_30_oe() {
+        String str = 
+            ""{""+
+                ""\""trueKey\"":true,""+
+                ""\""falseKey\"":false,""+
+                ""\""trueStrKey\"":\""true\"",""+
+                ""\""falseStrKey\"":\""false\"",""+
+                ""\""stringKey\"":\""hello world!\"",""+
+                ""\""intKey\"":42,""+
+                ""\""intStrKey\"":\""43\"",""+
+                ""\""longKey\"":1234567890123456789,""+
+                ""\""longStrKey\"":\""987654321098765432\"",""+
+                ""\""doubleKey\"":-23.45e7,""+
+                ""\""doubleStrKey\"":\""00001.000\"",""+
+                ""\""arrayKey\"":[0,1,2],""+
+                ""\""objectKey\"":{\""myKey\"":\""myVal\""}""+
+            ""}"";
+        JSONObject jsonObject = new JSONObject(str);
+        try {
+            jsonObject.getBoolean(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getBoolean(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getString(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getString(""trueKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getDouble(""nonKey"");
+        } catch (JSONException e) {
+        }
+        try {
+            jsonObject.getDouble(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getFloat(""nonKey"");
+        } catch (JSONException e) {
+        }
+        try {
+            jsonObject.getFloat(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getInt(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getInt(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getLong(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getLong(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getJSONArray(""nonKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getJSONArray(""stringKey"");
+        } catch (JSONException e) { 
+        }
+        try {
+            jsonObject.getJSONObject(""nonKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+            assertEquals(""Expecting an exception message"",""JSONObject[\""nonKey\""] not found."",e.getMessage());
+    }
+    }",JSONObjectTest::jsonObjectNonAndWrongValues_30_oe,org.json.JSONObject,getJSONObject(String key),"/**
+     * Get the JSONObject value associated with a key.
+     *
+     * @param key
+     *            A key string.
+     * @return A JSONObject which is the value.
+     * @throws JSONException
+     *             if the key is not found or if the value is not a JSONObject.
+     */","public JSONObject getJSONObject(String key) throws JSONException {
+        Object object = this.get(key);
+        if (object instanceof JSONObject) {
+            return (JSONObject) object;
+        }
+        throw wrongValueFormatException(key, ""JSONObject"", object, null);
+    }"
+json_154_2,"    @Test
+    public void jsonObjectParseControlCharacters_2_oe(){
+        for(int i = 0;i<=0x001f;i++){
+            final String charString = String.valueOf((char)i);
+            final String source = ""{\""key\"":\""""+charString+""\""}"";
+            try {
+                JSONObject jo = new JSONObject(source);
+                Util.checkJSONObjectMaps(jo);
+            } catch (JSONException ex) {
+                assertTrue(""Only \\0(U+0000),\\n(U+000A),and \\r(U+000D)should cause an error. Instead ""+charString+""(""+i+"")caused an error"",i=='\0' || i=='\n' || i=='\r');
+    }
+    }
+    }",JSONObjectTest::jsonObjectParseControlCharacters_2_oe,,,,
+json_155_4,"    @Test
+    public void jsonObjectParsingErrors_4_oe() {
+        try {
+            String str = ""abc"";
+        } catch (JSONException e) { 
+        }
+        try {
+            String str = ""{"";
+        } catch (JSONException e) { 
+            assertEquals(""Expecting an exception message"", ""A JSONObject text must end with '}' at 1 [character 2 line 1]"", e.getMessage());
+    }
+    }",JSONObjectTest::jsonObjectParsingErrors_4_oe,,,,
+json_155_8,"    @Test
+    public void jsonObjectParsingErrors_8_oe() {
+        try {
+            String str = ""abc"";
+        } catch (JSONException e) { 
+        }
+        try {
+            String str = ""{"";
+        } catch (JSONException e) { 
+        }
+        try {
+            String str = ""{\""myKey\"" = true}"";
+        } catch (JSONException e) { 
+        }
+        try {
+            String str = ""{\""myKey\"":true \""myOtherKey\"":false}"";
+        } catch (JSONException e) { 
+            assertEquals(""Expecting an exception message"", ""Expected a ',' or '}' at 15 [character 16 line 1]"", e.getMessage());
+    }
+    }",JSONObjectTest::jsonObjectParsingErrors_8_oe,,,,
+json_168_2,"    @Test
+    public void testJSONWriterException_2_oe() {
+        final JSONObject jsonObject = new JSONObject();
+
+        jsonObject.put(""someKey"",new BrokenToString());
+
+        StringWriter writer = new StringWriter();
+        try {
+            jsonObject.write(writer).toString();
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+            assertEquals(""Unable to write JSONObject value for key: someKey"", e.getMessage());
+    }
+    }",JSONObjectTest::testJSONWriterException_2_oe,org.json.JSONObject,write(Writer writer),"/**
+     * Write the contents of the JSONObject as JSON text to a writer. For
+     * compactness, no whitespace is added.
+     * <p><b>
+     * Warning: This method assumes that the data structure is acyclical.
+     * </b>
+     * @param writer the writer object
+     * @return The writer.
+     * @throws JSONException if a called function has an error
+     */","public Writer write(Writer writer) throws JSONException {
+        return this.write(writer, 0, 0);
+    }"
+json_168_5,"    @Test
+    public void testJSONWriterException_5_oe() {
+        final JSONObject jsonObject = new JSONObject();
+
+        jsonObject.put(""someKey"",new BrokenToString());
+
+        StringWriter writer = new StringWriter();
+        try {
+            jsonObject.write(writer).toString();
+        } catch (JSONException e) {
+        } catch(Exception e) {
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e) {}
+        }
+
+        jsonObject.put(""somethingElse"", ""a value"");
+        
+        writer = new StringWriter();
+        try {
+            jsonObject.write(writer).toString();
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+            assertEquals(""Unable to write JSONObject value for key: someKey"", e.getMessage());
+    }
+    }",JSONObjectTest::testJSONWriterException_5_oe,org.json.JSONObject,write(Writer writer),"/**
+     * Write the contents of the JSONObject as JSON text to a writer. For
+     * compactness, no whitespace is added.
+     * <p><b>
+     * Warning: This method assumes that the data structure is acyclical.
+     * </b>
+     * @param writer the writer object
+     * @return The writer.
+     * @throws JSONException if a called function has an error
+     */","public Writer write(Writer writer) throws JSONException {
+        return this.write(writer, 0, 0);
+    }"
+json_168_8,"    @Test
+    public void testJSONWriterException_8_oe() {
+        final JSONObject jsonObject = new JSONObject();
+
+        jsonObject.put(""someKey"",new BrokenToString());
+
+        StringWriter writer = new StringWriter();
+        try {
+            jsonObject.write(writer).toString();
+        } catch (JSONException e) {
+        } catch(Exception e) {
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e) {}
+        }
+
+        jsonObject.put(""somethingElse"", ""a value"");
+        
+        writer = new StringWriter();
+        try {
+            jsonObject.write(writer).toString();
+        } catch (JSONException e) {
+        } catch(Exception e) {
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e) {}
+        }
+        
+        writer = new StringWriter();
+        try {
+            new JSONObject()
+                .put(""somethingElse"", ""a value"")
+                .put(""someKey"", new JSONArray()
+                        .put(new JSONObject().put(""key1"", new BrokenToString())))
+                .write(writer).toString();
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+            assertEquals(""Unable to write JSONObject value for key: someKey"", e.getMessage());
+    }
+    }",JSONObjectTest::testJSONWriterException_8_oe,org.json.JSONObject,write(Writer writer),"/**
+     * Write the contents of the JSONObject as JSON text to a writer. For
+     * compactness, no whitespace is added.
+     * <p><b>
+     * Warning: This method assumes that the data structure is acyclical.
+     * </b>
+     * @param writer the writer object
+     * @return The writer.
+     * @throws JSONException if a called function has an error
+     */","public Writer write(Writer writer) throws JSONException {
+        return this.write(writer, 0, 0);
+    }"
+json_168_11,"    @Test
+    public void testJSONWriterException_11_oe() {
+        final JSONObject jsonObject = new JSONObject();
+
+        jsonObject.put(""someKey"",new BrokenToString());
+
+        StringWriter writer = new StringWriter();
+        try {
+            jsonObject.write(writer).toString();
+        } catch (JSONException e) {
+        } catch(Exception e) {
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e) {}
+        }
+
+        jsonObject.put(""somethingElse"", ""a value"");
+        
+        writer = new StringWriter();
+        try {
+            jsonObject.write(writer).toString();
+        } catch (JSONException e) {
+        } catch(Exception e) {
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e) {}
+        }
+        
+        writer = new StringWriter();
+        try {
+            new JSONObject()
+                .put(""somethingElse"", ""a value"")
+                .put(""someKey"", new JSONArray()
+                        .put(new JSONObject().put(""key1"", new BrokenToString())))
+                .write(writer).toString();
+        } catch (JSONException e) {
+        } catch(Exception e) {
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e) {}
+        }
+       
+        writer = new StringWriter();
+        try {
+            new JSONObject()
+                .put(""somethingElse"", ""a value"")
+                .put(""someKey"", new JSONArray()
+                        .put(new JSONObject().put(""key1"", new BrokenToString()))
+                        .put(12345)
+                 )
+                .write(writer).toString();
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+            assertEquals(""Unable to write JSONObject value for key: someKey"", e.getMessage());
+    }
+    }",JSONObjectTest::testJSONWriterException_11_oe,org.json.JSONObject,write(Writer writer),"/**
+     * Write the contents of the JSONObject as JSON text to a writer. For
+     * compactness, no whitespace is added.
+     * <p><b>
+     * Warning: This method assumes that the data structure is acyclical.
+     * </b>
+     * @param writer the writer object
+     * @return The writer.
+     * @throws JSONException if a called function has an error
+     */","public Writer write(Writer writer) throws JSONException {
+        return this.write(writer, 0, 0);
+    }"
+json_217_2,"    @Test
+    public void emptStr_2_oe() {
+        String str = """";
+        try {
+        } catch (JSONException e) {
+            assertEquals(""Expected an exception message"",""A JSONArray text must start with '[' at 0 [character 1 line 1]"",e.getMessage());
+    }
+    }",JSONArrayTest::emptStr_2_oe,,,,
+json_218_2,"    @Test
+    public void unclosedArray_2_oe() {
+        try {
+        } catch (JSONException e) {
+            assertEquals(""Expected an exception message"",""Expected a ',' or ']' at 1 [character 2 line 1]"",e.getMessage());
+    }
+    }",JSONArrayTest::unclosedArray_2_oe,,,,
+json_219_2,"    @Test
+    public void unclosedArray2_2_oe() {
+        try {
+        } catch (JSONException e) {
+            assertEquals(""Expected an exception message"",""Expected a ',' or ']' at 7 [character 8 line 1]"",e.getMessage());
+    }
+    }",JSONArrayTest::unclosedArray2_2_oe,,,,
+json_220_2,"    @Test
+    public void unclosedArray3_2_oe() {
+        try {
+        } catch (JSONException e) {
+            assertEquals(""Expected an exception message"",""Expected a ',' or ']' at 8 [character 9 line 1]"",e.getMessage());
+    }
+    }",JSONArrayTest::unclosedArray3_2_oe,,,,
+json_221_2,"    @Test
+    public void badObject_2_oe() {
+        String str = ""abc"";
+        try {
+        } catch (JSONException e) {
+            assertTrue(""Expected an exception message"",""JSONArray initial value should be a string or collection or array."". equals(e.getMessage()));
+    }
+    }",JSONArrayTest::badObject_2_oe,,,,
+json_227_4,"    @Test
+    public void failedGetArrayValues_4_oe() {
+        JSONArray jsonArray = new JSONArray(this.arrayStr);
+        try {
+            jsonArray.getBoolean(4);
+        } catch (JSONException e) {
+        }
+        try {
+            jsonArray.get(-1);
+        } catch (JSONException e) {
+            assertEquals(""Expected an exception message"",""JSONArray[-1] not found."",e.getMessage());
+    }
+    }",JSONArrayTest::failedGetArrayValues_4_oe,org.json.JSONArray,get(int index),"/**
+     * Get the object value associated with an index.
+     *
+     * @param index
+     *            The index must be between 0 and length() - 1.
+     * @return An object value.
+     * @throws JSONException
+     *             If there is no value for the index.
+     */","public Object get(int index) throws JSONException {
+        Object object = this.opt(index);
+        if (object == null) {
+            throw new JSONException(""JSONArray["" + index + ""] not found."");
+        }
+        return object;
+    }"
+json_244_4,"    @Test
+    public void testJSONArrayInt_4_oe() {
+        try {
+        } catch (JSONException e) {
+            assertEquals(""Expected an exception message"",""JSONArray initial capacity cannot be negative."",e.getMessage());
+    }
+    }",JSONArrayTest::testJSONArrayInt_4_oe,,,,
+json_251_2,"    @Test
+    public void malFormedCookieListException_2_oe() {
+        String cookieStr = ""thisCookieHasNoEqualsChar"";
+        try {
+            CookieList.toJSONObject(cookieStr);
+            fail(""should throw an exception"");
+        } catch (JSONException e) {
+            /**
+             * Not sure of the missing char, but full string compare fails 
+             */
+            assertEquals(""Expecting an exception message"",""Expected '=' and instead saw '' at 25 [character 26 line 1]"",e.getMessage());
+    }
+    }",CookieListTest::malFormedCookieListException_2_oe,org.json.CookieList,toJSONObject(String string),"/**
+     * Convert a cookie list into a JSONObject. A cookie list is a sequence
+     * of name/value pairs. The names are separated from the values by '='.
+     * The pairs are separated by ';'. The names and the values
+     * will be unescaped, possibly converting '+' and '%' sequences.
+     *
+     * To add a cookie to a cookie list,
+     * cookielistJSONObject.put(cookieJSONObject.getString(""name""),
+     *     cookieJSONObject.getString(""value""));
+     * @param string  A cookie list string
+     * @return A JSONObject
+     * @throws JSONException if a called function fails
+     */","public static JSONObject toJSONObject(String string) throws JSONException {
+        JSONObject jo = new JSONObject();
+        JSONTokener x = new JSONTokener(string);
+        while (x.more()) {
+            String name = Cookie.unescape(x.nextTo('='));
+            x.next('=');
+            jo.put(name, Cookie.unescape(x.nextTo(';')));
+            x.next();
+        }
+        return jo;
+    }"
+json_259_2,"    @Test
+    public void unbalancedQuoteInName_2_oe() {
+        String badLine = ""Col1, \""Col2\nVal1, Val2"";
+        try {
+            CDL.toJSONArray(badLine);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Missing close quote '\""'. at 12 [character 0 line 2]"",e.getMessage());
+    }
+    }",CDLTest::unbalancedQuoteInName_2_oe,org.json.CDL,toJSONArray(String string),"/**
+     * Produce a JSONArray of JSONObjects from a comma delimited text string,
+     * using the first row as a source of names.
+     * @param string The comma delimited text.
+     * @return A JSONArray of JSONObjects.
+     * @throws JSONException if a called function fails
+     */","public static JSONArray toJSONArray(String string) throws JSONException {
+        return toJSONArray(new JSONTokener(string));
+    }"
+json_260_2,"    @Test
+    public void unbalancedQuoteInValue_2_oe() {
+        String badLine = ""Col1, Col2\n\""Val1, Val2"";
+        try {
+            CDL.toJSONArray(badLine);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Missing close quote '\""'. at 22 [character 11 line 2]"",e.getMessage());
+    }
+    }",CDLTest::unbalancedQuoteInValue_2_oe,org.json.CDL,toJSONArray(String string),"/**
+     * Produce a JSONArray of JSONObjects from a comma delimited text string,
+     * using the first row as a source of names.
+     * @param string The comma delimited text.
+     * @return A JSONArray of JSONObjects.
+     * @throws JSONException if a called function fails
+     */","public static JSONArray toJSONArray(String string) throws JSONException {
+        return toJSONArray(new JSONTokener(string));
+    }"
+json_262_2,"    @Test
+    public void unbalancedEscapedQuote_2_oe(){
+    	   String badLine = ""Col1, Col2\n\""Val1, \""\""Val2\""\"""";
+           try {
+               CDL.toJSONArray(badLine);
+               fail(""Expecting an exception"");
+           } catch (JSONException e) {
+               assertEquals(""Expecting an exception message"",""Missing close quote '\""'. at 26 [character 15 line 2]"",e.getMessage());
+    }
+    }",CDLTest::unbalancedEscapedQuote_2_oe,org.json.CDL,toJSONArray(String string),"/**
+     * Produce a JSONArray of JSONObjects from a comma delimited text string,
+     * using the first row as a source of names.
+     * @param string The comma delimited text.
+     * @return A JSONArray of JSONObjects.
+     * @throws JSONException if a called function fails
+     */","public static JSONArray toJSONArray(String string) throws JSONException {
+        return toJSONArray(new JSONTokener(string));
+    }"
+json_276_2,"    @Test
+    public void testJSONStringExceptionValue_2_oe() {
+        JSONStringExceptionValue jsonString = new JSONStringExceptionValue();
+        JSONArray jsonArray = new JSONArray();
+
+        jsonArray.put(jsonString);
+
+        StringWriter writer = new StringWriter(); 
+        try {
+            jsonArray.write(writer).toString();
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+            assertEquals(""Unable to write JSONArray value at index: 0"", e.getMessage());
+    }
+    }",JSONStringTest::testJSONStringExceptionValue_2_oe,org.json.JSONArray,write(Writer writer),"/**
+     * Write the contents of the JSONArray as JSON text to a writer. For
+     * compactness, no whitespace is added.
+     * <p><b>
+     * Warning: This method assumes that the data structure is acyclical.
+     *</b>
+     * @param writer the writer object
+     * @return The writer.
+     * @throws JSONException if a called function fails
+     */","public Writer write(Writer writer) throws JSONException {
+        return this.write(writer, 0, 0);
+    }"
+json_276_5,"    @Test
+    public void testJSONStringExceptionValue_5_oe() {
+        JSONStringExceptionValue jsonString = new JSONStringExceptionValue();
+        JSONArray jsonArray = new JSONArray();
+
+        jsonArray.put(jsonString);
+
+        StringWriter writer = new StringWriter(); 
+        try {
+            jsonArray.write(writer).toString();
+        } catch (JSONException e) {
+        } catch(Exception e) {
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e){}
+        }
+
+        try {
+            JSONObject.valueToString(jsonString);
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+            assertTrue(""Exception message does not match"", ""the exception value"".equals(e.getMessage()));
+    }
+    }",JSONStringTest::testJSONStringExceptionValue_5_oe,org.json.JSONObject,valueToString(Object value),"/**
+     * Make a JSON text of an Object value. If the object has an
+     * value.toJSONString() method, then that method will be used to produce the
+     * JSON text. The method is required to produce a strictly conforming text.
+     * If the object does not contain a toJSONString method (which is the most
+     * common case), then a text will be produced by other means. If the value
+     * is an array or Collection, then a JSONArray will be made from it and its
+     * toJSONString method will be called. If the value is a MAP, then a
+     * JSONObject will be made from it and its toJSONString method will be
+     * called. Otherwise, the value's toString method will be called, and the
+     * result will be quoted.
+     *
+     * <p>
+     * Warning: This method assumes that the data structure is acyclical.
+     *
+     * @param value
+     *            The value to be serialized.
+     * @return a printable, displayable, transmittable representation of the
+     *         object, beginning with <code>{</code>&nbsp;<small>(left
+     *         brace)</small> and ending with <code>}</code>&nbsp;<small>(right
+     *         brace)</small>.
+     * @throws JSONException
+     *             If the value is or contains an invalid number.
+     */","public static String valueToString(Object value) throws JSONException {
+    	// moves the implementation to JSONWriter as:
+    	// 1. It makes more sense to be part of the writer class
+    	// 2. For Android support this method is not available. By implementing it in the Writer
+    	//    Android users can use the writer with the built in Android JSONObject implementation.
+        return JSONWriter.valueToString(value);
+    }"
+json_279_2,"    @Test
+    public void nullKeyException_2_oe() {
+        JSONStringer jsonStringer = new JSONStringer();
+        jsonStringer.object();
+        try {
+            jsonStringer.key(null);
+        } catch (JSONException e) {
+            assertTrue(""Expected an exception message"",""Null key."". equals(e.getMessage()));
+    }
+    }",JSONStringerTest::nullKeyException_2_oe,org.json.JSONWriter,key(String string),"/**
+     * Append a key. The key will be associated with the next value. In an
+     * object, every value must be preceded by a key.
+     * @param string A key string.
+     * @return this
+     * @throws JSONException If the key is out of place. For example, keys
+     *  do not belong in arrays or if the key is null.
+     */","public JSONWriter key(String string) throws JSONException {
+        if (string == null) {
+            throw new JSONException(""Null key."");
+        }
+        if (this.mode == 'k') {
+            try {
+                JSONObject topObject = this.stack[this.top - 1];
+                // don't use the built in putOnce method to maintain Android support
+				if(topObject.has(string)) {
+					throw new JSONException(""Duplicate key \"""" + string + ""\"""");
+				}
+                topObject.put(string, true);
+                if (this.comma) {
+                    this.writer.append(',');
+                }
+                this.writer.append(JSONObject.quote(string));
+                this.writer.append(':');
+                this.comma = false;
+                this.mode = 'o';
+                return this;
+            } catch (IOException e) {
+            	// Android as of API 25 does not support this exception constructor
+            	// however we won't worry about it. If an exception is happening here
+            	// it will just throw a ""Method not found"" exception instead.
+                throw new JSONException(e);
+            }
+        }
+        throw new JSONException(""Misplaced key."");
+    }"
+json_280_2,"    @Test
+    public void outOfSequenceException_2_oe() {
+        JSONStringer jsonStringer = new JSONStringer();
+        try {
+            jsonStringer.key(""hi"");
+        } catch (JSONException e) {
+            assertTrue(""Expected an exception message"",""Misplaced key."". equals(e.getMessage()));
+    }
+    }",JSONStringerTest::outOfSequenceException_2_oe,org.json.JSONWriter,key(String string),"/**
+     * Append a key. The key will be associated with the next value. In an
+     * object, every value must be preceded by a key.
+     * @param string A key string.
+     * @return this
+     * @throws JSONException If the key is out of place. For example, keys
+     *  do not belong in arrays or if the key is null.
+     */","public JSONWriter key(String string) throws JSONException {
+        if (string == null) {
+            throw new JSONException(""Null key."");
+        }
+        if (this.mode == 'k') {
+            try {
+                JSONObject topObject = this.stack[this.top - 1];
+                // don't use the built in putOnce method to maintain Android support
+				if(topObject.has(string)) {
+					throw new JSONException(""Duplicate key \"""" + string + ""\"""");
+				}
+                topObject.put(string, true);
+                if (this.comma) {
+                    this.writer.append(',');
+                }
+                this.writer.append(JSONObject.quote(string));
+                this.writer.append(':');
+                this.comma = false;
+                this.mode = 'o';
+                return this;
+            } catch (IOException e) {
+            	// Android as of API 25 does not support this exception constructor
+            	// however we won't worry about it. If an exception is happening here
+            	// it will just throw a ""Method not found"" exception instead.
+                throw new JSONException(e);
+            }
+        }
+        throw new JSONException(""Misplaced key."");
+    }"
+json_281_2,"    @Test
+    public void missplacedArrayException_2_oe() {
+        JSONStringer jsonStringer = new JSONStringer();
+        jsonStringer.object().endObject();
+        try {
+            jsonStringer.array();
+        } catch (JSONException e) {
+            assertTrue(""Expected an exception message"",""Misplaced array."". equals(e.getMessage()));
+    }
+    }",JSONStringerTest::missplacedArrayException_2_oe,org.json.JSONWriter,array(),"/**
+     * Begin appending a new array. All values until the balancing
+     * <code>endArray</code> will be appended to this array. The
+     * <code>endArray</code> method must be called to mark the array's end.
+     * @return this
+     * @throws JSONException If the nesting is too deep, or if the object is
+     * started in the wrong place (for example as a key or after the end of the
+     * outermost array or object).
+     */","public JSONWriter array() throws JSONException {
+        if (this.mode == 'i' || this.mode == 'o' || this.mode == 'a') {
+            this.push(null);
+            this.append(""["");
+            this.comma = false;
+            return this;
+        }
+        throw new JSONException(""Misplaced array."");
+    }"
+json_282_2,"    @Test
+    public void missplacedEndArrayException_2_oe() {
+        JSONStringer jsonStringer = new JSONStringer();
+        jsonStringer.object();
+        try {
+            jsonStringer.endArray();
+        } catch (JSONException e) {
+            assertTrue(""Expected an exception message"",""Misplaced endArray."". equals(e.getMessage()));
+    }
+    }",JSONStringerTest::missplacedEndArrayException_2_oe,org.json.JSONWriter,endArray(),"/**
+     * End an array. This method most be called to balance calls to
+     * <code>array</code>.
+     * @return this
+     * @throws JSONException If incorrectly nested.
+     */","public JSONWriter endArray() throws JSONException {
+        return this.end('a', ']');
+    }"
+json_283_2,"    @Test
+    public void missplacedEndObjectException_2_oe() {
+        JSONStringer jsonStringer = new JSONStringer();
+        jsonStringer.array();
+        try {
+            jsonStringer.endObject();
+        } catch (JSONException e) {
+            assertTrue(""Expected an exception message"",""Misplaced endObject."". equals(e.getMessage()));
+    }
+    }",JSONStringerTest::missplacedEndObjectException_2_oe,org.json.JSONWriter,endObject(),"/**
+     * End an object. This method most be called to balance calls to
+     * <code>object</code>.
+     * @return this
+     * @throws JSONException If incorrectly nested.
+     */","public JSONWriter endObject() throws JSONException {
+        return this.end('k', '}');
+    }"
+json_284_2,"    @Test
+    public void missplacedObjectException_2_oe() {
+        JSONStringer jsonStringer = new JSONStringer();
+        jsonStringer.object().endObject();
+        try {
+            jsonStringer.object();
+        } catch (JSONException e) {
+            assertTrue(""Expected an exception message"",""Misplaced object."". equals(e.getMessage()));
+    }
+    }",JSONStringerTest::missplacedObjectException_2_oe,org.json.JSONWriter,object(),"/**
+     * Begin appending a new object. All keys and values until the balancing
+     * <code>endObject</code> will be appended to this object. The
+     * <code>endObject</code> method must be called to mark the object's end.
+     * @return this
+     * @throws JSONException If the nesting is too deep, or if the object is
+     * started in the wrong place (for example as a key or after the end of the
+     * outermost array or object).
+     */","public JSONWriter object() throws JSONException {
+        if (this.mode == 'i') {
+            this.mode = 'o';
+        }
+        if (this.mode == 'o' || this.mode == 'a') {
+            this.append(""{"");
+            this.push(new JSONObject());
+            this.comma = false;
+            return this;
+        }
+        throw new JSONException(""Misplaced object."");
+
+    }"
+json_285_2,"    @Test
+    public void exceedNestDepthException_2_oe() {
+        try {
+            JSONStringer s = new JSONStringer();
+            s.object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object();
+            s.key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object();
+            fail(""Expected an exception message"");
+        } catch (JSONException e) {
+            assertTrue(""Expected an exception message"",""Nesting too deep."". equals(e.getMessage()));
+    }
+    }",JSONStringerTest::exceedNestDepthException_2_oe,org.json.JSONWriter,object(),"/**
+     * Begin appending a new object. All keys and values until the balancing
+     * <code>endObject</code> will be appended to this object. The
+     * <code>endObject</code> method must be called to mark the object's end.
+     * @return this
+     * @throws JSONException If the nesting is too deep, or if the object is
+     * started in the wrong place (for example as a key or after the end of the
+     * outermost array or object).
+     */","public JSONWriter object() throws JSONException {
+        if (this.mode == 'i') {
+            this.mode = 'o';
+        }
+        if (this.mode == 'o' || this.mode == 'a') {
+            this.append(""{"");
+            this.push(new JSONObject());
+            this.comma = false;
+            return this;
+        }
+        throw new JSONException(""Misplaced object."");
+
+    }"
+json_289_2,"    @Test
+    public void notEnoughHTTPException_2_oe() {
+        String httpStr = ""{}"";
+        JSONObject jsonObject = new JSONObject(httpStr);
+        try {
+            HTTP.toString(jsonObject);
+        } catch (JSONException e) {
+            assertTrue(""Expecting an exception message"",""Not enough material for an HTTP header."".equals(e.getMessage()));
+    }
+    }",HTTPTest::notEnoughHTTPException_2_oe,,,,

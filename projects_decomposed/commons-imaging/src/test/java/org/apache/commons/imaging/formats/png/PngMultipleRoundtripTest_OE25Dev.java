@@ -44,6 +44,7 @@ public class PngMultipleRoundtripTest_OE25Dev extends PngBaseTest {
         final String imagesFolderPath = FilenameUtils.separatorsToSystem(
                 "src\\test\\data\\images\\png\\3");
         final File imagesFolder = new File(imagesFolderPath);
+        // removed other assertion
 
         final File[] files = imagesFolder.listFiles();
         for (final File file : files) {

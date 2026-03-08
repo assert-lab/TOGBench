@@ -337,6 +337,7 @@ public class AbstractMaybeAsyncHandlerBridgeTest_OE25Dev {
 
   @Test
   public void handlesExceptionsWhileFailing_1_oe() {
+    // given
     final Throwable initial = new RuntimeException("mocked error for onThrowable()");
     final Throwable followup = new RuntimeException("mocked error in delegate onThrowable()");
     willThrow(followup).given(delegate).onThrowable(initial);
@@ -344,6 +345,7 @@ public class AbstractMaybeAsyncHandlerBridgeTest_OE25Dev {
     /* when */
     underTest.onThrowable(initial);
 
+    // then
     then(emitter).should().onError(throwable.capture());
     final Throwable thrown = throwable.getValue();
     assertThat(thrown, is(instanceOf(CompositeException.class)));
@@ -351,6 +353,7 @@ public class AbstractMaybeAsyncHandlerBridgeTest_OE25Dev {
 
   @Test
   public void handlesExceptionsWhileFailing_2_oe() {
+    // given
     final Throwable initial = new RuntimeException("mocked error for onThrowable()");
     final Throwable followup = new RuntimeException("mocked error in delegate onThrowable()");
     willThrow(followup).given(delegate).onThrowable(initial);
@@ -358,16 +361,20 @@ public class AbstractMaybeAsyncHandlerBridgeTest_OE25Dev {
     /* when */
     underTest.onThrowable(initial);
 
+    // then
     then(emitter).should().onError(throwable.capture());
     final Throwable thrown = throwable.getValue();
+    // removed other assertion
     assertThat(((CompositeException) thrown).getExceptions(), is(Arrays.asList(initial, followup)));
   }
 
   @Test
   public void cachesDisposedException_1_oe() {
+    // when
     new UnderTest().disposed();
     new UnderTest().disposed();
 
+    // then
     then(delegate).should(times(2)).onThrowable(throwable.capture());
     final List<Throwable> errors = throwable.getAllValues();
     final Throwable firstError = errors.get(0), secondError = errors.get(1);
@@ -376,37 +383,49 @@ public class AbstractMaybeAsyncHandlerBridgeTest_OE25Dev {
 
   @Test
   public void cachesDisposedException_2_oe() {
+    // when
     new UnderTest().disposed();
     new UnderTest().disposed();
 
+    // then
     then(delegate).should(times(2)).onThrowable(throwable.capture());
     final List<Throwable> errors = throwable.getAllValues();
     final Throwable firstError = errors.get(0), secondError = errors.get(1);
+    // removed other assertion
     final StackTraceElement[] stackTrace = firstError.getStackTrace();
     assertThat(stackTrace.length, is(1));
   }
 
   @Test
   public void cachesDisposedException_3_oe() {
+    // when
     new UnderTest().disposed();
     new UnderTest().disposed();
 
+    // then
     then(delegate).should(times(2)).onThrowable(throwable.capture());
     final List<Throwable> errors = throwable.getAllValues();
     final Throwable firstError = errors.get(0), secondError = errors.get(1);
+    // removed other assertion
     final StackTraceElement[] stackTrace = firstError.getStackTrace();
+    // removed other assertion
     assertThat(stackTrace[0].getClassName(), is(AbstractMaybeAsyncHandlerBridge.class.getName()));
   }
 
   @Test
   public void cachesDisposedException_4_oe() {
+    // when
     new UnderTest().disposed();
     new UnderTest().disposed();
 
+    // then
     then(delegate).should(times(2)).onThrowable(throwable.capture());
     final List<Throwable> errors = throwable.getAllValues();
     final Throwable firstError = errors.get(0), secondError = errors.get(1);
+    // removed other assertion
     final StackTraceElement[] stackTrace = firstError.getStackTrace();
+    // removed other assertion
+    // removed other assertion
     assertThat(stackTrace[0].getMethodName(), is("disposed"));
   }
 
@@ -427,6 +446,7 @@ public class AbstractMaybeAsyncHandlerBridgeTest_OE25Dev {
     /* when */
     final AsyncHandler.State firstState = httpEvent.call();
     /* then */
+    // removed other assertion
     then(delegate).should(only()).onThrowable(isA(DisposedException.class));
 
     /* when */

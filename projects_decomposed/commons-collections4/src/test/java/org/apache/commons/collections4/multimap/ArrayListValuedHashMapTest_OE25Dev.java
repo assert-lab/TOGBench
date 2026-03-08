@@ -47,6 +47,103 @@ public static Test suite() {
     }
 
     // -----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testListValuedMapAdd() {
+        final ListValuedMap<K, V> listMap = makeObject();
+        assertTrue(listMap.get((K) "whatever") instanceof List);
+        final List<V> list = listMap.get((K) "A");
+        list.add((V) "a1");
+        assertEquals(1, listMap.size());
+        assertTrue(listMap.containsKey("A"));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testListValuedMapAddViaListIterator() {
+        final ListValuedMap<K, V> listMap = makeObject();
+        final ListIterator<V> listIt = listMap.get((K) "B").listIterator();
+        assertFalse(listIt.hasNext());
+        listIt.add((V) "b1");
+        listIt.add((V) "b2");
+        listIt.add((V) "b3");
+        assertEquals(3, listMap.size());
+        assertTrue(listMap.containsKey("B"));
+        // As ListIterator always adds before the current cursor
+        assertFalse(listIt.hasNext());
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testListValuedMapRemove() {
+        final ListValuedMap<K, V> listMap = makeObject();
+        final List<V> list = listMap.get((K) "A");
+        list.add((V) "a1");
+        list.add((V) "a2");
+        list.add((V) "a3");
+        assertEquals(3, listMap.size());
+        assertEquals("a1", list.remove(0));
+        assertEquals(2, listMap.size());
+        assertEquals("a2", list.remove(0));
+        assertEquals(1, listMap.size());
+        assertEquals("a3", list.remove(0));
+        assertEquals(0, listMap.size());
+        assertFalse(listMap.containsKey("A"));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testListValuedMapRemoveViaListIterator() {
+        final ListValuedMap<K, V> listMap = makeObject();
+        ListIterator<V> listIt = listMap.get((K) "B").listIterator();
+        listIt.add((V) "b1");
+        listIt.add((V) "b2");
+        assertEquals(2, listMap.size());
+        assertTrue(listMap.containsKey("B"));
+        listIt = listMap.get((K) "B").listIterator();
+        while (listIt.hasNext()) {
+            listIt.next();
+            listIt.remove();
+        }
+        assertFalse(listMap.containsKey("B"));
+        listIt.add((V) "b1");
+        listIt.add((V) "b2");
+        assertTrue(listMap.containsKey("B"));
+        assertEquals(2, listMap.get((K) "B").size());
+    }
+
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public void testEqualsHashCodeContract() {
+        final MultiValuedMap map1 = makeObject();
+        final MultiValuedMap map2 = makeObject();
+
+        map1.put("a", "a1");
+        map1.put("a", "a2");
+        map2.put("a", "a1");
+        map2.put("a", "a2");
+        assertEquals(map1, map2);
+        assertEquals(map1.hashCode(), map2.hashCode());
+
+        map2.put("a", "a2");
+        assertNotSame(map1, map2);
+        assertNotSame(map1.hashCode(), map2.hashCode());
+    }
+
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public void testListValuedMapEqualsHashCodeContract() {
+        final ListValuedMap map1 = makeObject();
+        final ListValuedMap map2 = makeObject();
+
+        map1.put("a", "a1");
+        map1.put("a", "a2");
+        map2.put("a", "a1");
+        map2.put("a", "a2");
+        assertEquals(map1, map2);
+        assertEquals(map1.hashCode(), map2.hashCode());
+
+        map1.put("b", "b1");
+        map1.put("b", "b2");
+        map2.put("b", "b2");
+        map2.put("b", "b1");
+        assertNotSame(map1, map2);
+        assertNotSame(map1.hashCode(), map2.hashCode());
+    }
 
 //    public void testCreate() throws Exception {
 //        writeExternalFormToDisk((java.io.Serializable) makeObject(),

@@ -112,6 +112,7 @@ public class BasicHttpProxyToHttpsTest_OE25Dev {
       Request request = get(targetUrl)
               .setProxyServer(proxyServer("127.0.0.1", proxyPort).setRealm(realm(AuthScheme.BASIC, "johndoe", "pass")))
               .setHeader("user-agent", CUSTOM_USER_AGENT)
+              // .setRealm(realm(AuthScheme.BASIC, "user", "passwd"))
               .build();
       Future<Response> responseFuture = client.executeRequest(request);
       Response response = responseFuture.get();
@@ -127,10 +128,12 @@ public class BasicHttpProxyToHttpsTest_OE25Dev {
       Request request = get(targetUrl)
               .setProxyServer(proxyServer("127.0.0.1", proxyPort).setRealm(realm(AuthScheme.BASIC, "johndoe", "pass")))
               .setHeader("user-agent", CUSTOM_USER_AGENT)
+              // .setRealm(realm(AuthScheme.BASIC, "user", "passwd"))
               .build();
       Future<Response> responseFuture = client.executeRequest(request);
       Response response = responseFuture.get();
 
+      // removed other assertion
       Assert.assertEquals("/foo/bar", response.getHeader("X-pathInfo"));
   }
   }

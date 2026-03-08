@@ -388,6 +388,7 @@ public class TestXMLBeanDeclaration_OE25Dev {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
         final Collection<ConstructorArg> args = decl.getConstructorArgs();
+        // removed other assertion
         final Iterator<ConstructorArg> it = args.iterator();
         final ConstructorArg arg1 = it.next();
         assertTrue("No bean declaration", arg1.isNestedBeanDeclaration());
@@ -398,8 +399,10 @@ public class TestXMLBeanDeclaration_OE25Dev {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
         final Collection<ConstructorArg> args = decl.getConstructorArgs();
+        // removed other assertion
         final Iterator<ConstructorArg> it = args.iterator();
         final ConstructorArg arg1 = it.next();
+        // removed other assertion
         checkProperties(arg1.getBeanDeclaration(), CTOR_COMPLEX_ATTRIBUTES, CTOR_COMPLEX_VALUES);
         assertNull("Got a type", arg1.getTypeName());
     }
@@ -409,9 +412,12 @@ public class TestXMLBeanDeclaration_OE25Dev {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
         final Collection<ConstructorArg> args = decl.getConstructorArgs();
+        // removed other assertion
         final Iterator<ConstructorArg> it = args.iterator();
         final ConstructorArg arg1 = it.next();
+        // removed other assertion
         checkProperties(arg1.getBeanDeclaration(), CTOR_COMPLEX_ATTRIBUTES, CTOR_COMPLEX_VALUES);
+        // removed other assertion
         assertEquals("Wrong class name", "TestClass", arg1.getBeanDeclaration().getBeanClassName());
     }
 
@@ -420,9 +426,13 @@ public class TestXMLBeanDeclaration_OE25Dev {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
         final Collection<ConstructorArg> args = decl.getConstructorArgs();
+        // removed other assertion
         final Iterator<ConstructorArg> it = args.iterator();
         final ConstructorArg arg1 = it.next();
+        // removed other assertion
         checkProperties(arg1.getBeanDeclaration(), CTOR_COMPLEX_ATTRIBUTES, CTOR_COMPLEX_VALUES);
+        // removed other assertion
+        // removed other assertion
         final ConstructorArg arg2 = it.next();
         assertFalse("A bean declaration", arg2.isNestedBeanDeclaration());
     }
@@ -432,10 +442,15 @@ public class TestXMLBeanDeclaration_OE25Dev {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
         final Collection<ConstructorArg> args = decl.getConstructorArgs();
+        // removed other assertion
         final Iterator<ConstructorArg> it = args.iterator();
         final ConstructorArg arg1 = it.next();
+        // removed other assertion
         checkProperties(arg1.getBeanDeclaration(), CTOR_COMPLEX_ATTRIBUTES, CTOR_COMPLEX_VALUES);
+        // removed other assertion
+        // removed other assertion
         final ConstructorArg arg2 = it.next();
+        // removed other assertion
         assertEquals("Wrong value", CTOR_ID, arg2.getValue());
     }
 
@@ -444,10 +459,16 @@ public class TestXMLBeanDeclaration_OE25Dev {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
         final Collection<ConstructorArg> args = decl.getConstructorArgs();
+        // removed other assertion
         final Iterator<ConstructorArg> it = args.iterator();
         final ConstructorArg arg1 = it.next();
+        // removed other assertion
         checkProperties(arg1.getBeanDeclaration(), CTOR_COMPLEX_ATTRIBUTES, CTOR_COMPLEX_VALUES);
+        // removed other assertion
+        // removed other assertion
         final ConstructorArg arg2 = it.next();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong type", "long", arg2.getTypeName());
     }
 
@@ -468,6 +489,7 @@ public class TestXMLBeanDeclaration_OE25Dev {
         config.addProperty(KEY + ".config-constrarg", "");
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
         final Collection<ConstructorArg> args = decl.getConstructorArgs();
+        // removed other assertion
         final ConstructorArg arg = args.iterator().next();
         assertFalse("A bean declaration", arg.isNestedBeanDeclaration());
     }
@@ -479,7 +501,9 @@ public class TestXMLBeanDeclaration_OE25Dev {
         config.addProperty(KEY + ".config-constrarg", "");
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
         final Collection<ConstructorArg> args = decl.getConstructorArgs();
+        // removed other assertion
         final ConstructorArg arg = args.iterator().next();
+        // removed other assertion
         assertNull("Got a value", arg.getValue());
     }
 
@@ -513,6 +537,7 @@ public class TestXMLBeanDeclaration_OE25Dev {
         checkProperties(decl, TEST_PROPS, TEST_VALUES);
 
         final Map<String, Object> nested = decl.getNestedBeanDeclarations();
+        // removed other assertion
         for (int i = 0; i < COMPLEX_PROPS.length; i++) {
             final XMLBeanDeclaration d = (XMLBeanDeclaration) nested.get(COMPLEX_PROPS[i]);
             assertNotNull("No declaration found for " + COMPLEX_PROPS[i], d);
@@ -526,8 +551,10 @@ public class TestXMLBeanDeclaration_OE25Dev {
         checkProperties(decl, TEST_PROPS, TEST_VALUES);
 
         final Map<String, Object> nested = decl.getNestedBeanDeclarations();
+        // removed other assertion
         for (int i = 0; i < COMPLEX_PROPS.length; i++) {
             final XMLBeanDeclaration d = (XMLBeanDeclaration) nested.get(COMPLEX_PROPS[i]);
+            // removed other assertion
             checkProperties(d, COMPLEX_ATTRIBUTES[i], COMPLEX_VALUES[i]);
             assertEquals("Wrong bean class", COMPLEX_CLASSES[i], d.getBeanClassName());
     }

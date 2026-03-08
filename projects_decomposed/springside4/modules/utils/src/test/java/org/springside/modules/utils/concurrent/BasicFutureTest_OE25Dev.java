@@ -57,10 +57,13 @@ public class BasicFutureTest_OE25Dev {
 		MyFuture<String> future = new MyFuture<String>();
 		Tasks.success(future);
 		String result = future.get();
+		// removed other assertion
 
+		// 无人设置返回值
 		try {
 			MyFuture<String> future2 = new MyFuture<String>();
 			future2.get(10, TimeUnit.MILLISECONDS);
+			// removed other assertion
 		} catch (TimeoutException e) {
 			assertThat(e).isInstanceOf(TimeoutException.class);
 	}

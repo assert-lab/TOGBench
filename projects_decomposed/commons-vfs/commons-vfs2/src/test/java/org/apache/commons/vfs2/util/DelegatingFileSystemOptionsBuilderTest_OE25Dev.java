@@ -73,6 +73,7 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
 
         try {
             delgate.setConfigString(opts, "http", "proxyPort", "wrong_port");
+            // removed other assertion
         } catch (final FileSystemException e) {
             assertSame(e.getCause().getClass(), InvocationTargetException.class);
     }
@@ -85,7 +86,9 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
 
         try {
             delgate.setConfigString(opts, "http", "proxyPort", "wrong_port");
+            // removed other assertion
         } catch (final FileSystemException e) {
+            // removed other assertion
             assertSame(((InvocationTargetException)e.getCause()).getTargetException().getClass(),NumberFormatException.class);
     }
     }
@@ -97,11 +100,15 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
 
         try {
             delgate.setConfigString(opts, "http", "proxyPort", "wrong_port");
+            // removed other assertion
         } catch (final FileSystemException e) {
+            // removed other assertion
+            // removed other assertion
         }
 
         try {
             delgate.setConfigClass(opts, "sftp", "userinfo", String.class);
+            // removed other assertion
         } catch (final FileSystemException e) {
             assertEquals(e.getCode(), "vfs.provider/config-value-invalid.error");
     }
@@ -134,6 +141,7 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
         delgate.setConfigClass(opts, "sftp", "userinfo", TrustEveryoneUserInfo.class);
         delgate.setConfigStrings(opts, "sftp", "identities", identityPaths);
 
+        // removed other assertion
         assertEquals("http.proxyPort", HttpFileSystemConfigBuilder.getInstance().getProxyPort(opts), 8080);
     }
 
@@ -149,6 +157,8 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
         delgate.setConfigClass(opts, "sftp", "userinfo", TrustEveryoneUserInfo.class);
         delgate.setConfigStrings(opts, "sftp", "identities", identityPaths);
 
+        // removed other assertion
+        // removed other assertion
         assertSame("sftp.userInfo",SftpFileSystemConfigBuilder.getInstance().getUserInfo(opts).getClass(),TrustEveryoneUserInfo.class);
     }
 
@@ -164,6 +174,9 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
         delgate.setConfigClass(opts, "sftp", "userinfo", TrustEveryoneUserInfo.class);
         delgate.setConfigStrings(opts, "sftp", "identities", identityPaths);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final File[] identities = SftpFileSystemConfigBuilder.getInstance().getIdentities(opts);
         assertNotNull("sftp.identities", identities);
@@ -181,8 +194,12 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
         delgate.setConfigClass(opts, "sftp", "userinfo", TrustEveryoneUserInfo.class);
         delgate.setConfigStrings(opts, "sftp", "identities", identityPaths);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final File[] identities = SftpFileSystemConfigBuilder.getInstance().getIdentities(opts);
+        // removed other assertion
         assertEquals("sftp.identities size", identities.length, identityPaths.length);
     }
 
@@ -198,8 +215,13 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
         delgate.setConfigClass(opts, "sftp", "userinfo", TrustEveryoneUserInfo.class);
         delgate.setConfigStrings(opts, "sftp", "identities", identityPaths);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final File[] identities = SftpFileSystemConfigBuilder.getInstance().getIdentities(opts);
+        // removed other assertion
+        // removed other assertion
         for (int iterIdentities = 0; iterIdentities < identities.length; iterIdentities++) {
             assertEquals("sftp.identities #" + iterIdentities,identities[iterIdentities].getAbsolutePath(),new File(identityPaths[iterIdentities]).getAbsolutePath());
     }

@@ -56,6 +56,7 @@ public class SessionTest_OE25Dev {
         session.userAgent(userAgent);
         session.url(CookieServlet.Url);
 
+        // should have no cookies:
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
         assertEquals(0,doc1.select("table tr").size());// none sent to servlet;
@@ -69,8 +70,10 @@ public class SessionTest_OE25Dev {
         session.userAgent(userAgent);
         session.url(CookieServlet.Url);
 
+        // should have no cookies:
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
+        // removed other assertion
         Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
         assertEquals(0,doc2.select("table tr").size());// none sent to servlet - we just got them!;
@@ -84,10 +87,13 @@ public class SessionTest_OE25Dev {
         session.userAgent(userAgent);
         session.url(CookieServlet.Url);
 
+        // should have no cookies:
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
+        // removed other assertion
         Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
+        // removed other assertion
         Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
         assertEquals(1,cookies.size());
     }
@@ -100,11 +106,15 @@ public class SessionTest_OE25Dev {
         session.userAgent(userAgent);
         session.url(CookieServlet.Url);
 
+        // should have no cookies:
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
+        // removed other assertion
         Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
+        // removed other assertion
         Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
+        // removed other assertion
         assertEquals("Root", cookies.get("One"));
     }
 
@@ -116,17 +126,26 @@ public class SessionTest_OE25Dev {
         session.userAgent(userAgent);
         session.url(CookieServlet.Url);
 
+        // should have no cookies:
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
+        // removed other assertion
         Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
+        // removed other assertion
         Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
+        // removed other assertion
+        // removed other assertion
 
+        // todo - interrogate cookie-store
 
+        // check that they are sent and filtered to the right path
         Connection con3 = session.newRequest();
         Document doc3 = con3.get();
+        // removed other assertion
 
         Document echo = session.newRequest().url(EchoServlet.Url).get();
+        // removed other assertion
         assertEquals(userAgent,keyText("User-Agent",echo));// check that customer user agent sent on session arrived;
     }
 
@@ -138,17 +157,27 @@ public class SessionTest_OE25Dev {
         session.userAgent(userAgent);
         session.url(CookieServlet.Url);
 
+        // should have no cookies:
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
+        // removed other assertion
         Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
+        // removed other assertion
         Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
+        // removed other assertion
+        // removed other assertion
 
+        // todo - interrogate cookie-store
 
+        // check that they are sent and filtered to the right path
         Connection con3 = session.newRequest();
         Document doc3 = con3.get();
+        // removed other assertion
 
         Document echo = session.newRequest().url(EchoServlet.Url).get();
+        // removed other assertion
+        // removed other assertion
         Document doc4 = Jsoup.newSession().url(CookieServlet.Url).get();
         assertEquals(0,doc4.select("table tr").size());// none sent to servlet;
     }
@@ -161,18 +190,29 @@ public class SessionTest_OE25Dev {
         session.userAgent(userAgent);
         session.url(CookieServlet.Url);
 
+        // should have no cookies:
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
+        // removed other assertion
         Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
+        // removed other assertion
         Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
+        // removed other assertion
+        // removed other assertion
 
+        // todo - interrogate cookie-store
 
+        // check that they are sent and filtered to the right path
         Connection con3 = session.newRequest();
         Document doc3 = con3.get();
+        // removed other assertion
 
         Document echo = session.newRequest().url(EchoServlet.Url).get();
+        // removed other assertion
+        // removed other assertion
         Document doc4 = Jsoup.newSession().url(CookieServlet.Url).get();
+        // removed other assertion
         Document doc5 = session.newRequest().cookie("Bar","Qux").get();
         Elements doc5Bar = keyEls("Bar", doc5);
         assertEquals("Qux", doc5Bar.first().text());
@@ -188,6 +228,7 @@ public class SessionTest_OE25Dev {
             .data(CookieServlet.SetCookiesParam, "1")
             .get();
 
+        // we should be redirected to the echo servlet with cookies
         assertEquals(EchoServlet.Url, doc1.location());
     }
 
@@ -210,6 +251,7 @@ public class SessionTest_OE25Dev {
         String xmlVal = "<doc><val>One<val>Two</val>Three</val></doc>\n";
 
         Document doc1 = session.newRequest().url(xmlUrl).get();
+        // removed other assertion
         Document doc2 = session.newRequest().parser(Parser.htmlParser()).url(xmlUrl).get();
         assertTrue(doc2.html().startsWith("<html>"));
     }
@@ -222,7 +264,9 @@ public class SessionTest_OE25Dev {
         String xmlVal = "<doc><val>One<val>Two</val>Three</val></doc>\n";
 
         Document doc1 = session.newRequest().url(xmlUrl).get();
+        // removed other assertion
         Document doc2 = session.newRequest().parser(Parser.htmlParser()).url(xmlUrl).get();
+        // removed other assertion
 
         Document doc3 = session.newRequest().url(xmlUrl).get();
         assertEquals(xmlVal, doc3.html()); // did not blow away xml default;
@@ -236,13 +280,20 @@ public class SessionTest_OE25Dev {
         session.userAgent(userAgent);
         session.url(CookieServlet.Url);
 
+        // should have no cookies:
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
+        // removed other assertion
         Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
+        // removed other assertion
         Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
+        // removed other assertion
+        // removed other assertion
 
+        // todo - interrogate cookie-store
 
+        // check that they are sent and filtered to the right path
         Connection con3 = session.newRequest();
         Document doc3 = con3.get();
                 final Document doc0 = doc3;
@@ -257,16 +308,24 @@ public class SessionTest_OE25Dev {
         session.userAgent(userAgent);
         session.url(CookieServlet.Url);
 
+        // should have no cookies:
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
+        // removed other assertion
         Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
+        // removed other assertion
         Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
+        // removed other assertion
+        // removed other assertion
 
+        // todo - interrogate cookie-store
 
+        // check that they are sent and filtered to the right path
         Connection con3 = session.newRequest();
         Document doc3 = con3.get();
                 final Document doc0 = doc3;
+        // removed other assertion
                 Elements doc3Els0 = keyEls("One",doc0);
                 assertEquals(2, doc3Els0.size());
     }
@@ -279,17 +338,26 @@ public class SessionTest_OE25Dev {
         session.userAgent(userAgent);
         session.url(CookieServlet.Url);
 
+        // should have no cookies:
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
+        // removed other assertion
         Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
+        // removed other assertion
         Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
+        // removed other assertion
+        // removed other assertion
 
+        // todo - interrogate cookie-store
 
+        // check that they are sent and filtered to the right path
         Connection con3 = session.newRequest();
         Document doc3 = con3.get();
                 final Document doc0 = doc3;
+        // removed other assertion
                 Elements doc3Els0 = keyEls("One",doc0);
+                // removed other assertion
                 assertEquals("CookieServlet", doc3Els0.get(0).text()); // ordered by most specific path;
     }
 
@@ -301,17 +369,27 @@ public class SessionTest_OE25Dev {
         session.userAgent(userAgent);
         session.url(CookieServlet.Url);
 
+        // should have no cookies:
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
+        // removed other assertion
         Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
+        // removed other assertion
         Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
+        // removed other assertion
+        // removed other assertion
 
+        // todo - interrogate cookie-store
 
+        // check that they are sent and filtered to the right path
         Connection con3 = session.newRequest();
         Document doc3 = con3.get();
                 final Document doc0 = doc3;
+        // removed other assertion
                 Elements doc3Els0 = keyEls("One",doc0);
+                // removed other assertion
+                // removed other assertion
                 assertEquals("Root", doc3Els0.get(1).text()); // ordered by most specific path;
     }
 
@@ -323,15 +401,23 @@ public class SessionTest_OE25Dev {
         session.userAgent(userAgent);
         session.url(CookieServlet.Url);
 
+        // should have no cookies:
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
+        // removed other assertion
         Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
+        // removed other assertion
         Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
+        // removed other assertion
+        // removed other assertion
 
+        // todo - interrogate cookie-store
 
+        // check that they are sent and filtered to the right path
         Connection con3 = session.newRequest();
         Document doc3 = con3.get();
+        // removed other assertion
 
         Document echo = session.newRequest().url(EchoServlet.Url).get();
                 final Document doc0 = echo;
@@ -347,19 +433,28 @@ public class SessionTest_OE25Dev {
         session.userAgent(userAgent);
         session.url(CookieServlet.Url);
 
+        // should have no cookies:
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
+        // removed other assertion
         Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
+        // removed other assertion
         Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
+        // removed other assertion
+        // removed other assertion
 
+        // todo - interrogate cookie-store
 
+        // check that they are sent and filtered to the right path
         Connection con3 = session.newRequest();
         Document doc3 = con3.get();
+        // removed other assertion
 
         Document echo = session.newRequest().url(EchoServlet.Url).get();
                 final Document doc0 = echo;
         Elements echoEls0 = keyEls("Cookie: One", doc0);  // two of three sent to servlet (/ and /EchoServlet)
+                // removed other assertion
                 assertEquals("EchoServlet", echoEls0.get(0).text()); // ordered by most specific path - /Echo;
     }
 
@@ -371,19 +466,29 @@ public class SessionTest_OE25Dev {
         session.userAgent(userAgent);
         session.url(CookieServlet.Url);
 
+        // should have no cookies:
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
+        // removed other assertion
         Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
+        // removed other assertion
         Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
+        // removed other assertion
+        // removed other assertion
 
+        // todo - interrogate cookie-store
 
+        // check that they are sent and filtered to the right path
         Connection con3 = session.newRequest();
         Document doc3 = con3.get();
+        // removed other assertion
 
         Document echo = session.newRequest().url(EchoServlet.Url).get();
                 final Document doc0 = echo;
         Elements echoEls0 = keyEls("Cookie: One", doc0);  // two of three sent to servlet (/ and /EchoServlet)
+                // removed other assertion
+                // removed other assertion
                 assertEquals("Root", echoEls0.get(1).text()); // ordered by most specific path - /;
     }
 
@@ -397,6 +502,8 @@ public class SessionTest_OE25Dev {
             .data(CookieServlet.SetCookiesParam, "1")
             .get();
 
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
                 final Document doc0 = doc1;
         Elements echoEls0 = keyEls("Cookie: One", doc0);  // two of three sent to servlet (/ and /EchoServlet)
                 assertEquals(2, echoEls0.size());
@@ -412,8 +519,11 @@ public class SessionTest_OE25Dev {
             .data(CookieServlet.SetCookiesParam, "1")
             .get();
 
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
                 final Document doc0 = doc1;
         Elements echoEls0 = keyEls("Cookie: One", doc0);  // two of three sent to servlet (/ and /EchoServlet)
+                // removed other assertion
                 assertEquals("EchoServlet", echoEls0.get(0).text()); // ordered by most specific path - /Echo;
     }
 
@@ -427,8 +537,12 @@ public class SessionTest_OE25Dev {
             .data(CookieServlet.SetCookiesParam, "1")
             .get();
 
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
                 final Document doc0 = doc1;
         Elements echoEls0 = keyEls("Cookie: One", doc0);  // two of three sent to servlet (/ and /EchoServlet)
+                // removed other assertion
+                // removed other assertion
                 assertEquals("Root", echoEls0.get(1).text()); // ordered by most specific path - / // checks we only have /echo cookies;
     }
 
@@ -442,6 +556,9 @@ public class SessionTest_OE25Dev {
             .data(CookieServlet.SetCookiesParam, "1")
             .get();
 
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+        // removed other assertion
 
         Document doc2 = session.newRequest()
             .url(EchoServlet.Url)
@@ -461,12 +578,16 @@ public class SessionTest_OE25Dev {
             .data(CookieServlet.SetCookiesParam, "1")
             .get();
 
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+        // removed other assertion
 
         Document doc2 = session.newRequest()
             .url(EchoServlet.Url)
             .get();
                 final Document doc0 = doc2;
         Elements echoEls0 = keyEls("Cookie: One", doc0);  // two of three sent to servlet (/ and /EchoServlet)
+                // removed other assertion
                 assertEquals("EchoServlet", echoEls0.get(0).text()); // ordered by most specific path - /Echo;
     }
 
@@ -480,12 +601,17 @@ public class SessionTest_OE25Dev {
             .data(CookieServlet.SetCookiesParam, "1")
             .get();
 
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+        // removed other assertion
 
         Document doc2 = session.newRequest()
             .url(EchoServlet.Url)
             .get();
                 final Document doc0 = doc2;
         Elements echoEls0 = keyEls("Cookie: One", doc0);  // two of three sent to servlet (/ and /EchoServlet)
+                // removed other assertion
+                // removed other assertion
                 assertEquals("Root", echoEls0.get(1).text()); // ordered by most specific path - / // test retained in session;
     }
 
@@ -499,10 +625,14 @@ public class SessionTest_OE25Dev {
             .data(CookieServlet.SetCookiesParam, "1")
             .get();
 
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+        // removed other assertion
 
         Document doc2 = session.newRequest()
             .url(EchoServlet.Url)
             .get();
+        // removed other assertion
 
         Document doc3 = session.newRequest()
             .url(CookieServlet.Url)
@@ -521,15 +651,20 @@ public class SessionTest_OE25Dev {
             .data(CookieServlet.SetCookiesParam, "1")
             .get();
 
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+        // removed other assertion
 
         Document doc2 = session.newRequest()
             .url(EchoServlet.Url)
             .get();
+        // removed other assertion
 
         Document doc3 = session.newRequest()
             .url(CookieServlet.Url)
             .get();
                 final Document doc0 = doc3;
+        // removed other assertion
                 Elements doc3Els0 = keyEls("One",doc0);
                 assertEquals(2, doc3Els0.size());
     }
@@ -544,16 +679,22 @@ public class SessionTest_OE25Dev {
             .data(CookieServlet.SetCookiesParam, "1")
             .get();
 
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+        // removed other assertion
 
         Document doc2 = session.newRequest()
             .url(EchoServlet.Url)
             .get();
+        // removed other assertion
 
         Document doc3 = session.newRequest()
             .url(CookieServlet.Url)
             .get();
                 final Document doc0 = doc3;
+        // removed other assertion
                 Elements doc3Els0 = keyEls("One",doc0);
+                // removed other assertion
                 assertEquals("CookieServlet", doc3Els0.get(0).text()); // ordered by most specific path;
     }
 
@@ -567,16 +708,23 @@ public class SessionTest_OE25Dev {
             .data(CookieServlet.SetCookiesParam, "1")
             .get();
 
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+        // removed other assertion
 
         Document doc2 = session.newRequest()
             .url(EchoServlet.Url)
             .get();
+        // removed other assertion
 
         Document doc3 = session.newRequest()
             .url(CookieServlet.Url)
             .get();
                 final Document doc0 = doc3;
+        // removed other assertion
                 Elements doc3Els0 = keyEls("One",doc0);
+                // removed other assertion
+                // removed other assertion
                 assertEquals("Root", doc3Els0.get(1).text()); // ordered by most specific path // and so were the /cookie cookies;
     }
 

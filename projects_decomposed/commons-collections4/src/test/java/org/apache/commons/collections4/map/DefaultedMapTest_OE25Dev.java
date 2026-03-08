@@ -46,6 +46,89 @@ public class DefaultedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
     }
 
     //-----------------------------------------------------------------------
+    @Override
+    @SuppressWarnings("unchecked")
+    public void testMapGet() {
+        final Map<K, V> map = new DefaultedMap<>((V) "NULL");
+
+        assertEquals(0, map.size());
+        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals("NULL", map.get("NotInMap"));
+
+        map.put((K) "Key", (V) "Value");
+        assertEquals(1, map.size());
+        assertEquals(true, map.containsKey("Key"));
+        assertEquals("Value", map.get("Key"));
+        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals("NULL", map.get("NotInMap"));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testMapGet2() {
+        final HashMap<K, V> base = new HashMap<>();
+        final Map<K, V> map = DefaultedMap.defaultedMap(base, (V) "NULL");
+
+        assertEquals(0, map.size());
+        assertEquals(0, base.size());
+        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals("NULL", map.get("NotInMap"));
+
+        map.put((K) "Key", (V) "Value");
+        assertEquals(1, map.size());
+        assertEquals(1, base.size());
+        assertEquals(true, map.containsKey("Key"));
+        assertEquals("Value", map.get("Key"));
+        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals("NULL", map.get("NotInMap"));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testMapGet3() {
+        final HashMap<K, V> base = new HashMap<>();
+        final Map<K, V> map = DefaultedMap.defaultedMap(base, ConstantFactory.constantFactory((V) "NULL"));
+
+        assertEquals(0, map.size());
+        assertEquals(0, base.size());
+        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals("NULL", map.get("NotInMap"));
+
+        map.put((K) "Key", (V) "Value");
+        assertEquals(1, map.size());
+        assertEquals(1, base.size());
+        assertEquals(true, map.containsKey("Key"));
+        assertEquals("Value", map.get("Key"));
+        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals("NULL", map.get("NotInMap"));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testMapGet4() {
+        final HashMap<K, V> base = new HashMap<>();
+        final Map<K, V> map = DefaultedMap.defaultedMap(base, new Transformer<K, V>() {
+            @Override
+            public V transform(final K input) {
+                if (input instanceof String) {
+                    return (V) "NULL";
+                }
+                return (V) "NULL_OBJECT";
+            }
+        });
+
+        assertEquals(0, map.size());
+        assertEquals(0, base.size());
+        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals("NULL", map.get("NotInMap"));
+        assertEquals("NULL_OBJECT", map.get(Integer.valueOf(0)));
+
+        map.put((K) "Key", (V) "Value");
+        assertEquals(1, map.size());
+        assertEquals(1, base.size());
+        assertEquals(true, map.containsKey("Key"));
+        assertEquals("Value", map.get("Key"));
+        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals("NULL", map.get("NotInMap"));
+        assertEquals("NULL_OBJECT", map.get(Integer.valueOf(0)));
+    }
 
     @Override
     public String getCompatibilityVersion() {

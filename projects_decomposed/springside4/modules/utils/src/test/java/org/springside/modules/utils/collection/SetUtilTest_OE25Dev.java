@@ -32,6 +32,7 @@ public class SetUtilTest_OE25Dev {
 
 		HashSet<String> set3 = SetUtil.newHashSet("1", "2", "2");
 
+		// removed other assertion
 
 		HashSet<String> set4 = SetUtil.newHashSet(ListUtil.newArrayList("1", "2", "2"));
 		assertThat(set4).hasSize(2).contains("1", "2");
@@ -46,6 +47,7 @@ public class SetUtilTest_OE25Dev {
 	@Test
 	public void jdkBuildSet_2_oe() {
 		Set<String> set1 = SetUtil.emptySet();
+		// removed other assertion
 
 		Set<String> set2 = SetUtil.emptySetIfNull(null);
 		assertThat(set2).isNotNull().hasSize(0);
@@ -54,8 +56,10 @@ public class SetUtilTest_OE25Dev {
 	@Test
 	public void jdkBuildSet_3_oe() {
 		Set<String> set1 = SetUtil.emptySet();
+		// removed other assertion
 
 		Set<String> set2 = SetUtil.emptySetIfNull(null);
+		// removed other assertion
 
 		Set<String> set3 = SetUtil.emptySetIfNull(set1);
 		assertThat(set3).isSameAs(set1);
@@ -64,13 +68,17 @@ public class SetUtilTest_OE25Dev {
 	@Test
 	public void jdkBuildSet_5_oe() {
 		Set<String> set1 = SetUtil.emptySet();
+		// removed other assertion
 
 		Set<String> set2 = SetUtil.emptySetIfNull(null);
+		// removed other assertion
 
 		Set<String> set3 = SetUtil.emptySetIfNull(set1);
+		// removed other assertion
 
 		try {
 			set1.add("a");
+			// removed other assertion
 		} catch (Throwable t) {
 			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
 	}
@@ -79,14 +87,19 @@ public class SetUtilTest_OE25Dev {
 	@Test
 	public void jdkBuildSet_6_oe() {
 		Set<String> set1 = SetUtil.emptySet();
+		// removed other assertion
 
 		Set<String> set2 = SetUtil.emptySetIfNull(null);
+		// removed other assertion
 
 		Set<String> set3 = SetUtil.emptySetIfNull(set1);
+		// removed other assertion
 
 		try {
 			set1.add("a");
+			// removed other assertion
 		} catch (Throwable t) {
+			// removed other assertion
 		}
 
 		Set<String> set4 = SetUtil.singletonSet("1");
@@ -96,19 +109,26 @@ public class SetUtilTest_OE25Dev {
 	@Test
 	public void jdkBuildSet_8_oe() {
 		Set<String> set1 = SetUtil.emptySet();
+		// removed other assertion
 
 		Set<String> set2 = SetUtil.emptySetIfNull(null);
+		// removed other assertion
 
 		Set<String> set3 = SetUtil.emptySetIfNull(set1);
+		// removed other assertion
 
 		try {
 			set1.add("a");
+			// removed other assertion
 		} catch (Throwable t) {
+			// removed other assertion
 		}
 
 		Set<String> set4 = SetUtil.singletonSet("1");
+		// removed other assertion
 		try {
 			set4.add("a");
+			// removed other assertion
 		} catch (Throwable t) {
 			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
 	}
@@ -117,20 +137,28 @@ public class SetUtilTest_OE25Dev {
 	@Test
 	public void jdkBuildSet_10_oe() {
 		Set<String> set1 = SetUtil.emptySet();
+		// removed other assertion
 
 		Set<String> set2 = SetUtil.emptySetIfNull(null);
+		// removed other assertion
 
 		Set<String> set3 = SetUtil.emptySetIfNull(set1);
+		// removed other assertion
 
 		try {
 			set1.add("a");
+			// removed other assertion
 		} catch (Throwable t) {
+			// removed other assertion
 		}
 
 		Set<String> set4 = SetUtil.singletonSet("1");
+		// removed other assertion
 		try {
 			set4.add("a");
+			// removed other assertion
 		} catch (Throwable t) {
+			// removed other assertion
 		}
 
 		Set<String> set5 = SetUtil.newHashSet();
@@ -138,6 +166,7 @@ public class SetUtilTest_OE25Dev {
 
 		try {
 			set6.add("a");
+			// removed other assertion
 		} catch (Throwable t) {
 			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
 	}
@@ -158,6 +187,7 @@ public class SetUtilTest_OE25Dev {
 		HashSet<String> set2 = SetUtil.newHashSet("4", "5", "6", "7");
 
 		Set<String> set3 = SetUtil.unionView(set1, set2);
+		// removed other assertion
 
 		Set<String> set4 = SetUtil.intersectionView(set1, set2);
 		assertThat(set4).hasSize(1).contains("6");
@@ -169,8 +199,10 @@ public class SetUtilTest_OE25Dev {
 		HashSet<String> set2 = SetUtil.newHashSet("4", "5", "6", "7");
 
 		Set<String> set3 = SetUtil.unionView(set1, set2);
+		// removed other assertion
 
 		Set<String> set4 = SetUtil.intersectionView(set1, set2);
+		// removed other assertion
 
 		Set<String> set5 = SetUtil.differenceView(set1, set2);
 		assertThat(set5).hasSize(3).contains("1", "2", "3");
@@ -182,10 +214,13 @@ public class SetUtilTest_OE25Dev {
 		HashSet<String> set2 = SetUtil.newHashSet("4", "5", "6", "7");
 
 		Set<String> set3 = SetUtil.unionView(set1, set2);
+		// removed other assertion
 
 		Set<String> set4 = SetUtil.intersectionView(set1, set2);
+		// removed other assertion
 
 		Set<String> set5 = SetUtil.differenceView(set1, set2);
+		// removed other assertion
 
 		Set<String> set6 = SetUtil.disjointView(set1, set2);
 		assertThat(set6).hasSize(6).contains("1", "2", "3", "4", "5", "7");
@@ -197,15 +232,20 @@ public class SetUtilTest_OE25Dev {
 		HashSet<String> set2 = SetUtil.newHashSet("4", "5", "6", "7");
 
 		Set<String> set3 = SetUtil.unionView(set1, set2);
+		// removed other assertion
 
 		Set<String> set4 = SetUtil.intersectionView(set1, set2);
+		// removed other assertion
 
 		Set<String> set5 = SetUtil.differenceView(set1, set2);
+		// removed other assertion
 
 		Set<String> set6 = SetUtil.disjointView(set1, set2);
+		// removed other assertion
 
 		try {
 			set6.add("a");
+			// removed other assertion
 		} catch (Throwable t) {
 			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
 	}

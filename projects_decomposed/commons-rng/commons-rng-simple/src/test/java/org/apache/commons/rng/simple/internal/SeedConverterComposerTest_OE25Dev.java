@@ -43,6 +43,7 @@ class SeedConverterComposerTest_OE25Dev {
                 new SeedConverterComposer<>(int2Long, long2LongArray);
          Integer in = 123;
          Object out = composer.convert(in);
+        // removed other assertion
         Assertions.assertEquals(3, ((long[])out).length, "Incorrect long[] length");
     }
 

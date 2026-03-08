@@ -72,6 +72,21 @@ public class UnmodifiableCollectionTest_OE25Dev<E> extends AbstractCollectionTes
 
     //-----------------------------------------------------------------------
 
+    public void testUnmodifiable() {
+        assertTrue(makeObject() instanceof Unmodifiable);
+        assertTrue(makeFullCollection() instanceof Unmodifiable);
+    }
+
+    public void testDecorateFactory() {
+        final Collection<E> coll = makeFullCollection();
+        assertSame(coll, UnmodifiableCollection.unmodifiableCollection(coll));
+
+        try {
+            UnmodifiableCollection.unmodifiableCollection(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
     //-----------------------------------------------------------------------
 
     @Override
@@ -97,6 +112,13 @@ public class UnmodifiableCollectionTest_OE25Dev<E> extends AbstractCollectionTes
     public void testDecorateFactory_1_oe() {
         final Collection<E> coll = makeFullCollection();
         assertSame(coll, UnmodifiableCollection.unmodifiableCollection(coll));
+    }
+
+public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableCollection.unmodifiableCollection(null);
+            fail();
+        } catch (final NullPointerException ex) {}
     }
 
 }

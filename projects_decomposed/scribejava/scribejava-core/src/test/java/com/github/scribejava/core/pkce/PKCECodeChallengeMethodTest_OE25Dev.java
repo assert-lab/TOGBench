@@ -25,6 +25,7 @@ public class PKCECodeChallengeMethodTest_OE25Dev {
     public void testGeneratingPKCE_2_oe() {
         final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
 
+        // removed other assertion
         assertEquals("dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk", pkce.getCodeVerifier());
     }
 
@@ -32,6 +33,8 @@ public class PKCECodeChallengeMethodTest_OE25Dev {
     public void testGeneratingPKCE_3_oe() {
         final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM", pkce.getCodeChallenge());
     }
 

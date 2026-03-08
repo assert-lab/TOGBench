@@ -71,6 +71,7 @@ class XoRoShiRo64StarStarTest_OE25Dev {
 
 @Test
     void testConstructorWithoutFullLengthSeed_1_oe() {
+        // Hit the case when the input seed is self-seeded when not full length
         RandomAssert.assertNextLongNonZeroOutput(new XoRoShiRo64StarStar(new int[] {0x012de1ba}), SEED_SIZE, SEED_SIZE);
     }
 

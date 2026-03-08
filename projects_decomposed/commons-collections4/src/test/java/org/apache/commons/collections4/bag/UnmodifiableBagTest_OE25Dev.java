@@ -76,6 +76,21 @@ public class UnmodifiableBagTest_OE25Dev<E> extends AbstractBagTest<E> {
 
     //-----------------------------------------------------------------------
 
+    public void testUnmodifiable() {
+        assertTrue(makeObject() instanceof Unmodifiable);
+        assertTrue(makeFullCollection() instanceof Unmodifiable);
+    }
+
+    public void testDecorateFactory() {
+        final Bag<E> queue = makeFullCollection();
+        assertSame(queue, UnmodifiableBag.unmodifiableBag(queue));
+
+        try {
+            UnmodifiableBag.unmodifiableBag(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
     //-----------------------------------------------------------------------
 
     @Override
@@ -101,6 +116,13 @@ public class UnmodifiableBagTest_OE25Dev<E> extends AbstractBagTest<E> {
     public void testDecorateFactory_1_oe() {
         final Bag<E> queue = makeFullCollection();
         assertSame(queue, UnmodifiableBag.unmodifiableBag(queue));
+    }
+
+public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableBag.unmodifiableBag(null);
+            fail();
+        } catch (final NullPointerException ex) {}
     }
 
 }

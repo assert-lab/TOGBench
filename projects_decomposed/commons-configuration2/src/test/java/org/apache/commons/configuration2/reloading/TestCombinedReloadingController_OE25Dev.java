@@ -179,6 +179,7 @@ public class TestCombinedReloadingController_OE25Dev {
         final CombinedReloadingController ctrl = setUpController();
         replaySubControllers();
         final Collection<ReloadingController> subs = ctrl.getSubControllers();
+        // removed other assertion
         assertTrue("Wrong sub controllers", subs.containsAll(Arrays.asList(subControllers)));
     }
 

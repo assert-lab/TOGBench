@@ -69,26 +69,34 @@ class IteratorTransformTest_OE25Dev {
 
     @Test
     void testIteration_1_oe() {
+        // arrange
         final List<Integer> input = Arrays.asList(1, 2, 3, 4, 12, 13);
 
+        // act
         final List<String> result = toList(new EvenCharIterator(input.iterator()));
 
+        // assert
         Assertions.assertEquals(Arrays.asList("2", "4", "1", "2"), result);
     }
 
     @Test
     void testThrowsNoSuchElement_1_oe() {
+        // arrange
         final List<Integer> input = Collections.emptyList();
         final EvenCharIterator it = new EvenCharIterator(input.iterator());
 
+        // act/assert
         Assertions.assertFalse(it.hasNext());
     }
 
     @Test
     void testThrowsNoSuchElement_2_oe() {
+        // arrange
         final List<Integer> input = Collections.emptyList();
         final EvenCharIterator it = new EvenCharIterator(input.iterator());
 
+        // act/assert
+        // removed other assertion
         try {
     it.next();
     fail("NoSuchElementException");

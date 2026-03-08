@@ -29,27 +29,42 @@ public class SelectorTest_OE25Dev {
         "<html xmlns:n=\"urn:ns\"><n:lowercase>text</n:lowercase></html>";
 
     @Test public void testByTag_1_oe() {
+        // should be case insensitive
         Elements els = Jsoup.parse("<div id=1><div id=2><p>Hello</p></div></div><DIV id=3>").select("DIV");
         assertEquals(3, els.size());
         }
 
     @Test public void testByTag_2_oe() {
+        // should be case insensitive
         Elements els = Jsoup.parse("<div id=1><div id=2><p>Hello</p></div></div><DIV id=3>").select("DIV");
+        // removed other assertion
         assertEquals("1", els.get(0).id());
         }
 
     @Test public void testByTag_3_oe() {
+        // should be case insensitive
         Elements els = Jsoup.parse("<div id=1><div id=2><p>Hello</p></div></div><DIV id=3>").select("DIV");
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", els.get(1).id());
         }
 
     @Test public void testByTag_4_oe() {
+        // should be case insensitive
         Elements els = Jsoup.parse("<div id=1><div id=2><p>Hello</p></div></div><DIV id=3>").select("DIV");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("3", els.get(2).id());
         }
 
     @Test public void testByTag_5_oe() {
+        // should be case insensitive
         Elements els = Jsoup.parse("<div id=1><div id=2><p>Hello</p></div></div><DIV id=3>").select("DIV");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements none = Jsoup.parse("<div id=1><div id=2><p>Hello</p></div></div><div id=3>").select("span");
         assertEquals(0, none.size());
@@ -62,16 +77,22 @@ public class SelectorTest_OE25Dev {
 
     @Test public void testById_2_oe() {
         Elements els = Jsoup.parse("<div><p id=foo>Hello</p><p id=foo>Foo two!</p></div>").select("#foo");
+        // removed other assertion
         assertEquals("Hello", els.get(0).text());
         }
 
     @Test public void testById_3_oe() {
         Elements els = Jsoup.parse("<div><p id=foo>Hello</p><p id=foo>Foo two!</p></div>").select("#foo");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Foo two!", els.get(1).text());
         }
 
     @Test public void testById_4_oe() {
         Elements els = Jsoup.parse("<div><p id=foo>Hello</p><p id=foo>Foo two!</p></div>").select("#foo");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements none = Jsoup.parse("<div id=1></div>").select("#foo");
         assertEquals(0, none.size());
@@ -84,16 +105,22 @@ public class SelectorTest_OE25Dev {
 
     @Test public void testByClass_2_oe() {
         Elements els = Jsoup.parse("<p id=0 class='ONE two'><p id=1 class='one'><p id=2 class='two'>").select("P.One");
+        // removed other assertion
         assertEquals("0", els.get(0).id());
         }
 
     @Test public void testByClass_3_oe() {
         Elements els = Jsoup.parse("<p id=0 class='ONE two'><p id=1 class='one'><p id=2 class='two'>").select("P.One");
+        // removed other assertion
+        // removed other assertion
         assertEquals("1", els.get(1).id());
         }
 
     @Test public void testByClass_4_oe() {
         Elements els = Jsoup.parse("<p id=0 class='ONE two'><p id=1 class='one'><p id=2 class='two'>").select("P.One");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements none = Jsoup.parse("<div class='one'></div>").select(".foo");
         assertEquals(0, none.size());
@@ -101,8 +128,12 @@ public class SelectorTest_OE25Dev {
 
     @Test public void testByClass_5_oe() {
         Elements els = Jsoup.parse("<p id=0 class='ONE two'><p id=1 class='one'><p id=2 class='two'>").select("P.One");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements none = Jsoup.parse("<div class='one'></div>").select(".foo");
+        // removed other assertion
 
         Elements els2 = Jsoup.parse("<div class='One-Two'></div>").select(".one-two");
         assertEquals(1, els2.size());
@@ -121,6 +152,7 @@ public class SelectorTest_OE25Dev {
         Elements elsFromClass = Jsoup.parse(html).select("P.Foo");
         Elements elsFromAttr = Jsoup.parse(html).select("p[class=foo]");
 
+        // removed other assertion
         assertEquals(3, elsFromClass.size());
         }
 
@@ -129,6 +161,8 @@ public class SelectorTest_OE25Dev {
         Elements elsFromClass = Jsoup.parse(html).select("P.Foo");
         Elements elsFromAttr = Jsoup.parse(html).select("p[class=foo]");
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Two", elsFromClass.get(1).text());
         }
 
@@ -151,6 +185,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements withTitle = doc.select("[title]");
+        // removed other assertion
 
         Elements foo = doc.select("[TITLE=foo]");
         assertEquals(1, foo.size());
@@ -164,8 +199,10 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements withTitle = doc.select("[title]");
+        // removed other assertion
 
         Elements foo = doc.select("[TITLE=foo]");
+        // removed other assertion
 
         Elements foo2 = doc.select("[title=\"foo\"]");
         assertEquals(1, foo2.size());
@@ -179,10 +216,13 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements withTitle = doc.select("[title]");
+        // removed other assertion
 
         Elements foo = doc.select("[TITLE=foo]");
+        // removed other assertion
 
         Elements foo2 = doc.select("[title=\"foo\"]");
+        // removed other assertion
 
         Elements foo3 = doc.select("[title=\"Foo\"]");
         assertEquals(1, foo3.size());
@@ -196,12 +236,16 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements withTitle = doc.select("[title]");
+        // removed other assertion
 
         Elements foo = doc.select("[TITLE=foo]");
+        // removed other assertion
 
         Elements foo2 = doc.select("[title=\"foo\"]");
+        // removed other assertion
 
         Elements foo3 = doc.select("[title=\"Foo\"]");
+        // removed other assertion
 
         Elements dataName = doc.select("[data-name=\"with spaces\"]");
         assertEquals(1, dataName.size());
@@ -215,14 +259,19 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements withTitle = doc.select("[title]");
+        // removed other assertion
 
         Elements foo = doc.select("[TITLE=foo]");
+        // removed other assertion
 
         Elements foo2 = doc.select("[title=\"foo\"]");
+        // removed other assertion
 
         Elements foo3 = doc.select("[title=\"Foo\"]");
+        // removed other assertion
 
         Elements dataName = doc.select("[data-name=\"with spaces\"]");
+        // removed other assertion
         assertEquals("with spaces", dataName.first().attr("data-name"));
     }
 
@@ -234,14 +283,20 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements withTitle = doc.select("[title]");
+        // removed other assertion
 
         Elements foo = doc.select("[TITLE=foo]");
+        // removed other assertion
 
         Elements foo2 = doc.select("[title=\"foo\"]");
+        // removed other assertion
 
         Elements foo3 = doc.select("[title=\"Foo\"]");
+        // removed other assertion
 
         Elements dataName = doc.select("[data-name=\"with spaces\"]");
+        // removed other assertion
+        // removed other assertion
 
         Elements not = doc.select("div[title!=bar]");
         assertEquals(5, not.size());
@@ -255,16 +310,23 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements withTitle = doc.select("[title]");
+        // removed other assertion
 
         Elements foo = doc.select("[TITLE=foo]");
+        // removed other assertion
 
         Elements foo2 = doc.select("[title=\"foo\"]");
+        // removed other assertion
 
         Elements foo3 = doc.select("[title=\"Foo\"]");
+        // removed other assertion
 
         Elements dataName = doc.select("[data-name=\"with spaces\"]");
+        // removed other assertion
+        // removed other assertion
 
         Elements not = doc.select("div[title!=bar]");
+        // removed other assertion
         assertEquals("Foo", not.first().attr("title"));
     }
 
@@ -276,16 +338,24 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements withTitle = doc.select("[title]");
+        // removed other assertion
 
         Elements foo = doc.select("[TITLE=foo]");
+        // removed other assertion
 
         Elements foo2 = doc.select("[title=\"foo\"]");
+        // removed other assertion
 
         Elements foo3 = doc.select("[title=\"Foo\"]");
+        // removed other assertion
 
         Elements dataName = doc.select("[data-name=\"with spaces\"]");
+        // removed other assertion
+        // removed other assertion
 
         Elements not = doc.select("div[title!=bar]");
+        // removed other assertion
+        // removed other assertion
 
         Elements starts = doc.select("[title^=ba]");
         assertEquals(2, starts.size());
@@ -299,18 +369,27 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements withTitle = doc.select("[title]");
+        // removed other assertion
 
         Elements foo = doc.select("[TITLE=foo]");
+        // removed other assertion
 
         Elements foo2 = doc.select("[title=\"foo\"]");
+        // removed other assertion
 
         Elements foo3 = doc.select("[title=\"Foo\"]");
+        // removed other assertion
 
         Elements dataName = doc.select("[data-name=\"with spaces\"]");
+        // removed other assertion
+        // removed other assertion
 
         Elements not = doc.select("div[title!=bar]");
+        // removed other assertion
+        // removed other assertion
 
         Elements starts = doc.select("[title^=ba]");
+        // removed other assertion
         assertEquals("Bar", starts.first().attr("title"));
     }
 
@@ -322,18 +401,28 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements withTitle = doc.select("[title]");
+        // removed other assertion
 
         Elements foo = doc.select("[TITLE=foo]");
+        // removed other assertion
 
         Elements foo2 = doc.select("[title=\"foo\"]");
+        // removed other assertion
 
         Elements foo3 = doc.select("[title=\"Foo\"]");
+        // removed other assertion
 
         Elements dataName = doc.select("[data-name=\"with spaces\"]");
+        // removed other assertion
+        // removed other assertion
 
         Elements not = doc.select("div[title!=bar]");
+        // removed other assertion
+        // removed other assertion
 
         Elements starts = doc.select("[title^=ba]");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Balim", starts.last().attr("title"));
     }
 
@@ -345,18 +434,29 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements withTitle = doc.select("[title]");
+        // removed other assertion
 
         Elements foo = doc.select("[TITLE=foo]");
+        // removed other assertion
 
         Elements foo2 = doc.select("[title=\"foo\"]");
+        // removed other assertion
 
         Elements foo3 = doc.select("[title=\"Foo\"]");
+        // removed other assertion
 
         Elements dataName = doc.select("[data-name=\"with spaces\"]");
+        // removed other assertion
+        // removed other assertion
 
         Elements not = doc.select("div[title!=bar]");
+        // removed other assertion
+        // removed other assertion
 
         Elements starts = doc.select("[title^=ba]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements ends = doc.select("[title$=im]");
         assertEquals(2, ends.size());
@@ -370,20 +470,32 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements withTitle = doc.select("[title]");
+        // removed other assertion
 
         Elements foo = doc.select("[TITLE=foo]");
+        // removed other assertion
 
         Elements foo2 = doc.select("[title=\"foo\"]");
+        // removed other assertion
 
         Elements foo3 = doc.select("[title=\"Foo\"]");
+        // removed other assertion
 
         Elements dataName = doc.select("[data-name=\"with spaces\"]");
+        // removed other assertion
+        // removed other assertion
 
         Elements not = doc.select("div[title!=bar]");
+        // removed other assertion
+        // removed other assertion
 
         Elements starts = doc.select("[title^=ba]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements ends = doc.select("[title$=im]");
+        // removed other assertion
         assertEquals("Balim", ends.first().attr("title"));
     }
 
@@ -395,20 +507,33 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements withTitle = doc.select("[title]");
+        // removed other assertion
 
         Elements foo = doc.select("[TITLE=foo]");
+        // removed other assertion
 
         Elements foo2 = doc.select("[title=\"foo\"]");
+        // removed other assertion
 
         Elements foo3 = doc.select("[title=\"Foo\"]");
+        // removed other assertion
 
         Elements dataName = doc.select("[data-name=\"with spaces\"]");
+        // removed other assertion
+        // removed other assertion
 
         Elements not = doc.select("div[title!=bar]");
+        // removed other assertion
+        // removed other assertion
 
         Elements starts = doc.select("[title^=ba]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements ends = doc.select("[title$=im]");
+        // removed other assertion
+        // removed other assertion
         assertEquals("SLIM", ends.last().attr("title"));
     }
 
@@ -420,20 +545,34 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements withTitle = doc.select("[title]");
+        // removed other assertion
 
         Elements foo = doc.select("[TITLE=foo]");
+        // removed other assertion
 
         Elements foo2 = doc.select("[title=\"foo\"]");
+        // removed other assertion
 
         Elements foo3 = doc.select("[title=\"Foo\"]");
+        // removed other assertion
 
         Elements dataName = doc.select("[data-name=\"with spaces\"]");
+        // removed other assertion
+        // removed other assertion
 
         Elements not = doc.select("div[title!=bar]");
+        // removed other assertion
+        // removed other assertion
 
         Elements starts = doc.select("[title^=ba]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements ends = doc.select("[title$=im]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements contains = doc.select("[title*=i]");
         assertEquals(2, contains.size());
@@ -447,22 +586,37 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements withTitle = doc.select("[title]");
+        // removed other assertion
 
         Elements foo = doc.select("[TITLE=foo]");
+        // removed other assertion
 
         Elements foo2 = doc.select("[title=\"foo\"]");
+        // removed other assertion
 
         Elements foo3 = doc.select("[title=\"Foo\"]");
+        // removed other assertion
 
         Elements dataName = doc.select("[data-name=\"with spaces\"]");
+        // removed other assertion
+        // removed other assertion
 
         Elements not = doc.select("div[title!=bar]");
+        // removed other assertion
+        // removed other assertion
 
         Elements starts = doc.select("[title^=ba]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements ends = doc.select("[title$=im]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements contains = doc.select("[title*=i]");
+        // removed other assertion
         assertEquals("Balim", contains.first().attr("title"));
     }
 
@@ -474,22 +628,38 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements withTitle = doc.select("[title]");
+        // removed other assertion
 
         Elements foo = doc.select("[TITLE=foo]");
+        // removed other assertion
 
         Elements foo2 = doc.select("[title=\"foo\"]");
+        // removed other assertion
 
         Elements foo3 = doc.select("[title=\"Foo\"]");
+        // removed other assertion
 
         Elements dataName = doc.select("[data-name=\"with spaces\"]");
+        // removed other assertion
+        // removed other assertion
 
         Elements not = doc.select("div[title!=bar]");
+        // removed other assertion
+        // removed other assertion
 
         Elements starts = doc.select("[title^=ba]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements ends = doc.select("[title$=im]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements contains = doc.select("[title*=i]");
+        // removed other assertion
+        // removed other assertion
         assertEquals("SLIM", contains.last().attr("title"));
     }
 
@@ -502,18 +672,24 @@ public class SelectorTest_OE25Dev {
     @Test public void testNamespacedTag_2_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
+        // removed other assertion
         assertEquals("1", byTag.first().id());
         }
 
     @Test public void testNamespacedTag_3_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", byTag.last().id());
         }
 
     @Test public void testNamespacedTag_4_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
         assertEquals(1, byAttr.size());
@@ -522,16 +698,25 @@ public class SelectorTest_OE25Dev {
     @Test public void testNamespacedTag_5_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
         assertEquals("2", byAttr.last().id());
         }
 
     @Test public void testNamespacedTag_6_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byTagAttr = doc.select("abc|def.bold");
         assertEquals(1, byTagAttr.size());
@@ -540,20 +725,33 @@ public class SelectorTest_OE25Dev {
     @Test public void testNamespacedTag_7_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byTagAttr = doc.select("abc|def.bold");
+        // removed other assertion
         assertEquals("2", byTagAttr.last().id());
         }
 
     @Test public void testNamespacedTag_8_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byTagAttr = doc.select("abc|def.bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byContains = doc.select("abc|def:contains(e)");
         assertEquals(2, byContains.size());
@@ -562,24 +760,41 @@ public class SelectorTest_OE25Dev {
     @Test public void testNamespacedTag_9_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byTagAttr = doc.select("abc|def.bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byContains = doc.select("abc|def:contains(e)");
+        // removed other assertion
         assertEquals("1", byContains.first().id());
         }
 
     @Test public void testNamespacedTag_10_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byTagAttr = doc.select("abc|def.bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byContains = doc.select("abc|def:contains(e)");
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", byContains.last().id());
         }
 
@@ -592,18 +807,24 @@ public class SelectorTest_OE25Dev {
     @Test public void testWildcardNamespacedTag_2_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
+        // removed other assertion
         assertEquals("1", byTag.first().id());
         }
 
     @Test public void testWildcardNamespacedTag_3_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", byTag.last().id());
         }
 
     @Test public void testWildcardNamespacedTag_4_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
         assertEquals(1, byAttr.size());
@@ -612,16 +833,25 @@ public class SelectorTest_OE25Dev {
     @Test public void testWildcardNamespacedTag_5_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
         assertEquals("2", byAttr.last().id());
         }
 
     @Test public void testWildcardNamespacedTag_6_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byTagAttr = doc.select("*|def.bold");
         assertEquals(1, byTagAttr.size());
@@ -630,20 +860,33 @@ public class SelectorTest_OE25Dev {
     @Test public void testWildcardNamespacedTag_7_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byTagAttr = doc.select("*|def.bold");
+        // removed other assertion
         assertEquals("2", byTagAttr.last().id());
         }
 
     @Test public void testWildcardNamespacedTag_8_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byTagAttr = doc.select("*|def.bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byContains = doc.select("*|def:contains(e)");
         assertEquals(2, byContains.size());
@@ -652,24 +895,41 @@ public class SelectorTest_OE25Dev {
     @Test public void testWildcardNamespacedTag_9_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byTagAttr = doc.select("*|def.bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byContains = doc.select("*|def:contains(e)");
+        // removed other assertion
         assertEquals("1", byContains.first().id());
         }
 
     @Test public void testWildcardNamespacedTag_10_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byTagAttr = doc.select("*|def.bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byContains = doc.select("*|def:contains(e)");
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", byContains.last().id());
         }
 
@@ -690,6 +950,7 @@ public class SelectorTest_OE25Dev {
         );
 
         Elements byTag = doc.select("*|Def");
+        // removed other assertion
         assertEquals("1", byTag.first().id());
         }
 
@@ -700,6 +961,8 @@ public class SelectorTest_OE25Dev {
         );
 
         Elements byTag = doc.select("*|Def");
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", byTag.last().id());
         }
 
@@ -710,6 +973,9 @@ public class SelectorTest_OE25Dev {
         );
 
         Elements byTag = doc.select("*|Def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
         assertEquals(1, byAttr.size());
@@ -722,8 +988,12 @@ public class SelectorTest_OE25Dev {
         );
 
         Elements byTag = doc.select("*|Def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
         assertEquals("2", byAttr.last().id());
         }
 
@@ -734,8 +1004,13 @@ public class SelectorTest_OE25Dev {
         );
 
         Elements byTag = doc.select("*|Def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byTagAttr = doc.select("*|Def.bold");
         assertEquals(1, byTagAttr.size());
@@ -748,10 +1023,16 @@ public class SelectorTest_OE25Dev {
         );
 
         Elements byTag = doc.select("*|Def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byTagAttr = doc.select("*|Def.bold");
+        // removed other assertion
         assertEquals("2", byTagAttr.last().id());
         }
 
@@ -762,10 +1043,17 @@ public class SelectorTest_OE25Dev {
         );
 
         Elements byTag = doc.select("*|Def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byTagAttr = doc.select("*|Def.bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byContains = doc.select("*|Def:contains(e)");
         assertEquals(2, byContains.size());
@@ -778,12 +1066,20 @@ public class SelectorTest_OE25Dev {
         );
 
         Elements byTag = doc.select("*|Def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byTagAttr = doc.select("*|Def.bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byContains = doc.select("*|Def:contains(e)");
+        // removed other assertion
         assertEquals("1", byContains.first().id());
         }
 
@@ -794,12 +1090,21 @@ public class SelectorTest_OE25Dev {
         );
 
         Elements byTag = doc.select("*|Def");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements byAttr = doc.select(".bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byTagAttr = doc.select("*|Def.bold");
+        // removed other assertion
+        // removed other assertion
 
         Elements byContains = doc.select("*|Def:contains(e)");
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", byContains.last().id());
         }
 
@@ -820,6 +1125,7 @@ public class SelectorTest_OE25Dev {
         Elements els3 = doc.select("Three|Four");
         Elements els4 = doc.select("three|Four");
 
+        // removed other assertion
         assertEquals(els3, els4);
         }
 
@@ -830,6 +1136,8 @@ public class SelectorTest_OE25Dev {
         Elements els3 = doc.select("Three|Four");
         Elements els4 = doc.select("three|Four");
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("One", els1.text());
         }
 
@@ -840,6 +1148,9 @@ public class SelectorTest_OE25Dev {
         Elements els3 = doc.select("Three|Four");
         Elements els4 = doc.select("three|Four");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, els1.size());
         }
 
@@ -850,6 +1161,10 @@ public class SelectorTest_OE25Dev {
         Elements els3 = doc.select("Three|Four");
         Elements els4 = doc.select("three|Four");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Two", els3.text());
         }
 
@@ -860,6 +1175,11 @@ public class SelectorTest_OE25Dev {
         Elements els3 = doc.select("Three|Four");
         Elements els4 = doc.select("three|Four");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, els2.size());
         }
 
@@ -876,6 +1196,7 @@ public class SelectorTest_OE25Dev {
 
         Document doc = Jsoup.parse("<div id=1 ATTRIBUTE data-name=jsoup>Hello</div><p data-val=5 id=2>There</p><p id=3>No</p>");
         Elements withData = doc.select("[^data-]");
+        // removed other assertion
         assertEquals("1", withData.first().id());
     }
 
@@ -884,6 +1205,8 @@ public class SelectorTest_OE25Dev {
 
         Document doc = Jsoup.parse("<div id=1 ATTRIBUTE data-name=jsoup>Hello</div><p data-val=5 id=2>There</p><p id=3>No</p>");
         Elements withData = doc.select("[^data-]");
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", withData.last().id());
     }
 
@@ -892,6 +1215,9 @@ public class SelectorTest_OE25Dev {
 
         Document doc = Jsoup.parse("<div id=1 ATTRIBUTE data-name=jsoup>Hello</div><p data-val=5 id=2>There</p><p id=3>No</p>");
         Elements withData = doc.select("[^data-]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         withData = doc.select("p[^data-]");
         assertEquals(1, withData.size());
@@ -902,8 +1228,12 @@ public class SelectorTest_OE25Dev {
 
         Document doc = Jsoup.parse("<div id=1 ATTRIBUTE data-name=jsoup>Hello</div><p data-val=5 id=2>There</p><p id=3>No</p>");
         Elements withData = doc.select("[^data-]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         withData = doc.select("p[^data-]");
+        // removed other assertion
         assertEquals("2", withData.first().id());
     }
 
@@ -912,8 +1242,13 @@ public class SelectorTest_OE25Dev {
 
         Document doc = Jsoup.parse("<div id=1 ATTRIBUTE data-name=jsoup>Hello</div><p data-val=5 id=2>There</p><p id=3>No</p>");
         Elements withData = doc.select("[^data-]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         withData = doc.select("p[^data-]");
+        // removed other assertion
+        // removed other assertion
 
         assertEquals(1, doc.select("[^attrib]").size());
     }
@@ -927,18 +1262,24 @@ public class SelectorTest_OE25Dev {
     @Test public void testByAttributeRegex_2_oe() {
         Document doc = Jsoup.parse("<p><img src=foo.png id=1><img src=bar.jpg id=2><img src=qux.JPEG id=3><img src=old.gif><img></p>");
         Elements imgs = doc.select("img[src~=(?i)\\.(png|jpe?g)]");
+        // removed other assertion
         assertEquals("1", imgs.get(0).id());
         }
 
     @Test public void testByAttributeRegex_3_oe() {
         Document doc = Jsoup.parse("<p><img src=foo.png id=1><img src=bar.jpg id=2><img src=qux.JPEG id=3><img src=old.gif><img></p>");
         Elements imgs = doc.select("img[src~=(?i)\\.(png|jpe?g)]");
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", imgs.get(1).id());
         }
 
     @Test public void testByAttributeRegex_4_oe() {
         Document doc = Jsoup.parse("<p><img src=foo.png id=1><img src=bar.jpg id=2><img src=qux.JPEG id=3><img src=old.gif><img></p>");
         Elements imgs = doc.select("img[src~=(?i)\\.(png|jpe?g)]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("3", imgs.get(2).id());
         }
 
@@ -951,12 +1292,15 @@ public class SelectorTest_OE25Dev {
     @Test public void testByAttributeRegexCharacterClass_2_oe() {
         Document doc = Jsoup.parse("<p><img src=foo.png id=1><img src=bar.jpg id=2><img src=qux.JPEG id=3><img src=old.gif id=4></p>");
         Elements imgs = doc.select("img[src~=[o]]");
+        // removed other assertion
         assertEquals("1", imgs.get(0).id());
         }
 
     @Test public void testByAttributeRegexCharacterClass_3_oe() {
         Document doc = Jsoup.parse("<p><img src=foo.png id=1><img src=bar.jpg id=2><img src=qux.JPEG id=3><img src=old.gif id=4></p>");
         Elements imgs = doc.select("img[src~=[o]]");
+        // removed other assertion
+        // removed other assertion
         assertEquals("4", imgs.get(1).id());
         }
 
@@ -969,6 +1313,7 @@ public class SelectorTest_OE25Dev {
     @Test public void testByAttributeRegexCombined_2_oe() {
         Document doc = Jsoup.parse("<div><table class=x><td>Hello</td></table></div>");
         Elements els = doc.select("div table[class~=x|y]");
+        // removed other assertion
         assertEquals("Hello", els.text());
         }
 
@@ -981,12 +1326,15 @@ public class SelectorTest_OE25Dev {
     @Test public void testCombinedWithContains_2_oe() {
         Document doc = Jsoup.parse("<p id=1>One</p><p>Two +</p><p>Three +</p>");
         Elements els = doc.select("p#1 + :contains(+)");
+        // removed other assertion
         assertEquals("Two +", els.text());
         }
 
     @Test public void testCombinedWithContains_3_oe() {
         Document doc = Jsoup.parse("<p id=1>One</p><p>Two +</p><p>Three +</p>");
         Elements els = doc.select("p#1 + :contains(+)");
+        // removed other assertion
+        // removed other assertion
         assertEquals("p", els.first().tagName());
         }
 
@@ -1003,6 +1351,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
         Elements allDoc = doc.select("*");
         Elements allUnderDiv = doc.select("div *");
+        // removed other assertion
         assertEquals(3, allUnderDiv.size());
         }
 
@@ -1011,6 +1360,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
         Elements allDoc = doc.select("*");
         Elements allUnderDiv = doc.select("div *");
+        // removed other assertion
+        // removed other assertion
         assertEquals("p", allUnderDiv.first().tagName());
         }
 
@@ -1034,6 +1385,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
 
+        // removed other assertion
         assertEquals("div", els.get(0).tagName());
         }
 
@@ -1042,6 +1394,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("foo", els.get(0).attr("title"));
         }
 
@@ -1050,6 +1404,9 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("div", els.get(1).tagName());
         }
 
@@ -1058,6 +1415,10 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("bar", els.get(1).attr("title"));
         }
 
@@ -1066,6 +1427,11 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("div", els.get(2).tagName());
         }
 
@@ -1074,6 +1440,12 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0,els.get(2).attr("title").length());// missing attributes come back as empty string assertFalse(els.get(2).hasAttr("title"));
         }
 
@@ -1082,6 +1454,13 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("p", els.get(3).tagName());
         }
 
@@ -1090,6 +1469,14 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("span", els.get(4).tagName());
         }
 
@@ -1104,6 +1491,7 @@ public class SelectorTest_OE25Dev {
         String h = "<div id=1 /><div id=2 /><div title=foo /><div title=bar />";
         Elements els = Jsoup.parse(h).select("[id],[title=foo]");
 
+        // removed other assertion
         assertEquals("1", els.get(0).id());
         }
 
@@ -1111,6 +1499,8 @@ public class SelectorTest_OE25Dev {
         String h = "<div id=1 /><div id=2 /><div title=foo /><div title=bar />";
         Elements els = Jsoup.parse(h).select("[id],[title=foo]");
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", els.get(1).id());
         }
 
@@ -1118,6 +1508,9 @@ public class SelectorTest_OE25Dev {
         String h = "<div id=1 /><div id=2 /><div title=foo /><div title=bar />";
         Elements els = Jsoup.parse(h).select("[id],[title=foo]");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("foo", els.get(2).attr("title"));
         }
 
@@ -1136,6 +1529,7 @@ public class SelectorTest_OE25Dev {
         Element root = doc.getElementsByClass("HEAD").first();
 
         Elements els = root.select(".head p");
+        // removed other assertion
         assertEquals("Hello", els.get(0).text());
         }
 
@@ -1145,6 +1539,8 @@ public class SelectorTest_OE25Dev {
         Element root = doc.getElementsByClass("HEAD").first();
 
         Elements els = root.select(".head p");
+        // removed other assertion
+        // removed other assertion
         assertEquals("There", els.get(1).text());
         }
 
@@ -1154,6 +1550,9 @@ public class SelectorTest_OE25Dev {
         Element root = doc.getElementsByClass("HEAD").first();
 
         Elements els = root.select(".head p");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements p = root.select("p.first");
         assertEquals(1, p.size());
@@ -1165,8 +1564,12 @@ public class SelectorTest_OE25Dev {
         Element root = doc.getElementsByClass("HEAD").first();
 
         Elements els = root.select(".head p");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements p = root.select("p.first");
+        // removed other assertion
         assertEquals("Hello", p.get(0).text());
         }
 
@@ -1176,8 +1579,13 @@ public class SelectorTest_OE25Dev {
         Element root = doc.getElementsByClass("HEAD").first();
 
         Elements els = root.select(".head p");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements p = root.select("p.first");
+        // removed other assertion
+        // removed other assertion
 
         Elements empty = root.select("p .first"); // self, not descend, should not match
         assertEquals(0, empty.size());
@@ -1189,10 +1597,16 @@ public class SelectorTest_OE25Dev {
         Element root = doc.getElementsByClass("HEAD").first();
 
         Elements els = root.select(".head p");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements p = root.select("p.first");
+        // removed other assertion
+        // removed other assertion
 
         Elements empty = root.select("p .first"); // self, not descend, should not match
+        // removed other assertion
 
         Elements aboveRoot = root.select("body div.head");
         assertEquals(0, aboveRoot.size());
@@ -1211,6 +1625,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements div = doc.select("div.foo");
+        // removed other assertion
         assertEquals("div", div.first().tagName());
         }
 
@@ -1219,6 +1634,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements div = doc.select("div.foo");
+        // removed other assertion
+        // removed other assertion
 
         Elements p = doc.select("div .foo"); // space indicates like "div *.foo"
         assertEquals(1, p.size());
@@ -1229,8 +1646,11 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements div = doc.select("div.foo");
+        // removed other assertion
+        // removed other assertion
 
         Elements p = doc.select("div .foo"); // space indicates like "div *.foo"
+        // removed other assertion
         assertEquals("p", p.first().tagName());
         }
 
@@ -1239,8 +1659,12 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements div = doc.select("div.foo");
+        // removed other assertion
+        // removed other assertion
 
         Elements p = doc.select("div .foo"); // space indicates like "div *.foo"
+        // removed other assertion
+        // removed other assertion
 
         Elements div2 = doc.select("div#1.foo.bar[title=bar][name=qux]"); // very specific!
         assertEquals(1, div2.size());
@@ -1251,10 +1675,15 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements div = doc.select("div.foo");
+        // removed other assertion
+        // removed other assertion
 
         Elements p = doc.select("div .foo"); // space indicates like "div *.foo"
+        // removed other assertion
+        // removed other assertion
 
         Elements div2 = doc.select("div#1.foo.bar[title=bar][name=qux]"); // very specific!
+        // removed other assertion
         assertEquals("div", div2.first().tagName());
         }
 
@@ -1263,10 +1692,16 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements div = doc.select("div.foo");
+        // removed other assertion
+        // removed other assertion
 
         Elements p = doc.select("div .foo"); // space indicates like "div *.foo"
+        // removed other assertion
+        // removed other assertion
 
         Elements div2 = doc.select("div#1.foo.bar[title=bar][name=qux]"); // very specific!
+        // removed other assertion
+        // removed other assertion
 
         Elements p2 = doc.select("div *.foo"); // space indicates like "div *.foo"
         assertEquals(1, p2.size());
@@ -1277,12 +1712,19 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements div = doc.select("div.foo");
+        // removed other assertion
+        // removed other assertion
 
         Elements p = doc.select("div .foo"); // space indicates like "div *.foo"
+        // removed other assertion
+        // removed other assertion
 
         Elements div2 = doc.select("div#1.foo.bar[title=bar][name=qux]"); // very specific!
+        // removed other assertion
+        // removed other assertion
 
         Elements p2 = doc.select("div *.foo"); // space indicates like "div *.foo"
+        // removed other assertion
         assertEquals("p", p2.first().tagName());
         }
 
@@ -1301,6 +1743,7 @@ public class SelectorTest_OE25Dev {
         Element root = doc.getElementsByClass("head").first();
 
         Elements els = root.select("div p .first");
+        // removed other assertion
         assertEquals("Hello", els.first().text());
         }
 
@@ -1310,6 +1753,8 @@ public class SelectorTest_OE25Dev {
         Element root = doc.getElementsByClass("head").first();
 
         Elements els = root.select("div p .first");
+        // removed other assertion
+        // removed other assertion
         assertEquals("span", els.first().tagName());
         }
 
@@ -1319,6 +1764,9 @@ public class SelectorTest_OE25Dev {
         Element root = doc.getElementsByClass("head").first();
 
         Elements els = root.select("div p .first");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements aboveRoot = root.select("body p .first");
         assertEquals(0, aboveRoot.size());
@@ -1337,6 +1785,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements divs = doc.select("div > div");
+        // removed other assertion
         assertEquals("2",divs.get(0).id());// 2 is child of 1;
         }
 
@@ -1345,6 +1794,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements divs = doc.select("div > div");
+        // removed other assertion
+        // removed other assertion
         assertEquals("3",divs.get(1).id());// 3 is child of 2;
         }
 
@@ -1353,6 +1804,9 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements divs = doc.select("div > div");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Elements div2 = doc.select("div#1 > div");
         assertEquals(1, div2.size());
         }
@@ -1362,7 +1816,11 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements divs = doc.select("div > div");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Elements div2 = doc.select("div#1 > div");
+        // removed other assertion
         assertEquals("2", div2.get(0).id());
         }
 
@@ -1379,6 +1837,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements allAs = doc.select("h1 > a");
+        // removed other assertion
         assertEquals("a", allAs.first().tagName());
         }
 
@@ -1387,6 +1846,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements allAs = doc.select("h1 > a");
+        // removed other assertion
+        // removed other assertion
 
         Elements fooAs = doc.select("h1.foo > a");
         assertEquals(2, fooAs.size());
@@ -1397,8 +1858,11 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements allAs = doc.select("h1 > a");
+        // removed other assertion
+        // removed other assertion
 
         Elements fooAs = doc.select("h1.foo > a");
+        // removed other assertion
         assertEquals("a", fooAs.first().tagName());
         }
 
@@ -1407,8 +1871,12 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
 
         Elements allAs = doc.select("h1 > a");
+        // removed other assertion
+        // removed other assertion
 
         Elements fooAs = doc.select("h1.foo > a");
+        // removed other assertion
+        // removed other assertion
 
         Elements barAs = doc.select("h1.foo > a.bar");
         assertEquals(1, barAs.size());
@@ -1425,6 +1893,7 @@ public class SelectorTest_OE25Dev {
         String h = "<div id=1><p>Hello<p><b>there</b></p></div><div id=2><span>Hi</span></div>";
         Document doc = Jsoup.parse(h);
         Elements divChilds = doc.select("div > *");
+        // removed other assertion
         assertEquals("p", divChilds.get(0).tagName());
         }
 
@@ -1432,6 +1901,8 @@ public class SelectorTest_OE25Dev {
         String h = "<div id=1><p>Hello<p><b>there</b></p></div><div id=2><span>Hi</span></div>";
         Document doc = Jsoup.parse(h);
         Elements divChilds = doc.select("div > *");
+        // removed other assertion
+        // removed other assertion
         assertEquals("p", divChilds.get(1).tagName());
         }
 
@@ -1439,6 +1910,9 @@ public class SelectorTest_OE25Dev {
         String h = "<div id=1><p>Hello<p><b>there</b></p></div><div id=2><span>Hi</span></div>";
         Document doc = Jsoup.parse(h);
         Elements divChilds = doc.select("div > *");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("span", divChilds.get(2).tagName());
         }
 
@@ -1453,6 +1927,7 @@ public class SelectorTest_OE25Dev {
         String h = "<div id=foo><h1 class=bar><a href=http://example.com/>One</a></h1></div>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("div#foo > h1.bar > a[href*=example]");
+        // removed other assertion
         assertEquals("a", els.first().tagName());
         }
 
@@ -1467,6 +1942,7 @@ public class SelectorTest_OE25Dev {
         String h = "<dIv tItle=bAr><div>"; // mixed case so a simple toLowerCase() on value doesn't catch
         Document doc = Jsoup.parse(h);
 
+        // removed other assertion
         assertEquals(1, doc.select("DiV[TiTLE]").size());
         }
 
@@ -1474,6 +1950,8 @@ public class SelectorTest_OE25Dev {
         String h = "<dIv tItle=bAr><div>"; // mixed case so a simple toLowerCase() on value doesn't catch
         Document doc = Jsoup.parse(h);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, doc.select("DiV[TiTLE=BAR]").size());
         }
 
@@ -1481,6 +1959,9 @@ public class SelectorTest_OE25Dev {
         String h = "<dIv tItle=bAr><div>"; // mixed case so a simple toLowerCase() on value doesn't catch
         Document doc = Jsoup.parse(h);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0, doc.select("DiV[TiTLE=BARBARELLA]").size());
         }
 
@@ -1495,6 +1976,7 @@ public class SelectorTest_OE25Dev {
         String h = "<ol><li>One<li>Two<li>Three</ol>";
         Document doc = Jsoup.parse(h);
         Elements sibs = doc.select("li + li");
+        // removed other assertion
         assertEquals("Two", sibs.get(0).text());
         }
 
@@ -1502,6 +1984,8 @@ public class SelectorTest_OE25Dev {
         String h = "<ol><li>One<li>Two<li>Three</ol>";
         Document doc = Jsoup.parse(h);
         Elements sibs = doc.select("li + li");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Three", sibs.get(1).text());
         }
 
@@ -1516,6 +2000,7 @@ public class SelectorTest_OE25Dev {
         String h = "<ol><li id=1>One<li id=2>Two<li id=3>Three</ol>";
         Document doc = Jsoup.parse(h);
         Elements sibs = doc.select("li#1 + li#2");
+        // removed other assertion
         assertEquals("Two", sibs.get(0).text());
         }
 
@@ -1539,6 +2024,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
         Elements sibs = doc.select("body > div.foo li + li");
 
+        // removed other assertion
         assertEquals("Two", sibs.get(0).text());
         }
 
@@ -1547,6 +2033,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
         Elements sibs = doc.select("body > div.foo li + li");
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Three", sibs.get(1).text());
         }
 
@@ -1563,6 +2051,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
         Elements els = doc.select(".foo > ol, ol > li + li");
 
+        // removed other assertion
         assertEquals("ol", els.get(0).tagName());
         }
 
@@ -1571,6 +2060,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
         Elements els = doc.select(".foo > ol, ol > li + li");
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Two", els.get(1).text());
         }
 
@@ -1579,6 +2070,9 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(h);
         Elements els = doc.select(".foo > ol, ol > li + li");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Three", els.get(2).text());
         }
 
@@ -1593,10 +2087,12 @@ public class SelectorTest_OE25Dev {
         String h = "<ol><li id=1>One<li id=2>Two<li id=3>Three</ol>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("#1 ~ #3");
+        // removed other assertion
         assertEquals("Three", els.first().text());
         }
 
     @Test public void testCharactersInIdAndClass_1_oe() {
+        // using CSS spec for identifiers (id and class): a-z0-9, -, _. NOT . (which is OK in html spec, but not css)
         String h = "<div><p id='a1-foo_bar'>One</p><p class='b2-qux_bif'>Two</p></div>";
         Document doc = Jsoup.parse(h);
 
@@ -1605,33 +2101,42 @@ public class SelectorTest_OE25Dev {
         }
 
     @Test public void testCharactersInIdAndClass_2_oe() {
+        // using CSS spec for identifiers (id and class): a-z0-9, -, _. NOT . (which is OK in html spec, but not css)
         String h = "<div><p id='a1-foo_bar'>One</p><p class='b2-qux_bif'>Two</p></div>";
         Document doc = Jsoup.parse(h);
 
         Element el1 = doc.getElementById("a1-foo_bar");
+        // removed other assertion
         Element el2 = doc.getElementsByClass("b2-qux_bif").first();
         assertEquals("Two", el2.text());
         }
 
     @Test public void testCharactersInIdAndClass_3_oe() {
+        // using CSS spec for identifiers (id and class): a-z0-9, -, _. NOT . (which is OK in html spec, but not css)
         String h = "<div><p id='a1-foo_bar'>One</p><p class='b2-qux_bif'>Two</p></div>";
         Document doc = Jsoup.parse(h);
 
         Element el1 = doc.getElementById("a1-foo_bar");
+        // removed other assertion
         Element el2 = doc.getElementsByClass("b2-qux_bif").first();
+        // removed other assertion
 
         Element el3 = doc.select("#a1-foo_bar").first();
         assertEquals("One", el3.text());
         }
 
     @Test public void testCharactersInIdAndClass_4_oe() {
+        // using CSS spec for identifiers (id and class): a-z0-9, -, _. NOT . (which is OK in html spec, but not css)
         String h = "<div><p id='a1-foo_bar'>One</p><p class='b2-qux_bif'>Two</p></div>";
         Document doc = Jsoup.parse(h);
 
         Element el1 = doc.getElementById("a1-foo_bar");
+        // removed other assertion
         Element el2 = doc.getElementsByClass("b2-qux_bif").first();
+        // removed other assertion
 
         Element el3 = doc.select("#a1-foo_bar").first();
+        // removed other assertion
         Element el4 = doc.select(".b2-qux_bif").first();
         assertEquals("Two", el4.text());
         }
@@ -1651,6 +2156,7 @@ public class SelectorTest_OE25Dev {
 
         Element p = doc.select("div > p").first();
         Elements spans = p.select("> span");
+        // removed other assertion
         assertEquals("One", spans.first().text());
         }
 
@@ -1660,7 +2166,10 @@ public class SelectorTest_OE25Dev {
 
         Element p = doc.select("div > p").first();
         Elements spans = p.select("> span");
+        // removed other assertion
+        // removed other assertion
 
+        // make sure doesn't get nested
         h = "<div id=1><div id=2><div id=3></div></div></div>";
         doc = Jsoup.parse(h);
         Element div = doc.select("div").select(" > div").first();
@@ -1676,18 +2185,24 @@ public class SelectorTest_OE25Dev {
     @Test public void testPseudoLessThan_2_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:lt(2)");
+        // removed other assertion
         assertEquals("One", ps.get(0).text());
         }
 
     @Test public void testPseudoLessThan_3_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:lt(2)");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Two", ps.get(1).text());
         }
 
     @Test public void testPseudoLessThan_4_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:lt(2)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Four", ps.get(2).text());
         }
 
@@ -1700,12 +2215,15 @@ public class SelectorTest_OE25Dev {
     @Test public void testPseudoGreaterThan_2_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:gt(0)");
+        // removed other assertion
         assertEquals("Two", ps.get(0).text());
         }
 
     @Test public void testPseudoGreaterThan_3_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:gt(0)");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Three", ps.get(1).text());
         }
 
@@ -1718,18 +2236,24 @@ public class SelectorTest_OE25Dev {
     @Test public void testPseudoEquals_2_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:eq(0)");
+        // removed other assertion
         assertEquals("One", ps.get(0).text());
         }
 
     @Test public void testPseudoEquals_3_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:eq(0)");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Four", ps.get(1).text());
         }
 
     @Test public void testPseudoEquals_4_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:eq(0)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements ps2 = doc.select("div:eq(0) p:eq(0)");
         assertEquals(1, ps2.size());
@@ -1738,16 +2262,25 @@ public class SelectorTest_OE25Dev {
     @Test public void testPseudoEquals_5_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:eq(0)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements ps2 = doc.select("div:eq(0) p:eq(0)");
+        // removed other assertion
         assertEquals("One", ps2.get(0).text());
         }
 
     @Test public void testPseudoEquals_6_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:eq(0)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements ps2 = doc.select("div:eq(0) p:eq(0)");
+        // removed other assertion
+        // removed other assertion
         assertEquals("p", ps2.get(0).tagName());
         }
 
@@ -1760,6 +2293,7 @@ public class SelectorTest_OE25Dev {
     @Test public void testPseudoBetween_2_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:gt(0):lt(2)");
+        // removed other assertion
         assertEquals("Two", ps.get(0).text());
         }
 
@@ -1772,6 +2306,7 @@ public class SelectorTest_OE25Dev {
     @Test public void testPseudoCombined_2_oe() {
         Document doc = Jsoup.parse("<div class='foo'><p>One</p><p>Two</p></div><div><p>Three</p><p>Four</p></div>");
         Elements ps = doc.select("div.foo p:gt(0)");
+        // removed other assertion
         assertEquals("Two", ps.get(0).text());
         }
 
@@ -1786,6 +2321,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
+        // removed other assertion
         assertEquals("0", divs1.get(0).id());
         }
 
@@ -1793,6 +2329,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
+        // removed other assertion
+        // removed other assertion
         assertEquals("1", divs1.get(1).id());
         }
 
@@ -1800,6 +2338,9 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements divs2 = doc.select("div:has([class])");
         assertEquals(1, divs2.size());
@@ -1809,8 +2350,12 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements divs2 = doc.select("div:has([class])");
+        // removed other assertion
         assertEquals("1", divs2.get(0).id());
         }
 
@@ -1818,8 +2363,13 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements divs2 = doc.select("div:has([class])");
+        // removed other assertion
+        // removed other assertion
 
         Elements divs3 = doc.select("div:has(span, p)");
         assertEquals(3, divs3.size());
@@ -1829,10 +2379,16 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements divs2 = doc.select("div:has([class])");
+        // removed other assertion
+        // removed other assertion
 
         Elements divs3 = doc.select("div:has(span, p)");
+        // removed other assertion
         assertEquals("0", divs3.get(0).id());
         }
 
@@ -1840,10 +2396,17 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements divs2 = doc.select("div:has([class])");
+        // removed other assertion
+        // removed other assertion
 
         Elements divs3 = doc.select("div:has(span, p)");
+        // removed other assertion
+        // removed other assertion
         assertEquals("1", divs3.get(1).id());
         }
 
@@ -1851,10 +2414,18 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements divs2 = doc.select("div:has([class])");
+        // removed other assertion
+        // removed other assertion
 
         Elements divs3 = doc.select("div:has(span, p)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", divs3.get(2).id());
         }
 
@@ -1862,10 +2433,19 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements divs2 = doc.select("div:has([class])");
+        // removed other assertion
+        // removed other assertion
 
         Elements divs3 = doc.select("div:has(span, p)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements els1 = doc.body().select(":has(p)");
         assertEquals(3,els1.size());// body,div,div assertEquals("body",els1.first().tagName());
@@ -1875,12 +2455,22 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements divs2 = doc.select("div:has([class])");
+        // removed other assertion
+        // removed other assertion
 
         Elements divs3 = doc.select("div:has(span, p)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements els1 = doc.body().select(":has(p)");
+        // removed other assertion
         assertEquals("0", els1.get(1).id());
         }
 
@@ -1888,12 +2478,23 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements divs2 = doc.select("div:has([class])");
+        // removed other assertion
+        // removed other assertion
 
         Elements divs3 = doc.select("div:has(span, p)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements els1 = doc.body().select(":has(p)");
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", els1.get(2).id());
         }
 
@@ -1901,12 +2502,24 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements divs2 = doc.select("div:has([class])");
+        // removed other assertion
+        // removed other assertion
 
         Elements divs3 = doc.select("div:has(span, p)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements els1 = doc.body().select(":has(p)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements els2 = doc.body().select(":has(> span)");
         assertEquals(2,els2.size());// p,div assertEquals("p",els2.first().tagName());
@@ -1916,14 +2529,27 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements divs2 = doc.select("div:has([class])");
+        // removed other assertion
+        // removed other assertion
 
         Elements divs3 = doc.select("div:has(span, p)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements els1 = doc.body().select(":has(p)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements els2 = doc.body().select(":has(> span)");
+        // removed other assertion
         assertEquals("1", els2.get(1).id());
         }
 
@@ -1936,13 +2562,17 @@ public class SelectorTest_OE25Dev {
     @Test public void testNestedHas_2_oe() {
         Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p></div>");
         Elements divs = doc.select("div:has(p:has(span))");
+        // removed other assertion
         assertEquals("One", divs.first().text());
         }
 
     @Test public void testNestedHas_3_oe() {
         Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p></div>");
         Elements divs = doc.select("div:has(p:has(span))");
+        // removed other assertion
+        // removed other assertion
 
+        // test matches in has
         divs = doc.select("div:has(p:matches((?i)two))");
         assertEquals(1, divs.size());
         }
@@ -1950,25 +2580,41 @@ public class SelectorTest_OE25Dev {
     @Test public void testNestedHas_4_oe() {
         Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p></div>");
         Elements divs = doc.select("div:has(p:has(span))");
+        // removed other assertion
+        // removed other assertion
 
+        // test matches in has
         divs = doc.select("div:has(p:matches((?i)two))");
+        // removed other assertion
         assertEquals("div", divs.first().tagName());
         }
 
     @Test public void testNestedHas_5_oe() {
         Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p></div>");
         Elements divs = doc.select("div:has(p:has(span))");
+        // removed other assertion
+        // removed other assertion
 
+        // test matches in has
         divs = doc.select("div:has(p:matches((?i)two))");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Two", divs.first().text());
         }
 
     @Test public void testNestedHas_6_oe() {
         Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p></div>");
         Elements divs = doc.select("div:has(p:has(span))");
+        // removed other assertion
+        // removed other assertion
 
+        // test matches in has
         divs = doc.select("div:has(p:matches((?i)two))");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // test contains in has
         divs = doc.select("div:has(p:contains(two))");
         assertEquals(1, divs.size());
         }
@@ -1976,20 +2622,37 @@ public class SelectorTest_OE25Dev {
     @Test public void testNestedHas_7_oe() {
         Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p></div>");
         Elements divs = doc.select("div:has(p:has(span))");
+        // removed other assertion
+        // removed other assertion
 
+        // test matches in has
         divs = doc.select("div:has(p:matches((?i)two))");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // test contains in has
         divs = doc.select("div:has(p:contains(two))");
+        // removed other assertion
         assertEquals("div", divs.first().tagName());
         }
 
     @Test public void testNestedHas_8_oe() {
         Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p></div>");
         Elements divs = doc.select("div:has(p:has(span))");
+        // removed other assertion
+        // removed other assertion
 
+        // test matches in has
         divs = doc.select("div:has(p:matches((?i)two))");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // test contains in has
         divs = doc.select("div:has(p:contains(two))");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Two", divs.first().text());
         }
 
@@ -2008,6 +2671,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
 
         Elements ps1 = doc.select("p:contains(Rain)");
+        // removed other assertion
 
         Elements ps2 = doc.select("p:contains(the rain)");
         assertEquals(2, ps2.size());
@@ -2019,8 +2683,10 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
 
         Elements ps1 = doc.select("p:contains(Rain)");
+        // removed other assertion
 
         Elements ps2 = doc.select("p:contains(the rain)");
+        // removed other assertion
         assertEquals("The Rain.", ps2.first().html());
     }
 
@@ -2030,8 +2696,11 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
 
         Elements ps1 = doc.select("p:contains(Rain)");
+        // removed other assertion
 
         Elements ps2 = doc.select("p:contains(the rain)");
+        // removed other assertion
+        // removed other assertion
         assertEquals("The <i>RAIN</i>.", ps2.last().html());
     }
 
@@ -2041,8 +2710,12 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
 
         Elements ps1 = doc.select("p:contains(Rain)");
+        // removed other assertion
 
         Elements ps2 = doc.select("p:contains(the rain)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements ps3 = doc.select("p:contains(the Rain):has(i)");
         assertEquals(1, ps3.size());
@@ -2054,10 +2727,15 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
 
         Elements ps1 = doc.select("p:contains(Rain)");
+        // removed other assertion
 
         Elements ps2 = doc.select("p:contains(the rain)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements ps3 = doc.select("p:contains(the Rain):has(i)");
+        // removed other assertion
         assertEquals("light", ps3.first().className());
     }
 
@@ -2067,10 +2745,16 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
 
         Elements ps1 = doc.select("p:contains(Rain)");
+        // removed other assertion
 
         Elements ps2 = doc.select("p:contains(the rain)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements ps3 = doc.select("p:contains(the Rain):has(i)");
+        // removed other assertion
+        // removed other assertion
 
         Elements ps4 = doc.select(".light:contains(rain)");
         assertEquals(1, ps4.size());
@@ -2082,12 +2766,19 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
 
         Elements ps1 = doc.select("p:contains(Rain)");
+        // removed other assertion
 
         Elements ps2 = doc.select("p:contains(the rain)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements ps3 = doc.select("p:contains(the Rain):has(i)");
+        // removed other assertion
+        // removed other assertion
 
         Elements ps4 = doc.select(".light:contains(rain)");
+        // removed other assertion
         assertEquals("light", ps3.first().className());
     }
 
@@ -2097,12 +2788,20 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
 
         Elements ps1 = doc.select("p:contains(Rain)");
+        // removed other assertion
 
         Elements ps2 = doc.select("p:contains(the rain)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements ps3 = doc.select("p:contains(the Rain):has(i)");
+        // removed other assertion
+        // removed other assertion
 
         Elements ps4 = doc.select(".light:contains(rain)");
+        // removed other assertion
+        // removed other assertion
 
         Elements ps5 = doc.select(":contains(rain)");
         assertEquals(8,ps5.size());// html,body,div,...;
@@ -2114,14 +2813,23 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
 
         Elements ps1 = doc.select("p:contains(Rain)");
+        // removed other assertion
 
         Elements ps2 = doc.select("p:contains(the rain)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements ps3 = doc.select("p:contains(the Rain):has(i)");
+        // removed other assertion
+        // removed other assertion
 
         Elements ps4 = doc.select(".light:contains(rain)");
+        // removed other assertion
+        // removed other assertion
 
         Elements ps5 = doc.select(":contains(rain)");
+        // removed other assertion
         Elements ps6 = doc.select(":contains(RAIN)");
         assertEquals(8, ps6.size());
     }
@@ -2137,6 +2845,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div><p id=1>This (is good)</p><p id=2>This is bad)</p>");
 
         Elements ps1 = doc.select("p:contains(this (is good))");
+        // removed other assertion
         assertEquals("1", ps1.first().id());
         }
 
@@ -2144,6 +2853,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div><p id=1>This (is good)</p><p id=2>This is bad)</p>");
 
         Elements ps1 = doc.select("p:contains(this (is good))");
+        // removed other assertion
+        // removed other assertion
 
         Elements ps2 = doc.select("p:contains(this is bad\\))");
         assertEquals(1, ps2.size());
@@ -2153,8 +2864,11 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div><p id=1>This (is good)</p><p id=2>This is bad)</p>");
 
         Elements ps1 = doc.select("p:contains(this (is good))");
+        // removed other assertion
+        // removed other assertion
 
         Elements ps2 = doc.select("p:contains(this is bad\\))");
+        // removed other assertion
         assertEquals("2", ps2.first().id());
         }
 
@@ -2173,6 +2887,7 @@ public class SelectorTest_OE25Dev {
 
         Elements es1 = doc.select("p:containsWholeText( jsoup\n The HTML Parser)");
         Elements es2 = doc.select("p:containsWholeText(jsoup The HTML Parser)");
+        // removed other assertion
         assertEquals(1, es2.size());
         }
 
@@ -2182,6 +2897,8 @@ public class SelectorTest_OE25Dev {
 
         Elements es1 = doc.select("p:containsWholeText( jsoup\n The HTML Parser)");
         Elements es2 = doc.select("p:containsWholeText(jsoup The HTML Parser)");
+        // removed other assertion
+        // removed other assertion
         assertEquals(ps.get(0), es1.first());
         }
 
@@ -2191,6 +2908,9 @@ public class SelectorTest_OE25Dev {
 
         Elements es1 = doc.select("p:containsWholeText( jsoup\n The HTML Parser)");
         Elements es2 = doc.select("p:containsWholeText(jsoup The HTML Parser)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(ps.get(1), es2.first());
         }
 
@@ -2200,6 +2920,10 @@ public class SelectorTest_OE25Dev {
 
         Elements es1 = doc.select("p:containsWholeText( jsoup\n The HTML Parser)");
         Elements es2 = doc.select("p:containsWholeText(jsoup The HTML Parser)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals(0, doc.select("div:containsWholeText(jsoup the html parser)").size());
         }
@@ -2210,7 +2934,12 @@ public class SelectorTest_OE25Dev {
 
         Elements es1 = doc.select("p:containsWholeText( jsoup\n The HTML Parser)");
         Elements es2 = doc.select("p:containsWholeText(jsoup The HTML Parser)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals(0, doc.select("div:containsWholeText(jsoup\n the html parser)").size());
         }
 
@@ -2220,7 +2949,13 @@ public class SelectorTest_OE25Dev {
 
         Elements es1 = doc.select("p:containsWholeText( jsoup\n The HTML Parser)");
         Elements es2 = doc.select("p:containsWholeText(jsoup The HTML Parser)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         doc = Jsoup.parse("<div><p></p><p> </p><p>.  </p>");
         Elements blanks = doc.select("p:containsWholeText(  )");
@@ -2233,10 +2968,17 @@ public class SelectorTest_OE25Dev {
 
         Elements es1 = doc.select("p:containsWholeText( jsoup\n The HTML Parser)");
         Elements es2 = doc.select("p:containsWholeText(jsoup The HTML Parser)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         doc = Jsoup.parse("<div><p></p><p> </p><p>.  </p>");
         Elements blanks = doc.select("p:containsWholeText(  )");
+        // removed other assertion
         assertEquals(".  ", blanks.first().wholeText());
         }
 
@@ -2255,6 +2997,7 @@ public class SelectorTest_OE25Dev {
 
         Elements es1 = doc.select("p:containsWholeOwnText( jsoup\n The  Parser)");
         Elements es2 = doc.select("p:containsWholeOwnText(jsoup The HTML Parser\n)");
+        // removed other assertion
         assertEquals(1, es2.size());
         }
 
@@ -2264,6 +3007,8 @@ public class SelectorTest_OE25Dev {
 
         Elements es1 = doc.select("p:containsWholeOwnText( jsoup\n The  Parser)");
         Elements es2 = doc.select("p:containsWholeOwnText(jsoup The HTML Parser\n)");
+        // removed other assertion
+        // removed other assertion
         assertEquals(ps.get(0), es1.first());
         }
 
@@ -2273,6 +3018,9 @@ public class SelectorTest_OE25Dev {
 
         Elements es1 = doc.select("p:containsWholeOwnText( jsoup\n The  Parser)");
         Elements es2 = doc.select("p:containsWholeOwnText(jsoup The HTML Parser\n)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(ps.get(1), es2.first());
         }
 
@@ -2282,6 +3030,10 @@ public class SelectorTest_OE25Dev {
 
         Elements es1 = doc.select("p:containsWholeOwnText( jsoup\n The  Parser)");
         Elements es2 = doc.select("p:containsWholeOwnText(jsoup The HTML Parser\n)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals(0, doc.select("div:containsWholeOwnText(jsoup the html parser)").size());
         }
@@ -2292,7 +3044,12 @@ public class SelectorTest_OE25Dev {
 
         Elements es1 = doc.select("p:containsWholeOwnText( jsoup\n The  Parser)");
         Elements es2 = doc.select("p:containsWholeOwnText(jsoup The HTML Parser\n)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals(0, doc.select("div:containsWholeOwnText(jsoup\n the  parser)").size());
         }
 
@@ -2302,7 +3059,13 @@ public class SelectorTest_OE25Dev {
 
         Elements es1 = doc.select("p:containsWholeOwnText( jsoup\n The  Parser)");
         Elements es2 = doc.select("p:containsWholeOwnText(jsoup The HTML Parser\n)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         doc = Jsoup.parse("<div><p></p><p> </p><p>.  </p>");
         Elements blanks = doc.select("p:containsWholeOwnText(  )");
@@ -2315,10 +3078,17 @@ public class SelectorTest_OE25Dev {
 
         Elements es1 = doc.select("p:containsWholeOwnText( jsoup\n The  Parser)");
         Elements es2 = doc.select("p:containsWholeOwnText(jsoup The HTML Parser\n)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         doc = Jsoup.parse("<div><p></p><p> </p><p>.  </p>");
         Elements blanks = doc.select("p:containsWholeOwnText(  )");
+        // removed other assertion
         assertEquals(".  ", blanks.first().wholeText());
         }
 
@@ -2333,6 +3103,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
+        // removed other assertion
 
         Elements p2 = doc.select("p:matches((?i)the rain)"); // case insense. should include root, html, body
         assertEquals(1, p2.size());
@@ -2342,8 +3113,10 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
+        // removed other assertion
 
         Elements p2 = doc.select("p:matches((?i)the rain)"); // case insense. should include root, html, body
+        // removed other assertion
         assertEquals("1", p2.first().id());
         }
 
@@ -2351,8 +3124,11 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
+        // removed other assertion
 
         Elements p2 = doc.select("p:matches((?i)the rain)"); // case insense. should include root, html, body
+        // removed other assertion
+        // removed other assertion
 
         Elements p4 = doc.select("p:matches((?i)^rain$)"); // bounding
         assertEquals(1, p4.size());
@@ -2362,10 +3138,14 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
+        // removed other assertion
 
         Elements p2 = doc.select("p:matches((?i)the rain)"); // case insense. should include root, html, body
+        // removed other assertion
+        // removed other assertion
 
         Elements p4 = doc.select("p:matches((?i)^rain$)"); // bounding
+        // removed other assertion
         assertEquals("4", p4.first().id());
         }
 
@@ -2373,10 +3153,15 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
+        // removed other assertion
 
         Elements p2 = doc.select("p:matches((?i)the rain)"); // case insense. should include root, html, body
+        // removed other assertion
+        // removed other assertion
 
         Elements p4 = doc.select("p:matches((?i)^rain$)"); // bounding
+        // removed other assertion
+        // removed other assertion
 
         Elements p5 = doc.select("p:matches(\\d+)");
         assertEquals(1, p5.size());
@@ -2386,12 +3171,18 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
+        // removed other assertion
 
         Elements p2 = doc.select("p:matches((?i)the rain)"); // case insense. should include root, html, body
+        // removed other assertion
+        // removed other assertion
 
         Elements p4 = doc.select("p:matches((?i)^rain$)"); // bounding
+        // removed other assertion
+        // removed other assertion
 
         Elements p5 = doc.select("p:matches(\\d+)");
+        // removed other assertion
         assertEquals("2", p5.first().id());
         }
 
@@ -2399,12 +3190,19 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
+        // removed other assertion
 
         Elements p2 = doc.select("p:matches((?i)the rain)"); // case insense. should include root, html, body
+        // removed other assertion
+        // removed other assertion
 
         Elements p4 = doc.select("p:matches((?i)^rain$)"); // bounding
+        // removed other assertion
+        // removed other assertion
 
         Elements p5 = doc.select("p:matches(\\d+)");
+        // removed other assertion
+        // removed other assertion
 
         Elements p6 = doc.select("p:matches(\\w+\\s+\\(\\w+\\))"); // test bracket matching
         assertEquals(1, p6.size());
@@ -2414,14 +3212,22 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
+        // removed other assertion
 
         Elements p2 = doc.select("p:matches((?i)the rain)"); // case insense. should include root, html, body
+        // removed other assertion
+        // removed other assertion
 
         Elements p4 = doc.select("p:matches((?i)^rain$)"); // bounding
+        // removed other assertion
+        // removed other assertion
 
         Elements p5 = doc.select("p:matches(\\d+)");
+        // removed other assertion
+        // removed other assertion
 
         Elements p6 = doc.select("p:matches(\\w+\\s+\\(\\w+\\))"); // test bracket matching
+        // removed other assertion
         assertEquals("3", p6.first().id());
         }
 
@@ -2429,14 +3235,23 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
+        // removed other assertion
 
         Elements p2 = doc.select("p:matches((?i)the rain)"); // case insense. should include root, html, body
+        // removed other assertion
+        // removed other assertion
 
         Elements p4 = doc.select("p:matches((?i)^rain$)"); // bounding
+        // removed other assertion
+        // removed other assertion
 
         Elements p5 = doc.select("p:matches(\\d+)");
+        // removed other assertion
+        // removed other assertion
 
         Elements p6 = doc.select("p:matches(\\w+\\s+\\(\\w+\\))"); // test bracket matching
+        // removed other assertion
+        // removed other assertion
 
         Elements p7 = doc.select("p:matches((?i)the):has(i)"); // multi
         assertEquals(1, p7.size());
@@ -2446,16 +3261,26 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
+        // removed other assertion
 
         Elements p2 = doc.select("p:matches((?i)the rain)"); // case insense. should include root, html, body
+        // removed other assertion
+        // removed other assertion
 
         Elements p4 = doc.select("p:matches((?i)^rain$)"); // bounding
+        // removed other assertion
+        // removed other assertion
 
         Elements p5 = doc.select("p:matches(\\d+)");
+        // removed other assertion
+        // removed other assertion
 
         Elements p6 = doc.select("p:matches(\\w+\\s+\\(\\w+\\))"); // test bracket matching
+        // removed other assertion
+        // removed other assertion
 
         Elements p7 = doc.select("p:matches((?i)the):has(i)"); // multi
+        // removed other assertion
         assertEquals("1", p7.first().id());
         }
 
@@ -2470,6 +3295,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b> now</p>");
 
         Elements p1 = doc.select("p:matchesOwn((?i)hello now)");
+        // removed other assertion
         assertEquals("1", p1.first().id());
         }
 
@@ -2477,6 +3303,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b> now</p>");
 
         Elements p1 = doc.select("p:matchesOwn((?i)hello now)");
+        // removed other assertion
+        // removed other assertion
 
         assertEquals(0, doc.select("p:matchesOwn(there)").size());
         }
@@ -2492,6 +3320,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3></p>");
 
         Elements p1 = doc.select("p:matchesWholeText((?i)hello there\n now)");
+        // removed other assertion
         assertEquals("1", p1.first().id());
         }
 
@@ -2499,6 +3328,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3></p>");
 
         Elements p1 = doc.select("p:matchesWholeText((?i)hello there\n now)");
+        // removed other assertion
+        // removed other assertion
 
         assertEquals(1, doc.select("p:matchesWholeText(there\n now)").size());
         }
@@ -2507,7 +3338,10 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3></p>");
 
         Elements p1 = doc.select("p:matchesWholeText((?i)hello there\n now)");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals(0, doc.select("p:matchesWholeText(There\n now)").size());
         }
 
@@ -2515,7 +3349,11 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3></p>");
 
         Elements p1 = doc.select("p:matchesWholeText((?i)hello there\n now)");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Elements p2 = doc.select("p:matchesWholeText(^\\s+$)");
         assertEquals(1, p2.size());
@@ -2525,9 +3363,14 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3></p>");
 
         Elements p1 = doc.select("p:matchesWholeText((?i)hello there\n now)");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Elements p2 = doc.select("p:matchesWholeText(^\\s+$)");
+        // removed other assertion
         assertEquals("2", p2.first().id());
         }
 
@@ -2535,9 +3378,15 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3></p>");
 
         Elements p1 = doc.select("p:matchesWholeText((?i)hello there\n now)");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Elements p2 = doc.select("p:matchesWholeText(^\\s+$)");
+        // removed other assertion
+        // removed other assertion
 
         Elements p3 = doc.select("p:matchesWholeText(^$)");
         assertEquals(1, p3.size());
@@ -2547,11 +3396,18 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3></p>");
 
         Elements p1 = doc.select("p:matchesWholeText((?i)hello there\n now)");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Elements p2 = doc.select("p:matchesWholeText(^\\s+$)");
+        // removed other assertion
+        // removed other assertion
 
         Elements p3 = doc.select("p:matchesWholeText(^$)");
+        // removed other assertion
         assertEquals("3", p3.first().id());
         }
 
@@ -2566,6 +3422,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3><i>Text</i></p>");
 
         Elements p1 = doc.select("p:matchesWholeOwnText((?i)hello \n now)");
+        // removed other assertion
         assertEquals("1", p1.first().id());
         }
 
@@ -2573,6 +3430,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3><i>Text</i></p>");
 
         Elements p1 = doc.select("p:matchesWholeOwnText((?i)hello \n now)");
+        // removed other assertion
+        // removed other assertion
 
         assertEquals(0, doc.select("p:matchesWholeOwnText(there\n now)").size());
         }
@@ -2581,7 +3440,10 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3><i>Text</i></p>");
 
         Elements p1 = doc.select("p:matchesWholeOwnText((?i)hello \n now)");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Elements p2 = doc.select("p:matchesWholeOwnText(^\\s+$)");
         assertEquals(1, p2.size());
@@ -2591,9 +3453,13 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3><i>Text</i></p>");
 
         Elements p1 = doc.select("p:matchesWholeOwnText((?i)hello \n now)");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Elements p2 = doc.select("p:matchesWholeOwnText(^\\s+$)");
+        // removed other assertion
         assertEquals("2", p2.first().id());
         }
 
@@ -2601,9 +3467,14 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3><i>Text</i></p>");
 
         Elements p1 = doc.select("p:matchesWholeOwnText((?i)hello \n now)");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Elements p2 = doc.select("p:matchesWholeOwnText(^\\s+$)");
+        // removed other assertion
+        // removed other assertion
 
         Elements p3 = doc.select("p:matchesWholeOwnText(^$)");
         assertEquals(1, p3.size());
@@ -2613,11 +3484,17 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3><i>Text</i></p>");
 
         Elements p1 = doc.select("p:matchesWholeOwnText((?i)hello \n now)");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Elements p2 = doc.select("p:matchesWholeOwnText(^\\s+$)");
+        // removed other assertion
+        // removed other assertion
 
         Elements p3 = doc.select("p:matchesWholeOwnText(^$)");
+        // removed other assertion
         assertEquals("3", p3.first().id());
         }
 
@@ -2632,6 +3509,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<abc_def id=1>Hello</abc_def> <abc-def id=2>There</abc-def>");
 
         Elements el1 = doc.select("abc_def");
+        // removed other assertion
         assertEquals("1", el1.first().id());
         }
 
@@ -2639,6 +3517,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<abc_def id=1>Hello</abc_def> <abc-def id=2>There</abc-def>");
 
         Elements el1 = doc.select("abc_def");
+        // removed other assertion
+        // removed other assertion
 
         Elements el2 = doc.select("abc-def");
         assertEquals(1, el2.size());
@@ -2648,8 +3528,11 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<abc_def id=1>Hello</abc_def> <abc-def id=2>There</abc-def>");
 
         Elements el1 = doc.select("abc_def");
+        // removed other assertion
+        // removed other assertion
 
         Elements el2 = doc.select("abc-def");
+        // removed other assertion
         assertEquals("2", el2.first().id());
         }
 
@@ -2664,6 +3547,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>One</p> <p>Two</p> <p><span>Three</span></p>");
 
         Elements el1 = doc.select("p:not([id=1])");
+        // removed other assertion
         assertEquals("Two", el1.first().text());
         }
 
@@ -2671,6 +3555,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>One</p> <p>Two</p> <p><span>Three</span></p>");
 
         Elements el1 = doc.select("p:not([id=1])");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Three", el1.last().text());
         }
 
@@ -2678,6 +3564,9 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>One</p> <p>Two</p> <p><span>Three</span></p>");
 
         Elements el1 = doc.select("p:not([id=1])");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements el2 = doc.select("p:not(:has(span))");
         assertEquals(2, el2.size());
@@ -2687,8 +3576,12 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>One</p> <p>Two</p> <p><span>Three</span></p>");
 
         Elements el1 = doc.select("p:not([id=1])");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements el2 = doc.select("p:not(:has(span))");
+        // removed other assertion
         assertEquals("One", el2.first().text());
         }
 
@@ -2696,8 +3589,13 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p id=1>One</p> <p>Two</p> <p><span>Three</span></p>");
 
         Elements el1 = doc.select("p:not([id=1])");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Elements el2 = doc.select("p:not(:has(span))");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Two", el2.last().text());
         }
 
@@ -2712,6 +3610,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p>Two</p> <p><span>Three</span></p>");
 
         Elements el1 = doc.body().select(":not(p)"); // should just be the span
+        // removed other assertion
         assertEquals("body", el1.first().tagName());
         }
 
@@ -2719,6 +3618,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p>Two</p> <p><span>Three</span></p>");
 
         Elements el1 = doc.body().select(":not(p)"); // should just be the span
+        // removed other assertion
+        // removed other assertion
         assertEquals("span", el1.last().tagName());
         }
 
@@ -2733,6 +3634,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div class=left>One</div><div class=right id=1><p>Two</p></div>");
 
         Elements el1 = doc.select("div:not(.left)");
+        // removed other assertion
         assertEquals("1", el1.first().id());
         }
 
@@ -2747,6 +3649,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p name='1,2'>One</p><div>Two</div><ol><li>123</li><li>Text</li></ol>");
 
         Elements ps = doc.select("[name=1,2]");
+        // removed other assertion
 
         Elements containers = doc.select("div, li:matches([0-9,]+)");
         assertEquals(2, containers.size());
@@ -2756,8 +3659,10 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p name='1,2'>One</p><div>Two</div><ol><li>123</li><li>Text</li></ol>");
 
         Elements ps = doc.select("[name=1,2]");
+        // removed other assertion
 
         Elements containers = doc.select("div, li:matches([0-9,]+)");
+        // removed other assertion
         assertEquals("div", containers.get(0).tagName());
         }
 
@@ -2765,8 +3670,11 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p name='1,2'>One</p><div>Two</div><ol><li>123</li><li>Text</li></ol>");
 
         Elements ps = doc.select("[name=1,2]");
+        // removed other assertion
 
         Elements containers = doc.select("div, li:matches([0-9,]+)");
+        // removed other assertion
+        // removed other assertion
         assertEquals("li", containers.get(1).tagName());
         }
 
@@ -2774,8 +3682,12 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<p name='1,2'>One</p><div>Two</div><ol><li>123</li><li>Text</li></ol>");
 
         Elements ps = doc.select("[name=1,2]");
+        // removed other assertion
 
         Elements containers = doc.select("div, li:matches([0-9,]+)");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("123", containers.get(1).text());
         }
 
@@ -2788,6 +3700,7 @@ public class SelectorTest_OE25Dev {
     @Test public void selectSupplementaryCharacter_2_oe() {
         String s = new String(Character.toChars(135361));
         Document doc = Jsoup.parse("<div k" + s + "='" + s + "'>^" + s +"$/div>");
+        // removed other assertion
         assertEquals("div", doc.select("div:containsOwn(" + s + ")").first().tagName());
         }
 
@@ -2810,6 +3723,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(html);
 
         Elements found = doc.select("div[class=value ]");
+        // removed other assertion
         assertEquals("class without space", found.get(0).text());
     }
 
@@ -2821,6 +3735,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(html);
 
         Elements found = doc.select("div[class=value ]");
+        // removed other assertion
+        // removed other assertion
         assertEquals("class with space", found.get(1).text());
     }
 
@@ -2832,6 +3748,9 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(html);
 
         Elements found = doc.select("div[class=value ]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         found = doc.select("div[class=\"value \"]");
         assertEquals(2, found.size());
@@ -2845,8 +3764,12 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(html);
 
         Elements found = doc.select("div[class=value ]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         found = doc.select("div[class=\"value \"]");
+        // removed other assertion
         assertEquals("class without space", found.get(0).text());
     }
 
@@ -2858,8 +3781,13 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(html);
 
         Elements found = doc.select("div[class=value ]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         found = doc.select("div[class=\"value \"]");
+        // removed other assertion
+        // removed other assertion
         assertEquals("class with space", found.get(1).text());
     }
 
@@ -2871,8 +3799,14 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(html);
 
         Elements found = doc.select("div[class=value ]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         found = doc.select("div[class=\"value \"]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         found = doc.select("div[class=\"value\\ \"]");
         assertEquals(0, found.size());
@@ -2891,6 +3825,7 @@ public class SelectorTest_OE25Dev {
 
         Document doc = Jsoup.parse(html);
         Elements els = doc.select("div");
+        // removed other assertion
 
         Elements subSelect = els.select(":contains(one)");
         assertEquals(2, subSelect.size());
@@ -2905,18 +3840,24 @@ public class SelectorTest_OE25Dev {
     @Test public void attributeWithBrackets_2_oe() {
         String html = "<div data='End]'>One</div> <div data='[Another)]]'>Two</div>";
         Document doc = Jsoup.parse(html);
+        // removed other assertion
         assertEquals("Two", doc.select("div[data='[Another)]]']").first().text());
         }
 
     @Test public void attributeWithBrackets_3_oe() {
         String html = "<div data='End]'>One</div> <div data='[Another)]]'>Two</div>";
         Document doc = Jsoup.parse(html);
+        // removed other assertion
+        // removed other assertion
         assertEquals("One", doc.select("div[data=\"End]\"]").first().text());
         }
 
     @Test public void attributeWithBrackets_4_oe() {
         String html = "<div data='End]'>One</div> <div data='[Another)]]'>Two</div>";
         Document doc = Jsoup.parse(html);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Two", doc.select("div[data=\"[Another)]]\"]").first().text());
         }
 
@@ -2931,6 +3872,7 @@ public class SelectorTest_OE25Dev {
         String html = "<p>One'One</p><p>One'Two</p>";
         Document doc = Jsoup.parse(html);
         Elements els = doc.select("p:contains(One\\'One)");
+        // removed other assertion
         assertEquals("One'One", els.text());
         }
 
@@ -2967,6 +3909,7 @@ public class SelectorTest_OE25Dev {
         String origHtml = doc.html();
 
         Elements one = doc.select("p:matchText:first-child");
+        // removed other assertion
 
         Elements two = doc.select("p:matchText:last-child");
         assertEquals("Two", two.first().text());
@@ -2978,8 +3921,10 @@ public class SelectorTest_OE25Dev {
         String origHtml = doc.html();
 
         Elements one = doc.select("p:matchText:first-child");
+        // removed other assertion
 
         Elements two = doc.select("p:matchText:last-child");
+        // removed other assertion
 
         assertEquals(origHtml, doc.html());
         }
@@ -2990,9 +3935,12 @@ public class SelectorTest_OE25Dev {
         String origHtml = doc.html();
 
         Elements one = doc.select("p:matchText:first-child");
+        // removed other assertion
 
         Elements two = doc.select("p:matchText:last-child");
+        // removed other assertion
 
+        // removed other assertion
 
         assertEquals("Two", doc.select("p:matchText + br + *").text());
         }
@@ -3016,6 +3964,7 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(html);
 
         Elements els = doc.select("p:matchText");
+        // removed other assertion
         assertEquals("One", els.get(0).text());
         }
 
@@ -3024,6 +3973,8 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(html);
 
         Elements els = doc.select("p:matchText");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Two", els.get(1).text());
         }
 
@@ -3032,6 +3983,9 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse(html);
 
         Elements els = doc.select("p:matchText");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Three", els.get(2).toString());
         }
 
@@ -3046,12 +4000,14 @@ public class SelectorTest_OE25Dev {
         Document doc = Jsoup.parse("<div><p class=one>One<br>Two<p class=two>Three<br>Four");
         Elements els = doc.select("p.two:matchText:last-child");
 
+        // removed other assertion
         assertEquals("Four", els.text());
         }
 
     @Test public void findBetweenSpan_1_oe() {
         Document doc = Jsoup.parse("<p><span>One</span> Two <span>Three</span>");
         Elements els = doc.select("span ~ p:matchText"); // the Two becomes its own p, sibling of the span
+        // todo - think this should really be 'p:matchText span ~ p'. The :matchText should behave as a modifier to expand the nodes.
 
         assertEquals(1, els.size());
         }
@@ -3059,7 +4015,9 @@ public class SelectorTest_OE25Dev {
     @Test public void findBetweenSpan_2_oe() {
         Document doc = Jsoup.parse("<p><span>One</span> Two <span>Three</span>");
         Elements els = doc.select("span ~ p:matchText"); // the Two becomes its own p, sibling of the span
+        // todo - think this should really be 'p:matchText span ~ p'. The :matchText should behave as a modifier to expand the nodes.
 
+        // removed other assertion
         assertEquals("Two", els.text());
         }
 
@@ -3127,6 +4085,7 @@ public class SelectorTest_OE25Dev {
 
     @Test
     public void trimSelector_1_oe() {
+        // https://github.com/jhy/jsoup/issues/1274
         Document doc = Jsoup.parse("<p><span>Hello");
         Elements els = doc.select(" p span ");
         assertEquals(1, els.size());
@@ -3134,13 +4093,16 @@ public class SelectorTest_OE25Dev {
 
     @Test
     public void trimSelector_2_oe() {
+        // https://github.com/jhy/jsoup/issues/1274
         Document doc = Jsoup.parse("<p><span>Hello");
         Elements els = doc.select(" p span ");
+        // removed other assertion
         assertEquals("Hello", els.first().text());
     }
 
     @Test
     public void xmlWildcardNamespaceTest_1_oe() {
+        // https://github.com/jhy/jsoup/issues/1208
         Document doc = Jsoup.parse("<ns1:MyXmlTag>1111</ns1:MyXmlTag><ns2:MyXmlTag>2222</ns2:MyXmlTag>", "", Parser.xmlParser());
         Elements select = doc.select("*|MyXmlTag");
         assertEquals(2, select.size());
@@ -3148,20 +4110,26 @@ public class SelectorTest_OE25Dev {
 
     @Test
     public void xmlWildcardNamespaceTest_2_oe() {
+        // https://github.com/jhy/jsoup/issues/1208
         Document doc = Jsoup.parse("<ns1:MyXmlTag>1111</ns1:MyXmlTag><ns2:MyXmlTag>2222</ns2:MyXmlTag>", "", Parser.xmlParser());
         Elements select = doc.select("*|MyXmlTag");
+        // removed other assertion
         assertEquals("1111", select.get(0).text());
     }
 
     @Test
     public void xmlWildcardNamespaceTest_3_oe() {
+        // https://github.com/jhy/jsoup/issues/1208
         Document doc = Jsoup.parse("<ns1:MyXmlTag>1111</ns1:MyXmlTag><ns2:MyXmlTag>2222</ns2:MyXmlTag>", "", Parser.xmlParser());
         Elements select = doc.select("*|MyXmlTag");
+        // removed other assertion
+        // removed other assertion
         assertEquals("2222", select.get(1).text());
     }
 
     @Test
     public void childElements_1_oe() {
+        // https://github.com/jhy/jsoup/issues/1292
         String html = "<body><span id=1>One <span id=2>Two</span></span></body>";
         Document doc = Jsoup.parse(html);
 
@@ -3174,6 +4142,7 @@ public class SelectorTest_OE25Dev {
 
     @Test
     public void childElements_2_oe() {
+        // https://github.com/jhy/jsoup/issues/1292
         String html = "<body><span id=1>One <span id=2>Two</span></span></body>";
         Document doc = Jsoup.parse(html);
 
@@ -3181,11 +4150,13 @@ public class SelectorTest_OE25Dev {
         Element span = outer.selectFirst("span");
         Element inner = outer.selectFirst("* span");
 
+        // removed other assertion
         assertEquals("1", span.id());
     }
 
     @Test
     public void childElements_3_oe() {
+        // https://github.com/jhy/jsoup/issues/1292
         String html = "<body><span id=1>One <span id=2>Two</span></span></body>";
         Document doc = Jsoup.parse(html);
 
@@ -3193,11 +4164,14 @@ public class SelectorTest_OE25Dev {
         Element span = outer.selectFirst("span");
         Element inner = outer.selectFirst("* span");
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", inner.id());
     }
 
     @Test
     public void childElements_4_oe() {
+        // https://github.com/jhy/jsoup/issues/1292
         String html = "<body><span id=1>One <span id=2>Two</span></span></body>";
         Document doc = Jsoup.parse(html);
 
@@ -3205,11 +4179,15 @@ public class SelectorTest_OE25Dev {
         Element span = outer.selectFirst("span");
         Element inner = outer.selectFirst("* span");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(outer, span);
     }
 
     @Test
     public void childElements_5_oe() {
+        // https://github.com/jhy/jsoup/issues/1292
         String html = "<body><span id=1>One <span id=2>Two</span></span></body>";
         Document doc = Jsoup.parse(html);
 
@@ -3217,11 +4195,16 @@ public class SelectorTest_OE25Dev {
         Element span = outer.selectFirst("span");
         Element inner = outer.selectFirst("* span");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNotEquals(outer, inner);
     }
 
     @Test
     public void selectFirstLevelChildrenOnly_1_oe() {
+        // testcase for https://github.com/jhy/jsoup/issues/984
         String html = "<div><span>One <span>Two</span></span> <span>Three <span>Four</span></span>";
         Document doc = Jsoup.parse(html);
 
@@ -3231,39 +4214,52 @@ public class SelectorTest_OE25Dev {
 
     @Test
     public void selectFirstLevelChildrenOnly_2_oe() {
+        // testcase for https://github.com/jhy/jsoup/issues/984
         String html = "<div><span>One <span>Two</span></span> <span>Three <span>Four</span></span>";
         Document doc = Jsoup.parse(html);
 
         Element div = doc.selectFirst("div");
+        // removed other assertion
 
+        // want to select One and Three only - the first level children
         Elements spans = div.select(":root > span");
         assertEquals(2, spans.size());
     }
 
     @Test
     public void selectFirstLevelChildrenOnly_3_oe() {
+        // testcase for https://github.com/jhy/jsoup/issues/984
         String html = "<div><span>One <span>Two</span></span> <span>Three <span>Four</span></span>";
         Document doc = Jsoup.parse(html);
 
         Element div = doc.selectFirst("div");
+        // removed other assertion
 
+        // want to select One and Three only - the first level children
         Elements spans = div.select(":root > span");
+        // removed other assertion
         assertEquals("One Two", spans.get(0).text());
     }
 
     @Test
     public void selectFirstLevelChildrenOnly_4_oe() {
+        // testcase for https://github.com/jhy/jsoup/issues/984
         String html = "<div><span>One <span>Two</span></span> <span>Three <span>Four</span></span>";
         Document doc = Jsoup.parse(html);
 
         Element div = doc.selectFirst("div");
+        // removed other assertion
 
+        // want to select One and Three only - the first level children
         Elements spans = div.select(":root > span");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Three Four", spans.get(1).text());
     }
 
     @Test
     public void wildcardNamespaceMatchesNoNamespace_1_oe() {
+        // https://github.com/jhy/jsoup/issues/1565
         String xml = "<package><meta>One</meta><opf:meta>Two</opf:meta></package>";
         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
 
@@ -3273,19 +4269,24 @@ public class SelectorTest_OE25Dev {
 
     @Test
     public void wildcardNamespaceMatchesNoNamespace_2_oe() {
+        // https://github.com/jhy/jsoup/issues/1565
         String xml = "<package><meta>One</meta><opf:meta>Two</opf:meta></package>";
         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
 
         Elements metaEls = doc.select("meta");
+        // removed other assertion
         assertEquals("One", metaEls.get(0).text());
     }
 
     @Test
     public void wildcardNamespaceMatchesNoNamespace_3_oe() {
+        // https://github.com/jhy/jsoup/issues/1565
         String xml = "<package><meta>One</meta><opf:meta>Two</opf:meta></package>";
         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
 
         Elements metaEls = doc.select("meta");
+        // removed other assertion
+        // removed other assertion
 
         Elements nsEls = doc.select("*|meta");
         assertEquals(2, nsEls.size());
@@ -3293,23 +4294,32 @@ public class SelectorTest_OE25Dev {
 
     @Test
     public void wildcardNamespaceMatchesNoNamespace_4_oe() {
+        // https://github.com/jhy/jsoup/issues/1565
         String xml = "<package><meta>One</meta><opf:meta>Two</opf:meta></package>";
         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
 
         Elements metaEls = doc.select("meta");
+        // removed other assertion
+        // removed other assertion
 
         Elements nsEls = doc.select("*|meta");
+        // removed other assertion
         assertEquals("One", nsEls.get(0).text());
     }
 
     @Test
     public void wildcardNamespaceMatchesNoNamespace_5_oe() {
+        // https://github.com/jhy/jsoup/issues/1565
         String xml = "<package><meta>One</meta><opf:meta>Two</opf:meta></package>";
         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
 
         Elements metaEls = doc.select("meta");
+        // removed other assertion
+        // removed other assertion
 
         Elements nsEls = doc.select("*|meta");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Two", nsEls.get(1).text());
     }
 
@@ -3332,6 +4342,7 @@ public class SelectorTest_OE25Dev {
         Elements d = doc.select(":containsOwn(hello There now)");
         Elements e = doc.select("p:contains(HelloThereNow)");
 
+        // removed other assertion
         assertEquals(a, b);
         }
 
@@ -3343,6 +4354,8 @@ public class SelectorTest_OE25Dev {
         Elements d = doc.select(":containsOwn(hello There now)");
         Elements e = doc.select("p:contains(HelloThereNow)");
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(a, c);
         }
 
@@ -3354,6 +4367,9 @@ public class SelectorTest_OE25Dev {
         Elements d = doc.select(":containsOwn(hello There now)");
         Elements e = doc.select("p:contains(HelloThereNow)");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(a, d);
         }
 
@@ -3365,6 +4381,10 @@ public class SelectorTest_OE25Dev {
         Elements d = doc.select(":containsOwn(hello There now)");
         Elements e = doc.select("p:contains(HelloThereNow)");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0, e.size());
         }
 
@@ -3376,6 +4396,11 @@ public class SelectorTest_OE25Dev {
         Elements d = doc.select(":containsOwn(hello There now)");
         Elements e = doc.select("p:contains(HelloThereNow)");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNotEquals(a, e);
         }
 
@@ -3399,6 +4424,7 @@ public class SelectorTest_OE25Dev {
 
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b> igor</p>");
         Elements ps = doc.select("p:containsOwn(Hello IGOR)");
+        // removed other assertion
         assertEquals("1", ps.first().id());
     }
 
@@ -3408,6 +4434,8 @@ public class SelectorTest_OE25Dev {
 
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b> igor</p>");
         Elements ps = doc.select("p:containsOwn(Hello IGOR)");
+        // removed other assertion
+        // removed other assertion
 
         assertEquals(0, doc.select("p:containsOwn(there)").size());
     }
@@ -3418,7 +4446,10 @@ public class SelectorTest_OE25Dev {
 
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b> igor</p>");
         Elements ps = doc.select("p:containsOwn(Hello IGOR)");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Document doc2 = Jsoup.parse("<p>Hello <b>there</b> IGOR</p>");
         assertEquals(1, doc2.select("p:containsOwn(igor)").size());
@@ -3455,6 +4486,7 @@ public class SelectorTest_OE25Dev {
         Elements dataEls4 = body.select(":containsData(o)");
         Elements dataEls5 = body.select("style:containsData(ITEM)");
 
+        // removed other assertion
         assertEquals(dataEls1.last(), dataEls2.first());
     }
 
@@ -3472,6 +4504,8 @@ public class SelectorTest_OE25Dev {
         Elements dataEls4 = body.select(":containsData(o)");
         Elements dataEls5 = body.select("style:containsData(ITEM)");
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("<script>FUNCTION</script>", dataEls2.outerHtml());
     }
 
@@ -3489,6 +4523,9 @@ public class SelectorTest_OE25Dev {
         Elements dataEls4 = body.select(":containsData(o)");
         Elements dataEls5 = body.select("style:containsData(ITEM)");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, dataEls3.size());
     }
 
@@ -3506,6 +4543,10 @@ public class SelectorTest_OE25Dev {
         Elements dataEls4 = body.select(":containsData(o)");
         Elements dataEls5 = body.select("style:containsData(ITEM)");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("span", dataEls3.first().tagName());
     }
 
@@ -3523,6 +4564,11 @@ public class SelectorTest_OE25Dev {
         Elements dataEls4 = body.select(":containsData(o)");
         Elements dataEls5 = body.select("style:containsData(ITEM)");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(3, dataEls4.size());
     }
 
@@ -3540,6 +4586,12 @@ public class SelectorTest_OE25Dev {
         Elements dataEls4 = body.select(":containsData(o)");
         Elements dataEls5 = body.select("style:containsData(ITEM)");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("body", dataEls4.first().tagName());
     }
 
@@ -3557,6 +4609,13 @@ public class SelectorTest_OE25Dev {
         Elements dataEls4 = body.select(":containsData(o)");
         Elements dataEls5 = body.select("style:containsData(ITEM)");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("script", dataEls4.get(1).tagName());
     }
 
@@ -3574,6 +4633,14 @@ public class SelectorTest_OE25Dev {
         Elements dataEls4 = body.select(":containsData(o)");
         Elements dataEls5 = body.select("style:containsData(ITEM)");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("span", dataEls4.get(2).tagName());
     }
 
@@ -3591,6 +4658,15 @@ public class SelectorTest_OE25Dev {
         Elements dataEls4 = body.select(":containsData(o)");
         Elements dataEls5 = body.select("style:containsData(ITEM)");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, dataEls5.size());
     }
 

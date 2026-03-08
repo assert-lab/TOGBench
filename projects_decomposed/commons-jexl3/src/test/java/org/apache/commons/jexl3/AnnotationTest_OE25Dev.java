@@ -284,8 +284,10 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         Object r;
         e = JEXL.createScript("(s, v)->{ @strict(s) @silent(v) var x = y ; 42; }");
 
+        // wont make an error
         try {
             r = e.execute(jc, false, true);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
             Assert.fail("should not have thrown");
     }
@@ -301,15 +303,20 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         Object r;
         e = JEXL.createScript("(s, v)->{ @strict(s) @silent(v) var x = y ; 42; }");
 
+        // wont make an error
         try {
             r = e.execute(jc, false, true);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
 
         r = null;
+        // will make an error and throw
         options.setSafe(false);
         try {
             r = e.execute(jc, true, false);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
             Assert.assertNull(r);
     }
@@ -325,21 +332,29 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         Object r;
         e = JEXL.createScript("(s, v)->{ @strict(s) @silent(v) var x = y ; 42; }");
 
+        // wont make an error
         try {
             r = e.execute(jc, false, true);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
 
         r = null;
+        // will make an error and throw
         options.setSafe(false);
         try {
             r = e.execute(jc, true, false);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
 
         r = null;
+        // will make an error and will not throw but result is null
         try {
             r = e.execute(jc, true, true);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
             Assert.fail("should not have thrown");
     }
@@ -355,28 +370,39 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         Object r;
         e = JEXL.createScript("(s, v)->{ @strict(s) @silent(v) var x = y ; 42; }");
 
+        // wont make an error
         try {
             r = e.execute(jc, false, true);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
 
         r = null;
+        // will make an error and throw
         options.setSafe(false);
         try {
             r = e.execute(jc, true, false);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
 
         r = null;
+        // will make an error and will not throw but result is null
         try {
             r = e.execute(jc, true, true);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
         options.setSafe(true);
 
         r = null;
+        // will not make an error and will not throw
         try {
             r = e.execute(jc, false, false);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
             Assert.fail("should not have thrown");
     }
@@ -392,30 +418,43 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         Object r;
         e = JEXL.createScript("(s, v)->{ @strict(s) @silent(v) var x = y ; 42; }");
 
+        // wont make an error
         try {
             r = e.execute(jc, false, true);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
 
         r = null;
+        // will make an error and throw
         options.setSafe(false);
         try {
             r = e.execute(jc, true, false);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
 
         r = null;
+        // will make an error and will not throw but result is null
         try {
             r = e.execute(jc, true, true);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
         options.setSafe(true);
 
         r = null;
+        // will not make an error and will not throw
         try {
             r = e.execute(jc, false, false);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
+        //Assert.assertEquals(42, r);
         Assert.assertTrue(options.isStrict());
     }
 
@@ -429,30 +468,44 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         Object r;
         e = JEXL.createScript("(s, v)->{ @strict(s) @silent(v) var x = y ; 42; }");
 
+        // wont make an error
         try {
             r = e.execute(jc, false, true);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
 
         r = null;
+        // will make an error and throw
         options.setSafe(false);
         try {
             r = e.execute(jc, true, false);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
 
         r = null;
+        // will make an error and will not throw but result is null
         try {
             r = e.execute(jc, true, true);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
         options.setSafe(true);
 
         r = null;
+        // will not make an error and will not throw
         try {
             r = e.execute(jc, false, false);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
+        //Assert.assertEquals(42, r);
+        // removed other assertion
         e = JEXL.createScript("@scale(5) 42;");
         r = e.execute(jc);
         Assert.assertEquals(42, r);
@@ -468,32 +521,47 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         Object r;
         e = JEXL.createScript("(s, v)->{ @strict(s) @silent(v) var x = y ; 42; }");
 
+        // wont make an error
         try {
             r = e.execute(jc, false, true);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
 
         r = null;
+        // will make an error and throw
         options.setSafe(false);
         try {
             r = e.execute(jc, true, false);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
 
         r = null;
+        // will make an error and will not throw but result is null
         try {
             r = e.execute(jc, true, true);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
         options.setSafe(true);
 
         r = null;
+        // will not make an error and will not throw
         try {
             r = e.execute(jc, false, false);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
+        //Assert.assertEquals(42, r);
+        // removed other assertion
         e = JEXL.createScript("@scale(5) 42;");
         r = e.execute(jc);
+        // removed other assertion
         Assert.assertTrue(options.isStrict());
     }
 
@@ -507,32 +575,48 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         Object r;
         e = JEXL.createScript("(s, v)->{ @strict(s) @silent(v) var x = y ; 42; }");
 
+        // wont make an error
         try {
             r = e.execute(jc, false, true);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
 
         r = null;
+        // will make an error and throw
         options.setSafe(false);
         try {
             r = e.execute(jc, true, false);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
 
         r = null;
+        // will make an error and will not throw but result is null
         try {
             r = e.execute(jc, true, true);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
         options.setSafe(true);
 
         r = null;
+        // will not make an error and will not throw
         try {
             r = e.execute(jc, false, false);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
+            // removed other assertion
         }
+        //Assert.assertEquals(42, r);
+        // removed other assertion
         e = JEXL.createScript("@scale(5) 42;");
         r = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(5, options.getMathScale());
     }
 
@@ -549,6 +633,7 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         final AnnotationContext jc = new AnnotationContext();
         final JexlScript e = JEXL.createScript("@synchronized { return 42; }");
         final Object r = e.execute(jc);
+        // removed other assertion
         Assert.assertEquals(1, jc.getCount());
     }
 
@@ -557,6 +642,8 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         final AnnotationContext jc = new AnnotationContext();
         final JexlScript e = JEXL.createScript("@synchronized { return 42; }");
         final Object r = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(jc.getNames().contains("synchronized"));
     }
 
@@ -573,6 +660,7 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         final AnnotationContext jc = new AnnotationContext();
         final JexlScript e = JEXL.createScript("@synchronized 42");
         final Object r = e.execute(jc);
+        // removed other assertion
         Assert.assertEquals(1, jc.getCount());
     }
 
@@ -581,6 +669,8 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         final AnnotationContext jc = new AnnotationContext();
         final JexlScript e = JEXL.createScript("@synchronized 42");
         final Object r = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(jc.getNames().contains("synchronized"));
     }
 
@@ -597,6 +687,7 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         final AnnotationContext jc = new AnnotationContext();
         final JexlScript e = JEXL.createScript("@synchronized if (true) 2 * 3 * 7; else -42;");
         final Object r = e.execute(jc);
+        // removed other assertion
         Assert.assertEquals(1, jc.getCount());
     }
 
@@ -605,6 +696,8 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         final AnnotationContext jc = new AnnotationContext();
         final JexlScript e = JEXL.createScript("@synchronized if (true) 2 * 3 * 7; else -42;");
         final Object r = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(jc.getNames().contains("synchronized"));
     }
 
@@ -621,6 +714,7 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         final AnnotationContext jc = new AnnotationContext();
         final JexlScript e = JEXL.createScript("var t = 1; @synchronized for(var x : [2,3,7]) t *= x; t");
         final Object r = e.execute(jc);
+        // removed other assertion
         Assert.assertEquals(1, jc.getCount());
     }
 
@@ -629,6 +723,8 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         final AnnotationContext jc = new AnnotationContext();
         final JexlScript e = JEXL.createScript("var t = 1; @synchronized for(var x : [2,3,7]) t *= x; t");
         final Object r = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(jc.getNames().contains("synchronized"));
     }
 
@@ -645,6 +741,7 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         final AnnotationContext jc = new AnnotationContext();
         final JexlScript e = JEXL.createScript("@one(1) { return 42; }");
         final Object r = e.execute(jc);
+        // removed other assertion
         Assert.assertEquals(1, jc.getCount());
     }
 
@@ -653,6 +750,8 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         final AnnotationContext jc = new AnnotationContext();
         final JexlScript e = JEXL.createScript("@one(1) { return 42; }");
         final Object r = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(jc.getNames().contains("one"));
     }
 
@@ -661,6 +760,9 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         final AnnotationContext jc = new AnnotationContext();
         final JexlScript e = JEXL.createScript("@one(1) { return 42; }");
         final Object r = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(jc.getNames().contains("1"));
     }
 
@@ -677,6 +779,7 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         final AnnotationContext jc = new AnnotationContext();
         final JexlScript e = JEXL.createScript("@one(1) @synchronized { return 42; }");
         final Object r = e.execute(jc);
+        // removed other assertion
         Assert.assertEquals(2, jc.getCount());
     }
 
@@ -685,6 +788,8 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         final AnnotationContext jc = new AnnotationContext();
         final JexlScript e = JEXL.createScript("@one(1) @synchronized { return 42; }");
         final Object r = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(jc.getNames().contains("synchronized"));
     }
 
@@ -693,6 +798,9 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         final AnnotationContext jc = new AnnotationContext();
         final JexlScript e = JEXL.createScript("@one(1) @synchronized { return 42; }");
         final Object r = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(jc.getNames().contains("one"));
     }
 
@@ -701,6 +809,10 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         final AnnotationContext jc = new AnnotationContext();
         final JexlScript e = JEXL.createScript("@one(1) @synchronized { return 42; }");
         final Object r = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(jc.getNames().contains("1"));
     }
 

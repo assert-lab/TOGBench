@@ -259,6 +259,7 @@ public class MVSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
         parser.preParse(list);
         for (final String test : list) {
             final FTPFile f = parser.parseFTPEntry(test);
+            // removed other assertion
             assertNotNull("Failed to parse name " + test, f.getName());
     }
     }
@@ -270,6 +271,8 @@ public class MVSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
         parser.preParse(list);
         for (final String test : list) {
             final FTPFile f = parser.parseFTPEntry(test);
+            // removed other assertion
+            // removed other assertion
             assertNotNull("Failed to parse group " + test, f.getGroup());
     }
     }
@@ -281,6 +284,9 @@ public class MVSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
         parser.preParse(list);
         for (final String test : list) {
             final FTPFile f = parser.parseFTPEntry(test);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertNotNull("Failed to parse user " + test, f.getUser());
     }
     }

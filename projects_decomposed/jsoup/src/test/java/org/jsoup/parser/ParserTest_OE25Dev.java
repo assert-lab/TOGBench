@@ -31,6 +31,7 @@ public class ParserTest_OE25Dev {
 
     @Test
     public void testUtf8_1_oe() throws IOException {
+        // testcase for https://github.com/jhy/jsoup/issues/1557. no repro.
         Document parsed = Jsoup.parse(new ByteArrayInputStream("<p>H\u00E9llo, w\u00F6rld!".getBytes(StandardCharsets.UTF_8)), null, "");
         String text = parsed.selectFirst("p").wholeText();
         assertEquals(text, "H\u00E9llo, w\u00F6rld!");

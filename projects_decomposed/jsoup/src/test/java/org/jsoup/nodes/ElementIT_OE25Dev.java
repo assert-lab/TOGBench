@@ -51,6 +51,7 @@ public class ElementIT_OE25Dev {
         wrapper.insertChildren(0, childNodes);
 
         long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
         assertEquals(rows,childNodes.size());// child nodes is a wrapper,so still there assertEquals(0,doc.body().childNodes().size());// but on a fresh look,all gone doc.body().empty().appendChild(wrapper);
     }
 
@@ -91,6 +92,7 @@ public class ElementIT_OE25Dev {
         Element wrapper = new Element("div");
         wrapper.append("<p>Prior Content</p>");
         wrapper.append("<p>End Content</p>");
+        // removed other assertion
 
         List<Node> childNodes = doc.body().childNodes();
         wrapper.insertChildren(1, childNodes);
@@ -116,11 +118,13 @@ public class ElementIT_OE25Dev {
         Element wrapper = new Element("div");
         wrapper.append("<p>Prior Content</p>");
         wrapper.append("<p>End Content</p>");
+        // removed other assertion
 
         List<Node> childNodes = doc.body().childNodes();
         wrapper.insertChildren(1, childNodes);
 
         long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
         assertEquals(rows,childNodes.size());// child nodes is a wrapper,so still there assertEquals(0,doc.body().childNodes().size());// but on a fresh look,all gone doc.body().empty().appendChild(wrapper);
     }
 

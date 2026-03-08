@@ -111,6 +111,7 @@ class BaseProviderTest_OE25Dev {
          int[] seed = {1, 2, 3};
 
         for (int i = 0; i < state.length; i++) {
+            // removed other assertion
         }
 
         new DummyGenerator().fillState(state, seed);
@@ -125,10 +126,12 @@ class BaseProviderTest_OE25Dev {
          int[] seed = {1, 2, 3};
 
         for (int i = 0; i < state.length; i++) {
+            // removed other assertion
         }
 
         new DummyGenerator().fillState(state, seed);
         for (int i = 0; i < seed.length; i++) {
+            // removed other assertion
         }
         for (int i = seed.length; i < state.length; i++) {
             Assertions.assertNotEquals(0, state[i]);
@@ -151,6 +154,7 @@ class BaseProviderTest_OE25Dev {
          long[] seed = {1, 2, 3};
 
         for (int i = 0; i < state.length; i++) {
+            // removed other assertion
         }
 
         new DummyGenerator().fillState(state, seed);
@@ -165,10 +169,12 @@ class BaseProviderTest_OE25Dev {
          long[] seed = {1, 2, 3};
 
         for (int i = 0; i < state.length; i++) {
+            // removed other assertion
         }
 
         new DummyGenerator().fillState(state, seed);
         for (int i = 0; i < seed.length; i++) {
+            // removed other assertion
         }
         for (int i = seed.length; i < state.length; i++) {
             Assertions.assertNotEquals(0, state[i]);

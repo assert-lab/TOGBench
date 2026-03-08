@@ -259,6 +259,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         Collection<?> defLooks = (Collection<?>) params.getParameters().get("defaultLookups");
         defLooks.clear();
         defLooks = (Collection<?>) clone.getParameters().get("defaultLookups");
+        // removed other assertion
         assertTrue("Wrong default lookup", defLooks.contains(look));
     }
 
@@ -283,6 +284,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         Map<?, ?> map = (Map<?, ?>) params.getParameters().get("prefixLookups");
         map.clear();
         map = (Map<?, ?>) clone.getParameters().get("prefixLookups");
+        // removed other assertion
         assertSame("Wrong lookup", look, map.get("test"));
     }
 
@@ -317,6 +319,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         params.setListDelimiterHandler(handler2);
         params.setThrowExceptionOnMissing(false);
         final Map<String, Object> map = clone.getParameters();
+        // removed other assertion
         assertSame("Wrong interpolator", ci, map.get("interpolator"));
     }
 
@@ -334,6 +337,8 @@ public class TestBasicBuilderParameters_OE25Dev {
         params.setListDelimiterHandler(handler2);
         params.setThrowExceptionOnMissing(false);
         final Map<String, Object> map = clone.getParameters();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong list delimiter handler", handler1, map.get("listDelimiterHandler"));
     }
 
@@ -351,6 +356,9 @@ public class TestBasicBuilderParameters_OE25Dev {
         params.setListDelimiterHandler(handler2);
         params.setThrowExceptionOnMissing(false);
         final Map<String, Object> map = clone.getParameters();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong exception flag", Boolean.TRUE, map.get("throwExceptionOnMissing"));
     }
 
@@ -398,6 +406,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         params.setDefaultLookups(defLookups);
         final Map<String, Object> map = params.getParameters();
         final InterpolatorSpecification spec = BasicBuilderParameters.fetchInterpolatorSpecification(map);
+        // removed other assertion
         assertEquals("Wrong prefix lookups", prefixLookups, spec.getPrefixLookups());
     }
 
@@ -416,6 +425,8 @@ public class TestBasicBuilderParameters_OE25Dev {
         params.setDefaultLookups(defLookups);
         final Map<String, Object> map = params.getParameters();
         final InterpolatorSpecification spec = BasicBuilderParameters.fetchInterpolatorSpecification(map);
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong number of default lookups", 1, spec.getDefaultLookups().size());
     }
 
@@ -434,6 +445,9 @@ public class TestBasicBuilderParameters_OE25Dev {
         params.setDefaultLookups(defLookups);
         final Map<String, Object> map = params.getParameters();
         final InterpolatorSpecification spec = BasicBuilderParameters.fetchInterpolatorSpecification(map);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Wrong default lookup", spec.getDefaultLookups().contains(l3));
     }
 
@@ -446,6 +460,7 @@ public class TestBasicBuilderParameters_OE25Dev {
     @Test
     public void testFetchInterpolatorSpecificationEmpty_2_oe() {
         final InterpolatorSpecification spec = BasicBuilderParameters.fetchInterpolatorSpecification(params.getParameters());
+        // removed other assertion
         assertTrue("Got lookups", spec.getDefaultLookups().isEmpty());
     }
 
@@ -462,6 +477,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         final ConfigurationInterpolator ci = EasyMock.createMock(ConfigurationInterpolator.class);
         params.setInterpolator(ci);
         final InterpolatorSpecification spec = BasicBuilderParameters.fetchInterpolatorSpecification(params.getParameters());
+        // removed other assertion
         assertNull("Got a parent", spec.getParentInterpolator());
     }
 
@@ -480,6 +496,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         final Map<String, Object> mapCopy = new HashMap<>(map1);
         map1.put("otherProperty", "value");
         final Map<String, Object> map2 = params.getParameters();
+        // removed other assertion
         assertEquals("Different properties", mapCopy, map2);
     }
 
@@ -514,6 +531,7 @@ public class TestBasicBuilderParameters_OE25Dev {
 
         p2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = p2.getParameters();
+        // removed other assertion
         assertEquals("Decoder not set", decoder, parameters.get("configurationDecoder"));
     }
 
@@ -531,6 +549,8 @@ public class TestBasicBuilderParameters_OE25Dev {
 
         p2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = p2.getParameters();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Conversion handler not set", conversionHandler, parameters.get("conversionHandler"));
     }
 
@@ -548,6 +568,9 @@ public class TestBasicBuilderParameters_OE25Dev {
 
         p2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = p2.getParameters();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Delimiter handler not set", listDelimiterHandler, parameters.get("listDelimiterHandler"));
     }
 
@@ -565,6 +588,10 @@ public class TestBasicBuilderParameters_OE25Dev {
 
         p2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = p2.getParameters();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Logger not set", logger, parameters.get("logger"));
     }
 
@@ -582,6 +609,11 @@ public class TestBasicBuilderParameters_OE25Dev {
 
         p2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = p2.getParameters();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Synchronizer not set", synchronizer, parameters.get("synchronizer"));
     }
 
@@ -599,6 +631,12 @@ public class TestBasicBuilderParameters_OE25Dev {
 
         p2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = p2.getParameters();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Exception flag not set", Boolean.TRUE, parameters.get("throwExceptionOnMissing"));
     }
 
@@ -617,6 +655,7 @@ public class TestBasicBuilderParameters_OE25Dev {
 
         p2.inheritFrom(Collections.<String, Object>emptyMap());
         final Map<String, Object> parameters = p2.getParameters();
+        // removed other assertion
         assertEquals("Exception flag not set", Boolean.TRUE, parameters.get("throwExceptionOnMissing"));
     }
 
@@ -653,6 +692,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         params.setListDelimiterHandler(handler2);
         params.merge(p);
         final Map<String, Object> map = params.getParameters();
+        // removed other assertion
         assertEquals("Wrong exception flag", Boolean.TRUE, map.get("throwExceptionOnMissing"));
     }
 
@@ -671,6 +711,8 @@ public class TestBasicBuilderParameters_OE25Dev {
         params.setListDelimiterHandler(handler2);
         params.merge(p);
         final Map<String, Object> map = params.getParameters();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong other property", "test", map.get("other"));
     }
 
@@ -689,6 +731,9 @@ public class TestBasicBuilderParameters_OE25Dev {
         params.setListDelimiterHandler(handler2);
         params.merge(p);
         final Map<String, Object> map = params.getParameters();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Reserved property was copied", map.containsKey(BuilderParameters.RESERVED_PARAMETER_PREFIX + "test"));
     }
 
@@ -723,6 +768,7 @@ public class TestBasicBuilderParameters_OE25Dev {
     public void testSetDefaultLookups_2_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         final Collection<Lookup> looks = Collections.singleton(look);
+        // removed other assertion
         final Collection<?> col = (Collection<?>) params.getParameters().get("defaultLookups");
         assertNotSame("No copy was created", col, looks);
     }
@@ -780,6 +826,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         params.setInterpolator(ci);
         params.setParentInterpolator(parent);
         final Map<String, Object> map = params.getParameters();
+        // removed other assertion
         assertFalse("Got default lookups", map.containsKey("defaultLookups"));
     }
 
@@ -794,6 +841,8 @@ public class TestBasicBuilderParameters_OE25Dev {
         params.setInterpolator(ci);
         params.setParentInterpolator(parent);
         final Map<String, Object> map = params.getParameters();
+        // removed other assertion
+        // removed other assertion
         assertFalse("Got a parent interpolator", map.containsKey("parentInterpolator"));
     }
 
@@ -815,6 +864,7 @@ public class TestBasicBuilderParameters_OE25Dev {
     public void testSetPrefixLookups_2_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         final Map<String, Lookup> lookups = Collections.singletonMap("test", look);
+        // removed other assertion
         final Map<?, ?> map = (Map<?, ?>) params.getParameters().get("prefixLookups");
         assertNotSame("No copy was created", lookups, map);
     }

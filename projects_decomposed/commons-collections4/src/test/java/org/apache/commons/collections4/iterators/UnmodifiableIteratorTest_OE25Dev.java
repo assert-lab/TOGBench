@@ -63,6 +63,22 @@ public class UnmodifiableIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E>
     }
 
     //-----------------------------------------------------------------------
+    public void testIterator() {
+        assertTrue(makeEmptyIterator() instanceof Unmodifiable);
+    }
+
+    public void testDecorateFactory() {
+        Iterator<E> it = makeObject();
+        assertSame(it, UnmodifiableIterator.unmodifiableIterator(it));
+
+        it = testList.iterator();
+        assertTrue(it != UnmodifiableIterator.unmodifiableIterator(it));
+
+        try {
+            UnmodifiableIterator.unmodifiableIterator(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
 
     public void testIterator_1_oe() {
         assertTrue(makeEmptyIterator() instanceof Unmodifiable);
@@ -78,6 +94,13 @@ public class UnmodifiableIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E>
 
         it = testList.iterator();
         assertTrue(it != UnmodifiableIterator.unmodifiableIterator(it));
+    }
+
+public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableIterator.unmodifiableIterator(null);
+            fail();
+        } catch (final NullPointerException ex) {}
     }
 
 }

@@ -109,6 +109,9 @@ public class HiddenFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileFilter testee = HiddenFileFilter.HIDDEN;
 
+        // removed other assertion
+        // TODO xxx In Java 6 there is no way to hide a file
+        // assertThat(testee.accept(hiddenFileInfo));
         Assert.assertFalse(testee.accept(notExistingFileInfo));
     }
 
@@ -125,24 +128,40 @@ public class HiddenFileFilterTest_OE25Dev extends BaseFilterTest {
 
         final FileFilter testee = HiddenFileFilter.VISIBLE;
 
+        // removed other assertion
+        // TODO xxx In Java 6 there is no way to hide a file
+        // assertThat(testee.accept(hiddenFileInfo));
         Assert.assertTrue(testee.accept(notExistingFileInfo));
     }
 
     @Test
     public void testZipFile_2_oe() throws FileSystemException {
 
+        // Same test with ZIP file
         final FileObject[] files;
 
+        // TODO xxx In Java 6 there is no way to hide a file
+        // files = zipFileObj.findFiles(new
+        // FileFilterSelector(HiddenFileFilter.HIDDEN));
+        // assertContains(files, hiddenFile.getName());
+        // assertThat(files).hasSize(1);
 
         files = zipFileObj.findFiles(new FileFilterSelector(HiddenFileFilter.VISIBLE));
+        // removed other assertion
         Assert.assertEquals(1, files.length);
     }
 
 @Test
     public void testZipFile_1_oe() throws FileSystemException {
 
+        // Same test with ZIP file
         final FileObject[] files;
 
+        // TODO xxx In Java 6 there is no way to hide a file
+        // files = zipFileObj.findFiles(new
+        // FileFilterSelector(HiddenFileFilter.HIDDEN));
+        // assertContains(files, hiddenFile.getName());
+        // assertThat(files).hasSize(1);
 
         files = zipFileObj.findFiles(new FileFilterSelector(HiddenFileFilter.VISIBLE));
         assertContains(files, visibleFile.getName());

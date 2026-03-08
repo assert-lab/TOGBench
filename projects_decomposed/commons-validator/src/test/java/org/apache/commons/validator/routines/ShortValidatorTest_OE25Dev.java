@@ -102,6 +102,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Short expected = Short.valueOf((short)12345);
+        // removed other assertion
         assertEquals("validate(A) locale ", expected, ShortValidator.getInstance().validate(localeVal, locale));
     }
 
@@ -114,6 +115,8 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Short expected = Short.valueOf((short)12345);
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(A) pattern", expected, ShortValidator.getInstance().validate(patternVal, pattern));
     }
 
@@ -126,6 +129,9 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Short expected = Short.valueOf((short)12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(A) both",    expected, ShortValidator.getInstance().validate(germanPatternVal, pattern, Locale.GERMAN));
     }
 
@@ -138,6 +144,10 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Short expected = Short.valueOf((short)12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue("isValid(A) default", ShortValidator.getInstance().isValid(defaultVal));
     }
@@ -151,7 +161,12 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Short expected = Short.valueOf((short)12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue("isValid(A) locale ", ShortValidator.getInstance().isValid(localeVal, locale));
     }
 
@@ -164,7 +179,13 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Short expected = Short.valueOf((short)12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid(A) pattern", ShortValidator.getInstance().isValid(patternVal, pattern));
     }
 
@@ -177,7 +198,14 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Short expected = Short.valueOf((short)12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid(A) both",    ShortValidator.getInstance().isValid(germanPatternVal, pattern, Locale.GERMAN));
     }
 
@@ -190,7 +218,15 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Short expected = Short.valueOf((short)12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertNull("validate(B) default", ShortValidator.getInstance().validate(XXXX));
     }
@@ -204,8 +240,17 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Short expected = Short.valueOf((short)12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertNull("validate(B) locale ", ShortValidator.getInstance().validate(XXXX, locale));
     }
 
@@ -218,8 +263,18 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Short expected = Short.valueOf((short)12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertNull("validate(B) pattern", ShortValidator.getInstance().validate(XXXX, pattern));
     }
 
@@ -232,8 +287,19 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Short expected = Short.valueOf((short)12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("validate(B) both",    ShortValidator.getInstance().validate(patternVal, pattern, Locale.GERMAN));
     }
 
@@ -246,8 +312,20 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Short expected = Short.valueOf((short)12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("isValid(B) default", ShortValidator.getInstance().isValid(XXXX));
     }
@@ -261,9 +339,22 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Short expected = Short.valueOf((short)12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("isValid(B) locale ", ShortValidator.getInstance().isValid(XXXX, locale));
     }
 
@@ -276,9 +367,23 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Short expected = Short.valueOf((short)12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid(B) pattern", ShortValidator.getInstance().isValid(XXXX, pattern));
     }
 
@@ -291,9 +396,24 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Short expected = Short.valueOf((short)12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid(B) both",    ShortValidator.getInstance().isValid(patternVal, pattern, Locale.GERMAN));
     }
 
@@ -308,6 +428,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         short min = (short)10;
         short max = (short)20;
 
+        // Test isInRange()
         assertFalse("isInRange() < min",   validator.isInRange(number9,  min, max));
     }
 
@@ -322,6 +443,8 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         short min = (short)10;
         short max = (short)20;
 
+        // Test isInRange()
+        // removed other assertion
         assertTrue("isInRange() = min",    validator.isInRange(number10, min, max));
     }
 
@@ -336,6 +459,9 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         short min = (short)10;
         short max = (short)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
         assertTrue("isInRange() in range", validator.isInRange(number11, min, max));
     }
 
@@ -350,6 +476,10 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         short min = (short)10;
         short max = (short)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isInRange() = max",    validator.isInRange(number20, min, max));
     }
 
@@ -364,6 +494,11 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         short min = (short)10;
         short max = (short)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isInRange() > max",   validator.isInRange(number21, min, max));
     }
 
@@ -378,7 +513,14 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         short min = (short)10;
         short max = (short)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
         assertFalse("minValue() < min",    validator.minValue(number9,  min));
     }
 
@@ -393,7 +535,15 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         short min = (short)10;
         short max = (short)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
         assertTrue("minValue() = min",     validator.minValue(number10, min));
     }
 
@@ -408,7 +558,16 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         short min = (short)10;
         short max = (short)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
         assertTrue("minValue() > min",     validator.minValue(number11, min));
     }
 
@@ -423,8 +582,19 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         short min = (short)10;
         short max = (short)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
         assertTrue("maxValue() < max",     validator.maxValue(number19, max));
     }
 
@@ -439,8 +609,20 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         short min = (short)10;
         short max = (short)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
         assertTrue("maxValue() = max",     validator.maxValue(number20, max));
     }
 
@@ -455,8 +637,21 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         short min = (short)10;
         short max = (short)20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
         assertFalse("maxValue() > max",    validator.maxValue(number21, max));
     }
 

@@ -100,6 +100,7 @@ public class TestReloadingCombinedConfigurationBuilder_OE25Dev {
         builder.getConfiguration();
         final CombinedReloadingController rc = (CombinedReloadingController) builder.getReloadingController();
         final Collection<ReloadingController> subControllers = rc.getSubControllers();
+        // removed other assertion
         final ReloadingControllerSupport ccBuilder = (ReloadingControllerSupport) builder.getNamedBuilder("cc");
         assertTrue("Sub controller not found", subControllers.contains(ccBuilder.getReloadingController()));
     }
@@ -111,7 +112,9 @@ public class TestReloadingCombinedConfigurationBuilder_OE25Dev {
         builder.getConfiguration();
         final CombinedReloadingController rc = (CombinedReloadingController) builder.getReloadingController();
         final Collection<ReloadingController> subControllers = rc.getSubControllers();
+        // removed other assertion
         final ReloadingControllerSupport ccBuilder = (ReloadingControllerSupport) builder.getNamedBuilder("cc");
+        // removed other assertion
         final CombinedReloadingController rc2 = (CombinedReloadingController) ccBuilder.getReloadingController();
         assertEquals("Wrong number of sub controllers (2)", 3, rc2.getSubControllers().size());
     }
@@ -137,6 +140,7 @@ public class TestReloadingCombinedConfigurationBuilder_OE25Dev {
     public void testReloadableDefinitionBuilder_2_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testDigesterConfiguration.xml");
         final ReloadingCombinedConfigurationBuilder confBuilder = builder.configure(new FileBasedBuilderParametersImpl().setFile(testFile));
+        // removed other assertion
         builder.getConfiguration();
         final CombinedReloadingController rc = (CombinedReloadingController) builder.getReloadingController();
         final Collection<ReloadingController> subControllers = rc.getSubControllers();
@@ -147,9 +151,11 @@ public class TestReloadingCombinedConfigurationBuilder_OE25Dev {
     public void testReloadableDefinitionBuilder_3_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testDigesterConfiguration.xml");
         final ReloadingCombinedConfigurationBuilder confBuilder = builder.configure(new FileBasedBuilderParametersImpl().setFile(testFile));
+        // removed other assertion
         builder.getConfiguration();
         final CombinedReloadingController rc = (CombinedReloadingController) builder.getReloadingController();
         final Collection<ReloadingController> subControllers = rc.getSubControllers();
+        // removed other assertion
         final ReloadingController subctrl = ((ReloadingControllerSupport) builder.getDefinitionBuilder()).getReloadingController();
         assertSame("Wrong sub controller", subctrl, subControllers.iterator().next());
     }

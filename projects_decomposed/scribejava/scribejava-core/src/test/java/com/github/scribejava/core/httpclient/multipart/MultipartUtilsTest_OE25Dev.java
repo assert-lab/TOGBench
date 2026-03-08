@@ -121,6 +121,7 @@ public class MultipartUtilsTest_OE25Dev {
                     .append("\r\n");
         }
 
+        // removed other assertion
 
         assertEquals("", MultipartUtils.getPayload(mP).toString());
     }
@@ -162,6 +163,7 @@ public class MultipartUtilsTest_OE25Dev {
                     .append("\r\n");
         }
 
+        // removed other assertion
 
         assertEquals("--simple-boundary\r\n" + "\r\n" + "It does NOT end with a linebreak." + "\r\n--simple-boundary\r\n" + "\r\n" + "It does end with a \\r linebreak.\r" + "\r\n--simple-boundary\r\n" + "\r\n" + "It does end with a \\n linebreak.\n" + "\r\n--simple-boundary\r\n" + "\r\n" + "It does end with a \\r\\n linebreak.\r\n" + "\r\n--simple-boundary\r\n" + "\r\n" + "the last one" + "\r\n--simple-boundary--",MultipartUtils.getPayload(mP).toString());
     }
@@ -230,142 +232,270 @@ public class MultipartUtilsTest_OE25Dev {
 
     @Test
     public void testParseBoundaryFromHeader_9_oe() {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype; boundar=0aA'()+_, -./:=? "));
     }
 
     @Test
     public void testParseBoundaryFromHeader_10_oe() {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype; "));
     }
 
     @Test
     public void testParseBoundaryFromHeader_11_oe() {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype;"));
     }
 
     @Test
     public void testParseBoundaryFromHeader_12_oe() {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype"));
     }
 
     @Test
     public void testParseBoundaryFromHeader_13_oe() {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype; boundary="));
     }
 
     @Test
     public void testParseBoundaryFromHeader_19_oe() {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype; boundary="));
     }
 
     @Test
     public void testParseBoundaryFromHeader_20_oe() {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype; boundary=\"\""));
     }
 
     @Test
     public void testParseBoundaryFromHeader_21_oe() {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype; boundary=;123"));
     }
 
     @Test
     public void testParseBoundaryFromHeader_22_oe() {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype; boundary=\"\"123"));
     }
 

@@ -39,6 +39,7 @@ public class ArrayListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
         List<Object[]> results = h.handle(this.rs);
 
+        // removed other assertion
         assertEquals(ROWS, results.size());
     }
 
@@ -46,6 +47,8 @@ public class ArrayListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
         List<Object[]> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Object[]> iter = results.iterator();
         Object[] row = null;
@@ -56,9 +59,12 @@ public class ArrayListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
         List<Object[]> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Object[]> iter = results.iterator();
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
         assertEquals(COLS, row.length);
     }
@@ -67,10 +73,14 @@ public class ArrayListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
         List<Object[]> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Object[]> iter = results.iterator();
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
         assertEquals("1", row[0]);
     }
 
@@ -78,10 +88,15 @@ public class ArrayListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
         List<Object[]> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Object[]> iter = results.iterator();
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", row[1]);
     }
 
@@ -89,10 +104,16 @@ public class ArrayListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
         List<Object[]> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Object[]> iter = results.iterator();
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("THREE", row[2]);
     }
 
@@ -100,10 +121,17 @@ public class ArrayListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
         List<Object[]> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Object[]> iter = results.iterator();
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(iter.hasNext());
     }
@@ -112,11 +140,19 @@ public class ArrayListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
         List<Object[]> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Object[]> iter = results.iterator();
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
         assertEquals(COLS, row.length);
     }
@@ -125,12 +161,21 @@ public class ArrayListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
         List<Object[]> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Object[]> iter = results.iterator();
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
         assertEquals("4", row[0]);
     }
@@ -139,13 +184,23 @@ public class ArrayListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
         List<Object[]> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Object[]> iter = results.iterator();
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("5", row[1]);
     }
 
@@ -153,13 +208,24 @@ public class ArrayListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
         List<Object[]> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Object[]> iter = results.iterator();
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("SIX", row[2]);
     }
 
@@ -167,13 +233,25 @@ public class ArrayListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
         List<Object[]> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Object[]> iter = results.iterator();
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse(iter.hasNext());
     }
@@ -189,6 +267,7 @@ public class ArrayListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
         List<Object[]> results = h.handle(this.emptyResultSet);
 
+        // removed other assertion
         assertTrue(results.isEmpty());
     }
 

@@ -100,6 +100,7 @@ class ThreadLocalRandomSourceTest_OE25Dev {
                 continue;
             }
              UniformRandomProvider rng = getCurrent(source);
+            // removed other assertion
             rngs[i] = rng;
         }
         for (int i = 0; i < sources.length; i++) {
@@ -124,6 +125,7 @@ class ThreadLocalRandomSourceTest_OE25Dev {
                 continue;
             }
              UniformRandomProvider rng = getCurrent(source);
+            // removed other assertion
             rngs[i] = rng;
         }
         for (int i = 0; i < sources.length; i++) {
@@ -132,8 +134,10 @@ class ThreadLocalRandomSourceTest_OE25Dev {
                 continue;
             }
              UniformRandomProvider rng = getCurrent(source);
+            // removed other assertion
         }
 
+        // Build on a new thread
          UniformRandomProvider[] rngs2 = new UniformRandomProvider[rngs.length];
          ExecutorService executor = Executors.newFixedThreadPool(1);
          Future<?> future = executor.submit(
@@ -149,9 +153,11 @@ class ThreadLocalRandomSourceTest_OE25Dev {
                 }
             });
 
+        // Shutdown and wait for task to end
         executor.shutdown();
         future.get(30, TimeUnit.SECONDS);
 
+        // The RNG from the new thread should be different
         for (int i = 0; i < sources.length; i++) {
              RandomSource source = sources[i];
             if (toIgnore.contains(source)) {

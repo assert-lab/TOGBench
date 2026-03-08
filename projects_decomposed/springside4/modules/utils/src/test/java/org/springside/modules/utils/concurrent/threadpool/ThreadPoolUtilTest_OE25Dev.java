@@ -72,6 +72,7 @@ public class ThreadPoolUtilTest_OE25Dev {
 			public void run() {
 			}
 		};
+		// 测试name格式
 		ThreadFactory threadFactory = ThreadPoolUtil.buildThreadFactory("example");
 		Thread thread = threadFactory.newThread(testRunnable);
 
@@ -86,9 +87,11 @@ public class ThreadPoolUtilTest_OE25Dev {
 			public void run() {
 			}
 		};
+		// 测试name格式
 		ThreadFactory threadFactory = ThreadPoolUtil.buildThreadFactory("example");
 		Thread thread = threadFactory.newThread(testRunnable);
 
+		// removed other assertion
 		assertThat(thread.isDaemon()).isFalse();
 	}
 
@@ -100,10 +103,14 @@ public class ThreadPoolUtilTest_OE25Dev {
 			public void run() {
 			}
 		};
+		// 测试name格式
 		ThreadFactory threadFactory = ThreadPoolUtil.buildThreadFactory("example");
 		Thread thread = threadFactory.newThread(testRunnable);
 
+		// removed other assertion
+		// removed other assertion
 
+		// 测试daemon属性设置
 		threadFactory = ThreadPoolUtil.buildThreadFactory("example", true);
 		Thread thread2 = threadFactory.newThread(testRunnable);
 
@@ -118,13 +125,18 @@ public class ThreadPoolUtilTest_OE25Dev {
 			public void run() {
 			}
 		};
+		// 测试name格式
 		ThreadFactory threadFactory = ThreadPoolUtil.buildThreadFactory("example");
 		Thread thread = threadFactory.newThread(testRunnable);
 
+		// removed other assertion
+		// removed other assertion
 
+		// 测试daemon属性设置
 		threadFactory = ThreadPoolUtil.buildThreadFactory("example", true);
 		Thread thread2 = threadFactory.newThread(testRunnable);
 
+		// removed other assertion
 		assertThat(thread2.isDaemon()).isTrue();
 	}
 
@@ -135,6 +147,7 @@ public class ThreadPoolUtilTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger("test");
 
+		// time enough to shutdown
 		ExecutorService pool = Executors.newSingleThreadExecutor();
 		Runnable task = new Task(logger, 200, 0);
 		pool.execute(task);
@@ -149,10 +162,12 @@ public class ThreadPoolUtilTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger("test");
 
+		// time enough to shutdown
 		ExecutorService pool = Executors.newSingleThreadExecutor();
 		Runnable task = new Task(logger, 200, 0);
 		pool.execute(task);
 		ThreadPoolUtil.gracefulShutdown(pool, 1000, TimeUnit.MILLISECONDS);
+		// removed other assertion
 		assertThat(appender.getFirstLog()).isNull();
 	}
 
@@ -163,11 +178,15 @@ public class ThreadPoolUtilTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger("test");
 
+		// time enough to shutdown
 		ExecutorService pool = Executors.newSingleThreadExecutor();
 		Runnable task = new Task(logger, 200, 0);
 		pool.execute(task);
 		ThreadPoolUtil.gracefulShutdown(pool, 1000, TimeUnit.MILLISECONDS);
+		// removed other assertion
+		// removed other assertion
 
+		// time not enough to shutdown,call shutdownNow
 		appender.clearLogs();
 		pool = Executors.newSingleThreadExecutor();
 		task = new Task(logger, 1000, 0);
@@ -183,16 +202,21 @@ public class ThreadPoolUtilTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger("test");
 
+		// time enough to shutdown
 		ExecutorService pool = Executors.newSingleThreadExecutor();
 		Runnable task = new Task(logger, 200, 0);
 		pool.execute(task);
 		ThreadPoolUtil.gracefulShutdown(pool, 1000, TimeUnit.MILLISECONDS);
+		// removed other assertion
+		// removed other assertion
 
+		// time not enough to shutdown,call shutdownNow
 		appender.clearLogs();
 		pool = Executors.newSingleThreadExecutor();
 		task = new Task(logger, 1000, 0);
 		pool.execute(task);
 		ThreadPoolUtil.gracefulShutdown(pool, 500, TimeUnit.MILLISECONDS);
+		// removed other assertion
 		assertThat(appender.getFirstLog().getMessage()).isEqualTo("InterruptedException");
 	}
 
@@ -203,17 +227,24 @@ public class ThreadPoolUtilTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger("test");
 
+		// time enough to shutdown
 		ExecutorService pool = Executors.newSingleThreadExecutor();
 		Runnable task = new Task(logger, 200, 0);
 		pool.execute(task);
 		ThreadPoolUtil.gracefulShutdown(pool, 1000, TimeUnit.MILLISECONDS);
+		// removed other assertion
+		// removed other assertion
 
+		// time not enough to shutdown,call shutdownNow
 		appender.clearLogs();
 		pool = Executors.newSingleThreadExecutor();
 		task = new Task(logger, 1000, 0);
 		pool.execute(task);
 		ThreadPoolUtil.gracefulShutdown(pool, 500, TimeUnit.MILLISECONDS);
+		// removed other assertion
+		// removed other assertion
 
+		// self thread interrupt while calling gracefulShutdown
 		appender.clearLogs();
 
 		final ExecutorService self = Executors.newSingleThreadExecutor();
@@ -244,6 +275,7 @@ public class ThreadPoolUtilTest_OE25Dev {
 
 		ThreadUtil.sleep(500);
 
+		// 线程第一次跑就被中断
 		assertThat(task.counter.get()).isEqualTo(1);
 	}
 
@@ -255,8 +287,11 @@ public class ThreadPoolUtilTest_OE25Dev {
 
 		ThreadUtil.sleep(500);
 
+		// 线程第一次跑就被中断
+		// removed other assertion
 		ThreadPoolUtil.gracefulShutdown(executor, 1000);
 
+		////////
 		executor = ThreadPoolBuilder.scheduledPool().build();
 		ExceptionTask newTask = new ExceptionTask();
 		Runnable wrapTask = ThreadPoolUtil.safeRunnable(newTask);

@@ -19,6 +19,7 @@ public class EscapeUtilTest_OE25Dev {
 
 		String input = "http://locahost/";
 		String result = EscapeUtil.urlEncode(input);
+		// removed other assertion
 		assertThat(EscapeUtil.urlDecode(result)).isEqualTo(input);
 	}
 
@@ -27,6 +28,8 @@ public class EscapeUtilTest_OE25Dev {
 
 		String input = "http://locahost/";
 		String result = EscapeUtil.urlEncode(input);
+		// removed other assertion
+		// removed other assertion
 
 		input = "http://locahost/?query=中文&t=1";
 		result = EscapeUtil.urlEncode(input);
@@ -46,6 +49,7 @@ public class EscapeUtilTest_OE25Dev {
 	public void xmlEncode_2_oe() {
 		String input = "1>2";
 		String result = EscapeUtil.escapeXml(input);
+		// removed other assertion
 		assertThat(EscapeUtil.unescapeXml(result)).isEqualTo(input);
 	}
 
@@ -60,6 +64,7 @@ public class EscapeUtilTest_OE25Dev {
 	public void html_2_oe() {
 		String input = "1>2";
 		String result = EscapeUtil.escapeHtml(input);
+		// removed other assertion
 		assertThat(EscapeUtil.unescapeHtml(result)).isEqualTo(input);
 	}
 

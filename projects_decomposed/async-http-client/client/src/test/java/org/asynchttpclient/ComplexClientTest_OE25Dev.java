@@ -29,6 +29,7 @@ public class ComplexClientTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient c = asyncHttpClient()) {
       String body = "hello there";
 
+      // once
       Response response = c.preparePost(getTargetUrl()).setBody(body).setHeader("Content-Type", "text/html").execute().get(TIMEOUT, TimeUnit.SECONDS);
 
       assertEquals(response.getResponseBody(), body);
@@ -40,9 +41,12 @@ public class ComplexClientTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient c = asyncHttpClient()) {
       String body = "hello there";
 
+      // once
       Response response = c.preparePost(getTargetUrl()).setBody(body).setHeader("Content-Type", "text/html").execute().get(TIMEOUT, TimeUnit.SECONDS);
 
+      // removed other assertion
 
+      // twice
       response = c.preparePost(getTargetUrl()).setBody(body).setHeader("Content-Type", "text/html").execute().get(TIMEOUT, TimeUnit.SECONDS);
 
       assertEquals(response.getResponseBody(), body);

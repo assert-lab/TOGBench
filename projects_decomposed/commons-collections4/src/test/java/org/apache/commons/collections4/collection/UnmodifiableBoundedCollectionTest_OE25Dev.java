@@ -83,6 +83,21 @@ public class UnmodifiableBoundedCollectionTest_OE25Dev<E> extends AbstractCollec
 
     //-----------------------------------------------------------------------
 
+    public void testUnmodifiable() {
+        assertTrue(makeObject() instanceof Unmodifiable);
+        assertTrue(makeFullCollection() instanceof Unmodifiable);
+    }
+
+    public void testDecorateFactory() {
+        final BoundedCollection<E> coll = makeFullCollection();
+        assertSame(coll, UnmodifiableBoundedCollection.unmodifiableBoundedCollection(coll));
+
+        try {
+            UnmodifiableBoundedCollection.unmodifiableBoundedCollection(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
     public void testUnmodifiable_1_oe() {
         assertTrue(makeObject() instanceof Unmodifiable);
     }
@@ -94,6 +109,13 @@ public class UnmodifiableBoundedCollectionTest_OE25Dev<E> extends AbstractCollec
     public void testDecorateFactory_1_oe() {
         final BoundedCollection<E> coll = makeFullCollection();
         assertSame(coll, UnmodifiableBoundedCollection.unmodifiableBoundedCollection(coll));
+    }
+
+public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableBoundedCollection.unmodifiableBoundedCollection(null);
+            fail();
+        } catch (final NullPointerException ex) {}
     }
 
 }

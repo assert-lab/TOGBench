@@ -117,6 +117,7 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = "hello there";
 
+      // once
       Response response = c.preparePost(getTargetUrl() + "?foo=bar").setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
 
       assertEquals(response.getResponseBody(), "foo_" + body);
@@ -200,6 +201,7 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
   public void asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_2_oe() throws Exception {
 
     try (AsyncHttpClient client = asyncHttpClient()) {
+      // Use a l in case the assert fail
       final CountDownLatch l = new CountDownLatch(2);
 
       final Map<String, Boolean> remoteAddresses = new ConcurrentHashMap<>();
@@ -210,6 +212,7 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
         public Response onCompleted(Response response) {
           logger.debug("ON COMPLETED INVOKED " + response.getHeader("X-KEEP-ALIVE"));
           try {
+            // removed other assertion
             remoteAddresses.put(response.getHeader("X-KEEP-ALIVE"), true);
           } finally {
             l.countDown();
@@ -230,8 +233,11 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
       client.prepareGet(getTargetUrl()).execute(handler).get();
       server.stop();
 
+      // Jetty 9.4.8 doesn't properly stop and restart (recreates ReservedThreadExecutors on start but still point to old offers threads to old ones)
+      // instead of restarting, we create a fresh new one and have it bind on the same port
       server = new Server();
       ServerConnector newConnector = addHttpConnector(server);
+      // make sure connector will restart with the port as it's originally dynamically allocated
       newConnector.setPort(port1);
       server.setHandler(configureHandler());
       server.start();
@@ -248,6 +254,7 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
   public void asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_3_oe() throws Exception {
 
     try (AsyncHttpClient client = asyncHttpClient()) {
+      // Use a l in case the assert fail
       final CountDownLatch l = new CountDownLatch(2);
 
       final Map<String, Boolean> remoteAddresses = new ConcurrentHashMap<>();
@@ -258,6 +265,7 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
         public Response onCompleted(Response response) {
           logger.debug("ON COMPLETED INVOKED " + response.getHeader("X-KEEP-ALIVE"));
           try {
+            // removed other assertion
             remoteAddresses.put(response.getHeader("X-KEEP-ALIVE"), true);
           } finally {
             l.countDown();
@@ -278,8 +286,11 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
       client.prepareGet(getTargetUrl()).execute(handler).get();
       server.stop();
 
+      // Jetty 9.4.8 doesn't properly stop and restart (recreates ReservedThreadExecutors on start but still point to old offers threads to old ones)
+      // instead of restarting, we create a fresh new one and have it bind on the same port
       server = new Server();
       ServerConnector newConnector = addHttpConnector(server);
+      // make sure connector will restart with the port as it's originally dynamically allocated
       newConnector.setPort(port1);
       server.setHandler(configureHandler());
       server.start();
@@ -287,6 +298,7 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
       client.prepareGet(getTargetUrl()).execute(handler);
 
       if (!l.await(TIMEOUT, TimeUnit.SECONDS)) {
+        // removed other assertion
       }
 
       assertEquals(remoteAddresses.size(), 2);
@@ -298,9 +310,12 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = "hello there";
 
+      // once
       Response response = c.preparePost(getTargetUrl() + "?foo=bar").setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
 
+      // removed other assertion
 
+      // twice
       Exception exception = null;
       try {
         response = c.preparePost(getTargetUrl()).setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
@@ -317,9 +332,12 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = "hello there";
 
+      // once
       Response response = c.preparePost(getTargetUrl() + "?foo=bar").setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
 
+      // removed other assertion
 
+      // twice
       Exception exception = null;
       try {
         response = c.preparePost(getTargetUrl()).setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
@@ -327,6 +345,7 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
         ex.printStackTrace();
         exception = ex;
       }
+      // removed other assertion
       assertNotNull(response);
   }
   }
@@ -336,9 +355,12 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = "hello there";
 
+      // once
       Response response = c.preparePost(getTargetUrl() + "?foo=bar").setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
 
+      // removed other assertion
 
+      // twice
       Exception exception = null;
       try {
         response = c.preparePost(getTargetUrl()).setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
@@ -346,6 +368,8 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
         ex.printStackTrace();
         exception = ex;
       }
+      // removed other assertion
+      // removed other assertion
       assertEquals(response.getStatusCode(), 200);
   }
   }
@@ -370,6 +394,7 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
 
       try {
         client.prepareGet(getTargetUrl()).execute(handler).get();
+        // removed other assertion
       } catch (ExecutionException ex) {
         assertNotNull(ex);
   }
@@ -396,7 +421,9 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
 
       try {
         client.prepareGet(getTargetUrl()).execute(handler).get();
+        // removed other assertion
       } catch (ExecutionException ex) {
+        // removed other assertion
         assertNotNull(ex.getCause());
   }
   }
@@ -422,7 +449,10 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
 
       try {
         client.prepareGet(getTargetUrl()).execute(handler).get();
+        // removed other assertion
       } catch (ExecutionException ex) {
+        // removed other assertion
+        // removed other assertion
         assertEquals(ex.getCause().getClass(), IOException.class);
   }
   }
@@ -448,7 +478,11 @@ public class ConnectionPoolTest_OE25Dev extends AbstractBasicTest {
 
       try {
         client.prepareGet(getTargetUrl()).execute(handler).get();
+        // removed other assertion
       } catch (ExecutionException ex) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(count.get(), 1);
   }
   }

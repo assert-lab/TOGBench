@@ -184,8 +184,14 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
             final int lowTest = (i / 32) * 32;
             final int argb = imageBuilder.getRGB(i, i);
             final int b = argb & 0xff;
+            // removed other assertion
         }
 
+        // nothing should match the i=256 case.
+        // The last entry in the palette has values
+        // in the range  224.0/256.0 <= value < 256.0/256.0.  So when it
+        // was rendered, there was not palette entry that matched it,
+        // and the corresponding pixel was set to zero.
         int argb = imageBuilder.getRGB(256, 256);
         assertEquals(argb, 0, "Invalid upper-bound test");
     }
@@ -196,10 +202,18 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
             final int lowTest = (i / 32) * 32;
             final int argb = imageBuilder.getRGB(i, i);
             final int b = argb & 0xff;
+            // removed other assertion
         }
 
+        // nothing should match the i=256 case.
+        // The last entry in the palette has values
+        // in the range  224.0/256.0 <= value < 256.0/256.0.  So when it
+        // was rendered, there was not palette entry that matched it,
+        // and the corresponding pixel was set to zero.
         int argb = imageBuilder.getRGB(256, 256);
+        // removed other assertion
 
+        // Now inspect the banded palette case
         argb = bandedImageBuilder.getRGB(0, 0);
         assertEquals(Color.gray.getRGB(), argb, "Invalid mapping of NaN");
     }
@@ -210,11 +224,20 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
             final int lowTest = (i / 32) * 32;
             final int argb = imageBuilder.getRGB(i, i);
             final int b = argb & 0xff;
+            // removed other assertion
         }
 
+        // nothing should match the i=256 case.
+        // The last entry in the palette has values
+        // in the range  224.0/256.0 <= value < 256.0/256.0.  So when it
+        // was rendered, there was not palette entry that matched it,
+        // and the corresponding pixel was set to zero.
         int argb = imageBuilder.getRGB(256, 256);
+        // removed other assertion
 
+        // Now inspect the banded palette case
         argb = bandedImageBuilder.getRGB(0, 0);
+        // removed other assertion
         argb = bandedImageBuilder.getRGB(50, 10);
         assertEquals(green.getRGB(), argb, "Invalid mapping of green range");
     }
@@ -225,12 +248,22 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
             final int lowTest = (i / 32) * 32;
             final int argb = imageBuilder.getRGB(i, i);
             final int b = argb & 0xff;
+            // removed other assertion
         }
 
+        // nothing should match the i=256 case.
+        // The last entry in the palette has values
+        // in the range  224.0/256.0 <= value < 256.0/256.0.  So when it
+        // was rendered, there was not palette entry that matched it,
+        // and the corresponding pixel was set to zero.
         int argb = imageBuilder.getRGB(256, 256);
+        // removed other assertion
 
+        // Now inspect the banded palette case
         argb = bandedImageBuilder.getRGB(0, 0);
+        // removed other assertion
         argb = bandedImageBuilder.getRGB(50, 10);
+        // removed other assertion
         argb = bandedImageBuilder.getRGB(150, 10);
         assertEquals(Color.white.getRGB(), argb, "Invalid mapping of white range");
     }
@@ -241,13 +274,24 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
             final int lowTest = (i / 32) * 32;
             final int argb = imageBuilder.getRGB(i, i);
             final int b = argb & 0xff;
+            // removed other assertion
         }
 
+        // nothing should match the i=256 case.
+        // The last entry in the palette has values
+        // in the range  224.0/256.0 <= value < 256.0/256.0.  So when it
+        // was rendered, there was not palette entry that matched it,
+        // and the corresponding pixel was set to zero.
         int argb = imageBuilder.getRGB(256, 256);
+        // removed other assertion
 
+        // Now inspect the banded palette case
         argb = bandedImageBuilder.getRGB(0, 0);
+        // removed other assertion
         argb = bandedImageBuilder.getRGB(50, 10);
+        // removed other assertion
         argb = bandedImageBuilder.getRGB(150, 10);
+        // removed other assertion
         argb = bandedImageBuilder.getRGB(250, 10);
         assertEquals(orange.getRGB(), argb, "Invalid mapping of orange range");
     }
@@ -300,7 +344,10 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
 
         int argb = pInterp.mapValueToARGB(0.5f);
         int test = imageBuilder.getRGB(128, 128);
+        // removed other assertion
 
+        // pInterp does not define a state for NaN, but bandedInterp does.
+        // so test both variations
         argb = pInterp.mapValueToARGB(Float.NaN);
         assertEquals(0, argb, "Non-defined NaN did not return ARGB of zero");
     }
@@ -310,9 +357,14 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
 
         int argb = pInterp.mapValueToARGB(0.5f);
         int test = imageBuilder.getRGB(128, 128);
+        // removed other assertion
 
+        // pInterp does not define a state for NaN, but bandedInterp does.
+        // so test both variations
         argb = pInterp.mapValueToARGB(Float.NaN);
+        // removed other assertion
 
+        // to test mappings for special values, use the banded-interpreter
         argb = bandedInterp.mapValueToARGB(Float.NaN);
         test = Color.gray.getRGB();
         assertEquals(test, argb, "Float.NaN mapped to incorrect ARGB");
@@ -323,11 +375,17 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
 
         int argb = pInterp.mapValueToARGB(0.5f);
         int test = imageBuilder.getRGB(128, 128);
+        // removed other assertion
 
+        // pInterp does not define a state for NaN, but bandedInterp does.
+        // so test both variations
         argb = pInterp.mapValueToARGB(Float.NaN);
+        // removed other assertion
 
+        // to test mappings for special values, use the banded-interpreter
         argb = bandedInterp.mapValueToARGB(Float.NaN);
         test = Color.gray.getRGB();
+        // removed other assertion
         argb = bandedInterp.mapValueToARGB(-1f);
         test = Color.gray.getRGB();
         assertEquals(test, argb, "Excluded value mapped to incorrect ARGB");
@@ -372,6 +430,7 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
         interpreter.interpretPixel(imageBuilder, samples, 1, 1);
         int argb0 = imageBuilder.getRGB(0,0)|0xff000000;
         int argb1 = imageBuilder.getRGB(1,1)|0xff000000;
+        // removed other assertion
         assertEquals(argb1, c1.getRGB(), "Invalid result for overlapping palette entry 1");
     }
 
@@ -393,6 +452,8 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
         interpreter.interpretPixel(imageBuilder, samples, 1, 1);
         int argb0 = imageBuilder.getRGB(0,0)|0xff000000;
         int argb1 = imageBuilder.getRGB(1,1)|0xff000000;
+        // removed other assertion
+        // removed other assertion
         argb0 = interpreter.mapValueToARGB(0.5f);
         argb1 = interpreter.mapValueToARGB(1.2f);
         assertEquals(argb0, c0.getRGB(), "Invalid mapping for overlapping palette entry 0");
@@ -416,8 +477,11 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
         interpreter.interpretPixel(imageBuilder, samples, 1, 1);
         int argb0 = imageBuilder.getRGB(0,0)|0xff000000;
         int argb1 = imageBuilder.getRGB(1,1)|0xff000000;
+        // removed other assertion
+        // removed other assertion
         argb0 = interpreter.mapValueToARGB(0.5f);
         argb1 = interpreter.mapValueToARGB(1.2f);
+        // removed other assertion
         assertEquals(argb1, c1.getRGB(), "Invalid mapping for overlapping palette entry 1");
     }
 

@@ -113,6 +113,7 @@ public class PaletteEntryForRangeTest_OE25Dev {
         final Color c0 = new Color(0xff0000ff);
         final Color c1 = new Color(0xff00ff00);
         final PaletteEntryForRange instance = new PaletteEntryForRange(0.0f, 1.0f, c0, c1);
+        // removed other assertion
         assertFalse(instance.isCovered(1.0f), "Value 1.0 must not be covered");
     }
 
@@ -133,6 +134,7 @@ public class PaletteEntryForRangeTest_OE25Dev {
         final PaletteEntryForRange instance = new PaletteEntryForRange(0.0f, 1.0f, c0, c1);
         final int a0 = instance.getARGB(0.0f);
         final int a1 = instance.getARGB(0.5f);
+        // removed other assertion
         assertEquals(0xff008080, a1, "Invalid interpolated values");
     }
 
@@ -157,6 +159,7 @@ public class PaletteEntryForRangeTest_OE25Dev {
         c1 = instance.getColor(0.5f);
         final int a0 = c0.getRGB();
         final int a1 = c1.getRGB();
+        // removed other assertion
         assertEquals(0xff008080, a1, "Invalid interpolated values");
     }
 

@@ -1,5 +1,5 @@
-classname,method,docstring,method_definition
-org.json.Property,toJSONObject(java.util.Properties properties),"/**
+focal_file_path,focal_package,focal_class,classname,method,docstring,method_definition
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/Property.java,org.json,org.json.Property,org.json.Property,toJSONObject(java.util.Properties properties),"/**
      * Converts a property file object into a JSONObject. The property file object is a table of name value pairs.
      * @param properties java.util.Properties
      * @return JSONObject
@@ -17,7 +17,7 @@ org.json.Property,toJSONObject(java.util.Properties properties),"/**
         }
         return jo;
     }"
-org.json.Property,toProperties(JSONObject jo),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/Property.java,org.json,org.json.Property,org.json.Property,toProperties(JSONObject jo),"/**
      * Converts the JSONObject into a property file object.
      * @param jo JSONObject
      * @return java.util.Properties
@@ -35,7 +35,7 @@ org.json.Property,toProperties(JSONObject jo),"/**
         }
         return properties;
     }"
-org.json.JSONObject.Null,clone(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject.Null,org.json.JSONObject.Null,clone(),"/**
          * There is only intended to be a single instance of the NULL object,
          * so the clone method returns itself.
          *
@@ -44,7 +44,7 @@ org.json.JSONObject.Null,clone(),"/**
         protected final Object clone() {
             return this;
         }"
-org.json.JSONObject.Null,equals(Object object),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject.Null,org.json.JSONObject.Null,equals(Object object),"/**
          * A Null object is equal to the null value and to itself.
          *
          * @param object
@@ -56,7 +56,7 @@ org.json.JSONObject.Null,equals(Object object),"/**
         public boolean equals(Object object) {
             return object == null || object == this;
         }"
-org.json.JSONObject.Null,hashCode(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject.Null,org.json.JSONObject.Null,hashCode(),"/**
          * A Null object is equal to the null value and to itself.
          *
          * @return always returns 0.
@@ -64,7 +64,7 @@ org.json.JSONObject.Null,hashCode(),"/**
         public int hashCode() {
             return 0;
         }"
-org.json.JSONObject.Null,toString(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject.Null,org.json.JSONObject.Null,toString(),"/**
          * Get the ""null"" string value.
          *
          * @return The string ""null"".
@@ -72,10 +72,10 @@ org.json.JSONObject.Null,toString(),"/**
         public String toString() {
             return ""null"";
         }"
-org.json.JSONObject,getMapType(),,"public Class<? extends Map> getMapType() {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,getMapType(),,"public Class<? extends Map> getMapType() {
         return map.getClass();
     }"
-org.json.JSONObject,"accumulate(String key, Object value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"accumulate(String key, Object value)","/**
      * Accumulate values under a key. It is similar to the put method except
      * that if there is already an object stored under the key then a JSONArray
      * is stored under the key to hold all of the accumulated values. If there
@@ -109,7 +109,7 @@ org.json.JSONObject,"accumulate(String key, Object value)","/**
         }
         return this;
     }"
-org.json.JSONObject,"append(String key, Object value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"append(String key, Object value)","/**
      * Append values to the array under a key. If the key does not exist in the
      * JSONObject, then the key is put in the JSONObject with its value being a
      * JSONArray containing the value parameter. If the key was already
@@ -137,7 +137,7 @@ org.json.JSONObject,"append(String key, Object value)","/**
         }
         return this;
     }"
-org.json.JSONObject,doubleToString(double d),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,doubleToString(double d),"/**
      * Produce a string from a double. The string ""null"" will be returned if the
      * number is not finite.
      *
@@ -163,7 +163,7 @@ org.json.JSONObject,doubleToString(double d),"/**
         }
         return string;
     }"
-org.json.JSONObject,get(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,get(String key),"/**
      * Get the value object associated with a key.
      *
      * @param key
@@ -181,7 +181,7 @@ org.json.JSONObject,get(String key),"/**
         }
         return object;
     }"
-org.json.JSONObject,"getEnum(Class<E> clazz, String key)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"getEnum(Class<E> clazz, String key)","/**
      * Get the enum value associated with a key.
      *
      * @param <E>
@@ -204,7 +204,7 @@ org.json.JSONObject,"getEnum(Class<E> clazz, String key)","/**
         }
         return val;
     }"
-org.json.JSONObject,getBoolean(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,getBoolean(String key),"/**
      * Get the boolean value associated with a key.
      *
      * @param key
@@ -226,7 +226,7 @@ org.json.JSONObject,getBoolean(String key),"/**
         }
         throw wrongValueFormatException(key, ""Boolean"", object, null);
     }"
-org.json.JSONObject,getBigInteger(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,getBigInteger(String key),"/**
      * Get the BigInteger value associated with a key.
      *
      * @param key
@@ -243,7 +243,7 @@ org.json.JSONObject,getBigInteger(String key),"/**
         }
         throw wrongValueFormatException(key, ""BigInteger"", object, null);
     }"
-org.json.JSONObject,getBigDecimal(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,getBigDecimal(String key),"/**
      * Get the BigDecimal value associated with a key. If the value is float or
      * double, the {@link BigDecimal#BigDecimal(double)} constructor will
      * be used. See notes on the constructor for conversion issues that may
@@ -263,7 +263,7 @@ org.json.JSONObject,getBigDecimal(String key),"/**
         }
         throw wrongValueFormatException(key, ""BigDecimal"", object, null);
     }"
-org.json.JSONObject,getDouble(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,getDouble(String key),"/**
      * Get the double value associated with a key.
      *
      * @param key
@@ -283,7 +283,7 @@ org.json.JSONObject,getDouble(String key),"/**
             throw wrongValueFormatException(key, ""double"", object, e);
         }
     }"
-org.json.JSONObject,getFloat(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,getFloat(String key),"/**
      * Get the float value associated with a key.
      *
      * @param key
@@ -303,7 +303,7 @@ org.json.JSONObject,getFloat(String key),"/**
             throw wrongValueFormatException(key, ""float"", object, e);
         }
     }"
-org.json.JSONObject,getNumber(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,getNumber(String key),"/**
      * Get the Number value associated with a key.
      *
      * @param key
@@ -323,7 +323,7 @@ org.json.JSONObject,getNumber(String key),"/**
             throw wrongValueFormatException(key, ""number"", object, e);
         }
     }"
-org.json.JSONObject,getInt(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,getInt(String key),"/**
      * Get the int value associated with a key.
      *
      * @param key
@@ -343,7 +343,7 @@ org.json.JSONObject,getInt(String key),"/**
             throw wrongValueFormatException(key, ""int"", object, e);
         }
     }"
-org.json.JSONObject,getJSONArray(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,getJSONArray(String key),"/**
      * Get the JSONArray value associated with a key.
      *
      * @param key
@@ -358,7 +358,7 @@ org.json.JSONObject,getJSONArray(String key),"/**
         }
         throw wrongValueFormatException(key, ""JSONArray"", object, null);
     }"
-org.json.JSONObject,getJSONObject(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,getJSONObject(String key),"/**
      * Get the JSONObject value associated with a key.
      *
      * @param key
@@ -373,7 +373,7 @@ org.json.JSONObject,getJSONObject(String key),"/**
         }
         throw wrongValueFormatException(key, ""JSONObject"", object, null);
     }"
-org.json.JSONObject,getLong(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,getLong(String key),"/**
      * Get the long value associated with a key.
      *
      * @param key
@@ -393,7 +393,7 @@ org.json.JSONObject,getLong(String key),"/**
             throw wrongValueFormatException(key, ""long"", object, e);
         }
     }"
-org.json.JSONObject,getNames(JSONObject jo),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,getNames(JSONObject jo),"/**
      * Get an array of field names from a JSONObject.
      *
      * @param jo
@@ -405,7 +405,7 @@ org.json.JSONObject,getNames(JSONObject jo),"/**
         }
         return jo.keySet().toArray(new String[jo.length()]);
     }"
-org.json.JSONObject,getNames(Object object),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,getNames(Object object),"/**
      * Get an array of public field names from an Object.
      *
      * @param object
@@ -427,7 +427,7 @@ org.json.JSONObject,getNames(Object object),"/**
         }
         return names;
     }"
-org.json.JSONObject,getString(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,getString(String key),"/**
      * Get the string associated with a key.
      *
      * @param key
@@ -442,7 +442,7 @@ org.json.JSONObject,getString(String key),"/**
         }
         throw wrongValueFormatException(key, ""string"", object, null);
     }"
-org.json.JSONObject,has(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,has(String key),"/**
      * Determine if the JSONObject contains a specific key.
      *
      * @param key
@@ -451,7 +451,7 @@ org.json.JSONObject,has(String key),"/**
      */","public boolean has(String key) {
         return this.map.containsKey(key);
     }"
-org.json.JSONObject,increment(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,increment(String key),"/**
      * Increment a property of a JSONObject. If there is no such property,
      * create one with a value of 1 (Integer). If there is such a property, and if it is
      * an Integer, Long, Double, Float, BigInteger, or BigDecimal then add one to it.
@@ -486,7 +486,7 @@ org.json.JSONObject,increment(String key),"/**
         }
         return this;
     }"
-org.json.JSONObject,isNull(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,isNull(String key),"/**
      * Determine if the value associated with the key is <code>null</code> or if there is no
      * value.
      *
@@ -497,7 +497,7 @@ org.json.JSONObject,isNull(String key),"/**
      */","public boolean isNull(String key) {
         return JSONObject.NULL.equals(this.opt(key));
     }"
-org.json.JSONObject,keys(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,keys(),"/**
      * Get an enumeration of the keys of the JSONObject. Modifying this key Set will also
      * modify the JSONObject. Use with caution.
      *
@@ -507,7 +507,7 @@ org.json.JSONObject,keys(),"/**
      */","public Iterator<String> keys() {
         return this.keySet().iterator();
     }"
-org.json.JSONObject,keySet(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,keySet(),"/**
      * Get a set of keys of the JSONObject. Modifying this key Set will also modify the
      * JSONObject. Use with caution.
      *
@@ -517,7 +517,7 @@ org.json.JSONObject,keySet(),"/**
      */","public Set<String> keySet() {
         return this.map.keySet();
     }"
-org.json.JSONObject,entrySet(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,entrySet(),"/**
      * Get a set of entries of the JSONObject. These are raw values and may not
      * match what is returned by the JSONObject get* and opt* functions. Modifying
      * the returned EntrySet or the Entry objects contained therein will modify the
@@ -531,27 +531,27 @@ org.json.JSONObject,entrySet(),"/**
      */","protected Set<Entry<String, Object>> entrySet() {
         return this.map.entrySet();
     }"
-org.json.JSONObject,length(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,length(),"/**
      * Get the number of keys stored in the JSONObject.
      *
      * @return The number of keys in the JSONObject.
      */","public int length() {
         return this.map.size();
     }"
-org.json.JSONObject,void clear(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,void clear(),"/**
      * Removes all of the elements from this JSONObject.
      * The JSONObject will be empty after this call returns.
      */","public void clear() {
         this.map.clear();
     }"
-org.json.JSONObject,isEmpty(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,isEmpty(),"/**
      * Check if JSONObject is empty.
      *
      * @return true if JSONObject is empty, otherwise false.
      */","public boolean isEmpty() {
         return this.map.isEmpty();
     }"
-org.json.JSONObject,names(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,names(),"/**
      * Produce a JSONArray containing the names of the elements of this
      * JSONObject.
      *
@@ -563,7 +563,7 @@ org.json.JSONObject,names(),"/**
     	}
         return new JSONArray(this.map.keySet());
     }"
-org.json.JSONObject,numberToString(Number number),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,numberToString(Number number),"/**
      * Produce a string from a Number.
      *
      * @param number
@@ -591,7 +591,7 @@ org.json.JSONObject,numberToString(Number number),"/**
         }
         return string;
     }"
-org.json.JSONObject,opt(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,opt(String key),"/**
      * Get an optional value associated with a key.
      *
      * @param key
@@ -600,7 +600,7 @@ org.json.JSONObject,opt(String key),"/**
      */","public Object opt(String key) {
         return key == null ? null : this.map.get(key);
     }"
-org.json.JSONObject,"optEnum(Class<E> clazz, String key)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"optEnum(Class<E> clazz, String key)","/**
      * Get the enum value associated with a key.
      *
      * @param <E>
@@ -613,7 +613,7 @@ org.json.JSONObject,"optEnum(Class<E> clazz, String key)","/**
      */","public <E extends Enum<E>> E optEnum(Class<E> clazz, String key) {
         return this.optEnum(clazz, key, null);
     }"
-org.json.JSONObject,"optEnum(Class<E> clazz, String key, E defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"optEnum(Class<E> clazz, String key, E defaultValue)","/**
      * Get the enum value associated with a key.
      *
      * @param <E>
@@ -645,7 +645,7 @@ org.json.JSONObject,"optEnum(Class<E> clazz, String key, E defaultValue)","/**
             return defaultValue;
         }
     }"
-org.json.JSONObject,optBoolean(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,optBoolean(String key),"/**
      * Get an optional boolean associated with a key. It returns false if there
      * is no such key, or if the value is not Boolean.TRUE or the String ""true"".
      *
@@ -655,7 +655,7 @@ org.json.JSONObject,optBoolean(String key),"/**
      */","public boolean optBoolean(String key) {
         return this.optBoolean(key, false);
     }"
-org.json.JSONObject,"optBoolean(String key, boolean defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"optBoolean(String key, boolean defaultValue)","/**
      * Get an optional boolean associated with a key. It returns the
      * defaultValue if there is no such key, or if it is not a Boolean or the
      * String ""true"" or ""false"" (case insensitive).
@@ -680,7 +680,7 @@ org.json.JSONObject,"optBoolean(String key, boolean defaultValue)","/**
             return defaultValue;
         }
     }"
-org.json.JSONObject,"optBigDecimal(String key, BigDecimal defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"optBigDecimal(String key, BigDecimal defaultValue)","/**
      * Get an optional BigDecimal associated with a key, or the defaultValue if
      * there is no such key or if its value is not a number. If the value is a
      * string, an attempt will be made to evaluate it as a number. If the value
@@ -697,7 +697,7 @@ org.json.JSONObject,"optBigDecimal(String key, BigDecimal defaultValue)","/**
         Object val = this.opt(key);
         return objectToBigDecimal(val, defaultValue);
     }"
-org.json.JSONObject,"objectToBigDecimal(Object val, BigDecimal defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"objectToBigDecimal(Object val, BigDecimal defaultValue)","/**
      * @param val value to convert
      * @param defaultValue default value to return is the conversion doesn't work or is null.
      * @return BigDecimal conversion of the original value, or the defaultValue if unable
@@ -705,7 +705,7 @@ org.json.JSONObject,"objectToBigDecimal(Object val, BigDecimal defaultValue)","/
      */","static BigDecimal objectToBigDecimal(Object val, BigDecimal defaultValue) {
         return objectToBigDecimal(val, defaultValue, true);
     }"
-org.json.JSONObject,"objectToBigDecimal(Object val, BigDecimal defaultValue, boolean exact)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"objectToBigDecimal(Object val, BigDecimal defaultValue, boolean exact)","/**
      * @param val value to convert
      * @param defaultValue default value to return is the conversion doesn't work or is null.
      * @param exact When <code>true</code>, then {@link Double} and {@link Float} values will be converted exactly.
@@ -745,7 +745,7 @@ org.json.JSONObject,"objectToBigDecimal(Object val, BigDecimal defaultValue, boo
             return defaultValue;
         }
     }"
-org.json.JSONObject,"optBigInteger(String key, BigInteger defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"optBigInteger(String key, BigInteger defaultValue)","/**
      * Get an optional BigInteger associated with a key, or the defaultValue if
      * there is no such key or if its value is not a number. If the value is a
      * string, an attempt will be made to evaluate it as a number.
@@ -759,7 +759,7 @@ org.json.JSONObject,"optBigInteger(String key, BigInteger defaultValue)","/**
         Object val = this.opt(key);
         return objectToBigInteger(val, defaultValue);
     }"
-org.json.JSONObject,"objectToBigInteger(Object val, BigInteger defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"objectToBigInteger(Object val, BigInteger defaultValue)","/**
      * @param val value to convert
      * @param defaultValue default value to return is the conversion doesn't work or is null.
      * @return BigInteger conversion of the original value, or the defaultValue if unable
@@ -800,7 +800,7 @@ org.json.JSONObject,"objectToBigInteger(Object val, BigInteger defaultValue)","/
             return defaultValue;
         }
     }"
-org.json.JSONObject,optDouble(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,optDouble(String key),"/**
      * Get an optional double associated with a key, or NaN if there is no such
      * key or if its value is not a number. If the value is a string, an attempt
      * will be made to evaluate it as a number.
@@ -811,7 +811,7 @@ org.json.JSONObject,optDouble(String key),"/**
      */","public double optDouble(String key) {
         return this.optDouble(key, Double.NaN);
     }"
-org.json.JSONObject,"optDouble(String key, double defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"optDouble(String key, double defaultValue)","/**
      * Get an optional double associated with a key, or the defaultValue if
      * there is no such key or if its value is not a number. If the value is a
      * string, an attempt will be made to evaluate it as a number.
@@ -832,7 +832,7 @@ org.json.JSONObject,"optDouble(String key, double defaultValue)","/**
         // }
         return doubleValue;
     }"
-org.json.JSONObject,optFloat(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,optFloat(String key),"/**
      * Get the optional double value associated with an index. NaN is returned
      * if there is no value for the index, or if the value is not a number and
      * cannot be converted to a number.
@@ -843,7 +843,7 @@ org.json.JSONObject,optFloat(String key),"/**
      */","public float optFloat(String key) {
         return this.optFloat(key, Float.NaN);
     }"
-org.json.JSONObject,"optFloat(String key, float defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"optFloat(String key, float defaultValue)","/**
      * Get the optional double value associated with an index. The defaultValue
      * is returned if there is no value for the index, or if the value is not a
      * number and cannot be converted to a number.
@@ -864,7 +864,7 @@ org.json.JSONObject,"optFloat(String key, float defaultValue)","/**
         // }
         return floatValue;
     }"
-org.json.JSONObject,optInt(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,optInt(String key),"/**
      * Get an optional int value associated with a key, or zero if there is no
      * such key or if the value is not a number. If the value is a string, an
      * attempt will be made to evaluate it as a number.
@@ -875,7 +875,7 @@ org.json.JSONObject,optInt(String key),"/**
      */","public int optInt(String key) {
         return this.optInt(key, 0);
     }"
-org.json.JSONObject,"optInt(String key, int defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"optInt(String key, int defaultValue)","/**
      * Get an optional int value associated with a key, or the default if there
      * is no such key or if the value is not a number. If the value is a string,
      * an attempt will be made to evaluate it as a number.
@@ -892,7 +892,7 @@ org.json.JSONObject,"optInt(String key, int defaultValue)","/**
         }
         return val.intValue();
     }"
-org.json.JSONObject,optJSONArray(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,optJSONArray(String key),"/**
      * Get an optional JSONArray associated with a key. It returns null if there
      * is no such key, or if its value is not a JSONArray.
      *
@@ -903,7 +903,7 @@ org.json.JSONObject,optJSONArray(String key),"/**
         Object o = this.opt(key);
         return o instanceof JSONArray ? (JSONArray) o : null;
     }"
-org.json.JSONObject,optJSONObject(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,optJSONObject(String key),"/**
      * Get an optional JSONObject associated with a key. It returns null if
      * there is no such key, or if its value is not a JSONObject.
      *
@@ -911,7 +911,7 @@ org.json.JSONObject,optJSONObject(String key),"/**
      *            A key string.
      * @return A JSONObject which is the value.
      */","public JSONObject optJSONObject(String key) { return this.optJSONObject(key, null); }"
-org.json.JSONObject,"optJSONObject(String key, JSONObject defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"optJSONObject(String key, JSONObject defaultValue)","/**
      * Get an optional JSONObject associated with a key, or the default if there
      * is no such key or if the value is not a JSONObject.
      *
@@ -924,7 +924,7 @@ org.json.JSONObject,"optJSONObject(String key, JSONObject defaultValue)","/**
         Object object = this.opt(key);
         return object instanceof JSONObject ? (JSONObject) object : defaultValue;
     }"
-org.json.JSONObject,optLong(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,optLong(String key),"/**
      * Get an optional long value associated with a key, or zero if there is no
      * such key or if the value is not a number. If the value is a string, an
      * attempt will be made to evaluate it as a number.
@@ -935,7 +935,7 @@ org.json.JSONObject,optLong(String key),"/**
      */","public long optLong(String key) {
         return this.optLong(key, 0);
     }"
-org.json.JSONObject,"optLong(String key, long defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"optLong(String key, long defaultValue)","/**
      * Get an optional long value associated with a key, or the default if there
      * is no such key or if the value is not a number. If the value is a string,
      * an attempt will be made to evaluate it as a number.
@@ -953,7 +953,7 @@ org.json.JSONObject,"optLong(String key, long defaultValue)","/**
 
         return val.longValue();
     }"
-org.json.JSONObject,optNumber(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,optNumber(String key),"/**
      * Get an optional {@link Number} value associated with a key, or <code>null</code>
      * if there is no such key or if the value is not a number. If the value is a string,
      * an attempt will be made to evaluate it as a number ({@link BigDecimal}). This method
@@ -965,7 +965,7 @@ org.json.JSONObject,optNumber(String key),"/**
      */","public Number optNumber(String key) {
         return this.optNumber(key, null);
     }"
-org.json.JSONObject,"optNumber(String key, Number defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"optNumber(String key, Number defaultValue)","/**
      * Get an optional {@link Number} value associated with a key, or the default if there
      * is no such key or if the value is not a number. If the value is a string,
      * an attempt will be made to evaluate it as a number. This method
@@ -991,7 +991,7 @@ org.json.JSONObject,"optNumber(String key, Number defaultValue)","/**
             return defaultValue;
         }
     }"
-org.json.JSONObject,optString(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,optString(String key),"/**
      * Get an optional string associated with a key. It returns an empty string
      * if there is no such key. If the value is not a string and is not null,
      * then it is converted to a string.
@@ -1002,7 +1002,7 @@ org.json.JSONObject,optString(String key),"/**
      */","public String optString(String key) {
         return this.optString(key, """");
     }"
-org.json.JSONObject,"optString(String key, String defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"optString(String key, String defaultValue)","/**
      * Get an optional string associated with a key. It returns the defaultValue
      * if there is no such key.
      *
@@ -1015,7 +1015,7 @@ org.json.JSONObject,"optString(String key, String defaultValue)","/**
         Object object = this.opt(key);
         return NULL.equals(object) ? defaultValue : object.toString();
     }"
-org.json.JSONObject,void populateMap(Object bean),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,void populateMap(Object bean),"/**
      * Populates the internal map of the JSONObject with the bean properties. The
      * bean can not be recursive.
      *
@@ -1026,7 +1026,7 @@ org.json.JSONObject,void populateMap(Object bean),"/**
      */","private void populateMap(Object bean) {
         populateMap(bean, Collections.newSetFromMap(new IdentityHashMap<Object, Boolean>()));
     }"
-org.json.JSONObject,"void populateMap(Object bean, Set<Object> objectsRecord)",,"private void populateMap(Object bean, Set<Object> objectsRecord) {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"void populateMap(Object bean, Set<Object> objectsRecord)",,"private void populateMap(Object bean, Set<Object> objectsRecord) {
         Class<?> klass = bean.getClass();
 
         // If klass is a System class then set includeSuperClass to false.
@@ -1078,10 +1078,10 @@ org.json.JSONObject,"void populateMap(Object bean, Set<Object> objectsRecord)",,
             }
         }
     }"
-org.json.JSONObject,isValidMethodName(String name),,"private static boolean isValidMethodName(String name) {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,isValidMethodName(String name),,"private static boolean isValidMethodName(String name) {
         return !""getClass"".equals(name) && !""getDeclaringClass"".equals(name);
     }"
-org.json.JSONObject,getKeyNameFromMethod(Method method),,"private static String getKeyNameFromMethod(Method method) {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,getKeyNameFromMethod(Method method),,"private static String getKeyNameFromMethod(Method method) {
         final int ignoreDepth = getAnnotationDepth(method, JSONPropertyIgnore.class);
         if (ignoreDepth > 0) {
             final int forcedNameDepth = getAnnotationDepth(method, JSONPropertyName.class);
@@ -1117,7 +1117,7 @@ org.json.JSONObject,getKeyNameFromMethod(Method method),,"private static String 
         }
         return key;
     }"
-org.json.JSONObject,"getAnnotation(final Method m, final Class<A> annotationClass)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"getAnnotation(final Method m, final Class<A> annotationClass)","/**
      * Searches the class hierarchy to see if the method or it's super
      * implementations and interfaces has the annotation.
      *
@@ -1168,7 +1168,7 @@ org.json.JSONObject,"getAnnotation(final Method m, final Class<A> annotationClas
             return null;
         }
     }"
-org.json.JSONObject,"getAnnotationDepth(final Method m, final Class<? extends Annotation> annotationClass)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"getAnnotationDepth(final Method m, final Class<? extends Annotation> annotationClass)","/**
      * Searches the class hierarchy to see if the method or it's super
      * implementations and interfaces has the annotation. Returns the depth of the
      * annotation in the hierarchy.
@@ -1225,7 +1225,7 @@ org.json.JSONObject,"getAnnotationDepth(final Method m, final Class<? extends An
             return -1;
         }
     }"
-org.json.JSONObject,"put(String key, boolean value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"put(String key, boolean value)","/**
      * Put a key/boolean pair in the JSONObject.
      *
      * @param key
@@ -1240,7 +1240,7 @@ org.json.JSONObject,"put(String key, boolean value)","/**
      */","public JSONObject put(String key, boolean value) throws JSONException {
         return this.put(key, value ? Boolean.TRUE : Boolean.FALSE);
     }"
-org.json.JSONObject,"put(String key, Collection<?> value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"put(String key, Collection<?> value)","/**
      * Put a key/value pair in the JSONObject, where the value will be a
      * JSONArray which is produced from a Collection.
      *
@@ -1256,7 +1256,7 @@ org.json.JSONObject,"put(String key, Collection<?> value)","/**
      */","public JSONObject put(String key, Collection<?> value) throws JSONException {
         return this.put(key, new JSONArray(value));
     }"
-org.json.JSONObject,"put(String key, double value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"put(String key, double value)","/**
      * Put a key/double pair in the JSONObject.
      *
      * @param key
@@ -1271,7 +1271,7 @@ org.json.JSONObject,"put(String key, double value)","/**
      */","public JSONObject put(String key, double value) throws JSONException {
         return this.put(key, Double.valueOf(value));
     }"
-org.json.JSONObject,"put(String key, float value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"put(String key, float value)","/**
      * Put a key/float pair in the JSONObject.
      *
      * @param key
@@ -1286,7 +1286,7 @@ org.json.JSONObject,"put(String key, float value)","/**
      */","public JSONObject put(String key, float value) throws JSONException {
         return this.put(key, Float.valueOf(value));
     }"
-org.json.JSONObject,"put(String key, int value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"put(String key, int value)","/**
      * Put a key/int pair in the JSONObject.
      *
      * @param key
@@ -1301,7 +1301,7 @@ org.json.JSONObject,"put(String key, int value)","/**
      */","public JSONObject put(String key, int value) throws JSONException {
         return this.put(key, Integer.valueOf(value));
     }"
-org.json.JSONObject,"put(String key, long value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"put(String key, long value)","/**
      * Put a key/long pair in the JSONObject.
      *
      * @param key
@@ -1316,7 +1316,7 @@ org.json.JSONObject,"put(String key, long value)","/**
      */","public JSONObject put(String key, long value) throws JSONException {
         return this.put(key, Long.valueOf(value));
     }"
-org.json.JSONObject,"put(String key, Map<?, ?> value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"put(String key, Map<?, ?> value)","/**
      * Put a key/value pair in the JSONObject, where the value will be a
      * JSONObject which is produced from a Map.
      *
@@ -1332,7 +1332,7 @@ org.json.JSONObject,"put(String key, Map<?, ?> value)","/**
      */","public JSONObject put(String key, Map<?, ?> value) throws JSONException {
         return this.put(key, new JSONObject(value));
     }"
-org.json.JSONObject,"put(String key, Object value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"put(String key, Object value)","/**
      * Put a key/value pair in the JSONObject. If the value is <code>null</code>, then the
      * key will be removed from the JSONObject if it is present.
      *
@@ -1359,7 +1359,7 @@ org.json.JSONObject,"put(String key, Object value)","/**
         }
         return this;
     }"
-org.json.JSONObject,"putOnce(String key, Object value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"putOnce(String key, Object value)","/**
      * Put a key/value pair in the JSONObject, but only if the key and the value
      * are both non-null, and only if there is not already a member with that
      * name.
@@ -1380,7 +1380,7 @@ org.json.JSONObject,"putOnce(String key, Object value)","/**
         }
         return this;
     }"
-org.json.JSONObject,"putOpt(String key, Object value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"putOpt(String key, Object value)","/**
      * Put a key/value pair in the JSONObject, but only if the key and the value
      * are both non-null.
      *
@@ -1399,7 +1399,7 @@ org.json.JSONObject,"putOpt(String key, Object value)","/**
         }
         return this;
     }"
-org.json.JSONObject,query(String jsonPointer),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,query(String jsonPointer),"/**
      * Creates a JSONPointer using an initialization string and tries to
      * match it to an item within this JSONObject. For example, given a
      * JSONObject initialized with this document:
@@ -1420,7 +1420,7 @@ org.json.JSONObject,query(String jsonPointer),"/**
      */","public Object query(String jsonPointer) {
         return query(new JSONPointer(jsonPointer));
     }"
-org.json.JSONObject,query(JSONPointer jsonPointer),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,query(JSONPointer jsonPointer),"/**
      * Uses a user initialized JSONPointer  and tries to
      * match it to an item within this JSONObject. For example, given a
      * JSONObject initialized with this document:
@@ -1441,7 +1441,7 @@ org.json.JSONObject,query(JSONPointer jsonPointer),"/**
      */","public Object query(JSONPointer jsonPointer) {
         return jsonPointer.queryFrom(this);
     }"
-org.json.JSONObject,optQuery(String jsonPointer),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,optQuery(String jsonPointer),"/**
      * Queries and returns a value from this object using {@code jsonPointer}, or
      * returns null if the query fails due to a missing key.
      *
@@ -1451,7 +1451,7 @@ org.json.JSONObject,optQuery(String jsonPointer),"/**
      */","public Object optQuery(String jsonPointer) {
     	return optQuery(new JSONPointer(jsonPointer));
     }"
-org.json.JSONObject,optQuery(JSONPointer jsonPointer),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,optQuery(JSONPointer jsonPointer),"/**
      * Queries and returns a value from this object using {@code jsonPointer}, or
      * returns null if the query fails due to a missing key.
      *
@@ -1465,7 +1465,7 @@ org.json.JSONObject,optQuery(JSONPointer jsonPointer),"/**
             return null;
         }
     }"
-org.json.JSONObject,quote(String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,quote(String string),"/**
      * Produce a string in double quotes with backslash sequences in all the
      * right places. A backslash will be inserted within &lt;/, producing
      * &lt;\/, allowing JSON text to be delivered in HTML. In JSON text, a
@@ -1487,7 +1487,7 @@ org.json.JSONObject,quote(String string),"/**
             }
         }
     }"
-org.json.JSONObject,"quote(String string, Writer w)",,"public static Writer quote(String string, Writer w) throws IOException {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"quote(String string, Writer w)",,"public static Writer quote(String string, Writer w) throws IOException {
         if (string == null || string.isEmpty()) {
             w.write(""\""\"""");
             return w;
@@ -1545,7 +1545,7 @@ org.json.JSONObject,"quote(String string, Writer w)",,"public static Writer quot
         w.write('""');
         return w;
     }"
-org.json.JSONObject,remove(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,remove(String key),"/**
      * Remove a name and its value, if present.
      *
      * @param key
@@ -1555,7 +1555,7 @@ org.json.JSONObject,remove(String key),"/**
      */","public Object remove(String key) {
         return this.map.remove(key);
     }"
-org.json.JSONObject,similar(Object other),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,similar(Object other),"/**
      * Determine if two JSONObjects are similar.
      * They must contain the same set of names which must be associated with
      * similar values.
@@ -1605,7 +1605,7 @@ org.json.JSONObject,similar(Object other),"/**
             return false;
         }
     }"
-org.json.JSONObject,"isNumberSimilar(Number l, Number r)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"isNumberSimilar(Number l, Number r)","/**
      * Compares two numbers to see if they are similar.
      *
      * If either of the numbers are Double or Float instances, then they are checked to have
@@ -1643,7 +1643,7 @@ org.json.JSONObject,"isNumberSimilar(Number l, Number r)","/**
         }
         return lBigDecimal.compareTo(rBigDecimal) == 0;
     }"
-org.json.JSONObject,numberIsFinite(Number n),,"private static boolean numberIsFinite(Number n) {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,numberIsFinite(Number n),,"private static boolean numberIsFinite(Number n) {
         if (n instanceof Double && (((Double) n).isInfinite() || ((Double) n).isNaN())) {
             return false;
         } else if (n instanceof Float && (((Float) n).isInfinite() || ((Float) n).isNaN())) {
@@ -1651,7 +1651,7 @@ org.json.JSONObject,numberIsFinite(Number n),,"private static boolean numberIsFi
         }
         return true;
     }"
-org.json.JSONObject,isDecimalNotation(final String val),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,isDecimalNotation(final String val),"/**
      * Tests if the value should be tried as a decimal. It makes no test if there are actual digits.
      *
      * @param val value to test
@@ -1660,7 +1660,7 @@ org.json.JSONObject,isDecimalNotation(final String val),"/**
         return val.indexOf('.') > -1 || val.indexOf('e') > -1
                 || val.indexOf('E') > -1 || ""-0"".equals(val);
     }"
-org.json.JSONObject,stringToNumber(final String val),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,stringToNumber(final String val),"/**
      * Converts a string to a number using the narrowest possible type. Possible
      * returns for this function are BigDecimal, Double, BigInteger, Long, and Integer.
      * When a Double is returned, it should always be a valid Double and not NaN or +-infinity.
@@ -1728,7 +1728,7 @@ org.json.JSONObject,stringToNumber(final String val),"/**
         }
         throw new NumberFormatException(""val [""+val+""] is not a valid number."");
     }"
-org.json.JSONObject,stringToValue(String string),,"public static Object stringToValue(String string) {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,stringToValue(String string),,"public static Object stringToValue(String string) {
         if ("""".equals(string)) {
             return string;
         }
@@ -1758,7 +1758,7 @@ org.json.JSONObject,stringToValue(String string),,"public static Object stringTo
         }
         return string;
     }"
-org.json.JSONObject,void testValidity(Object o),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,void testValidity(Object o),"/**
      * Throw an exception if the object is a NaN or infinite number.
      *
      * @param o
@@ -1770,7 +1770,7 @@ org.json.JSONObject,void testValidity(Object o),"/**
             throw new JSONException(""JSON does not allow non-finite numbers."");
         }
     }"
-org.json.JSONObject,toJSONArray(JSONArray names),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,toJSONArray(JSONArray names),"/**
      * Produce a JSONArray containing the values of the members of this
      * JSONObject.
      *
@@ -1790,7 +1790,7 @@ org.json.JSONObject,toJSONArray(JSONArray names),"/**
         }
         return ja;
     }"
-org.json.JSONObject,toString(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,toString(),"/**
      * Make a JSON text of this JSONObject. For compactness, no whitespace is
      * added. If this would not result in a syntactically correct JSON text,
      * then null will be returned instead.
@@ -1810,7 +1810,7 @@ org.json.JSONObject,toString(),"/**
             return null;
         }
     }"
-org.json.JSONObject,toString(int indentFactor),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,toString(int indentFactor),"/**
      * Make a pretty-printed JSON text of this JSONObject.
      *
      * <p>If <pre>{@code indentFactor > 0}</pre> and the {@link JSONObject}
@@ -1842,7 +1842,7 @@ org.json.JSONObject,toString(int indentFactor),"/**
             return this.write(w, indentFactor, 0).toString();
         }
     }"
-org.json.JSONObject,valueToString(Object value),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,valueToString(Object value),"/**
      * Make a JSON text of an Object value. If the object has an
      * value.toJSONString() method, then that method will be used to produce the
      * JSON text. The method is required to produce a strictly conforming text.
@@ -1872,7 +1872,7 @@ org.json.JSONObject,valueToString(Object value),"/**
     	//    Android users can use the writer with the built in Android JSONObject implementation.
         return JSONWriter.valueToString(value);
     }"
-org.json.JSONObject,wrap(Object object),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,wrap(Object object),"/**
      * Wrap an object, if necessary. If the object is <code>null</code>, return the NULL
      * object. If it is an array or collection, wrap it in a JSONArray. If it is
      * a map, wrap it in a JSONObject. If it is a standard property (Double,
@@ -1886,7 +1886,7 @@ org.json.JSONObject,wrap(Object object),"/**
      */","public static Object wrap(Object object) {
         return wrap(object, null);
     }"
-org.json.JSONObject,"wrap(Object object, Set<Object> objectsRecord)",,"private static Object wrap(Object object, Set<Object> objectsRecord) {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"wrap(Object object, Set<Object> objectsRecord)",,"private static Object wrap(Object object, Set<Object> objectsRecord) {
         try {
             if (NULL.equals(object)) {
                 return NULL;
@@ -1932,7 +1932,7 @@ org.json.JSONObject,"wrap(Object object, Set<Object> objectsRecord)",,"private s
             return null;
         }
     }"
-org.json.JSONObject,write(Writer writer),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,write(Writer writer),"/**
      * Write the contents of the JSONObject as JSON text to a writer. For
      * compactness, no whitespace is added.
      * <p><b>
@@ -1944,7 +1944,7 @@ org.json.JSONObject,write(Writer writer),"/**
      */","public Writer write(Writer writer) throws JSONException {
         return this.write(writer, 0, 0);
     }"
-org.json.JSONObject,"writeValue(Writer writer, Object value,
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"writeValue(Writer writer, Object value,
             int indentFactor, int indent)",,"@SuppressWarnings(""resource"")
     static final Writer writeValue(Writer writer, Object value,
             int indentFactor, int indent) throws JSONException, IOException {
@@ -1989,12 +1989,12 @@ org.json.JSONObject,"writeValue(Writer writer, Object value,
         }
         return writer;
     }"
-org.json.JSONObject,"void indent(Writer writer, int indent)",,"static final void indent(Writer writer, int indent) throws IOException {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"void indent(Writer writer, int indent)",,"static final void indent(Writer writer, int indent) throws IOException {
         for (int i = 0; i < indent; i += 1) {
             writer.write(' ');
         }
     }"
-org.json.JSONObject,"write(Writer writer, int indentFactor, int indent)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"write(Writer writer, int indentFactor, int indent)","/**
      * Write the contents of the JSONObject as JSON text to a writer.
      *
      * <p>If <pre>{@code indentFactor > 0}</pre> and the {@link JSONObject}
@@ -2075,7 +2075,7 @@ org.json.JSONObject,"write(Writer writer, int indentFactor, int indent)","/**
             throw new JSONException(exception);
         }
     }"
-org.json.JSONObject,toMap(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,toMap(),"/**
      * Returns a java.util.Map containing all of the entries in this object.
      * If an entry in the object is a JSONArray or JSONObject it will also
      * be converted.
@@ -2100,7 +2100,7 @@ org.json.JSONObject,toMap(),"/**
         }
         return results;
     }"
-org.json.JSONObject,"wrongValueFormatException(
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,"wrongValueFormatException(
             String key,
             String valueType,
             Object value,
@@ -2131,7 +2131,7 @@ org.json.JSONObject,"wrongValueFormatException(
                 ""JSONObject["" + quote(key) + ""] is not a "" + valueType + "" ("" + value.getClass() + "" : "" + value + "").""
                 , cause);
     }"
-org.json.JSONObject,recursivelyDefinedObjectException(String key),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONObject.java,org.json,org.json.JSONObject,org.json.JSONObject,recursivelyDefinedObjectException(String key),"/**
      * Create a new JSONException in a common format for recursive object definition.
      * @param key name of the key
      * @return JSONException that can be thrown.
@@ -2140,7 +2140,7 @@ org.json.JSONObject,recursivelyDefinedObjectException(String key),"/**
             ""JavaBean object contains recursively defined member variable of key "" + quote(key)
         );
     }"
-org.json.JSONML,"parse(
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONML.java,org.json,org.json.JSONML,org.json.JSONML,"parse(
         XMLTokener x,
         boolean    arrayForm,
         JSONArray  ja,
@@ -2340,7 +2340,7 @@ org.json.JSONML,"parse(
             }
         }
     }"
-org.json.JSONML,toJSONArray(String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONML.java,org.json,org.json.JSONML,org.json.JSONML,toJSONArray(String string),"/**
      * Convert a well-formed (but not necessarily valid) XML string into a
      * JSONArray using the JsonML transform. Each XML tag is represented as
      * a JSONArray in which the first element is the tag name. If the tag has
@@ -2354,7 +2354,7 @@ org.json.JSONML,toJSONArray(String string),"/**
      */","public static JSONArray toJSONArray(String string) throws JSONException {
         return (JSONArray)parse(new XMLTokener(string), true, null, false);
     }"
-org.json.JSONML,"toJSONArray(String string, boolean keepStrings)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONML.java,org.json,org.json.JSONML,org.json.JSONML,"toJSONArray(String string, boolean keepStrings)","/**
      * Convert a well-formed (but not necessarily valid) XML string into a
      * JSONArray using the JsonML transform. Each XML tag is represented as
      * a JSONArray in which the first element is the tag name. If the tag has
@@ -2373,7 +2373,7 @@ org.json.JSONML,"toJSONArray(String string, boolean keepStrings)","/**
      */","public static JSONArray toJSONArray(String string, boolean keepStrings) throws JSONException {
         return (JSONArray)parse(new XMLTokener(string), true, null, keepStrings);
     }"
-org.json.JSONML,"toJSONArray(XMLTokener x, boolean keepStrings)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONML.java,org.json,org.json.JSONML,org.json.JSONML,"toJSONArray(XMLTokener x, boolean keepStrings)","/**
      * Convert a well-formed (but not necessarily valid) XML string into a
      * JSONArray using the JsonML transform. Each XML tag is represented as
      * a JSONArray in which the first element is the tag name. If the tag has
@@ -2392,7 +2392,7 @@ org.json.JSONML,"toJSONArray(XMLTokener x, boolean keepStrings)","/**
      */","public static JSONArray toJSONArray(XMLTokener x, boolean keepStrings) throws JSONException {
         return (JSONArray)parse(x, true, null, keepStrings);
     }"
-org.json.JSONML,toJSONArray(XMLTokener x),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONML.java,org.json,org.json.JSONML,org.json.JSONML,toJSONArray(XMLTokener x),"/**
      * Convert a well-formed (but not necessarily valid) XML string into a
      * JSONArray using the JsonML transform. Each XML tag is represented as
      * a JSONArray in which the first element is the tag name. If the tag has
@@ -2406,7 +2406,7 @@ org.json.JSONML,toJSONArray(XMLTokener x),"/**
      */","public static JSONArray toJSONArray(XMLTokener x) throws JSONException {
         return (JSONArray)parse(x, true, null, false);
     }"
-org.json.JSONML,toJSONObject(String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONML.java,org.json,org.json.JSONML,org.json.JSONML,toJSONObject(String string),"/**
      * Convert a well-formed (but not necessarily valid) XML string into a
      * JSONObject using the JsonML transform. Each XML tag is represented as
      * a JSONObject with a ""tagName"" property. If the tag has attributes, then
@@ -2421,7 +2421,7 @@ org.json.JSONML,toJSONObject(String string),"/**
      */","public static JSONObject toJSONObject(String string) throws JSONException {
         return (JSONObject)parse(new XMLTokener(string), false, null, false);
     }"
-org.json.JSONML,"toJSONObject(String string, boolean keepStrings)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONML.java,org.json,org.json.JSONML,org.json.JSONML,"toJSONObject(String string, boolean keepStrings)","/**
      * Convert a well-formed (but not necessarily valid) XML string into a
      * JSONObject using the JsonML transform. Each XML tag is represented as
      * a JSONObject with a ""tagName"" property. If the tag has attributes, then
@@ -2438,7 +2438,7 @@ org.json.JSONML,"toJSONObject(String string, boolean keepStrings)","/**
      */","public static JSONObject toJSONObject(String string, boolean keepStrings) throws JSONException {
         return (JSONObject)parse(new XMLTokener(string), false, null, keepStrings);
     }"
-org.json.JSONML,toJSONObject(XMLTokener x),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONML.java,org.json,org.json.JSONML,org.json.JSONML,toJSONObject(XMLTokener x),"/**
      * Convert a well-formed (but not necessarily valid) XML string into a
      * JSONObject using the JsonML transform. Each XML tag is represented as
      * a JSONObject with a ""tagName"" property. If the tag has attributes, then
@@ -2453,7 +2453,7 @@ org.json.JSONML,toJSONObject(XMLTokener x),"/**
      */","public static JSONObject toJSONObject(XMLTokener x) throws JSONException {
            return (JSONObject)parse(x, false, null, false);
     }"
-org.json.JSONML,"toJSONObject(XMLTokener x, boolean keepStrings)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONML.java,org.json,org.json.JSONML,org.json.JSONML,"toJSONObject(XMLTokener x, boolean keepStrings)","/**
      * Convert a well-formed (but not necessarily valid) XML string into a
      * JSONObject using the JsonML transform. Each XML tag is represented as
      * a JSONObject with a ""tagName"" property. If the tag has attributes, then
@@ -2470,7 +2470,7 @@ org.json.JSONML,"toJSONObject(XMLTokener x, boolean keepStrings)","/**
      */","public static JSONObject toJSONObject(XMLTokener x, boolean keepStrings) throws JSONException {
            return (JSONObject)parse(x, false, null, keepStrings);
     }"
-org.json.JSONML,toString(JSONArray ja),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONML.java,org.json,org.json.JSONML,org.json.JSONML,toString(JSONArray ja),"/**
      * Reverse the JSONML transformation, making an XML text from a JSONArray.
      * @param ja A JSONArray.
      * @return An XML string.
@@ -2545,7 +2545,7 @@ org.json.JSONML,toString(JSONArray ja),"/**
         }
         return sb.toString();
     }"
-org.json.JSONML,toString(JSONObject jo),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONML.java,org.json,org.json.JSONML,org.json.JSONML,toString(JSONObject jo),"/**
      * Reverse the JSONML transformation, making an XML text from a JSONObject.
      * The JSONObject must contain a ""tagName"" property. If it has children,
      * then it must have a ""childNodes"" property containing an array of objects.
@@ -2621,7 +2621,7 @@ org.json.JSONML,toString(JSONObject jo),"/**
         }
         return sb.toString();
     }"
-org.json.HTTP,toJSONObject(String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/HTTP.java,org.json,org.json.HTTP,org.json.HTTP,toJSONObject(String string),"/**
      * Convert an HTTP header string into a JSONObject. It can be a request
      * header or a response header. A request header will contain
      * <pre>{
@@ -2686,7 +2686,7 @@ org.json.HTTP,toJSONObject(String string),"/**
         }
         return jo;
     }"
-org.json.HTTP,toString(JSONObject jo),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/HTTP.java,org.json,org.json.HTTP,org.json.HTTP,toString(JSONObject jo),"/**
      * Convert a JSONObject into an HTTP header. A request header must contain
      * <pre>{
      *    Method: ""POST"" (for example),
@@ -2740,11 +2740,11 @@ org.json.HTTP,toString(JSONObject jo),"/**
         sb.append(CRLF);
         return sb.toString();
     }"
-org.json.JSONArray,iterator(),,"@Override
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,iterator(),,"@Override
     public Iterator<Object> iterator() {
         return this.myArrayList.iterator();
     }"
-org.json.JSONArray,get(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,get(int index),"/**
      * Get the object value associated with an index.
      *
      * @param index
@@ -2759,7 +2759,7 @@ org.json.JSONArray,get(int index),"/**
         }
         return object;
     }"
-org.json.JSONArray,getBoolean(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,getBoolean(int index),"/**
      * Get the boolean value associated with an index. The string values ""true""
      * and ""false"" are converted to boolean.
      *
@@ -2782,7 +2782,7 @@ org.json.JSONArray,getBoolean(int index),"/**
         }
         throw wrongValueFormatException(index, ""boolean"", object, null);
     }"
-org.json.JSONArray,getDouble(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,getDouble(int index),"/**
      * Get the double value associated with an index.
      *
      * @param index
@@ -2802,7 +2802,7 @@ org.json.JSONArray,getDouble(int index),"/**
             throw wrongValueFormatException(index, ""double"", object, e);
         }
     }"
-org.json.JSONArray,getFloat(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,getFloat(int index),"/**
      * Get the float value associated with a key.
      *
      * @param index
@@ -2822,7 +2822,7 @@ org.json.JSONArray,getFloat(int index),"/**
             throw wrongValueFormatException(index, ""float"", object, e);
         }
     }"
-org.json.JSONArray,getNumber(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,getNumber(int index),"/**
      * Get the Number value associated with a key.
      *
      * @param index
@@ -2842,7 +2842,7 @@ org.json.JSONArray,getNumber(int index),"/**
             throw wrongValueFormatException(index, ""number"", object, e);
         }
     }"
-org.json.JSONArray,"getEnum(Class<E> clazz, int index)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"getEnum(Class<E> clazz, int index)","/**
      * Get the enum value associated with an index.
      * 
      * @param <E>
@@ -2866,7 +2866,7 @@ org.json.JSONArray,"getEnum(Class<E> clazz, int index)","/**
         }
         return val;
     }"
-org.json.JSONArray,getBigDecimal(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,getBigDecimal(int index),"/**
      * Get the BigDecimal value associated with an index. If the value is float
      * or double, the {@link BigDecimal#BigDecimal(double)} constructor
      * will be used. See notes on the constructor for conversion issues that
@@ -2886,7 +2886,7 @@ org.json.JSONArray,getBigDecimal(int index),"/**
         }
         return val;
     }"
-org.json.JSONArray,getBigInteger(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,getBigInteger(int index),"/**
      * Get the BigInteger value associated with an index.
      *
      * @param index
@@ -2903,7 +2903,7 @@ org.json.JSONArray,getBigInteger(int index),"/**
         }
         return val;
     }"
-org.json.JSONArray,getInt(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,getInt(int index),"/**
      * Get the int value associated with an index.
      *
      * @param index
@@ -2922,7 +2922,7 @@ org.json.JSONArray,getInt(int index),"/**
             throw wrongValueFormatException(index, ""int"", object, e);
         }
     }"
-org.json.JSONArray,getJSONArray(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,getJSONArray(int index),"/**
      * Get the JSONArray associated with an index.
      *
      * @param index
@@ -2938,7 +2938,7 @@ org.json.JSONArray,getJSONArray(int index),"/**
         }
         throw wrongValueFormatException(index, ""JSONArray"", object, null);
     }"
-org.json.JSONArray,getJSONObject(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,getJSONObject(int index),"/**
      * Get the JSONObject associated with an index.
      *
      * @param index
@@ -2954,7 +2954,7 @@ org.json.JSONArray,getJSONObject(int index),"/**
         }
         throw wrongValueFormatException(index, ""JSONObject"", object, null);
     }"
-org.json.JSONArray,getLong(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,getLong(int index),"/**
      * Get the long value associated with an index.
      *
      * @param index
@@ -2974,7 +2974,7 @@ org.json.JSONArray,getLong(int index),"/**
             throw wrongValueFormatException(index, ""long"", object, e);
         }
     }"
-org.json.JSONArray,getString(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,getString(int index),"/**
      * Get the string associated with an index.
      *
      * @param index
@@ -2989,7 +2989,7 @@ org.json.JSONArray,getString(int index),"/**
         }
         throw wrongValueFormatException(index, ""String"", object, null);
     }"
-org.json.JSONArray,isNull(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,isNull(int index),"/**
      * Determine if the value is <code>null</code>.
      *
      * @param index
@@ -2998,7 +2998,7 @@ org.json.JSONArray,isNull(int index),"/**
      */","public boolean isNull(int index) {
         return JSONObject.NULL.equals(this.opt(index));
     }"
-org.json.JSONArray,join(String separator),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,join(String separator),"/**
      * Make a string from the contents of this JSONArray. The
      * <code>separator</code> string is inserted between each element. Warning:
      * This method assumes that the data structure is acyclical.
@@ -3023,20 +3023,20 @@ org.json.JSONArray,join(String separator),"/**
         }
         return sb.toString();
     }"
-org.json.JSONArray,length(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,length(),"/**
      * Get the number of elements in the JSONArray, included nulls.
      *
      * @return The length (or size).
      */","public int length() {
         return this.myArrayList.size();
     }"
-org.json.JSONArray,void clear(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,void clear(),"/**
      * Removes all of the elements from this JSONArray.
      * The JSONArray will be empty after this call returns.
      */","public void clear() {
         this.myArrayList.clear();
     }"
-org.json.JSONArray,opt(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,opt(int index),"/**
      * Get the optional object value associated with an index.
      *
      * @param index
@@ -3046,7 +3046,7 @@ org.json.JSONArray,opt(int index),"/**
         return (index < 0 || index >= this.length()) ? null : this.myArrayList
                 .get(index);
     }"
-org.json.JSONArray,optBoolean(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,optBoolean(int index),"/**
      * Get the optional boolean value associated with an index. It returns false
      * if there is no value at that index, or if the value is not Boolean.TRUE
      * or the String ""true"".
@@ -3057,7 +3057,7 @@ org.json.JSONArray,optBoolean(int index),"/**
      */","public boolean optBoolean(int index) {
         return this.optBoolean(index, false);
     }"
-org.json.JSONArray,"optBoolean(int index, boolean defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"optBoolean(int index, boolean defaultValue)","/**
      * Get the optional boolean value associated with an index. It returns the
      * defaultValue if there is no value at that index or if it is not a Boolean
      * or the String ""true"" or ""false"" (case insensitive).
@@ -3074,7 +3074,7 @@ org.json.JSONArray,"optBoolean(int index, boolean defaultValue)","/**
             return defaultValue;
         }
     }"
-org.json.JSONArray,optDouble(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,optDouble(int index),"/**
      * Get the optional double value associated with an index. NaN is returned
      * if there is no value for the index, or if the value is not a number and
      * cannot be converted to a number.
@@ -3085,7 +3085,7 @@ org.json.JSONArray,optDouble(int index),"/**
      */","public double optDouble(int index) {
         return this.optDouble(index, Double.NaN);
     }"
-org.json.JSONArray,"optDouble(int index, double defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"optDouble(int index, double defaultValue)","/**
      * Get the optional double value associated with an index. The defaultValue
      * is returned if there is no value for the index, or if the value is not a
      * number and cannot be converted to a number.
@@ -3106,7 +3106,7 @@ org.json.JSONArray,"optDouble(int index, double defaultValue)","/**
         // }
         return doubleValue;
     }"
-org.json.JSONArray,optFloat(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,optFloat(int index),"/**
      * Get the optional float value associated with an index. NaN is returned
      * if there is no value for the index, or if the value is not a number and
      * cannot be converted to a number.
@@ -3117,7 +3117,7 @@ org.json.JSONArray,optFloat(int index),"/**
      */","public float optFloat(int index) {
         return this.optFloat(index, Float.NaN);
     }"
-org.json.JSONArray,"optFloat(int index, float defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"optFloat(int index, float defaultValue)","/**
      * Get the optional float value associated with an index. The defaultValue
      * is returned if there is no value for the index, or if the value is not a
      * number and cannot be converted to a number.
@@ -3138,7 +3138,7 @@ org.json.JSONArray,"optFloat(int index, float defaultValue)","/**
         // }
         return floatValue;
     }"
-org.json.JSONArray,optInt(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,optInt(int index),"/**
      * Get the optional int value associated with an index. Zero is returned if
      * there is no value for the index, or if the value is not a number and
      * cannot be converted to a number.
@@ -3149,7 +3149,7 @@ org.json.JSONArray,optInt(int index),"/**
      */","public int optInt(int index) {
         return this.optInt(index, 0);
     }"
-org.json.JSONArray,"optInt(int index, int defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"optInt(int index, int defaultValue)","/**
      * Get the optional int value associated with an index. The defaultValue is
      * returned if there is no value for the index, or if the value is not a
      * number and cannot be converted to a number.
@@ -3166,7 +3166,7 @@ org.json.JSONArray,"optInt(int index, int defaultValue)","/**
         }
         return val.intValue();
     }"
-org.json.JSONArray,"optEnum(Class<E> clazz, int index)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"optEnum(Class<E> clazz, int index)","/**
      * Get the enum value associated with a key.
      * 
      * @param <E>
@@ -3179,7 +3179,7 @@ org.json.JSONArray,"optEnum(Class<E> clazz, int index)","/**
      */","public <E extends Enum<E>> E optEnum(Class<E> clazz, int index) {
         return this.optEnum(clazz, index, null);
     }"
-org.json.JSONArray,"optEnum(Class<E> clazz, int index, E defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"optEnum(Class<E> clazz, int index, E defaultValue)","/**
      * Get the enum value associated with a key.
      * 
      * @param <E>
@@ -3211,7 +3211,7 @@ org.json.JSONArray,"optEnum(Class<E> clazz, int index, E defaultValue)","/**
             return defaultValue;
         }
     }"
-org.json.JSONArray,"optBigInteger(int index, BigInteger defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"optBigInteger(int index, BigInteger defaultValue)","/**
      * Get the optional BigInteger value associated with an index. The 
      * defaultValue is returned if there is no value for the index, or if the 
      * value is not a number and cannot be converted to a number.
@@ -3225,7 +3225,7 @@ org.json.JSONArray,"optBigInteger(int index, BigInteger defaultValue)","/**
         Object val = this.opt(index);
         return JSONObject.objectToBigInteger(val, defaultValue);
     }"
-org.json.JSONArray,"optBigDecimal(int index, BigDecimal defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"optBigDecimal(int index, BigDecimal defaultValue)","/**
      * Get the optional BigDecimal value associated with an index. The 
      * defaultValue is returned if there is no value for the index, or if the 
      * value is not a number and cannot be converted to a number. If the value
@@ -3242,7 +3242,7 @@ org.json.JSONArray,"optBigDecimal(int index, BigDecimal defaultValue)","/**
         Object val = this.opt(index);
         return JSONObject.objectToBigDecimal(val, defaultValue);
     }"
-org.json.JSONArray,optJSONArray(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,optJSONArray(int index),"/**
      * Get the optional JSONArray associated with an index.
      *
      * @param index
@@ -3253,7 +3253,7 @@ org.json.JSONArray,optJSONArray(int index),"/**
         Object o = this.opt(index);
         return o instanceof JSONArray ? (JSONArray) o : null;
     }"
-org.json.JSONArray,optJSONObject(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,optJSONObject(int index),"/**
      * Get the optional JSONObject associated with an index. Null is returned if
      * the key is not found, or null if the index has no value, or if the value
      * is not a JSONObject.
@@ -3265,7 +3265,7 @@ org.json.JSONArray,optJSONObject(int index),"/**
         Object o = this.opt(index);
         return o instanceof JSONObject ? (JSONObject) o : null;
     }"
-org.json.JSONArray,optLong(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,optLong(int index),"/**
      * Get the optional long value associated with an index. Zero is returned if
      * there is no value for the index, or if the value is not a number and
      * cannot be converted to a number.
@@ -3276,7 +3276,7 @@ org.json.JSONArray,optLong(int index),"/**
      */","public long optLong(int index) {
         return this.optLong(index, 0);
     }"
-org.json.JSONArray,"optLong(int index, long defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"optLong(int index, long defaultValue)","/**
      * Get the optional long value associated with an index. The defaultValue is
      * returned if there is no value for the index, or if the value is not a
      * number and cannot be converted to a number.
@@ -3293,7 +3293,7 @@ org.json.JSONArray,"optLong(int index, long defaultValue)","/**
         }
         return val.longValue();
     }"
-org.json.JSONArray,optNumber(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,optNumber(int index),"/**
      * Get an optional {@link Number} value associated with a key, or <code>null</code>
      * if there is no such key or if the value is not a number. If the value is a string,
      * an attempt will be made to evaluate it as a number ({@link BigDecimal}). This method
@@ -3305,7 +3305,7 @@ org.json.JSONArray,optNumber(int index),"/**
      */","public Number optNumber(int index) {
         return this.optNumber(index, null);
     }"
-org.json.JSONArray,"optNumber(int index, Number defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"optNumber(int index, Number defaultValue)","/**
      * Get an optional {@link Number} value associated with a key, or the default if there
      * is no such key or if the value is not a number. If the value is a string,
      * an attempt will be made to evaluate it as a number ({@link BigDecimal}). This method
@@ -3334,7 +3334,7 @@ org.json.JSONArray,"optNumber(int index, Number defaultValue)","/**
         }
         return defaultValue;
     }"
-org.json.JSONArray,optString(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,optString(int index),"/**
      * Get the optional string value associated with an index. It returns an
      * empty string if there is no value at that index. If the value is not a
      * string and is not null, then it is converted to a string.
@@ -3345,7 +3345,7 @@ org.json.JSONArray,optString(int index),"/**
      */","public String optString(int index) {
         return this.optString(index, """");
     }"
-org.json.JSONArray,"optString(int index, String defaultValue)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"optString(int index, String defaultValue)","/**
      * Get the optional string associated with an index. The defaultValue is
      * returned if the key is not found.
      *
@@ -3359,7 +3359,7 @@ org.json.JSONArray,"optString(int index, String defaultValue)","/**
         return JSONObject.NULL.equals(object) ? defaultValue : object
                 .toString();
     }"
-org.json.JSONArray,put(boolean value),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,put(boolean value),"/**
      * Append a boolean value. This increases the array's length by one.
      *
      * @param value
@@ -3368,7 +3368,7 @@ org.json.JSONArray,put(boolean value),"/**
      */","public JSONArray put(boolean value) {
         return this.put(value ? Boolean.TRUE : Boolean.FALSE);
     }"
-org.json.JSONArray,put(Collection<?> value),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,put(Collection<?> value),"/**
      * Put a value in the JSONArray, where the value will be a JSONArray which
      * is produced from a Collection.
      *
@@ -3380,7 +3380,7 @@ org.json.JSONArray,put(Collection<?> value),"/**
      */","public JSONArray put(Collection<?> value) {
         return this.put(new JSONArray(value));
     }"
-org.json.JSONArray,put(double value),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,put(double value),"/**
      * Append a double value. This increases the array's length by one.
      *
      * @param value
@@ -3391,7 +3391,7 @@ org.json.JSONArray,put(double value),"/**
      */","public JSONArray put(double value) throws JSONException {
         return this.put(Double.valueOf(value));
     }"
-org.json.JSONArray,put(float value),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,put(float value),"/**
      * Append a float value. This increases the array's length by one.
      *
      * @param value
@@ -3402,7 +3402,7 @@ org.json.JSONArray,put(float value),"/**
      */","public JSONArray put(float value) throws JSONException {
         return this.put(Float.valueOf(value));
     }"
-org.json.JSONArray,put(int value),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,put(int value),"/**
      * Append an int value. This increases the array's length by one.
      *
      * @param value
@@ -3411,7 +3411,7 @@ org.json.JSONArray,put(int value),"/**
      */","public JSONArray put(int value) {
         return this.put(Integer.valueOf(value));
     }"
-org.json.JSONArray,put(long value),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,put(long value),"/**
      * Append an long value. This increases the array's length by one.
      *
      * @param value
@@ -3420,7 +3420,7 @@ org.json.JSONArray,put(long value),"/**
      */","public JSONArray put(long value) {
         return this.put(Long.valueOf(value));
     }"
-org.json.JSONArray,"put(Map<?, ?> value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"put(Map<?, ?> value)","/**
      * Put a value in the JSONArray, where the value will be a JSONObject which
      * is produced from a Map.
      *
@@ -3434,7 +3434,7 @@ org.json.JSONArray,"put(Map<?, ?> value)","/**
      */","public JSONArray put(Map<?, ?> value) {
         return this.put(new JSONObject(value));
     }"
-org.json.JSONArray,put(Object value),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,put(Object value),"/**
      * Append an object value. This increases the array's length by one.
      *
      * @param value
@@ -3449,7 +3449,7 @@ org.json.JSONArray,put(Object value),"/**
         this.myArrayList.add(value);
         return this;
     }"
-org.json.JSONArray,"put(int index, boolean value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"put(int index, boolean value)","/**
      * Put or replace a boolean value in the JSONArray. If the index is greater
      * than the length of the JSONArray, then null elements will be added as
      * necessary to pad it out.
@@ -3464,7 +3464,7 @@ org.json.JSONArray,"put(int index, boolean value)","/**
      */","public JSONArray put(int index, boolean value) throws JSONException {
         return this.put(index, value ? Boolean.TRUE : Boolean.FALSE);
     }"
-org.json.JSONArray,"put(int index, Collection<?> value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"put(int index, Collection<?> value)","/**
      * Put a value in the JSONArray, where the value will be a JSONArray which
      * is produced from a Collection.
      *
@@ -3478,7 +3478,7 @@ org.json.JSONArray,"put(int index, Collection<?> value)","/**
      */","public JSONArray put(int index, Collection<?> value) throws JSONException {
         return this.put(index, new JSONArray(value));
     }"
-org.json.JSONArray,"put(int index, double value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"put(int index, double value)","/**
      * Put or replace a double value. If the index is greater than the length of
      * the JSONArray, then null elements will be added as necessary to pad it
      * out.
@@ -3493,7 +3493,7 @@ org.json.JSONArray,"put(int index, double value)","/**
      */","public JSONArray put(int index, double value) throws JSONException {
         return this.put(index, Double.valueOf(value));
     }"
-org.json.JSONArray,"put(int index, float value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"put(int index, float value)","/**
      * Put or replace a float value. If the index is greater than the length of
      * the JSONArray, then null elements will be added as necessary to pad it
      * out.
@@ -3508,7 +3508,7 @@ org.json.JSONArray,"put(int index, float value)","/**
      */","public JSONArray put(int index, float value) throws JSONException {
         return this.put(index, Float.valueOf(value));
     }"
-org.json.JSONArray,"put(int index, int value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"put(int index, int value)","/**
      * Put or replace an int value. If the index is greater than the length of
      * the JSONArray, then null elements will be added as necessary to pad it
      * out.
@@ -3523,7 +3523,7 @@ org.json.JSONArray,"put(int index, int value)","/**
      */","public JSONArray put(int index, int value) throws JSONException {
         return this.put(index, Integer.valueOf(value));
     }"
-org.json.JSONArray,"put(int index, long value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"put(int index, long value)","/**
      * Put or replace a long value. If the index is greater than the length of
      * the JSONArray, then null elements will be added as necessary to pad it
      * out.
@@ -3538,7 +3538,7 @@ org.json.JSONArray,"put(int index, long value)","/**
      */","public JSONArray put(int index, long value) throws JSONException {
         return this.put(index, Long.valueOf(value));
     }"
-org.json.JSONArray,"put(int index, Map<?, ?> value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"put(int index, Map<?, ?> value)","/**
      * Put a value in the JSONArray, where the value will be a JSONObject that
      * is produced from a Map.
      *
@@ -3556,7 +3556,7 @@ org.json.JSONArray,"put(int index, Map<?, ?> value)","/**
         this.put(index, new JSONObject(value));
         return this;
     }"
-org.json.JSONArray,"put(int index, Object value)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"put(int index, Object value)","/**
      * Put or replace an object value in the JSONArray. If the index is greater
      * than the length of the JSONArray, then null elements will be added as
      * necessary to pad it out.
@@ -3593,7 +3593,7 @@ org.json.JSONArray,"put(int index, Object value)","/**
         }
         return this.put(value);
     }"
-org.json.JSONArray,putAll(Collection<?> collection),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,putAll(Collection<?> collection),"/**
      * Put a collection's elements in to the JSONArray.
      *
      * @param collection
@@ -3603,7 +3603,7 @@ org.json.JSONArray,putAll(Collection<?> collection),"/**
         this.addAll(collection, false);
         return this;
     }"
-org.json.JSONArray,putAll(Iterable<?> iter),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,putAll(Iterable<?> iter),"/**
      * Put an Iterable's elements in to the JSONArray.
      *
      * @param iter
@@ -3613,7 +3613,7 @@ org.json.JSONArray,putAll(Iterable<?> iter),"/**
         this.addAll(iter, false);
         return this;
     }"
-org.json.JSONArray,putAll(JSONArray array),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,putAll(JSONArray array),"/**
      * Put a JSONArray's elements in to the JSONArray.
      *
      * @param array
@@ -3625,7 +3625,7 @@ org.json.JSONArray,putAll(JSONArray array),"/**
         this.myArrayList.addAll(array.myArrayList);
         return this;
     }"
-org.json.JSONArray,putAll(Object array),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,putAll(Object array),"/**
      * Put an array's elements in to the JSONArray.
      *
      * @param array
@@ -3641,7 +3641,7 @@ org.json.JSONArray,putAll(Object array),"/**
         this.addAll(array, false);
         return this;
     }"
-org.json.JSONArray,query(String jsonPointer),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,query(String jsonPointer),"/**
      * Creates a JSONPointer using an initialization string and tries to 
      * match it to an item within this JSONArray. For example, given a
      * JSONArray initialized with this document:
@@ -3662,7 +3662,7 @@ org.json.JSONArray,query(String jsonPointer),"/**
      */","public Object query(String jsonPointer) {
         return query(new JSONPointer(jsonPointer));
     }"
-org.json.JSONArray,query(JSONPointer jsonPointer),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,query(JSONPointer jsonPointer),"/**
      * Uses a user initialized JSONPointer  and tries to 
      * match it to an item within this JSONArray. For example, given a
      * JSONArray initialized with this document:
@@ -3683,7 +3683,7 @@ org.json.JSONArray,query(JSONPointer jsonPointer),"/**
      */","public Object query(JSONPointer jsonPointer) {
         return jsonPointer.queryFrom(this);
     }"
-org.json.JSONArray,optQuery(String jsonPointer),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,optQuery(String jsonPointer),"/**
      * Queries and returns a value from this object using {@code jsonPointer}, or
      * returns null if the query fails due to a missing key.
      * 
@@ -3693,7 +3693,7 @@ org.json.JSONArray,optQuery(String jsonPointer),"/**
      */","public Object optQuery(String jsonPointer) {
     	return optQuery(new JSONPointer(jsonPointer));
     }"
-org.json.JSONArray,optQuery(JSONPointer jsonPointer),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,optQuery(JSONPointer jsonPointer),"/**
      * Queries and returns a value from this object using {@code jsonPointer}, or
      * returns null if the query fails due to a missing key.
      * 
@@ -3707,7 +3707,7 @@ org.json.JSONArray,optQuery(JSONPointer jsonPointer),"/**
             return null;
         }
     }"
-org.json.JSONArray,remove(int index),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,remove(int index),"/**
      * Remove an index and close the hole.
      *
      * @param index
@@ -3719,7 +3719,7 @@ org.json.JSONArray,remove(int index),"/**
             ? this.myArrayList.remove(index)
             : null;
     }"
-org.json.JSONArray,similar(Object other),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,similar(Object other),"/**
      * Determine if two JSONArrays are similar.
      * They must contain similar sequences.
      *
@@ -3764,7 +3764,7 @@ org.json.JSONArray,similar(Object other),"/**
         }
         return true;
     }"
-org.json.JSONArray,toJSONObject(JSONArray names),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,toJSONObject(JSONArray names),"/**
      * Produce a JSONObject by combining a JSONArray of names with the values of
      * this JSONArray.
      *
@@ -3785,7 +3785,7 @@ org.json.JSONArray,toJSONObject(JSONArray names),"/**
         }
         return jo;
     }"
-org.json.JSONArray,toString(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,toString(),"/**
      * Make a JSON text of this JSONArray. For compactness, no unnecessary
      * whitespace is added. If it is not possible to produce a syntactically
      * correct JSON text then null will be returned instead. This could occur if
@@ -3804,7 +3804,7 @@ org.json.JSONArray,toString(),"/**
             return null;
         }
     }"
-org.json.JSONArray,toString(int indentFactor),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,toString(int indentFactor),"/**
      * Make a pretty-printed JSON text of this JSONArray.
      * 
      * <p>If <pre> {@code indentFactor > 0}</pre> and the {@link JSONArray} has only
@@ -3837,7 +3837,7 @@ org.json.JSONArray,toString(int indentFactor),"/**
             return this.write(sw, indentFactor, 0).toString();
         }
     }"
-org.json.JSONArray,write(Writer writer),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,write(Writer writer),"/**
      * Write the contents of the JSONArray as JSON text to a writer. For
      * compactness, no whitespace is added.
      * <p><b>
@@ -3849,7 +3849,7 @@ org.json.JSONArray,write(Writer writer),"/**
      */","public Writer write(Writer writer) throws JSONException {
         return this.write(writer, 0, 0);
     }"
-org.json.JSONArray,"write(Writer writer, int indentFactor, int indent)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"write(Writer writer, int indentFactor, int indent)","/**
      * Write the contents of the JSONArray as JSON text to a writer.
      * 
      * <p>If <pre>{@code indentFactor > 0}</pre> and the {@link JSONArray} has only
@@ -3921,7 +3921,7 @@ org.json.JSONArray,"write(Writer writer, int indentFactor, int indent)","/**
             throw new JSONException(e);
         }
     }"
-org.json.JSONArray,toList(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,toList(),"/**
      * Returns a java.util.List containing all of the elements in this array.
      * If an element in the array is a JSONArray or JSONObject it will also
      * be converted to a List and a Map respectively.
@@ -3944,14 +3944,14 @@ org.json.JSONArray,toList(),"/**
         }
         return results;
     }"
-org.json.JSONArray,isEmpty(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,isEmpty(),"/**
      * Check if JSONArray is empty.
      *
      * @return true if JSONArray is empty, otherwise false.
      */","public boolean isEmpty() {
         return this.myArrayList.isEmpty();
     }"
-org.json.JSONArray,"void addAll(Collection<?> collection, boolean wrap)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"void addAll(Collection<?> collection, boolean wrap)","/**
      * Add a collection's elements to the JSONArray.
      *
      * @param collection
@@ -3972,7 +3972,7 @@ org.json.JSONArray,"void addAll(Collection<?> collection, boolean wrap)","/**
             }
         }
     }"
-org.json.JSONArray,"void addAll(Iterable<?> iter, boolean wrap)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"void addAll(Iterable<?> iter, boolean wrap)","/**
      * Add an Iterable's elements to the JSONArray.
      *
      * @param iter
@@ -3991,7 +3991,7 @@ org.json.JSONArray,"void addAll(Iterable<?> iter, boolean wrap)","/**
             }
         }
     }"
-org.json.JSONArray,"void addAll(Object array, boolean wrap)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"void addAll(Object array, boolean wrap)","/**
      * Add an array's elements to the JSONArray.
      *
      * @param array
@@ -4033,7 +4033,7 @@ org.json.JSONArray,"void addAll(Object array, boolean wrap)","/**
                     ""JSONArray initial value should be a string or collection or array."");
         }
     }"
-org.json.JSONArray,"wrongValueFormatException(
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONArray.java,org.json,org.json.JSONArray,org.json.JSONArray,"wrongValueFormatException(
             int idx,
             String valueType,
             Object value,
@@ -4063,8 +4063,7 @@ org.json.JSONArray,"wrongValueFormatException(
                 ""JSONArray["" + idx + ""] is not a "" + valueType + "" ("" + value.getClass() + "" : "" + value + "").""
                 , cause);
     }"
-org.json.XMLXsiTypeConverter,convert(String value),,T convert(String value);
-org.json.Cookie,escape(String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/Cookie.java,org.json,org.json.Cookie,org.json.Cookie,escape(String string),"/**
      * Produce a copy of a string in which the characters '+', '%', '=', ';'
      * and control characters are replaced with ""%hh"". This is a gentle form
      * of URL encoding, attempting to cause as little distortion to the
@@ -4092,7 +4091,7 @@ org.json.Cookie,escape(String string),"/**
         }
         return sb.toString();
     }"
-org.json.Cookie,toJSONObject(String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/Cookie.java,org.json,org.json.Cookie,org.json.Cookie,toJSONObject(String string),"/**
      * Convert a cookie specification string into a JSONObject. The string
      * must contain a name value pair separated by '='. The name and the value
      * will be unescaped, possibly converting '+' and '%' sequences. The
@@ -4155,7 +4154,7 @@ org.json.Cookie,toJSONObject(String string),"/**
         }
         return jo;
     }"
-org.json.Cookie,toString(JSONObject jo),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/Cookie.java,org.json,org.json.Cookie,org.json.Cookie,toString(JSONObject jo),"/**
      * Convert a JSONObject into a cookie specification string. The JSONObject
      * must contain ""name"" and ""value"" members (case insensitive).
      * If the JSONObject contains other members, they will be appended to the cookie
@@ -4215,7 +4214,7 @@ org.json.Cookie,toString(JSONObject jo),"/**
         
         return sb.toString();
     }"
-org.json.Cookie,unescape(String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/Cookie.java,org.json,org.json.Cookie,org.json.Cookie,unescape(String string),"/**
      * Convert <code>%</code><i>hh</i> sequences to single characters, and
      * convert plus to space.
      * @param string A string that may contain
@@ -4241,7 +4240,7 @@ org.json.Cookie,unescape(String string),"/**
         }
         return sb.toString();
     }"
-org.json.XMLParserConfiguration,clone(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLParserConfiguration.java,org.json,org.json.XMLParserConfiguration,org.json.XMLParserConfiguration,clone(),"/**
      * Provides a new instance of the same configuration.
      */","@Override
     protected XMLParserConfiguration clone() {
@@ -4258,7 +4257,7 @@ org.json.XMLParserConfiguration,clone(),"/**
                 this.forceList
         );
     }"
-org.json.XMLParserConfiguration,isKeepStrings(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLParserConfiguration.java,org.json,org.json.XMLParserConfiguration,org.json.XMLParserConfiguration,isKeepStrings(),"/**
      * When parsing the XML into JSON, specifies if values should be kept as strings (<code>true</code>), or if
      * they should try to be guessed into JSON values (numeric, boolean, string)
      * 
@@ -4266,7 +4265,7 @@ org.json.XMLParserConfiguration,isKeepStrings(),"/**
      */","public boolean isKeepStrings() {
         return this.keepStrings;
     }"
-org.json.XMLParserConfiguration,withKeepStrings(final boolean newVal),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLParserConfiguration.java,org.json,org.json.XMLParserConfiguration,org.json.XMLParserConfiguration,withKeepStrings(final boolean newVal),"/**
      * When parsing the XML into JSON, specifies if values should be kept as strings (<code>true</code>), or if
      * they should try to be guessed into JSON values (numeric, boolean, string)
      * 
@@ -4279,7 +4278,7 @@ org.json.XMLParserConfiguration,withKeepStrings(final boolean newVal),"/**
         newConfig.keepStrings = newVal;
         return newConfig;
     }"
-org.json.XMLParserConfiguration,getcDataTagName(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLParserConfiguration.java,org.json,org.json.XMLParserConfiguration,org.json.XMLParserConfiguration,getcDataTagName(),"/**
      * The name of the key in a JSON Object that indicates a CDATA section. Historically this has
      * been the value ""content"" but can be changed. Use <code>null</code> to indicate no CDATA
      * processing.
@@ -4288,7 +4287,7 @@ org.json.XMLParserConfiguration,getcDataTagName(),"/**
      */","public String getcDataTagName() {
         return this.cDataTagName;
     }"
-org.json.XMLParserConfiguration,withcDataTagName(final String newVal),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLParserConfiguration.java,org.json,org.json.XMLParserConfiguration,org.json.XMLParserConfiguration,withcDataTagName(final String newVal),"/**
      * The name of the key in a JSON Object that indicates a CDATA section. Historically this has
      * been the value ""content"" but can be changed. Use <code>null</code> to indicate no CDATA
      * processing.
@@ -4302,7 +4301,7 @@ org.json.XMLParserConfiguration,withcDataTagName(final String newVal),"/**
         newConfig.cDataTagName = newVal;
         return newConfig;
     }"
-org.json.XMLParserConfiguration,isConvertNilAttributeToNull(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLParserConfiguration.java,org.json,org.json.XMLParserConfiguration,org.json.XMLParserConfiguration,isConvertNilAttributeToNull(),"/**
      * When parsing the XML into JSON, specifies if values with attribute xsi:nil=""true""
      * should be kept as attribute(<code>false</code>), or they should be converted to
      * <code>null</code>(<code>true</code>)
@@ -4311,7 +4310,7 @@ org.json.XMLParserConfiguration,isConvertNilAttributeToNull(),"/**
      */","public boolean isConvertNilAttributeToNull() {
         return this.convertNilAttributeToNull;
     }"
-org.json.XMLParserConfiguration,withConvertNilAttributeToNull(final boolean newVal),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLParserConfiguration.java,org.json,org.json.XMLParserConfiguration,org.json.XMLParserConfiguration,withConvertNilAttributeToNull(final boolean newVal),"/**
      * When parsing the XML into JSON, specifies if values with attribute xsi:nil=""true""
      * should be kept as attribute(<code>false</code>), or they should be converted to
      * <code>null</code>(<code>true</code>)
@@ -4325,7 +4324,7 @@ org.json.XMLParserConfiguration,withConvertNilAttributeToNull(final boolean newV
         newConfig.convertNilAttributeToNull = newVal;
         return newConfig;
     }"
-org.json.XMLParserConfiguration,getXsiTypeMap(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLParserConfiguration.java,org.json,org.json.XMLParserConfiguration,org.json.XMLParserConfiguration,getXsiTypeMap(),"/**
      * When parsing the XML into JSON, specifies that the values with attribute xsi:type
      * will be converted to target type defined to client in this configuration
      * {@code Map<String, XMLXsiTypeConverter<?>>} to parse values with attribute
@@ -4334,7 +4333,7 @@ org.json.XMLParserConfiguration,getXsiTypeMap(),"/**
      */","public Map<String, XMLXsiTypeConverter<?>> getXsiTypeMap() {
         return this.xsiTypeMap;
     }"
-org.json.XMLParserConfiguration,"withXsiTypeMap(final Map<String, XMLXsiTypeConverter<?>> xsiTypeMap)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLParserConfiguration.java,org.json,org.json.XMLParserConfiguration,org.json.XMLParserConfiguration,"withXsiTypeMap(final Map<String, XMLXsiTypeConverter<?>> xsiTypeMap)","/**
      * When parsing the XML into JSON, specifies that the values with attribute xsi:type
      * will be converted to target type defined to client in this configuration
      * {@code Map<String, XMLXsiTypeConverter<?>>} to parse values with attribute
@@ -4348,14 +4347,14 @@ org.json.XMLParserConfiguration,"withXsiTypeMap(final Map<String, XMLXsiTypeConv
         newConfig.xsiTypeMap = Collections.unmodifiableMap(cloneXsiTypeMap);
         return newConfig;
     }"
-org.json.XMLParserConfiguration,getForceList(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLParserConfiguration.java,org.json,org.json.XMLParserConfiguration,org.json.XMLParserConfiguration,getForceList(),"/**
      * When parsing the XML into JSON, specifies that tags that will be converted to arrays
      * in this configuration {@code Set<String>} to parse the provided tags' values as arrays 
      * @return <code>forceList</code> unmodifiable configuration set.
      */","public Set<String> getForceList() {
         return this.forceList;
     }"
-org.json.XMLParserConfiguration,withForceList(final Set<String> forceList),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLParserConfiguration.java,org.json,org.json.XMLParserConfiguration,org.json.XMLParserConfiguration,withForceList(final Set<String> forceList),"/**
      * When parsing the XML into JSON, specifies that tags that will be converted to arrays
      * in this configuration {@code Set<String>} to parse the provided tags' values as arrays 
      * @param forceList  {@code new HashSet<String>()} to parse the provided tags' values as arrays 
@@ -4366,7 +4365,7 @@ org.json.XMLParserConfiguration,withForceList(final Set<String> forceList),"/**
         newConfig.forceList = Collections.unmodifiableSet(cloneForceList);
         return newConfig;
     }"
-org.json.CookieList,toJSONObject(String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/CookieList.java,org.json,org.json.CookieList,org.json.CookieList,toJSONObject(String string),"/**
      * Convert a cookie list into a JSONObject. A cookie list is a sequence
      * of name/value pairs. The names are separated from the values by '='.
      * The pairs are separated by ';'. The names and the values
@@ -4389,7 +4388,7 @@ org.json.CookieList,toJSONObject(String string),"/**
         }
         return jo;
     }"
-org.json.CookieList,toString(JSONObject jo),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/CookieList.java,org.json,org.json.CookieList,org.json.CookieList,toString(JSONObject jo),"/**
      * Convert a JSONObject into a cookie list. A cookie list is a sequence
      * of name/value pairs. The names are separated from the values by '='.
      * The pairs are separated by ';'. The characters '%', '+', '=', and ';'
@@ -4415,7 +4414,7 @@ org.json.CookieList,toString(JSONObject jo),"/**
         }
         return sb.toString();
     }"
-org.json.CDL,getValue(JSONTokener x),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/CDL.java,org.json,org.json.CDL,org.json.CDL,getValue(JSONTokener x),"/**
      * Get the next value. The value can be wrapped in quotes. The value can
      * be empty.
      * @param x A JSONTokener of the source text.
@@ -4462,7 +4461,7 @@ org.json.CDL,getValue(JSONTokener x),"/**
             return x.nextTo(',');
         }
     }"
-org.json.CDL,rowToJSONArray(JSONTokener x),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/CDL.java,org.json,org.json.CDL,org.json.CDL,rowToJSONArray(JSONTokener x),"/**
      * Produce a JSONArray of strings from a row of comma delimited values.
      * @param x A JSONTokener of the source text.
      * @return A JSONArray of strings.
@@ -4492,7 +4491,7 @@ org.json.CDL,rowToJSONArray(JSONTokener x),"/**
             }
         }
     }"
-org.json.CDL,"rowToJSONObject(JSONArray names, JSONTokener x)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/CDL.java,org.json,org.json.CDL,org.json.CDL,"rowToJSONObject(JSONArray names, JSONTokener x)","/**
      * Produce a JSONObject from a row of comma delimited text, using a
      * parallel JSONArray of strings to provides the names of the elements.
      * @param names A JSONArray of names. This is commonly obtained from the
@@ -4506,7 +4505,7 @@ org.json.CDL,"rowToJSONObject(JSONArray names, JSONTokener x)","/**
         JSONArray ja = rowToJSONArray(x);
         return ja != null ? ja.toJSONObject(names) :  null;
     }"
-org.json.CDL,rowToString(JSONArray ja),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/CDL.java,org.json,org.json.CDL,org.json.CDL,rowToString(JSONArray ja),"/**
      * Produce a comma delimited text row from a JSONArray. Values containing
      * the comma character will be quoted. Troublesome characters may be
      * removed.
@@ -4541,7 +4540,7 @@ org.json.CDL,rowToString(JSONArray ja),"/**
         sb.append('\n');
         return sb.toString();
     }"
-org.json.CDL,toJSONArray(String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/CDL.java,org.json,org.json.CDL,org.json.CDL,toJSONArray(String string),"/**
      * Produce a JSONArray of JSONObjects from a comma delimited text string,
      * using the first row as a source of names.
      * @param string The comma delimited text.
@@ -4550,7 +4549,7 @@ org.json.CDL,toJSONArray(String string),"/**
      */","public static JSONArray toJSONArray(String string) throws JSONException {
         return toJSONArray(new JSONTokener(string));
     }"
-org.json.CDL,toJSONArray(JSONTokener x),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/CDL.java,org.json,org.json.CDL,org.json.CDL,toJSONArray(JSONTokener x),"/**
      * Produce a JSONArray of JSONObjects from a comma delimited text string,
      * using the first row as a source of names.
      * @param x The JSONTokener containing the comma delimited text.
@@ -4559,7 +4558,7 @@ org.json.CDL,toJSONArray(JSONTokener x),"/**
      */","public static JSONArray toJSONArray(JSONTokener x) throws JSONException {
         return toJSONArray(rowToJSONArray(x), x);
     }"
-org.json.CDL,"toJSONArray(JSONArray names, String string)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/CDL.java,org.json,org.json.CDL,org.json.CDL,"toJSONArray(JSONArray names, String string)","/**
      * Produce a JSONArray of JSONObjects from a comma delimited text string
      * using a supplied JSONArray as the source of element names.
      * @param names A JSONArray of strings.
@@ -4570,7 +4569,7 @@ org.json.CDL,"toJSONArray(JSONArray names, String string)","/**
             throws JSONException {
         return toJSONArray(names, new JSONTokener(string));
     }"
-org.json.CDL,"toJSONArray(JSONArray names, JSONTokener x)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/CDL.java,org.json,org.json.CDL,org.json.CDL,"toJSONArray(JSONArray names, JSONTokener x)","/**
      * Produce a JSONArray of JSONObjects from a comma delimited text string
      * using a supplied JSONArray as the source of element names.
      * @param names A JSONArray of strings.
@@ -4595,7 +4594,7 @@ org.json.CDL,"toJSONArray(JSONArray names, JSONTokener x)","/**
         }
         return ja;
     }"
-org.json.CDL,toString(JSONArray ja),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/CDL.java,org.json,org.json.CDL,org.json.CDL,toString(JSONArray ja),"/**
      * Produce a comma delimited text from a JSONArray of JSONObjects. The
      * first row will be a list of names obtained by inspecting the first
      * JSONObject.
@@ -4612,7 +4611,7 @@ org.json.CDL,toString(JSONArray ja),"/**
         }
         return null;
     }"
-org.json.CDL,"toString(JSONArray names, JSONArray ja)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/CDL.java,org.json,org.json.CDL,org.json.CDL,"toString(JSONArray names, JSONArray ja)","/**
      * Produce a comma delimited text from a JSONArray of JSONObjects using
      * a provided list of names. The list of names is not included in the
      * output.
@@ -4634,7 +4633,7 @@ org.json.CDL,"toString(JSONArray names, JSONArray ja)","/**
         }
         return sb.toString();
     }"
-org.json.HTTPTokener,nextToken(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/HTTPTokener.java,org.json,org.json.HTTPTokener,org.json.HTTPTokener,nextToken(),"/**
      * Get the next token or string. This is used in parsing HTTP headers.
      * @return A String.
      * @throws JSONException if a syntax error occurs
@@ -4666,7 +4665,7 @@ org.json.HTTPTokener,nextToken(),"/**
             c = next();
         }
     }"
-org.json.XML,codePointIterator(final String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,codePointIterator(final String string),"/**
      * Creates an iterator for navigating Code Points in a string instead of
      * characters. Once Java7 support is dropped, this can be replaced with
      * <code>
@@ -4704,7 +4703,7 @@ org.json.XML,codePointIterator(final String string),"/**
             }
         };
     }"
-org.json.XML,iterator(),,"@Override
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,iterator(),,"@Override
             public Iterator<Integer> iterator() {
                 return new Iterator<Integer>() {
                     private int nextIndex = 0;
@@ -4728,21 +4727,21 @@ org.json.XML,iterator(),,"@Override
                     }
                 };
             }"
-org.json.XML,hasNext(),,"@Override
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,hasNext(),,"@Override
                     public boolean hasNext() {
                         return this.nextIndex < this.length;
                     }"
-org.json.XML,next(),,"@Override
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,next(),,"@Override
                     public Integer next() {
                         int result = string.codePointAt(this.nextIndex);
                         this.nextIndex += Character.charCount(result);
                         return result;
                     }"
-org.json.XML,void remove(),,"@Override
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,void remove(),,"@Override
                     public void remove() {
                         throw new UnsupportedOperationException();
                     }"
-org.json.XML,escape(String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,escape(String string),"/**
      * Replace special characters with XML escapes:
      *
      * <pre>{@code 
@@ -4787,7 +4786,7 @@ org.json.XML,escape(String string),"/**
         }
         return sb.toString();
     }"
-org.json.XML,mustEscape(int cp),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,mustEscape(int cp),"/**
      * @param cp code point to test
      * @return true if the code point is not valid for an XML
      */","private static boolean mustEscape(int cp) {
@@ -4811,7 +4810,7 @@ org.json.XML,mustEscape(int cp),"/**
             )
         ;
     }"
-org.json.XML,unescape(String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,unescape(String string),"/**
      * Removes XML escapes from the string.
      *
      * @param string
@@ -4840,7 +4839,7 @@ org.json.XML,unescape(String string),"/**
         }
         return sb.toString();
     }"
-org.json.XML,void noSpace(String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,void noSpace(String string),"/**
      * Throw an exception if the string contains whitespace. Whitespace is not
      * allowed in tagNames and attributes.
      *
@@ -4859,7 +4858,7 @@ org.json.XML,void noSpace(String string),"/**
             }
         }
     }"
-org.json.XML,"parse(XMLTokener x, JSONObject context, String name, XMLParserConfiguration config)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,"parse(XMLTokener x, JSONObject context, String name, XMLParserConfiguration config)","/**
      * Scan the content following the named tag, attaching it to the context.
      *
      * @param x
@@ -5072,7 +5071,7 @@ org.json.XML,"parse(XMLTokener x, JSONObject context, String name, XMLParserConf
             }
         }
     }"
-org.json.XML,"stringToValue(String string, XMLXsiTypeConverter<?> typeConverter)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,"stringToValue(String string, XMLXsiTypeConverter<?> typeConverter)","/**
      * This method tries to convert the given string value to the target object
      * @param string String to convert
      * @param typeConverter value converter to convert string to integer, boolean e.t.c
@@ -5083,7 +5082,7 @@ org.json.XML,"stringToValue(String string, XMLXsiTypeConverter<?> typeConverter)
         }
         return stringToValue(string);
     }"
-org.json.XML,stringToValue(String string),,"public static Object stringToValue(String string) {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,stringToValue(String string),,"public static Object stringToValue(String string) {
         if ("""".equals(string)) {
             return string;
         }
@@ -5113,7 +5112,7 @@ org.json.XML,stringToValue(String string),,"public static Object stringToValue(S
         }
         return string;
     }"
-org.json.XML,stringToNumber(final String val),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,stringToNumber(final String val),"/**
      * direct copy of {@link JSONObject#stringToNumber(String)} to maintain Android support.
      */","private static Number stringToNumber(final String val) throws NumberFormatException {
         char initial = val.charAt(0);
@@ -5174,13 +5173,13 @@ org.json.XML,stringToNumber(final String val),"/**
         }
         throw new NumberFormatException(""val [""+val+""] is not a valid number."");
     }"
-org.json.XML,isDecimalNotation(final String val),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,isDecimalNotation(final String val),"/**
      * direct copy of {@link JSONObject#isDecimalNotation(String)} to maintain Android support.
      */","private static boolean isDecimalNotation(final String val) {
         return val.indexOf('.') > -1 || val.indexOf('e') > -1
                 || val.indexOf('E') > -1 || ""-0"".equals(val);
     }"
-org.json.XML,toJSONObject(String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,toJSONObject(String string),"/**
      * Convert a well-formed (but not necessarily valid) XML string into a
      * JSONObject. Some information may be lost in this transformation because
      * JSON is a data format and XML is a document format. XML uses elements,
@@ -5199,7 +5198,7 @@ org.json.XML,toJSONObject(String string),"/**
      */","public static JSONObject toJSONObject(String string) throws JSONException {
         return toJSONObject(string, XMLParserConfiguration.ORIGINAL);
     }"
-org.json.XML,toJSONObject(Reader reader),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,toJSONObject(Reader reader),"/**
      * Convert a well-formed (but not necessarily valid) XML into a
      * JSONObject. Some information may be lost in this transformation because
      * JSON is a data format and XML is a document format. XML uses elements,
@@ -5217,7 +5216,7 @@ org.json.XML,toJSONObject(Reader reader),"/**
      */","public static JSONObject toJSONObject(Reader reader) throws JSONException {
         return toJSONObject(reader, XMLParserConfiguration.ORIGINAL);
     }"
-org.json.XML,"toJSONObject(Reader reader, boolean keepStrings)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,"toJSONObject(Reader reader, boolean keepStrings)","/**
      * Convert a well-formed (but not necessarily valid) XML into a
      * JSONObject. Some information may be lost in this transformation because
      * JSON is a data format and XML is a document format. XML uses elements,
@@ -5243,7 +5242,7 @@ org.json.XML,"toJSONObject(Reader reader, boolean keepStrings)","/**
         }
         return toJSONObject(reader, XMLParserConfiguration.ORIGINAL);
     }"
-org.json.XML,"toJSONObject(Reader reader, XMLParserConfiguration config)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,"toJSONObject(Reader reader, XMLParserConfiguration config)","/**
      * Convert a well-formed (but not necessarily valid) XML into a
      * JSONObject. Some information may be lost in this transformation because
      * JSON is a data format and XML is a document format. XML uses elements,
@@ -5273,7 +5272,7 @@ org.json.XML,"toJSONObject(Reader reader, XMLParserConfiguration config)","/**
         }
         return jo;
     }"
-org.json.XML,"toJSONObject(String string, boolean keepStrings)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,"toJSONObject(String string, boolean keepStrings)","/**
      * Convert a well-formed (but not necessarily valid) XML string into a
      * JSONObject. Some information may be lost in this transformation because
      * JSON is a data format and XML is a document format. XML uses elements,
@@ -5297,7 +5296,7 @@ org.json.XML,"toJSONObject(String string, boolean keepStrings)","/**
      */","public static JSONObject toJSONObject(String string, boolean keepStrings) throws JSONException {
         return toJSONObject(new StringReader(string), keepStrings);
     }"
-org.json.XML,"toJSONObject(String string, XMLParserConfiguration config)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,"toJSONObject(String string, XMLParserConfiguration config)","/**
      * Convert a well-formed (but not necessarily valid) XML string into a
      * JSONObject. Some information may be lost in this transformation because
      * JSON is a data format and XML is a document format. XML uses elements,
@@ -5320,7 +5319,7 @@ org.json.XML,"toJSONObject(String string, XMLParserConfiguration config)","/**
      */","public static JSONObject toJSONObject(String string, XMLParserConfiguration config) throws JSONException {
         return toJSONObject(new StringReader(string), config);
     }"
-org.json.XML,toString(Object object),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,toString(Object object),"/**
      * Convert a JSONObject into a well-formed, element-normal XML string.
      *
      * @param object
@@ -5330,7 +5329,7 @@ org.json.XML,toString(Object object),"/**
      */","public static String toString(Object object) throws JSONException {
         return toString(object, null, XMLParserConfiguration.ORIGINAL);
     }"
-org.json.XML,"toString(final Object object, final String tagName)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,"toString(final Object object, final String tagName)","/**
      * Convert a JSONObject into a well-formed, element-normal XML string.
      *
      * @param object
@@ -5342,7 +5341,7 @@ org.json.XML,"toString(final Object object, final String tagName)","/**
      */","public static String toString(final Object object, final String tagName) {
         return toString(object, tagName, XMLParserConfiguration.ORIGINAL);
     }"
-org.json.XML,"toString(final Object object, final String tagName, final XMLParserConfiguration config)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XML.java,org.json,org.json.XML,org.json.XML,"toString(final Object object, final String tagName, final XMLParserConfiguration config)","/**
      * Convert a JSONObject into a well-formed, element-normal XML string.
      *
      * @param object
@@ -5463,7 +5462,7 @@ org.json.XML,"toString(final Object object, final String tagName, final XMLParse
                         + "">"" + string + ""</"" + tagName + "">"";
 
     }"
-org.json.JSONTokener,void back(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,void back(),"/**
      * Back up one character. This provides a sort of lookahead capability,
      * so that you can test for a digit or letter before attempting to parse
      * the next number or identifier.
@@ -5477,7 +5476,7 @@ org.json.JSONTokener,void back(),"/**
         this.usePrevious = true;
         this.eof = false;
     }"
-org.json.JSONTokener,void decrementIndexes(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,void decrementIndexes(),"/**
      * Decrements the indexes for the {@link #back()} method based on the previous character read.
      */","private void decrementIndexes() {
         this.index--;
@@ -5488,7 +5487,7 @@ org.json.JSONTokener,void decrementIndexes(),"/**
             this.character--;
         }
     }"
-org.json.JSONTokener,dehexchar(char c),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,dehexchar(char c),"/**
      * Get the hex value of a character (base16).
      * @param c A character between '0' and '9' or between 'A' and 'F' or
      * between 'a' and 'f'.
@@ -5505,14 +5504,14 @@ org.json.JSONTokener,dehexchar(char c),"/**
         }
         return -1;
     }"
-org.json.JSONTokener,end(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,end(),"/**
      * Checks if the end of the input has been reached.
      *  
      * @return true if at the end of the file and we didn't step back
      */","public boolean end() {
         return this.eof && !this.usePrevious;
     }"
-org.json.JSONTokener,more(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,more(),"/**
      * Determine if the source string still contains characters that next()
      * can consume.
      * @return true if not yet at the end of the source.
@@ -5539,7 +5538,7 @@ org.json.JSONTokener,more(),"/**
         }
         return true;
     }"
-org.json.JSONTokener,next(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,next(),"/**
      * Get the next character in the source string.
      *
      * @return The next character, or 0 if past the end of the source string.
@@ -5564,11 +5563,11 @@ org.json.JSONTokener,next(),"/**
         this.previous = (char) c;
         return this.previous;
     }"
-org.json.JSONTokener,getPrevious(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,getPrevious(),"/**
      * Get the last character read from the input or '\0' if nothing has been read yet.
      * @return the last character read from the input.
      */",protected char getPrevious() { return this.previous;}
-org.json.JSONTokener,void incrementIndexes(int c),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,void incrementIndexes(int c),"/**
      * Increments the internal indexes according to the previous character
      * read and the character passed as the current character.
      * @param c the current character read.
@@ -5590,7 +5589,7 @@ org.json.JSONTokener,void incrementIndexes(int c),"/**
             }
         }
     }"
-org.json.JSONTokener,next(char c),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,next(char c),"/**
      * Consume the next character, and check that it matches a specified
      * character.
      * @param c The character to match.
@@ -5607,7 +5606,7 @@ org.json.JSONTokener,next(char c),"/**
         }
         return n;
     }"
-org.json.JSONTokener,next(int n),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,next(int n),"/**
      * Get the next n characters.
      *
      * @param n     The number of characters to take.
@@ -5632,7 +5631,7 @@ org.json.JSONTokener,next(int n),"/**
         }
         return new String(chars);
     }"
-org.json.JSONTokener,nextClean(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,nextClean(),"/**
      * Get the next char in the string, skipping whitespace.
      * @throws JSONException Thrown if there is an error reading the source string.
      * @return  A character, or 0 if there are no more characters.
@@ -5644,7 +5643,7 @@ org.json.JSONTokener,nextClean(),"/**
             }
         }
     }"
-org.json.JSONTokener,nextString(char quote),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,nextString(char quote),"/**
      * Return the characters up to the next close quote character.
      * Backslash processing is done. The formal JSON format does not
      * allow strings in single quotes, but an implementation is allowed to
@@ -5707,7 +5706,7 @@ org.json.JSONTokener,nextString(char quote),"/**
             }
         }
     }"
-org.json.JSONTokener,nextTo(char delimiter),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,nextTo(char delimiter),"/**
      * Get the text up but not including the specified character or the
      * end of line, whichever comes first.
      * @param  delimiter A delimiter character.
@@ -5727,7 +5726,7 @@ org.json.JSONTokener,nextTo(char delimiter),"/**
             sb.append(c);
         }
     }"
-org.json.JSONTokener,nextTo(String delimiters),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,nextTo(String delimiters),"/**
      * Get the text up but not including one of the specified delimiter
      * characters or the end of line, whichever comes first.
      * @param delimiters A set of delimiter characters.
@@ -5749,7 +5748,7 @@ org.json.JSONTokener,nextTo(String delimiters),"/**
             sb.append(c);
         }
     }"
-org.json.JSONTokener,nextValue(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,nextValue(),"/**
      * Get the next value. The value can be a Boolean, Double, Integer,
      * JSONArray, JSONObject, Long, or String, or the JSONObject.NULL object.
      * @throws JSONException If syntax error.
@@ -5803,7 +5802,7 @@ org.json.JSONTokener,nextValue(),"/**
         }
         return JSONObject.stringToValue(string);
     }"
-org.json.JSONTokener,skipTo(char to),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,skipTo(char to),"/**
      * Skip characters until the next character is the requested character.
      * If the requested character is not found, no characters are skipped.
      * @param to A character to skip to.
@@ -5838,7 +5837,7 @@ org.json.JSONTokener,skipTo(char to),"/**
         this.back();
         return c;
     }"
-org.json.JSONTokener,syntaxError(String message),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,syntaxError(String message),"/**
      * Make a JSONException to signal a syntax error.
      *
      * @param message The error message.
@@ -5846,7 +5845,7 @@ org.json.JSONTokener,syntaxError(String message),"/**
      */","public JSONException syntaxError(String message) {
         return new JSONException(message + this.toString());
     }"
-org.json.JSONTokener,"syntaxError(String message, Throwable causedBy)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,"syntaxError(String message, Throwable causedBy)","/**
      * Make a JSONException to signal a syntax error.
      *
      * @param message The error message.
@@ -5855,7 +5854,7 @@ org.json.JSONTokener,"syntaxError(String message, Throwable causedBy)","/**
      */","public JSONException syntaxError(String message, Throwable causedBy) {
         return new JSONException(message + this.toString(), causedBy);
     }"
-org.json.JSONTokener,toString(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONTokener.java,org.json,org.json.JSONTokener,org.json.JSONTokener,toString(),"/**
      * Make a printable string of this JSONTokener.
      *
      * @return "" at {index} [character {character} line {line}]""
@@ -5864,14 +5863,14 @@ org.json.JSONTokener,toString(),"/**
         return "" at "" + this.index + "" [character "" + this.character + "" line "" +
                 this.line + ""]"";
     }"
-org.json.JSONPointer.Builder,build(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONPointer.java,org.json,org.json.JSONPointer.Builder,org.json.JSONPointer.Builder,build(),"/**
          * Creates a {@code JSONPointer} instance using the tokens previously set using the
          * {@link #append(String)} method calls.
          * @return a JSONPointer object
          */","public JSONPointer build() {
             return new JSONPointer(this.refTokens);
         }"
-org.json.JSONPointer.Builder,append(String token),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONPointer.java,org.json,org.json.JSONPointer.Builder,org.json.JSONPointer.Builder,append(String token),"/**
          * Adds an arbitrary token to the list of reference tokens. It can be any non-null value.
          * 
          * Unlike in the case of JSON string or URI fragment representation of JSON pointers, the
@@ -5889,7 +5888,7 @@ org.json.JSONPointer.Builder,append(String token),"/**
             this.refTokens.add(token);
             return this;
         }"
-org.json.JSONPointer.Builder,append(int arrayIndex),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONPointer.java,org.json,org.json.JSONPointer.Builder,org.json.JSONPointer.Builder,append(int arrayIndex),"/**
          * Adds an integer to the reference token list. Although not necessarily, mostly this token will
          * denote an array index. 
          * 
@@ -5899,7 +5898,7 @@ org.json.JSONPointer.Builder,append(int arrayIndex),"/**
             this.refTokens.add(String.valueOf(arrayIndex));
             return this;
         }"
-org.json.JSONPointer,builder(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONPointer.java,org.json,org.json.JSONPointer,org.json.JSONPointer,builder(),"/**
      * Static factory method for {@link Builder}. Example usage:
      * 
      * <pre><code>
@@ -5916,12 +5915,12 @@ org.json.JSONPointer,builder(),"/**
      */","public static Builder builder() {
         return new Builder();
     }"
-org.json.JSONPointer,unescape(String token),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONPointer.java,org.json,org.json.JSONPointer,org.json.JSONPointer,unescape(String token),"/**
      * @see <a href=""https://tools.ietf.org/html/rfc6901#section-3"">rfc6901 section 3</a>
      */","private static String unescape(String token) {
         return token.replace(""~1"", ""/"").replace(""~0"", ""~"");
     }"
-org.json.JSONPointer,queryFrom(Object document),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONPointer.java,org.json,org.json.JSONPointer,org.json.JSONPointer,queryFrom(Object document),"/**
      * Evaluates this JSON Pointer on the given {@code document}. The {@code document}
      * is usually a {@link JSONObject} or a {@link JSONArray} instance, but the empty
      * JSON Pointer ({@code """"}) can be evaluated on any JSON values and in such case the
@@ -5948,7 +5947,7 @@ org.json.JSONPointer,queryFrom(Object document),"/**
         }
         return current;
     }"
-org.json.JSONPointer,"readByIndexToken(Object current, String indexToken)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONPointer.java,org.json,org.json.JSONPointer,org.json.JSONPointer,"readByIndexToken(Object current, String indexToken)","/**
      * Matches a JSONArray element by ordinal position
      * @param current the JSONArray to be evaluated
      * @param indexToken the array index in string form
@@ -5971,7 +5970,7 @@ org.json.JSONPointer,"readByIndexToken(Object current, String indexToken)","/**
             throw new JSONPointerException(format(""%s is not an array index"", indexToken), e);
         }
     }"
-org.json.JSONPointer,toString(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONPointer.java,org.json,org.json.JSONPointer,org.json.JSONPointer,toString(),"/**
      * Returns a string representing the JSONPointer path value using string
      * representation
      */","@Override
@@ -5982,7 +5981,7 @@ org.json.JSONPointer,toString(),"/**
         }
         return rval.toString();
     }"
-org.json.JSONPointer,escape(String token),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONPointer.java,org.json,org.json.JSONPointer,org.json.JSONPointer,escape(String token),"/**
      * Escapes path segment values to an unambiguous form.
      * The escape char to be inserted is '~'. The chars to be escaped 
      * are ~, which maps to ~0, and /, which maps to ~1.
@@ -5994,7 +5993,7 @@ org.json.JSONPointer,escape(String token),"/**
         return token.replace(""~"", ""~0"")
                 .replace(""/"", ""~1"");
     }"
-org.json.JSONPointer,toURIFragment(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONPointer.java,org.json,org.json.JSONPointer,org.json.JSONPointer,toURIFragment(),"/**
      * Returns a string representing the JSONPointer path value using URI
      * fragment identifier representation
      * @return a uri fragment string
@@ -6009,13 +6008,7 @@ org.json.JSONPointer,toURIFragment(),"/**
             throw new RuntimeException(e);
         }
     }"
-org.json.JSONString,toJSONString(),"/**
-     * The <code>toJSONString</code> method allows a class to produce its own JSON
-     * serialization.
-     *
-     * @return A strictly syntactically correct JSON text.
-     */",public String toJSONString();
-org.json.JSONWriter,append(String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONWriter.java,org.json,org.json.JSONWriter,org.json.JSONWriter,append(String string),"/**
      * Append a value.
      * @param string A string value.
      * @return this
@@ -6044,7 +6037,7 @@ org.json.JSONWriter,append(String string),"/**
         }
         throw new JSONException(""Value out of sequence."");
     }"
-org.json.JSONWriter,array(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONWriter.java,org.json,org.json.JSONWriter,org.json.JSONWriter,array(),"/**
      * Begin appending a new array. All values until the balancing
      * <code>endArray</code> will be appended to this array. The
      * <code>endArray</code> method must be called to mark the array's end.
@@ -6061,7 +6054,7 @@ org.json.JSONWriter,array(),"/**
         }
         throw new JSONException(""Misplaced array."");
     }"
-org.json.JSONWriter,"end(char m, char c)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONWriter.java,org.json,org.json.JSONWriter,org.json.JSONWriter,"end(char m, char c)","/**
      * End something.
      * @param m Mode
      * @param c Closing character
@@ -6085,7 +6078,7 @@ org.json.JSONWriter,"end(char m, char c)","/**
         this.comma = true;
         return this;
     }"
-org.json.JSONWriter,endArray(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONWriter.java,org.json,org.json.JSONWriter,org.json.JSONWriter,endArray(),"/**
      * End an array. This method most be called to balance calls to
      * <code>array</code>.
      * @return this
@@ -6093,7 +6086,7 @@ org.json.JSONWriter,endArray(),"/**
      */","public JSONWriter endArray() throws JSONException {
         return this.end('a', ']');
     }"
-org.json.JSONWriter,endObject(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONWriter.java,org.json,org.json.JSONWriter,org.json.JSONWriter,endObject(),"/**
      * End an object. This method most be called to balance calls to
      * <code>object</code>.
      * @return this
@@ -6101,7 +6094,7 @@ org.json.JSONWriter,endObject(),"/**
      */","public JSONWriter endObject() throws JSONException {
         return this.end('k', '}');
     }"
-org.json.JSONWriter,key(String string),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONWriter.java,org.json,org.json.JSONWriter,org.json.JSONWriter,key(String string),"/**
      * Append a key. The key will be associated with the next value. In an
      * object, every value must be preceded by a key.
      * @param string A key string.
@@ -6137,7 +6130,7 @@ org.json.JSONWriter,key(String string),"/**
         }
         throw new JSONException(""Misplaced key."");
     }"
-org.json.JSONWriter,object(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONWriter.java,org.json,org.json.JSONWriter,org.json.JSONWriter,object(),"/**
      * Begin appending a new object. All keys and values until the balancing
      * <code>endObject</code> will be appended to this object. The
      * <code>endObject</code> method must be called to mark the object's end.
@@ -6158,7 +6151,7 @@ org.json.JSONWriter,object(),"/**
         throw new JSONException(""Misplaced object."");
 
     }"
-org.json.JSONWriter,void pop(char c),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONWriter.java,org.json,org.json.JSONWriter,org.json.JSONWriter,void pop(char c),"/**
      * Pop an array or object scope.
      * @param c The scope to close.
      * @throws JSONException If nesting is wrong.
@@ -6177,7 +6170,7 @@ org.json.JSONWriter,void pop(char c),"/**
             ? 'a'
             : 'k';
     }"
-org.json.JSONWriter,void push(JSONObject jo),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONWriter.java,org.json,org.json.JSONWriter,org.json.JSONWriter,void push(JSONObject jo),"/**
      * Push an array or object scope.
      * @param jo The scope to open.
      * @throws JSONException If nesting is too deep.
@@ -6189,7 +6182,7 @@ org.json.JSONWriter,void push(JSONObject jo),"/**
         this.mode = jo == null ? 'a' : 'k';
         this.top += 1;
     }"
-org.json.JSONWriter,valueToString(Object value),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONWriter.java,org.json,org.json.JSONWriter,org.json.JSONWriter,valueToString(Object value),"/**
      * Make a JSON text of an Object value. If the object has an
      * value.toJSONString() method, then that method will be used to produce the
      * JSON text. The method is required to produce a strictly conforming text.
@@ -6259,7 +6252,7 @@ org.json.JSONWriter,valueToString(Object value),"/**
         }
         return JSONObject.quote(value.toString());
     }"
-org.json.JSONWriter,value(boolean b),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONWriter.java,org.json,org.json.JSONWriter,org.json.JSONWriter,value(boolean b),"/**
      * Append either the value <code>true</code> or the value
      * <code>false</code>.
      * @param b A boolean.
@@ -6268,7 +6261,7 @@ org.json.JSONWriter,value(boolean b),"/**
      */","public JSONWriter value(boolean b) throws JSONException {
         return this.append(b ? ""true"" : ""false"");
     }"
-org.json.JSONWriter,value(double d),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONWriter.java,org.json,org.json.JSONWriter,org.json.JSONWriter,value(double d),"/**
      * Append a double value.
      * @param d A double.
      * @return this
@@ -6276,7 +6269,7 @@ org.json.JSONWriter,value(double d),"/**
      */","public JSONWriter value(double d) throws JSONException {
         return this.value(Double.valueOf(d));
     }"
-org.json.JSONWriter,value(long l),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONWriter.java,org.json,org.json.JSONWriter,org.json.JSONWriter,value(long l),"/**
      * Append a long value.
      * @param l A long.
      * @return this
@@ -6284,7 +6277,7 @@ org.json.JSONWriter,value(long l),"/**
      */","public JSONWriter value(long l) throws JSONException {
         return this.append(Long.toString(l));
     }"
-org.json.JSONWriter,value(Object object),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONWriter.java,org.json,org.json.JSONWriter,org.json.JSONWriter,value(Object object),"/**
      * Append an object value.
      * @param object The object to append. It can be null, or a Boolean, Number,
      *   String, JSONObject, or JSONArray, or an object that implements JSONString.
@@ -6293,7 +6286,7 @@ org.json.JSONWriter,value(Object object),"/**
      */","public JSONWriter value(Object object) throws JSONException {
         return this.append(valueToString(object));
     }"
-org.json.JSONStringer,toString(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONStringer.java,org.json,org.json.JSONStringer,org.json.JSONStringer,toString(),"/**
      * Return the JSON text. This method is used to obtain the product of the
      * JSONStringer instance. It will return <code>null</code> if there was a
      * problem in the construction of the JSON text (such as the calls to
@@ -6304,7 +6297,7 @@ org.json.JSONStringer,toString(),"/**
     public String toString() {
         return this.mode == 'd' ? this.writer.toString() : null;
     }"
-org.json.XMLTokener,nextCDATA(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLTokener.java,org.json,org.json.XMLTokener,org.json.XMLTokener,nextCDATA(),"/**
      * Get the text in the CDATA block.
      * @return The string up to the <code>]]&gt;</code>.
      * @throws JSONException If the <code>]]&gt;</code> is not found.
@@ -6324,7 +6317,7 @@ org.json.XMLTokener,nextCDATA(),"/**
         }
         throw syntaxError(""Unclosed CDATA"");
     }"
-org.json.XMLTokener,nextContent(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLTokener.java,org.json,org.json.XMLTokener,org.json.XMLTokener,nextContent(),"/**
      * Get the next XML outer token, trimming whitespace. There are two kinds
      * of tokens: the <pre>{@code '<' }</pre> character which begins a markup
      * tag, and the content
@@ -6362,7 +6355,7 @@ org.json.XMLTokener,nextContent(),"/**
             c = next();
         }
     }"
-org.json.XMLTokener,"nextEntity(@SuppressWarnings(""unused"") char ampersand)","/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLTokener.java,org.json,org.json.XMLTokener,org.json.XMLTokener,"nextEntity(@SuppressWarnings(""unused"") char ampersand)","/**
      * <pre>{@code
      * Return the next entity. These entities are translated to Characters:
      *     &amp;  &apos;  &gt;  &lt;  &quot;.
@@ -6385,7 +6378,7 @@ org.json.XMLTokener,"nextEntity(@SuppressWarnings(""unused"") char ampersand)","
         String string = sb.toString();
         return unescapeEntity(string);
     }"
-org.json.XMLTokener,unescapeEntity(String e),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLTokener.java,org.json,org.json.XMLTokener,org.json.XMLTokener,unescapeEntity(String e),"/**
      * Unescape an XML entity encoding;
      * @param e entity (only the actual entity value, not the preceding & or ending ;
      * @return
@@ -6413,7 +6406,7 @@ org.json.XMLTokener,unescapeEntity(String e),"/**
         }
         return knownEntity.toString();
     }"
-org.json.XMLTokener,nextMeta(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLTokener.java,org.json,org.json.XMLTokener,org.json.XMLTokener,nextMeta(),"/**
      * <pre>{@code 
      * Returns the next XML meta token. This is used for skipping over <!...>
      * and <?...?> structures.
@@ -6480,7 +6473,7 @@ org.json.XMLTokener,nextMeta(),"/**
             }
         }
     }"
-org.json.XMLTokener,nextToken(),"/**
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLTokener.java,org.json,org.json.XMLTokener,org.json.XMLTokener,nextToken(),"/**
      * <pre>{@code
      * Get the next XML Token. These tokens are found inside of angle
      * brackets. It may be one of these characters: / > = ! ? or it
@@ -6563,7 +6556,7 @@ org.json.XMLTokener,nextToken(),"/**
             }
         }
     }"
-org.json.XMLTokener,void skipPast(String to),,"public void skipPast(String to) {
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/XMLTokener.java,org.json,org.json.XMLTokener,org.json.XMLTokener,void skipPast(String to),,"public void skipPast(String to) {
         boolean b;
         char c;
         int i;

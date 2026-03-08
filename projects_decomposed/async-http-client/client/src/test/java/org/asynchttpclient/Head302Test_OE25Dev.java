@@ -103,6 +103,7 @@ public class Head302Test_OE25Dev extends AbstractBasicTest {
       }).get(3, TimeUnit.SECONDS);
 
       if (l.await(TIMEOUT, TimeUnit.SECONDS)) {
+        // removed other assertion
         assertTrue(response.getUri().getPath().endsWith("_moved"));
   }
   }
@@ -124,6 +125,8 @@ public class Head302Test_OE25Dev extends AbstractBasicTest {
       }).get(3, TimeUnit.SECONDS);
 
       if (l.await(TIMEOUT, TimeUnit.SECONDS)) {
+        // removed other assertion
+        // removed other assertion
       } else {
         fail("Timeout out");
   }

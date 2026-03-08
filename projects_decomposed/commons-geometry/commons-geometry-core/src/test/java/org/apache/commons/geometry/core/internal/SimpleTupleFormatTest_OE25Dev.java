@@ -331,288 +331,427 @@ class SimpleTupleFormatTest_OE25Dev {
 
     @Test
     void testConstructor_1_oe() {
+        // act
         final SimpleTupleFormat formatter = new SimpleTupleFormat("|", "{", "}");
 
+        // assert
         Assertions.assertEquals("|", formatter.getSeparator());
     }
 
     @Test
     void testConstructor_3_oe() {
+        // act
         final SimpleTupleFormat formatter = new SimpleTupleFormat("|", "{", "}");
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("}", formatter.getSuffix());
     }
 
     @Test
     void testConstructor_defaultSeparator_1_oe() {
+        // act
         final SimpleTupleFormat formatter = new SimpleTupleFormat("{", "}");
 
+        // assert
         Assertions.assertEquals(",", formatter.getSeparator());
     }
 
     @Test
     void testConstructor_defaultSeparator_3_oe() {
+        // act
         final SimpleTupleFormat formatter = new SimpleTupleFormat("{", "}");
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("}", formatter.getSuffix());
     }
 
     @Test
     void testFormat1D_1_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(OPEN_PAREN, CLOSE_PAREN);
 
+        // act/assert
         Assertions.assertEquals("(1.0)", formatter.format(1.0));
     }
 
     @Test
     void testFormat1D_2_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(OPEN_PAREN, CLOSE_PAREN);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals("(-1.0)", formatter.format(-1.0));
     }
 
     @Test
     void testFormat1D_3_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(OPEN_PAREN, CLOSE_PAREN);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("(NaN)", formatter.format(Double.NaN));
     }
 
     @Test
     void testFormat1D_4_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(OPEN_PAREN, CLOSE_PAREN);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("(-Infinity)", formatter.format(Double.NEGATIVE_INFINITY));
     }
 
     @Test
     void testFormat1D_5_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(OPEN_PAREN, CLOSE_PAREN);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("(Infinity)", formatter.format(Double.POSITIVE_INFINITY));
     }
 
     @Test
     void testFormat1D_noPrefixSuffix_1_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(null, null);
 
+        // act/assert
         Assertions.assertEquals("1.0", formatter.format(1.0));
     }
 
     @Test
     void testFormat1D_noPrefixSuffix_2_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(null, null);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals("-1.0", formatter.format(-1.0));
     }
 
     @Test
     void testFormat1D_noPrefixSuffix_3_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(null, null);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("NaN", formatter.format(Double.NaN));
     }
 
     @Test
     void testFormat1D_noPrefixSuffix_4_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(null, null);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("-Infinity", formatter.format(Double.NEGATIVE_INFINITY));
     }
 
     @Test
     void testFormat1D_noPrefixSuffix_5_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(null, null);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("Infinity", formatter.format(Double.POSITIVE_INFINITY));
     }
 
     @Test
     void testFormat2D_1_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(OPEN_PAREN, CLOSE_PAREN);
 
+        // act/assert
         Assertions.assertEquals("(1.0, -1.0)", formatter.format(1.0, -1.0));
     }
 
     @Test
     void testFormat2D_2_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(OPEN_PAREN, CLOSE_PAREN);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals("(-1.0, 1.0)", formatter.format(-1.0, 1.0));
     }
 
     @Test
     void testFormat2D_3_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(OPEN_PAREN, CLOSE_PAREN);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("(NaN, -Infinity)", formatter.format(Double.NaN, Double.NEGATIVE_INFINITY));
     }
 
     @Test
     void testFormat2D_4_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(OPEN_PAREN, CLOSE_PAREN);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("(-Infinity, Infinity)", formatter.format(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY));
     }
 
     @Test
     void testFormat2D_noPrefixSuffix_1_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(null, null);
 
+        // act/assert
         Assertions.assertEquals("1.0, -1.0", formatter.format(1.0, -1.0));
     }
 
     @Test
     void testFormat2D_noPrefixSuffix_2_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(null, null);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals("-1.0, 1.0", formatter.format(-1.0, 1.0));
     }
 
     @Test
     void testFormat2D_noPrefixSuffix_3_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(null, null);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("NaN, -Infinity", formatter.format(Double.NaN, Double.NEGATIVE_INFINITY));
     }
 
     @Test
     void testFormat2D_noPrefixSuffix_4_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(null, null);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("-Infinity, Infinity", formatter.format(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY));
     }
 
     @Test
     void testFormat3D_1_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(OPEN_PAREN, CLOSE_PAREN);
 
+        // act/assert
         Assertions.assertEquals("(1.0, 0.0, -1.0)", formatter.format(1.0, 0.0, -1.0));
     }
 
     @Test
     void testFormat3D_2_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(OPEN_PAREN, CLOSE_PAREN);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals("(-1.0, 1.0, 0.0)", formatter.format(-1.0, 1.0, 0.0));
     }
 
     @Test
     void testFormat3D_3_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(OPEN_PAREN, CLOSE_PAREN);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("(NaN, -Infinity, Infinity)", formatter.format(Double.NaN, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY));
     }
 
     @Test
     void testFormat3D_noPrefixSuffix_1_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(null, null);
 
+        // act/assert
         Assertions.assertEquals("1.0, 0.0, -1.0", formatter.format(1.0, 0.0, -1.0));
     }
 
     @Test
     void testFormat3D_noPrefixSuffix_2_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(null, null);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals("-1.0, 1.0, 0.0", formatter.format(-1.0, 1.0, 0.0));
     }
 
     @Test
     void testFormat3D_noPrefixSuffix_3_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(null, null);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("NaN, -Infinity, Infinity", formatter.format(Double.NaN, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY));
     }
 
     @Test
     void testFormat4D_1_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(OPEN_PAREN, CLOSE_PAREN);
 
+        // act/assert
         Assertions.assertEquals("(1.0, 0.0, -1.0, 2.0)", formatter.format(1.0, 0.0, -1.0, 2.0));
     }
 
     @Test
     void testFormat4D_2_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(OPEN_PAREN, CLOSE_PAREN);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals("(-1.0, 1.0, 0.0, 2.0)", formatter.format(-1.0, 1.0, 0.0, 2.0));
     }
 
     @Test
     void testFormat4D_3_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(OPEN_PAREN, CLOSE_PAREN);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("(NaN, -Infinity, Infinity, NaN)", formatter.format(Double.NaN, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, Double.NaN));
     }
 
     @Test
     void testFormat4D_noPrefixSuffix_1_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(null, null);
 
+        // act/assert
         Assertions.assertEquals("1.0, 0.0, -1.0, 2.0", formatter.format(1.0, 0.0, -1.0, 2.0));
     }
 
     @Test
     void testFormat4D_noPrefixSuffix_2_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(null, null);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals("-1.0, 1.0, 0.0, 2.0", formatter.format(-1.0, 1.0, 0.0, 2.0));
     }
 
     @Test
     void testFormat4D_noPrefixSuffix_3_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat(null, null);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("NaN, -Infinity, Infinity, NaN", formatter.format(Double.NaN, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, Double.NaN));
     }
 
     @Test
     void testFormat_longTokens_1_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat("||", "<<", ">>");
 
+        // act/assert
         Assertions.assertEquals("<<1.0>>", formatter.format(1.0));
     }
 
     @Test
     void testFormat_longTokens_2_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat("||", "<<", ">>");
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals("<<1.0|| 2.0>>", formatter.format(1.0, 2.0));
     }
 
     @Test
     void testFormat_longTokens_3_oe() {
+        // arrange
         final SimpleTupleFormat formatter = new SimpleTupleFormat("||", "<<", ">>");
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("<<1.0|| 2.0|| 3.0>>", formatter.format(1.0, 2.0, 3.0));
     }
 
     @Test
     void testDefaultInstance_1_oe() {
+        // act
         final SimpleTupleFormat formatter = SimpleTupleFormat.getDefault();
 
+        // assert
         Assertions.assertEquals(",", formatter.getSeparator());
     }
 
     @Test
     void testDefaultInstance_2_oe() {
+        // act
         final SimpleTupleFormat formatter = SimpleTupleFormat.getDefault();
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals("(", formatter.getPrefix());
     }
 
     @Test
     void testDefaultInstance_3_oe() {
+        // act
         final SimpleTupleFormat formatter = SimpleTupleFormat.getDefault();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(")", formatter.getSuffix());
     }
 
     @Test
     void testDefaultInstance_4_oe() {
+        // act
         final SimpleTupleFormat formatter = SimpleTupleFormat.getDefault();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals("(1.0, 2.0)", formatter.format(1, 2));
     }

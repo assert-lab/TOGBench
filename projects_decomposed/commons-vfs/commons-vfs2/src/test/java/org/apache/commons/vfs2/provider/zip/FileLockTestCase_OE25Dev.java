@@ -95,6 +95,7 @@ public class FileLockTestCase_OE25Dev {
     @Test
     public void testResolveAndOpenCloseContent_1_oe_1_oe() throws Exception {
         resolveAndOpenCloseContent();
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
                 Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
@@ -104,12 +105,14 @@ public class FileLockTestCase_OE25Dev {
         resolveAndOpenCloseContent();
         resolveAndOpenCloseContent();
 
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
                 Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
     @Test
     public void testResolveAndOpenCloseInputStream_1_oe_1_oe() throws Exception {
         resolveAndOpenCloseInputStream();
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
                 Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
@@ -119,12 +122,14 @@ public class FileLockTestCase_OE25Dev {
         resolveAndOpenCloseInputStream();
         resolveAndOpenCloseInputStream();
 
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
                 Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
     @Test
     public void testResolveAndOpenReadCloseInputStream_1_oe_1_oe() throws Exception {
         resolveAndOpenReadCloseInputStream();
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
                 Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
@@ -133,6 +138,7 @@ public class FileLockTestCase_OE25Dev {
         resolveAndOpenReadCloseInputStream();
         resolveAndOpenReadCloseInputStream();
         resolveAndOpenReadCloseInputStream();
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
                 Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
@@ -141,6 +147,7 @@ public class FileLockTestCase_OE25Dev {
         try (final FileObject zipFileObject = manager.resolveFile(zipFileUri)) {
             try (InputStream inputStream = zipFileObject.getContent().getInputStream()) {
                 if (SystemUtils.IS_OS_WINDOWS) {
+                    // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
                     Assert.assertFalse("Could not delete file", newZipFile.delete());
     }
     }
@@ -152,6 +159,7 @@ public class FileLockTestCase_OE25Dev {
         Assume.assumeTrue(SystemUtils.IS_OS_WINDOWS);
         try (final FileObject zipFileObject = manager.resolveFile(zipFileUri)) {
             try (InputStream inputStream = zipFileObject.getContent().getInputStream()) {
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
                 Assert.assertFalse("Could not delete file", newZipFile.delete());
     }
     }
@@ -162,9 +170,12 @@ public class FileLockTestCase_OE25Dev {
         try (final FileObject zipFileObject = manager.resolveFile(zipFileUri)) {
             try (InputStream inputStream = zipFileObject.getContent().getInputStream()) {
                 if (SystemUtils.IS_OS_WINDOWS) {
+                    // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                    // removed other assertion
                 }
             }
         }
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
                 Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
@@ -176,6 +187,7 @@ public class FileLockTestCase_OE25Dev {
             }
             zipFileObject.getContent().getInputStream().close();
         }
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
                 Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
@@ -193,6 +205,7 @@ public class FileLockTestCase_OE25Dev {
         } finally {
             zipFileObjectRef.close();
         }
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
                 Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
@@ -201,6 +214,8 @@ public class FileLockTestCase_OE25Dev {
         try (final FileObject zipFileObject = manager.resolveFile(zipFileUri)) {
             try (InputStream inputStream = zipFileObject.getContent().getInputStream()) {
                 if (SystemUtils.IS_OS_WINDOWS) {
+                    // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                    // removed other assertion
                 }
             }
         }

@@ -1,0 +1,193 @@
+id,test_prefix,test_name
+async-http-client_161_101,"@Test
+  public void requestingPlainHttpEndpointOverHttpsThrowsSslException_oe_101_oe() throws Throwable {
+        try {
+          client.prepareGet(getTargetUrl().replace(""http"", ""https"")).execute().get();
+          fail(""Request shouldn't succeed"");
+        } catch (ExecutionException e) {
+        }
+    }
+",BasicHttpTest::requestingPlainHttpEndpointOverHttpsThrowsSslException_oe_101_oe
+async-http-client_177_101,"@Test
+  public void readTimeoutCancelsBodyStream_oe_101_oe() throws Throwable {
+    try {
+      execute(responseHandler, bodyPublisher -> bodyPublisher.subscribe(subscriber));
+      fail(""Request should have timed out"");
+    } catch (ExecutionException e) {
+      expectReadTimeout(e.getCause());
+    }
+    }
+",ReactiveStreamsErrorTest::readTimeoutCancelsBodyStream_oe_101_oe
+async-http-client_178_101,"@Test
+  public void requestTimeoutCancelsBodyStream_oe_101_oe() throws Throwable {
+    try {
+      execute(responseHandler, bodyPublisher -> bodyPublisher.subscribe(subscriber));
+      fail(""Request should have timed out"");
+    } catch (ExecutionException e) {
+      expectRequestTimeout(e.getCause());
+    }
+    }
+",ReactiveStreamsErrorTest::requestTimeoutCancelsBodyStream_oe_101_oe
+async-http-client_179_101,"@Test
+  public void ioErrorsArePropagatedToSubscriber_oe_101_oe() throws Throwable {
+    try {
+      execute(responseHandler, bodyPublisher -> bodyPublisher.subscribe(subscriber));
+      fail(""Request should have failed"");
+    } catch (ExecutionException e) {
+      error = e.getCause();
+    }
+    }
+",ReactiveStreamsErrorTest::ioErrorsArePropagatedToSubscriber_oe_101_oe
+async-http-client_201_101,"@Test_oe_101_oe(enabled = false)
+  public void testProxyProperties() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient(config().setUseProxyProperties(true))) {
+      String proxifiedtarget = ""http://127.0.0.1:1234/"";
+      Future<Response> f = client.prepareGet(proxifiedtarget).execute();
+      Response resp = f.get(3, TimeUnit.SECONDS);
+
+      String nonProxifiedtarget = ""http://localhost:1234/"";
+      f = client.prepareGet(nonProxifiedtarget).execute();
+      try {
+        f.get(3, TimeUnit.SECONDS);
+        fail(""should not be able to connect"");
+      } catch (ExecutionException e) {
+        // ok, no proxy used
+      }
+    } finally {
+      System.setProperties(originalProps);
+    }
+    }
+",ProxyTest::Test_oe_101_oe
+async-http-client_202_101,"@Test_oe_101_oe(enabled = false)
+  public void testIgnoreProxyPropertiesByDefault() throws IOException, TimeoutException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      String target = ""http://localhost:1234/"";
+      Future<Response> f = client.prepareGet(target).execute();
+      try {
+        f.get(3, TimeUnit.SECONDS);
+        fail(""should not be able to connect"");
+      } catch (ExecutionException e) {
+        // ok, no proxy used
+      }
+    } finally {
+      System.setProperties(originalProps);
+    }
+    }
+",ProxyTest::Test_oe_101_oe
+async-http-client_203_101,"@Test_oe_101_oe(enabled = false)
+  public void testProxyActivationProperty() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      String proxifiedTarget = ""http://127.0.0.1:1234/"";
+      Future<Response> f = client.prepareGet(proxifiedTarget).execute();
+      Response resp = f.get(3, TimeUnit.SECONDS);
+
+      String nonProxifiedTarget = ""http://localhost:1234/"";
+      f = client.prepareGet(nonProxifiedTarget).execute();
+      try {
+        f.get(3, TimeUnit.SECONDS);
+        fail(""should not be able to connect"");
+      } catch (ExecutionException e) {
+        // ok, no proxy used
+      }
+    } finally {
+      System.setProperties(originalProps);
+    }
+    }
+",ProxyTest::Test_oe_101_oe
+async-http-client_204_101,"@Test_oe_101_oe(enabled = false)
+  public void testWildcardNonProxyHosts() throws IOException, TimeoutException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient(config().setUseProxyProperties(true))) {
+      String nonProxifiedTarget = ""http://127.0.0.1:1234/"";
+      Future<Response> f = client.prepareGet(nonProxifiedTarget).execute();
+      try {
+        f.get(3, TimeUnit.SECONDS);
+        fail(""should not be able to connect"");
+      } catch (ExecutionException e) {
+        // ok, no proxy used
+      }
+    } finally {
+      System.setProperties(originalProps);
+    }
+    }
+",ProxyTest::Test_oe_101_oe
+async-http-client_205_101,"@Test_oe_101_oe(enabled = false)
+  public void testUseProxySelector() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient(config().setUseProxySelector(true))) {
+      String proxifiedTarget = ""http://127.0.0.1:1234/"";
+      Future<Response> f = client.prepareGet(proxifiedTarget).execute();
+      Response resp = f.get(3, TimeUnit.SECONDS);
+
+      String nonProxifiedTarget = ""http://localhost:1234/"";
+      f = client.prepareGet(nonProxifiedTarget).execute();
+      try {
+        f.get(3, TimeUnit.SECONDS);
+        fail(""should not be able to connect"");
+      } catch (ExecutionException e) {
+        // ok, no proxy used
+      }
+    } finally {
+      // FIXME not threadsafe
+      ProxySelector.setDefault(originalProxySelector);
+    }
+    }
+",ProxyTest::Test_oe_101_oe
+async-http-client_286_101,"@Test_oe_101_oe(expectedExceptions = TooManyConnectionsException.class)
+  public void multipleMaxConnectionOpenTest() throws Throwable {
+    try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
+      String body = ""hello there"";
+
+      // once
+      Response response = c.preparePost(getTargetUrl()).setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
+
+
+      // twice
+      Exception exception = null;
+      try {
+        c.preparePost(String.format(""http://localhost:%d/foo/test"", port2)).setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
+        fail(""Should throw exception. Too many connections issued."");
+      } catch (Exception ex) {
+        ex.printStackTrace();
+        exception = ex;
+      }
+      throw exception.getCause();
+    }
+    }
+",ConnectionPoolTest::Test_oe_101_oe
+async-http-client_288_101,"@Test
+  public void win7DisconnectTest_oe_101_oe() throws Exception {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      AsyncCompletionHandler<Response> handler = new AsyncCompletionHandlerAdapter() {
+
+        @Override
+        public Response onCompleted(Response response) throws Exception {
+
+          count.incrementAndGet();
+          StackTraceElement e = new StackTraceElement(""sun.nio.ch.SocketDispatcher"", ""read0"", null, -1);
+          IOException t = new IOException();
+          t.setStackTrace(new StackTraceElement[]{e});
+          throw t;
+        }
+      };
+
+      try {
+        client.prepareGet(getTargetUrl()).execute(handler).get();
+        fail(""Must have received an exception"");
+      } catch (ExecutionException ex) {
+      }
+    }
+    }
+",ConnectionPoolTest::win7DisconnectTest_oe_101_oe
+async-http-client_453_101,"@Test_oe_101_oe(expectedExceptions = IllegalStateException.class)
+  public void testCloseMasterInvalidDerived() throws Throwable {
+    try (SimpleAsyncHttpClient derived = client.derive().build()) {
+      client.close();
+
+      try {
+        derived.get().get();
+        fail(""Expected closed AHC"");
+      } catch (ExecutionException e) {
+        throw e.getCause();
+      }
+    }
+    }
+",SimpleAsyncHttpClientTest::Test_oe_101_oe

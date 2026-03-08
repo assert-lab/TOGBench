@@ -35,6 +35,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
     public void testPatternNullArgConstruction_2_oe() {
         try {
             new RegexFileFilter((Pattern) null);
+            // removed other assertion
         } catch (final IllegalArgumentException ex) {
             Assert.assertEquals(RegexFileFilter.PATTERN_IS_MISSING, ex.getMessage());
     }
@@ -55,6 +56,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         FileFilter filter;
 
         filter = new RegexFileFilter("^.*[tT]est(-\\d+)?\\.java$");
+        // removed other assertion
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test-10.java"))));
     }
 
@@ -64,6 +66,8 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         FileFilter filter;
 
         filter = new RegexFileFilter("^.*[tT]est(-\\d+)?\\.java$");
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test-.java"))));
     }
 
@@ -73,6 +77,9 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         FileFilter filter;
 
         filter = new RegexFileFilter("^.*[tT]est(-\\d+)?\\.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^[Tt]est.java$");
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test.java"))));
@@ -84,8 +91,12 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         FileFilter filter;
 
         filter = new RegexFileFilter("^.*[tT]est(-\\d+)?\\.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^[Tt]est.java$");
+        // removed other assertion
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.java"))));
     }
 
@@ -95,8 +106,13 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         FileFilter filter;
 
         filter = new RegexFileFilter("^.*[tT]est(-\\d+)?\\.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^[Tt]est.java$");
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("tEST.java"))));
     }
 
@@ -106,8 +122,14 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         FileFilter filter;
 
         filter = new RegexFileFilter("^.*[tT]est(-\\d+)?\\.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^[Tt]est.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter(Pattern.compile("^test.java$", Pattern.CASE_INSENSITIVE));
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test.java"))));
@@ -119,10 +141,17 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         FileFilter filter;
 
         filter = new RegexFileFilter("^.*[tT]est(-\\d+)?\\.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^[Tt]est.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter(Pattern.compile("^test.java$", Pattern.CASE_INSENSITIVE));
+        // removed other assertion
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.java"))));
     }
 
@@ -132,10 +161,18 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         FileFilter filter;
 
         filter = new RegexFileFilter("^.*[tT]est(-\\d+)?\\.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^[Tt]est.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter(Pattern.compile("^test.java$", Pattern.CASE_INSENSITIVE));
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("tEST.java"))));
     }
 
@@ -145,10 +182,19 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         FileFilter filter;
 
         filter = new RegexFileFilter("^.*[tT]est(-\\d+)?\\.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^[Tt]est.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter(Pattern.compile("^test.java$", Pattern.CASE_INSENSITIVE));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^test.java$", Pattern.CASE_INSENSITIVE);
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test.java"))));
@@ -160,12 +206,22 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         FileFilter filter;
 
         filter = new RegexFileFilter("^.*[tT]est(-\\d+)?\\.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^[Tt]est.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter(Pattern.compile("^test.java$", Pattern.CASE_INSENSITIVE));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^test.java$", Pattern.CASE_INSENSITIVE);
+        // removed other assertion
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.java"))));
     }
 
@@ -175,12 +231,23 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         FileFilter filter;
 
         filter = new RegexFileFilter("^.*[tT]est(-\\d+)?\\.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^[Tt]est.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter(Pattern.compile("^test.java$", Pattern.CASE_INSENSITIVE));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^test.java$", Pattern.CASE_INSENSITIVE);
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("tEST.java"))));
     }
 
@@ -190,12 +257,24 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         FileFilter filter;
 
         filter = new RegexFileFilter("^.*[tT]est(-\\d+)?\\.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^[Tt]est.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter(Pattern.compile("^test.java$", Pattern.CASE_INSENSITIVE));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^test.java$", Pattern.CASE_INSENSITIVE);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^test.java$", IOCase.INSENSITIVE);
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test.java"))));
@@ -207,14 +286,27 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         FileFilter filter;
 
         filter = new RegexFileFilter("^.*[tT]est(-\\d+)?\\.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^[Tt]est.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter(Pattern.compile("^test.java$", Pattern.CASE_INSENSITIVE));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^test.java$", Pattern.CASE_INSENSITIVE);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^test.java$", IOCase.INSENSITIVE);
+        // removed other assertion
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.java"))));
     }
 
@@ -224,14 +316,28 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         FileFilter filter;
 
         filter = new RegexFileFilter("^.*[tT]est(-\\d+)?\\.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^[Tt]est.java$");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter(Pattern.compile("^test.java$", Pattern.CASE_INSENSITIVE));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^test.java$", Pattern.CASE_INSENSITIVE);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         filter = new RegexFileFilter("^test.java$", IOCase.INSENSITIVE);
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("tEST.java"))));
     }
 
@@ -239,6 +345,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
     public void testStringIOCaseNullArgConstruction_2_oe() {
         try {
             new RegexFileFilter((String) null, IOCase.INSENSITIVE);
+            // removed other assertion
         } catch (final IllegalArgumentException ex) {
             Assert.assertEquals(RegexFileFilter.PATTERN_IS_MISSING, ex.getMessage());
     }
@@ -248,6 +355,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
     public void testStringNullArgConstruction_2_oe() {
         try {
             new RegexFileFilter((String) null);
+            // removed other assertion
         } catch (final IllegalArgumentException ex) {
             Assert.assertEquals(RegexFileFilter.PATTERN_IS_MISSING, ex.getMessage());
     }
@@ -257,6 +365,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
     public void testStringPatternNullArgConstruction_2_oe() {
         try {
             new RegexFileFilter((String) null, Pattern.CASE_INSENSITIVE);
+            // removed other assertion
         } catch (final IllegalArgumentException ex) {
             Assert.assertEquals(RegexFileFilter.PATTERN_IS_MISSING, ex.getMessage());
     }

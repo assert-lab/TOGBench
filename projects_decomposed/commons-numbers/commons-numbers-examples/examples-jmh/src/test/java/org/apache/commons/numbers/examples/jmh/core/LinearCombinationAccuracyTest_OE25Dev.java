@@ -213,8 +213,12 @@ class LinearCombinationAccuracyTest_OE25Dev {
     void testDotProduct_1_oe(ND fun, double passC, double failC) {
         final double[] x = new double[LENGTH];
         final double[] y = new double[LENGTH];
+        // Fixed seed to consistency
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 9283746);
 
+        // Use an average as the actual condition number of the generated dot product
+        // may not be the requested condition number. It will average out at the desired
+        // level and the pass/fail condition bounds should be suitably broad.
         double sum = 0;
         for (int i = 0; i < SAMPLES; i++) {
             final double expected = LinearCombinationUtils.genDot(passC, rng, x, y, null);
@@ -230,8 +234,12 @@ class LinearCombinationAccuracyTest_OE25Dev {
     void testDotProduct_2_oe(ND fun, double passC, double failC) {
         final double[] x = new double[LENGTH];
         final double[] y = new double[LENGTH];
+        // Fixed seed to consistency
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 9283746);
 
+        // Use an average as the actual condition number of the generated dot product
+        // may not be the requested condition number. It will average out at the desired
+        // level and the pass/fail condition bounds should be suitably broad.
         double sum = 0;
         for (int i = 0; i < SAMPLES; i++) {
             final double expected = LinearCombinationUtils.genDot(passC, rng, x, y, null);
@@ -239,6 +247,7 @@ class LinearCombinationAccuracyTest_OE25Dev {
             sum += relativeError(expected, observed);
         }
         final double error = sum / SAMPLES;
+        // removed other assertion
         if (failC < 0) {
             return;
         }

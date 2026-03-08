@@ -1,0 +1,97 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Asynchronous Http Client Project                                   [pom]
+[INFO] Asynchronous Http Client Bill of Materials (BOM)                   [pom]
+[INFO] Asynchronous Http Client Netty Utils                               [jar]
+[INFO] Asynchronous Http Client                                           [jar]
+[INFO] Asynchronous Http Client Extras Parent                             [pom]
+[INFO] Asynchronous Http Client Guava Extras                              [jar]
+[INFO] Asynchronous Http Client JDeferred Extras                          [jar]
+[INFO] Asynchronous Http Client Registry Extras                           [jar]
+[INFO] Asynchronous Http Client RxJava Extras                             [jar]
+[INFO] Asynchronous Http Client RxJava2 Extras                            [jar]
+[INFO] Asynchronous Http Simple Client                                    [jar]
+[INFO] Asynchronous Http Client Retrofit2 Extras                          [jar]
+[INFO] Asynchronous Http Client Typesafe Config Extras                    [jar]
+[INFO] Asynchronous Http Client Example                                   [jar]
+[INFO] 
+[INFO] -----------< org.asynchttpclient:async-http-client-project >------------
+[INFO] Building Asynchronous Http Client Project 2.12.3                  [1/14]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ async-http-client-project ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ async-http-client-project ---
+[INFO] 
+[INFO] -------------< org.asynchttpclient:async-http-client-bom >--------------
+[INFO] Building Asynchronous Http Client Bill of Materials (BOM) 2.12.3  [2/14]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ async-http-client-bom ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ async-http-client-bom ---
+[INFO] 
+[INFO] --- flatten-maven-plugin:1.1.0:flatten (flatten) @ async-http-client-bom ---
+[INFO] Generating flattened POM of project org.asynchttpclient:async-http-client-bom:pom:2.12.3...
+[INFO] 
+[INFO] ---------< org.asynchttpclient:async-http-client-netty-utils >----------
+[INFO] Building Asynchronous Http Client Netty Utils 2.12.3              [3/14]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ async-http-client-netty-utils ---
+[INFO] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/netty-utils/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ async-http-client-netty-utils ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ async-http-client-netty-utils ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/netty-utils/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.6.1:compile (default-compile) @ async-http-client-netty-utils ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/netty-utils/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ async-http-client-netty-utils ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/netty-utils/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.6.1:testCompile (default-testCompile) @ async-http-client-netty-utils ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/netty-utils/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ async-http-client-netty-utils ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Asynchronous Http Client Project 2.12.3:
+[INFO] 
+[INFO] Asynchronous Http Client Project ................... SUCCESS [  0.184 s]
+[INFO] Asynchronous Http Client Bill of Materials (BOM) ... SUCCESS [  0.086 s]
+[INFO] Asynchronous Http Client Netty Utils ............... FAILURE [  0.259 s]
+[INFO] Asynchronous Http Client ........................... SKIPPED
+[INFO] Asynchronous Http Client Extras Parent ............. SKIPPED
+[INFO] Asynchronous Http Client Guava Extras .............. SKIPPED
+[INFO] Asynchronous Http Client JDeferred Extras .......... SKIPPED
+[INFO] Asynchronous Http Client Registry Extras ........... SKIPPED
+[INFO] Asynchronous Http Client RxJava Extras ............. SKIPPED
+[INFO] Asynchronous Http Client RxJava2 Extras ............ SKIPPED
+[INFO] Asynchronous Http Simple Client .................... SKIPPED
+[INFO] Asynchronous Http Client Retrofit2 Extras .......... SKIPPED
+[INFO] Asynchronous Http Client Typesafe Config Extras .... SKIPPED
+[INFO] Asynchronous Http Client Example ................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.787 s
+[INFO] Finished at: 2026-03-03T21:32:02-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-netty-utils: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :async-http-client-netty-utils

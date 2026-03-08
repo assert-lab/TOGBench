@@ -36,6 +36,7 @@ public class VerifierArrayAccessTestCase_OE25Dev extends AbstractVerifierTestCas
 
     public void testInvalidArrayAccess_2_oe_1_oe() throws IOException {
         new TestArrayAccess03Creator().create();
+        // removed other assertion
         new TestArrayAccess04Creator().create();
                 final String classname0 = "TestArrayAccess04";
         final String message0 = "Verification of an arraystore instruction of an int on an array of references must fail.";
@@ -51,6 +52,7 @@ public class VerifierArrayAccessTestCase_OE25Dev extends AbstractVerifierTestCas
     }
 
     public void testValidArrayAccess_2_oe_1_oe() throws IOException {
+        // removed other assertion
         new TestArrayAccess02Creator().create();
                 final String classname0 = "TestArrayAccess02";
         final String message0 = "Verification of an arraystore instruction on an array that is not compatible with the stored element must pass.";

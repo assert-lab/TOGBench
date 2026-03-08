@@ -92,6 +92,7 @@ public class AsyncStreamLifecycleTest_OE25Dev extends AbstractBasicTest {
       final CountDownLatch latch = new CountDownLatch(1);
       ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
         public void onThrowable(Throwable t) {
+          // removed other assertion
           err.set(true);
         }
 
@@ -135,6 +136,7 @@ public class AsyncStreamLifecycleTest_OE25Dev extends AbstractBasicTest {
       final CountDownLatch latch = new CountDownLatch(1);
       ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
         public void onThrowable(Throwable t) {
+          // removed other assertion
           err.set(true);
         }
 
@@ -164,6 +166,7 @@ public class AsyncStreamLifecycleTest_OE25Dev extends AbstractBasicTest {
           return null;
         }
       });
+      // removed other assertion
       assertFalse(err.get());
   }
   }

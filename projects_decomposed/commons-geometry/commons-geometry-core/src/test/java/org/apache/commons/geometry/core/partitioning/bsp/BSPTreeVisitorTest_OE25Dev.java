@@ -129,8 +129,10 @@ class BSPTreeVisitorTest_OE25Dev {
 
     @Test
     void testDefaultVisitOrder_1_oe() {
+        // arrange
         final BSPTreeVisitor<TestPoint2D, TestNode> visitor = n -> BSPTreeVisitor.Result.CONTINUE;
 
+        // act/assert
         Assertions.assertEquals(BSPTreeVisitor.Order.NODE_MINUS_PLUS, visitor.visitOrder(null));
     }
 

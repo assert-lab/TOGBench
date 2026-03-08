@@ -109,6 +109,7 @@ public class TestConfigurationDeclaration_OE25Dev {
         final HierarchicalConfiguration<?> config = new BaseHierarchicalConfiguration();
         config.addProperty("xml.fileName", "test.xml");
         ConfigurationDeclaration decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
         assertFalse("Found an optional attribute", decl.isOptional());
     }
 
@@ -117,6 +118,8 @@ public class TestConfigurationDeclaration_OE25Dev {
         final HierarchicalConfiguration<?> config = new BaseHierarchicalConfiguration();
         config.addProperty("xml.fileName", "test.xml");
         ConfigurationDeclaration decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
+        // removed other assertion
         config.addProperty("xml[@config-at]", "test1");
         decl = createDeclaration(config.configurationAt("xml"));
         assertEquals("Wrong value of at attribute", "test1", decl.getAt());
@@ -127,8 +130,11 @@ public class TestConfigurationDeclaration_OE25Dev {
         final HierarchicalConfiguration<?> config = new BaseHierarchicalConfiguration();
         config.addProperty("xml.fileName", "test.xml");
         ConfigurationDeclaration decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
+        // removed other assertion
         config.addProperty("xml[@config-at]", "test1");
         decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
         config.addProperty("xml[@at]", "test2");
         decl = createDeclaration(config.configurationAt("xml"));
         assertEquals("Wrong value of config-at attribute", "test1", decl.getAt());
@@ -139,10 +145,14 @@ public class TestConfigurationDeclaration_OE25Dev {
         final HierarchicalConfiguration<?> config = new BaseHierarchicalConfiguration();
         config.addProperty("xml.fileName", "test.xml");
         ConfigurationDeclaration decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
+        // removed other assertion
         config.addProperty("xml[@config-at]", "test1");
         decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
         config.addProperty("xml[@at]", "test2");
         decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
         config.clearProperty("xml[@config-at]");
         decl = createDeclaration(config.configurationAt("xml"));
         assertEquals("Old at attribute not detected", "test2", decl.getAt());
@@ -153,12 +163,17 @@ public class TestConfigurationDeclaration_OE25Dev {
         final HierarchicalConfiguration<?> config = new BaseHierarchicalConfiguration();
         config.addProperty("xml.fileName", "test.xml");
         ConfigurationDeclaration decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
+        // removed other assertion
         config.addProperty("xml[@config-at]", "test1");
         decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
         config.addProperty("xml[@at]", "test2");
         decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
         config.clearProperty("xml[@config-at]");
         decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
         config.addProperty("xml[@config-optional]", "true");
         decl = createDeclaration(config.configurationAt("xml"));
         assertTrue("Wrong value of optional attribute", decl.isOptional());
@@ -169,14 +184,20 @@ public class TestConfigurationDeclaration_OE25Dev {
         final HierarchicalConfiguration<?> config = new BaseHierarchicalConfiguration();
         config.addProperty("xml.fileName", "test.xml");
         ConfigurationDeclaration decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
+        // removed other assertion
         config.addProperty("xml[@config-at]", "test1");
         decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
         config.addProperty("xml[@at]", "test2");
         decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
         config.clearProperty("xml[@config-at]");
         decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
         config.addProperty("xml[@config-optional]", "true");
         decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
         config.addProperty("xml[@optional]", "false");
         decl = createDeclaration(config.configurationAt("xml"));
         assertTrue("Wrong value of config-optional attribute", decl.isOptional());
@@ -187,16 +208,23 @@ public class TestConfigurationDeclaration_OE25Dev {
         final HierarchicalConfiguration<?> config = new BaseHierarchicalConfiguration();
         config.addProperty("xml.fileName", "test.xml");
         ConfigurationDeclaration decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
+        // removed other assertion
         config.addProperty("xml[@config-at]", "test1");
         decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
         config.addProperty("xml[@at]", "test2");
         decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
         config.clearProperty("xml[@config-at]");
         decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
         config.addProperty("xml[@config-optional]", "true");
         decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
         config.addProperty("xml[@optional]", "false");
         decl = createDeclaration(config.configurationAt("xml"));
+        // removed other assertion
         config.clearProperty("xml[@config-optional]");
         config.setProperty("xml[@optional]", Boolean.TRUE);
         decl = createDeclaration(config.configurationAt("xml"));
@@ -212,18 +240,24 @@ public class TestConfigurationDeclaration_OE25Dev {
     @Test
     public void testConfigurationDeclarationIsReserved_2_oe() {
         final ConfigurationDeclaration decl = createDeclaration(null);
+        // removed other assertion
         assertTrue("Attribute optional not recognized", decl.isReservedAttributeName("optional"));
     }
 
     @Test
     public void testConfigurationDeclarationIsReserved_3_oe() {
         final ConfigurationDeclaration decl = createDeclaration(null);
+        // removed other assertion
+        // removed other assertion
         assertTrue("Inherited attribute not recognized", decl.isReservedAttributeName("config-class"));
     }
 
     @Test
     public void testConfigurationDeclarationIsReserved_4_oe() {
         final ConfigurationDeclaration decl = createDeclaration(null);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Wrong reserved attribute", decl.isReservedAttributeName("different"));
     }
 

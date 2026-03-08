@@ -204,8 +204,12 @@ public class TiffAlphaRoundTripTest_OE25Dev {
             int iSample = samples[index];
             int iArgb   = argb[index];
             if (iExtra == 0) {
+                // when extra samples is zero, the alpha channel is ignored.
+                // We expect ARGB to start with 0xff.  So we OR in 0xff for
+                // the alpha value of the sample
                 iSample |= 0xff000000;
             } else if (iExtra==1) {
+                // The pre-multiply alpha case
                 iSample = 0x89de0000;
             }
             String p = String.format("%08x", iSample);

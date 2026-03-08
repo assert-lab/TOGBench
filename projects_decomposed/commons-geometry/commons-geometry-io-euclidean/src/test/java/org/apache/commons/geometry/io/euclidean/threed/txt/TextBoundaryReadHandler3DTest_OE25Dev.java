@@ -45,20 +45,26 @@ class TextBoundaryReadHandler3DTest_OE25Dev {
 
     @Test
     void testProperties_1_oe() {
+        // act/assert
         Assertions.assertEquals(GeometryFormat3D.TXT, handler.getFormat());
     }
 
     @Test
     void testProperties_2_oe() {
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(StandardCharsets.UTF_8, handler.getDefaultCharset());
     }
 
     @Test
     void testFacetDefinitionReader_1_oe() {
+        // arrange
         final InputStream in = input("0 0 0; 1 1 0; 0 1 0", StandardCharsets.UTF_8);
 
+        // act
         final FacetDefinitionReader reader = handler.facetDefinitionReader(new StreamGeometryInput(in));
 
+        // assert
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
         Assertions.assertEquals(1, facets.size());
@@ -66,10 +72,13 @@ class TextBoundaryReadHandler3DTest_OE25Dev {
 
     @Test
     void testFacetDefinitionReader_usesInputCharset_1_oe() {
+        // arrange
         final InputStream in = input("0 0 0; 1 1 0; 0 1 0", StandardCharsets.UTF_16);
 
+        // act
         final FacetDefinitionReader reader = handler.facetDefinitionReader(new StreamGeometryInput(in, null, StandardCharsets.UTF_16));
 
+        // assert
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
         Assertions.assertEquals(1, facets.size());
@@ -77,11 +86,14 @@ class TextBoundaryReadHandler3DTest_OE25Dev {
 
     @Test
     void testFacetDefinitionReader_setDefaultCharset_1_oe() {
+        // arrange
         handler.setDefaultCharset(StandardCharsets.UTF_16);
         final InputStream in = input("0 0 0; 1 1 0; 0 1 0", StandardCharsets.UTF_16);
 
+        // act
         final FacetDefinitionReader reader = handler.facetDefinitionReader(new StreamGeometryInput(in));
 
+        // assert
         final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
         Assertions.assertEquals(1, facets.size());
@@ -89,8 +101,10 @@ class TextBoundaryReadHandler3DTest_OE25Dev {
 
     @Test
     void testFacetDefinitionReader_close_1_oe() {
+        // arrange
         final CloseCountInputStream in = new CloseCountInputStream(input("", StandardCharsets.UTF_8));
 
+        // act/assert
         try (FacetDefinitionReader reader = handler.facetDefinitionReader(new StreamGeometryInput(in))) {
             Assertions.assertEquals(0, in.getCloseCount());
     }
@@ -98,9 +112,12 @@ class TextBoundaryReadHandler3DTest_OE25Dev {
 
     @Test
     void testFacetDefinitionReader_close_2_oe() {
+        // arrange
         final CloseCountInputStream in = new CloseCountInputStream(input("", StandardCharsets.UTF_8));
 
+        // act/assert
         try (FacetDefinitionReader reader = handler.facetDefinitionReader(new StreamGeometryInput(in))) {
+            // removed other assertion
         }
 
         Assertions.assertEquals(1, in.getCloseCount());

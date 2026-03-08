@@ -74,6 +74,7 @@ class SamplerBaseTest_OE25Dev {
          SimpleSampler sampler = new SimpleSampler(rng2);
          int n = 256;
         for (int i = 0; i < 3; i++) {
+            // removed other assertion
             Assertions.assertEquals(rng1.nextInt(), sampler.nextInt());
     }
     }
@@ -85,6 +86,8 @@ class SamplerBaseTest_OE25Dev {
          SimpleSampler sampler = new SimpleSampler(rng2);
          int n = 256;
         for (int i = 0; i < 3; i++) {
+            // removed other assertion
+            // removed other assertion
             Assertions.assertEquals(rng1.nextInt(n), sampler.nextInt(n));
     }
     }
@@ -96,6 +99,9 @@ class SamplerBaseTest_OE25Dev {
          SimpleSampler sampler = new SimpleSampler(rng2);
          int n = 256;
         for (int i = 0; i < 3; i++) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             Assertions.assertEquals(rng1.nextLong(), sampler.nextLong());
     }
     }

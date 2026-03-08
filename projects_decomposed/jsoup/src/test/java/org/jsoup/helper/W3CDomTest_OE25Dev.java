@@ -87,6 +87,7 @@ public class W3CDomTest_OE25Dev {
         W3CDom w3c = new W3CDom();
         Document wDoc = w3c.fromJsoup(doc);
         NodeList meta = wDoc.getElementsByTagName("META");
+        // removed other assertion
 
         String out = W3CDom.asString(wDoc, W3CDom.OutputXml());
         String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><html><head><title>W3c</title></head><body><p class=\"one\" id=\"12\">Text</p><!-- comment --><invalid>What<script>alert('!')</script></invalid></body></html>";
@@ -101,9 +102,11 @@ public class W3CDomTest_OE25Dev {
         W3CDom w3c = new W3CDom();
         Document wDoc = w3c.fromJsoup(doc);
         NodeList meta = wDoc.getElementsByTagName("META");
+        // removed other assertion
 
         String out = W3CDom.asString(wDoc, W3CDom.OutputXml());
         String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><html><head><title>W3c</title></head><body><p class=\"one\" id=\"12\">Text</p><!-- comment --><invalid>What<script>alert('!')</script></invalid></body></html>";
+        // removed other assertion
 
         Document roundTrip = parseXml(out, true);
         assertEquals("Text", roundTrip.getElementsByTagName("p").item(0).getTextContent());
@@ -117,12 +120,16 @@ public class W3CDomTest_OE25Dev {
         W3CDom w3c = new W3CDom();
         Document wDoc = w3c.fromJsoup(doc);
         NodeList meta = wDoc.getElementsByTagName("META");
+        // removed other assertion
 
         String out = W3CDom.asString(wDoc, W3CDom.OutputXml());
         String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><html><head><title>W3c</title></head><body><p class=\"one\" id=\"12\">Text</p><!-- comment --><invalid>What<script>alert('!')</script></invalid></body></html>";
+        // removed other assertion
 
         Document roundTrip = parseXml(out, true);
+        // removed other assertion
 
+        // check we can set properties
         Map<String, String> properties = W3CDom.OutputXml();
         properties.put(OutputKeys.INDENT, "yes");
         String furtherOut = W3CDom.asString(wDoc, properties);
@@ -137,15 +144,20 @@ public class W3CDomTest_OE25Dev {
         W3CDom w3c = new W3CDom();
         Document wDoc = w3c.fromJsoup(doc);
         NodeList meta = wDoc.getElementsByTagName("META");
+        // removed other assertion
 
         String out = W3CDom.asString(wDoc, W3CDom.OutputXml());
         String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><html><head><title>W3c</title></head><body><p class=\"one\" id=\"12\">Text</p><!-- comment --><invalid>What<script>alert('!')</script></invalid></body></html>";
+        // removed other assertion
 
         Document roundTrip = parseXml(out, true);
+        // removed other assertion
 
+        // check we can set properties
         Map<String, String> properties = W3CDom.OutputXml();
         properties.put(OutputKeys.INDENT, "yes");
         String furtherOut = W3CDom.asString(wDoc, properties);
+        // removed other assertion
         String furtherExpected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><html><head><title>W3c</title></head><body><p class=\"one\" id=\"12\">Text</p><!-- comment --><invalid>What<script>alert('!')</script></invalid></body></html>";
         assertEquals(furtherExpected, TextUtil.stripNewlines(furtherOut)); // on windows, DOM will write newlines as \r\n;
     }
@@ -169,6 +181,7 @@ public class W3CDomTest_OE25Dev {
         W3CDom w3c = new W3CDom();
         Document wDoc = w3c.fromJsoup(doc);
         Node htmlEl = wDoc.getChildNodes().item(1);
+        // removed other assertion
         assertEquals("html", htmlEl.getLocalName());
     }
 
@@ -180,6 +193,8 @@ public class W3CDomTest_OE25Dev {
         W3CDom w3c = new W3CDom();
         Document wDoc = w3c.fromJsoup(doc);
         Node htmlEl = wDoc.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
         assertEquals("html", htmlEl.getNodeName());
     }
 
@@ -191,6 +206,9 @@ public class W3CDomTest_OE25Dev {
         W3CDom w3c = new W3CDom();
         Document wDoc = w3c.fromJsoup(doc);
         Node htmlEl = wDoc.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         DocumentType doctype = wDoc.getDoctype();
         Node doctypeNode = wDoc.getChildNodes().item(0);
@@ -205,9 +223,13 @@ public class W3CDomTest_OE25Dev {
         W3CDom w3c = new W3CDom();
         Document wDoc = w3c.fromJsoup(doc);
         Node htmlEl = wDoc.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         DocumentType doctype = wDoc.getDoctype();
         Node doctypeNode = wDoc.getChildNodes().item(0);
+        // removed other assertion
         assertEquals("html", doctype.getName());
     }
 
@@ -219,9 +241,14 @@ public class W3CDomTest_OE25Dev {
         W3CDom w3c = new W3CDom();
         Document wDoc = w3c.fromJsoup(doc);
         Node htmlEl = wDoc.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         DocumentType doctype = wDoc.getDoctype();
         Node doctypeNode = wDoc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
 
         String xml = W3CDom.asString(wDoc, W3CDom.OutputXml());
         assertTrue(xml.contains("ipod"));
@@ -235,11 +262,17 @@ public class W3CDomTest_OE25Dev {
         W3CDom w3c = new W3CDom();
         Document wDoc = w3c.fromJsoup(doc);
         Node htmlEl = wDoc.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         DocumentType doctype = wDoc.getDoctype();
         Node doctypeNode = wDoc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
 
         String xml = W3CDom.asString(wDoc, W3CDom.OutputXml());
+        // removed other assertion
 
         Document roundTrip = parseXml(xml, true);
         assertEquals("Images", roundTrip.getElementsByTagName("a").item(0).getTextContent());
@@ -282,6 +315,7 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
         assertEquals("html", htmlEl.getLocalName());
     }
 
@@ -296,6 +330,8 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
         assertEquals("html", htmlEl.getNodeName());
     }
 
@@ -310,7 +346,11 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
         assertEquals("http://www.w3.org/1999/xhtml", head.getNamespaceURI());
     }
@@ -326,8 +366,13 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
         assertEquals("head", head.getLocalName());
     }
 
@@ -342,8 +387,14 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
         assertEquals("head", head.getNodeName());
     }
 
@@ -358,8 +409,15 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
         assertEquals("Check", epubTitle.getTextContent());
@@ -376,10 +434,18 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
         assertEquals("http://www.idpf.org/2007/ops", epubTitle.getNamespaceURI());
     }
 
@@ -394,10 +460,19 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
         assertEquals("title", epubTitle.getLocalName());
     }
 
@@ -412,10 +487,20 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("epub:title", epubTitle.getNodeName());
     }
 
@@ -430,10 +515,21 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
         assertEquals("urn:test", xSection.getNamespaceURI());
@@ -450,12 +546,24 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
         assertEquals("section", xSection.getLocalName());
     }
 
@@ -470,12 +578,25 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
         assertEquals("x:section", xSection.getNodeName());
     }
 
@@ -490,13 +611,29 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
         Node svg = xSection.getNextSibling().getNextSibling();
         assertEquals("http://www.w3.org/2000/svg", svg.getNamespaceURI());
     }
@@ -512,14 +649,31 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
         Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
         assertEquals("svg", svg.getLocalName());
     }
 
@@ -534,14 +688,32 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
         Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
         assertEquals("svg", svg.getNodeName());
     }
 
@@ -556,14 +728,33 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
         Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node path = svg.getChildNodes().item(1);
         assertEquals("http://www.w3.org/2000/svg", path.getNamespaceURI());
@@ -580,16 +771,36 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
         Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node path = svg.getChildNodes().item(1);
+        // removed other assertion
         assertEquals("path", path.getLocalName());
     }
 
@@ -604,16 +815,37 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
         Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
         assertEquals("path", path.getNodeName());
     }
 
@@ -628,16 +860,38 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
         Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node clip = path.getChildNodes().item(1);
         assertEquals("http://example.com/clip", clip.getNamespaceURI());
@@ -654,18 +908,41 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
         Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node clip = path.getChildNodes().item(1);
+        // removed other assertion
         assertEquals("clip", clip.getLocalName());
     }
 
@@ -680,18 +957,42 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
         Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
         assertEquals("clip", clip.getNodeName());
     }
 
@@ -706,18 +1007,43 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
         Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("456", clip.getTextContent());
     }
 
@@ -732,18 +1058,44 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
         Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node picture = svg.getNextSibling().getNextSibling();
         assertEquals("http://www.w3.org/1999/xhtml", picture.getNamespaceURI());
@@ -760,20 +1112,47 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
         Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node picture = svg.getNextSibling().getNextSibling();
+        // removed other assertion
         assertEquals("picture", picture.getLocalName());
     }
 
@@ -788,20 +1167,48 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
         Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node picture = svg.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
         assertEquals("picture", picture.getNodeName());
     }
 
@@ -816,20 +1223,49 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
         Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node picture = svg.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node img = picture.getFirstChild();
         assertEquals("http://www.w3.org/1999/xhtml", img.getNamespaceURI());
@@ -846,22 +1282,52 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
         Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node picture = svg.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node img = picture.getFirstChild();
+        // removed other assertion
         assertEquals("img", img.getLocalName());
     }
 
@@ -876,22 +1342,53 @@ public class W3CDomTest_OE25Dev {
         doc = jDom.fromJsoup(jsoupDoc);
 
         Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // inherits default namespace
         Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
         Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node picture = svg.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node img = picture.getFirstChild();
+        // removed other assertion
+        // removed other assertion
         assertEquals("img", img.getNodeName());
     }
 
@@ -910,6 +1407,7 @@ public class W3CDomTest_OE25Dev {
         org.jsoup.nodes.Document jsoupDoc;
         jsoupDoc = Jsoup.parse(html);
         Element body = jsoupDoc.select("body").first();
+        // removed other assertion
 
         Document w3Doc = W3CDom.convert(jsoupDoc);
         String xml = W3CDom.asString(w3Doc, W3CDom.OutputXml());
@@ -969,6 +1467,7 @@ public class W3CDomTest_OE25Dev {
         Document w3Doc = new W3CDom().fromJsoup(doc);
         Node htmlEl = w3Doc.getFirstChild();
 
+        // removed other assertion
         assertEquals("html", htmlEl.getLocalName());
     }
 
@@ -980,6 +1479,8 @@ public class W3CDomTest_OE25Dev {
         Document w3Doc = new W3CDom().fromJsoup(doc);
         Node htmlEl = w3Doc.getFirstChild();
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("html", htmlEl.getNodeName());
     }
 
@@ -991,6 +1492,9 @@ public class W3CDomTest_OE25Dev {
         Document w3Doc = new W3CDom().fromJsoup(doc);
         Node htmlEl = w3Doc.getFirstChild();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node fb = htmlEl.getFirstChild().getNextSibling().getFirstChild();
         assertNull(fb.getNamespaceURI());
@@ -1004,8 +1508,12 @@ public class W3CDomTest_OE25Dev {
         Document w3Doc = new W3CDom().fromJsoup(doc);
         Node htmlEl = w3Doc.getFirstChild();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node fb = htmlEl.getFirstChild().getNextSibling().getFirstChild();
+        // removed other assertion
         assertEquals("like", fb.getLocalName());
     }
 
@@ -1017,8 +1525,13 @@ public class W3CDomTest_OE25Dev {
         Document w3Doc = new W3CDom().fromJsoup(doc);
         Node htmlEl = w3Doc.getFirstChild();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Node fb = htmlEl.getFirstChild().getNextSibling().getFirstChild();
+        // removed other assertion
+        // removed other assertion
         assertEquals("fb:like", fb.getNodeName());
     }
 
@@ -1037,7 +1550,9 @@ public class W3CDomTest_OE25Dev {
         String html = "<html><body><div>hello</div></body></html>";
         Document dom = w3c.fromJsoup(Jsoup.parse(html));
         NodeList nodeList = xpath(dom, "//body");// no ns, so needs no prefix
+        // removed other assertion
 
+        // default output is namespace aware, so query needs to be as well
         html = "<html xmlns='http://www.w3.org/1999/xhtml'><body id='One'><div>hello</div></body></html>";
         dom = w3c.fromJsoup(Jsoup.parse(html));
         nodeList = xpath(dom, "//body");
@@ -1053,6 +1568,7 @@ public class W3CDomTest_OE25Dev {
 @Test
     void canDisableNamespaces_2_oe() throws XPathExpressionException {
         W3CDom w3c = new W3CDom();
+        // removed other assertion
 
         w3c.namespaceAware(false);
         assertFalse(w3c.namespaceAware());
@@ -1061,8 +1577,10 @@ public class W3CDomTest_OE25Dev {
 @Test
     void canDisableNamespaces_3_oe() throws XPathExpressionException {
         W3CDom w3c = new W3CDom();
+        // removed other assertion
 
         w3c.namespaceAware(false);
+        // removed other assertion
 
         String html = "<html xmlns='http://www.w3.org/1999/xhtml'><body id='One'><div>hello</div></body></html>";
         Document dom = w3c.fromJsoup(Jsoup.parse(html));
@@ -1072,19 +1590,28 @@ public class W3CDomTest_OE25Dev {
 
 @Test
     public void testRoundTripDoctype_1_oe() {
+        // TODO - not super happy with this output - but plain DOM doesn't let it out, and don't want to rebuild the writer
+        // because we have Saxon on the test classpath, the transformer will change to that, and so case may change (e.g. Java base in META, Saxon is meta for HTML)
         String base = "<!DOCTYPE html><p>One</p>";
         assertEqualsIgnoreCase("<!DOCTYPE html SYSTEM \"about:legacy-compat\"><html><head><META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head><body><p>One</p></body></html>", output(base, true));
     }
 
 @Test
     public void testRoundTripDoctype_2_oe() {
+        // TODO - not super happy with this output - but plain DOM doesn't let it out, and don't want to rebuild the writer
+        // because we have Saxon on the test classpath, the transformer will change to that, and so case may change (e.g. Java base in META, Saxon is meta for HTML)
         String base = "<!DOCTYPE html><p>One</p>";
+        // removed other assertion
         assertEqualsIgnoreCase("<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE html SYSTEM \"about:legacy-compat\"><html><head/><body><p>One</p></body></html>", output(base, false));
     }
 
 @Test
     public void testRoundTripDoctype_3_oe() {
+        // TODO - not super happy with this output - but plain DOM doesn't let it out, and don't want to rebuild the writer
+        // because we have Saxon on the test classpath, the transformer will change to that, and so case may change (e.g. Java base in META, Saxon is meta for HTML)
         String base = "<!DOCTYPE html><p>One</p>";
+        // removed other assertion
+        // removed other assertion
 
         String publicDoc = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
         assertEqualsIgnoreCase("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html><head><META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head><body></body></html>", output(publicDoc, true));
@@ -1092,17 +1619,30 @@ public class W3CDomTest_OE25Dev {
 
 @Test
     public void testRoundTripDoctype_4_oe() {
+        // TODO - not super happy with this output - but plain DOM doesn't let it out, and don't want to rebuild the writer
+        // because we have Saxon on the test classpath, the transformer will change to that, and so case may change (e.g. Java base in META, Saxon is meta for HTML)
         String base = "<!DOCTYPE html><p>One</p>";
+        // removed other assertion
+        // removed other assertion
 
         String publicDoc = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+        // removed other assertion
+        // different impls will have different XML formatting. OpenJDK 13 default gives this: <body /> but others have <body/>, so just check start
         assertTrue(output(publicDoc, false).startsWith("<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE html PUBLIC"));
     }
 
 @Test
     public void testRoundTripDoctype_5_oe() {
+        // TODO - not super happy with this output - but plain DOM doesn't let it out, and don't want to rebuild the writer
+        // because we have Saxon on the test classpath, the transformer will change to that, and so case may change (e.g. Java base in META, Saxon is meta for HTML)
         String base = "<!DOCTYPE html><p>One</p>";
+        // removed other assertion
+        // removed other assertion
 
         String publicDoc = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+        // removed other assertion
+        // different impls will have different XML formatting. OpenJDK 13 default gives this: <body /> but others have <body/>, so just check start
+        // removed other assertion
 
         String systemDoc = "<!DOCTYPE html SYSTEM \"exampledtdfile.dtd\">";
         assertEqualsIgnoreCase("<!DOCTYPE html SYSTEM \"exampledtdfile.dtd\"><html><head><META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head><body></body></html>", output(systemDoc, true));
@@ -1110,21 +1650,38 @@ public class W3CDomTest_OE25Dev {
 
 @Test
     public void testRoundTripDoctype_6_oe() {
+        // TODO - not super happy with this output - but plain DOM doesn't let it out, and don't want to rebuild the writer
+        // because we have Saxon on the test classpath, the transformer will change to that, and so case may change (e.g. Java base in META, Saxon is meta for HTML)
         String base = "<!DOCTYPE html><p>One</p>";
+        // removed other assertion
+        // removed other assertion
 
         String publicDoc = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+        // removed other assertion
+        // different impls will have different XML formatting. OpenJDK 13 default gives this: <body /> but others have <body/>, so just check start
+        // removed other assertion
 
         String systemDoc = "<!DOCTYPE html SYSTEM \"exampledtdfile.dtd\">";
+        // removed other assertion
         assertEqualsIgnoreCase("<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE html SYSTEM \"exampledtdfile.dtd\"><html><head/><body/></html>", output(systemDoc, false));
     }
 
 @Test
     public void testRoundTripDoctype_7_oe() {
+        // TODO - not super happy with this output - but plain DOM doesn't let it out, and don't want to rebuild the writer
+        // because we have Saxon on the test classpath, the transformer will change to that, and so case may change (e.g. Java base in META, Saxon is meta for HTML)
         String base = "<!DOCTYPE html><p>One</p>";
+        // removed other assertion
+        // removed other assertion
 
         String publicDoc = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+        // removed other assertion
+        // different impls will have different XML formatting. OpenJDK 13 default gives this: <body /> but others have <body/>, so just check start
+        // removed other assertion
 
         String systemDoc = "<!DOCTYPE html SYSTEM \"exampledtdfile.dtd\">";
+        // removed other assertion
+        // removed other assertion
 
         String legacyDoc = "<!DOCTYPE html SYSTEM \"about:legacy-compat\">";
         assertEqualsIgnoreCase("<!DOCTYPE html SYSTEM \"about:legacy-compat\"><html><head><META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head><body></body></html>", output(legacyDoc, true));
@@ -1132,25 +1689,46 @@ public class W3CDomTest_OE25Dev {
 
 @Test
     public void testRoundTripDoctype_8_oe() {
+        // TODO - not super happy with this output - but plain DOM doesn't let it out, and don't want to rebuild the writer
+        // because we have Saxon on the test classpath, the transformer will change to that, and so case may change (e.g. Java base in META, Saxon is meta for HTML)
         String base = "<!DOCTYPE html><p>One</p>";
+        // removed other assertion
+        // removed other assertion
 
         String publicDoc = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+        // removed other assertion
+        // different impls will have different XML formatting. OpenJDK 13 default gives this: <body /> but others have <body/>, so just check start
+        // removed other assertion
 
         String systemDoc = "<!DOCTYPE html SYSTEM \"exampledtdfile.dtd\">";
+        // removed other assertion
+        // removed other assertion
 
         String legacyDoc = "<!DOCTYPE html SYSTEM \"about:legacy-compat\">";
+        // removed other assertion
         assertEqualsIgnoreCase("<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE html SYSTEM \"about:legacy-compat\"><html><head/><body/></html>", output(legacyDoc, false));
     }
 
 @Test
     public void testRoundTripDoctype_9_oe() {
+        // TODO - not super happy with this output - but plain DOM doesn't let it out, and don't want to rebuild the writer
+        // because we have Saxon on the test classpath, the transformer will change to that, and so case may change (e.g. Java base in META, Saxon is meta for HTML)
         String base = "<!DOCTYPE html><p>One</p>";
+        // removed other assertion
+        // removed other assertion
 
         String publicDoc = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+        // removed other assertion
+        // different impls will have different XML formatting. OpenJDK 13 default gives this: <body /> but others have <body/>, so just check start
+        // removed other assertion
 
         String systemDoc = "<!DOCTYPE html SYSTEM \"exampledtdfile.dtd\">";
+        // removed other assertion
+        // removed other assertion
 
         String legacyDoc = "<!DOCTYPE html SYSTEM \"about:legacy-compat\">";
+        // removed other assertion
+        // removed other assertion
 
         String noDoctype = "<p>One</p>";
         assertEqualsIgnoreCase("<html><head><META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head><body><p>One</p></body></html>", output(noDoctype, true));
@@ -1158,15 +1736,27 @@ public class W3CDomTest_OE25Dev {
 
 @Test
     public void testRoundTripDoctype_10_oe() {
+        // TODO - not super happy with this output - but plain DOM doesn't let it out, and don't want to rebuild the writer
+        // because we have Saxon on the test classpath, the transformer will change to that, and so case may change (e.g. Java base in META, Saxon is meta for HTML)
         String base = "<!DOCTYPE html><p>One</p>";
+        // removed other assertion
+        // removed other assertion
 
         String publicDoc = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+        // removed other assertion
+        // different impls will have different XML formatting. OpenJDK 13 default gives this: <body /> but others have <body/>, so just check start
+        // removed other assertion
 
         String systemDoc = "<!DOCTYPE html SYSTEM \"exampledtdfile.dtd\">";
+        // removed other assertion
+        // removed other assertion
 
         String legacyDoc = "<!DOCTYPE html SYSTEM \"about:legacy-compat\">";
+        // removed other assertion
+        // removed other assertion
 
         String noDoctype = "<p>One</p>";
+        // removed other assertion
         assertEqualsIgnoreCase("<?xml version=\"1.0\" encoding=\"UTF-8\"?><html><head/><body><p>One</p></body></html>", output(noDoctype, false));
     }
 
@@ -1181,6 +1771,7 @@ public class W3CDomTest_OE25Dev {
         org.jsoup.nodes.Document jdoc = Jsoup.parse("<body><div><p>One</div><div><p>Two");
         W3CDom w3CDom = new W3CDom();
         Element jDiv = jdoc.selectFirst("div");
+        // removed other assertion
         Document doc = w3CDom.fromJsoup(jDiv);
         Node div = w3CDom.contextNode(doc);
 
@@ -1191,9 +1782,11 @@ public class W3CDomTest_OE25Dev {
         org.jsoup.nodes.Document jdoc = Jsoup.parse("<body><div><p>One</div><div><p>Two");
         W3CDom w3CDom = new W3CDom();
         Element jDiv = jdoc.selectFirst("div");
+        // removed other assertion
         Document doc = w3CDom.fromJsoup(jDiv);
         Node div = w3CDom.contextNode(doc);
 
+        // removed other assertion
         assertEquals(jDiv, div.getUserData(W3CDom.SourceProperty));
         }
 
@@ -1201,9 +1794,12 @@ public class W3CDomTest_OE25Dev {
         org.jsoup.nodes.Document jdoc = Jsoup.parse("<body><div><p>One</div><div><p>Two");
         W3CDom w3CDom = new W3CDom();
         Element jDiv = jdoc.selectFirst("div");
+        // removed other assertion
         Document doc = w3CDom.fromJsoup(jDiv);
         Node div = w3CDom.contextNode(doc);
 
+        // removed other assertion
+        // removed other assertion
 
         Node textNode = div.getFirstChild().getFirstChild();
         assertEquals("One", textNode.getTextContent());
@@ -1213,11 +1809,15 @@ public class W3CDomTest_OE25Dev {
         org.jsoup.nodes.Document jdoc = Jsoup.parse("<body><div><p>One</div><div><p>Two");
         W3CDom w3CDom = new W3CDom();
         Element jDiv = jdoc.selectFirst("div");
+        // removed other assertion
         Document doc = w3CDom.fromJsoup(jDiv);
         Node div = w3CDom.contextNode(doc);
 
+        // removed other assertion
+        // removed other assertion
 
         Node textNode = div.getFirstChild().getFirstChild();
+        // removed other assertion
         assertEquals(Node.TEXT_NODE, textNode.getNodeType());
         }
 
@@ -1225,11 +1825,16 @@ public class W3CDomTest_OE25Dev {
         org.jsoup.nodes.Document jdoc = Jsoup.parse("<body><div><p>One</div><div><p>Two");
         W3CDom w3CDom = new W3CDom();
         Element jDiv = jdoc.selectFirst("div");
+        // removed other assertion
         Document doc = w3CDom.fromJsoup(jDiv);
         Node div = w3CDom.contextNode(doc);
 
+        // removed other assertion
+        // removed other assertion
 
         Node textNode = div.getFirstChild().getFirstChild();
+        // removed other assertion
+        // removed other assertion
 
         org.jsoup.nodes.TextNode jText = (TextNode) jDiv.childNode(0).childNode(0);
         assertEquals(jText, textNode.getUserData(W3CDom.SourceProperty));

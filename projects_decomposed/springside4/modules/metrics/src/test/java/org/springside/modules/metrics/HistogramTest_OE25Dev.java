@@ -36,6 +36,7 @@ public class HistogramTest_OE25Dev {
 
 		HistogramMetric metric = histogram.calculateMetric();
 
+		// removed other assertion
 		assertThat(metric.max).isEqualTo(100);
 	}
 
@@ -49,6 +50,8 @@ public class HistogramTest_OE25Dev {
 
 		HistogramMetric metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.avg).isEqualTo(50.5);
 	}
 
@@ -62,6 +65,9 @@ public class HistogramTest_OE25Dev {
 
 		HistogramMetric metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.pcts.get(90d)).isEqualTo(90);
 	}
 
@@ -75,6 +81,10 @@ public class HistogramTest_OE25Dev {
 
 		HistogramMetric metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.pcts.get(95d)).isEqualTo(95);
 	}
 
@@ -88,6 +98,11 @@ public class HistogramTest_OE25Dev {
 
 		HistogramMetric metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		for (int i = 1; i <= 100; i++) {
 			histogram.update(i * 2);
@@ -108,6 +123,11 @@ public class HistogramTest_OE25Dev {
 
 		HistogramMetric metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		for (int i = 1; i <= 100; i++) {
 			histogram.update(i * 2);
@@ -115,6 +135,7 @@ public class HistogramTest_OE25Dev {
 
 		metric = histogram.calculateMetric();
 
+		// removed other assertion
 		assertThat(metric.max).isEqualTo(200);
 	}
 
@@ -128,6 +149,11 @@ public class HistogramTest_OE25Dev {
 
 		HistogramMetric metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		for (int i = 1; i <= 100; i++) {
 			histogram.update(i * 2);
@@ -135,6 +161,8 @@ public class HistogramTest_OE25Dev {
 
 		metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.avg).isEqualTo(101);
 	}
 
@@ -148,6 +176,11 @@ public class HistogramTest_OE25Dev {
 
 		HistogramMetric metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		for (int i = 1; i <= 100; i++) {
 			histogram.update(i * 2);
@@ -155,6 +188,9 @@ public class HistogramTest_OE25Dev {
 
 		metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.pcts.get(90d)).isEqualTo(180);
 	}
 
@@ -168,6 +204,11 @@ public class HistogramTest_OE25Dev {
 
 		HistogramMetric metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		for (int i = 1; i <= 100; i++) {
 			histogram.update(i * 2);
@@ -175,6 +216,10 @@ public class HistogramTest_OE25Dev {
 
 		metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.pcts.get(95d)).isEqualTo(190);
 	}
 
@@ -193,6 +238,7 @@ public class HistogramTest_OE25Dev {
 
 		histogram.update(1);
 		HistogramMetric metric = histogram.calculateMetric();
+		// removed other assertion
 		assertThat(metric.pcts.get(95d)).isEqualTo(1);
 	}
 
@@ -202,6 +248,8 @@ public class HistogramTest_OE25Dev {
 
 		histogram.update(1);
 		HistogramMetric metric = histogram.calculateMetric();
+		// removed other assertion
+		// removed other assertion
 
 		for (int i = 1; i <= 3; i++) {
 			histogram.update(i);
@@ -217,12 +265,15 @@ public class HistogramTest_OE25Dev {
 
 		histogram.update(1);
 		HistogramMetric metric = histogram.calculateMetric();
+		// removed other assertion
+		// removed other assertion
 
 		for (int i = 1; i <= 3; i++) {
 			histogram.update(i);
 		}
 		metric = histogram.calculateMetric();
 
+		// removed other assertion
 		assertThat(metric.max).isEqualTo(3);
 	}
 
@@ -232,12 +283,16 @@ public class HistogramTest_OE25Dev {
 
 		histogram.update(1);
 		HistogramMetric metric = histogram.calculateMetric();
+		// removed other assertion
+		// removed other assertion
 
 		for (int i = 1; i <= 3; i++) {
 			histogram.update(i);
 		}
 		metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.avg).isEqualTo(2);
 	}
 
@@ -247,12 +302,17 @@ public class HistogramTest_OE25Dev {
 
 		histogram.update(1);
 		HistogramMetric metric = histogram.calculateMetric();
+		// removed other assertion
+		// removed other assertion
 
 		for (int i = 1; i <= 3; i++) {
 			histogram.update(i);
 		}
 		metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.pcts.get(90d)).isEqualTo(3);
 	}
 
@@ -262,12 +322,18 @@ public class HistogramTest_OE25Dev {
 
 		histogram.update(1);
 		HistogramMetric metric = histogram.calculateMetric();
+		// removed other assertion
+		// removed other assertion
 
 		for (int i = 1; i <= 3; i++) {
 			histogram.update(i);
 		}
 		metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.pcts.get(95d)).isEqualTo(3);
 	}
 
@@ -286,6 +352,7 @@ public class HistogramTest_OE25Dev {
 
 		HistogramMetric metric = histogram.calculateMetric();
 
+		// removed other assertion
 		assertThat(metric.max).isZero();
 	}
 
@@ -295,6 +362,8 @@ public class HistogramTest_OE25Dev {
 
 		HistogramMetric metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.avg).isZero();
 	}
 
@@ -304,6 +373,9 @@ public class HistogramTest_OE25Dev {
 
 		HistogramMetric metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.pcts.get(90d)).isZero();
 	}
 
@@ -326,6 +398,7 @@ public class HistogramTest_OE25Dev {
 		}
 
 		HistogramMetric metric = histogram.calculateMetric();
+		// removed other assertion
 		assertThat(metric.pcts).isEmpty();
 	}
 
@@ -337,6 +410,8 @@ public class HistogramTest_OE25Dev {
 		}
 
 		HistogramMetric metric = histogram.calculateMetric();
+		// removed other assertion
+		// removed other assertion
 		assertThat(metric.pcts.get(90d)).isNull();
 	}
 

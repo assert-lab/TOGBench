@@ -39,11 +39,14 @@ public class StaticPrivateMethodsTest_OE25Dev {
 
     @Test
     public void testGet_2_oe() {
+        // removed other assertion
         assertEquals("bar-value", StaticPrivateMethods.get("bar"));
     }
 
     @Test
     public void testGet_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals("baz-value", StaticPrivateMethods.get("baz"));
     }
 

@@ -80,6 +80,7 @@ public class TestConfigurationLookup_OE25Dev {
         }
         final ConfigurationLookup lookup = new ConfigurationLookup(conf);
         final Collection<?> col = (Collection<?>) lookup.lookup(VAR);
+        // removed other assertion
         final Iterator<?> it = col.iterator();
         for (int i = 0; i < count; i++) {
             assertEquals("Wrong element at " + i, String.valueOf(VALUE) + i, it.next());

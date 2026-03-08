@@ -135,30 +135,38 @@ public class JDBCDiskCacheShrinkUnitTest_OE25Dev
 
         final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
+//        System.out.println( "BEFORE PUT \n" + jcs.getStats() );
 
+        // Add items to cache
 
         for ( int i = 0; i <= items; i++ )
         {
             jcs.put( i + ":key", region + " data " + i );
         }
 
+//        System.out.println( jcs.getStats() );
 
         SleepUtil.sleepAtLeast( 1000 );
 
+//        System.out.println( jcs.getStats() );
 
+        // Test that all items are in cache
 
         for ( int i = 0; i <= items; i++ )
         {
             final String value = jcs.get( i + ":key" );
 
+            // removed other assertion
         }
 
+        // Remove all the items
 
         for ( int i = 0; i <= items; i++ )
         {
             jcs.remove( i + ":key" );
         }
 
+        // Verify removal
 
         for ( int i = 0; i <= items; i++ )
         {
@@ -175,30 +183,38 @@ public class JDBCDiskCacheShrinkUnitTest_OE25Dev
 
         final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
+//        System.out.println( "BEFORE PUT \n" + jcs.getStats() );
 
+        // Add items to cache
 
         for ( int i = 0; i <= items; i++ )
         {
             jcs.put( i + ":key", region + " data " + i );
         }
 
+//        System.out.println( jcs.getStats() );
 
         SleepUtil.sleepAtLeast( 1000 );
 
+//        System.out.println( jcs.getStats() );
 
+        // Test that all items are in cache
 
         for ( int i = 0; i <= items; i++ )
         {
             final String value = jcs.get( i + ":key" );
 
+            // removed other assertion
         }
 
+        // Remove all the items
 
         for ( int i = 0; i <= items; i++ )
         {
             jcs.remove( i + ":key" );
         }
 
+        // Verify removal
 
         for ( int i = 0; i <= items; i++ )
         {

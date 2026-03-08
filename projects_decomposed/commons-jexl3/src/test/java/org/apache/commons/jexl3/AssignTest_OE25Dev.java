@@ -90,6 +90,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         final JexlExpression check = JEXL.createExpression("froboz.value");
         final JexlContext jc = new MapContext();
         Object o = assign.evaluate(jc);
+        // removed other assertion
         o = check.evaluate(jc);
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
@@ -109,6 +110,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         final JexlExpression check = JEXL.createExpression("froboz.0");
         final JexlContext jc = new MapContext();
         Object o = assign.evaluate(jc);
+        // removed other assertion
         o = check.evaluate(jc);
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
@@ -132,6 +134,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         final Froboz froboz = new Froboz(-169);
         jc.set("froboz", froboz);
         Object o = assign.evaluate(jc);
+        // removed other assertion
         o = check.evaluate(jc);
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
@@ -164,6 +167,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         }
         catch(final RuntimeException xrt) {
             final String str = xrt.toString();
+            // removed other assertion
         }
         finally {
             Assert.assertNull("Should have failed", o);
@@ -189,6 +193,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         final Froboz froboz = new Froboz(0);
         jc.set("froboz", froboz);
         Object o = assign.evaluate(jc);
+        // removed other assertion
         o = check.evaluate(jc);
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
@@ -222,6 +227,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         final JexlExpression check = JEXL.createExpression("quux[\"froboz\"].value");
 
         final Quux quux = (Quux) create.evaluate(jc);
+        // removed other assertion
         Object o = assign.evaluate(jc);
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
@@ -235,7 +241,9 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         final JexlExpression check = JEXL.createExpression("quux[\"froboz\"].value");
 
         final Quux quux = (Quux) create.evaluate(jc);
+        // removed other assertion
         Object o = assign.evaluate(jc);
+        // removed other assertion
         o = check.evaluate(jc);
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
@@ -249,6 +257,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
     @Test
     public void testUtil_2_oe() throws Exception {
         final Quux quux = JEXL.newInstance(Quux.class, "xuuq", Integer.valueOf(100));
+        // removed other assertion
         JEXL.setProperty(quux, "froboz.value", Integer.valueOf(100));
         Object o = JEXL.getProperty(quux, "froboz.value");
         Assert.assertEquals("Result is not 100", new Integer(100), o);
@@ -257,8 +266,10 @@ public class AssignTest_OE25Dev extends JexlTestCase {
     @Test
     public void testUtil_3_oe() throws Exception {
         final Quux quux = JEXL.newInstance(Quux.class, "xuuq", Integer.valueOf(100));
+        // removed other assertion
         JEXL.setProperty(quux, "froboz.value", Integer.valueOf(100));
         Object o = JEXL.getProperty(quux, "froboz.value");
+        // removed other assertion
         JEXL.setProperty(quux, "['froboz'].value", Integer.valueOf(1000));
         o = JEXL.getProperty(quux, "['froboz']['value']");
         Assert.assertEquals("Result is not 1000", new Integer(1000), o);
@@ -270,10 +281,12 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         JexlScript assign = JEXL.createScript("var quux = null; quux.froboz.value = 10");
         try {
             final Object o = assign.execute(jc);
+            // removed other assertion
         } catch (final JexlException xjexl) {
             final String x = xjexl.toString();
             final String y = x;
         }
+        // quux is a global antish var
         assign = JEXL.createScript("quux.froboz.value = 10");
         final Object o = assign.execute(jc);
         Assert.assertEquals(10, o);

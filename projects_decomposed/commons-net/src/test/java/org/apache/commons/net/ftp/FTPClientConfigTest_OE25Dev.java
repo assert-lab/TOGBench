@@ -60,26 +60,41 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
 
     public void testFTPClientConfigString_2_oe() {
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_VMS);
+        // removed other assertion
         assertNull(config.getDefaultDateFormatStr());
     }
 
     public void testFTPClientConfigString_3_oe() {
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_VMS);
+        // removed other assertion
+        // removed other assertion
         assertNull(config.getRecentDateFormatStr());
     }
 
     public void testFTPClientConfigString_4_oe() {
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_VMS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull(config.getShortMonthNames());
     }
 
     public void testFTPClientConfigString_5_oe() {
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_VMS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull(config.getServerTimeZoneId());
     }
 
     public void testFTPClientConfigString_6_oe() {
         final FTPClientConfig config = new FTPClientConfig(FTPClientConfig.SYST_VMS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull(config.getServerLanguageCode());
     }
 
@@ -92,30 +107,45 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
     public void testFTPClientConfigStringStringStringStringStringString_2_oe() {
         final FTPClientConfig conf = new FTPClientConfig(A,B,C,D,E,F);
 
+        // removed other assertion
         assertEquals("B", conf.getDefaultDateFormatStr());
     }
 
     public void testFTPClientConfigStringStringStringStringStringString_3_oe() {
         final FTPClientConfig conf = new FTPClientConfig(A,B,C,D,E,F);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("C", conf.getRecentDateFormatStr());
     }
 
     public void testFTPClientConfigStringStringStringStringStringString_4_oe() {
         final FTPClientConfig conf = new FTPClientConfig(A,B,C,D,E,F);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("E", conf.getShortMonthNames());
     }
 
     public void testFTPClientConfigStringStringStringStringStringString_5_oe() {
         final FTPClientConfig conf = new FTPClientConfig(A,B,C,D,E,F);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("F", conf.getServerTimeZoneId());
     }
 
     public void testFTPClientConfigStringStringStringStringStringString_6_oe() {
         final FTPClientConfig conf = new FTPClientConfig(A,B,C,D,E,F);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("D", conf.getServerLanguageCode());
     }
 
@@ -143,6 +173,7 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
         try {
             dfs1 = FTPClientConfig.lookupDateFormatSymbols("fr");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
@@ -162,11 +193,13 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
         try {
             dfs1 = FTPClientConfig.lookupDateFormatSymbols("fr");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
             dfs2 = FTPClientConfig.lookupDateFormatSymbols("sq");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
@@ -186,16 +219,19 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
         try {
             dfs1 = FTPClientConfig.lookupDateFormatSymbols("fr");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
             dfs2 = FTPClientConfig.lookupDateFormatSymbols("sq");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
             dfs3 = FTPClientConfig.lookupDateFormatSymbols("ru");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
         try {
             dfs4 = FTPClientConfig.lookupDateFormatSymbols(fakeLang);
@@ -214,20 +250,24 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
         try {
             dfs1 = FTPClientConfig.lookupDateFormatSymbols("fr");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
             dfs2 = FTPClientConfig.lookupDateFormatSymbols("sq");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
             dfs3 = FTPClientConfig.lookupDateFormatSymbols("ru");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
         try {
             dfs4 = FTPClientConfig.lookupDateFormatSymbols(fakeLang);
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         assertEquals(dfs3,dfs4);
@@ -243,22 +283,27 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
         try {
             dfs1 = FTPClientConfig.lookupDateFormatSymbols("fr");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
             dfs2 = FTPClientConfig.lookupDateFormatSymbols("sq");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
             dfs3 = FTPClientConfig.lookupDateFormatSymbols("ru");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
         try {
             dfs4 = FTPClientConfig.lookupDateFormatSymbols(fakeLang);
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
+        // removed other assertion
 
         final SimpleDateFormat sdf1 = new SimpleDateFormat("d MMM yyyy", dfs1);
         final SimpleDateFormat sdf2 = new SimpleDateFormat("MMM dd, yyyy", dfs2);
@@ -283,22 +328,27 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
         try {
             dfs1 = FTPClientConfig.lookupDateFormatSymbols("fr");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
             dfs2 = FTPClientConfig.lookupDateFormatSymbols("sq");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
             dfs3 = FTPClientConfig.lookupDateFormatSymbols("ru");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
         try {
             dfs4 = FTPClientConfig.lookupDateFormatSymbols(fakeLang);
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
+        // removed other assertion
 
         final SimpleDateFormat sdf1 = new SimpleDateFormat("d MMM yyyy", dfs1);
         final SimpleDateFormat sdf2 = new SimpleDateFormat("MMM dd, yyyy", dfs2);
@@ -309,6 +359,7 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
         try {
             d1 = sdf1.parse("31 d\u00e9c 2004");
         } catch (final ParseException px) {
+            // removed other assertion
         }
         try {
             d2 = sdf2.parse("dhj 31, 2004");
@@ -327,22 +378,27 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
         try {
             dfs1 = FTPClientConfig.lookupDateFormatSymbols("fr");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
             dfs2 = FTPClientConfig.lookupDateFormatSymbols("sq");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
             dfs3 = FTPClientConfig.lookupDateFormatSymbols("ru");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
         try {
             dfs4 = FTPClientConfig.lookupDateFormatSymbols(fakeLang);
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
+        // removed other assertion
 
         final SimpleDateFormat sdf1 = new SimpleDateFormat("d MMM yyyy", dfs1);
         final SimpleDateFormat sdf2 = new SimpleDateFormat("MMM dd, yyyy", dfs2);
@@ -353,10 +409,12 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
         try {
             d1 = sdf1.parse("31 d\u00e9c 2004");
         } catch (final ParseException px) {
+            // removed other assertion
         }
         try {
             d2 = sdf2.parse("dhj 31, 2004");
         } catch (final ParseException px) {
+            // removed other assertion
         }
         try {
             d3 = sdf3.parse("DEC 31, 2004");
@@ -375,22 +433,27 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
         try {
             dfs1 = FTPClientConfig.lookupDateFormatSymbols("fr");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
             dfs2 = FTPClientConfig.lookupDateFormatSymbols("sq");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
             dfs3 = FTPClientConfig.lookupDateFormatSymbols("ru");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
         try {
             dfs4 = FTPClientConfig.lookupDateFormatSymbols(fakeLang);
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
+        // removed other assertion
 
         final SimpleDateFormat sdf1 = new SimpleDateFormat("d MMM yyyy", dfs1);
         final SimpleDateFormat sdf2 = new SimpleDateFormat("MMM dd, yyyy", dfs2);
@@ -401,14 +464,17 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
         try {
             d1 = sdf1.parse("31 d\u00e9c 2004");
         } catch (final ParseException px) {
+            // removed other assertion
         }
         try {
             d2 = sdf2.parse("dhj 31, 2004");
         } catch (final ParseException px) {
+            // removed other assertion
         }
         try {
             d3 = sdf3.parse("DEC 31, 2004");
         } catch (final ParseException px) {
+            // removed other assertion
         }
         assertEquals("different.parser.same.date", d1, d2);
     }
@@ -423,22 +489,27 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
         try {
             dfs1 = FTPClientConfig.lookupDateFormatSymbols("fr");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
             dfs2 = FTPClientConfig.lookupDateFormatSymbols("sq");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
         try {
             dfs3 = FTPClientConfig.lookupDateFormatSymbols("ru");
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
         try {
             dfs4 = FTPClientConfig.lookupDateFormatSymbols(fakeLang);
         } catch (final IllegalArgumentException e){
+            // removed other assertion
         }
 
+        // removed other assertion
 
         final SimpleDateFormat sdf1 = new SimpleDateFormat("d MMM yyyy", dfs1);
         final SimpleDateFormat sdf2 = new SimpleDateFormat("MMM dd, yyyy", dfs2);
@@ -449,15 +520,19 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
         try {
             d1 = sdf1.parse("31 d\u00e9c 2004");
         } catch (final ParseException px) {
+            // removed other assertion
         }
         try {
             d2 = sdf2.parse("dhj 31, 2004");
         } catch (final ParseException px) {
+            // removed other assertion
         }
         try {
             d3 = sdf3.parse("DEC 31, 2004");
         } catch (final ParseException px) {
+            // removed other assertion
         }
+        // removed other assertion
         assertEquals("different.parser.same.date", d1, d3);
     }
 
@@ -465,15 +540,21 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
 
         try {
             FTPClientConfig.getDateFormatSymbols(badDelim);
+            // removed other assertion
         } catch (final IllegalArgumentException e){
+            // should have failed
         }
         try {
             FTPClientConfig.getDateFormatSymbols(tooLong);
+            // removed other assertion
         } catch (final IllegalArgumentException e){
+            // should have failed
         }
         try {
             FTPClientConfig.getDateFormatSymbols(tooShort);
+            // removed other assertion
         } catch (final IllegalArgumentException e){
+            // should have failed
         }
         DateFormatSymbols dfs2 = null;
         try {
@@ -487,20 +568,27 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
 
         try {
             FTPClientConfig.getDateFormatSymbols(badDelim);
+            // removed other assertion
         } catch (final IllegalArgumentException e){
+            // should have failed
         }
         try {
             FTPClientConfig.getDateFormatSymbols(tooLong);
+            // removed other assertion
         } catch (final IllegalArgumentException e){
+            // should have failed
         }
         try {
             FTPClientConfig.getDateFormatSymbols(tooShort);
+            // removed other assertion
         } catch (final IllegalArgumentException e){
+            // should have failed
         }
         DateFormatSymbols dfs2 = null;
         try {
             dfs2 = FTPClientConfig.getDateFormatSymbols(fakeLang);
         } catch (final Exception e){
+            // removed other assertion
         }
         final SimpleDateFormat sdf1 =
             new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH);
@@ -519,20 +607,27 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
 
         try {
             FTPClientConfig.getDateFormatSymbols(badDelim);
+            // removed other assertion
         } catch (final IllegalArgumentException e){
+            // should have failed
         }
         try {
             FTPClientConfig.getDateFormatSymbols(tooLong);
+            // removed other assertion
         } catch (final IllegalArgumentException e){
+            // should have failed
         }
         try {
             FTPClientConfig.getDateFormatSymbols(tooShort);
+            // removed other assertion
         } catch (final IllegalArgumentException e){
+            // should have failed
         }
         DateFormatSymbols dfs2 = null;
         try {
             dfs2 = FTPClientConfig.getDateFormatSymbols(fakeLang);
         } catch (final Exception e){
+            // removed other assertion
         }
         final SimpleDateFormat sdf1 =
             new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH);
@@ -543,6 +638,7 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
         try {
             d1 = sdf1.parse("dec 31, 2004");
         } catch (final ParseException px) {
+            // removed other assertion
         }
         try {
             d2 = sdf2.parse("hij 31, 2004");
@@ -555,20 +651,27 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
 
         try {
             FTPClientConfig.getDateFormatSymbols(badDelim);
+            // removed other assertion
         } catch (final IllegalArgumentException e){
+            // should have failed
         }
         try {
             FTPClientConfig.getDateFormatSymbols(tooLong);
+            // removed other assertion
         } catch (final IllegalArgumentException e){
+            // should have failed
         }
         try {
             FTPClientConfig.getDateFormatSymbols(tooShort);
+            // removed other assertion
         } catch (final IllegalArgumentException e){
+            // should have failed
         }
         DateFormatSymbols dfs2 = null;
         try {
             dfs2 = FTPClientConfig.getDateFormatSymbols(fakeLang);
         } catch (final Exception e){
+            // removed other assertion
         }
         final SimpleDateFormat sdf1 =
             new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH);
@@ -579,10 +682,12 @@ public class FTPClientConfigTest_OE25Dev extends TestCase {
         try {
             d1 = sdf1.parse("dec 31, 2004");
         } catch (final ParseException px) {
+            // removed other assertion
         }
         try {
             d2 = sdf2.parse("hij 31, 2004");
         } catch (final ParseException px) {
+            // removed other assertion
         }
 
         assertEquals("different.parser.same.date",d1, d2);

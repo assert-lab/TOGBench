@@ -117,18 +117,24 @@ public class TestOverrideCombiner_OE25Dev extends AbstractCombinerTest {
     @Test
     public void testAttributes_2_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        // removed other assertion
         assertEquals("Wrong value of default attribute", 2, config.getInt("gui.level[@default]"));
     }
 
     @Test
     public void testAttributes_3_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong number of id attributes", 0, config.getMaxIndex("database.tables.table(0)[@id]"));
     }
 
     @Test
     public void testAttributes_4_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong value of table id", 1, config.getInt("database.tables.table(0)[@id]"));
     }
 
@@ -171,6 +177,7 @@ public class TestOverrideCombiner_OE25Dev extends AbstractCombinerTest {
         final CombinedConfiguration config = new CombinedConfiguration(new OverrideCombiner());
         config.addConfiguration(c1);
         config.addConfiguration(c2);
+        // removed other assertion
         assertFalse("Wrong value for x.y.between", config.getBoolean("x.y.between"));
     }
 
@@ -192,6 +199,8 @@ public class TestOverrideCombiner_OE25Dev extends AbstractCombinerTest {
         final CombinedConfiguration config = new CombinedConfiguration(new OverrideCombiner());
         config.addConfiguration(c1);
         config.addConfiguration(c2);
+        // removed other assertion
+        // removed other assertion
         assertFalse("Wrong value for x.y.isDistinctFrom", config.getBoolean("x.y.isDistinctFrom"));
     }
 
@@ -213,6 +222,9 @@ public class TestOverrideCombiner_OE25Dev extends AbstractCombinerTest {
         final CombinedConfiguration config = new CombinedConfiguration(new OverrideCombiner());
         config.addConfiguration(c1);
         config.addConfiguration(c2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("Wrong value for x.y.simpleCase", config.getBoolean("x.y.simpleCase"));
     }
 
@@ -234,6 +246,10 @@ public class TestOverrideCombiner_OE25Dev extends AbstractCombinerTest {
         final CombinedConfiguration config = new CombinedConfiguration(new OverrideCombiner());
         config.addConfiguration(c1);
         config.addConfiguration(c2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Wrong value for x.y.in", config.getBoolean("x.y.in"));
     }
 
@@ -255,6 +271,11 @@ public class TestOverrideCombiner_OE25Dev extends AbstractCombinerTest {
         final CombinedConfiguration config = new CombinedConfiguration(new OverrideCombiner());
         config.addConfiguration(c1);
         config.addConfiguration(c2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Wrong value for x.y.comparison", config.getBoolean("x.y.comparison"));
     }
 
@@ -276,6 +297,12 @@ public class TestOverrideCombiner_OE25Dev extends AbstractCombinerTest {
         final CombinedConfiguration config = new CombinedConfiguration(new OverrideCombiner());
         config.addConfiguration(c1);
         config.addConfiguration(c2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong size", 6, config.size());
     }
 
@@ -288,12 +315,15 @@ public class TestOverrideCombiner_OE25Dev extends AbstractCombinerTest {
     @Test
     public void testListFromFirstStructure_2_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        // removed other assertion
         assertEquals("Wrong service", "http://service1.org", config.getString("net.service.url"));
     }
 
     @Test
     public void testListFromFirstStructure_3_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        // removed other assertion
+        // removed other assertion
         assertFalse("Type attribute available", config.containsKey("net.service.url[@type]"));
     }
 
@@ -306,6 +336,7 @@ public class TestOverrideCombiner_OE25Dev extends AbstractCombinerTest {
     @Test
     public void testListFromSecondStructure_2_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        // removed other assertion
         assertEquals("Wrong server", "http://testsvr.com", config.getString("net.server.url(2)"));
     }
 
@@ -318,18 +349,24 @@ public class TestOverrideCombiner_OE25Dev extends AbstractCombinerTest {
     @Test
     public void testOverrideValues_2_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        // removed other assertion
         assertEquals("Wrong user type", "default", config.getString("base.services.security.login.user[@type]"));
     }
 
     @Test
     public void testOverrideValues_3_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong password", "BeamMeUp", config.getString("base.services.security.login.passwd"));
     }
 
     @Test
     public void testOverrideValues_4_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong password type", "secret", config.getString("base.services.security.login.passwd[@type]"));
     }
 
@@ -342,24 +379,34 @@ public class TestOverrideCombiner_OE25Dev extends AbstractCombinerTest {
     @Test
     public void testSimpleValues_2_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        // removed other assertion
         assertEquals("Wrong bgcolor", "green", config.getString("gui.bgcolor"));
     }
 
     @Test
     public void testSimpleValues_3_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong selcolor", "yellow", config.getString("gui.selcolor"));
     }
 
     @Test
     public void testSimpleValues_4_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong fgcolor", "blue", config.getString("gui.fgcolor"));
     }
 
     @Test
     public void testSimpleValues_5_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong level", 1, config.getInt("gui.level"));
     }
 

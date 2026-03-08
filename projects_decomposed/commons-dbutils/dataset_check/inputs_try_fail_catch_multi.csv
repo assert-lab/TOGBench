@@ -1,0 +1,54 @@
+id,test_prefix,test_name
+commons-dbutils_2,"public void testLoadThrowsIllegalArgumentException_oe() throws IOException {
+
+        QueryLoader queryLoader = QueryLoader.instance();
+
+        try {
+            queryLoader.load(""e"");
+            fail(""Expecting exception: IllegalArgumentException"");
+        } catch(IllegalArgumentException e) {
+            assertEquals(""e not found."",e.getMessage());
+            assertEquals(QueryLoader.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+
+    }",QueryLoaderTest::testLoadThrowsIllegalArgumentException_oe
+commons-dbutils_18,"@Test
+    public void commitAndCloseWithException_oe() throws Exception {
+        Connection mockConnection = mock(Connection.class);
+        doThrow(SQLException.class).when(mockConnection).commit();
+        try {
+            DbUtils.commitAndClose(mockConnection);
+            fail(""DbUtils.commitAndClose() swallowed SQLEception!"");
+        } catch (SQLException e) {
+            // we expect this exception
+        }
+        verify(mockConnection).close();
+    }",DbUtilsTest::commitAndCloseWithException_oe
+commons-dbutils_19,"@Test
+    public void rollbackAndCloseWithException_oe() throws Exception {
+        Connection mockConnection = mock(Connection.class);
+        doThrow(SQLException.class).when(mockConnection).rollback();
+        try {
+            DbUtils.rollbackAndClose(mockConnection);
+            fail(""DbUtils.rollbackAndClose() swallowed SQLException!"");
+        } catch (SQLException e) {
+            // we expect this exeption
+        }
+        verify(mockConnection).rollback();
+        verify(mockConnection).close();
+    }",DbUtilsTest::rollbackAndCloseWithException_oe
+commons-dbutils_33,"@Test
+    public void testRethrowThrowsRuntimeException_oe() {
+
+        ResultSetIterator resultSetIterator = new ResultSetIterator((ResultSet) null);
+        Throwable throwable = new Throwable();
+        SQLException sQLException = new SQLException(throwable);
+
+        try {
+            resultSetIterator.rethrow(sQLException);
+            fail(""Expecting exception: RuntimeException"");
+        } catch(RuntimeException e) {
+            assertEquals(ResultSetIterator.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+
+    }",ResultSetIteratorTest::testRethrowThrowsRuntimeException_oe

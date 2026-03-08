@@ -131,6 +131,7 @@ public abstract class CompositeFTPParseTestFramework_OE25Dev extends FTPParseTes
             switch (i)
             {
             case 0:
+                // removed other assertion
                 break;
             case 1:
                 assertNull("Should have failed to parse " + test, f);

@@ -108,6 +108,7 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Float expected = Float.valueOf(12345);
+        // removed other assertion
         assertEquals("validate(A) locale ", expected, FloatValidator.getInstance().validate(localeVal, locale));
     }
 
@@ -120,6 +121,8 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Float expected = Float.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(A) pattern", expected, FloatValidator.getInstance().validate(patternVal, pattern));
     }
 
@@ -132,6 +135,9 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Float expected = Float.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(A) both",    expected, FloatValidator.getInstance().validate(germanPatternVal, pattern, Locale.GERMAN));
     }
 
@@ -144,6 +150,10 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Float expected = Float.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue("isValid(A) default", FloatValidator.getInstance().isValid(defaultVal));
     }
@@ -157,7 +167,12 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Float expected = Float.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue("isValid(A) locale ", FloatValidator.getInstance().isValid(localeVal, locale));
     }
 
@@ -170,7 +185,13 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Float expected = Float.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid(A) pattern", FloatValidator.getInstance().isValid(patternVal, pattern));
     }
 
@@ -183,7 +204,14 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Float expected = Float.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid(A) both",    FloatValidator.getInstance().isValid(germanPatternVal, pattern, Locale.GERMAN));
     }
 
@@ -196,7 +224,15 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Float expected = Float.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertNull("validate(B) default", FloatValidator.getInstance().validate(XXXX));
     }
@@ -210,8 +246,17 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Float expected = Float.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertNull("validate(B) locale ", FloatValidator.getInstance().validate(XXXX, locale));
     }
 
@@ -224,8 +269,18 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Float expected = Float.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertNull("validate(B) pattern", FloatValidator.getInstance().validate(XXXX, pattern));
     }
 
@@ -238,8 +293,19 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Float expected = Float.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("validate(B) both",    FloatValidator.getInstance().validate(patternVal, pattern, Locale.GERMAN));
     }
 
@@ -252,8 +318,20 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Float expected = Float.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("isValid(B) default", FloatValidator.getInstance().isValid(XXXX));
     }
@@ -267,9 +345,22 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Float expected = Float.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("isValid(B) locale ", FloatValidator.getInstance().isValid(XXXX, locale));
     }
 
@@ -282,9 +373,23 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Float expected = Float.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid(B) pattern", FloatValidator.getInstance().isValid(XXXX, pattern));
     }
 
@@ -297,9 +402,24 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String defaultVal = "12,345";
         String XXXX    = "XXXX"; 
         Float expected = Float.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid(B) both",    FloatValidator.getInstance().isValid(patternVal, pattern, Locale.GERMAN));
     }
 
@@ -307,6 +427,7 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String pattern = "#.#################################################################";
         DecimalFormat fmt = new DecimalFormat(pattern);
 
+        // Validate Smallest +ve value
         Float smallestPositive  = Float.valueOf(Float.MIN_VALUE);
         String strSmallestPositive = fmt.format(smallestPositive);
         assertEquals("Smallest +ve", smallestPositive, FloatValidator.getInstance().validate(strSmallestPositive, pattern));
@@ -316,9 +437,12 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String pattern = "#.#################################################################";
         DecimalFormat fmt = new DecimalFormat(pattern);
 
+        // Validate Smallest +ve value
         Float smallestPositive  = Float.valueOf(Float.MIN_VALUE);
         String strSmallestPositive = fmt.format(smallestPositive);
+        // removed other assertion
 
+        // Validate Smallest -ve value
         Float smallestNegative  = Float.valueOf(Float.MIN_VALUE * -1);
         String strSmallestNegative = fmt.format(smallestNegative);
         assertEquals("Smallest -ve", smallestNegative, FloatValidator.getInstance().validate(strSmallestNegative, pattern));
@@ -328,12 +452,17 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String pattern = "#.#################################################################";
         DecimalFormat fmt = new DecimalFormat(pattern);
 
+        // Validate Smallest +ve value
         Float smallestPositive  = Float.valueOf(Float.MIN_VALUE);
         String strSmallestPositive = fmt.format(smallestPositive);
+        // removed other assertion
 
+        // Validate Smallest -ve value
         Float smallestNegative  = Float.valueOf(Float.MIN_VALUE * -1);
         String strSmallestNegative = fmt.format(smallestNegative);
+        // removed other assertion
 
+        // Validate Too Small +ve
         Double tooSmallPositive = Double.valueOf(((double)Float.MIN_VALUE / (double)10)); 
         String strTooSmallPositive = fmt.format(tooSmallPositive);
         assertFalse("Too small +ve", FloatValidator.getInstance().isValid(strTooSmallPositive, pattern));
@@ -343,15 +472,22 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         String pattern = "#.#################################################################";
         DecimalFormat fmt = new DecimalFormat(pattern);
 
+        // Validate Smallest +ve value
         Float smallestPositive  = Float.valueOf(Float.MIN_VALUE);
         String strSmallestPositive = fmt.format(smallestPositive);
+        // removed other assertion
 
+        // Validate Smallest -ve value
         Float smallestNegative  = Float.valueOf(Float.MIN_VALUE * -1);
         String strSmallestNegative = fmt.format(smallestNegative);
+        // removed other assertion
 
+        // Validate Too Small +ve
         Double tooSmallPositive = Double.valueOf(((double)Float.MIN_VALUE / (double)10)); 
         String strTooSmallPositive = fmt.format(tooSmallPositive);
+        // removed other assertion
 
+        // Validate Too Small -ve
         Double tooSmallNegative = Double.valueOf(tooSmallPositive.doubleValue() * -1);
         String strTooSmallNegative = fmt.format(tooSmallNegative);
         assertFalse("Too small -ve", FloatValidator.getInstance().isValid(strTooSmallNegative, pattern));
@@ -366,6 +502,7 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Float number20 = validator.validate("20", "#");
         Float number21 = validator.validate("21", "#");
 
+        // Test isInRange()
         assertFalse("isInRange() < min",   validator.isInRange(number9,  10, 20));
     }
 
@@ -378,6 +515,8 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Float number20 = validator.validate("20", "#");
         Float number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
         assertTrue("isInRange() = min",    validator.isInRange(number10, 10, 20));
     }
 
@@ -390,6 +529,9 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Float number20 = validator.validate("20", "#");
         Float number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
         assertTrue("isInRange() in range", validator.isInRange(number11, 10, 20));
     }
 
@@ -402,6 +544,10 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Float number20 = validator.validate("20", "#");
         Float number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isInRange() = max",    validator.isInRange(number20, 10, 20));
     }
 
@@ -414,6 +560,11 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Float number20 = validator.validate("20", "#");
         Float number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isInRange() > max",   validator.isInRange(number21, 10, 20));
     }
 
@@ -426,7 +577,14 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Float number20 = validator.validate("20", "#");
         Float number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
         assertFalse("minValue() < min",    validator.minValue(number9,  10));
     }
 
@@ -439,7 +597,15 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Float number20 = validator.validate("20", "#");
         Float number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
         assertTrue("minValue() = min",     validator.minValue(number10, 10));
     }
 
@@ -452,7 +618,16 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Float number20 = validator.validate("20", "#");
         Float number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
         assertTrue("minValue() > min",     validator.minValue(number11, 10));
     }
 
@@ -465,8 +640,19 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Float number20 = validator.validate("20", "#");
         Float number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
         assertTrue("maxValue() < max",     validator.maxValue(number19, 20));
     }
 
@@ -479,8 +665,20 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Float number20 = validator.validate("20", "#");
         Float number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
         assertTrue("maxValue() = max",     validator.maxValue(number20, 20));
     }
 
@@ -493,8 +691,21 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         Float number20 = validator.validate("20", "#");
         Float number21 = validator.validate("21", "#");
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
         assertFalse("maxValue() > max",    validator.maxValue(number21, 20));
     }
 

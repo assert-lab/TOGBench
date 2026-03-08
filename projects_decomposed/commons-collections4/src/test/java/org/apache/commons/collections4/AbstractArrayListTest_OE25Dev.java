@@ -37,6 +37,27 @@ public abstract class AbstractArrayListTest_OE25Dev<E> extends AbstractListTest<
     public abstract ArrayList<E> makeObject();
 
     //-----------------------------------------------------------------------
+    public void testNewArrayList() {
+        final ArrayList<E> list = makeObject();
+        assertTrue("New list is empty", list.isEmpty());
+        assertEquals("New list has size zero", 0, list.size());
+
+        try {
+            list.get(1);
+            fail("get(int i) should have thrown IndexOutOfBoundsException");
+        } catch (final IndexOutOfBoundsException e) {
+            // Expected result
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testSearch() {
+        final ArrayList<E> list = makeObject();
+        list.add((E) "First Item");
+        list.add((E) "Last Item");
+        assertEquals("First item is 'First Item'", "First Item", list.get(0));
+        assertEquals("Last Item is 'Last Item'", "Last Item", list.get(1));
+    }
 
     public void testNewArrayList_1_oe() {
         final ArrayList<E> list = makeObject();

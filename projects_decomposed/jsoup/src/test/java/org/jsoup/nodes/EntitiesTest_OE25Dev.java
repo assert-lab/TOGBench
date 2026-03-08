@@ -29,6 +29,7 @@ public class EntitiesTest_OE25Dev {
         String escapedUtfFull = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(extended));
         String escapedUtfMin = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(xhtml));
 
+        // removed other assertion
         assertEquals("Hello &amp;&lt;&gt; &angst; &aring; &pi; &#x65b0; there &frac34; &copy; &raquo;", escapedAsciiFull);
         }
 
@@ -40,6 +41,8 @@ public class EntitiesTest_OE25Dev {
         String escapedUtfFull = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(extended));
         String escapedUtfMin = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(xhtml));
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Hello &amp;&lt;&gt; &#xc5; &#xe5; &#x3c0; &#x65b0; there &#xbe; &#xa9; &#xbb;", escapedAsciiXhtml);
         }
 
@@ -51,6 +54,9 @@ public class EntitiesTest_OE25Dev {
         String escapedUtfFull = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(extended));
         String escapedUtfMin = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(xhtml));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Hello &amp;&lt;&gt; Å å π 新 there ¾ © »", escapedUtfFull);
         }
 
@@ -62,6 +68,10 @@ public class EntitiesTest_OE25Dev {
         String escapedUtfFull = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(extended));
         String escapedUtfMin = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(xhtml));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Hello &amp;&lt;&gt; Å å π 新 there ¾ © »", escapedUtfMin);
         }
 
@@ -73,7 +83,14 @@ public class EntitiesTest_OE25Dev {
         String escapedUtfFull = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(extended));
         String escapedUtfMin = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(xhtml));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // odd that it's defined as aring in base but angst in full
 
+        // round trip
         assertEquals(text, Entities.unescape(escapedAscii));
         }
 
@@ -85,7 +102,15 @@ public class EntitiesTest_OE25Dev {
         String escapedUtfFull = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(extended));
         String escapedUtfMin = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(xhtml));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // odd that it's defined as aring in base but angst in full
 
+        // round trip
+        // removed other assertion
         assertEquals(text, Entities.unescape(escapedAsciiFull));
         }
 
@@ -97,7 +122,16 @@ public class EntitiesTest_OE25Dev {
         String escapedUtfFull = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(extended));
         String escapedUtfMin = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(xhtml));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // odd that it's defined as aring in base but angst in full
 
+        // round trip
+        // removed other assertion
+        // removed other assertion
         assertEquals(text, Entities.unescape(escapedAsciiXhtml));
         }
 
@@ -109,7 +143,17 @@ public class EntitiesTest_OE25Dev {
         String escapedUtfFull = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(extended));
         String escapedUtfMin = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(xhtml));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // odd that it's defined as aring in base but angst in full
 
+        // round trip
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(text, Entities.unescape(escapedUtfFull));
         }
 
@@ -121,7 +165,18 @@ public class EntitiesTest_OE25Dev {
         String escapedUtfFull = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(extended));
         String escapedUtfMin = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(xhtml));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // odd that it's defined as aring in base but angst in full
 
+        // round trip
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(text, Entities.unescape(escapedUtfMin));
         }
 
@@ -134,6 +189,7 @@ public class EntitiesTest_OE25Dev {
     @Test public void escapedSupplementary_2_oe() {
         String text = "\uD835\uDD59";
         String escapedAscii = Entities.escape(text, new OutputSettings().charset("ascii").escapeMode(base));
+        // removed other assertion
         String escapedAsciiFull = Entities.escape(text, new OutputSettings().charset("ascii").escapeMode(extended));
         assertEquals("&hopf;", escapedAsciiFull);
         }
@@ -141,7 +197,9 @@ public class EntitiesTest_OE25Dev {
     @Test public void escapedSupplementary_3_oe() {
         String text = "\uD835\uDD59";
         String escapedAscii = Entities.escape(text, new OutputSettings().charset("ascii").escapeMode(base));
+        // removed other assertion
         String escapedAsciiFull = Entities.escape(text, new OutputSettings().charset("ascii").escapeMode(extended));
+        // removed other assertion
         String escapedUtf= Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(extended));
         assertEquals(text, escapedUtf);
         }
@@ -155,6 +213,7 @@ public class EntitiesTest_OE25Dev {
     @Test public void unescapeMultiChars_2_oe() {
         String text = "&NestedGreaterGreater; &nGg; &nGt; &nGtv; &Gt; &gg;"; // gg is not combo, but 8811 could conflict with NestedGreaterGreater or others
         String un = "≫ ⋙̸ ≫⃒ ≫̸ ≫ ≫";
+        // removed other assertion
         String escaped = Entities.escape(un, new OutputSettings().charset("ascii").escapeMode(extended));
         assertEquals("&Gt; &Gg;&#x338; &Gt;&#x20d2; &Gt;&#x338; &Gt; &Gt;", escaped);
         }
@@ -162,7 +221,9 @@ public class EntitiesTest_OE25Dev {
     @Test public void unescapeMultiChars_3_oe() {
         String text = "&NestedGreaterGreater; &nGg; &nGt; &nGtv; &Gt; &gg;"; // gg is not combo, but 8811 could conflict with NestedGreaterGreater or others
         String un = "≫ ⋙̸ ≫⃒ ≫̸ ≫ ≫";
+        // removed other assertion
         String escaped = Entities.escape(un, new OutputSettings().charset("ascii").escapeMode(extended));
+        // removed other assertion
         assertEquals(un, Entities.unescape(escaped));
         }
 
@@ -171,34 +232,62 @@ public class EntitiesTest_OE25Dev {
         }
 
     @Test public void xhtml_2_oe() {
+        // removed other assertion
         assertEquals(62, xhtml.codepointForName("gt"));
         }
 
     @Test public void xhtml_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals(60, xhtml.codepointForName("lt"));
         }
 
     @Test public void xhtml_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(34, xhtml.codepointForName("quot"));
         }
 
     @Test public void xhtml_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("amp", xhtml.nameForCodepoint(38));
         }
 
     @Test public void xhtml_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("gt", xhtml.nameForCodepoint(62));
         }
 
     @Test public void xhtml_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("lt", xhtml.nameForCodepoint(60));
         }
 
     @Test public void xhtml_8_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("quot", xhtml.nameForCodepoint(34));
         }
 
@@ -207,14 +296,20 @@ public class EntitiesTest_OE25Dev {
         }
 
     @Test public void getByName_2_oe() {
+        // removed other assertion
         assertEquals("fj", Entities.getByName("fjlig"));
         }
 
     @Test public void getByName_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals("≫", Entities.getByName("gg"));
         }
 
     @Test public void getByName_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("©", Entities.getByName("copy"));
         }
 
@@ -227,6 +322,7 @@ public class EntitiesTest_OE25Dev {
     @Test public void escapeSupplementaryCharacter_2_oe() {
         String text = new String(Character.toChars(135361));
         String escapedAscii = Entities.escape(text, new OutputSettings().charset("ascii").escapeMode(base));
+        // removed other assertion
         String escapedUtf = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(base));
         assertEquals(text, escapedUtf);
         }
@@ -250,6 +346,7 @@ public class EntitiesTest_OE25Dev {
 
     @Test public void unescape_2_oe() {
         String text = "Hello &AElig; &amp;&LT&gt; &reg &angst; &angst &#960; &#960 &#x65B0; there &! &frac34; &copy; &COPY;";
+        // removed other assertion
 
         assertEquals("&0987654321; &unknown", Entities.unescape("&0987654321; &unknown"));
         }
@@ -261,16 +358,20 @@ public class EntitiesTest_OE25Dev {
 
     @Test public void strictUnescape_2_oe() { // for attributes, enforce strict unescaping (must look like &#xxx; , not just &#xxx)
         String text = "Hello &amp= &amp;";
+        // removed other assertion
         assertEquals("Hello &= &", Entities.unescape(text));
         }
 
     @Test public void strictUnescape_3_oe() { // for attributes, enforce strict unescaping (must look like &#xxx; , not just &#xxx)
         String text = "Hello &amp= &amp;";
+        // removed other assertion
+        // removed other assertion
         assertEquals("Hello &= &", Entities.unescape(text, false));
         }
 
     @Test public void caseSensitive_2_oe() {
         String unescaped = "Ü ü & &";
+        // removed other assertion
 
         String escaped = "&Uuml; &uuml; &amp; &AMP";
         assertEquals("Ü ü & &", Entities.unescape(escaped));
@@ -296,6 +397,7 @@ public class EntitiesTest_OE25Dev {
         Document doc = Jsoup.parse(html);
         doc.outputSettings().charset("ascii");
         Element p = doc.select("p").first();
+        // removed other assertion
         assertEquals("¹²³¼½¾", p.text());
         }
 
@@ -304,6 +406,8 @@ public class EntitiesTest_OE25Dev {
         Document doc = Jsoup.parse(html);
         doc.outputSettings().charset("ascii");
         Element p = doc.select("p").first();
+        // removed other assertion
+        // removed other assertion
         doc.outputSettings().charset("UTF-8");
         assertEquals("¹²³¼½¾", p.html());
         }
@@ -314,6 +418,7 @@ public class EntitiesTest_OE25Dev {
         }
 
     @Test public void escapesGtInXmlAttributesButNotInHtml_1_oe() {
+        // https://github.com/jhy/jsoup/issues/528 - < is OK in HTML attribute values, but not in XML
 
 
         String docHtml = "<a title='<p>One</p>'>One</a>";
@@ -325,6 +430,7 @@ public class EntitiesTest_OE25Dev {
         }
 
     @Test public void escapesGtInXmlAttributesButNotInHtml_2_oe() {
+        // https://github.com/jhy/jsoup/issues/528 - < is OK in HTML attribute values, but not in XML
 
 
         String docHtml = "<a title='<p>One</p>'>One</a>";
@@ -332,20 +438,28 @@ public class EntitiesTest_OE25Dev {
         Element element = doc.select("a").first();
 
         doc.outputSettings().escapeMode(base);
+        // removed other assertion
 
         doc.outputSettings().escapeMode(xhtml);
         assertEquals("<a title=\"&lt;p>One&lt;/p>\">One</a>", element.outerHtml());
         }
 
     @Test public void controlCharactersAreEscaped_1_oe() {
+        // https://github.com/jhy/jsoup/issues/1556
+        // we escape ascii control characters in both HTML and XML for compatibility. Required in XML and probably
+        // easier to read in HTML
         String input = "<a foo=\"&#x1b;esc&#x7;bell\">Text &#x1b; &#x7;</a>";
         Document doc = Jsoup.parse(input);
         assertEquals(input, doc.body().html());
         }
 
     @Test public void controlCharactersAreEscaped_2_oe() {
+        // https://github.com/jhy/jsoup/issues/1556
+        // we escape ascii control characters in both HTML and XML for compatibility. Required in XML and probably
+        // easier to read in HTML
         String input = "<a foo=\"&#x1b;esc&#x7;bell\">Text &#x1b; &#x7;</a>";
         Document doc = Jsoup.parse(input);
+        // removed other assertion
 
         Document xml = Jsoup.parse(input, "", Parser.xmlParser());
         assertEquals(input, xml.html());

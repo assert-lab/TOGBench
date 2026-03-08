@@ -33,6 +33,7 @@ public class RleReaderTest_OE25Dev{
 
         try {
             rleReader.read(byteArrayInputStream, byteArray);
+            // removed other assertion
         } catch(final Exception e) {
             assertEquals("Premature end of file reading image data",e.getMessage());
     }
@@ -46,7 +47,9 @@ public class RleReaderTest_OE25Dev{
 
         try {
             rleReader.read(byteArrayInputStream, byteArray);
+            // removed other assertion
         } catch(final Exception e) {
+            // removed other assertion
             assertEquals(RleReader.class.getName(), e.getStackTrace()[0].getClassName());
     }
     }

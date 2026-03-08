@@ -110,6 +110,7 @@ public class FileObjectSortTestCase_OE25Dev {
     @Test
     public void testSortArrayMoveAll_2_oe() throws FileSystemException {
         final FileObject[] actualArray = UnSortedArray.clone();
+        // removed other assertion
         Arrays.sort(actualArray);
         Assert.assertArrayEquals(SortedArray, actualArray);
     }
@@ -132,6 +133,7 @@ public class FileObjectSortTestCase_OE25Dev {
     public void testSortListMoveAll_2_oe() throws FileSystemException {
         final List<FileObject> actualList = Arrays.asList(UnSortedArray);
         final List<FileObject> expectedSortedList = Arrays.asList(SortedArray);
+        // removed other assertion
         Collections.sort(actualList);
         Assert.assertEquals(actualList, expectedSortedList);
     }

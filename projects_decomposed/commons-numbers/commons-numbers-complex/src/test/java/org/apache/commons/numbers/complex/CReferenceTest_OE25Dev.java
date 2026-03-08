@@ -307,6 +307,7 @@ class CReferenceTest_OE25Dev {
 
     @Test
     void testAsinh_1_oe_1_oe() {
+        // Odd function: negative real cases defined by positive real cases
                 final String name0 = "asinh";
         final UnaryOperator<Complex> operation0 = Complex::asinh;
         final long maxUlps0 = 3;
@@ -319,6 +320,7 @@ class CReferenceTest_OE25Dev {
 
     @Test
     void testAtanh_1_oe_1_oe() {
+        // Odd function: negative real cases defined by positive real cases
                 final String name0 = "atanh";
         final UnaryOperator<Complex> operation0 = Complex::atanh;
         final long maxUlps0 = 1;
@@ -331,6 +333,7 @@ class CReferenceTest_OE25Dev {
 
     @Test
     void testCosh_1_oe_1_oe() {
+        // Even function: negative real cases defined by positive real cases
                 final String name0 = "cosh";
         final UnaryOperator<Complex> operation0 = Complex::cosh;
         final long maxUlps0 = 2;
@@ -343,6 +346,7 @@ class CReferenceTest_OE25Dev {
 
     @Test
     void testSinh_1_oe_1_oe() {
+        // Odd function: negative real cases defined by positive real cases
                 final String name0 = "sinh";
         final UnaryOperator<Complex> operation0 = Complex::sinh;
         final long maxUlps0 = 2;
@@ -355,6 +359,7 @@ class CReferenceTest_OE25Dev {
 
     @Test
     void testTanh_1_oe_1_oe() {
+        // Odd function: negative real cases defined by positive real cases
                 final String name0 = "tanh";
         final UnaryOperator<Complex> operation0 = Complex::tanh;
         final long maxUlps0 = 2;

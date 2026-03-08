@@ -60,6 +60,41 @@ public class StaticBucketMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K
     }
 
     // Bugzilla 37567
+    @SuppressWarnings("unchecked")
+    public void test_get_nullMatchesIncorrectly() {
+        final StaticBucketMap<K, V> map = new StaticBucketMap<>(17);
+        map.put(null, (V) "A");
+        assertEquals("A", map.get(null));
+        // loop so we find a string that is in the same bucket as the null
+        for (int i = 'A'; i <= 'Z'; i++) {
+            final String str = String.valueOf((char) i);
+            assertEquals("String: " + str, null, map.get(str));
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public void test_containsKey_nullMatchesIncorrectly() {
+        final StaticBucketMap<K, V> map = new StaticBucketMap<>(17);
+        map.put(null, (V) "A");
+        assertEquals(true, map.containsKey(null));
+        // loop so we find a string that is in the same bucket as the null
+        for (int i = 'A'; i <= 'Z'; i++) {
+            final String str = String.valueOf((char) i);
+            assertEquals("String: " + str, false, map.containsKey(str));
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public void test_containsValue_nullMatchesIncorrectly() {
+        final StaticBucketMap<K, V> map = new StaticBucketMap<>(17);
+        map.put((K) "A", null);
+        assertEquals(true, map.containsValue(null));
+        // loop so we find a string that is in the same bucket as the null
+        for (int i = 'A'; i <= 'Z'; i++) {
+            final String str = String.valueOf((char) i);
+            assertEquals("String: " + str, false, map.containsValue(str));
+        }
+    }
 
     public void test_get_nullMatchesIncorrectly_1_oe() {
         final StaticBucketMap<K, V> map = new StaticBucketMap<>(17);

@@ -40,6 +40,7 @@ public class MapListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
         List<Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
         assertEquals(ROWS, results.size());
     }
 
@@ -47,6 +48,8 @@ public class MapListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
         List<Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Map<String,Object>> iter = results.iterator();
         Map<String,Object> row = null;
@@ -57,9 +60,12 @@ public class MapListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
         List<Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Map<String,Object>> iter = results.iterator();
         Map<String,Object> row = null;
+        // removed other assertion
         row = iter.next();
         assertEquals(COLS, row.keySet().size());
     }
@@ -68,10 +74,14 @@ public class MapListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
         List<Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Map<String,Object>> iter = results.iterator();
         Map<String,Object> row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
         assertEquals("1", row.get("one"));
     }
 
@@ -79,10 +89,15 @@ public class MapListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
         List<Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Map<String,Object>> iter = results.iterator();
         Map<String,Object> row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", row.get("TWO"));
     }
 
@@ -90,10 +105,16 @@ public class MapListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
         List<Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Map<String,Object>> iter = results.iterator();
         Map<String,Object> row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("THREE", row.get("Three"));
     }
 
@@ -101,10 +122,17 @@ public class MapListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
         List<Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Map<String,Object>> iter = results.iterator();
         Map<String,Object> row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(iter.hasNext());
     }
@@ -113,11 +141,19 @@ public class MapListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
         List<Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Map<String,Object>> iter = results.iterator();
         Map<String,Object> row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
         assertEquals(COLS, row.keySet().size());
     }
@@ -126,12 +162,21 @@ public class MapListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
         List<Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Map<String,Object>> iter = results.iterator();
         Map<String,Object> row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
         assertEquals("4", row.get("one"));
     }
@@ -140,13 +185,23 @@ public class MapListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
         List<Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Map<String,Object>> iter = results.iterator();
         Map<String,Object> row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("5", row.get("TWO"));
     }
 
@@ -154,13 +209,24 @@ public class MapListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
         List<Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Map<String,Object>> iter = results.iterator();
         Map<String,Object> row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("SIX", row.get("Three"));
     }
 
@@ -168,13 +234,25 @@ public class MapListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
         List<Map<String,Object>> results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
 
         Iterator<Map<String,Object>> iter = results.iterator();
         Map<String,Object> row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse(iter.hasNext());
     }
@@ -190,6 +268,7 @@ public class MapListHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
         List<Map<String,Object>> results = h.handle(this.emptyResultSet);
 
+        // removed other assertion
         assertTrue(results.isEmpty());
     }
 

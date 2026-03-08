@@ -89,6 +89,7 @@ public class TestNtpPacket_OE25Dev {
         message.setReceiveTimeStamp(new TimeStamp(0xd55247194b6d9000L));
         message.setTransmitTime(new TimeStamp(0xd55247194b797000L));
 
+        // removed other assertion
         Assert.assertEquals(4, message.getPoll());
     }
 
@@ -109,6 +110,8 @@ public class TestNtpPacket_OE25Dev {
         message.setReceiveTimeStamp(new TimeStamp(0xd55247194b6d9000L));
         message.setTransmitTime(new TimeStamp(0xd55247194b797000L));
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(100, message.getRootDelay());
     }
 
@@ -129,6 +132,9 @@ public class TestNtpPacket_OE25Dev {
         message.setReceiveTimeStamp(new TimeStamp(0xd55247194b6d9000L));
         message.setTransmitTime(new TimeStamp(0xd55247194b797000L));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(3382, message.getRootDispersion());
     }
 
@@ -149,6 +155,10 @@ public class TestNtpPacket_OE25Dev {
         message.setReceiveTimeStamp(new TimeStamp(0xd55247194b6d9000L));
         message.setTransmitTime(new TimeStamp(0xd55247194b797000L));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(0x81531472, message.getReferenceId());
     }
 
@@ -169,6 +179,11 @@ public class TestNtpPacket_OE25Dev {
         message.setReceiveTimeStamp(new TimeStamp(0xd55247194b6d9000L));
         message.setTransmitTime(new TimeStamp(0xd55247194b797000L));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertNotNull(message.getReferenceTimeStamp());
     }
 
@@ -189,6 +204,12 @@ public class TestNtpPacket_OE25Dev {
         message.setReceiveTimeStamp(new TimeStamp(0xd55247194b6d9000L));
         message.setTransmitTime(new TimeStamp(0xd55247194b797000L));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("NTP", message.getType());
     }
 
@@ -209,6 +230,13 @@ public class TestNtpPacket_OE25Dev {
         message.setReceiveTimeStamp(new TimeStamp(0xd55247194b6d9000L));
         message.setTransmitTime(new TimeStamp(0xd55247194b797000L));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("Server", message.getModeName());
     }
 
@@ -229,6 +257,14 @@ public class TestNtpPacket_OE25Dev {
         message.setReceiveTimeStamp(new TimeStamp(0xd55247194b6d9000L));
         message.setTransmitTime(new TimeStamp(0xd55247194b797000L));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("129.83.20.114", message.getReferenceIdString());
     }
 
@@ -249,6 +285,15 @@ public class TestNtpPacket_OE25Dev {
         message.setReceiveTimeStamp(new TimeStamp(0xd55247194b6d9000L));
         message.setTransmitTime(new TimeStamp(0xd55247194b797000L));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(51, message.getRootDispersionInMillis());
     }
 
@@ -269,6 +314,16 @@ public class TestNtpPacket_OE25Dev {
         message.setReceiveTimeStamp(new TimeStamp(0xd55247194b6d9000L));
         message.setTransmitTime(new TimeStamp(0xd55247194b797000L));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(message.getRootDelay() / 65.536, message.getRootDelayInMillisDouble(), 1e-13);
     }
 
@@ -289,6 +344,17 @@ public class TestNtpPacket_OE25Dev {
         message.setReceiveTimeStamp(new TimeStamp(0xd55247194b6d9000L));
         message.setTransmitTime(new TimeStamp(0xd55247194b797000L));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final DatagramPacket dp = message.getDatagramPacket(); // this creates a new datagram
         Assert.assertNotNull(dp);
@@ -311,8 +377,20 @@ public class TestNtpPacket_OE25Dev {
         message.setReceiveTimeStamp(new TimeStamp(0xd55247194b6d9000L));
         message.setTransmitTime(new TimeStamp(0xd55247194b797000L));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final DatagramPacket dp = message.getDatagramPacket(); // this creates a new datagram
+        // removed other assertion
         Assert.assertEquals(48,dp.getLength());// fixed 48-byte length;
     }
 
@@ -333,8 +411,21 @@ public class TestNtpPacket_OE25Dev {
         message.setReceiveTimeStamp(new TimeStamp(0xd55247194b6d9000L));
         message.setTransmitTime(new TimeStamp(0xd55247194b797000L));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final DatagramPacket dp = message.getDatagramPacket(); // this creates a new datagram
+        // removed other assertion
+        // removed other assertion
         final NtpV3Packet message2 = new NtpV3Impl();
         final DatagramPacket dp2 = new DatagramPacket(ntpPacket, ntpPacket.length);
         message2.setDatagramPacket(dp2);
@@ -359,12 +450,26 @@ public class TestNtpPacket_OE25Dev {
         message.setReceiveTimeStamp(new TimeStamp(0xd55247194b6d9000L));
         message.setTransmitTime(new TimeStamp(0xd55247194b797000L));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final DatagramPacket dp = message.getDatagramPacket(); // this creates a new datagram
+        // removed other assertion
+        // removed other assertion
         final NtpV3Packet message2 = new NtpV3Impl();
         final DatagramPacket dp2 = new DatagramPacket(ntpPacket, ntpPacket.length);
         message2.setDatagramPacket(dp2);
 
+        // removed other assertion
         Assert.assertEquals(message2.hashCode(), message.hashCode());
     }
 
@@ -385,17 +490,33 @@ public class TestNtpPacket_OE25Dev {
         message.setReceiveTimeStamp(new TimeStamp(0xd55247194b6d9000L));
         message.setTransmitTime(new TimeStamp(0xd55247194b797000L));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final DatagramPacket dp = message.getDatagramPacket(); // this creates a new datagram
+        // removed other assertion
+        // removed other assertion
         final NtpV3Packet message2 = new NtpV3Impl();
         final DatagramPacket dp2 = new DatagramPacket(ntpPacket, ntpPacket.length);
         message2.setDatagramPacket(dp2);
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(message2.toString(), message.toString());
     }
 
     @Test
     public void testCreateAndSetByte0_1_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
@@ -407,34 +528,43 @@ public class TestNtpPacket_OE25Dev {
 
     @Test
     public void testCreateAndSetByte0_2_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
         Assert.assertEquals(NtpV3Packet.VERSION_3, message.getVersion());
     }
 
     @Test
     public void testCreateAndSetByte0_3_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(2, message.getLeapIndicator());
     }
 
     @Test
     public void testCreateAndSetByte0_4_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
@@ -445,49 +575,67 @@ public class TestNtpPacket_OE25Dev {
 
     @Test
     public void testCreateAndSetByte0_5_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
 
+        // removed other assertion
         Assert.assertEquals(NtpV3Packet.VERSION_3, message.getVersion());
     }
 
     @Test
     public void testCreateAndSetByte0_6_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(2, message.getLeapIndicator());
     }
 
     @Test
     public void testCreateAndSetByte0_7_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setLeapIndicator(2);
@@ -498,64 +646,91 @@ public class TestNtpPacket_OE25Dev {
 
     @Test
     public void testCreateAndSetByte0_8_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
         Assert.assertEquals(NtpV3Packet.VERSION_3, message.getVersion());
     }
 
     @Test
     public void testCreateAndSetByte0_9_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(2, message.getLeapIndicator());
     }
 
     @Test
     public void testCreateAndSetByte0_10_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
@@ -566,79 +741,115 @@ public class TestNtpPacket_OE25Dev {
 
     @Test
     public void testCreateAndSetByte0_11_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setLeapIndicator(2);
 
+        // removed other assertion
         Assert.assertEquals(NtpV3Packet.VERSION_3, message.getVersion());
     }
 
     @Test
     public void testCreateAndSetByte0_12_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setLeapIndicator(2);
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(2, message.getLeapIndicator());
     }
 
     @Test
     public void testCreateAndSetByte0_13_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setLeapIndicator(2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
@@ -649,94 +860,139 @@ public class TestNtpPacket_OE25Dev {
 
     @Test
     public void testCreateAndSetByte0_14_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setLeapIndicator(2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
         message.setLeapIndicator(2);
 
+        // removed other assertion
         Assert.assertEquals(NtpV3Packet.VERSION_3, message.getVersion());
     }
 
     @Test
     public void testCreateAndSetByte0_15_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setLeapIndicator(2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
         message.setLeapIndicator(2);
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(2, message.getLeapIndicator());
     }
 
     @Test
     public void testCreateAndSetByte0_16_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setLeapIndicator(2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
         message.setLeapIndicator(2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setLeapIndicator(2);
@@ -747,73 +1003,108 @@ public class TestNtpPacket_OE25Dev {
 
     @Test
     public void testCreateAndSetByte0_17_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setLeapIndicator(2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
         message.setLeapIndicator(2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setLeapIndicator(2);
         message.setMode(4);
 
+        // removed other assertion
         Assert.assertEquals(NtpV3Packet.VERSION_3, message.getVersion());
     }
 
     @Test
     public void testCreateAndSetByte0_18_oe() {
+        // LI + VN + Mode all part of first byte -- make sure set order does not matter
         final NtpV3Packet message = new NtpV3Impl();
 
         message.setLeapIndicator(2);
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setLeapIndicator(2);
         message.setVersion(NtpV3Packet.VERSION_3);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setMode(4);
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setLeapIndicator(2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setMode(4);
         message.setLeapIndicator(2);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         message.setVersion(NtpV3Packet.VERSION_3);
         message.setLeapIndicator(2);
         message.setMode(4);
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(2, message.getLeapIndicator());
     }
 
@@ -823,6 +1114,7 @@ public class TestNtpPacket_OE25Dev {
         message.setVersion(NtpV3Packet.VERSION_4);
         message.setStratum(3);
         message.setReferenceId(0x81531472);
+        // force hex-string reference id string
         Assert.assertEquals("81531472", message.getReferenceIdString());
     }
 
@@ -832,10 +1124,13 @@ public class TestNtpPacket_OE25Dev {
         message.setVersion(NtpV3Packet.VERSION_4);
         message.setStratum(3);
         message.setReferenceId(0x81531472);
+        // force hex-string reference id string
+        // removed other assertion
 
         message.setVersion(NtpV3Packet.VERSION_4);
         message.setStratum(1);
         message.setReferenceId(0x55534E4F); // USNO
+        // force raw-string reference id string
         Assert.assertEquals("USNO", message.getReferenceIdString());
     }
 
@@ -845,10 +1140,14 @@ public class TestNtpPacket_OE25Dev {
         message.setVersion(NtpV3Packet.VERSION_4);
         message.setStratum(3);
         message.setReferenceId(0x81531472);
+        // force hex-string reference id string
+        // removed other assertion
 
         message.setVersion(NtpV3Packet.VERSION_4);
         message.setStratum(1);
         message.setReferenceId(0x55534E4F); // USNO
+        // force raw-string reference id string
+        // removed other assertion
 
         message.setReferenceId(0x47505300); // GPS
         Assert.assertEquals("GPS", message.getReferenceIdString());
@@ -879,6 +1178,7 @@ public class TestNtpPacket_OE25Dev {
         message1.setDatagramPacket(dp);
         final NtpV3Packet message2 = new NtpV3Impl();
         message2.setDatagramPacket(dp);
+        // removed other assertion
         Assert.assertEquals(message1, message2);
     }
 
@@ -889,7 +1189,10 @@ public class TestNtpPacket_OE25Dev {
         message1.setDatagramPacket(dp);
         final NtpV3Packet message2 = new NtpV3Impl();
         message2.setDatagramPacket(dp);
+        // removed other assertion
+        // removed other assertion
 
+        // now change the packet to force equals() => false
         message2.setMode(2);
         Assert.assertTrue(message1.getMode() != message2.getMode());
     }
@@ -901,8 +1204,12 @@ public class TestNtpPacket_OE25Dev {
         message1.setDatagramPacket(dp);
         final NtpV3Packet message2 = new NtpV3Impl();
         message2.setDatagramPacket(dp);
+        // removed other assertion
+        // removed other assertion
 
+        // now change the packet to force equals() => false
         message2.setMode(2);
+        // removed other assertion
         Assert.assertFalse(message1.equals(message2));
     }
 
@@ -913,8 +1220,13 @@ public class TestNtpPacket_OE25Dev {
         message1.setDatagramPacket(dp);
         final NtpV3Packet message2 = new NtpV3Impl();
         message2.setDatagramPacket(dp);
+        // removed other assertion
+        // removed other assertion
 
+        // now change the packet to force equals() => false
         message2.setMode(2);
+        // removed other assertion
+        // removed other assertion
 
         final NtpV3Packet message3 = null;
         Assert.assertFalse(message1.equals(message3));

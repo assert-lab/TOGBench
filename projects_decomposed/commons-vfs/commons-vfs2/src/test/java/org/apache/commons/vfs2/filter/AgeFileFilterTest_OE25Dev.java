@@ -121,6 +121,7 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
     public void testAgeFileFilterDate_2_oe() throws FileSystemException {
 
         final AgeFileFilter testee = new AgeFileFilter(new Date());
+        // removed other assertion
         Assert.assertTrue(testee.accept(currentFileInfo));
     }
 
@@ -128,6 +129,8 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
     public void testAgeFileFilterDate_3_oe() throws FileSystemException {
 
         final AgeFileFilter testee = new AgeFileFilter(new Date());
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(testee.accept(newFileInfo));
     }
 
@@ -146,6 +149,7 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(new Date(), true);
+        // removed other assertion
         Assert.assertTrue(testee.accept(currentFileInfo));
     }
 
@@ -155,6 +159,8 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(new Date(), true);
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(testee.accept(newFileInfo));
     }
 
@@ -164,6 +170,9 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(new Date(), true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new AgeFileFilter(new Date(), false);
         Assert.assertFalse(testee.accept(oldFileInfo));
@@ -175,8 +184,12 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(new Date(), true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new AgeFileFilter(new Date(), false);
+        // removed other assertion
         Assert.assertFalse(testee.accept(currentFileInfo));
     }
 
@@ -186,8 +199,13 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(new Date(), true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new AgeFileFilter(new Date(), false);
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(testee.accept(newFileInfo));
     }
 
@@ -202,6 +220,7 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
     public void testAgeFileFilterFile_2_oe() throws FileSystemException {
 
         final AgeFileFilter testee = new AgeFileFilter(currentFileInfo.getFile());
+        // removed other assertion
         Assert.assertTrue(testee.accept(currentFileInfo));
     }
 
@@ -209,6 +228,8 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
     public void testAgeFileFilterFile_3_oe() throws FileSystemException {
 
         final AgeFileFilter testee = new AgeFileFilter(currentFileInfo.getFile());
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(testee.accept(newFileInfo));
     }
 
@@ -227,6 +248,7 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(currentFileInfo.getFile(), true);
+        // removed other assertion
         Assert.assertTrue(testee.accept(currentFileInfo));
     }
 
@@ -236,6 +258,8 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(currentFileInfo.getFile(), true);
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(testee.accept(newFileInfo));
     }
 
@@ -245,6 +269,9 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(currentFileInfo.getFile(), true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new AgeFileFilter(currentFileInfo.getFile(), false);
         Assert.assertFalse(testee.accept(oldFileInfo));
@@ -256,8 +283,12 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(currentFileInfo.getFile(), true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new AgeFileFilter(currentFileInfo.getFile(), false);
+        // removed other assertion
         Assert.assertFalse(testee.accept(currentFileInfo));
     }
 
@@ -267,8 +298,13 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(currentFileInfo.getFile(), true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new AgeFileFilter(currentFileInfo.getFile(), false);
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(testee.accept(newFileInfo));
     }
 
@@ -283,6 +319,7 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
     public void testAgeFileFilterLong_2_oe() throws FileSystemException {
 
         final AgeFileFilter testee = new AgeFileFilter(NOW_MILLIS);
+        // removed other assertion
         Assert.assertTrue(testee.accept(currentFileInfo));
     }
 
@@ -290,6 +327,8 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
     public void testAgeFileFilterLong_3_oe() throws FileSystemException {
 
         final AgeFileFilter testee = new AgeFileFilter(NOW_MILLIS);
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(testee.accept(newFileInfo));
     }
 
@@ -308,6 +347,7 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
         Assert.assertTrue(testee.accept(currentFileInfo));
     }
 
@@ -317,6 +357,8 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(testee.accept(newFileInfo));
     }
 
@@ -326,6 +368,9 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new AgeFileFilter(NOW_MILLIS, false);
         Assert.assertFalse(testee.accept(oldFileInfo));
@@ -337,8 +382,12 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new AgeFileFilter(NOW_MILLIS, false);
+        // removed other assertion
         Assert.assertFalse(testee.accept(currentFileInfo));
     }
 
@@ -348,8 +397,13 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new AgeFileFilter(NOW_MILLIS, false);
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(testee.accept(newFileInfo));
     }
 
@@ -359,12 +413,20 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new AgeFileFilter(NOW_MILLIS, false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, true)));
+        // removed other assertion
         Assert.assertEquals(2, files.length);
     }
 
@@ -374,14 +436,24 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new AgeFileFilter(NOW_MILLIS, false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, true)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, false)));
+        // removed other assertion
         Assert.assertEquals(1, files.length);
     }
 
@@ -391,9 +463,16 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new AgeFileFilter(NOW_MILLIS, false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, true)));
@@ -406,12 +485,21 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         AgeFileFilter testee;
 
         testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new AgeFileFilter(NOW_MILLIS, false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, true)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, false)));
         assertContains(files, newFile.getName());

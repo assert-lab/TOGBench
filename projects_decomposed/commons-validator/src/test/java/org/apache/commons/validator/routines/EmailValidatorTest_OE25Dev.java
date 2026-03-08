@@ -271,6 +271,7 @@ public class EmailValidatorTest_OE25Dev {
 
     @Test
     public void testEmailWithNumericAddress_2_oe()  {
+        // removed other assertion
         assertTrue(validator.isValid("someone@yahoo.com"));
     }
 
@@ -281,63 +282,91 @@ public class EmailValidatorTest_OE25Dev {
 
     @Test
     public void testEmailExtension_2_oe()  {
+        // removed other assertion
 
         assertTrue(validator.isValid("jsmith@apache.com"));
     }
 
     @Test
     public void testEmailExtension_3_oe()  {
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue(validator.isValid("jsmith@apache.net"));
     }
 
     @Test
     public void testEmailExtension_4_oe()  {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue(validator.isValid("jsmith@apache.info"));
     }
 
     @Test
     public void testEmailExtension_5_oe()  {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertFalse(validator.isValid("jsmith@apache."));
     }
 
     @Test
     public void testEmailExtension_6_oe()  {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertFalse(validator.isValid("jsmith@apache.c"));
     }
 
     @Test
     public void testEmailExtension_7_oe()  {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue(validator.isValid("someone@yahoo.museum"));
     }
 
     @Test
     public void testEmailExtension_8_oe()  {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertFalse(validator.isValid("someone@yahoo.mu-seum"));
     }
@@ -349,21 +378,27 @@ public class EmailValidatorTest_OE25Dev {
 
     @Test
     public void testEmailWithDash_2_oe()  {
+       // removed other assertion
 
        assertFalse(validator.isValid("andy-noble@data-workshop.-com"));
     }
 
     @Test
     public void testEmailWithDash_3_oe()  {
+       // removed other assertion
 
+       // removed other assertion
 
        assertFalse(validator.isValid("andy-noble@data-workshop.c-om"));
     }
 
     @Test
     public void testEmailWithDash_4_oe()  {
+       // removed other assertion
 
+       // removed other assertion
 
+       // removed other assertion
 
        assertFalse(validator.isValid("andy-noble@data-workshop.co-m"));
     }
@@ -382,56 +417,97 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailWithBogusCharacter_2_oe()  {
 
+        // removed other assertion
 
+        // The ' character is valid in an email username.
         assertTrue(validator.isValid("andy.o'reilly@data-workshop.com"));
     }
 
     @Test
     public void testEmailWithBogusCharacter_3_oe()  {
 
+        // removed other assertion
 
+        // The ' character is valid in an email username.
+        // removed other assertion
 
+        // But not in the domain name.
         assertFalse(validator.isValid("andy@o'reilly.data-workshop.com"));
     }
 
     @Test
     public void testEmailWithBogusCharacter_4_oe()  {
 
+        // removed other assertion
 
+        // The ' character is valid in an email username.
+        // removed other assertion
 
+        // But not in the domain name.
+        // removed other assertion
 
+        // The + character is valid in an email username.
         assertTrue(validator.isValid("foo+bar@i.am.not.in.us.example.com"));
     }
 
     @Test
     public void testEmailWithBogusCharacter_5_oe()  {
 
+        // removed other assertion
 
+        // The ' character is valid in an email username.
+        // removed other assertion
 
+        // But not in the domain name.
+        // removed other assertion
 
+        // The + character is valid in an email username.
+        // removed other assertion
 
+        // But not in the domain name
         assertFalse(validator.isValid("foo+bar@example+3.com"));
     }
 
     @Test
     public void testEmailWithBogusCharacter_6_oe()  {
 
+        // removed other assertion
 
+        // The ' character is valid in an email username.
+        // removed other assertion
 
+        // But not in the domain name.
+        // removed other assertion
 
+        // The + character is valid in an email username.
+        // removed other assertion
 
+        // But not in the domain name
+        // removed other assertion
 
+        // Domains with only special characters aren't allowed (VALIDATOR-286) 
         assertFalse(validator.isValid("test@%*.com"));
     }
 
     @Test
     public void testEmailWithBogusCharacter_7_oe()  {
 
+        // removed other assertion
 
+        // The ' character is valid in an email username.
+        // removed other assertion
 
+        // But not in the domain name.
+        // removed other assertion
 
+        // The + character is valid in an email username.
+        // removed other assertion
 
+        // But not in the domain name
+        // removed other assertion
 
+        // Domains with only special characters aren't allowed (VALIDATOR-286) 
+        // removed other assertion
         assertFalse(validator.isValid("test@^&#.com"));
     }
 
@@ -442,6 +518,7 @@ public class EmailValidatorTest_OE25Dev {
 
     @Test
     public void testVALIDATOR_315_2_oe() {
+        // removed other assertion
         assertTrue(validator.isValid("me@att.net")); // Make sure TLD is not the cause of the failure;
     }
 
@@ -452,6 +529,7 @@ public class EmailValidatorTest_OE25Dev {
 
     @Test
     public void testVALIDATOR_278_2_oe() {
+        // removed other assertion
         assertFalse(validator.isValid("someone@test-.com"));// hostname ends with dash/hyphen;
     }
 
@@ -472,6 +550,7 @@ public class EmailValidatorTest_OE25Dev {
             System.out.println("Cannot run Unicode IDN tests");
             return; // Cannot run the test
         }
+        // removed other assertion
         assertTrue("президент.рф should validate", validator.isValid("someone@президент.рф"));
     }
 
@@ -482,6 +561,8 @@ public class EmailValidatorTest_OE25Dev {
             System.out.println("Cannot run Unicode IDN tests");
             return; // Cannot run the test
         }
+        // removed other assertion
+        // removed other assertion
         assertTrue("www.b\u00fccher.ch should validate", validator.isValid("someone@www.b\u00fccher.ch"));
     }
 
@@ -492,6 +573,9 @@ public class EmailValidatorTest_OE25Dev {
             System.out.println("Cannot run Unicode IDN tests");
             return; // Cannot run the test
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("www.\uFFFD.ch FFFD should fail", validator.isValid("someone@www.\uFFFD.ch"));
     }
 
@@ -502,6 +586,10 @@ public class EmailValidatorTest_OE25Dev {
             System.out.println("Cannot run Unicode IDN tests");
             return; // Cannot run the test
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("www.b\u00fccher.ch should validate", validator.isValid("someone@www.b\u00fccher.ch"));
     }
 
@@ -512,6 +600,11 @@ public class EmailValidatorTest_OE25Dev {
             System.out.println("Cannot run Unicode IDN tests");
             return; // Cannot run the test
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("www.\uFFFD.ch FFFD should fail", validator.isValid("someone@www.\uFFFD.ch"));
     }
 
@@ -522,13 +615,16 @@ public class EmailValidatorTest_OE25Dev {
 
     @Test
     public void testEmailWithCommas_2_oe()  {
+        // removed other assertion
 
         assertFalse(validator.isValid("joeblow@apache.o,rg"));
     }
 
     @Test
     public void testEmailWithCommas_3_oe()  {
+        // removed other assertion
 
+        // removed other assertion
 
         assertFalse(validator.isValid("joeblow@apache,org"));
     }
@@ -540,76 +636,112 @@ public class EmailValidatorTest_OE25Dev {
 
     @Test
     public void testEmailWithSpaces_2_oe()  {
+        // removed other assertion
 
         assertFalse(validator.isValid("joeblow@ apache.org"));
     }
 
     @Test
     public void testEmailWithSpaces_3_oe()  {
+        // removed other assertion
 
+        // removed other assertion
 
         assertFalse(validator.isValid(" joeblow@apache.org"));
     }
 
     @Test
     public void testEmailWithSpaces_4_oe()  {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertFalse(validator.isValid("joeblow@apache.org "));
     }
 
     @Test
     public void testEmailWithSpaces_5_oe()  {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertFalse(validator.isValid("joe blow@apache.org "));
     }
 
     @Test
     public void testEmailWithSpaces_6_oe()  {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertFalse(validator.isValid("joeblow@apa che.org "));
     }
 
     @Test
     public void testEmailWithSpaces_7_oe()  {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue(validator.isValid("\"joeblow \"@apache.org"));
     }
 
     @Test
     public void testEmailWithSpaces_8_oe()  {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue(validator.isValid("\" joeblow\"@apache.org"));
     }
 
     @Test
     public void testEmailWithSpaces_9_oe()  {
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue(validator.isValid("\" joe blow \"@apache.org"));
     }
@@ -624,12 +756,14 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailWithControlChars_2_oe()  {
         for (char c = 0; c < 32; c++) {
+            // removed other assertion
         }
         assertFalse("Test control char 127", validator.isValid("foo" + ((char)127) + "bar@domain.com"));
     }
 
     @Test
     public void testEmailLocalhost_1_oe() {
+       // Check the default is not to allow
        EmailValidator noLocal = EmailValidator.getInstance(false);
        EmailValidator allowLocal = EmailValidator.getInstance(true);
        assertEquals(validator, noLocal);
@@ -637,35 +771,53 @@ public class EmailValidatorTest_OE25Dev {
 
     @Test
     public void testEmailLocalhost_2_oe() {
+       // Check the default is not to allow
        EmailValidator noLocal = EmailValidator.getInstance(false);
        EmailValidator allowLocal = EmailValidator.getInstance(true);
+       // removed other assertion
        
+       // Depends on the validator
        assertTrue("@localhost.localdomain should be accepted but wasn't",allowLocal.isValid("joe@localhost.localdomain"));
     }
 
     @Test
     public void testEmailLocalhost_3_oe() {
+       // Check the default is not to allow
        EmailValidator noLocal = EmailValidator.getInstance(false);
        EmailValidator allowLocal = EmailValidator.getInstance(true);
+       // removed other assertion
        
+       // Depends on the validator
+       // removed other assertion
        assertTrue("@localhost should be accepted but wasn't",allowLocal.isValid("joe@localhost"));
     }
 
     @Test
     public void testEmailLocalhost_4_oe() {
+       // Check the default is not to allow
        EmailValidator noLocal = EmailValidator.getInstance(false);
        EmailValidator allowLocal = EmailValidator.getInstance(true);
+       // removed other assertion
        
+       // Depends on the validator
+       // removed other assertion
+       // removed other assertion
        
        assertFalse("@localhost.localdomain should be accepted but wasn't",noLocal.isValid("joe@localhost.localdomain"));
     }
 
     @Test
     public void testEmailLocalhost_5_oe() {
+       // Check the default is not to allow
        EmailValidator noLocal = EmailValidator.getInstance(false);
        EmailValidator allowLocal = EmailValidator.getInstance(true);
+       // removed other assertion
        
+       // Depends on the validator
+       // removed other assertion
+       // removed other assertion
        
+       // removed other assertion
        assertFalse("@localhost should be accepted but wasn't",noLocal.isValid("joe@localhost"));
     }
 
@@ -676,11 +828,14 @@ public class EmailValidatorTest_OE25Dev {
 
     @Test
     public void testEmailWithSlashes_2_oe() {
+       // removed other assertion
        assertFalse("/ not valid in domain",validator.isValid("joe@ap/ache.org"));
     }
 
     @Test
     public void testEmailWithSlashes_3_oe() {
+       // removed other assertion
+       // removed other assertion
        assertFalse("! not valid in domain",validator.isValid("joe@apac!he.org"));
     }
 
@@ -693,6 +848,7 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_2_oe()  {
 
+        // removed other assertion
 
         assertTrue(validator.isValid("joe$blow@apache.org"));
     }
@@ -700,7 +856,9 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_3_oe()  {
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue(validator.isValid("joe-@apache.org"));
     }
@@ -708,8 +866,11 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_4_oe()  {
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue(validator.isValid("joe_@apache.org"));
     }
@@ -717,9 +878,13 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_5_oe()  {
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue(validator.isValid("joe+@apache.org"));// + is valid unquoted assertTrue(validator.isValid("joe!@apache.org"));// ! is valid unquoted assertTrue(validator.isValid("joe*@apache.org"));// * is valid unquoted assertTrue(validator.isValid("joe'@apache.org"));// ' is valid unquoted assertTrue(validator.isValid("joe%45@apache.org"));// % is valid unquoted assertTrue(validator.isValid("joe?@apache.org"));// ? is valid unquoted assertTrue(validator.isValid("joe&@apache.org"));// & ditto assertTrue(validator.isValid("joe=@apache.org"));// = ditto assertTrue(validator.isValid("+joe@apache.org"));// + is valid unquoted assertTrue(validator.isValid("!joe@apache.org"));// ! is valid unquoted assertTrue(validator.isValid("*joe@apache.org"));// * is valid unquoted assertTrue(validator.isValid("'joe@apache.org"));// ' is valid unquoted assertTrue(validator.isValid("%joe45@apache.org"));// % is valid unquoted assertTrue(validator.isValid("?joe@apache.org"));// ? is valid unquoted assertTrue(validator.isValid("&joe@apache.org"));// & ditto assertTrue(validator.isValid("=joe@apache.org"));// = ditto assertTrue(validator.isValid("+@apache.org"));// + is valid unquoted assertTrue(validator.isValid("!@apache.org"));// ! is valid unquoted assertTrue(validator.isValid("*@apache.org"));// * is valid unquoted assertTrue(validator.isValid("'@apache.org"));// ' is valid unquoted assertTrue(validator.isValid("%@apache.org"));// % is valid unquoted assertTrue(validator.isValid("?@apache.org"));// ? is valid unquoted assertTrue(validator.isValid("&@apache.org"));// & ditto assertTrue(validator.isValid("=@apache.org"));// = ditto assertFalse(validator.isValid("joe.@apache.org"));// . not allowed at end of local part assertFalse(validator.isValid(".joe@apache.org"));// . not allowed at start of local part assertFalse(validator.isValid(".@apache.org"));// . not allowed alone assertTrue(validator.isValid("joe.ok@apache.org"));// . allowed embedded assertFalse(validator.isValid("joe..ok@apache.org"));// .. not allowed embedded assertFalse(validator.isValid("..@apache.org"));// .. not allowed alone assertFalse(validator.isValid("joe(@apache.org"));assertFalse(validator.isValid("joe)@apache.org"));
     }
@@ -727,10 +892,15 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_6_oe()  {
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertFalse(validator.isValid("joe,@apache.org"));
     }
@@ -738,11 +908,17 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_7_oe()  {
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertFalse(validator.isValid("joe;@apache.org"));
     }
@@ -750,28 +926,45 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_8_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
-
-
-
-
-
-
+        //Quoted Special characters are valid
         assertTrue(validator.isValid("\"joe.\"@apache.org"));
     }
 
     @Test
     public void testEmailUserName_9_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
-
-
-
-
-
-
+        //Quoted Special characters are valid
+        // removed other assertion
 
         assertTrue(validator.isValid("\".joe\"@apache.org"));
     }
@@ -779,15 +972,25 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_10_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("\"joe+\"@apache.org"));
     }
@@ -795,16 +998,27 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_11_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("\"joe@\"@apache.org"));
     }
@@ -812,17 +1026,29 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_12_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("\"joe!\"@apache.org"));
     }
@@ -830,18 +1056,31 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_13_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("\"joe*\"@apache.org"));
     }
@@ -849,19 +1088,33 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_14_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("\"joe'\"@apache.org"));
     }
@@ -869,20 +1122,35 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_15_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("\"joe(\"@apache.org"));
     }
@@ -890,21 +1158,37 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_16_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("\"joe)\"@apache.org"));
     }
@@ -912,22 +1196,39 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_17_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("\"joe,\"@apache.org"));
     }
@@ -935,23 +1236,41 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_18_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("\"joe%45\"@apache.org"));
     }
@@ -959,24 +1278,43 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_19_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("\"joe;\"@apache.org"));
     }
@@ -984,25 +1322,45 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_20_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("\"joe?\"@apache.org"));
     }
@@ -1010,26 +1368,47 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_21_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("\"joe&\"@apache.org"));
     }
@@ -1037,27 +1416,49 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_22_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("\"joe=\"@apache.org"));
     }
@@ -1065,28 +1466,51 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_23_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("\"..\"@apache.org"));
     }
@@ -1094,60 +1518,111 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_24_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // escaped quote character valid in quoted string
         assertTrue(validator.isValid("\"john\\\"doe\"@apache.org"));
     }
 
     @Test
     public void testEmailUserName_25_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // escaped quote character valid in quoted string
+        // removed other assertion
 
         assertTrue(validator.isValid("john56789.john56789.john56789.john56789.john56789.john56789.john@example.com"));
     }
@@ -1155,31 +1630,58 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_26_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // escaped quote character valid in quoted string
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertFalse(validator.isValid("john56789.john56789.john56789.john56789.john56789.john56789.john5@example.com"));
     }
@@ -1187,32 +1689,60 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_27_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // escaped quote character valid in quoted string
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("\\>escape\\\\special\\^characters\\<@example.com"));
     }
@@ -1220,33 +1750,62 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_28_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // escaped quote character valid in quoted string
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("Abc\\@def@example.com"));
     }
@@ -1254,34 +1813,64 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_29_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // escaped quote character valid in quoted string
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertFalse(validator.isValid("Abc@def@example.com"));
     }
@@ -1289,35 +1878,66 @@ public class EmailValidatorTest_OE25Dev {
     @Test
     public void testEmailUserName_30_oe()  {
 
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
 
 
+        //Quoted Special characters are valid
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // escaped quote character valid in quoted string
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-
-
-
-
-
-
+        // removed other assertion
 
         assertTrue(validator.isValid("space\\ monkey@example.com"));
     }
@@ -1329,21 +1949,31 @@ public class EmailValidatorTest_OE25Dev {
 
     @Test
     public void testValidator293_2_oe(){
+        // removed other assertion
         assertTrue(validator.isValid("abc_@abc.com"));
     }
 
     @Test
     public void testValidator293_3_oe(){
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("abc-def@abc.com"));
     }
 
     @Test
     public void testValidator293_4_oe(){
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("abc_def@abc.com"));
     }
 
     @Test
     public void testValidator293_5_oe(){
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(validator.isValid("abc@abc_def.com"));
     }
 
@@ -1376,6 +2006,7 @@ public class EmailValidatorTest_OE25Dev {
 
     @Test
     public void testValidator473_4_2_oe() { // Show that can override domain validation
+        // removed other assertion
         List<DomainValidator.Item> items = new ArrayList<>();
         items.add(new DomainValidator.Item(DomainValidator.ArrayType.GENERIC_PLUS, new String[]{"local"}));
         EmailValidator val = new EmailValidator(true, false, DomainValidator.getInstance(true, items));

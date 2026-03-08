@@ -65,6 +65,23 @@ public class ObjectArrayIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         return false;
     }
 
+    public void testIterator() {
+        final Iterator<E> iter = makeObject();
+        for (final String testValue : testArray) {
+            final E iterValue = iter.next();
+
+            assertEquals("Iteration value is correct", testValue, iterValue);
+        }
+
+        assertTrue("Iterator should now be empty", !iter.hasNext());
+
+        try {
+            iter.next();
+        } catch (final Exception e) {
+            assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
+        }
+    }
+
     public void testNullArray() {
         try {
             makeArrayIterator(null);
@@ -73,6 +90,14 @@ public class ObjectArrayIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         } catch (final NullPointerException e) {
             // expected
         }
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testReset() {
+        final ObjectArrayIterator<E> it = makeArrayIterator((E[]) testArray);
+        it.next();
+        it.reset();
+        assertEquals("One", it.next());
     }
 
     public void testIterator_1_oe() {
@@ -114,6 +139,16 @@ public class ObjectArrayIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         it.next();
         it.reset();
         assertEquals("One", it.next());
+    }
+
+public void testNullArray_oe_101_oe() {
+        try {
+            makeArrayIterator(null);
+
+            fail("Constructor should throw a NullPointerException when constructed with a null array");
+        } catch (final NullPointerException e) {
+            // expected
+        }
     }
 
 }

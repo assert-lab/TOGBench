@@ -134,55 +134,77 @@ class DocumentationExamplesTest_OE25Dev {
 
     @Test
     void testPrecisionContextExample_1_oe() {
+        // create a precision instance with an epsilon (aka, tolerance) value of 1e-3
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
+        // test for equality using the eq() method
         precision.eq(1.0009, 1.0); // true; difference is less than epsilon
         precision.eq(1.002, 1.0); // false; difference is greater than epsilon
 
+        // compare
         precision.compare(1.0009, 1.0); // 0
         precision.compare(1.002, 1.0); // 1
 
+        // ------------------
         Assertions.assertTrue(precision.eq(1.0009, 1.0));
     }
 
     @Test
     void testPrecisionContextExample_2_oe() {
+        // create a precision instance with an epsilon (aka, tolerance) value of 1e-3
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
+        // test for equality using the eq() method
         precision.eq(1.0009, 1.0); // true; difference is less than epsilon
         precision.eq(1.002, 1.0); // false; difference is greater than epsilon
 
+        // compare
         precision.compare(1.0009, 1.0); // 0
         precision.compare(1.002, 1.0); // 1
 
+        // ------------------
+        // removed other assertion
         Assertions.assertFalse(precision.eq(1.002, 1.0));
     }
 
     @Test
     void testPrecisionContextExample_3_oe() {
+        // create a precision instance with an epsilon (aka, tolerance) value of 1e-3
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
+        // test for equality using the eq() method
         precision.eq(1.0009, 1.0); // true; difference is less than epsilon
         precision.eq(1.002, 1.0); // false; difference is greater than epsilon
 
+        // compare
         precision.compare(1.0009, 1.0); // 0
         precision.compare(1.002, 1.0); // 1
 
+        // ------------------
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0, precision.compare(1.0009, 1.0));
     }
 
     @Test
     void testPrecisionContextExample_4_oe() {
+        // create a precision instance with an epsilon (aka, tolerance) value of 1e-3
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
+        // test for equality using the eq() method
         precision.eq(1.0009, 1.0); // true; difference is less than epsilon
         precision.eq(1.002, 1.0); // false; difference is greater than epsilon
 
+        // compare
         precision.compare(1.0009, 1.0); // 0
         precision.compare(1.002, 1.0); // 1
 
+        // ------------------
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(1, precision.compare(1.002, 1.0));
     }
 
@@ -201,6 +223,7 @@ class DocumentationExamplesTest_OE25Dev {
 
         v1.eq(v3, precision); // true - approximately equal according to the given precision context
 
+        // ---------------------
         Assertions.assertEquals(v1, v2);
     }
 
@@ -219,6 +242,8 @@ class DocumentationExamplesTest_OE25Dev {
 
         v1.eq(v3, precision); // true - approximately equal according to the given precision context
 
+        // ---------------------
+        // removed other assertion
         Assertions.assertNotEquals(v1, v3);
     }
 
@@ -237,6 +262,9 @@ class DocumentationExamplesTest_OE25Dev {
 
         v1.eq(v3, precision); // true - approximately equal according to the given precision context
 
+        // ---------------------
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(v1.eq(v3, precision));
     }
 
@@ -244,13 +272,17 @@ class DocumentationExamplesTest_OE25Dev {
     void testManualBSPTreeExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a tree representing an empty space (nothing "inside")
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // insert a "structural" cut, meaning a cut whose children have the same inside/outside
+        // status as the parent; this will help keep our tree balanced and limit its overall height
         tree.getRoot().insertCut(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), precision),
                 RegionCutRule.INHERIT);
 
         RegionBSPTree2D.RegionNode2D currentNode;
 
+        // insert on the plus side of the structural diagonal cut
         currentNode = tree.getRoot().getPlus();
 
         currentNode.insertCut(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, precision));
@@ -258,6 +290,7 @@ class DocumentationExamplesTest_OE25Dev {
 
         currentNode.insertCut(Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, precision));
 
+        // insert on the plus side of the structural diagonal cut
         currentNode = tree.getRoot().getMinus();
 
         currentNode.insertCut(Lines.fromPointAndDirection(Vector2D.of(1, 1), Vector2D.Unit.MINUS_X, precision));
@@ -265,11 +298,13 @@ class DocumentationExamplesTest_OE25Dev {
 
         currentNode.insertCut(Lines.fromPointAndDirection(Vector2D.of(0, 1), Vector2D.Unit.MINUS_Y, precision));
 
+        // compute some tree properties
         final int count = tree.count(); // number of nodes in the tree = 11
         final int height = tree.height(); // height of the tree = 3
         final double size = tree.getSize(); // size of the region = 1
         final Vector2D centroid = tree.getCentroid(); // region centroid = (0.5, 0.5)
 
+        // ---------
         Assertions.assertEquals(1, size, TEST_EPS);
     }
 
@@ -277,13 +312,17 @@ class DocumentationExamplesTest_OE25Dev {
     void testManualBSPTreeExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a tree representing an empty space (nothing "inside")
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // insert a "structural" cut, meaning a cut whose children have the same inside/outside
+        // status as the parent; this will help keep our tree balanced and limit its overall height
         tree.getRoot().insertCut(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), precision),
                 RegionCutRule.INHERIT);
 
         RegionBSPTree2D.RegionNode2D currentNode;
 
+        // insert on the plus side of the structural diagonal cut
         currentNode = tree.getRoot().getPlus();
 
         currentNode.insertCut(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, precision));
@@ -291,6 +330,7 @@ class DocumentationExamplesTest_OE25Dev {
 
         currentNode.insertCut(Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, precision));
 
+        // insert on the plus side of the structural diagonal cut
         currentNode = tree.getRoot().getMinus();
 
         currentNode.insertCut(Lines.fromPointAndDirection(Vector2D.of(1, 1), Vector2D.Unit.MINUS_X, precision));
@@ -298,11 +338,14 @@ class DocumentationExamplesTest_OE25Dev {
 
         currentNode.insertCut(Lines.fromPointAndDirection(Vector2D.of(0, 1), Vector2D.Unit.MINUS_Y, precision));
 
+        // compute some tree properties
         final int count = tree.count(); // number of nodes in the tree = 11
         final int height = tree.height(); // height of the tree = 3
         final double size = tree.getSize(); // size of the region = 1
         final Vector2D centroid = tree.getCentroid(); // region centroid = (0.5, 0.5)
 
+        // ---------
+        // removed other assertion
         Assertions.assertEquals(11, count);
     }
 
@@ -310,13 +353,17 @@ class DocumentationExamplesTest_OE25Dev {
     void testManualBSPTreeExample_3_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a tree representing an empty space (nothing "inside")
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // insert a "structural" cut, meaning a cut whose children have the same inside/outside
+        // status as the parent; this will help keep our tree balanced and limit its overall height
         tree.getRoot().insertCut(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), precision),
                 RegionCutRule.INHERIT);
 
         RegionBSPTree2D.RegionNode2D currentNode;
 
+        // insert on the plus side of the structural diagonal cut
         currentNode = tree.getRoot().getPlus();
 
         currentNode.insertCut(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, precision));
@@ -324,6 +371,7 @@ class DocumentationExamplesTest_OE25Dev {
 
         currentNode.insertCut(Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, precision));
 
+        // insert on the plus side of the structural diagonal cut
         currentNode = tree.getRoot().getMinus();
 
         currentNode.insertCut(Lines.fromPointAndDirection(Vector2D.of(1, 1), Vector2D.Unit.MINUS_X, precision));
@@ -331,11 +379,15 @@ class DocumentationExamplesTest_OE25Dev {
 
         currentNode.insertCut(Lines.fromPointAndDirection(Vector2D.of(0, 1), Vector2D.Unit.MINUS_Y, precision));
 
+        // compute some tree properties
         final int count = tree.count(); // number of nodes in the tree = 11
         final int height = tree.height(); // height of the tree = 3
         final double size = tree.getSize(); // size of the region = 1
         final Vector2D centroid = tree.getCentroid(); // region centroid = (0.5, 0.5)
 
+        // ---------
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(3, height);
     }
 
@@ -343,8 +395,10 @@ class DocumentationExamplesTest_OE25Dev {
     void testHyperplaneSubsetBSPTreeExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a tree representing an empty space (nothing "inside")
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // insert the hyperplane subsets
         tree.insert(Arrays.asList(
                     Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), precision),
                     Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), precision),
@@ -352,11 +406,13 @@ class DocumentationExamplesTest_OE25Dev {
                     Lines.segmentFromPoints(Vector2D.of(0, 1), Vector2D.ZERO, precision)
                 ));
 
+        // compute some tree properties
         final int count = tree.count(); // number of nodes in the tree = 9
         final int height = tree.height(); // height of the tree = 4
         final double size = tree.getSize(); // size of the region = 1
         final Vector2D centroid = tree.getCentroid(); // region centroid = (0.5, 0.5)
 
+        // ---------
         Assertions.assertEquals(1, size, TEST_EPS);
     }
 
@@ -364,8 +420,10 @@ class DocumentationExamplesTest_OE25Dev {
     void testHyperplaneSubsetBSPTreeExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a tree representing an empty space (nothing "inside")
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // insert the hyperplane subsets
         tree.insert(Arrays.asList(
                     Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), precision),
                     Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), precision),
@@ -373,11 +431,14 @@ class DocumentationExamplesTest_OE25Dev {
                     Lines.segmentFromPoints(Vector2D.of(0, 1), Vector2D.ZERO, precision)
                 ));
 
+        // compute some tree properties
         final int count = tree.count(); // number of nodes in the tree = 9
         final int height = tree.height(); // height of the tree = 4
         final double size = tree.getSize(); // size of the region = 1
         final Vector2D centroid = tree.getCentroid(); // region centroid = (0.5, 0.5)
 
+        // ---------
+        // removed other assertion
         Assertions.assertEquals(9, count);
     }
 
@@ -385,8 +446,10 @@ class DocumentationExamplesTest_OE25Dev {
     void testHyperplaneSubsetBSPTreeExample_3_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a tree representing an empty space (nothing "inside")
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // insert the hyperplane subsets
         tree.insert(Arrays.asList(
                     Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), precision),
                     Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), precision),
@@ -394,11 +457,15 @@ class DocumentationExamplesTest_OE25Dev {
                     Lines.segmentFromPoints(Vector2D.of(0, 1), Vector2D.ZERO, precision)
                 ));
 
+        // compute some tree properties
         final int count = tree.count(); // number of nodes in the tree = 9
         final int height = tree.height(); // height of the tree = 4
         final double size = tree.getSize(); // size of the region = 1
         final Vector2D centroid = tree.getCentroid(); // region centroid = (0.5, 0.5)
 
+        // ---------
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(4, height);
     }
 
@@ -406,9 +473,11 @@ class DocumentationExamplesTest_OE25Dev {
     void testIntervalExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a closed interval and a half-open interval with a min but no max
         final Interval closed = Interval.of(1, 2, precision);
         final Interval halfOpen = Interval.min(1, precision);
 
+        // classify some points against the intervals
         closed.contains(0.0); // false
         halfOpen.contains(Vector1D.ZERO); // false
 
@@ -418,6 +487,7 @@ class DocumentationExamplesTest_OE25Dev {
         final RegionLocation closedThreeLoc = closed.classify(3.0); // RegionLocation.OUTSIDE
         final RegionLocation halfOpenThreeLoc = halfOpen.classify(3.0); // RegionLocation.INSIDE
 
+        // --------------------
         Assertions.assertFalse(closed.contains(0));
     }
 
@@ -425,9 +495,11 @@ class DocumentationExamplesTest_OE25Dev {
     void testIntervalExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a closed interval and a half-open interval with a min but no max
         final Interval closed = Interval.of(1, 2, precision);
         final Interval halfOpen = Interval.min(1, precision);
 
+        // classify some points against the intervals
         closed.contains(0.0); // false
         halfOpen.contains(Vector1D.ZERO); // false
 
@@ -437,6 +509,8 @@ class DocumentationExamplesTest_OE25Dev {
         final RegionLocation closedThreeLoc = closed.classify(3.0); // RegionLocation.OUTSIDE
         final RegionLocation halfOpenThreeLoc = halfOpen.classify(3.0); // RegionLocation.INSIDE
 
+        // --------------------
+        // removed other assertion
         Assertions.assertFalse(halfOpen.contains(0));
     }
 
@@ -444,9 +518,11 @@ class DocumentationExamplesTest_OE25Dev {
     void testIntervalExample_3_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a closed interval and a half-open interval with a min but no max
         final Interval closed = Interval.of(1, 2, precision);
         final Interval halfOpen = Interval.min(1, precision);
 
+        // classify some points against the intervals
         closed.contains(0.0); // false
         halfOpen.contains(Vector1D.ZERO); // false
 
@@ -456,6 +532,9 @@ class DocumentationExamplesTest_OE25Dev {
         final RegionLocation closedThreeLoc = closed.classify(3.0); // RegionLocation.OUTSIDE
         final RegionLocation halfOpenThreeLoc = halfOpen.classify(3.0); // RegionLocation.INSIDE
 
+        // --------------------
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(RegionLocation.BOUNDARY, closedOneLoc);
     }
@@ -464,9 +543,11 @@ class DocumentationExamplesTest_OE25Dev {
     void testIntervalExample_4_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a closed interval and a half-open interval with a min but no max
         final Interval closed = Interval.of(1, 2, precision);
         final Interval halfOpen = Interval.min(1, precision);
 
+        // classify some points against the intervals
         closed.contains(0.0); // false
         halfOpen.contains(Vector1D.ZERO); // false
 
@@ -476,7 +557,11 @@ class DocumentationExamplesTest_OE25Dev {
         final RegionLocation closedThreeLoc = closed.classify(3.0); // RegionLocation.OUTSIDE
         final RegionLocation halfOpenThreeLoc = halfOpen.classify(3.0); // RegionLocation.INSIDE
 
+        // --------------------
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(RegionLocation.BOUNDARY, halfOpenOneLoc);
     }
 
@@ -484,9 +569,11 @@ class DocumentationExamplesTest_OE25Dev {
     void testIntervalExample_5_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a closed interval and a half-open interval with a min but no max
         final Interval closed = Interval.of(1, 2, precision);
         final Interval halfOpen = Interval.min(1, precision);
 
+        // classify some points against the intervals
         closed.contains(0.0); // false
         halfOpen.contains(Vector1D.ZERO); // false
 
@@ -496,7 +583,12 @@ class DocumentationExamplesTest_OE25Dev {
         final RegionLocation closedThreeLoc = closed.classify(3.0); // RegionLocation.OUTSIDE
         final RegionLocation halfOpenThreeLoc = halfOpen.classify(3.0); // RegionLocation.INSIDE
 
+        // --------------------
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(RegionLocation.OUTSIDE, closedThreeLoc);
     }
@@ -505,9 +597,11 @@ class DocumentationExamplesTest_OE25Dev {
     void testIntervalExample_6_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a closed interval and a half-open interval with a min but no max
         final Interval closed = Interval.of(1, 2, precision);
         final Interval halfOpen = Interval.min(1, precision);
 
+        // classify some points against the intervals
         closed.contains(0.0); // false
         halfOpen.contains(Vector1D.ZERO); // false
 
@@ -517,8 +611,14 @@ class DocumentationExamplesTest_OE25Dev {
         final RegionLocation closedThreeLoc = closed.classify(3.0); // RegionLocation.OUTSIDE
         final RegionLocation halfOpenThreeLoc = halfOpen.classify(3.0); // RegionLocation.INSIDE
 
+        // --------------------
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(RegionLocation.INSIDE, halfOpenThreeLoc);
     }
 
@@ -526,16 +626,20 @@ class DocumentationExamplesTest_OE25Dev {
     void testRegionBSPTree1DExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // build a bsp tree from the union of several intervals
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
 
         tree.add(Interval.of(1, 2, precision));
         tree.add(Interval.of(1.5, 3, precision));
         tree.add(Interval.of(-1, -2, precision));
 
+        // compute the size;
         final double size = tree.getSize(); // 3
 
+        // convert back to intervals
         final List<Interval> intervals = tree.toIntervals(); // size = 2
 
+        // ----------------------
         Assertions.assertEquals(3, size, TEST_EPS);
     }
 
@@ -543,16 +647,21 @@ class DocumentationExamplesTest_OE25Dev {
     void testRegionBSPTree1DExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // build a bsp tree from the union of several intervals
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
 
         tree.add(Interval.of(1, 2, precision));
         tree.add(Interval.of(1.5, 3, precision));
         tree.add(Interval.of(-1, -2, precision));
 
+        // compute the size;
         final double size = tree.getSize(); // 3
 
+        // convert back to intervals
         final List<Interval> intervals = tree.toIntervals(); // size = 2
 
+        // ----------------------
+        // removed other assertion
         Assertions.assertEquals(2, intervals.size());
     }
 
@@ -560,13 +669,17 @@ class DocumentationExamplesTest_OE25Dev {
     void testLineIntersectionExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create some lines
         final Line a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(2, 2), precision);
         final Line b = Lines.fromPointAndDirection(Vector2D.of(1, -1), Vector2D.Unit.PLUS_Y, precision);
 
+        // compute the intersection and angles
         final Vector2D intersection = a.intersection(b); // (1, 1)
         final double angleAtoB = a.angle(b); // pi/4
         final double angleBtoA = b.angle(a); // -pi/4
 
+        // ----------------------------
+        // removed other assertion
         Assertions.assertEquals(0.25 * Math.PI, angleAtoB, TEST_EPS);
     }
 
@@ -574,13 +687,18 @@ class DocumentationExamplesTest_OE25Dev {
     void testLineIntersectionExample_3_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create some lines
         final Line a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(2, 2), precision);
         final Line b = Lines.fromPointAndDirection(Vector2D.of(1, -1), Vector2D.Unit.PLUS_Y, precision);
 
+        // compute the intersection and angles
         final Vector2D intersection = a.intersection(b); // (1, 1)
         final double angleAtoB = a.angle(b); // pi/4
         final double angleBtoA = b.angle(a); // -pi/4
 
+        // ----------------------------
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-0.25 * Math.PI, angleBtoA, TEST_EPS);
     }
 
@@ -588,14 +706,19 @@ class DocumentationExamplesTest_OE25Dev {
     void testLineSegmentIntersectionExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create some line segments
         final Segment segmentA = Lines.segmentFromPoints(Vector2D.of(3, -1), Vector2D.of(3, 1), precision);
         final Segment segmentB = Lines.segmentFromPoints(Vector2D.of(-3, -1), Vector2D.of(-3, 1), precision);
 
+        // create a ray to intersect against the segments
         final Ray ray = Lines.rayFromPointAndDirection(Vector2D.of(2, 0), Vector2D.Unit.PLUS_X, precision);
 
+        // compute some intersections
         final Vector2D aIntersection = segmentA.intersection(ray); // (3, 0)
         final Vector2D bIntersection = segmentB.intersection(ray); // null - no intersection
 
+        // ----------------------------
+        // removed other assertion
         Assertions.assertNull(bIntersection);
     }
 
@@ -603,6 +726,7 @@ class DocumentationExamplesTest_OE25Dev {
     void testRegionBSPTree2DExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a connected sequence of line segments forming the unit square
         final LinePath path = LinePath.builder(precision)
                 .append(Vector2D.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -610,19 +734,28 @@ class DocumentationExamplesTest_OE25Dev {
                 .append(Vector2D.Unit.PLUS_Y)
                 .build(true); // build the path, ending it with the starting point
 
+        // convert to a tree
         final RegionBSPTree2D tree = path.toTree();
 
+        // copy the tree
         final RegionBSPTree2D copy = tree.copy();
 
+        // translate the copy
         copy.transform(AffineTransformMatrix2D.createTranslation(Vector2D.of(0.5, 0.5)));
 
+        // compute the union of the regions, storing the result back into the
+        // first tree
         tree.union(copy);
 
+        // compute some properties
         final double size = tree.getSize(); // 1.75
         final Vector2D centroid = tree.getCentroid(); // (0.75, 0.75)
 
+        // get a line path representing the boundary; a list is returned since trees
+        // can represent disjoint regions
         final List<LinePath> boundaries = tree.getBoundaryPaths(); // size = 1
 
+        // ----------------
         Assertions.assertEquals(1.75, size, TEST_EPS);
     }
 
@@ -630,6 +763,7 @@ class DocumentationExamplesTest_OE25Dev {
     void testRegionBSPTree2DExample_3_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a connected sequence of line segments forming the unit square
         final LinePath path = LinePath.builder(precision)
                 .append(Vector2D.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -637,19 +771,30 @@ class DocumentationExamplesTest_OE25Dev {
                 .append(Vector2D.Unit.PLUS_Y)
                 .build(true); // build the path, ending it with the starting point
 
+        // convert to a tree
         final RegionBSPTree2D tree = path.toTree();
 
+        // copy the tree
         final RegionBSPTree2D copy = tree.copy();
 
+        // translate the copy
         copy.transform(AffineTransformMatrix2D.createTranslation(Vector2D.of(0.5, 0.5)));
 
+        // compute the union of the regions, storing the result back into the
+        // first tree
         tree.union(copy);
 
+        // compute some properties
         final double size = tree.getSize(); // 1.75
         final Vector2D centroid = tree.getCentroid(); // (0.75, 0.75)
 
+        // get a line path representing the boundary; a list is returned since trees
+        // can represent disjoint regions
         final List<LinePath> boundaries = tree.getBoundaryPaths(); // size = 1
 
+        // ----------------
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, boundaries.size());
     }
 
@@ -657,6 +802,8 @@ class DocumentationExamplesTest_OE25Dev {
     void testRegionBSPTree3DExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create the faces of a pyramid with a square base and its apex pointing along the
+        // positive z axis
         final Vector3D[] vertices = {
             Vector3D.Unit.PLUS_Z,
             Vector3D.of(0.5, 0.5, 0.0),
@@ -673,17 +820,22 @@ class DocumentationExamplesTest_OE25Dev {
             {1, 2, 3, 4}
         };
 
+        // convert the vertices and faces to convex polygons and use to construct a BSP tree
         final List<ConvexPolygon3D> faces = Planes.indexedConvexPolygons(vertices, faceIndices, precision);
         final RegionBSPTree3D tree = RegionBSPTree3D.from(faces);
 
+        // split the region through its centroid along a diagonal of the base
         final Plane cutter = Planes.fromPointAndNormal(tree.getCentroid(), Vector3D.Unit.from(1, 1, 0), precision);
         final Split<RegionBSPTree3D> split = tree.split(cutter);
 
+        // compute some properties for the minus side of the split and convert back to hyperplane subsets
+        // (ie, boundary facets)
         final RegionBSPTree3D minus = split.getMinus();
 
         final double minusSize = minus.getSize(); // 1/6
         final List<PlaneConvexSubset> minusBoundaries = minus.getBoundaries(); // size = 4
 
+        // ---------------------
         Assertions.assertEquals(1.0 / 6.0, minusSize, TEST_EPS);
     }
 
@@ -691,6 +843,8 @@ class DocumentationExamplesTest_OE25Dev {
     void testRegionBSPTree3DExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create the faces of a pyramid with a square base and its apex pointing along the
+        // positive z axis
         final Vector3D[] vertices = {
             Vector3D.Unit.PLUS_Z,
             Vector3D.of(0.5, 0.5, 0.0),
@@ -707,17 +861,23 @@ class DocumentationExamplesTest_OE25Dev {
             {1, 2, 3, 4}
         };
 
+        // convert the vertices and faces to convex polygons and use to construct a BSP tree
         final List<ConvexPolygon3D> faces = Planes.indexedConvexPolygons(vertices, faceIndices, precision);
         final RegionBSPTree3D tree = RegionBSPTree3D.from(faces);
 
+        // split the region through its centroid along a diagonal of the base
         final Plane cutter = Planes.fromPointAndNormal(tree.getCentroid(), Vector3D.Unit.from(1, 1, 0), precision);
         final Split<RegionBSPTree3D> split = tree.split(cutter);
 
+        // compute some properties for the minus side of the split and convert back to hyperplane subsets
+        // (ie, boundary facets)
         final RegionBSPTree3D minus = split.getMinus();
 
         final double minusSize = minus.getSize(); // 1/6
         final List<PlaneConvexSubset> minusBoundaries = minus.getBoundaries(); // size = 4
 
+        // ---------------------
+        // removed other assertion
         Assertions.assertEquals(4, minusBoundaries.size());
     }
 
@@ -725,17 +885,22 @@ class DocumentationExamplesTest_OE25Dev {
     void testLinecast3DExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a BSP tree representing an axis-aligned cube with corners at (0, 0, 0) and (1, 1, 1)
         final RegionBSPTree3D tree = Parallelepiped.axisAligned(Vector3D.ZERO, Vector3D.of(1, 1, 1), precision)
                 .toTree();
 
+        // create a ray starting on one side of the cube and pointing through its center
         final Ray3D ray = Lines3D.rayFromPointAndDirection(Vector3D.of(0.5, 0.5, -1), Vector3D.Unit.PLUS_Z, precision);
 
+        // perform the linecast
         final List<LinecastPoint3D> pts = tree.linecast(ray);
 
+        // check the results
         final int intersectionCount = pts.size(); // intersectionCount = 2
         final Vector3D intersection = pts.get(0).getPoint(); // (0.5, 0.5, 0.0)
         final Vector3D normal = pts.get(0).getNormal(); // (0.0, 0.0, -1.0)
 
+        // ----------------
         Assertions.assertEquals(2, intersectionCount);
     }
 

@@ -95,11 +95,13 @@ class JDKRandomBridgeTest_OE25Dev {
 
     @Test
     void testJDKRandomEquivalence_1_oe() {
+        // Initialize.
          long seed = RandomSource.createLong();
          Random rng1 = new Random(seed);
          Random rng2 = new JDKRandomBridge(RandomSource.JDK, seed);
         checkSameSequence(rng1, rng2);
 
+        // Reseed.
          long newSeed = RandomSource.createLong();
         Assertions.assertNotEquals(seed, newSeed);
     }

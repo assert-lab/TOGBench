@@ -31,6 +31,7 @@ public class TransparencyFilterIndexedColorTest_OE25Dev{
 
         try {
             transparencyFilterIndexedColor.filter((-416), (-398));
+            // removed other assertion
         } catch(final Exception e) {
             assertEquals("TransparencyFilterIndexedColor index: -398, bytes.length: 0",e.getMessage());
     }
@@ -43,7 +44,9 @@ public class TransparencyFilterIndexedColorTest_OE25Dev{
 
         try {
             transparencyFilterIndexedColor.filter((-416), (-398));
+            // removed other assertion
         } catch(final Exception e) {
+            // removed other assertion
             assertEquals(TransparencyFilterIndexedColor.class.getName(), e.getStackTrace()[0].getClassName());
     }
     }

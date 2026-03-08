@@ -50,11 +50,14 @@ public class StaticUsingArgsTest_OE25Dev {
 
     @Test
     public void testGetProperty_2_oe() {
+        // removed other assertion
         assertEquals("bar-value", StaticUsingArgs.getProperty("bar"));
     }
 
     @Test
     public void testGetProperty_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals("baz-value", StaticUsingArgs.getProperty("baz"));
     }
 
@@ -65,11 +68,14 @@ public class StaticUsingArgsTest_OE25Dev {
 
     @Test
     public void testGetProperties_2_oe() {
+        // removed other assertion
         assertEquals(0, StaticUsingArgs.getProperties().length);
     }
 
     @Test
     public void testGetProperties_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertNull(StaticUsingArgs.getProperties((String[]) null));
     }
 
@@ -80,11 +86,14 @@ public class StaticUsingArgsTest_OE25Dev {
 
     @Test
     public void testAssembleAndGetProperty_2_oe() {
+        // removed other assertion
         assertEquals("bar-value", StaticUsingArgs.assembleAndGetProperty('b', new StringBuilder().append('a'), 'r'));
     }
 
     @Test
     public void testAssembleAndGetProperty_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals("baz-value", StaticUsingArgs.assembleAndGetProperty('b', new StringBuilder().append('a'), 'z'));
     }
 

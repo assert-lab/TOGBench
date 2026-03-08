@@ -49,6 +49,7 @@ public class InvalidTelnetOptionExceptionTest_OE25Dev extends TestCase
 
     public void testConstructors_2_oe()
     {
+        // removed other assertion
         assertTrue(exc1.getMessage().indexOf("" +code1) >= 0);
     }
 

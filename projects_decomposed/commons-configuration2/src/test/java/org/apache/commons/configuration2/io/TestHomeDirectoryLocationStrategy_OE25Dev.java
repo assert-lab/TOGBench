@@ -98,6 +98,7 @@ public class TestHomeDirectoryLocationStrategy_OE25Dev {
     @Test
     public void testInitDefaults_2_oe() {
         final HomeDirectoryLocationStrategy strategy = new HomeDirectoryLocationStrategy();
+        // removed other assertion
         assertFalse("Wrong base path flag", strategy.isEvaluateBasePath());
     }
 

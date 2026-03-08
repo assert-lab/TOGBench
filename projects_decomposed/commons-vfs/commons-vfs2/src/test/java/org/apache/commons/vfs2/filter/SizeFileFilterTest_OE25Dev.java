@@ -110,6 +110,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
     public void testSizeFileFilterLong_2_oe() throws FileSystemException {
 
         final SizeFileFilter testee = new SizeFileFilter(4);
+        // removed other assertion
         Assert.assertTrue(testee.accept(optFileInfo));
     }
 
@@ -117,6 +118,8 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
     public void testSizeFileFilterLong_3_oe() throws FileSystemException {
 
         final SizeFileFilter testee = new SizeFileFilter(4);
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(testee.accept(maxFileInfo));
     }
 
@@ -135,6 +138,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeFileFilter testee;
 
         testee = new SizeFileFilter(4, true);
+        // removed other assertion
         Assert.assertTrue(testee.accept(optFileInfo));
     }
 
@@ -144,6 +148,8 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeFileFilter testee;
 
         testee = new SizeFileFilter(4, true);
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(testee.accept(maxFileInfo));
     }
 
@@ -153,6 +159,9 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeFileFilter testee;
 
         testee = new SizeFileFilter(4, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeFileFilter(4, false);
         Assert.assertTrue(testee.accept(minFileInfo));
@@ -164,8 +173,12 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeFileFilter testee;
 
         testee = new SizeFileFilter(4, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeFileFilter(4, false);
+        // removed other assertion
         Assert.assertFalse(testee.accept(optFileInfo));
     }
 
@@ -175,113 +188,174 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeFileFilter testee;
 
         testee = new SizeFileFilter(4, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeFileFilter(4, false);
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(testee.accept(maxFileInfo));
     }
 
     @Test
     public void testSizeFileFilterZipDir_2_oe() throws FileSystemException {
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
         Assert.assertEquals(2, files.length);
     }
 
     @Test
     public void testSizeFileFilterZipDir_4_oe() throws FileSystemException {
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
         Assert.assertEquals(1, files.length);
     }
 
     @Test
     public void testSizeFileFilterZipDir_6_oe() throws FileSystemException {
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
         Assert.assertEquals(3, files.length);
     }
 
     @Test
     public void testSizeFileFilterZipDir_8_oe() throws FileSystemException {
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        // removed other assertion
         Assert.assertEquals(2, files.length);
     }
 
     @Test
     public void testSizeFileFilterZipDir_10_oe() throws FileSystemException {
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 5)));
+        // removed other assertion
         Assert.assertEquals(2, files.length);
     }
 
     @Test
     public void testSizeFileFilterZipDir_12_oe() throws FileSystemException {
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 5)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 5)));
+        // removed other assertion
         Assert.assertEquals(1, files.length);
     }
 
     @Test
     public void testSizeFileFilterZipDir_14_oe() throws FileSystemException {
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 5)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 5)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(4, 4)));
+        // removed other assertion
         Assert.assertEquals(1, files.length);
     }
 
@@ -300,6 +374,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeRangeFileFilter testee;
 
         testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
         Assert.assertTrue(testee.accept(optFileInfo));
     }
 
@@ -309,6 +384,8 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeRangeFileFilter testee;
 
         testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(testee.accept(maxFileInfo));
     }
 
@@ -318,6 +395,9 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeRangeFileFilter testee;
 
         testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 6);
         Assert.assertFalse(testee.accept(minFileInfo));
@@ -329,8 +409,12 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeRangeFileFilter testee;
 
         testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
         Assert.assertTrue(testee.accept(optFileInfo));
     }
 
@@ -340,8 +424,13 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeRangeFileFilter testee;
 
         testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(testee.accept(maxFileInfo));
     }
 
@@ -351,8 +440,14 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeRangeFileFilter testee;
 
         testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(2, 5);
         Assert.assertTrue(testee.accept(minFileInfo));
@@ -364,10 +459,17 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeRangeFileFilter testee;
 
         testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(2, 5);
+        // removed other assertion
         Assert.assertTrue(testee.accept(optFileInfo));
     }
 
@@ -377,10 +479,18 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeRangeFileFilter testee;
 
         testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(2, 5);
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(testee.accept(maxFileInfo));
     }
 
@@ -390,10 +500,19 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeRangeFileFilter testee;
 
         testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(2, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 5);
         Assert.assertFalse(testee.accept(minFileInfo));
@@ -405,12 +524,22 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeRangeFileFilter testee;
 
         testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(2, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 5);
+        // removed other assertion
         Assert.assertTrue(testee.accept(optFileInfo));
     }
 
@@ -420,12 +549,23 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeRangeFileFilter testee;
 
         testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(2, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 5);
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(testee.accept(maxFileInfo));
     }
 
@@ -435,12 +575,24 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeRangeFileFilter testee;
 
         testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(2, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(4, 4);
         Assert.assertFalse(testee.accept(minFileInfo));
@@ -452,14 +604,27 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeRangeFileFilter testee;
 
         testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(2, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(4, 4);
+        // removed other assertion
         Assert.assertTrue(testee.accept(optFileInfo));
     }
 
@@ -469,20 +634,35 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         SizeRangeFileFilter testee;
 
         testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(2, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(3, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         testee = new SizeRangeFileFilter(4, 4);
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(testee.accept(maxFileInfo));
     }
 
 @Test
     public void testSizeFileFilterZipDir_1_oe() throws FileSystemException {
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
@@ -492,9 +672,12 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
 @Test
     public void testSizeFileFilterZipDir_3_oe() throws FileSystemException {
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
         assertContains(files, minFile.getName());
@@ -503,11 +686,16 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
 @Test
     public void testSizeFileFilterZipDir_5_oe() throws FileSystemException {
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
         assertContains(files, minFile.getName(), optFile.getName(), maxFile.getName());
@@ -516,13 +704,20 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
 @Test
     public void testSizeFileFilterZipDir_7_oe() throws FileSystemException {
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
         assertContains(files, optFile.getName(), maxFile.getName());
@@ -531,15 +726,24 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
 @Test
     public void testSizeFileFilterZipDir_9_oe() throws FileSystemException {
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 5)));
         assertContains(files, minFile.getName(), optFile.getName());
@@ -548,17 +752,28 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
 @Test
     public void testSizeFileFilterZipDir_11_oe() throws FileSystemException {
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 5)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 5)));
         assertContains(files, optFile.getName());
@@ -567,19 +782,32 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
 @Test
     public void testSizeFileFilterZipDir_13_oe() throws FileSystemException {
 
+        // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 5)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 5)));
+        // removed other assertion
+        // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(4, 4)));
         assertContains(files, optFile.getName());

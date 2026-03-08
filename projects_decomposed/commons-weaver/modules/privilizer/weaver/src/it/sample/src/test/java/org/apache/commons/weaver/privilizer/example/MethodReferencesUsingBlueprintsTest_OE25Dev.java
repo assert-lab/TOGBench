@@ -61,11 +61,14 @@ public class MethodReferencesUsingBlueprintsTest_OE25Dev {
 
     @Test
     public void testUtilsGetProperty_String_2_oe() {
+        // removed other assertion
         assertEquals("bar-value", methodReferencesUsingBlueprints.utilsGetProperty("bar"));
     }
 
     @Test
     public void testUtilsGetProperty_String_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals("baz-value", methodReferencesUsingBlueprints.utilsGetProperty("baz"));
     }
 
@@ -76,11 +79,14 @@ public class MethodReferencesUsingBlueprintsTest_OE25Dev {
 
     @Test
     public void testUtilsGetProperty_int_String_2_oe() {
+        // removed other assertion
         assertEquals("bar-value", methodReferencesUsingBlueprints.utilsGetProperty(2, "bar"));
     }
 
     @Test
     public void testUtilsGetProperty_int_String_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals("baz-value", methodReferencesUsingBlueprints.utilsGetProperty(2, "baz"));
     }
 

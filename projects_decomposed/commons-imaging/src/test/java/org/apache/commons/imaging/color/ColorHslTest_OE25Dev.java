@@ -63,6 +63,7 @@ public class ColorHslTest_OE25Dev {
 
     @Test
     public void testHashCodeAndEquals_2_oe() {
+        // removed other assertion
         assertThat(color.hashCode(), is(colorCopy.hashCode()));
     }
 
@@ -79,6 +80,7 @@ public class ColorHslTest_OE25Dev {
         final ColorHsl colorHsl = ColorHsl.BLUE;
         final ColorHsl colorHslTwo = new ColorHsl(100.0, 667.226, (-687.72287636));
 
+        // removed other assertion
         assertEquals(100.0, colorHslTwo.H, 0.01);
     }
 
@@ -87,6 +89,8 @@ public class ColorHslTest_OE25Dev {
         final ColorHsl colorHsl = ColorHsl.BLUE;
         final ColorHsl colorHslTwo = new ColorHsl(100.0, 667.226, (-687.72287636));
 
+        // removed other assertion
+        // removed other assertion
         assertEquals((-687.72287636), colorHslTwo.L, 0.01);
     }
 
@@ -95,6 +99,9 @@ public class ColorHslTest_OE25Dev {
         final ColorHsl colorHsl = ColorHsl.BLUE;
         final ColorHsl colorHslTwo = new ColorHsl(100.0, 667.226, (-687.72287636));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNotEquals(colorHsl, colorHslTwo);
     }
 

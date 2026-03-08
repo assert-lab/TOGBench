@@ -49,12 +49,15 @@ public class DateFormatUtilTest_OE25Dev {
 	@Test
 	public void isoDateFormat_2_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
+		// removed other assertion
 		assertThat(DateFormatUtil.ISO_ON_SECOND_FORMAT.format(date)).contains("2016-11-01T12:23:44");
 	}
 
 	@Test
 	public void isoDateFormat_3_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
+		// removed other assertion
+		// removed other assertion
 		assertThat(DateFormatUtil.ISO_ON_DATE_FORMAT.format(date)).isEqualTo("2016-11-01");
 	}
 
@@ -67,6 +70,7 @@ public class DateFormatUtilTest_OE25Dev {
 	@Test
 	public void defaultDateFormat_2_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
+		// removed other assertion
 		assertThat(DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.format(date)).isEqualTo("2016-11-01 12:23:44");
 	}
 
@@ -79,6 +83,7 @@ public class DateFormatUtilTest_OE25Dev {
 	@Test
 	public void formatWithPattern_2_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
+		// removed other assertion
 		assertThat(DateFormatUtil.formatDate(DateFormatUtil.PATTERN_DEFAULT,date.getTime())).isEqualTo("2016-11-01 12:23:44.000");
 	}
 
@@ -96,40 +101,55 @@ public class DateFormatUtilTest_OE25Dev {
 
 	@Test
 	public void formatDuration_2_oe() {
+		// removed other assertion
 
 		assertThat(DateFormatUtil.formatDuration(new Date(100), new Date(3000))).isEqualTo("00:00:02.900");
 	}
 
 	@Test
 	public void formatDuration_3_oe() {
+		// removed other assertion
 
+		// removed other assertion
 
 		assertThat(DateFormatUtil.formatDuration(DateUtil.MILLIS_PER_DAY * 2 + DateUtil.MILLIS_PER_HOUR * 4)).isEqualTo("52:00:00.000");
 	}
 
 	@Test
 	public void formatDuration_4_oe() {
+		// removed other assertion
 
+		// removed other assertion
 
+		// removed other assertion
 
 		assertThat(DateFormatUtil.formatDurationOnSecond(new Date(100), new Date(3000))).isEqualTo("00:00:02");
 	}
 
 	@Test
 	public void formatDuration_5_oe() {
+		// removed other assertion
 
+		// removed other assertion
 
+		// removed other assertion
 
+		// removed other assertion
 
 		assertThat(DateFormatUtil.formatDurationOnSecond(2000)).isEqualTo("00:00:02");
 	}
 
 	@Test
 	public void formatDuration_6_oe() {
+		// removed other assertion
 
+		// removed other assertion
 
+		// removed other assertion
 
+		// removed other assertion
 
+		// removed other assertion
 
 		assertThat(DateFormatUtil.formatDurationOnSecond(DateUtil.MILLIS_PER_DAY * 2 + DateUtil.MILLIS_PER_HOUR * 4)).isEqualTo("52:00:00");
 	}

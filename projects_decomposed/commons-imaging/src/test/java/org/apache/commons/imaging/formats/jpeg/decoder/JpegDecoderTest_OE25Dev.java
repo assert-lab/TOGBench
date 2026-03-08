@@ -37,6 +37,7 @@ public class JpegDecoderTest_OE25Dev {
 
     @Test
     public void testDecodeBadFile_1_oe() throws Exception {
+        // From IMAGING-220
         final File inputFile = new File(
                 JpegDecoderTest.class.getResource("/IMAGING-220/timeout-48eb4251935b4ca8b26d1859ea525c1b42ae0c78.jpeg")
                         .getFile());

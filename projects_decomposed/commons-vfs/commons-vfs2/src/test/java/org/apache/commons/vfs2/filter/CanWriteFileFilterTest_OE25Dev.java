@@ -113,12 +113,15 @@ public class CanWriteFileFilterTest_OE25Dev extends BaseFilterTest {
     @Test
     public void testAcceptCannotWrite_2_oe() throws FileSystemException {
 
+        // removed other assertion
         Assert.assertTrue(CanWriteFileFilter.CANNOT_WRITE.accept(readOnlyFileInfo));
     }
 
     @Test
     public void testAcceptCannotWrite_3_oe() throws FileSystemException {
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(CanWriteFileFilter.CANNOT_WRITE.accept(notExistingFileInfo));
     }
 
@@ -131,12 +134,15 @@ public class CanWriteFileFilterTest_OE25Dev extends BaseFilterTest {
     @Test
     public void testAcceptCanWrite_2_oe() throws FileSystemException {
 
+        // removed other assertion
         Assert.assertFalse(CanWriteFileFilter.CAN_WRITE.accept(readOnlyFileInfo));
     }
 
     @Test
     public void testAcceptCanWrite_3_oe() throws FileSystemException {
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(CanWriteFileFilter.CAN_WRITE.accept(notExistingFileInfo));
     }
 
@@ -145,6 +151,7 @@ public class CanWriteFileFilterTest_OE25Dev extends BaseFilterTest {
 
         FileObject[] files;
 
+        // CAN_WRITE Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanWriteFileFilter.CAN_WRITE));
         Assert.assertTrue(files == null || files.length == 0);
     }
@@ -154,9 +161,13 @@ public class CanWriteFileFilterTest_OE25Dev extends BaseFilterTest {
 
         FileObject[] files;
 
+        // CAN_WRITE Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanWriteFileFilter.CAN_WRITE));
+        // removed other assertion
 
+        // CANNOT_WRITE Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanWriteFileFilter.CANNOT_WRITE));
+        // removed other assertion
         Assert.assertEquals(2, files.length);
     }
 
@@ -165,8 +176,11 @@ public class CanWriteFileFilterTest_OE25Dev extends BaseFilterTest {
 
         FileObject[] files;
 
+        // CAN_WRITE Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanWriteFileFilter.CAN_WRITE));
+        // removed other assertion
 
+        // CANNOT_WRITE Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanWriteFileFilter.CANNOT_WRITE));
         assertContains(files, READONLY, WRITABLE);
     }

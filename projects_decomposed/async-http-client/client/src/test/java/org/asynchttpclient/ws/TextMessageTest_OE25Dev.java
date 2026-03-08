@@ -363,6 +363,7 @@ public class TextMessageTest_OE25Dev extends AbstractBasicWebSocketTest {
       try {
         websocket = c.prepareGet(getTargetUrl()).execute(new WebSocketUpgradeHandler.Builder().build()).get();
       } catch (Throwable t) {
+        // removed other assertion
       }
       assertTrue(websocket != null);
   }

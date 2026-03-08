@@ -89,6 +89,7 @@ public class TestXPathExpressionEngineInConfig_OE25Dev {
         config.addProperty("tables/table[last()]/fields/field/name", "taskid");
         config.addProperty("tables/table[last()]/fields/field[last()]/@type", "int");
         config.addProperty("tables table/name", "documents");
+        // removed other assertion
         assertEquals("Wrong table 2", "documents", config.getString("tables/table[2]/name"));
     }
 
@@ -99,6 +100,8 @@ public class TestXPathExpressionEngineInConfig_OE25Dev {
         config.addProperty("tables/table[last()]/fields/field/name", "taskid");
         config.addProperty("tables/table[last()]/fields/field[last()]/@type", "int");
         config.addProperty("tables table/name", "documents");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong field type", "int", config.getString("tables/table[1]/fields/field[1]/@type"));
     }
 

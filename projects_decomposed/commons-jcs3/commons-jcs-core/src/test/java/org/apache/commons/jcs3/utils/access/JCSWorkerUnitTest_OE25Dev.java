@@ -47,6 +47,7 @@ public class JCSWorkerUnitTest_OE25Dev
     {
         final JCSWorker<String, Long> cachingWorker = new JCSWorker<>( "example region" );
 
+        // This is the helper.
         final JCSWorkerHelper<Long> helper = new AbstractJCSWorkerHelper<Long>()
         {
             int timesCalled;
@@ -69,6 +70,7 @@ public class JCSWorkerUnitTest_OE25Dev
     {
         final JCSWorker<String, Long> cachingWorker = new JCSWorker<>( "example region" );
 
+        // This is the helper.
         final JCSWorkerHelper<Long> helper = new AbstractJCSWorkerHelper<Long>()
         {
             int timesCalled;
@@ -83,7 +85,9 @@ public class JCSWorkerUnitTest_OE25Dev
         final String key = "abc";
 
         final Long result = cachingWorker.getResult( key, helper );
+        // removed other assertion
 
+        // should get it from the cache.
         final Long result2 = cachingWorker.getResult( key, helper );
         assertEquals( "Called the wrong number of times", Long.valueOf( 1 ), result2 );
     }

@@ -93,36 +93,64 @@ public class DisableMimeGuessingTest_OE25Dev {
 
 @Test
     public void testMimeTypes_2_oe() throws Exception {
+        // removed other assertion
         Assert.assertNull(doGet("/js/scripts.js").headers.get("Content-Type"));
     }
 
 @Test
     public void testMimeTypes_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
         Assert.assertNull(doGet("/css/style.css").headers.get("Content-Type"));
     }
 
 @Test
     public void testMimeTypes_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertNull(doGet("/img/sparklogo.png").headers.get("Content-Type"));
     }
 
 @Test
     public void testMimeTypes_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertNull(doGet("/img/sparklogo.svg").headers.get("Content-Type"));
     }
 
 @Test
     public void testMimeTypes_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertNull(doGet("/img/sparklogoPng").headers.get("Content-Type"));
     }
 
 @Test
     public void testMimeTypes_7_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertNull(doGet("/img/sparklogoSvg").headers.get("Content-Type"));
     }
 
 @Test
     public void testMimeTypes_8_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertNull(doGet("/externalFile.html").headers.get("Content-Type"));
     }
 

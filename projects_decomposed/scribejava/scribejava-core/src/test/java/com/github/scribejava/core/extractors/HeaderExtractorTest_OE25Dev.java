@@ -62,6 +62,7 @@ public class HeaderExtractorTest_OE25Dev {
         final String key = "oauth_consumer_key=\"AS%23%24%5E%2A%40%26\"";
         final String timestamp = "oauth_timestamp=\"123456\"";
 
+        // removed other assertion
         assertTrue(header.contains(callback));
     }
 
@@ -74,6 +75,8 @@ public class HeaderExtractorTest_OE25Dev {
         final String key = "oauth_consumer_key=\"AS%23%24%5E%2A%40%26\"";
         final String timestamp = "oauth_timestamp=\"123456\"";
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(header.contains(signature));
     }
 
@@ -86,6 +89,9 @@ public class HeaderExtractorTest_OE25Dev {
         final String key = "oauth_consumer_key=\"AS%23%24%5E%2A%40%26\"";
         final String timestamp = "oauth_timestamp=\"123456\"";
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(header.contains(key));
     }
 
@@ -98,6 +104,10 @@ public class HeaderExtractorTest_OE25Dev {
         final String key = "oauth_consumer_key=\"AS%23%24%5E%2A%40%26\"";
         final String timestamp = "oauth_timestamp=\"123456\"";
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(header.contains(timestamp));
     }
 

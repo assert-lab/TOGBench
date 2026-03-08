@@ -655,42 +655,69 @@ class TriangleSamplerTest_OE25Dev {
 
     @Test
     void testSamplingAssumptions_1_oe() {
+        // The separation between the 2^53 dyadic rationals in the interval [0, 1)
          double delta = 0x1.0p-53;
         double s = 0.5;
         double t = 0.5 + delta;
+        // This value cannot be exactly represented and is rounded
          double spt = s + t;
+        // Test that (1 - (1-s) - (1-t)) is not equal to (s + t - 1).
+        // This is due to the rounding to store s + t as a double.
          double expected = 1 - (1 - s) - (1 - t);
         Assertions.assertNotEquals(expected, spt - 1);
     }
 
     @Test
     void testSamplingAssumptions_2_oe() {
+        // The separation between the 2^53 dyadic rationals in the interval [0, 1)
          double delta = 0x1.0p-53;
         double s = 0.5;
         double t = 0.5 + delta;
+        // This value cannot be exactly represented and is rounded
          double spt = s + t;
+        // Test that (1 - (1-s) - (1-t)) is not equal to (s + t - 1).
+        // This is due to the rounding to store s + t as a double.
          double expected = 1 - (1 - s) - (1 - t);
+        // removed other assertion
         Assertions.assertNotEquals(expected, s + t - 1);
     }
 
     @Test
     void testSamplingAssumptions_3_oe() {
+        // The separation between the 2^53 dyadic rationals in the interval [0, 1)
          double delta = 0x1.0p-53;
         double s = 0.5;
         double t = 0.5 + delta;
+        // This value cannot be exactly represented and is rounded
          double spt = s + t;
+        // Test that (1 - (1-s) - (1-t)) is not equal to (s + t - 1).
+        // This is due to the rounding to store s + t as a double.
          double expected = 1 - (1 - s) - (1 - t);
+        // removed other assertion
+        // removed other assertion
+        // For any uniform deviate u in [0, 1], u - 1 is exact, thus s - 1 is exact
+        // and s - 1 + t is exact.
         Assertions.assertEquals(expected, s - 1 + t);
     }
 
     @Test
     void testSamplingAssumptions_4_oe() {
+        // The separation between the 2^53 dyadic rationals in the interval [0, 1)
          double delta = 0x1.0p-53;
         double s = 0.5;
         double t = 0.5 + delta;
+        // This value cannot be exactly represented and is rounded
          double spt = s + t;
+        // Test that (1 - (1-s) - (1-t)) is not equal to (s + t - 1).
+        // This is due to the rounding to store s + t as a double.
          double expected = 1 - (1 - s) - (1 - t);
+        // removed other assertion
+        // removed other assertion
+        // For any uniform deviate u in [0, 1], u - 1 is exact, thus s - 1 is exact
+        // and s - 1 + t is exact.
+        // removed other assertion
 
+        // Test that a(1 - s - t) + sb + tc does not overflow is s+t = 1
          double max = Double.MAX_VALUE;
         s -= delta;
          UniformRandomProvider rng = RandomSource.XO_RO_SHI_RO_128_PP.create();
@@ -733,6 +760,7 @@ class TriangleSamplerTest_OE25Dev {
     @Test
     void testNonFiniteVertexCoordinates_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        // A valid triangle
          double[][] c = new double[][] {
             {0, 0, 1}, {2, 1, 0}, {-1, 2, 3}
         };
@@ -742,9 +770,11 @@ class TriangleSamplerTest_OE25Dev {
     @Test
     void testNonFiniteVertexCoordinates_2_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        // A valid triangle
          double[][] c = new double[][] {
             {0, 0, 1}, {2, 1, 0}, {-1, 2, 3}
         };
+        // removed other assertion
          double[] bad = {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NaN};
         for (int i = 0; i < c.length; i++) {
              int ii = i;
@@ -774,6 +804,7 @@ class TriangleSamplerTest_OE25Dev {
     void testRotations3D_2_oe() {
          double[] x = {1, 0.5, 0};
          double[] y = multiply(F3, x);
+        // removed other assertion
         Assertions.assertEquals(length(x), length(y), 1e-10);
     }
 
@@ -781,6 +812,8 @@ class TriangleSamplerTest_OE25Dev {
     void testRotations3D_3_oe() {
          double[] x = {1, 0.5, 0};
          double[] y = multiply(F3, x);
+        // removed other assertion
+        // removed other assertion
          double[] x2 = multiply(R3, y);
         Assertions.assertArrayEquals(x, x2, 1e-10);
     }
@@ -796,6 +829,7 @@ class TriangleSamplerTest_OE25Dev {
     void testRotations4D_2_oe() {
          double[] x = {1, 0.5, 0, 0};
          double[] y = multiply(F4, x);
+        // removed other assertion
         Assertions.assertEquals(length(x), length(y), 1e-10);
     }
 
@@ -803,6 +837,8 @@ class TriangleSamplerTest_OE25Dev {
     void testRotations4D_3_oe() {
          double[] x = {1, 0.5, 0, 0};
          double[] y = multiply(F4, x);
+        // removed other assertion
+        // removed other assertion
          double[] x2 = multiply(R4, y);
         Assertions.assertArrayEquals(x, x2, 1e-10);
     }
@@ -810,61 +846,140 @@ class TriangleSamplerTest_OE25Dev {
     @Test
     void testTriangleContains_1_oe() {
          Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+        // Vertices
         Assertions.assertTrue(triangle.contains(1, 2));
     }
 
     @Test
     void testTriangleContains_2_oe() {
          Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+        // Vertices
+        // removed other assertion
         Assertions.assertTrue(triangle.contains(3, 1));
     }
 
     @Test
     void testTriangleContains_3_oe() {
          Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+        // Vertices
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(triangle.contains(0.5, 6));
     }
 
     @Test
     void testTriangleContains_4_oe() {
          Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+        // Vertices
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Edge
         Assertions.assertTrue(triangle.contains(0.75, 4));
     }
 
     @Test
     void testTriangleContains_5_oe() {
          Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+        // Vertices
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Edge
+        // removed other assertion
+        // Inside
         Assertions.assertTrue(triangle.contains(1.5, 3));
     }
 
     @Test
     void testTriangleContains_6_oe() {
          Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+        // Vertices
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Edge
+        // removed other assertion
+        // Inside
+        // removed other assertion
+        // Outside
         Assertions.assertFalse(triangle.contains(0, 20));
     }
 
     @Test
     void testTriangleContains_7_oe() {
          Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+        // Vertices
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Edge
+        // removed other assertion
+        // Inside
+        // removed other assertion
+        // Outside
+        // removed other assertion
         Assertions.assertFalse(triangle.contains(-20, 0));
     }
 
     @Test
     void testTriangleContains_8_oe() {
          Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+        // Vertices
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Edge
+        // removed other assertion
+        // Inside
+        // removed other assertion
+        // Outside
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(triangle.contains(6, 6));
     }
 
     @Test
     void testTriangleContains_9_oe() {
          Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+        // Vertices
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Edge
+        // removed other assertion
+        // Inside
+        // removed other assertion
+        // Outside
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Just outside
         Assertions.assertFalse(triangle.contains(0.75, 4 - 1e-10));
     }
 
     @Test
     void testTriangleContains_10_oe() {
          Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+        // Vertices
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Edge
+        // removed other assertion
+        // Inside
+        // removed other assertion
+        // Outside
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Just outside
+        // removed other assertion
 
+        // Note:
+        // Touching triangles can both have the point triangle.
+        // This predicate is not suitable for assigning points uniquely to
+        // non-overlapping triangles that share an edge.
          Triangle triangle2 = new Triangle(1, 2, 3, 1, 0, -2);
         Assertions.assertTrue(triangle.contains(2, 1.5));
     }
@@ -872,8 +987,27 @@ class TriangleSamplerTest_OE25Dev {
     @Test
     void testTriangleContains_11_oe() {
          Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+        // Vertices
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Edge
+        // removed other assertion
+        // Inside
+        // removed other assertion
+        // Outside
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Just outside
+        // removed other assertion
 
+        // Note:
+        // Touching triangles can both have the point triangle.
+        // This predicate is not suitable for assigning points uniquely to
+        // non-overlapping triangles that share an edge.
          Triangle triangle2 = new Triangle(1, 2, 3, 1, 0, -2);
+        // removed other assertion
         Assertions.assertTrue(triangle2.contains(2, 1.5));
     }
 

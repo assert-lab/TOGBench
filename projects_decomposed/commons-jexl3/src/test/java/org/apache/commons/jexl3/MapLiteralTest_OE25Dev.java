@@ -69,6 +69,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
 
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m = { 3 : 30, 4 : 40, 5 : 'fifty', '7' : 'seven', 7 : 'SEVEN' }");
         e.evaluate(jc);
@@ -84,12 +85,14 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
 
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m = { 3 : 30, 4 : 40, 5 : 'fifty', '7' : 'seven', 7 : 'SEVEN' }");
         e.evaluate(jc);
 
         e = JEXL.createExpression("m.3");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m[4]");
         o = e.evaluate(jc);
@@ -102,15 +105,18 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
 
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m = { 3 : 30, 4 : 40, 5 : 'fifty', '7' : 'seven', 7 : 'SEVEN' }");
         e.evaluate(jc);
 
         e = JEXL.createExpression("m.3");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m[4]");
         o = e.evaluate(jc);
+        // removed other assertion
 
         jc.set("i", Integer.valueOf(5));
         e = JEXL.createExpression("m[i]");
@@ -124,19 +130,23 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
 
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m = { 3 : 30, 4 : 40, 5 : 'fifty', '7' : 'seven', 7 : 'SEVEN' }");
         e.evaluate(jc);
 
         e = JEXL.createExpression("m.3");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m[4]");
         o = e.evaluate(jc);
+        // removed other assertion
 
         jc.set("i", Integer.valueOf(5));
         e = JEXL.createExpression("m[i]");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m.3 = 'thirty'");
         e.evaluate(jc);
@@ -151,24 +161,29 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
 
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m = { 3 : 30, 4 : 40, 5 : 'fifty', '7' : 'seven', 7 : 'SEVEN' }");
         e.evaluate(jc);
 
         e = JEXL.createExpression("m.3");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m[4]");
         o = e.evaluate(jc);
+        // removed other assertion
 
         jc.set("i", Integer.valueOf(5));
         e = JEXL.createExpression("m[i]");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m.3 = 'thirty'");
         e.evaluate(jc);
         e = JEXL.createExpression("m.3");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m['7']");
         o = e.evaluate(jc);
@@ -181,27 +196,33 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
 
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m = { 3 : 30, 4 : 40, 5 : 'fifty', '7' : 'seven', 7 : 'SEVEN' }");
         e.evaluate(jc);
 
         e = JEXL.createExpression("m.3");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m[4]");
         o = e.evaluate(jc);
+        // removed other assertion
 
         jc.set("i", Integer.valueOf(5));
         e = JEXL.createExpression("m[i]");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m.3 = 'thirty'");
         e.evaluate(jc);
         e = JEXL.createExpression("m.3");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m['7']");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m.7");
         o = e.evaluate(jc);
@@ -214,30 +235,37 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
 
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m = { 3 : 30, 4 : 40, 5 : 'fifty', '7' : 'seven', 7 : 'SEVEN' }");
         e.evaluate(jc);
 
         e = JEXL.createExpression("m.3");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m[4]");
         o = e.evaluate(jc);
+        // removed other assertion
 
         jc.set("i", Integer.valueOf(5));
         e = JEXL.createExpression("m[i]");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m.3 = 'thirty'");
         e.evaluate(jc);
         e = JEXL.createExpression("m.3");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m['7']");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m.7");
         o = e.evaluate(jc);
+        // removed other assertion
 
         jc.set("k", Integer.valueOf(7));
         e = JEXL.createExpression("m[k]");
@@ -251,34 +279,42 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
 
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m = { 3 : 30, 4 : 40, 5 : 'fifty', '7' : 'seven', 7 : 'SEVEN' }");
         e.evaluate(jc);
 
         e = JEXL.createExpression("m.3");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m[4]");
         o = e.evaluate(jc);
+        // removed other assertion
 
         jc.set("i", Integer.valueOf(5));
         e = JEXL.createExpression("m[i]");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m.3 = 'thirty'");
         e.evaluate(jc);
         e = JEXL.createExpression("m.3");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m['7']");
         o = e.evaluate(jc);
+        // removed other assertion
 
         e = JEXL.createExpression("m.7");
         o = e.evaluate(jc);
+        // removed other assertion
 
         jc.set("k", Integer.valueOf(7));
         e = JEXL.createExpression("m[k]");
         o = e.evaluate(jc);
+        // removed other assertion
 
         jc.set("k", "7");
         e = JEXL.createExpression("m[k]");
@@ -326,6 +362,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         JexlExpression e = JEXL.createExpression("{'foo' : { 'inner' : 'bar' }}");
         final JexlContext jc = new MapContext();
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         jc.set("outer", o);
         e = JEXL.createExpression("outer.foo.inner");
@@ -346,6 +383,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         JexlExpression e = JEXL.createExpression("{'foo' : [ 'inner' , 'bar' ]}");
         final JexlContext jc = new MapContext();
         Object o = e.evaluate(jc);
+        // removed other assertion
 
         jc.set("outer", o);
         e = JEXL.createExpression("outer.foo.1");
@@ -371,6 +409,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
     public void testVariableMap_2_oe() throws Exception {
         final JexlScript script = JEXL.createScript("{ ['1', '2'.toString()] : someValue }", "someValue");
         final Object result = script.execute(null, 42);
+        // removed other assertion
         Object key = null;
         Object value = null;
         for(final Map.Entry<?,?> e : ((Map<?,?>) result).entrySet()) {
@@ -386,6 +425,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
     public void testVariableMap_3_oe() throws Exception {
         final JexlScript script = JEXL.createScript("{ ['1', '2'.toString()] : someValue }", "someValue");
         final Object result = script.execute(null, 42);
+        // removed other assertion
         Object key = null;
         Object value = null;
         for(final Map.Entry<?,?> e : ((Map<?,?>) result).entrySet()) {
@@ -394,6 +434,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
             break;
         }
         final Object gg = ((Map) result).get(key);
+        // removed other assertion
         Assert.assertEquals(value, ((Number) gg).intValue());
     }
 

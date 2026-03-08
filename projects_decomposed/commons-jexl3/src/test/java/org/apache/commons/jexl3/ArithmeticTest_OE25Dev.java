@@ -689,6 +689,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 10L; b = 10l; c = 42.0D; d = 42.0d; e=56.3F; f=56.3f; g=63.5; h=0x10; i=010; j=0x10L; k=010l}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
         Assert.assertEquals(10L, ctxt.get("b"));
     }
 
@@ -700,6 +701,8 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 10L; b = 10l; c = 42.0D; d = 42.0d; e=56.3F; f=56.3f; g=63.5; h=0x10; i=010; j=0x10L; k=010l}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(42.0D, ctxt.get("c"));
     }
 
@@ -711,6 +714,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 10L; b = 10l; c = 42.0D; d = 42.0d; e=56.3F; f=56.3f; g=63.5; h=0x10; i=010; j=0x10L; k=010l}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(42.0d, ctxt.get("d"));
     }
 
@@ -722,6 +728,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 10L; b = 10l; c = 42.0D; d = 42.0d; e=56.3F; f=56.3f; g=63.5; h=0x10; i=010; j=0x10L; k=010l}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(56.3f, ctxt.get("e"));
     }
 
@@ -733,6 +743,11 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 10L; b = 10l; c = 42.0D; d = 42.0d; e=56.3F; f=56.3f; g=63.5; h=0x10; i=010; j=0x10L; k=010l}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(56.3f, ctxt.get("f"));
     }
 
@@ -744,6 +759,12 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 10L; b = 10l; c = 42.0D; d = 42.0d; e=56.3F; f=56.3f; g=63.5; h=0x10; i=010; j=0x10L; k=010l}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(63.5d, ctxt.get("g"));
     }
 
@@ -755,6 +776,13 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 10L; b = 10l; c = 42.0D; d = 42.0d; e=56.3F; f=56.3f; g=63.5; h=0x10; i=010; j=0x10L; k=010l}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(0x10, ctxt.get("h"));
     }
 
@@ -766,6 +794,14 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 10L; b = 10l; c = 42.0D; d = 42.0d; e=56.3F; f=56.3f; g=63.5; h=0x10; i=010; j=0x10L; k=010l}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(010, ctxt.get("i"));
     }
 
@@ -777,6 +813,15 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 10L; b = 10l; c = 42.0D; d = 42.0d; e=56.3F; f=56.3f; g=63.5; h=0x10; i=010; j=0x10L; k=010l}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(0x10L, ctxt.get("j"));
     }
 
@@ -788,6 +833,16 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 10L; b = 10l; c = 42.0D; d = 42.0d; e=56.3F; f=56.3f; g=63.5; h=0x10; i=010; j=0x10L; k=010l}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(010L, ctxt.get("k"));
     }
 
@@ -833,6 +888,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 10H; b = 10h; c = 42.0B; d = 42.0b;}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
         Assert.assertEquals(new BigInteger("10"), ctxt.get("b"));
     }
 
@@ -844,6 +900,8 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 10H; b = 10h; c = 42.0B; d = 42.0b;}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(new BigDecimal("42.0"), ctxt.get("c"));
     }
 
@@ -855,6 +913,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 10H; b = 10h; c = 42.0B; d = 42.0b;}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(new BigDecimal("42.0"), ctxt.get("d"));
     }
 
@@ -877,6 +938,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 42.0e1B; b = 42.0E+2B; c = 42.0e-1B; d = 42.0E-2b; e=4242.4242e1b}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
         Assert.assertEquals(new BigDecimal("42.0e+2"), ctxt.get("b"));
     }
 
@@ -888,6 +950,8 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 42.0e1B; b = 42.0E+2B; c = 42.0e-1B; d = 42.0E-2b; e=4242.4242e1b}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(new BigDecimal("42.0e-1"), ctxt.get("c"));
     }
 
@@ -899,6 +963,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 42.0e1B; b = 42.0E+2B; c = 42.0e-1B; d = 42.0E-2b; e=4242.4242e1b}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(new BigDecimal("42.0e-2"), ctxt.get("d"));
     }
 
@@ -910,6 +977,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 42.0e1B; b = 42.0E+2B; c = 42.0e-1B; d = 42.0E-2b; e=4242.4242e1b}";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(new BigDecimal("4242.4242e1"), ctxt.get("e"));
     }
 
@@ -932,6 +1003,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 42.0e1D; b = 42.0E+2D; c = 42.0e-1d; d = 42.0E-2d; e=10e10; f= +1.e1; g=1e1; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
         Assert.assertEquals(Double.valueOf("42.0e+2"), ctxt.get("b"));
     }
 
@@ -943,6 +1015,8 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 42.0e1D; b = 42.0E+2D; c = 42.0e-1d; d = 42.0E-2d; e=10e10; f= +1.e1; g=1e1; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(Double.valueOf("42.0e-1"), ctxt.get("c"));
     }
 
@@ -954,6 +1028,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 42.0e1D; b = 42.0E+2D; c = 42.0e-1d; d = 42.0E-2d; e=10e10; f= +1.e1; g=1e1; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(Double.valueOf("42.0e-2"), ctxt.get("d"));
     }
 
@@ -965,6 +1042,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 42.0e1D; b = 42.0E+2D; c = 42.0e-1d; d = 42.0E-2d; e=10e10; f= +1.e1; g=1e1; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(Double.valueOf("10e10"), ctxt.get("e"));
     }
 
@@ -976,6 +1057,11 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 42.0e1D; b = 42.0E+2D; c = 42.0e-1d; d = 42.0E-2d; e=10e10; f= +1.e1; g=1e1; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(Double.valueOf("10"), ctxt.get("f"));
     }
 
@@ -987,6 +1073,12 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 42.0e1D; b = 42.0E+2D; c = 42.0e-1d; d = 42.0E-2d; e=10e10; f= +1.e1; g=1e1; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(Double.valueOf("10"), ctxt.get("g"));
     }
 
@@ -1019,21 +1111,27 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
             "Float", "Double",
             "BigInteger", "BigDecimal"
         };
+        // number of permutations this will generate
         final int PERMS = tnames.length * tnames.length;
 
         final JexlEngine jexl = JEXL;
+        // for non-silent, silent...
         for (int s = 0; s < 2; ++s) {
             final boolean strict = s != 0;
             options.setStrict(true);
             options.setStrictArithmetic(strict);
             int zthrow = 0;
             int zeval = 0;
+            // for vars of all types...
             for (final String vname : tnames) {
+                // for zeros of all types...
                 for (final String zname : tnames) {
+                    // divide var by zero
                     final String expr = "a" + vname + " / " + "z" + zname;
                     try {
                         final JexlExpression zexpr = jexl.createExpression(expr);
                         final Object nan = zexpr.evaluate(context);
+                        // check we have a zero & incremement zero count
                         if (nan instanceof Number) {
                             final double zero = ((Number) nan).doubleValue();
                             if (zero == 0.0) {
@@ -1041,6 +1139,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
                             }
                         }
                     } catch (final Exception any) {
+                        // increment the exception count
                         zthrow += 1;
                     }
                 }
@@ -1080,21 +1179,27 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
             "Float", "Double",
             "BigInteger", "BigDecimal"
         };
+        // number of permutations this will generate
         final int PERMS = tnames.length * tnames.length;
 
         final JexlEngine jexl = JEXL;
+        // for non-silent, silent...
         for (int s = 0; s < 2; ++s) {
             final boolean strict = s != 0;
             options.setStrict(true);
             options.setStrictArithmetic(strict);
             int zthrow = 0;
             int zeval = 0;
+            // for vars of all types...
             for (final String vname : tnames) {
+                // for zeros of all types...
                 for (final String zname : tnames) {
+                    // divide var by zero
                     final String expr = "a" + vname + " / " + "z" + zname;
                     try {
                         final JexlExpression zexpr = jexl.createExpression(expr);
                         final Object nan = zexpr.evaluate(context);
+                        // check we have a zero & incremement zero count
                         if (nan instanceof Number) {
                             final double zero = ((Number) nan).doubleValue();
                             if (zero == 0.0) {
@@ -1102,11 +1207,13 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
                             }
                         }
                     } catch (final Exception any) {
+                        // increment the exception count
                         zthrow += 1;
                     }
                 }
             }
             if (strict) {
+                // removed other assertion
             } else {
                 Assert.assertEquals("All expressions should have zeroed " + zeval + "/" + PERMS, zeval, PERMS);
     }
@@ -1134,6 +1241,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("#NaN");
         result = script.execute(null);
+        // removed other assertion
         script = jexl.createScript("NaN");
         result = script.execute(null);
         Assert.assertTrue(Double.isNaN((Double) result));
@@ -1148,8 +1256,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("#NaN");
         result = script.execute(null);
+        // removed other assertion
         script = jexl.createScript("NaN");
         result = script.execute(null);
+        // removed other assertion
         script = jexl.createScript("double:isNaN(#NaN)");
         result = script.execute(null);
         Assert.assertTrue((Boolean) result);
@@ -1164,10 +1274,13 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("#NaN");
         result = script.execute(null);
+        // removed other assertion
         script = jexl.createScript("NaN");
         result = script.execute(null);
+        // removed other assertion
         script = jexl.createScript("double:isNaN(#NaN)");
         result = script.execute(null);
+        // removed other assertion
         script = jexl.createScript("double:isNaN(NaN)");
         result = script.execute(null);
         Assert.assertTrue((Boolean) result);
@@ -1186,6 +1299,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
         final Object ra = jexl.createExpression("463.0d * 0.1").evaluate(jc);
+        // removed other assertion
         final Object r0 = jexl.createExpression("463.0B * 0.1").evaluate(jc);
         Assert.assertEquals(java.math.BigDecimal.class, r0.getClass());
     }
@@ -1195,7 +1309,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
         final Object ra = jexl.createExpression("463.0d * 0.1").evaluate(jc);
+        // removed other assertion
         final Object r0 = jexl.createExpression("463.0B * 0.1").evaluate(jc);
+        // removed other assertion
         final Object r1 = jexl.createExpression("463.0B * 0.1B").evaluate(jc);
         Assert.assertEquals(java.math.BigDecimal.class, r1.getClass());
     }
@@ -1213,6 +1329,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
         final Object ra = jexl.createExpression("463.0d / 0.1").evaluate(jc);
+        // removed other assertion
         final Object r0 = jexl.createExpression("463.0B / 0.1").evaluate(jc);
         Assert.assertEquals(java.math.BigDecimal.class, r0.getClass());
     }
@@ -1222,7 +1339,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
         final Object ra = jexl.createExpression("463.0d / 0.1").evaluate(jc);
+        // removed other assertion
         final Object r0 = jexl.createExpression("463.0B / 0.1").evaluate(jc);
+        // removed other assertion
         final Object r1 = jexl.createExpression("463.0B / 0.1B").evaluate(jc);
         Assert.assertEquals(java.math.BigDecimal.class, r1.getClass());
     }
@@ -1240,6 +1359,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
         final Object ra = jexl.createExpression("463.0d + 0.1").evaluate(jc);
+        // removed other assertion
         final Object r0 = jexl.createExpression("463.0B + 0.1").evaluate(jc);
         Assert.assertEquals(java.math.BigDecimal.class, r0.getClass());
     }
@@ -1249,7 +1369,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
         final Object ra = jexl.createExpression("463.0d + 0.1").evaluate(jc);
+        // removed other assertion
         final Object r0 = jexl.createExpression("463.0B + 0.1").evaluate(jc);
+        // removed other assertion
         final Object r1 = jexl.createExpression("463.0B + 0.1B").evaluate(jc);
         Assert.assertEquals(java.math.BigDecimal.class, r1.getClass());
     }
@@ -1267,6 +1389,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
         final Object ra = jexl.createExpression("463.0d - 0.1").evaluate(jc);
+        // removed other assertion
         final Object r0 = jexl.createExpression("463.0B - 0.1").evaluate(jc);
         Assert.assertEquals(java.math.BigDecimal.class, r0.getClass());
     }
@@ -1276,7 +1399,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
         final Object ra = jexl.createExpression("463.0d - 0.1").evaluate(jc);
+        // removed other assertion
         final Object r0 = jexl.createExpression("463.0B - 0.1").evaluate(jc);
+        // removed other assertion
         final Object r1 = jexl.createExpression("463.0B - 0.1B").evaluate(jc);
         Assert.assertEquals(java.math.BigDecimal.class, r1.getClass());
     }
@@ -1298,6 +1423,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("'a' + 0");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + 'a' ");
         result = script.execute(null);
@@ -1311,9 +1437,11 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("'a' + 0");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + 'a' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + '1.2' ");
         result = script.execute(null);
@@ -1327,12 +1455,15 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("'a' + 0");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + 'a' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + '1.2' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("'1.2' + 1.2 ");
         result = script.execute(null);
@@ -1346,15 +1477,19 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("'a' + 0");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + 'a' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + '1.2' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("'1.2' + 1.2 ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("1.2 + 1.2 ");
         result = script.execute(null);
@@ -1368,18 +1503,23 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("'a' + 0");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + 'a' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + '1.2' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("'1.2' + 1.2 ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("1.2 + 1.2 ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("1.2 + '1.2' ");
         result = script.execute(null);
@@ -1393,21 +1533,27 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("'a' + 0");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + 'a' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + '1.2' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("'1.2' + 1.2 ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("1.2 + 1.2 ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("1.2 + '1.2' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("'1.2' + 0 ");
         result = script.execute(null);
@@ -1421,24 +1567,31 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("'a' + 0");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + 'a' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + '1.2' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("'1.2' + 1.2 ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("1.2 + 1.2 ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("1.2 + '1.2' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("'1.2' + 0 ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("'1.2' + '1.2' ");
         result = script.execute(null);
@@ -1462,6 +1615,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("'a' + 0");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + 'a' ");
         result = script.execute(null);
@@ -1475,9 +1629,11 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("'a' + 0");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + 'a' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + '1.2' ");
         result = script.execute(null);
@@ -1491,12 +1647,15 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("'a' + 0");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + 'a' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + '1.2' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("'1.2' + 1.2 ");
         result = script.execute(null);
@@ -1510,15 +1669,19 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("'a' + 0");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + 'a' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + '1.2' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("'1.2' + 1.2 ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("1.2 + 1.2 ");
         result = script.execute(null);
@@ -1532,18 +1695,23 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("'a' + 0");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + 'a' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + '1.2' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("'1.2' + 1.2 ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("1.2 + 1.2 ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("1.2 + '1.2' ");
         result = script.execute(null);
@@ -1557,21 +1725,27 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("'a' + 0");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + 'a' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + '1.2' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("'1.2' + 1.2 ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("1.2 + 1.2 ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("1.2 + '1.2' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("'1.2' + 0 ");
         result = script.execute(null);
@@ -1585,24 +1759,31 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Object result;
         script = jexl.createScript("'a' + 0");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + 'a' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("0 + '1.2' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("'1.2' + 1.2 ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("1.2 + 1.2 ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("1.2 + '1.2' ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("'1.2' + 0 ");
         result = script.execute(null);
+        // removed other assertion
 
         script = jexl.createScript("'1.2' + '1.2' ");
         result = script.execute(null);
@@ -1634,6 +1815,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
 
         options.setStrictArithmetic(true);
         result = script.execute(context);
+        // removed other assertion
 
         options.setStrictArithmetic(false);
         result = script.execute(context);
@@ -1651,6 +1833,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_2_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
         Assert.assertFalse(ja.isFloatingPointNumber("a1."));
     }
 
@@ -1658,6 +1841,8 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_3_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ja.isFloatingPointNumber("b1.2"));
     }
 
@@ -1665,6 +1850,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_4_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ja.isFloatingPointNumber("-10.2a-34"));
     }
 
@@ -1672,6 +1860,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_5_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ja.isFloatingPointNumber("+10.2a+34"));
     }
 
@@ -1679,6 +1871,11 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_6_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ja.isFloatingPointNumber("0"));
     }
 
@@ -1686,6 +1883,12 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_7_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ja.isFloatingPointNumber("1"));
     }
 
@@ -1693,6 +1896,13 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_8_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ja.isFloatingPointNumber("12A"));
     }
 
@@ -1700,6 +1910,14 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_9_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ja.isFloatingPointNumber("2F3"));
     }
 
@@ -1707,6 +1925,15 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_10_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ja.isFloatingPointNumber("23"));
     }
 
@@ -1714,6 +1941,16 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_11_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ja.isFloatingPointNumber("+3"));
     }
 
@@ -1721,6 +1958,17 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_12_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ja.isFloatingPointNumber("+34"));
     }
 
@@ -1728,6 +1976,18 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_13_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ja.isFloatingPointNumber("+3-4"));
     }
 
@@ -1735,6 +1995,19 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_14_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ja.isFloatingPointNumber("+3.-4"));
     }
 
@@ -1742,6 +2015,20 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_15_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ja.isFloatingPointNumber("3ee4"));
     }
 
@@ -1749,6 +2036,21 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_16_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assert.assertTrue(ja.isFloatingPointNumber("0."));
     }
@@ -1757,7 +2059,23 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_17_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("1."));
     }
 
@@ -1765,7 +2083,24 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_18_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("1.2"));
     }
 
@@ -1773,7 +2108,25 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_19_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("1.2e3"));
     }
 
@@ -1781,7 +2134,26 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_20_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("2e3"));
     }
 
@@ -1789,7 +2161,27 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_21_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("+2e-3"));
     }
 
@@ -1797,7 +2189,28 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_22_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("+23E-34"));
     }
 
@@ -1805,7 +2218,29 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_23_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("+23.E-34"));
     }
 
@@ -1813,7 +2248,30 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_24_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("-23.4E+45"));
     }
 
@@ -1821,7 +2279,31 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_25_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("1.2e34"));
     }
 
@@ -1829,7 +2311,32 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_26_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("10.2e34"));
     }
 
@@ -1837,7 +2344,33 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_27_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("+10.2e34"));
     }
 
@@ -1845,7 +2378,34 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_28_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("-10.2e34"));
     }
 
@@ -1853,7 +2413,35 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_29_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("10.2e-34"));
     }
 
@@ -1861,7 +2449,36 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_30_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("10.2e+34"));
     }
 
@@ -1869,7 +2486,37 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_31_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("-10.2e-34"));
     }
 
@@ -1877,7 +2524,38 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_32_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("+10.2e+34"));
     }
 
@@ -1885,7 +2563,39 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_33_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("-10.2E-34"));
     }
 
@@ -1893,7 +2603,40 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testIsFloatingPointPattern_34_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ja.isFloatingPointNumber("+10.2E+34"));
     }
 
@@ -1951,6 +2694,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final Callable173 c173 = new Callable173();
         JexlScript e = jexl.createScript( "c173(9, 6)", "c173" );
         Object result = e.execute(jc, c173);
+        // removed other assertion
         e = jexl.createScript( "c173('fourty', 'two')", "c173" );
         result = e.execute(jc, c173);
         Assert.assertEquals(42, result);
@@ -1973,6 +2717,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new Arithmetic132()).namespaces(ns).create();
 
         Object evaluate = jexl.createExpression("1/0").evaluate(null);
+        // removed other assertion
 
         evaluate = jexl.createExpression("-1/0").evaluate(null);
         Assert.assertTrue(Double.isInfinite((Double) evaluate));
@@ -1985,8 +2730,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new Arithmetic132()).namespaces(ns).create();
 
         Object evaluate = jexl.createExpression("1/0").evaluate(null);
+        // removed other assertion
 
         evaluate = jexl.createExpression("-1/0").evaluate(null);
+        // removed other assertion
 
         evaluate = jexl.createExpression("1.0/0.0").evaluate(null);
         Assert.assertTrue(Double.isInfinite((Double) evaluate));
@@ -1999,10 +2746,13 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new Arithmetic132()).namespaces(ns).create();
 
         Object evaluate = jexl.createExpression("1/0").evaluate(null);
+        // removed other assertion
 
         evaluate = jexl.createExpression("-1/0").evaluate(null);
+        // removed other assertion
 
         evaluate = jexl.createExpression("1.0/0.0").evaluate(null);
+        // removed other assertion
 
         evaluate = jexl.createExpression("-1.0/0.0").evaluate(null);
         Assert.assertTrue(Double.isInfinite((Double) evaluate));
@@ -2015,12 +2765,16 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new Arithmetic132()).namespaces(ns).create();
 
         Object evaluate = jexl.createExpression("1/0").evaluate(null);
+        // removed other assertion
 
         evaluate = jexl.createExpression("-1/0").evaluate(null);
+        // removed other assertion
 
         evaluate = jexl.createExpression("1.0/0.0").evaluate(null);
+        // removed other assertion
 
         evaluate = jexl.createExpression("-1.0/0.0").evaluate(null);
+        // removed other assertion
 
         evaluate = jexl.createExpression("math:abs(-42)").evaluate(null);
         Assert.assertEquals(42, evaluate);
@@ -2057,6 +2811,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
         Assert.assertEquals(0, size);
     }
@@ -2075,10 +2830,13 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
             Assert.assertNotNull(xvar);
     }
@@ -2098,14 +2856,19 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
             Assert.assertNotNull(xvar);
     }
@@ -2125,15 +2888,21 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
@@ -2155,19 +2924,26 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
         final Object x0 = e0.execute(ctxt, (Object) null);
+        // removed other assertion
         final Object x1 = s0.execute(ctxt, (Object) null);
         Assert.assertNull(x1);
     }
@@ -2186,20 +2962,28 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
         final Object x0 = e0.execute(ctxt, (Object) null);
+        // removed other assertion
         final Object x1 = s0.execute(ctxt, (Object) null);
+        // removed other assertion
 
         xml = getDocument("<node info='123'/>");
         x = xml.getLastChild();
@@ -2221,24 +3005,33 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
         final Object x0 = e0.execute(ctxt, (Object) null);
+        // removed other assertion
         final Object x1 = s0.execute(ctxt, (Object) null);
+        // removed other assertion
 
         xml = getDocument("<node info='123'/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
         Assert.assertFalse(empty);
     }
@@ -2257,25 +3050,35 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
         final Object x0 = e0.execute(ctxt, (Object) null);
+        // removed other assertion
         final Object x1 = s0.execute(ctxt, (Object) null);
+        // removed other assertion
 
         xml = getDocument("<node info='123'/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
         Assert.assertEquals(0, size);
     }
@@ -2294,26 +3097,37 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
         final Object x0 = e0.execute(ctxt, (Object) null);
+        // removed other assertion
         final Object x1 = s0.execute(ctxt, (Object) null);
+        // removed other assertion
 
         xml = getDocument("<node info='123'/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
         Assert.assertEquals(0, size);
     }
@@ -2332,27 +3146,39 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
         final Object x0 = e0.execute(ctxt, (Object) null);
+        // removed other assertion
         final Object x1 = s0.execute(ctxt, (Object) null);
+        // removed other assertion
 
         xml = getDocument("<node info='123'/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node><a/><b/></node>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
@@ -2373,30 +3199,43 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
         final Object x0 = e0.execute(ctxt, (Object) null);
+        // removed other assertion
         final Object x1 = s0.execute(ctxt, (Object) null);
+        // removed other assertion
 
         xml = getDocument("<node info='123'/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node><a/><b/></node>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
         Assert.assertFalse(empty);
     }
@@ -2415,31 +3254,45 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
         final Object x0 = e0.execute(ctxt, (Object) null);
+        // removed other assertion
         final Object x1 = s0.execute(ctxt, (Object) null);
+        // removed other assertion
 
         xml = getDocument("<node info='123'/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node><a/><b/></node>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
         Assert.assertEquals(2, size);
     }
@@ -2458,32 +3311,47 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
         final Object x0 = e0.execute(ctxt, (Object) null);
+        // removed other assertion
         final Object x1 = s0.execute(ctxt, (Object) null);
+        // removed other assertion
 
         xml = getDocument("<node info='123'/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node><a/><b/></node>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
         Assert.assertEquals(2, size);
     }
@@ -2502,33 +3370,49 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
         final Object x0 = e0.execute(ctxt, (Object) null);
+        // removed other assertion
         final Object x1 = s0.execute(ctxt, (Object) null);
+        // removed other assertion
 
         xml = getDocument("<node info='123'/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node><a/><b/></node>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
@@ -2549,36 +3433,53 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
         final Object x0 = e0.execute(ctxt, (Object) null);
+        // removed other assertion
         final Object x1 = s0.execute(ctxt, (Object) null);
+        // removed other assertion
 
         xml = getDocument("<node info='123'/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node><a/><b/></node>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
         Assert.assertTrue(empty);
     }
@@ -2597,37 +3498,55 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
         final Object x0 = e0.execute(ctxt, (Object) null);
+        // removed other assertion
         final Object x1 = s0.execute(ctxt, (Object) null);
+        // removed other assertion
 
         xml = getDocument("<node info='123'/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node><a/><b/></node>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
         Assert.assertEquals(0, size);
     }
@@ -2646,38 +3565,57 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
         final Object x0 = e0.execute(ctxt, (Object) null);
+        // removed other assertion
         final Object x1 = s0.execute(ctxt, (Object) null);
+        // removed other assertion
 
         xml = getDocument("<node info='123'/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node><a/><b/></node>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
         Assert.assertEquals(0, size);
     }
@@ -2696,39 +3634,59 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
         final Object x0 = e0.execute(ctxt, (Object) null);
+        // removed other assertion
         final Object x1 = s0.execute(ctxt, (Object) null);
+        // removed other assertion
 
         xml = getDocument("<node info='123'/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node><a/><b/></node>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node info='123'/>");
         NamedNodeMap nnm = xml.getLastChild().getAttributes();
         Attr info = (Attr) nnm.getNamedItem("info");
@@ -2749,43 +3707,65 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
         final Object x0 = e0.execute(ctxt, (Object) null);
+        // removed other assertion
         final Object x1 = s0.execute(ctxt, (Object) null);
+        // removed other assertion
 
         xml = getDocument("<node info='123'/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node><a/><b/></node>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node info='123'/>");
         NamedNodeMap nnm = xml.getLastChild().getAttributes();
         Attr info = (Attr) nnm.getNamedItem("info");
+        // removed other assertion
 
+        // JEXL-161
         final JexlContext jc = new MapContext();
         jc.set("x", xml.getLastChild());
         final String y = "456";
@@ -2796,7 +3776,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
             r = s.execute(jc);
             nnm = xml.getLastChild().getAttributes();
             info = (Attr) nnm.getNamedItem("info");
+            // removed other assertion
+            // removed other assertion
         } catch(JexlException.Property xprop) {
+            // test fails in java > 11 because modules, etc; need investigation
             Assert.assertTrue(xprop.getMessage().contains("info"));
     }
     }
@@ -2815,43 +3798,65 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final JexlScript s1 = jexl.createScript("size(x)", "x");
 
         empty = (Boolean) e1.execute(null, (Object) null);
+        // removed other assertion
         size = (Integer) s1.execute(null, (Object) null);
+        // removed other assertion
 
         try {
             final Object xx = e0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         try {
             final Object xx = s0.execute(null, (Object) null);
+            // removed other assertion
         } catch (final JexlException.Variable xvar) {
+            // removed other assertion
         }
         final JexlOptions options = ctxt.getEngineOptions();
         options.setSafe(true);
         final Object x0 = e0.execute(ctxt, (Object) null);
+        // removed other assertion
         final Object x1 = s0.execute(ctxt, (Object) null);
+        // removed other assertion
 
         xml = getDocument("<node info='123'/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node><a/><b/></node>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node/>");
         x = xml.getLastChild();
         empty = (Boolean) e0.execute(null, x);
+        // removed other assertion
         empty = (Boolean) e1.execute(null, x);
+        // removed other assertion
         size = (Integer) s0.execute(null, x);
+        // removed other assertion
         size = (Integer) s1.execute(null, x);
+        // removed other assertion
         xml = getDocument("<node info='123'/>");
         NamedNodeMap nnm = xml.getLastChild().getAttributes();
         Attr info = (Attr) nnm.getNamedItem("info");
+        // removed other assertion
 
+        // JEXL-161
         final JexlContext jc = new MapContext();
         jc.set("x", xml.getLastChild());
         final String y = "456";
@@ -2862,7 +3867,11 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
             r = s.execute(jc);
             nnm = xml.getLastChild().getAttributes();
             info = (Attr) nnm.getNamedItem("info");
+            // removed other assertion
+            // removed other assertion
         } catch(JexlException.Property xprop) {
+            // test fails in java > 11 because modules, etc; need investigation
+            // removed other assertion
             Assert.assertTrue(getJavaVersion() > 11);
     }
     }
@@ -2878,6 +3887,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testEmptyLong_2_oe() throws Exception {
         Object x;
         x = JEXL.createScript("new('java.lang.Long', 4294967296)").execute(null);
+        // removed other assertion
         x = JEXL.createScript("new('java.lang.Long', '4294967296')").execute(null);
         Assert.assertEquals(4294967296L, ((Long) x).longValue());
     }
@@ -2886,7 +3896,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testEmptyLong_3_oe() throws Exception {
         Object x;
         x = JEXL.createScript("new('java.lang.Long', 4294967296)").execute(null);
+        // removed other assertion
         x = JEXL.createScript("new('java.lang.Long', '4294967296')").execute(null);
+        // removed other assertion
         x = JEXL.createScript("4294967296l").execute(null);
         Assert.assertEquals(4294967296L, ((Long) x).longValue());
     }
@@ -2895,8 +3907,11 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testEmptyLong_4_oe() throws Exception {
         Object x;
         x = JEXL.createScript("new('java.lang.Long', 4294967296)").execute(null);
+        // removed other assertion
         x = JEXL.createScript("new('java.lang.Long', '4294967296')").execute(null);
+        // removed other assertion
         x = JEXL.createScript("4294967296l").execute(null);
+        // removed other assertion
         x = JEXL.createScript("4294967296L").execute(null);
         Assert.assertEquals(4294967296L, ((Long) x).longValue());
     }
@@ -2905,9 +3920,13 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testEmptyLong_5_oe() throws Exception {
         Object x;
         x = JEXL.createScript("new('java.lang.Long', 4294967296)").execute(null);
+        // removed other assertion
         x = JEXL.createScript("new('java.lang.Long', '4294967296')").execute(null);
+        // removed other assertion
         x = JEXL.createScript("4294967296l").execute(null);
+        // removed other assertion
         x = JEXL.createScript("4294967296L").execute(null);
+        // removed other assertion
         checkEmpty(x, false);
         x = JEXL.createScript("0L").execute(null);
         Assert.assertEquals(0, ((Long) x).longValue());
@@ -2924,6 +3943,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testEmptyFloat_2_oe() throws Exception {
         Object x;
         x = JEXL.createScript("4294967296.f").execute(null);
+        // removed other assertion
         checkEmpty(x, false);
         x = JEXL.createScript("4294967296.0f").execute(null);
         Assert.assertEquals(4294967296.0f, (Float) x, EPSILON);
@@ -2933,8 +3953,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testEmptyFloat_3_oe() throws Exception {
         Object x;
         x = JEXL.createScript("4294967296.f").execute(null);
+        // removed other assertion
         checkEmpty(x, false);
         x = JEXL.createScript("4294967296.0f").execute(null);
+        // removed other assertion
         checkEmpty(x, false);
         x = JEXL.createScript("0.0f").execute(null);
         Assert.assertEquals(0.0f, (Float) x, EPSILON);
@@ -2951,6 +3973,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testEmptyDouble_2_oe() throws Exception {
         Object x;
         x = JEXL.createScript("4294967296.d").execute(null);
+        // removed other assertion
         checkEmpty(x, false);
         x = JEXL.createScript("4294967296.0d").execute(null);
         Assert.assertEquals(4294967296.0d, (Double) x, EPSILON);
@@ -2960,8 +3983,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testEmptyDouble_3_oe() throws Exception {
         Object x;
         x = JEXL.createScript("4294967296.d").execute(null);
+        // removed other assertion
         checkEmpty(x, false);
         x = JEXL.createScript("4294967296.0d").execute(null);
+        // removed other assertion
         checkEmpty(x, false);
         x = JEXL.createScript("0.0d").execute(null);
         Assert.assertEquals(0.0d, (Double) x, EPSILON);
@@ -2988,6 +4013,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H;";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
         Assert.assertEquals(45, ja.toInteger(ctxt.get("b")));
     }
 
@@ -3000,6 +4026,8 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H;";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(56, ja.toInteger(ctxt.get("c")));
     }
 
@@ -3012,6 +4040,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H;";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(67, ja.toInteger(ctxt.get("d")));
     }
 
@@ -3024,6 +4055,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H;";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(78, ja.toInteger(ctxt.get("e")));
     }
 
@@ -3036,6 +4071,11 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H;";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(10, ja.toInteger("10"));
     }
 
@@ -3048,6 +4088,12 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H;";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(1, ja.toInteger(true));
     }
 
@@ -3060,6 +4106,13 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H;";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(0, ja.toInteger(false));
     }
 
@@ -3084,6 +4137,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H;";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
         Assert.assertEquals(45L, ja.toLong(ctxt.get("b")));
     }
 
@@ -3096,6 +4150,8 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H;";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(56L, ja.toLong(ctxt.get("c")));
     }
 
@@ -3108,6 +4164,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H;";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(67L, ja.toLong(ctxt.get("d")));
     }
 
@@ -3120,6 +4179,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H;";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(78L, ja.toLong(ctxt.get("e")));
     }
 
@@ -3132,6 +4195,11 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H;";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(10L, ja.toLong("10"));
     }
 
@@ -3144,6 +4212,12 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H;";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(1L, ja.toLong(true));
     }
 
@@ -3156,6 +4230,13 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H;";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(0L, ja.toLong(false));
     }
 
@@ -3180,6 +4261,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
         Assert.assertEquals(45, ja.toDouble(ctxt.get("b")), EPSILON);
     }
 
@@ -3192,6 +4274,8 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(56, ja.toDouble(ctxt.get("c")), EPSILON);
     }
 
@@ -3204,6 +4288,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(67, ja.toDouble(ctxt.get("d")), EPSILON);
     }
 
@@ -3216,6 +4303,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(78, ja.toDouble(ctxt.get("e")), EPSILON);
     }
 
@@ -3228,6 +4319,11 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(10d, ja.toDouble("10"), EPSILON);
     }
 
@@ -3240,6 +4336,12 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(1.D, ja.toDouble(true), EPSILON);
     }
 
@@ -3252,6 +4354,13 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(0.D, ja.toDouble(false), EPSILON);
     }
 
@@ -3276,6 +4385,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
         Assert.assertEquals(BigInteger.valueOf(45), ja.toBigInteger(ctxt.get("b")));
     }
 
@@ -3288,6 +4398,8 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(BigInteger.valueOf(56), ja.toBigInteger(ctxt.get("c")));
     }
 
@@ -3300,6 +4412,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(BigInteger.valueOf(67), ja.toBigInteger(ctxt.get("d")));
     }
 
@@ -3312,6 +4427,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(BigInteger.valueOf(78), ja.toBigInteger(ctxt.get("e")));
     }
 
@@ -3324,6 +4443,11 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(BigInteger.valueOf(10), ja.toBigInteger("10"));
     }
 
@@ -3336,6 +4460,12 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(BigInteger.valueOf(1), ja.toBigInteger(true));
     }
 
@@ -3348,6 +4478,13 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(BigInteger.valueOf(0), ja.toBigInteger(false));
     }
 
@@ -3372,6 +4509,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
         Assert.assertEquals(BigDecimal.valueOf(45.), ja.toBigDecimal(ctxt.get("b")));
     }
 
@@ -3384,6 +4522,8 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(BigDecimal.valueOf(56.), ja.toBigDecimal(ctxt.get("c")));
     }
 
@@ -3396,6 +4536,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(BigDecimal.valueOf(67), ja.toBigDecimal(ctxt.get("d")));
     }
 
@@ -3408,6 +4551,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(BigDecimal.valueOf(78), ja.toBigDecimal(ctxt.get("e")));
     }
 
@@ -3420,6 +4567,11 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(BigDecimal.valueOf(10), ja.toBigDecimal("10"));
     }
 
@@ -3432,6 +4584,12 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(BigDecimal.valueOf(1.), ja.toBigDecimal(true));
     }
 
@@ -3444,11 +4602,19 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         final String stmt = "{a = 34L; b = 45.0D; c=56.0F; d=67B; e=78H; }";
         final JexlScript expr = JEXL.createScript(stmt);
         /* Object value = */ expr.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(BigDecimal.valueOf(0.), ja.toBigDecimal(false));
     }
 
     @Test
     public void testAtomicBoolean_1_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
@@ -3459,11 +4625,13 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testAtomicBoolean_2_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
         Assert.assertEquals("Result is not 1", new Integer(1), o);
@@ -3471,13 +4639,17 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testAtomicBoolean_3_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
+        // in a binary logical op
         e = JEXL.createScript("x && y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, Boolean.FALSE);
@@ -3486,16 +4658,21 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testAtomicBoolean_4_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
+        // in a binary logical op
         e = JEXL.createScript("x && y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab, Boolean.TRUE);
         Assert.assertTrue((Boolean) o);
@@ -3503,18 +4680,24 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testAtomicBoolean_5_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
+        // in a binary logical op
         e = JEXL.createScript("x && y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab, Boolean.TRUE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
         Assert.assertFalse((Boolean) o);
@@ -3522,20 +4705,27 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testAtomicBoolean_6_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
+        // in a binary logical op
         e = JEXL.createScript("x && y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab, Boolean.TRUE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
         Assert.assertFalse((Boolean) o);
@@ -3543,22 +4733,31 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testAtomicBoolean_7_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
+        // in a binary logical op
         e = JEXL.createScript("x && y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab, Boolean.TRUE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
+        // in arithmetic op
         e = JEXL.createScript("x + y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, 10);
@@ -3567,106 +4766,152 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testAtomicBoolean_8_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
+        // in a binary logical op
         e = JEXL.createScript("x && y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab, Boolean.TRUE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
+        // in arithmetic op
         e = JEXL.createScript("x + y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, 10);
+        // removed other assertion
         o = e.execute(jc, 10, ab);
         Assert.assertEquals(11, o);
     }
 
     @Test
     public void testAtomicBoolean_9_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
+        // in a binary logical op
         e = JEXL.createScript("x && y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab, Boolean.TRUE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
+        // in arithmetic op
         e = JEXL.createScript("x + y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, 10);
+        // removed other assertion
         o = e.execute(jc, 10, ab);
+        // removed other assertion
         o = e.execute(jc, ab, 10.d);
         Assert.assertEquals(11.d, (Double) o, EPSILON);
     }
 
     @Test
     public void testAtomicBoolean_10_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
+        // in a binary logical op
         e = JEXL.createScript("x && y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab, Boolean.TRUE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
+        // in arithmetic op
         e = JEXL.createScript("x + y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, 10);
+        // removed other assertion
         o = e.execute(jc, 10, ab);
+        // removed other assertion
         o = e.execute(jc, ab, 10.d);
+        // removed other assertion
         o = e.execute(jc, 10.d, ab);
         Assert.assertEquals(11.d, (Double) o, EPSILON);
     }
 
     @Test
     public void testAtomicBoolean_11_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
+        // in a binary logical op
         e = JEXL.createScript("x && y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab, Boolean.TRUE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
+        // in arithmetic op
         e = JEXL.createScript("x + y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, 10);
+        // removed other assertion
         o = e.execute(jc, 10, ab);
+        // removed other assertion
         o = e.execute(jc, ab, 10.d);
+        // removed other assertion
         o = e.execute(jc, 10.d, ab);
+        // removed other assertion
 
         final BigInteger bi10 = BigInteger.TEN;
         ab.set(false);
@@ -3676,65 +4921,94 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testAtomicBoolean_12_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
+        // in a binary logical op
         e = JEXL.createScript("x && y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab, Boolean.TRUE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
+        // in arithmetic op
         e = JEXL.createScript("x + y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, 10);
+        // removed other assertion
         o = e.execute(jc, 10, ab);
+        // removed other assertion
         o = e.execute(jc, ab, 10.d);
+        // removed other assertion
         o = e.execute(jc, 10.d, ab);
+        // removed other assertion
 
         final BigInteger bi10 = BigInteger.TEN;
         ab.set(false);
         o = e.execute(jc, ab, bi10);
+        // removed other assertion
         o = e.execute(jc, bi10, ab);
         Assert.assertEquals(bi10, o);
     }
 
     @Test
     public void testAtomicBoolean_13_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
+        // in a binary logical op
         e = JEXL.createScript("x && y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab, Boolean.TRUE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
+        // in arithmetic op
         e = JEXL.createScript("x + y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, 10);
+        // removed other assertion
         o = e.execute(jc, 10, ab);
+        // removed other assertion
         o = e.execute(jc, ab, 10.d);
+        // removed other assertion
         o = e.execute(jc, 10.d, ab);
+        // removed other assertion
 
         final BigInteger bi10 = BigInteger.TEN;
         ab.set(false);
         o = e.execute(jc, ab, bi10);
+        // removed other assertion
         o = e.execute(jc, bi10, ab);
+        // removed other assertion
 
         final BigDecimal bd10 = BigDecimal.TEN;
         ab.set(false);
@@ -3744,76 +5018,110 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testAtomicBoolean_14_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
+        // in a binary logical op
         e = JEXL.createScript("x && y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab, Boolean.TRUE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
+        // in arithmetic op
         e = JEXL.createScript("x + y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, 10);
+        // removed other assertion
         o = e.execute(jc, 10, ab);
+        // removed other assertion
         o = e.execute(jc, ab, 10.d);
+        // removed other assertion
         o = e.execute(jc, 10.d, ab);
+        // removed other assertion
 
         final BigInteger bi10 = BigInteger.TEN;
         ab.set(false);
         o = e.execute(jc, ab, bi10);
+        // removed other assertion
         o = e.execute(jc, bi10, ab);
+        // removed other assertion
 
         final BigDecimal bd10 = BigDecimal.TEN;
         ab.set(false);
         o = e.execute(jc, ab, bd10);
+        // removed other assertion
         o = e.execute(jc, bd10, ab);
         Assert.assertEquals(bd10, o);
     }
 
     @Test
     public void testAtomicBoolean_15_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
+        // in a binary logical op
         e = JEXL.createScript("x && y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab, Boolean.TRUE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
+        // in arithmetic op
         e = JEXL.createScript("x + y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, 10);
+        // removed other assertion
         o = e.execute(jc, 10, ab);
+        // removed other assertion
         o = e.execute(jc, ab, 10.d);
+        // removed other assertion
         o = e.execute(jc, 10.d, ab);
+        // removed other assertion
 
         final BigInteger bi10 = BigInteger.TEN;
         ab.set(false);
         o = e.execute(jc, ab, bi10);
+        // removed other assertion
         o = e.execute(jc, bi10, ab);
+        // removed other assertion
 
         final BigDecimal bd10 = BigDecimal.TEN;
         ab.set(false);
         o = e.execute(jc, ab, bd10);
+        // removed other assertion
         o = e.execute(jc, bd10, ab);
+        // removed other assertion
 
+        // in a (the) monadic op
         e = JEXL.createScript("!x", "x");
         ab.set(true);
         o = e.execute(jc, ab);
@@ -3822,42 +5130,61 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testAtomicBoolean_16_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
+        // in a binary logical op
         e = JEXL.createScript("x && y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab, Boolean.TRUE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
+        // in arithmetic op
         e = JEXL.createScript("x + y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, 10);
+        // removed other assertion
         o = e.execute(jc, 10, ab);
+        // removed other assertion
         o = e.execute(jc, ab, 10.d);
+        // removed other assertion
         o = e.execute(jc, 10.d, ab);
+        // removed other assertion
 
         final BigInteger bi10 = BigInteger.TEN;
         ab.set(false);
         o = e.execute(jc, ab, bi10);
+        // removed other assertion
         o = e.execute(jc, bi10, ab);
+        // removed other assertion
 
         final BigDecimal bd10 = BigDecimal.TEN;
         ab.set(false);
         o = e.execute(jc, ab, bd10);
+        // removed other assertion
         o = e.execute(jc, bd10, ab);
+        // removed other assertion
 
+        // in a (the) monadic op
         e = JEXL.createScript("!x", "x");
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab);
         Assert.assertTrue((Boolean) o);
@@ -3865,45 +5192,66 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testAtomicBoolean_17_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
+        // in a binary logical op
         e = JEXL.createScript("x && y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab, Boolean.TRUE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
+        // in arithmetic op
         e = JEXL.createScript("x + y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, 10);
+        // removed other assertion
         o = e.execute(jc, 10, ab);
+        // removed other assertion
         o = e.execute(jc, ab, 10.d);
+        // removed other assertion
         o = e.execute(jc, 10.d, ab);
+        // removed other assertion
 
         final BigInteger bi10 = BigInteger.TEN;
         ab.set(false);
         o = e.execute(jc, ab, bi10);
+        // removed other assertion
         o = e.execute(jc, bi10, ab);
+        // removed other assertion
 
         final BigDecimal bd10 = BigDecimal.TEN;
         ab.set(false);
         o = e.execute(jc, ab, bd10);
+        // removed other assertion
         o = e.execute(jc, bd10, ab);
+        // removed other assertion
 
+        // in a (the) monadic op
         e = JEXL.createScript("!x", "x");
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab);
+        // removed other assertion
 
+        // in a (the) monadic op
         e = JEXL.createScript("-x", "x");
         ab.set(true);
         o = e.execute(jc, ab);
@@ -3912,48 +5260,70 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
 
     @Test
     public void testAtomicBoolean_18_oe() throws Exception {
+        // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
         final JexlContext jc = new MapContext();
         final AtomicBoolean ab = new AtomicBoolean(false);
         Object o;
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
+        // in a binary logical op
         e = JEXL.createScript("x && y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(true);
         o = e.execute(jc, ab, Boolean.TRUE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab, Boolean.FALSE);
+        // removed other assertion
+        // in arithmetic op
         e = JEXL.createScript("x + y", "x", "y");
         ab.set(true);
         o = e.execute(jc, ab, 10);
+        // removed other assertion
         o = e.execute(jc, 10, ab);
+        // removed other assertion
         o = e.execute(jc, ab, 10.d);
+        // removed other assertion
         o = e.execute(jc, 10.d, ab);
+        // removed other assertion
 
         final BigInteger bi10 = BigInteger.TEN;
         ab.set(false);
         o = e.execute(jc, ab, bi10);
+        // removed other assertion
         o = e.execute(jc, bi10, ab);
+        // removed other assertion
 
         final BigDecimal bd10 = BigDecimal.TEN;
         ab.set(false);
         o = e.execute(jc, ab, bd10);
+        // removed other assertion
         o = e.execute(jc, bd10, ab);
+        // removed other assertion
 
+        // in a (the) monadic op
         e = JEXL.createScript("!x", "x");
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab);
+        // removed other assertion
 
+        // in a (the) monadic op
         e = JEXL.createScript("-x", "x");
         ab.set(true);
         o = e.execute(jc, ab);
+        // removed other assertion
         ab.set(false);
         o = e.execute(jc, ab);
         Assert.assertTrue((Boolean) o);
@@ -3970,6 +5340,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testBigDecimal_2_oe() throws Exception {
         asserter.setVariable("left", new BigDecimal(2));
         asserter.setVariable("right", new BigDecimal(6));
+        // removed other assertion
         asserter.assertExpression("right - left", new BigDecimal(4));
     }
 
@@ -3977,6 +5348,8 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testBigDecimal_3_oe() throws Exception {
         asserter.setVariable("left", new BigDecimal(2));
         asserter.setVariable("right", new BigDecimal(6));
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("right * left", new BigDecimal(12));
     }
 
@@ -3984,6 +5357,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testBigDecimal_4_oe() throws Exception {
         asserter.setVariable("left", new BigDecimal(2));
         asserter.setVariable("right", new BigDecimal(6));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("right / left", new BigDecimal(3));
     }
 
@@ -3991,6 +5367,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testBigDecimal_5_oe() throws Exception {
         asserter.setVariable("left", new BigDecimal(2));
         asserter.setVariable("right", new BigDecimal(6));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("right % left", new BigDecimal(0));
     }
 
@@ -4005,6 +5385,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testBigInteger_2_oe() throws Exception {
         asserter.setVariable("left", new BigInteger("2"));
         asserter.setVariable("right", new BigInteger("6"));
+        // removed other assertion
         asserter.assertExpression("right - left", new BigInteger("4"));
     }
 
@@ -4012,6 +5393,8 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testBigInteger_3_oe() throws Exception {
         asserter.setVariable("left", new BigInteger("2"));
         asserter.setVariable("right", new BigInteger("6"));
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("right * left", new BigInteger("12"));
     }
 
@@ -4019,6 +5402,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testBigInteger_4_oe() throws Exception {
         asserter.setVariable("left", new BigInteger("2"));
         asserter.setVariable("right", new BigInteger("6"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("right / left", new BigInteger("3"));
     }
 
@@ -4026,6 +5412,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     public void testBigInteger_5_oe() throws Exception {
         asserter.setVariable("left", new BigInteger("2"));
         asserter.setVariable("right", new BigInteger("6"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("right % left", new BigInteger("0"));
     }
 
@@ -4036,36 +5426,64 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
 
 @Test
     public void testOverflows_2_oe() throws Exception {
+        // removed other assertion
         asserter.assertExpression("3 + " + (Long.MAX_VALUE - 2),  BigInteger.valueOf(Long.MAX_VALUE).add(BigInteger.ONE));
     }
 
 @Test
     public void testOverflows_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("-2147483648 - 1", Long.valueOf("-2147483649"));
     }
 
 @Test
     public void testOverflows_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("-3 + " + (Long.MIN_VALUE + 2),  BigInteger.valueOf(Long.MIN_VALUE).subtract(BigInteger.ONE));
     }
 
 @Test
     public void testOverflows_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("1 + 9223372036854775807", new BigInteger("9223372036854775808"));
     }
 
 @Test
     public void testOverflows_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("-1 + (-9223372036854775808)", new BigInteger("-9223372036854775809"));
     }
 
 @Test
     public void testOverflows_7_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("-9223372036854775808 - 1", new BigInteger("-9223372036854775809"));
     }
 
 @Test
     public void testOverflows_8_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final BigInteger maxl = BigInteger.valueOf(Long.MAX_VALUE);
         asserter.assertExpression(maxl.toString() + " * " + maxl.toString() , maxl.multiply(maxl));
     }
@@ -4081,6 +5499,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
             asserter.assertExpression("-3", new Integer("-3"));
     }
@@ -4097,7 +5516,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
             asserter.assertExpression("-3.0", new Double("-3.0"));
     }
     }
@@ -4113,7 +5534,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("-aByte", new Byte((byte) -1));
     }
     }
@@ -4129,7 +5553,11 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("-aShort", new Short((short) -2));
     }
     }
@@ -4145,7 +5573,12 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("-anInteger", new Integer(-3));
     }
     }
@@ -4161,7 +5594,13 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("-aLong", new Long(-4));
     }
     }
@@ -4177,7 +5616,14 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("-aFloat", new Float(-5.5));
     }
     }
@@ -4193,7 +5639,15 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("-aDouble", new Double(-6.6));
     }
     }
@@ -4209,7 +5663,16 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("-aBigInteger", new BigInteger("-7"));
     }
     }
@@ -4225,7 +5688,17 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("-aBigDecimal", new BigDecimal("-8.8"));
     }
     }
@@ -4241,6 +5714,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
             asserter.assertExpression("+3", new Integer("3"));
     }
@@ -4257,7 +5731,9 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
             asserter.assertExpression("+3.0", new Double("3.0"));
     }
     }
@@ -4273,7 +5749,10 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("+aByte", new Integer(1));
     }
     }
@@ -4289,7 +5768,11 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("+aShort", new Integer(2));
     }
     }
@@ -4305,7 +5788,12 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("+anInteger", new Integer(3));
     }
     }
@@ -4321,7 +5809,13 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("+aLong", new Long(4));
     }
     }
@@ -4337,7 +5831,14 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("+aFloat", new Float(5.5));
     }
     }
@@ -4353,7 +5854,15 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("+aDouble", new Double(6.6));
     }
     }
@@ -4369,7 +5878,16 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("+aBigInteger", new BigInteger("7"));
     }
     }
@@ -4385,7 +5903,17 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("aBigInteger", new BigInteger("7"));
         asserter.setVariable("aBigDecimal", new BigDecimal("8.8"));
 
+        // loop to allow checking caching of constant numerals (debug)
         for(int i = 0 ; i < 2; ++i) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("+aBigDecimal", new BigDecimal("8.8"));
     }
     }
@@ -4407,6 +5935,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
         asserter.assertExpression("imanull + imanull", new Integer(0));
     }
 
@@ -4417,6 +5946,8 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("foo", new Integer(2));
 
         asserter.assertExpression("foo + 2", new Integer(4));
@@ -4429,8 +5960,11 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("foo", new Integer(2));
 
+        // removed other assertion
         asserter.assertExpression("3 + 3", new Integer(6));
     }
 
@@ -4441,8 +5975,12 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("foo", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("3 + 3 + foo", new Integer(8));
     }
 
@@ -4453,8 +5991,13 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("foo", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("3 * 3", new Integer(9));
     }
 
@@ -4465,8 +6008,14 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("foo", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("3 * 3 + foo", new Integer(11));
     }
 
@@ -4477,8 +6026,15 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("foo", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("3 * 3 - foo", new Integer(7));
     }
 
@@ -4489,8 +6045,16 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("foo", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test parenthesized exprs
@@ -4505,12 +6069,21 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("foo", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test parenthesized exprs
          */
+        // removed other assertion
         asserter.assertExpression("(8 - 2) * 7", new Integer(42));
     }
 
@@ -4521,12 +6094,22 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("foo", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test parenthesized exprs
          */
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test some floaty stuff
@@ -4541,16 +6124,27 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("foo", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test parenthesized exprs
          */
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test some floaty stuff
          */
+        // removed other assertion
         asserter.assertExpression("3 * 3.0", new Double(9));
     }
 
@@ -4561,16 +6155,28 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("foo", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test parenthesized exprs
          */
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test some floaty stuff
          */
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test / and %
@@ -4586,21 +6192,34 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("foo", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test parenthesized exprs
          */
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test some floaty stuff
          */
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test / and %
          */
         asserter.setStrict(false, false);
+        // removed other assertion
         asserter.assertExpression("6.4 / 3", new Double(6.4 / 3));
     }
 
@@ -4611,21 +6230,35 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("foo", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test parenthesized exprs
          */
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test some floaty stuff
          */
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test / and %
          */
         asserter.setStrict(false, false);
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("0 / 3", new Integer(0 / 3));
     }
 
@@ -4636,21 +6269,36 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("foo", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test parenthesized exprs
          */
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test some floaty stuff
          */
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test / and %
          */
         asserter.setStrict(false, false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("3 / 0", new Double(0));
     }
 
@@ -4661,21 +6309,37 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("foo", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test parenthesized exprs
          */
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test some floaty stuff
          */
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test / and %
          */
         asserter.setStrict(false, false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("4 % 3", new Integer(1));
     }
 
@@ -4686,21 +6350,38 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
          * test new null coersion
          */
         asserter.setVariable("imanull", null);
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("foo", new Integer(2));
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test parenthesized exprs
          */
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test some floaty stuff
          */
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test / and %
          */
         asserter.setStrict(false, false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("4.8 % 3", new Double(4.8 % 3));
     }
 
@@ -4711,168 +6392,305 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
 
 @Test
     public void testCoercions_2_oe() throws Exception {
+        // removed other assertion
         asserter.assertExpression("5L", new Long(5));
     }
 
 @Test
     public void testCoercions_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
 
         asserter.setVariable("I2", new Integer(2));
         asserter.setVariable("L2", new Long(2));
         asserter.setVariable("L3", new Long(3));
         asserter.setVariable("B10", BigInteger.TEN);
 
+        // Integer & Integer => Integer
         asserter.assertExpression("I2 + 2", new Integer(4));
     }
 
 @Test
     public void testCoercions_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
 
         asserter.setVariable("I2", new Integer(2));
         asserter.setVariable("L2", new Long(2));
         asserter.setVariable("L3", new Long(3));
         asserter.setVariable("B10", BigInteger.TEN);
 
+        // Integer & Integer => Integer
+        // removed other assertion
         asserter.assertExpression("I2 * 2", new Integer(4));
     }
 
 @Test
     public void testCoercions_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
 
         asserter.setVariable("I2", new Integer(2));
         asserter.setVariable("L2", new Long(2));
         asserter.setVariable("L3", new Long(3));
         asserter.setVariable("B10", BigInteger.TEN);
 
+        // Integer & Integer => Integer
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("I2 - 2", new Integer(0));
     }
 
 @Test
     public void testCoercions_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
 
         asserter.setVariable("I2", new Integer(2));
         asserter.setVariable("L2", new Long(2));
         asserter.setVariable("L3", new Long(3));
         asserter.setVariable("B10", BigInteger.TEN);
 
+        // Integer & Integer => Integer
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("I2 / 2", new Integer(1));
     }
 
 @Test
     public void testCoercions_7_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
 
         asserter.setVariable("I2", new Integer(2));
         asserter.setVariable("L2", new Long(2));
         asserter.setVariable("L3", new Long(3));
         asserter.setVariable("B10", BigInteger.TEN);
 
+        // Integer & Integer => Integer
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Integer & Long => Long
         asserter.assertExpression("I2 * L2", new Long(4));
     }
 
 @Test
     public void testCoercions_8_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
 
         asserter.setVariable("I2", new Integer(2));
         asserter.setVariable("L2", new Long(2));
         asserter.setVariable("L3", new Long(3));
         asserter.setVariable("B10", BigInteger.TEN);
 
+        // Integer & Integer => Integer
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Integer & Long => Long
+        // removed other assertion
         asserter.assertExpression("I2 / L2", new Long(1));
     }
 
 @Test
     public void testCoercions_9_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
 
         asserter.setVariable("I2", new Integer(2));
         asserter.setVariable("L2", new Long(2));
         asserter.setVariable("L3", new Long(3));
         asserter.setVariable("B10", BigInteger.TEN);
 
+        // Integer & Integer => Integer
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Integer & Long => Long
+        // removed other assertion
+        // removed other assertion
 
+        // Long & Long => Long
         asserter.assertExpression("L2 + 3", new Long(5));
     }
 
 @Test
     public void testCoercions_10_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
 
         asserter.setVariable("I2", new Integer(2));
         asserter.setVariable("L2", new Long(2));
         asserter.setVariable("L3", new Long(3));
         asserter.setVariable("B10", BigInteger.TEN);
 
+        // Integer & Integer => Integer
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Integer & Long => Long
+        // removed other assertion
+        // removed other assertion
 
+        // Long & Long => Long
+        // removed other assertion
         asserter.assertExpression("L2 + L3", new Long(5));
     }
 
 @Test
     public void testCoercions_11_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
 
         asserter.setVariable("I2", new Integer(2));
         asserter.setVariable("L2", new Long(2));
         asserter.setVariable("L3", new Long(3));
         asserter.setVariable("B10", BigInteger.TEN);
 
+        // Integer & Integer => Integer
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Integer & Long => Long
+        // removed other assertion
+        // removed other assertion
 
+        // Long & Long => Long
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("L2 / L2", new Long(1));
     }
 
 @Test
     public void testCoercions_12_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
 
         asserter.setVariable("I2", new Integer(2));
         asserter.setVariable("L2", new Long(2));
         asserter.setVariable("L3", new Long(3));
         asserter.setVariable("B10", BigInteger.TEN);
 
+        // Integer & Integer => Integer
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Integer & Long => Long
+        // removed other assertion
+        // removed other assertion
 
+        // Long & Long => Long
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("L2 / 2", new Long(1));
     }
 
 @Test
     public void testCoercions_13_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
 
         asserter.setVariable("I2", new Integer(2));
         asserter.setVariable("L2", new Long(2));
         asserter.setVariable("L3", new Long(3));
         asserter.setVariable("B10", BigInteger.TEN);
 
+        // Integer & Integer => Integer
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Integer & Long => Long
+        // removed other assertion
+        // removed other assertion
 
+        // Long & Long => Long
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // BigInteger
         asserter.assertExpression("B10 / 10", BigInteger.ONE);
     }
 
 @Test
     public void testCoercions_14_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
 
         asserter.setVariable("I2", new Integer(2));
         asserter.setVariable("L2", new Long(2));
         asserter.setVariable("L3", new Long(3));
         asserter.setVariable("B10", BigInteger.TEN);
 
+        // Integer & Integer => Integer
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Integer & Long => Long
+        // removed other assertion
+        // removed other assertion
 
+        // Long & Long => Long
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // BigInteger
+        // removed other assertion
         asserter.assertExpression("B10 / I2", new BigInteger("5"));
     }
 
 @Test
     public void testCoercions_15_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
 
         asserter.setVariable("I2", new Integer(2));
         asserter.setVariable("L2", new Long(2));
         asserter.setVariable("L3", new Long(3));
         asserter.setVariable("B10", BigInteger.TEN);
 
+        // Integer & Integer => Integer
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Integer & Long => Long
+        // removed other assertion
+        // removed other assertion
 
+        // Long & Long => Long
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // BigInteger
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("B10 / L2", new BigInteger("5"));
     }
 

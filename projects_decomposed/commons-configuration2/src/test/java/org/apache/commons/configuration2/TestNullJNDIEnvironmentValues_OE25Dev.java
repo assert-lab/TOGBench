@@ -46,6 +46,7 @@ public class TestNullJNDIEnvironmentValues_OE25Dev {
 
     @Test
     public void testClearProperty_2_oe() {
+        // removed other assertion
         conf.clearProperty("test.short");
         assertNull("'test.short' property not cleared", conf.getShort("test.short", null));
     }
@@ -57,6 +58,7 @@ public class TestNullJNDIEnvironmentValues_OE25Dev {
 
     @Test
     public void testContainsKey_2_oe() throws Exception {
+        // removed other assertion
         assertFalse(conf.containsKey("test.imaginarykey"));
     }
 
@@ -73,6 +75,7 @@ public class TestNullJNDIEnvironmentValues_OE25Dev {
         boolean found = false;
         final Iterator<String> it = conf.getKeys();
 
+        // removed other assertion
 
         while (it.hasNext() && !found) {
             found = "test.boolean".equals(it.next());
@@ -83,6 +86,7 @@ public class TestNullJNDIEnvironmentValues_OE25Dev {
 
     @Test
     public void testGetKeysWithExistingPrefix_1_oe() {
+        // test for an existing prefix
         final Iterator<String> it = conf.getKeys("test");
         boolean found = false;
         while (it.hasNext() && !found) {
@@ -94,6 +98,7 @@ public class TestNullJNDIEnvironmentValues_OE25Dev {
 
     @Test
     public void testGetKeysWithKeyAsPrefix_1_oe() {
+        // test for a prefix matching exactly the key of a property
         final Iterator<String> it = conf.getKeys("test.boolean");
         boolean found = false;
         while (it.hasNext() && !found) {
@@ -105,6 +110,7 @@ public class TestNullJNDIEnvironmentValues_OE25Dev {
 
     @Test
     public void testGetKeysWithUnknownPrefix_1_oe() {
+        // test for a unknown prefix
         final Iterator<String> it = conf.getKeys("foo.bar");
         assertFalse("no key should be found", it.hasNext());
     }
@@ -134,12 +140,15 @@ public class TestNullJNDIEnvironmentValues_OE25Dev {
     @Test
     public void testMoreGets_2_oe() throws Exception {
         final String s = conf.getString("test.key");
+        // removed other assertion
         assertEquals("jndivalue2", conf.getString("test.key2"));
     }
 
     @Test
     public void testMoreGets_3_oe() throws Exception {
         final String s = conf.getString("test.key");
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, conf.getShort("test.short"));
     }
 

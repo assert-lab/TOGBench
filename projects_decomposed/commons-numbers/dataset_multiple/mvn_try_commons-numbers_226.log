@@ -1,0 +1,45 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2128,61] incompatible types: invalid method reference
+    ofReal(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2131,75] incompatible types: invalid method reference
+    ofImaginary(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2134,71] incompatible types: invalid method reference
+    ofReal(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2136,85] incompatible types: invalid method reference
+    ofImaginary(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2139,79] incompatible types: invalid method reference
+    ofReal(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2142,93] incompatible types: invalid method reference
+    ofImaginary(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2153,71] incompatible types: invalid method reference
+    ofReal(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2164,85] incompatible types: invalid method reference
+    ofImaginary(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2171,67] incompatible types: invalid method reference
+    ofReal(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-numbers-complex: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2128,61] incompatible types: invalid method reference
+[ERROR]     ofReal(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2131,75] incompatible types: invalid method reference
+[ERROR]     ofImaginary(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2134,71] incompatible types: invalid method reference
+[ERROR]     ofReal(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2136,85] incompatible types: invalid method reference
+[ERROR]     ofImaginary(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2139,79] incompatible types: invalid method reference
+[ERROR]     ofReal(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2142,93] incompatible types: invalid method reference
+[ERROR]     ofImaginary(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2153,71] incompatible types: invalid method reference
+[ERROR]     ofReal(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2164,85] incompatible types: invalid method reference
+[ERROR]     ofImaginary(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[2171,67] incompatible types: invalid method reference
+[ERROR]     ofReal(double) has private access in org.apache.commons.numbers.complex.ComplexTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

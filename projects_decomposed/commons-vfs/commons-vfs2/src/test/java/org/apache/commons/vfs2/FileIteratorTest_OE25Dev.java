@@ -78,6 +78,7 @@ public class FileIteratorTest_OE25Dev {
     @Test
     public void testIterator_2_oe() throws FileSystemException {
         final FileObject[] findFiles = BaseFolder.findFiles(Selectors.SELECT_ALL);
+        // removed other assertion
         final FileObject[] listFiles = BaseFolder.getChildren();
         Assert.assertTrue(FileCount > listFiles.length);
     }

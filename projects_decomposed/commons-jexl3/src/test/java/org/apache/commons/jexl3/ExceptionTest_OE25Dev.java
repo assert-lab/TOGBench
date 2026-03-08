@@ -112,6 +112,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new ObjectContext<ThrowNPE>(jexl, new ThrowNPE());
         try {
             e.evaluate(jc);
+            // removed other assertion
         } catch (final JexlException xany) {
             final Throwable xth = xany.getCause();
             Assert.assertEquals(NullPointerException.class, xth.getClass());
@@ -124,6 +125,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         final ThrowNPE npe = new ThrowNPE();
         try {
             final Object r = jexl.getProperty(npe, "foo");
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
             Assert.assertNull(xth);
@@ -136,11 +138,14 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         final ThrowNPE npe = new ThrowNPE();
         try {
             final Object r = jexl.getProperty(npe, "foo");
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
         try {
             jexl.setProperty(npe, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
             Assert.assertNull(xth);
@@ -153,13 +158,17 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         final ThrowNPE npe = new ThrowNPE();
         try {
             final Object r = jexl.getProperty(npe, "foo");
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
         try {
             jexl.setProperty(npe, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
 
         final boolean b = (Boolean) jexl.getProperty(npe, "fail");
@@ -172,19 +181,25 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         final ThrowNPE npe = new ThrowNPE();
         try {
             final Object r = jexl.getProperty(npe, "foo");
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
         try {
             jexl.setProperty(npe, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
 
         final boolean b = (Boolean) jexl.getProperty(npe, "fail");
+        // removed other assertion
         try {
             jexl.setProperty(npe, "fail", false);
             jexl.setProperty(npe, "fail", true);
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
             Assert.assertEquals(NullPointerException.class, xth.getClass());
@@ -197,24 +212,32 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         final ThrowNPE npe = new ThrowNPE();
         try {
             final Object r = jexl.getProperty(npe, "foo");
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
         try {
             jexl.setProperty(npe, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
 
         final boolean b = (Boolean) jexl.getProperty(npe, "fail");
+        // removed other assertion
         try {
             jexl.setProperty(npe, "fail", false);
             jexl.setProperty(npe, "fail", true);
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
         try {
             jexl.getProperty(npe, "fail");
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
             Assert.assertEquals(NullPointerException.class, xth.getClass());
@@ -227,30 +250,40 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         final ThrowNPE npe = new ThrowNPE();
         try {
             final Object r = jexl.getProperty(npe, "foo");
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
         try {
             jexl.setProperty(npe, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
 
         final boolean b = (Boolean) jexl.getProperty(npe, "fail");
+        // removed other assertion
         try {
             jexl.setProperty(npe, "fail", false);
             jexl.setProperty(npe, "fail", true);
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
         try {
             jexl.getProperty(npe, "fail");
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
 
         try {
             jexl.invokeMethod(npe, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.Method xany) {
             final Throwable xth = xany.getCause();
             Assert.assertNull(xth);
@@ -263,35 +296,47 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         final ThrowNPE npe = new ThrowNPE();
         try {
             final Object r = jexl.getProperty(npe, "foo");
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
         try {
             jexl.setProperty(npe, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
 
         final boolean b = (Boolean) jexl.getProperty(npe, "fail");
+        // removed other assertion
         try {
             jexl.setProperty(npe, "fail", false);
             jexl.setProperty(npe, "fail", true);
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
         try {
             jexl.getProperty(npe, "fail");
+            // removed other assertion
         } catch (final JexlException.Property xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
 
         try {
             jexl.invokeMethod(npe, "foo", 42);
+            // removed other assertion
         } catch (final JexlException.Method xany) {
             final Throwable xth = xany.getCause();
+            // removed other assertion
         }
         try {
             jexl.invokeMethod(npe, "npe");
+            // removed other assertion
         } catch (final JexlException.Method xany) {
             final Throwable xth = xany.getCause();
             Assert.assertEquals(NullPointerException.class, xth.getClass());
@@ -304,10 +349,14 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         final JexlExpression e = jexl.createExpression("c.e * 6");
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
+        // make unknown vars throw
         options.setStrict(true);
+        // empty cotext
         try {
             /* Object o = */ e.evaluate(ctxt);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
             final String msg = xjexl.getMessage();
             Assert.assertTrue(msg.indexOf("variable 'c.e'") > 0);
@@ -320,18 +369,25 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         final JexlExpression e = jexl.createExpression("c.e * 6");
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
+        // make unknown vars throw
         options.setStrict(true);
+        // empty cotext
         try {
             /* Object o = */ e.evaluate(ctxt);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
             final String msg = xjexl.getMessage();
+            // removed other assertion
         }
 
+        // disallow null operands
         options.setStrictArithmetic(true);
         ctxt.set("c.e", null);
         try {
             /* Object o = */ e.evaluate(ctxt);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
             final String msg = xjexl.getMessage();
             Assert.assertTrue(msg.indexOf("variable 'c.e'") > 0);
@@ -344,22 +400,31 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         final JexlExpression e = jexl.createExpression("c.e * 6");
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
+        // make unknown vars throw
         options.setStrict(true);
+        // empty cotext
         try {
             /* Object o = */ e.evaluate(ctxt);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
             final String msg = xjexl.getMessage();
+            // removed other assertion
         }
 
+        // disallow null operands
         options.setStrictArithmetic(true);
         ctxt.set("c.e", null);
         try {
             /* Object o = */ e.evaluate(ctxt);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
             final String msg = xjexl.getMessage();
+            // removed other assertion
         }
 
+        // allow null operands
         options.setStrictArithmetic(false);
         try {
             /* Object o = */ e.evaluate(ctxt);
@@ -375,33 +440,45 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         final JexlExpression e = jexl.createExpression("c.e * 6");
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
+        // make unknown vars throw
         options.setStrict(true);
+        // empty cotext
         try {
             /* Object o = */ e.evaluate(ctxt);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
             final String msg = xjexl.getMessage();
+            // removed other assertion
         }
 
+        // disallow null operands
         options.setStrictArithmetic(true);
         ctxt.set("c.e", null);
         try {
             /* Object o = */ e.evaluate(ctxt);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
             final String msg = xjexl.getMessage();
+            // removed other assertion
         }
 
+        // allow null operands
         options.setStrictArithmetic(false);
         try {
             /* Object o = */ e.evaluate(ctxt);
 
         } catch (final JexlException xjexl) {
+            // removed other assertion
         }
 
+        // ensure c.e is not a defined property
         ctxt.set("c", "{ 'a' : 3, 'b' : 5}");
         ctxt.set("e", Integer.valueOf(2));
         try {
             /* Object o = */ e.evaluate(ctxt);
+            // removed other assertion
         } catch (final JexlException.Property xjexl) {
             final String msg = xjexl.getMessage();
             Assert.assertTrue(msg.indexOf("property 'e") > 0);
@@ -414,11 +491,15 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         final JexlScript e = jexl.createScript("(x)->{ x * 6 }");
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
+        // make unknown vars throw
         options.setStrict(true);
         options.setStrictArithmetic(true);
+        // empty cotext
         try {
             /* Object o = */ e.execute(ctxt);
+            // removed other assertion
         } catch (final JexlException xjexl) {
             final String msg = xjexl.getMessage();
             Assert.assertTrue(msg.indexOf("null") > 0);
@@ -431,15 +512,21 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         final JexlScript e = jexl.createScript("(x)->{ x * 6 }");
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
+        // make unknown vars throw
         options.setStrict(true);
         options.setStrictArithmetic(true);
+        // empty cotext
         try {
             /* Object o = */ e.execute(ctxt);
+            // removed other assertion
         } catch (final JexlException xjexl) {
             final String msg = xjexl.getMessage();
+            // removed other assertion
         }
 
+        // allow null operands
         options.setStrictArithmetic(false);
         try {
             final Object o = e.execute(ctxt, (Object) null);
@@ -454,10 +541,14 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         final JexlExpression e = jexl.createExpression("c.e.foo()");
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
+        // make unknown vars throw
         options.setStrict(true);
+        // empty cotext
         try {
             /* Object o = */ e.evaluate(ctxt);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
             final String msg = xjexl.getMessage();
             Assert.assertTrue(msg.indexOf("variable 'c.e'") > 0);
@@ -470,18 +561,25 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         final JexlExpression e = jexl.createExpression("c.e.foo()");
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setSilent(false);
+        // make unknown vars throw
         options.setStrict(true);
+        // empty cotext
         try {
             /* Object o = */ e.evaluate(ctxt);
+            // removed other assertion
         } catch (final JexlException.Variable xjexl) {
             final String msg = xjexl.getMessage();
+            // removed other assertion
         }
 
+        // disallow null operands
         options.setStrictArithmetic(true);
         ctxt.set("c.e", null);
         try {
             /* Object o = */ e.evaluate(ctxt);
+            // removed other assertion
         } catch (final JexlException xjexl) {
             final String msg = xjexl.getMessage();
             Assert.assertTrue(msg.indexOf("variable 'c.e'") > 0);

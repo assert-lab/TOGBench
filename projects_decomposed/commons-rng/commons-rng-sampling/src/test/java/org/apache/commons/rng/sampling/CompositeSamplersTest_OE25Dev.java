@@ -770,6 +770,7 @@ class CompositeSamplersTest_OE25Dev {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
          Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
+        // removed other assertion
         try {
     builder.build(rng);
     fail("IllegalStateException");
@@ -794,6 +795,7 @@ class CompositeSamplersTest_OE25Dev {
          Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
          RangeSampler sampler = new RangeSampler(45, 63, rng);
+        // Zero weight is ignored
         Assertions.assertEquals(0, builder.size());
     }
 
@@ -803,6 +805,8 @@ class CompositeSamplersTest_OE25Dev {
          Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
          RangeSampler sampler = new RangeSampler(45, 63, rng);
+        // Zero weight is ignored
+        // removed other assertion
         builder.add(sampler, 0.0);
         Assertions.assertEquals(0, builder.size());
     }
@@ -813,7 +817,10 @@ class CompositeSamplersTest_OE25Dev {
          Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
          RangeSampler sampler = new RangeSampler(45, 63, rng);
+        // Zero weight is ignored
+        // removed other assertion
         builder.add(sampler, 0.0);
+        // removed other assertion
 
          double[] bad = {-1, Double.NaN, Double.POSITIVE_INFINITY};
         for ( double weight : bad) {
@@ -842,6 +849,7 @@ class CompositeSamplersTest_OE25Dev {
                 .newSharedStateObjectSamplerBuilder();
          RangeSampler sampler = new RangeSampler(45, 63, rng);
         builder.add(sampler, 1.0);
+        // removed other assertion
          SharedStateObjectSampler<Integer> composite = builder.build(rng);
         Assertions.assertSame(sampler, composite);
     }
@@ -850,6 +858,8 @@ class CompositeSamplersTest_OE25Dev {
     void testObjectSamplerSamplesWithVeryLargeWeights_1_oe() {
          Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
          UniformRandomProvider rng = RandomSource.SFC_64.create(267934293);
+        // Ratio 4:4:2:1
+        // The weights will sum to infinity as they are more than 2^1024.
          double w4 = 0x1.0p1023;
          double w2 = 0x1.0p1022;
          double w1 = 0x1.0p1021;
@@ -860,10 +870,13 @@ class CompositeSamplersTest_OE25Dev {
     void testObjectSamplerSamplesWithSubNormalWeights_1_oe() {
          Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
          UniformRandomProvider rng = RandomSource.MSWS.create(6786);
+        // Ratio 4:4:2:1
+        // The weights are very small sub-normal numbers
          double w4 = Double.MIN_VALUE * 4;
          double w2 = Double.MIN_VALUE * 2;
          double w1 = Double.MIN_VALUE;
          double sum = w4 + w4 + w2 + w1;
+        // Cannot do a divide by multiplying by the reciprocal
         Assertions.assertEquals(Double.POSITIVE_INFINITY, 1.0 / sum);
     }
 
@@ -871,10 +884,15 @@ class CompositeSamplersTest_OE25Dev {
     void testObjectSamplerSamplesWithSubNormalWeights_2_oe() {
          Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
          UniformRandomProvider rng = RandomSource.MSWS.create(6786);
+        // Ratio 4:4:2:1
+        // The weights are very small sub-normal numbers
          double w4 = Double.MIN_VALUE * 4;
          double w2 = Double.MIN_VALUE * 2;
          double w1 = Double.MIN_VALUE;
          double sum = w4 + w4 + w2 + w1;
+        // Cannot do a divide by multiplying by the reciprocal
+        // removed other assertion
+        // A divide works so the sampler should work
         Assertions.assertEquals(4.0 / 11, w4 / sum);
     }
 
@@ -882,10 +900,16 @@ class CompositeSamplersTest_OE25Dev {
     void testObjectSamplerSamplesWithSubNormalWeights_3_oe() {
          Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
          UniformRandomProvider rng = RandomSource.MSWS.create(6786);
+        // Ratio 4:4:2:1
+        // The weights are very small sub-normal numbers
          double w4 = Double.MIN_VALUE * 4;
          double w2 = Double.MIN_VALUE * 2;
          double w1 = Double.MIN_VALUE;
          double sum = w4 + w4 + w2 + w1;
+        // Cannot do a divide by multiplying by the reciprocal
+        // removed other assertion
+        // A divide works so the sampler should work
+        // removed other assertion
         Assertions.assertEquals(2.0 / 11, w2 / sum);
     }
 
@@ -893,10 +917,17 @@ class CompositeSamplersTest_OE25Dev {
     void testObjectSamplerSamplesWithSubNormalWeights_4_oe() {
          Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
          UniformRandomProvider rng = RandomSource.MSWS.create(6786);
+        // Ratio 4:4:2:1
+        // The weights are very small sub-normal numbers
          double w4 = Double.MIN_VALUE * 4;
          double w2 = Double.MIN_VALUE * 2;
          double w1 = Double.MIN_VALUE;
          double sum = w4 + w4 + w2 + w1;
+        // Cannot do a divide by multiplying by the reciprocal
+        // removed other assertion
+        // A divide works so the sampler should work
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.0 / 11, w1 / sum);
     }
 
@@ -932,6 +963,7 @@ class CompositeSamplersTest_OE25Dev {
          int min = 42;
          int max = 678;
         addObjectSamplers(builder, n, min, max, rng);
+        // Exercise the shared state interface
          UniformRandomProvider rng1 = RandomSource.XO_SHI_RO_256_PLUS.create(0x9a8c6f5e);
                  ObjectSampler<Integer> sampler0 = builder.build(rng).withUniformRandomProvider(rng1);
          int min0 = min;
@@ -957,6 +989,7 @@ class CompositeSamplersTest_OE25Dev {
             @Override
             public DiscreteSampler create(UniformRandomProvider rng, double[] probabilities) {
                 factoryCount.incrementAndGet();
+                // Use an expanded table with a non-default alpha
                 return AliasMethodDiscreteSampler.of(rng, probabilities, 2);
             }
         });
@@ -966,6 +999,7 @@ class CompositeSamplersTest_OE25Dev {
          int max = 745;
         addObjectSamplers(builder, n, min, max, rng);
 
+        // Exercise the shared state interface
          UniformRandomProvider rng1 = RandomSource.XO_SHI_RO_256_PLUS.create(0x1f2e3d);
                  ObjectSampler<Integer> sampler0 = builder.build(rng).withUniformRandomProvider(rng1);
          int min0 = min;
@@ -991,7 +1025,9 @@ class CompositeSamplersTest_OE25Dev {
             @Override
             public DiscreteSampler create(UniformRandomProvider rng, double[] probabilities) {
                 factoryCount.incrementAndGet();
+                // Wrap so it is not a SharedStateSamplerInstance.
                  DiscreteSampler sampler = GuideTableDiscreteSampler.of(rng, probabilities, 2);
+                // Destroy the probabilities to check that custom factories are not trusted.
                 Arrays.fill(probabilities, Double.NaN);
                 return new DiscreteSampler() {
                     @Override
@@ -1007,6 +1043,8 @@ class CompositeSamplersTest_OE25Dev {
          int max = 2033;
         addObjectSamplers(builder, n, min, max, rng);
 
+        // Exercise the shared state interface.
+        // This tests the custom factory is used twice.
          UniformRandomProvider rng1 = RandomSource.XO_SHI_RO_256_PLUS.create(0x8c7b6a);
                  ObjectSampler<Integer> sampler0 = builder.build(rng).withUniformRandomProvider(rng1);
          int min0 = min;
@@ -1051,9 +1089,12 @@ class CompositeSamplersTest_OE25Dev {
     void testObjectSamplerSamplesWithVeryLargeWeights_2_oe_1_oe() {
          Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
          UniformRandomProvider rng = RandomSource.SFC_64.create(267934293);
+        // Ratio 4:4:2:1
+        // The weights will sum to infinity as they are more than 2^1024.
          double w4 = 0x1.0p1023;
          double w2 = 0x1.0p1022;
          double w1 = 0x1.0p1021;
+        // removed other assertion
         builder.add(new RangeSampler(0, 40, rng), w4);
         builder.add(new RangeSampler(40, 80, rng), w4);
         builder.add(new RangeSampler(80, 100, rng), w2);
@@ -1077,10 +1118,18 @@ class CompositeSamplersTest_OE25Dev {
     void testObjectSamplerSamplesWithSubNormalWeights_5_oe_1_oe() {
          Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
          UniformRandomProvider rng = RandomSource.MSWS.create(6786);
+        // Ratio 4:4:2:1
+        // The weights are very small sub-normal numbers
          double w4 = Double.MIN_VALUE * 4;
          double w2 = Double.MIN_VALUE * 2;
          double w1 = Double.MIN_VALUE;
          double sum = w4 + w4 + w2 + w1;
+        // Cannot do a divide by multiplying by the reciprocal
+        // removed other assertion
+        // A divide works so the sampler should work
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         builder.add(new RangeSampler(0, 40, rng), w4);
         builder.add(new RangeSampler(40, 80, rng), w4);
         builder.add(new RangeSampler(80, 100, rng), w2);
@@ -1162,6 +1211,8 @@ class CompositeSamplersTest_OE25Dev {
                  long[] observed0 = new long[bins0];
                  double scale0 = bins0 / (max0 - min0);
                 for (int i0 = 0; i0 < n0; i0++) {
+                    // scale0 the sample into a bin within the range:
+                    // bin = bins0 * (x - min0) / (max0 - min0)
                     observed0[(int) (scale0 * (sampler0.sample() - min0))]++;
                 }
         
@@ -1188,6 +1239,8 @@ class CompositeSamplersTest_OE25Dev {
                  long[] observed0 = new long[bins0];
                  double scale0 = bins0 / (max0 - min0);
                 for (int i0 = 0; i0 < n0; i0++) {
+                    // scale0 the sample into a bin within the range:
+                    // bin = bins0 * (x - min0) / (max0 - min0)
                     observed0[(int) (scale0 * (sampler0.sample() - min0))]++;
                 }
         
@@ -1213,6 +1266,7 @@ class CompositeSamplersTest_OE25Dev {
                  long[] observed0 = new long[bins0];
                  long range0 = max0 - min0;
                 for (int i0 = 0; i0 < n0; i0++) {
+                    // scale the sample into a bin within the range0:
                     observed0[(int) (bins0 * (sampler0.sample() - min0) / range0)]++;
                 }
         
@@ -1238,6 +1292,7 @@ class CompositeSamplersTest_OE25Dev {
                  long[] observed0 = new long[bins0];
                  long range0 = max0 - min0;
                 for (int i0 = 0; i0 < n0; i0++) {
+                    // scale the sample into a bin within the range0:
                     observed0[(int) (bins0 * (sampler0.sample() - min0) / range0)]++;
                 }
         

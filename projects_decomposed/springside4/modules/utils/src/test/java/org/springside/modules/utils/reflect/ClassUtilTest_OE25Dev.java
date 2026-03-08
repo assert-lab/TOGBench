@@ -164,35 +164,59 @@ public class ClassUtilTest_OE25Dev {
 
 	@Test
 	public void getMessage_3_oe() {
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(ClassUtil.getShortClassName(ClassUtilTest.class.getName())).isEqualTo("ClassUtilTest");
 	}
 
 	@Test
 	public void getMessage_5_oe() {
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(ClassUtil.getPackageName(ClassUtilTest.class)).isEqualTo("org.springside.modules.utils.reflect");
 	}
 
 	@Test
 	public void getMessage_6_oe() {
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(ClassUtil.getPackageName(BClass.class)).isEqualTo("org.springside.modules.utils.reflect");
 	}
 
 	@Test
 	public void getMessage_7_oe() {
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(ClassUtil.getPackageName(ClassUtilTest.class.getName())).isEqualTo("org.springside.modules.utils.reflect");
 	}
 
 	@Test
 	public void getMessage_8_oe() {
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(ClassUtil.getPackageName(BClass.class.getName())).isEqualTo("org.springside.modules.utils.reflect");
 	}
 
@@ -205,6 +229,7 @@ public class ClassUtilTest_OE25Dev {
 	@Test
 	public void getAllClass_2_oe() {
 
+		// removed other assertion
 
 		assertThat(ClassUtil.getAllSuperclasses(BClass.class)).hasSize(2).contains(AClass.class, Object.class);
 	}
@@ -212,7 +237,9 @@ public class ClassUtilTest_OE25Dev {
 	@Test
 	public void getAllClass_3_oe() {
 
+		// removed other assertion
 
+		// removed other assertion
 
 		assertThat(ClassUtil.getAllAnnotations(BClass.class)).hasSize(4);
 	}
@@ -220,8 +247,11 @@ public class ClassUtilTest_OE25Dev {
 	@Test
 	public void getAllClass_4_oe() {
 
+		// removed other assertion
 
+		// removed other assertion
 
+		// removed other assertion
 
 		assertThat(ClassUtil.getAnnotatedPublicFields(BClass.class,AAnnotation.class)).hasSize(2).contains(ClassUtil.getAccessibleField(BClass.class,"sfield"),ClassUtil.getAccessibleField(BClass.class,"tfield"));
 	}
@@ -229,9 +259,13 @@ public class ClassUtilTest_OE25Dev {
 	@Test
 	public void getAllClass_5_oe() {
 
+		// removed other assertion
 
+		// removed other assertion
 
+		// removed other assertion
 
+		// removed other assertion
 
 		assertThat(ClassUtil.getAnnotatedFields(BClass.class,EAnnotation.class)).hasSize(3).contains(ClassUtil.getAccessibleField(BClass.class,"bfield"),ClassUtil.getAccessibleField(BClass.class,"efield"),ClassUtil.getAccessibleField(AClass.class,"afield"));
 	}
@@ -239,10 +273,15 @@ public class ClassUtilTest_OE25Dev {
 	@Test
 	public void getAllClass_6_oe() {
 
+		// removed other assertion
 
+		// removed other assertion
 
+		// removed other assertion
 
+		// removed other assertion
 
+		// removed other assertion
 
 		assertThat(ClassUtil.getAnnotatedFields(BClass.class,FAnnotation.class)).hasSize(1).contains(ClassUtil.getAccessibleField(AClass.class,"dfield"));
 	}
@@ -250,35 +289,54 @@ public class ClassUtilTest_OE25Dev {
 	@Test
 	public void getAllClass_7_oe() {
 
+		// removed other assertion
 
+		// removed other assertion
 
+		// removed other assertion
 
+		// removed other assertion
 
+		// removed other assertion
 
+		// removed other assertion
 
 		assertThat(ClassUtil.getAnnotatedPublicMethods(BClass.class,FAnnotation.class)).hasSize(3).contains(ClassUtil.getAccessibleMethodByName(BClass.class,"hello"),ClassUtil.getAccessibleMethodByName(BClass.class,"hello3"),ClassUtil.getAccessibleMethodByName(AClass.class,"hello4"));
 	}
 
 	@Test
 	public void getSuperClassGenricType_1_oe() {
+		// 获取第1，2个泛型类型
 		assertThat(ClassUtil.getClassGenricType(TestBean.class)).isEqualTo(String.class);
 	}
 
 	@Test
 	public void getSuperClassGenricType_2_oe() {
+		// 获取第1，2个泛型类型
+		// removed other assertion
 		assertThat(ClassUtil.getClassGenricType(TestBean.class, 1)).isEqualTo(Long.class);
 	}
 
 	@Test
 	public void getSuperClassGenricType_3_oe() {
+		// 获取第1，2个泛型类型
+		// removed other assertion
+		// removed other assertion
 
+		// 定义父类时无泛型定义
 		assertThat(ClassUtil.getClassGenricType(TestBean2.class)).isEqualTo(Object.class);
 	}
 
 	@Test
 	public void getSuperClassGenricType_4_oe() {
+		// 获取第1，2个泛型类型
+		// removed other assertion
+		// removed other assertion
 
+		// 定义父类时无泛型定义
+		// removed other assertion
 
+		// 无父类定义
 		assertThat(ClassUtil.getClassGenricType(TestBean3.class)).isEqualTo(Object.class);
 	}
 

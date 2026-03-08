@@ -126,6 +126,14 @@ public class HttpProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
     }
 
     // Test no longer passing 2016/04/28
+    public void ignoreTestHttp405() throws FileSystemException {
+        try (final FileObject fileObject = VFS.getManager()
+                .resolveFile("http://www.w3schools.com/webservices/tempconvert.asmx?action=WSDL")) {
+            assert fileObject.getContent().getSize() > 0;
+            assert !fileObject.getContent().isEmpty();
+
+        }
+    }
 
     /**
      * Prepares the file system manager.
@@ -168,6 +176,7 @@ public class HttpProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions options = new FileSystemOptions();
         final HttpFileSystemConfigBuilder builder = HttpFileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
         assertEquals(0, builder.getConnectionTimeout(options));
     }
 
@@ -175,6 +184,8 @@ public class HttpProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions options = new FileSystemOptions();
         final HttpFileSystemConfigBuilder builder = HttpFileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
         assertEquals(0, builder.getConnectionTimeoutDuration(options).toMillis());
     }
 
@@ -182,6 +193,9 @@ public class HttpProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions options = new FileSystemOptions();
         final HttpFileSystemConfigBuilder builder = HttpFileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
         assertEquals(0, builder.getSoTimeout(options));
     }
 
@@ -189,6 +203,10 @@ public class HttpProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions options = new FileSystemOptions();
         final HttpFileSystemConfigBuilder builder = HttpFileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Jakarta-Commons-VFS", builder.getUserAgent(options));
     }
 
@@ -196,11 +214,18 @@ public class HttpProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions options = new FileSystemOptions();
         final HttpFileSystemConfigBuilder builder = HttpFileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Set with deprecated milliseconds APIs.
         builder.setConnectionTimeout(options, 60000);
         builder.setSoTimeout(options, 60000);
         builder.setUserAgent(options, "foo/bar");
 
+        // ensure changes are visible
         assertEquals(60000, builder.getConnectionTimeout(options));
     }
 
@@ -208,11 +233,19 @@ public class HttpProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions options = new FileSystemOptions();
         final HttpFileSystemConfigBuilder builder = HttpFileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Set with deprecated milliseconds APIs.
         builder.setConnectionTimeout(options, 60000);
         builder.setSoTimeout(options, 60000);
         builder.setUserAgent(options, "foo/bar");
 
+        // ensure changes are visible
+        // removed other assertion
         assertEquals(ONE_MINUTE, builder.getConnectionTimeoutDuration(options));
     }
 
@@ -220,11 +253,20 @@ public class HttpProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions options = new FileSystemOptions();
         final HttpFileSystemConfigBuilder builder = HttpFileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Set with deprecated milliseconds APIs.
         builder.setConnectionTimeout(options, 60000);
         builder.setSoTimeout(options, 60000);
         builder.setUserAgent(options, "foo/bar");
 
+        // ensure changes are visible
+        // removed other assertion
+        // removed other assertion
         assertEquals(60000, builder.getSoTimeout(options));
     }
 
@@ -232,11 +274,21 @@ public class HttpProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions options = new FileSystemOptions();
         final HttpFileSystemConfigBuilder builder = HttpFileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Set with deprecated milliseconds APIs.
         builder.setConnectionTimeout(options, 60000);
         builder.setSoTimeout(options, 60000);
         builder.setUserAgent(options, "foo/bar");
 
+        // ensure changes are visible
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("foo/bar", builder.getUserAgent(options));
     }
 
@@ -244,15 +296,28 @@ public class HttpProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions options = new FileSystemOptions();
         final HttpFileSystemConfigBuilder builder = HttpFileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Set with deprecated milliseconds APIs.
         builder.setConnectionTimeout(options, 60000);
         builder.setSoTimeout(options, 60000);
         builder.setUserAgent(options, "foo/bar");
 
+        // ensure changes are visible
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Set with Duration APIs.
         builder.setConnectionTimeout(options, ONE_MINUTE);
         builder.setSoTimeout(options, ONE_MINUTE);
 
+        // ensure changes are visible
         assertEquals(60000, builder.getConnectionTimeout(options));
     }
 
@@ -260,15 +325,29 @@ public class HttpProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions options = new FileSystemOptions();
         final HttpFileSystemConfigBuilder builder = HttpFileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Set with deprecated milliseconds APIs.
         builder.setConnectionTimeout(options, 60000);
         builder.setSoTimeout(options, 60000);
         builder.setUserAgent(options, "foo/bar");
 
+        // ensure changes are visible
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Set with Duration APIs.
         builder.setConnectionTimeout(options, ONE_MINUTE);
         builder.setSoTimeout(options, ONE_MINUTE);
 
+        // ensure changes are visible
+        // removed other assertion
         assertEquals(ONE_MINUTE, builder.getConnectionTimeoutDuration(options));
     }
 
@@ -276,15 +355,30 @@ public class HttpProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions options = new FileSystemOptions();
         final HttpFileSystemConfigBuilder builder = HttpFileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Set with deprecated milliseconds APIs.
         builder.setConnectionTimeout(options, 60000);
         builder.setSoTimeout(options, 60000);
         builder.setUserAgent(options, "foo/bar");
 
+        // ensure changes are visible
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Set with Duration APIs.
         builder.setConnectionTimeout(options, ONE_MINUTE);
         builder.setSoTimeout(options, ONE_MINUTE);
 
+        // ensure changes are visible
+        // removed other assertion
+        // removed other assertion
         assertEquals(60000, builder.getSoTimeout(options));
     }
 
@@ -292,15 +386,31 @@ public class HttpProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions options = new FileSystemOptions();
         final HttpFileSystemConfigBuilder builder = HttpFileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Set with deprecated milliseconds APIs.
         builder.setConnectionTimeout(options, 60000);
         builder.setSoTimeout(options, 60000);
         builder.setUserAgent(options, "foo/bar");
 
+        // ensure changes are visible
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Set with Duration APIs.
         builder.setConnectionTimeout(options, ONE_MINUTE);
         builder.setSoTimeout(options, ONE_MINUTE);
 
+        // ensure changes are visible
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(ONE_MINUTE, builder.getSoTimeoutDuration(options));
     }
 
@@ -308,30 +418,33 @@ public class HttpProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions options = new FileSystemOptions();
         final HttpFileSystemConfigBuilder builder = HttpFileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Set with deprecated milliseconds APIs.
         builder.setConnectionTimeout(options, 60000);
         builder.setSoTimeout(options, 60000);
         builder.setUserAgent(options, "foo/bar");
 
+        // ensure changes are visible
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Set with Duration APIs.
         builder.setConnectionTimeout(options, ONE_MINUTE);
         builder.setSoTimeout(options, ONE_MINUTE);
 
+        // ensure changes are visible
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("foo/bar", builder.getUserAgent(options));
     }
-
-public void ignoreTestHttp405_1_oe() throws FileSystemException {
-        try (final FileObject fileObject = VFS.getManager()
-                .resolveFile("http://www.w3schools.com/webservices/tempconvert.asmx?action=WSDL")) {
-            assert fileObject.getContent().getSize() > 0;
-}
-}
-
-public void ignoreTestHttp405_2_oe() throws FileSystemException {
-        try (final FileObject fileObject = VFS.getManager()
-                .resolveFile("http://www.w3schools.com/webservices/tempconvert.asmx?action=WSDL")) {
-            assert !fileObject.getContent().isEmpty();
-}
-}
 
 }

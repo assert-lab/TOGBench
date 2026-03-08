@@ -107,6 +107,7 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
 
         asserter.setVariable("list", l);
 
+        // removed other assertion
         asserter.assertExpression("list[1+1]", new Integer(3));
     }
 
@@ -124,6 +125,8 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
 
         asserter.setVariable("list", l);
 
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("loc", new Integer(1));
         asserter.assertExpression("list[loc+1]", new Integer(3));
     }
@@ -142,7 +145,10 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
 
         asserter.setVariable("list", l);
 
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("loc", new Integer(1));
+        // removed other assertion
 
         /*
          * test array access
@@ -167,7 +173,10 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
 
         asserter.setVariable("list", l);
 
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("loc", new Integer(1));
+        // removed other assertion
 
         /*
          * test array access
@@ -175,6 +184,7 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
 
         final String[] args = { "hello", "there" };
         asserter.setVariable("array", args);
+        // removed other assertion
 
         /*
          * to think that this was an intentional syntax...
@@ -196,7 +206,10 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
 
         asserter.setVariable("list", l);
 
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("loc", new Integer(1));
+        // removed other assertion
 
         /*
          * test array access
@@ -204,10 +217,12 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
 
         final String[] args = { "hello", "there" };
         asserter.setVariable("array", args);
+        // removed other assertion
 
         /*
          * to think that this was an intentional syntax...
          */
+        // removed other assertion
 
         /*
          * test map access
@@ -235,7 +250,10 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
 
         asserter.setVariable("list", l);
 
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("loc", new Integer(1));
+        // removed other assertion
 
         /*
          * test array access
@@ -243,10 +261,12 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
 
         final String[] args = { "hello", "there" };
         asserter.setVariable("array", args);
+        // removed other assertion
 
         /*
          * to think that this was an intentional syntax...
          */
+        // removed other assertion
 
         /*
          * test map access
@@ -257,6 +277,7 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("map", m);
         asserter.setVariable("key", "foo");
 
+        // removed other assertion
         asserter.assertExpression("map[key]", "bar");
     }
 
@@ -274,7 +295,10 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
 
         asserter.setVariable("list", l);
 
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("loc", new Integer(1));
+        // removed other assertion
 
         /*
          * test array access
@@ -282,10 +306,12 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
 
         final String[] args = { "hello", "there" };
         asserter.setVariable("array", args);
+        // removed other assertion
 
         /*
          * to think that this was an intentional syntax...
          */
+        // removed other assertion
 
         /*
          * test map access
@@ -296,6 +322,8 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("map", m);
         asserter.setVariable("key", "foo");
 
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test bean access
@@ -318,7 +346,10 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
 
         asserter.setVariable("list", l);
 
+        // removed other assertion
+        // removed other assertion
         asserter.setVariable("loc", new Integer(1));
+        // removed other assertion
 
         /*
          * test array access
@@ -326,10 +357,12 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
 
         final String[] args = { "hello", "there" };
         asserter.setVariable("array", args);
+        // removed other assertion
 
         /*
          * to think that this was an intentional syntax...
          */
+        // removed other assertion
 
         /*
          * test map access
@@ -340,11 +373,14 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("map", m);
         asserter.setVariable("key", "foo");
 
+        // removed other assertion
+        // removed other assertion
 
         /*
          * test bean access
          */
         asserter.setVariable("foo", new Foo());
+        // removed other assertion
         asserter.assertExpression("foo[\"bar\"] == foo.bar", Boolean.TRUE);
     }
 
@@ -365,6 +401,7 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo[0][0] = "one";
         foo[0][1] = "two";
         asserter.setVariable("foo", foo);
+        // removed other assertion
         asserter.assertExpression("foo[0][1] = 'three'", "three");
     }
 
@@ -375,6 +412,9 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo[0][0] = "one";
         foo[0][1] = "two";
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
@@ -388,9 +428,13 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo[0][0] = "one";
         foo[0][1] = "two";
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
+        // removed other assertion
         asserter.assertExpression("foo.0[1] = 'three'", "three");
     }
 
@@ -401,9 +445,15 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo[0][0] = "one";
         foo[0][1] = "two";
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
@@ -417,12 +467,19 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo[0][0] = "one";
         foo[0][1] = "two";
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
+        // removed other assertion
         asserter.assertExpression("foo.0.'1' = 'three'", "three");
     }
 
@@ -433,12 +490,21 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo[0][0] = "one";
         foo[0][1] = "two";
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
@@ -452,15 +518,25 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo[0][0] = "one";
         foo[0][1] = "two";
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
+        // removed other assertion
         asserter.assertExpression("foo.'0'.'1' = 'three'", "three");
     }
 
@@ -471,15 +547,27 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo[0][0] = "one";
         foo[0][1] = "two";
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
 
         foo[0][0] = "one";
@@ -494,19 +582,32 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo[0][0] = "one";
         foo[0][1] = "two";
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo[0][0] = "one";
         foo[0][1] = "two";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
 
         foo[0][0] = "one";
         foo[0][1] = "two";
+        // removed other assertion
         asserter.assertExpression("foo.0.1 = 'three'", "three");
     }
 
@@ -531,6 +632,7 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo0.put(1, "two");
         foo0.put("3.0", "three");
         asserter.setVariable("foo", foo);
+        // removed other assertion
         asserter.assertExpression("foo[0][1] = 'three'", "three");
     }
 
@@ -543,6 +645,9 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo0.put(1, "two");
         foo0.put("3.0", "three");
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("foo[0]['3.0']", "three");
     }
 
@@ -555,6 +660,10 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo0.put(1, "two");
         foo0.put("3.0", "three");
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
@@ -570,9 +679,14 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo0.put(1, "two");
         foo0.put("3.0", "three");
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
         asserter.assertExpression("foo.0[1] = 'three'", "three");
     }
 
@@ -585,9 +699,16 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo0.put(1, "two");
         foo0.put("3.0", "three");
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("foo.0['3.0']", "three");
     }
 
@@ -600,9 +721,17 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo0.put(1, "two");
         foo0.put("3.0", "three");
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
@@ -618,12 +747,21 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo0.put(1, "two");
         foo0.put("3.0", "three");
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
         asserter.assertExpression("foo.0.'1' = 'three'", "three");
     }
 
@@ -636,12 +774,23 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo0.put(1, "two");
         foo0.put("3.0", "three");
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
@@ -657,15 +806,27 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo0.put(1, "two");
         foo0.put("3.0", "three");
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
         asserter.assertExpression("foo.'0'.'1' = 'three'", "three");
     }
 
@@ -678,15 +839,29 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo0.put(1, "two");
         foo0.put("3.0", "three");
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
@@ -702,18 +877,33 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         foo0.put(1, "two");
         foo0.put("3.0", "three");
         asserter.setVariable("foo", foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         foo0.put(0, "one");
         foo0.put(1, "two");
+        // removed other assertion
         asserter.assertExpression("foo.0.1 = 'three'", "three");
     }
 
@@ -732,6 +922,7 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
 
         asserter.setVariable("foo", foo);
 
+        // removed other assertion
         asserter.assertExpression("foo.array.1", GET_METHOD_ARRAY[1]);
     }
 
@@ -741,6 +932,8 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
 
         asserter.setVariable("foo", foo);
 
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("foo.array2[1][1]", GET_METHOD_ARRAY2[1][1]);
     }
 
@@ -750,6 +943,9 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
 
         asserter.setVariable("foo", foo);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("foo.array2[1].1", GET_METHOD_ARRAY2[1][1]);
     }
 
@@ -770,6 +966,7 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setSilent(true);
         asserter.setVariable("objects", objects);
         asserter.setVariable("status", "Enabled");
+        // removed other assertion
         asserter.assertExpression("objects.1.status", null);
     }
 
@@ -780,6 +977,8 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setSilent(true);
         asserter.setVariable("objects", objects);
         asserter.setVariable("status", "Enabled");
+        // removed other assertion
+        // removed other assertion
 
         asserter.setVariable("base.status", "Ok");
         asserter.assertExpression("base.objects[1].status", null);
@@ -792,8 +991,11 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setSilent(true);
         asserter.setVariable("objects", objects);
         asserter.setVariable("status", "Enabled");
+        // removed other assertion
+        // removed other assertion
 
         asserter.setVariable("base.status", "Ok");
+        // removed other assertion
         asserter.assertExpression("base.objects.1.status", null);
     }
 
@@ -812,6 +1014,7 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         map.put("00200", -42.42d);
         map.put(200, 42.42d);
         asserter.setVariable("objects", map);
+        // removed other assertion
         asserter.assertExpression("objects.'00200'", -42.42d);
     }
 
@@ -821,6 +1024,8 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         map.put("00200", -42.42d);
         map.put(200, 42.42d);
         asserter.setVariable("objects", map);
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("objects.get(200)", 42.42d);
     }
 
@@ -830,6 +1035,9 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         map.put("00200", -42.42d);
         map.put(200, 42.42d);
         asserter.setVariable("objects", map);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("objects.'200'", 42.42d);
     }
 
@@ -839,6 +1047,10 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         map.put("00200", -42.42d);
         map.put(200, 42.42d);
         asserter.setVariable("objects", map);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         asserter.assertExpression("objects.200", 42.42d);
     }
 
@@ -855,6 +1067,7 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         final Object[] objects = new Object[] {"an", "array", new Long(0)};
 
         asserter.setVariable("objects", objects);
+        // removed other assertion
         asserter.assertExpression("objects.size()", new Integer(3));
     }
 
@@ -863,6 +1076,9 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         final Object[] objects = new Object[] {"an", "array", new Long(0)};
 
         asserter.setVariable("objects", objects);
+        // removed other assertion
+        // removed other assertion
+        // setting an index returns the old value
         asserter.assertExpression("objects.set(1, 'dion')", "array");
     }
 
@@ -900,6 +1116,7 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
             asserter.assertExpression("foo[0][0]", foo);
     }
     }
@@ -919,6 +1136,8 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[1]", foo[1]);
     }
     }
@@ -938,6 +1157,9 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[0][1]", foo[1]);
     }
     }
@@ -957,6 +1179,10 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[0][1] = 43", i43);
     }
     }
@@ -976,6 +1202,12 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[0][1] = 42", i42);
     }
     }
@@ -995,6 +1227,13 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[0][1]", i42);
     }
     }
@@ -1014,6 +1253,14 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[0][0][1]", foo[1]);
     }
     }
@@ -1033,6 +1280,15 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[0][0][1] = 43", i43);
     }
     }
@@ -1052,6 +1308,17 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[0][0][1] = 42", i42);
     }
     }
@@ -1071,6 +1338,18 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[0][0][1]", i42);
     }
     }
@@ -1090,6 +1369,19 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[2]", foo[2]);
     }
     }
@@ -1109,6 +1401,20 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[0][2]", foo[2]);
     }
     }
@@ -1128,6 +1434,21 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[0][2] = 'fourty-three'", s43);
     }
     }
@@ -1147,6 +1468,23 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[0][2] = 'fourty-two'", s42);
     }
     }
@@ -1166,6 +1504,24 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[0][2]", s42);
     }
     }
@@ -1185,6 +1541,25 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[0][0][2]", foo[2]);
     }
     }
@@ -1204,6 +1579,26 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[0][0][2] = 'fourty-three'", s43);
     }
     }
@@ -1223,6 +1618,28 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[0][0][2] = 'fourty-two'", s42);
     }
     }
@@ -1242,6 +1659,29 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[0][0][2]", s42);
     }
     }
@@ -1261,6 +1701,30 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             asserter.assertExpression("foo[zero]", foo);
     }
@@ -1281,7 +1745,32 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
             asserter.assertExpression("foo[zero][zero]", foo);
     }
     }
@@ -1301,7 +1790,33 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[one]", foo[1]);
     }
     }
@@ -1321,7 +1836,34 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[zero][one]", foo[1]);
     }
     }
@@ -1341,7 +1883,35 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[zero][one] = 43", i43);
     }
     }
@@ -1361,7 +1931,37 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[zero][one] = 42", i42);
     }
     }
@@ -1381,7 +1981,38 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[zero][one]", i42);
     }
     }
@@ -1401,7 +2032,39 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[zero][zero][one]", foo[1]);
     }
     }
@@ -1421,7 +2084,40 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[zero][zero][one] = 43", i43);
     }
     }
@@ -1441,7 +2137,42 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[zero][zero][one] = 42", i42);
     }
     }
@@ -1461,7 +2192,43 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[zero][zero][one]", i42);
     }
     }
@@ -1481,7 +2248,44 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[two]", foo[2]);
     }
     }
@@ -1501,7 +2305,45 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[zero][two]", foo[2]);
     }
     }
@@ -1521,7 +2363,46 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[zero][two] = 'fourty-three'", s43);
     }
     }
@@ -1541,7 +2422,48 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[zero][two] = 'fourty-two'", s42);
     }
     }
@@ -1561,7 +2483,49 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[zero][two]", s42);
     }
     }
@@ -1581,7 +2545,50 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[zero][zero][two]", foo[2]);
     }
     }
@@ -1601,7 +2608,51 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[zero][zero][two] = 'fourty-three'", s43);
     }
     }
@@ -1621,7 +2672,53 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[zero][zero][two] = 'fourty-two'", s42);
     }
     }
@@ -1641,7 +2738,54 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("one", Integer.valueOf(1));
         asserter.setVariable("two", Integer.valueOf(2));
         for(int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             asserter.assertExpression("foo[zero][zero][two]", s42);
     }
     }
@@ -1659,6 +2803,7 @@ public class ArrayAccessTest_OE25Dev extends JexlTestCase {
         final Sample bar  = new Sample();
         bar.setFoo(new int[]{24});
         asserter.setVariable("bar", bar);
+        // removed other assertion
         asserter.assertExpression("bar.foo = []", new int[0]);
     }
 

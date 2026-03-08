@@ -411,6 +411,7 @@ extends TestCase implements TelnetNotificationHandler
         }
 
 
+        // removed other assertion
         assertTrue(connect2_ok);
     }
 
@@ -479,6 +480,8 @@ extends TestCase implements TelnetNotificationHandler
         }
 
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(connect3_ok);
     }
 
@@ -547,6 +550,9 @@ extends TestCase implements TelnetNotificationHandler
         }
 
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!STANDARD.client.getLocalOptionState(TelnetOption.ECHO));
     }
 
@@ -615,6 +621,10 @@ extends TestCase implements TelnetNotificationHandler
         }
 
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!STANDARD.client.getRemoteOptionState(TelnetOption.ECHO));
     }
 
@@ -683,6 +693,11 @@ extends TestCase implements TelnetNotificationHandler
         }
 
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!OPTIONS.client.getLocalOptionState(TelnetOption.ECHO));
     }
 
@@ -751,6 +766,12 @@ extends TestCase implements TelnetNotificationHandler
         }
 
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!OPTIONS.client.getRemoteOptionState(TelnetOption.ECHO));
     }
 
@@ -819,6 +840,13 @@ extends TestCase implements TelnetNotificationHandler
         }
 
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!ANSI.client.getLocalOptionState(TelnetOption.TERMINAL_TYPE));
     }
 
@@ -887,6 +915,14 @@ extends TestCase implements TelnetNotificationHandler
         }
 
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!ANSI.client.getRemoteOptionState(TelnetOption.TERMINAL_TYPE));
     }
 
@@ -955,6 +991,15 @@ extends TestCase implements TelnetNotificationHandler
         }
 
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(init2_ok);
     }
 
@@ -1023,6 +1068,16 @@ extends TestCase implements TelnetNotificationHandler
         }
 
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(add_invalid_ok1);
     }
 
@@ -1091,6 +1146,17 @@ extends TestCase implements TelnetNotificationHandler
         }
 
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(add_invalid_ok2);
     }
 
@@ -1425,6 +1491,7 @@ extends TestCase implements TelnetNotificationHandler
             }
         }
 
+        // removed other assertion
         assertTrue(negotiation2_ok);
     }
 
@@ -1592,6 +1659,8 @@ extends TestCase implements TelnetNotificationHandler
             }
         }
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(negotiation3_ok);
     }
 
@@ -1759,6 +1828,9 @@ extends TestCase implements TelnetNotificationHandler
             }
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!STANDARD.client.getLocalOptionState(15));
     }
 
@@ -1926,6 +1998,10 @@ extends TestCase implements TelnetNotificationHandler
             }
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!STANDARD.client.getRemoteOptionState(15));
     }
 
@@ -2093,6 +2169,11 @@ extends TestCase implements TelnetNotificationHandler
             }
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!STANDARD.client.getLocalOptionState(TelnetOption.TERMINAL_TYPE));
     }
 
@@ -2260,6 +2341,12 @@ extends TestCase implements TelnetNotificationHandler
             }
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!OPTIONS.client.getLocalOptionState(TelnetOption.ECHO));
     }
 
@@ -2427,6 +2514,13 @@ extends TestCase implements TelnetNotificationHandler
             }
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!OPTIONS.client.getRemoteOptionState(TelnetOption.ECHO));
     }
 
@@ -2594,6 +2688,14 @@ extends TestCase implements TelnetNotificationHandler
             }
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(OPTIONS.client.getLocalOptionState(TelnetOption.SUPPRESS_GO_AHEAD));
     }
 
@@ -2761,6 +2863,15 @@ extends TestCase implements TelnetNotificationHandler
             }
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!OPTIONS.client.getRemoteOptionState(TelnetOption.SUPPRESS_GO_AHEAD));
     }
 
@@ -2928,6 +3039,16 @@ extends TestCase implements TelnetNotificationHandler
             }
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(OPTIONS.client.getLocalOptionState(TelnetOption.TERMINAL_TYPE));
     }
 
@@ -3095,6 +3216,17 @@ extends TestCase implements TelnetNotificationHandler
             }
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(ANSI.client.getLocalOptionState(TelnetOption.TERMINAL_TYPE));
     }
 
@@ -3262,6 +3394,18 @@ extends TestCase implements TelnetNotificationHandler
             }
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!OPTIONS.client.getLocalOptionState(TelnetOption.ECHO));
     }
 
@@ -3400,6 +3544,7 @@ extends TestCase implements TelnetNotificationHandler
             }
         }
 
+        // removed other assertion
         assertTrue(!OPTIONS.client.getLocalOptionState(TelnetOption.ECHO));
     }
 
@@ -3526,6 +3671,7 @@ extends TestCase implements TelnetNotificationHandler
         }
 
 
+        // removed other assertion
         assertEquals(1, numdont);
     }
 
@@ -3589,6 +3735,8 @@ extends TestCase implements TelnetNotificationHandler
         }
 
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, numwont);
     }
 
@@ -3652,6 +3800,9 @@ extends TestCase implements TelnetNotificationHandler
         }
 
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0, numwill);
     }
 
@@ -3784,6 +3935,7 @@ extends TestCase implements TelnetNotificationHandler
             remove_invalid_ok2 = true;
         }
 
+        // removed other assertion
         assertTrue(remove_invalid_ok1);
     }
 
@@ -3850,6 +4002,8 @@ extends TestCase implements TelnetNotificationHandler
             remove_invalid_ok2 = true;
         }
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(remove_invalid_ok2);
     }
 
@@ -3916,6 +4070,9 @@ extends TestCase implements TelnetNotificationHandler
             remove_invalid_ok2 = true;
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(OPTIONS.client.getLocalOptionState(TelnetOption.ECHO));
     }
 
@@ -3982,6 +4139,10 @@ extends TestCase implements TelnetNotificationHandler
             remove_invalid_ok2 = true;
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!OPTIONS.client.getLocalOptionState(TelnetOption.SUPPRESS_GO_AHEAD));
     }
 
@@ -4048,6 +4209,11 @@ extends TestCase implements TelnetNotificationHandler
             remove_invalid_ok2 = true;
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(!OPTIONS.client.getLocalOptionState(TelnetOption.SUPPRESS_GO_AHEAD));
     }
 
@@ -4092,6 +4258,7 @@ extends TestCase implements TelnetNotificationHandler
         final InputStream is = ANSI.server.getInputStream();
         final TelnetTestResponder tr =
             new TelnetTestResponder(is, os, inputs, outputs, 30000);
+        // removed other assertion
         final boolean res1 = ANSI.client.sendAYT(2000);
 
         if (res1 == true) {
@@ -4130,6 +4297,7 @@ extends TestCase implements TelnetNotificationHandler
         final InputStream is = ANSI.server.getInputStream();
         final TelnetTestResponder tr =
             new TelnetTestResponder(is, os, inputs, outputs, 30000);
+        // removed other assertion
         final boolean res1 = ANSI.client.sendAYT(2000);
 
         if (res1 == true) {
@@ -4146,6 +4314,7 @@ extends TestCase implements TelnetNotificationHandler
         }
 
 
+        // removed other assertion
         assertTrue(ayt_false_ok);
     }
 
@@ -4184,6 +4353,8 @@ extends TestCase implements TelnetNotificationHandler
             read_ok = true;
         }
 
+       // if(is1.available() == 6)
+        //{
             int read = 0;
             int pos = 0;
 
@@ -4196,6 +4367,7 @@ extends TestCase implements TelnetNotificationHandler
 
             if (equalBytes(buffread1, expected1)) {
                 negotiation1_ok = true;
+        //}
             }
 
 
@@ -4213,10 +4385,13 @@ extends TestCase implements TelnetNotificationHandler
             System.arraycopy(tmp, 0, buffread1, pos, read);
             pos+=read;
         }
+        //if(is2.available() == 6)
+        //{
             is2.read(buffread1);
 
             if (equalBytes(buffread1, expected1)) {
                 negotiation2_ok = true;
+        //}
             }
 
         assertTrue(!NOREAD.client.getReaderThread());
@@ -4257,6 +4432,8 @@ extends TestCase implements TelnetNotificationHandler
             read_ok = true;
         }
 
+       // if(is1.available() == 6)
+        //{
             int read = 0;
             int pos = 0;
 
@@ -4269,6 +4446,7 @@ extends TestCase implements TelnetNotificationHandler
 
             if (equalBytes(buffread1, expected1)) {
                 negotiation1_ok = true;
+        //}
             }
 
 
@@ -4286,12 +4464,16 @@ extends TestCase implements TelnetNotificationHandler
             System.arraycopy(tmp, 0, buffread1, pos, read);
             pos+=read;
         }
+        //if(is2.available() == 6)
+        //{
             is2.read(buffread1);
 
             if (equalBytes(buffread1, expected1)) {
                 negotiation2_ok = true;
+        //}
             }
 
+        // removed other assertion
         assertTrue(STANDARD.client.getReaderThread());
     }
 
@@ -4330,6 +4512,8 @@ extends TestCase implements TelnetNotificationHandler
             read_ok = true;
         }
 
+       // if(is1.available() == 6)
+        //{
             int read = 0;
             int pos = 0;
 
@@ -4342,6 +4526,7 @@ extends TestCase implements TelnetNotificationHandler
 
             if (equalBytes(buffread1, expected1)) {
                 negotiation1_ok = true;
+        //}
             }
 
 
@@ -4359,12 +4544,17 @@ extends TestCase implements TelnetNotificationHandler
             System.arraycopy(tmp, 0, buffread1, pos, read);
             pos+=read;
         }
+        //if(is2.available() == 6)
+        //{
             is2.read(buffread1);
 
             if (equalBytes(buffread1, expected1)) {
                 negotiation2_ok = true;
+        //}
             }
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("Expected read_ok to be true, got " + read_ok, read_ok);
     }
 
@@ -4403,6 +4593,8 @@ extends TestCase implements TelnetNotificationHandler
             read_ok = true;
         }
 
+       // if(is1.available() == 6)
+        //{
             int read = 0;
             int pos = 0;
 
@@ -4415,6 +4607,7 @@ extends TestCase implements TelnetNotificationHandler
 
             if (equalBytes(buffread1, expected1)) {
                 negotiation1_ok = true;
+        //}
             }
 
 
@@ -4432,12 +4625,18 @@ extends TestCase implements TelnetNotificationHandler
             System.arraycopy(tmp, 0, buffread1, pos, read);
             pos+=read;
         }
+        //if(is2.available() == 6)
+        //{
             is2.read(buffread1);
 
             if (equalBytes(buffread1, expected1)) {
                 negotiation2_ok = true;
+        //}
             }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Expected negotiation1_ok to be true, got " + negotiation1_ok, negotiation1_ok);
     }
 
@@ -4476,6 +4675,8 @@ extends TestCase implements TelnetNotificationHandler
             read_ok = true;
         }
 
+       // if(is1.available() == 6)
+        //{
             int read = 0;
             int pos = 0;
 
@@ -4488,6 +4689,7 @@ extends TestCase implements TelnetNotificationHandler
 
             if (equalBytes(buffread1, expected1)) {
                 negotiation1_ok = true;
+        //}
             }
 
 
@@ -4505,12 +4707,19 @@ extends TestCase implements TelnetNotificationHandler
             System.arraycopy(tmp, 0, buffread1, pos, read);
             pos+=read;
         }
+        //if(is2.available() == 6)
+        //{
             is2.read(buffread1);
 
             if (equalBytes(buffread1, expected1)) {
                 negotiation2_ok = true;
+        //}
             }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Expected negotiation2_ok to be true, got " + negotiation2_ok, negotiation2_ok);
     }
 
@@ -4532,6 +4741,7 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
         assertEquals(8, lastSubnegotiationLength);
     }
 
@@ -4553,6 +4763,8 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
         assertEquals(8, lastSubnegotiation.length);
     }
 
@@ -4574,6 +4786,9 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
         assertEquals(99, lastSubnegotiation[0]);
     }
 
@@ -4595,6 +4810,10 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, lastSubnegotiation[1]);
     }
 
@@ -4616,6 +4835,11 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(2, lastSubnegotiation[2]);
     }
 
@@ -4637,6 +4861,12 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(3, lastSubnegotiation[3]);
     }
 
@@ -4658,6 +4888,13 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(4, lastSubnegotiation[4]);
     }
 
@@ -4679,6 +4916,14 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(5, lastSubnegotiation[5]);
     }
 
@@ -4700,6 +4945,15 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(6, lastSubnegotiation[6]);
     }
 
@@ -4721,6 +4975,16 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(7, lastSubnegotiation[7]);
     }
 
@@ -4742,12 +5006,24 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final OutputStream os2 = STANDARD.server.getOutputStream();
         os2.write(send);
         os2.flush();
         Thread.sleep(500);
 
+        // the standard subnegotiation buffer size is 512
         assertEquals(16, lastSubnegotiationLength);
     }
 
@@ -4769,12 +5045,25 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final OutputStream os2 = STANDARD.server.getOutputStream();
         os2.write(send);
         os2.flush();
         Thread.sleep(500);
 
+        // the standard subnegotiation buffer size is 512
+        // removed other assertion
         assertEquals(512, lastSubnegotiation.length);
     }
 
@@ -4796,12 +5085,26 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final OutputStream os2 = STANDARD.server.getOutputStream();
         os2.write(send);
         os2.flush();
         Thread.sleep(500);
 
+        // the standard subnegotiation buffer size is 512
+        // removed other assertion
+        // removed other assertion
         assertEquals(99, lastSubnegotiation[0]);
     }
 
@@ -4823,12 +5126,27 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final OutputStream os2 = STANDARD.server.getOutputStream();
         os2.write(send);
         os2.flush();
         Thread.sleep(500);
 
+        // the standard subnegotiation buffer size is 512
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, lastSubnegotiation[1]);
     }
 
@@ -4850,12 +5168,28 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final OutputStream os2 = STANDARD.server.getOutputStream();
         os2.write(send);
         os2.flush();
         Thread.sleep(500);
 
+        // the standard subnegotiation buffer size is 512
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(2, lastSubnegotiation[2]);
     }
 
@@ -4877,12 +5211,29 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final OutputStream os2 = STANDARD.server.getOutputStream();
         os2.write(send);
         os2.flush();
         Thread.sleep(500);
 
+        // the standard subnegotiation buffer size is 512
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(3, lastSubnegotiation[3]);
     }
 
@@ -4904,12 +5255,30 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final OutputStream os2 = STANDARD.server.getOutputStream();
         os2.write(send);
         os2.flush();
         Thread.sleep(500);
 
+        // the standard subnegotiation buffer size is 512
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(4, lastSubnegotiation[4]);
     }
 
@@ -4931,12 +5300,31 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final OutputStream os2 = STANDARD.server.getOutputStream();
         os2.write(send);
         os2.flush();
         Thread.sleep(500);
 
+        // the standard subnegotiation buffer size is 512
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(5, lastSubnegotiation[5]);
     }
 
@@ -4958,12 +5346,32 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final OutputStream os2 = STANDARD.server.getOutputStream();
         os2.write(send);
         os2.flush();
         Thread.sleep(500);
 
+        // the standard subnegotiation buffer size is 512
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(6, lastSubnegotiation[6]);
     }
 
@@ -4985,12 +5393,33 @@ extends TestCase implements TelnetNotificationHandler
         os1.flush();
         Thread.sleep(500);
 
+        // we sent 16 bytes, but the buffer size should just be 8
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final OutputStream os2 = STANDARD.server.getOutputStream();
         os2.write(send);
         os2.flush();
         Thread.sleep(500);
 
+        // the standard subnegotiation buffer size is 512
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(7, lastSubnegotiation[7]);
     }
 
@@ -5100,6 +5529,7 @@ extends TestCase implements TelnetNotificationHandler
                 stopspy_ok = true;
             }
 
+            // removed other assertion
             assertTrue(test2spy_ok);
     }
     }
@@ -5155,6 +5585,8 @@ extends TestCase implements TelnetNotificationHandler
                 stopspy_ok = true;
             }
 
+            // removed other assertion
+            // removed other assertion
             assertTrue(stopspy_ok);
     }
     }

@@ -77,6 +77,22 @@ public class UnmodifiableOrderedMapIteratorTest_OE25Dev<K, V> extends AbstractOr
     }
 
     //-----------------------------------------------------------------------
+    public void testOrderedMapIterator() {
+        assertTrue(makeEmptyIterator() instanceof Unmodifiable);
+    }
+
+    public void testDecorateFactory() {
+        OrderedMapIterator<K, V> it = makeObject();
+        assertSame(it, UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator(it));
+
+        it = getMap().mapIterator() ;
+        assertTrue(it != UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator(it));
+
+        try {
+            UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
 
     public void testOrderedMapIterator_1_oe() {
         assertTrue(makeEmptyIterator() instanceof Unmodifiable);
@@ -92,6 +108,13 @@ public class UnmodifiableOrderedMapIteratorTest_OE25Dev<K, V> extends AbstractOr
 
         it = getMap().mapIterator() ;
         assertTrue(it != UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator(it));
+    }
+
+public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator(null);
+            fail();
+        } catch (final NullPointerException ex) {}
     }
 
 }

@@ -76,6 +76,7 @@ public class GroupCacheAccessUnitTest_OE25Dev
         throws Exception
     {
         final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        // removed other assertion
 
         final String key = "mykey";
         final String group = "mygroup";
@@ -98,6 +99,7 @@ public class GroupCacheAccessUnitTest_OE25Dev
         throws Exception
     {
         final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        // removed other assertion
 
         final String key = null;
         final String group = "mygroup";
@@ -106,6 +108,7 @@ public class GroupCacheAccessUnitTest_OE25Dev
         try
         {
             access.putInGroup(key, group, value);
+            // removed other assertion
         }
         catch ( final CacheException e )
         {
@@ -124,6 +127,7 @@ public class GroupCacheAccessUnitTest_OE25Dev
         throws Exception
     {
         final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        // removed other assertion
 
         final String key = "myKey";
         final String group = "mygroup";
@@ -132,6 +136,7 @@ public class GroupCacheAccessUnitTest_OE25Dev
         try
         {
             access.putInGroup(key, group, value);
+            // removed other assertion
         }
         catch ( final CacheException e )
         {
@@ -150,6 +155,7 @@ public class GroupCacheAccessUnitTest_OE25Dev
         throws Exception
     {
         final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        // removed other assertion
 
         final String key = "mykey";
         final String group = "mygroup";
@@ -160,9 +166,11 @@ public class GroupCacheAccessUnitTest_OE25Dev
             access.putInGroup(key + i, group, value + i);
         }
 
+        // Make sure cache contains some data
         for (int i = 0; i < 10; i++)
         {
             final String returnedValue1 = access.getFromGroup(key + i, group);
+            // removed other assertion
         }
 
         access.removeFromGroup(key + 0, group);
@@ -174,6 +182,7 @@ public class GroupCacheAccessUnitTest_OE25Dev
         throws Exception
     {
         final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        // removed other assertion
 
         final String key = "mykey";
         final String group = "mygroup";
@@ -184,13 +193,16 @@ public class GroupCacheAccessUnitTest_OE25Dev
             access.putInGroup(key + i, group, value + i);
         }
 
+        // Make sure cache contains some data
         for (int i = 0; i < 10; i++)
         {
             final String returnedValue1 = access.getFromGroup(key + i, group);
+            // removed other assertion
         }
 
         access.removeFromGroup(key + 0, group);
 
+        // removed other assertion
 
         for (int i = 1; i < 10; i++)
         {
@@ -210,6 +222,7 @@ public class GroupCacheAccessUnitTest_OE25Dev
         throws Exception
     {
         final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        // removed other assertion
 
         final String key = "mykey";
         final String group = "mygroup";
@@ -225,10 +238,13 @@ public class GroupCacheAccessUnitTest_OE25Dev
             access.putInGroup(key + i, group + 1, value + i);
         }
 
+        // Make sure cache contains some data
         for (int i = 0; i < 10; i++)
         {
             final String returnedValue1 = access.getFromGroup(key + i, group + 0);
+            // removed other assertion
             final String returnedValue2 = access.getFromGroup(key + i, group + 1);
+            // removed other assertion
         }
 
         access.invalidateGroup(group + 0);
@@ -258,6 +274,7 @@ public class GroupCacheAccessUnitTest_OE25Dev
         final String groupName2 = "testgroup2";
 
         Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
         assertEquals(0, keys1.size());
     }
 
@@ -269,6 +286,8 @@ public class GroupCacheAccessUnitTest_OE25Dev
         final String groupName2 = "testgroup2";
 
         Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
 
         Set<String> keys2 = access.getGroupKeys( groupName2 );
         assertNotNull(keys2);
@@ -282,8 +301,11 @@ public class GroupCacheAccessUnitTest_OE25Dev
         final String groupName2 = "testgroup2";
 
         Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
 
         Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
         assertEquals(0, keys2.size());
     }
 
@@ -295,16 +317,23 @@ public class GroupCacheAccessUnitTest_OE25Dev
         final String groupName2 = "testgroup2";
 
         Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
 
         Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
 
+        // DO WORK
         final int numToInsertGroup1 = 10;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertGroup1; i++ )
         {
             access.putInGroup(String.valueOf( i ), groupName1, Integer.valueOf( i ) );
         }
 
         final int numToInsertGroup2 = 50;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertGroup2; i++ )
         {
             access.putInGroup(String.valueOf( i ), groupName2, Integer.valueOf( i + 1 ) );
@@ -322,22 +351,31 @@ public class GroupCacheAccessUnitTest_OE25Dev
         final String groupName2 = "testgroup2";
 
         Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
 
         Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
 
+        // DO WORK
         final int numToInsertGroup1 = 10;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertGroup1; i++ )
         {
             access.putInGroup(String.valueOf( i ), groupName1, Integer.valueOf( i ) );
         }
 
         final int numToInsertGroup2 = 50;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertGroup2; i++ )
         {
             access.putInGroup(String.valueOf( i ), groupName2, Integer.valueOf( i + 1 ) );
         }
 
         keys1 = access.getGroupKeys( groupName1 ); // Test for JCS-102
+        // removed other assertion
+        // removed other assertion
 
         keys2 = access.getGroupKeys( groupName2 );
         assertNotNull(keys2);
@@ -351,26 +389,40 @@ public class GroupCacheAccessUnitTest_OE25Dev
         final String groupName2 = "testgroup2";
 
         Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
 
         Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
 
+        // DO WORK
         final int numToInsertGroup1 = 10;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertGroup1; i++ )
         {
             access.putInGroup(String.valueOf( i ), groupName1, Integer.valueOf( i ) );
         }
 
         final int numToInsertGroup2 = 50;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertGroup2; i++ )
         {
             access.putInGroup(String.valueOf( i ), groupName2, Integer.valueOf( i + 1 ) );
         }
 
         keys1 = access.getGroupKeys( groupName1 ); // Test for JCS-102
+        // removed other assertion
+        // removed other assertion
 
         keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue(access.getGroupNames().contains(groupName2));
     }
 

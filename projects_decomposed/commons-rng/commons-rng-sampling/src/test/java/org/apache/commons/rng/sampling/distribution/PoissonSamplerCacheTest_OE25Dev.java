@@ -365,6 +365,7 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = 0;
          double max = PoissonSampler.PIVOT - 2;
          PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        // removed other assertion
         Assertions.assertEquals(0, cache.getMinMean());
     }
 
@@ -373,6 +374,8 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = 0;
          double max = PoissonSampler.PIVOT - 2;
          PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, cache.getMaxMean());
     }
 
@@ -389,6 +392,7 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = PoissonSampler.PIVOT + 2;
          double max = min;
          PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        // removed other assertion
         Assertions.assertEquals(min, cache.getMinMean());
     }
 
@@ -397,6 +401,8 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = PoissonSampler.PIVOT + 2;
          double max = min;
          PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
     }
 
@@ -413,6 +419,7 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = PoissonSampler.PIVOT + 2;
          double max = min + 10;
          PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        // removed other assertion
         Assertions.assertEquals(min, cache.getMinMean());
     }
 
@@ -421,6 +428,8 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = PoissonSampler.PIVOT + 2;
          double max = min + 10;
          PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
     }
 
@@ -448,6 +457,7 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = -1;
          double max = PoissonSampler.PIVOT + 2;
          PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        // removed other assertion
         Assertions.assertEquals(PoissonSampler.PIVOT, cache.getMinMean());
     }
 
@@ -456,6 +466,8 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = -1;
          double max = PoissonSampler.PIVOT + 2;
          PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
     }
 
@@ -472,6 +484,7 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = -10;
          double max = -1;
          PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        // removed other assertion
         Assertions.assertEquals(0, cache.getMinMean());
     }
 
@@ -480,6 +493,8 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = -10;
          double max = -1;
          PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, cache.getMaxMean());
     }
 
@@ -496,6 +511,7 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = 0;
          double max = PoissonSampler.PIVOT - 2;
          PoissonSamplerCache cache = createPoissonSamplerCache().withRange(min, max);
+        // removed other assertion
         Assertions.assertEquals(0, cache.getMinMean());
     }
 
@@ -504,6 +520,8 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = 0;
          double max = PoissonSampler.PIVOT - 2;
          PoissonSamplerCache cache = createPoissonSamplerCache().withRange(min, max);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, cache.getMaxMean());
     }
 
@@ -520,6 +538,7 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = PoissonSampler.PIVOT + 2;
          double max = min;
          PoissonSamplerCache cache = createPoissonSamplerCache().withRange(min, max);
+        // removed other assertion
         Assertions.assertEquals(min, cache.getMinMean());
     }
 
@@ -528,6 +547,8 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = PoissonSampler.PIVOT + 2;
          double max = min;
          PoissonSamplerCache cache = createPoissonSamplerCache().withRange(min, max);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
     }
 
@@ -544,6 +565,7 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = PoissonSampler.PIVOT + 2;
          double max = min + 10;
          PoissonSamplerCache cache = createPoissonSamplerCache().withRange(min, max);
+        // removed other assertion
         Assertions.assertEquals(min, cache.getMinMean());
     }
 
@@ -552,6 +574,8 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = PoissonSampler.PIVOT + 2;
          double max = min + 10;
          PoissonSamplerCache cache = createPoissonSamplerCache().withRange(min, max);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
     }
 
@@ -579,6 +603,7 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = -1;
          double max = PoissonSampler.PIVOT + 2;
          PoissonSamplerCache cache = createPoissonSamplerCache().withRange(min, max);
+        // removed other assertion
         Assertions.assertEquals(PoissonSampler.PIVOT, cache.getMinMean());
     }
 
@@ -587,6 +612,8 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = -1;
          double max = PoissonSampler.PIVOT + 2;
          PoissonSamplerCache cache = createPoissonSamplerCache().withRange(min, max);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
     }
 
@@ -603,6 +630,7 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = PoissonSampler.PIVOT + 2;
          double max = min + 10;
          PoissonSamplerCache cache = createPoissonSamplerCache(0, 0).withRange(min, max);
+        // removed other assertion
         Assertions.assertEquals(min, cache.getMinMean());
     }
 
@@ -611,6 +639,8 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = PoissonSampler.PIVOT + 2;
          double max = min + 10;
          PoissonSamplerCache cache = createPoissonSamplerCache(0, 0).withRange(min, max);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
     }
 
@@ -619,6 +649,7 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = PoissonSampler.PIVOT + 10;
          double max = PoissonSampler.PIVOT + 20;
          PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        // Under the pivot point is always within range
         Assertions.assertTrue(cache.withinRange(PoissonSampler.PIVOT - 1));
     }
 
@@ -627,6 +658,8 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = PoissonSampler.PIVOT + 10;
          double max = PoissonSampler.PIVOT + 20;
          PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        // Under the pivot point is always within range
+        // removed other assertion
         Assertions.assertFalse(cache.withinRange(min - 1));
     }
 
@@ -635,6 +668,9 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = PoissonSampler.PIVOT + 10;
          double max = PoissonSampler.PIVOT + 20;
          PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        // Under the pivot point is always within range
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(cache.withinRange(min));
     }
 
@@ -643,6 +679,10 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = PoissonSampler.PIVOT + 10;
          double max = PoissonSampler.PIVOT + 20;
          PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        // Under the pivot point is always within range
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(cache.withinRange(max));
     }
 
@@ -651,6 +691,11 @@ class PoissonSamplerCacheTest_OE25Dev {
          double min = PoissonSampler.PIVOT + 10;
          double max = PoissonSampler.PIVOT + 20;
          PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        // Under the pivot point is always within range
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(cache.withinRange(max + 10));
     }
 

@@ -19,6 +19,7 @@ public class IOUtilTest_OE25Dev {
 
 	@Test
 	public void read_2_oe() throws IOException {
+		// removed other assertion
 		assertThat(IOUtil.toLines(ResourceUtil.asStream("test.txt"))).hasSize(2).containsExactly("ABCDEFG", "ABC");
 	}
 
@@ -33,6 +34,7 @@ public class IOUtilTest_OE25Dev {
 	public void write_2_oe() throws IOException {
 		StringBuilderWriter sw = new StringBuilderWriter();
 		IOUtil.write("hahahaha", sw);
+		// removed other assertion
 
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		IOUtil.write("hahahaha", out);

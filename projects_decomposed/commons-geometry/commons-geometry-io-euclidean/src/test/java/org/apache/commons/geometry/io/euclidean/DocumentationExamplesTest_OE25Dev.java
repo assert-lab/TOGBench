@@ -47,21 +47,30 @@ class DocumentationExamplesTest_OE25Dev {
 
     @Test
     void testIndexPageExample_1_oe() {
+        // construct a precision instance to handle floating-point comparisons
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
+        // create a BSP tree representing the unit cube
         final RegionBSPTree3D tree = Parallelepiped.unitCube(precision).toTree();
 
+        // create a sphere centered on the origin
         final Sphere sphere = Sphere.from(Vector3D.ZERO, 0.65, precision);
 
+        // subtract a BSP tree approximation of the sphere containing 512 facets
+        // from the cube, modifying the cube tree in place
         tree.difference(sphere.toTree(3));
 
+        // compute some properties of the resulting region
         final double size = tree.getSize(); // 0.11509505362599505
         final Vector3D centroid = tree.getCentroid(); // (0, 0, 0)
 
+        // convert to a triangle mesh
         final TriangleMesh mesh = tree.toTriangleMesh(precision);
 
+        // save as an OBJ file
         IO3D.write(mesh, Paths.get("target/cube-minus-sphere.obj"));
 
+        // -----------
         Assertions.assertEquals(0.11509505362599505, size, TEST_EPS);
     }
 
@@ -77,10 +86,13 @@ class DocumentationExamplesTest_OE25Dev {
         final GeometryOutput scaledOutput = new FileGeometryOutput(outputPath);
         final AffineTransformMatrix3D transform = AffineTransformMatrix3D.createScale(2);
 
+        // Use the input triangle stream in a try-with-resources statement to ensure
+        // all resources are properly released.
         try (Stream<Triangle3D> stream = IO3D.triangles(input, null, precision)) {
             IO3D.write(stream.map(t -> t.transform(transform)), scaledOutput, null);
         }
 
+        // -------------
         final RegionBSPTree3D result = IO3D.read(outputPath, precision).toTree();
 
         Assertions.assertEquals(8.0, result.getSize(), TEST_EPS);

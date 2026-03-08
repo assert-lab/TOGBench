@@ -59,6 +59,7 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     public void handleWithoutExplicitResultSetInvocation_2_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
+        // removed other assertion
 
         for (Map<String, Object> current : result) {
             assertTrue(current.containsKey("one"));
@@ -69,8 +70,10 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     public void handleWithoutExplicitResultSetInvocation_3_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
+        // removed other assertion
 
         for (Map<String, Object> current : result) {
+            // removed other assertion
             assertTrue(current.containsKey("two"));
     }
     }
@@ -79,8 +82,11 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     public void handleWithoutExplicitResultSetInvocation_4_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
+        // removed other assertion
 
         for (Map<String, Object> current : result) {
+            // removed other assertion
+            // removed other assertion
             assertTrue(current.containsKey("three"));
     }
     }
@@ -89,8 +95,12 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     public void handleWithoutExplicitResultSetInvocation_5_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
+        // removed other assertion
 
         for (Map<String, Object> current : result) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertTrue(current.containsKey("notInBean"));
     }
     }
@@ -99,8 +109,13 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     public void handleWithoutExplicitResultSetInvocation_6_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
+        // removed other assertion
 
         for (Map<String, Object> current : result) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertTrue(current.containsKey("intTest"));
     }
     }
@@ -109,8 +124,14 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     public void handleWithoutExplicitResultSetInvocation_7_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
+        // removed other assertion
 
         for (Map<String, Object> current : result) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertTrue(current.containsKey("integerTest"));
     }
     }
@@ -119,8 +140,15 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     public void handleWithoutExplicitResultSetInvocation_8_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
+        // removed other assertion
 
         for (Map<String, Object> current : result) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertTrue(current.containsKey("nullObjectTest"));
     }
     }
@@ -129,8 +157,16 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     public void handleWithoutExplicitResultSetInvocation_9_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
+        // removed other assertion
 
         for (Map<String, Object> current : result) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertTrue(current.containsKey("nullPrimitiveTest"));
     }
     }
@@ -139,8 +175,17 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     public void handleWithoutExplicitResultSetInvocation_10_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
+        // removed other assertion
 
         for (Map<String, Object> current : result) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertTrue(current.containsKey("notDate"));
     }
     }
@@ -149,8 +194,18 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     public void handleWithoutExplicitResultSetInvocation_11_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
+        // removed other assertion
 
         for (Map<String, Object> current : result) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertTrue(current.containsKey("columnProcessorDoubleTest"));
     }
     }

@@ -973,6 +973,7 @@ public class TestGenericKeyedObjectPool extends TestKeyedObjectPool {
         }
     }
 
+
     /**
      * POOL-192
      * Verify that clear(key) does not leak capacity.

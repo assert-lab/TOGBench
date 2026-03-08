@@ -1,0 +1,450 @@
+id,test_prefix,test_name,focal_method,docstring
+springside4_10_101,"@Test
+	public void test_oe_101_oe() throws InterruptedException, ExecutionException {
+		try {
+			MyFuture<String> future2 = new MyFuture<String>();
+			future2.get(10, TimeUnit.MILLISECONDS);
+			fail(""should fail before"");
+		} catch (TimeoutException e) {
+		}
+    }
+",BasicFutureTest::test_oe_101_oe,"@Override
+	public synchronized T get() throws InterruptedException, ExecutionException {
+		while (!this.completed) {
+			wait();
+		}
+		return getResult();
+	}",
+springside4_10_102,"@Test
+	public void test_oe_102_oe() throws InterruptedException, ExecutionException {
+		try {
+			MyFuture<String> future3 = new MyFuture<String>();
+			Tasks.fail(future3);
+			future3.get();
+		} catch (Throwable t) {
+		}
+    }
+",BasicFutureTest::test_oe_102_oe,"@Override
+	public synchronized T get() throws InterruptedException, ExecutionException {
+		while (!this.completed) {
+			wait();
+		}
+		return getResult();
+	}",
+springside4_19_101,"@Test
+	public void resource_oe_101_oe() throws IOException {
+		try {
+			URLResourceUtil.asFile(""classpath://notexist.properties"");
+			fail(""should fail"");
+		} catch (Throwable t) {
+		}
+    }
+",URLResourceTest::resource_oe_101_oe,"public static File asFile(String generalPath) throws IOException {
+		if (StringUtils.startsWith(generalPath, CLASSPATH_PREFIX)) {
+			String resourceName = StringUtils.substringAfter(generalPath, CLASSPATH_PREFIX);
+			return getFileByURL(ResourceUtil.asUrl(resourceName));
+		}
+		try {
+			// try URL
+			return getFileByURL(new URL(generalPath));
+		} catch (MalformedURLException ex) {
+			// no URL -> treat as file path
+			return new File(generalPath);
+		}
+	}","/**
+	 * 兼容无前缀, classpath://, file:// 的情况获取文件
+	 * 
+	 * 如果以classpath:// 定义的文件不存在会抛出IllegalArgumentException异常，以file://定义的则不会
+	 */"
+springside4_19_102,"@Test
+	public void resource_oe_102_oe() throws IOException {
+		try {
+			URLResourceUtil.asStream(""classpath://notexist.properties"");
+			fail(""should fail"");
+		} catch (Throwable t) {
+		}
+    }
+",URLResourceTest::resource_oe_102_oe,"public static InputStream asStream(String generalPath) throws IOException {
+		if (StringUtils.startsWith(generalPath, CLASSPATH_PREFIX)) {
+			String resourceName = StringUtils.substringAfter(generalPath, CLASSPATH_PREFIX);
+			return ResourceUtil.asStream(resourceName);
+		}
+
+		try {
+			// try URL
+			return FileUtil.asInputStream(getFileByURL(new URL(generalPath)));
+		} catch (MalformedURLException ex) {
+			// no URL -> treat as file path
+			return FileUtil.asInputStream(generalPath);
+		}
+	}","/**
+	 * 兼容file://与classpath://的情况的打开文件成Stream
+	 */"
+springside4_52_101,"@Test
+	public void base64UrlSafeEncode_oe_101_oe() {
+		try {
+			fail(""should throw exception before"");
+		} catch (Throwable t) {
+		}
+    }
+",EncodeUtilTest::base64UrlSafeEncode_oe_101_oe,,
+springside4_97_101,"@Test
+	public void test_oe_101_oe() {
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			fail(""fail"");
+		} catch (Throwable t) {
+		}
+    }
+",MoreValidateTest::test_oe_101_oe,"public static int nonNegative(@Nullable String role, int x) {
+		if (x < 0) {
+			throw new IllegalArgumentException(role + "" ("" + x + "") must be >= 0"");
+		}
+		return x;
+	}","/**
+	 * 校验为正数则返回该数字，否则抛出异常.
+	 */"
+springside4_97_102,"@Test
+	public void test_oe_102_oe() {
+		try {
+			MoreValidate.positive(""x"", -1);
+			fail(""fail"");
+		} catch (Throwable t) {
+		}
+    }
+",MoreValidateTest::test_oe_102_oe,"public static int positive(@Nullable String role, int x) {
+		if (x <= 0) {
+			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
+		}
+		return x;
+	}","/**
+	 * 校验为正数则返回该数字，否则抛出异常.
+	 */"
+springside4_97_103,"@Test
+	public void test_oe_103_oe() {
+		try {
+			MoreValidate.positive(""x"", 0);
+			fail(""fail"");
+		} catch (Throwable t) {
+		}
+    }
+",MoreValidateTest::test_oe_103_oe,"public static int positive(@Nullable String role, int x) {
+		if (x <= 0) {
+			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
+		}
+		return x;
+	}","/**
+	 * 校验为正数则返回该数字，否则抛出异常.
+	 */"
+springside4_97_104,"@Test
+	public void test_oe_104_oe() {
+		try {
+			MoreValidate.nonNegative(""x"", -1l);
+			fail(""fail"");
+		} catch (Throwable t) {
+		}
+    }
+",MoreValidateTest::test_oe_104_oe,"public static int nonNegative(@Nullable String role, int x) {
+		if (x < 0) {
+			throw new IllegalArgumentException(role + "" ("" + x + "") must be >= 0"");
+		}
+		return x;
+	}","/**
+	 * 校验为正数则返回该数字，否则抛出异常.
+	 */"
+springside4_97_105,"@Test
+	public void test_oe_105_oe() {
+		try {
+			MoreValidate.positive(""x"", -1l);
+			fail(""fail"");
+		} catch (Throwable t) {
+		}
+    }
+",MoreValidateTest::test_oe_105_oe,"public static int positive(@Nullable String role, int x) {
+		if (x <= 0) {
+			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
+		}
+		return x;
+	}","/**
+	 * 校验为正数则返回该数字，否则抛出异常.
+	 */"
+springside4_97_106,"@Test
+	public void test_oe_106_oe() {
+		try {
+			MoreValidate.positive(""x"", 0l);
+			fail(""fail"");
+		} catch (Throwable t) {
+		}
+    }
+",MoreValidateTest::test_oe_106_oe,"public static int positive(@Nullable String role, int x) {
+		if (x <= 0) {
+			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
+		}
+		return x;
+	}","/**
+	 * 校验为正数则返回该数字，否则抛出异常.
+	 */"
+springside4_97_107,"@Test
+	public void test_oe_107_oe() {
+		try {
+			MoreValidate.nonNegative(""x"", Long.valueOf(-1));
+			fail(""fail"");
+		} catch (Throwable t) {
+		}
+    }
+",MoreValidateTest::test_oe_107_oe,"public static int nonNegative(@Nullable String role, int x) {
+		if (x < 0) {
+			throw new IllegalArgumentException(role + "" ("" + x + "") must be >= 0"");
+		}
+		return x;
+	}","/**
+	 * 校验为正数则返回该数字，否则抛出异常.
+	 */"
+springside4_97_108,"@Test
+	public void test_oe_108_oe() {
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(-1));
+			fail(""fail"");
+		} catch (Throwable t) {
+		}
+    }
+",MoreValidateTest::test_oe_108_oe,"public static int positive(@Nullable String role, int x) {
+		if (x <= 0) {
+			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
+		}
+		return x;
+	}","/**
+	 * 校验为正数则返回该数字，否则抛出异常.
+	 */"
+springside4_97_109,"@Test
+	public void test_oe_109_oe() {
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(0));
+			fail(""fail"");
+		} catch (Throwable t) {
+		}
+    }
+",MoreValidateTest::test_oe_109_oe,"public static int positive(@Nullable String role, int x) {
+		if (x <= 0) {
+			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
+		}
+		return x;
+	}","/**
+	 * 校验为正数则返回该数字，否则抛出异常.
+	 */"
+springside4_97_110,"@Test
+	public void test_oe_110_oe() {
+		try {
+			MoreValidate.nonNegative(""x"", Integer.valueOf(-1));
+			fail(""fail"");
+		} catch (Throwable t) {
+		}
+    }
+",MoreValidateTest::test_oe_110_oe,"public static int nonNegative(@Nullable String role, int x) {
+		if (x < 0) {
+			throw new IllegalArgumentException(role + "" ("" + x + "") must be >= 0"");
+		}
+		return x;
+	}","/**
+	 * 校验为正数则返回该数字，否则抛出异常.
+	 */"
+springside4_97_111,"@Test
+	public void test_oe_111_oe() {
+		try {
+			MoreValidate.positive(""x"", Integer.valueOf(-1));
+			fail(""fail"");
+		} catch (Throwable t) {
+		}
+    }
+",MoreValidateTest::test_oe_111_oe,"public static int positive(@Nullable String role, int x) {
+		if (x <= 0) {
+			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
+		}
+		return x;
+	}","/**
+	 * 校验为正数则返回该数字，否则抛出异常.
+	 */"
+springside4_97_112,"@Test
+	public void test_oe_112_oe() {
+		try {
+			MoreValidate.positive(""x"", Integer.valueOf(0));
+			fail(""fail"");
+		} catch (Throwable t) {
+		}
+    }
+",MoreValidateTest::test_oe_112_oe,"public static int positive(@Nullable String role, int x) {
+		if (x <= 0) {
+			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
+		}
+		return x;
+	}","/**
+	 * 校验为正数则返回该数字，否则抛出异常.
+	 */"
+springside4_97_113,"@Test
+	public void test_oe_113_oe() {
+		try {
+			MoreValidate.nonNegative(""x"", -9999.2d);
+			fail(""fail"");
+		} catch (Throwable t) {
+		}
+    }
+",MoreValidateTest::test_oe_113_oe,"public static int nonNegative(@Nullable String role, int x) {
+		if (x < 0) {
+			throw new IllegalArgumentException(role + "" ("" + x + "") must be >= 0"");
+		}
+		return x;
+	}","/**
+	 * 校验为正数则返回该数字，否则抛出异常.
+	 */"
+springside4_97_114,"@Test
+	public void test_oe_114_oe() {
+		try {
+			MoreValidate.positive(""x"", -1.2d);
+			fail(""fail"");
+		} catch (Throwable t) {
+		}
+    }
+",MoreValidateTest::test_oe_114_oe,"public static int positive(@Nullable String role, int x) {
+		if (x <= 0) {
+			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
+		}
+		return x;
+	}","/**
+	 * 校验为正数则返回该数字，否则抛出异常.
+	 */"
+springside4_97_115,"@Test
+	public void test_oe_115_oe() {
+		try {
+			MoreValidate.positive(""x"", 0d);
+			fail(""fail"");
+		} catch (Throwable t) {
+		}
+    }
+",MoreValidateTest::test_oe_115_oe,"public static int positive(@Nullable String role, int x) {
+		if (x <= 0) {
+			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
+		}
+		return x;
+	}","/**
+	 * 校验为正数则返回该数字，否则抛出异常.
+	 */"
+springside4_128_101,"@Test
+	public void toBytes_oe_101_oe() {
+		try{
+			NumberUtil.toInt32(Long.valueOf(Integer.MAX_VALUE+1l));
+			fail(""should fail here"");
+		}catch(Exception e){
+		}
+    }
+",NumberUtilTest::toBytes_oe_101_oe,"public static int toInt32(long x) {
+		if ((int) x == x){
+			return (int) x;
+		}
+		throw new IllegalArgumentException(""Int "" + x + "" out of range"");
+	}","/**
+	 * 安全的将小于Integer.MAX的long转为int，否则抛出IllegalArgumentException异常
+	 */"
+springside4_132_101,"@Test
+	public void convertDurationMillis_oe_101_oe() {
+		try {
+			fail(""should fail"");
+		} catch (Throwable t) {
+		}
+    }
+",UnitConverterTest::convertDurationMillis_oe_101_oe,,
+springside4_132_102,"@Test
+	public void convertDurationMillis_oe_102_oe() {
+		try {
+			fail(""should fail"");
+		} catch (Throwable t) {
+		}
+    }
+",UnitConverterTest::convertDurationMillis_oe_102_oe,,
+springside4_133_101,"@Test
+	public void convertSizeBytes_oe_101_oe() {
+		try {
+			UnitConverter.convertSizeBytes(""12x"");
+			fail(""should fail"");
+		} catch (Throwable t) {
+		}
+    }
+",UnitConverterTest::convertSizeBytes_oe_101_oe,"public static long convertSizeBytes(String size) {
+		Matcher matcher = NUMBER_AND_UNIT.matcher(size);
+
+		if (matcher.matches()) {
+			long number = Long.parseLong(matcher.group(1));
+
+			if (matcher.group(2) != null) {
+				char unit = matcher.group(2).toLowerCase().charAt(0);
+
+				switch (unit) {
+				case 'b':
+					return number;
+				case 'k':
+					return number * 1024;
+				case 'm':
+					return number * 1024 * 1024;
+				case 'g':
+					return number * 1024 * 1024 * 1024;
+				case 't':
+					return number * 1024 * 1024 * 1024 * 1024;
+				default:
+					throw new IllegalArgumentException(""unknown size unit :"" + unit);
+				}
+			} else {
+				return number;
+			}
+		} else {
+			throw new IllegalArgumentException(""malformed size string: "" + size);
+		}
+	}","/**
+	 * 将带单位的大小字符串转化为字节数.
+	 * 
+	 * 单位包括不分大小写的b(b),k(kb),m(mb),g(gb),t(tb)
+	 * 
+	 * 不带任何单位的话，默认单位是b
+	 */"
+springside4_133_102,"@Test
+	public void convertSizeBytes_oe_102_oe() {
+		try {
+			UnitConverter.convertSizeBytes(""a12"");
+			fail(""should fail"");
+		} catch (Throwable t) {
+		}
+    }
+",UnitConverterTest::convertSizeBytes_oe_102_oe,"public static long convertSizeBytes(String size) {
+		Matcher matcher = NUMBER_AND_UNIT.matcher(size);
+
+		if (matcher.matches()) {
+			long number = Long.parseLong(matcher.group(1));
+
+			if (matcher.group(2) != null) {
+				char unit = matcher.group(2).toLowerCase().charAt(0);
+
+				switch (unit) {
+				case 'b':
+					return number;
+				case 'k':
+					return number * 1024;
+				case 'm':
+					return number * 1024 * 1024;
+				case 'g':
+					return number * 1024 * 1024 * 1024;
+				case 't':
+					return number * 1024 * 1024 * 1024 * 1024;
+				default:
+					throw new IllegalArgumentException(""unknown size unit :"" + unit);
+				}
+			} else {
+				return number;
+			}
+		} else {
+			throw new IllegalArgumentException(""malformed size string: "" + size);
+		}
+	}","/**
+	 * 将带单位的大小字符串转化为字节数.
+	 * 
+	 * 单位包括不分大小写的b(b),k(kb),m(mb),g(gb),t(tb)
+	 * 
+	 * 不带任何单位的话，默认单位是b
+	 */"

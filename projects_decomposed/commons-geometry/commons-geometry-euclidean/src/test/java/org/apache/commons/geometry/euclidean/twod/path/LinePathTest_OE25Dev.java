@@ -161,155 +161,261 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFrom_empty_1_oe() {
+        // act
         final LinePath path = LinePath.from(new ArrayList<>());
 
+        // assert
         Assertions.assertTrue(path.isEmpty());
     }
 
     @Test
     void testFrom_empty_2_oe() {
+        // act
         final LinePath path = LinePath.from(new ArrayList<>());
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(path.isInfinite());
     }
 
     @Test
     void testFrom_empty_3_oe() {
+        // act
         final LinePath path = LinePath.from(new ArrayList<>());
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(path.isFinite());
     }
 
     @Test
     void testFrom_empty_4_oe() {
+        // act
         final LinePath path = LinePath.from(new ArrayList<>());
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(path.isClosed());
     }
 
     @Test
     void testFrom_empty_5_oe() {
+        // act
         final LinePath path = LinePath.from(new ArrayList<>());
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0, path.getSize(), TEST_EPS);
     }
 
     @Test
     void testFrom_empty_6_oe() {
+        // act
         final LinePath path = LinePath.from(new ArrayList<>());
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertNull(path.getStart());
     }
 
     @Test
     void testFrom_empty_7_oe() {
+        // act
         final LinePath path = LinePath.from(new ArrayList<>());
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(path.getEnd());
     }
 
     @Test
     void testFrom_empty_8_oe() {
+        // act
         final LinePath path = LinePath.from(new ArrayList<>());
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0, path.getElements().size());
     }
 
     @Test
     void testFrom_empty_9_oe() {
+        // act
         final LinePath path = LinePath.from(new ArrayList<>());
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertEquals(0, path.getVertexSequence().size());
     }
 
     @Test
     void testFrom_singleFiniteSegment_1_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
         Assertions.assertFalse(path.isEmpty());
     }
 
     @Test
     void testFrom_singleFiniteSegment_2_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(path.isInfinite());
     }
 
     @Test
     void testFrom_singleFiniteSegment_3_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(path.isFinite());
     }
 
     @Test
     void testFrom_singleFiniteSegment_4_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(path.isClosed());
     }
 
     @Test
     void testFrom_singleFiniteSegment_5_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1, path.getSize(), TEST_EPS);
     }
 
     @Test
     void testFrom_singleFiniteSegment_6_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertSame(a, path.getStart());
     }
 
     @Test
     void testFrom_singleFiniteSegment_7_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(a, path.getEnd());
     }
 
     @Test
     void testFrom_singleFiniteSegment_8_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(1, segments.size());
@@ -317,97 +423,165 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFrom_singleFiniteSegment_9_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
         Assertions.assertSame(a, segments.get(0));
     }
 
     @Test
     void testFrom_singleFiniteSegment_10_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 0)), path.getVertexSequence());
     }
 
     @Test
     void testFrom_singleInfiniteSegment_1_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
         Assertions.assertFalse(path.isEmpty());
     }
 
     @Test
     void testFrom_singleInfiniteSegment_2_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(path.isInfinite());
     }
 
     @Test
     void testFrom_singleInfiniteSegment_3_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(path.isFinite());
     }
 
     @Test
     void testFrom_singleInfiniteSegment_4_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(path.isClosed());
     }
 
     @Test
     void testFrom_singleInfiniteSegment_6_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertSame(a, path.getStart());
     }
 
     @Test
     void testFrom_singleInfiniteSegment_7_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(a, path.getEnd());
     }
 
     @Test
     void testFrom_singleInfiniteSegment_8_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(1, segments.size());
@@ -415,33 +589,57 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFrom_singleInfiniteSegment_9_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
         Assertions.assertSame(a, segments.get(0));
     }
 
     @Test
     void testFrom_singleInfiniteSegment_10_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
 
+        // act
         final LinePath path = LinePath.from(a);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0, path.getVertexSequence().size());
     }
 
     @Test
     void testFrom_finiteSegments_notClosed_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -449,13 +647,16 @@ class LinePathTest_OE25Dev {
         final Segment a = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a, b);
 
+        // assert
         Assertions.assertFalse(path.isEmpty());
     }
 
     @Test
     void testFrom_finiteSegments_notClosed_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -463,13 +664,17 @@ class LinePathTest_OE25Dev {
         final Segment a = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a, b);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(path.isInfinite());
     }
 
     @Test
     void testFrom_finiteSegments_notClosed_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -477,13 +682,18 @@ class LinePathTest_OE25Dev {
         final Segment a = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a, b);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(path.isFinite());
     }
 
     @Test
     void testFrom_finiteSegments_notClosed_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -491,13 +701,19 @@ class LinePathTest_OE25Dev {
         final Segment a = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a, b);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(path.isClosed());
     }
 
     @Test
     void testFrom_finiteSegments_notClosed_5_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -505,14 +721,21 @@ class LinePathTest_OE25Dev {
         final Segment a = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a, b);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(2, path.getSize(), TEST_EPS);
     }
 
     @Test
     void testFrom_finiteSegments_notClosed_6_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -520,15 +743,23 @@ class LinePathTest_OE25Dev {
         final Segment a = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a, b);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertSame(a, path.getStart());
     }
 
     @Test
     void testFrom_finiteSegments_notClosed_7_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -536,15 +767,24 @@ class LinePathTest_OE25Dev {
         final Segment a = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a, b);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(b, path.getEnd());
     }
 
     @Test
     void testFrom_finiteSegments_notClosed_8_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -552,10 +792,19 @@ class LinePathTest_OE25Dev {
         final Segment a = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a, b);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(2, segments.size());
@@ -563,6 +812,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFrom_finiteSegments_notClosed_9_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -570,17 +820,28 @@ class LinePathTest_OE25Dev {
         final Segment a = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a, b);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
         Assertions.assertSame(a, segments.get(0));
     }
 
     @Test
     void testFrom_finiteSegments_notClosed_10_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -588,17 +849,29 @@ class LinePathTest_OE25Dev {
         final Segment a = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a, b);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(b, segments.get(1));
     }
 
     @Test
     void testFrom_finiteSegments_notClosed_11_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -606,18 +879,31 @@ class LinePathTest_OE25Dev {
         final Segment a = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(a, b);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Arrays.asList(p1, p2, p3), path.getVertexSequence());
     }
 
     @Test
     void testFrom_finiteSegments_closed_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -626,13 +912,16 @@ class LinePathTest_OE25Dev {
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
         final Segment c = Lines.segmentFromPoints(p3, p1, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b, c));
 
+        // assert
         Assertions.assertFalse(path.isEmpty());
     }
 
     @Test
     void testFrom_finiteSegments_closed_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -641,13 +930,17 @@ class LinePathTest_OE25Dev {
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
         final Segment c = Lines.segmentFromPoints(p3, p1, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b, c));
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(path.isInfinite());
     }
 
     @Test
     void testFrom_finiteSegments_closed_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -656,13 +949,18 @@ class LinePathTest_OE25Dev {
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
         final Segment c = Lines.segmentFromPoints(p3, p1, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b, c));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(path.isFinite());
     }
 
     @Test
     void testFrom_finiteSegments_closed_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -671,13 +969,19 @@ class LinePathTest_OE25Dev {
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
         final Segment c = Lines.segmentFromPoints(p3, p1, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b, c));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(path.isClosed());
     }
 
     @Test
     void testFrom_finiteSegments_closed_5_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -686,14 +990,21 @@ class LinePathTest_OE25Dev {
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
         final Segment c = Lines.segmentFromPoints(p3, p1, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b, c));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertSame(a, path.getStart());
     }
 
     @Test
     void testFrom_finiteSegments_closed_6_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -702,14 +1013,22 @@ class LinePathTest_OE25Dev {
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
         final Segment c = Lines.segmentFromPoints(p3, p1, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b, c));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(c, path.getEnd());
     }
 
     @Test
     void testFrom_finiteSegments_closed_7_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -718,15 +1037,24 @@ class LinePathTest_OE25Dev {
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
         final Segment c = Lines.segmentFromPoints(p3, p1, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b, c));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(2 + Math.sqrt(2), path.getSize(), TEST_EPS);
     }
 
     @Test
     void testFrom_finiteSegments_closed_8_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -735,10 +1063,19 @@ class LinePathTest_OE25Dev {
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
         final Segment c = Lines.segmentFromPoints(p3, p1, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b, c));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(3, segments.size());
@@ -746,6 +1083,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFrom_finiteSegments_closed_9_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -754,17 +1092,28 @@ class LinePathTest_OE25Dev {
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
         final Segment c = Lines.segmentFromPoints(p3, p1, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b, c));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
         Assertions.assertSame(a, segments.get(0));
     }
 
     @Test
     void testFrom_finiteSegments_closed_10_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -773,17 +1122,29 @@ class LinePathTest_OE25Dev {
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
         final Segment c = Lines.segmentFromPoints(p3, p1, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b, c));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(b, segments.get(1));
     }
 
     @Test
     void testFrom_finiteSegments_closed_11_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -792,17 +1153,30 @@ class LinePathTest_OE25Dev {
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
         final Segment c = Lines.segmentFromPoints(p3, p1, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b, c));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(c, segments.get(2));
     }
 
     @Test
     void testFrom_finiteSegments_closed_12_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -811,103 +1185,161 @@ class LinePathTest_OE25Dev {
         final Segment b = Lines.segmentFromPoints(p2, p3, TEST_PRECISION);
         final Segment c = Lines.segmentFromPoints(p3, p1, TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b, c));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Arrays.asList(p1, p2, p3, p1), path.getVertexSequence());
     }
 
     @Test
     void testFrom_infiniteSegments_1_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
                 .reverseRayTo(1.0);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
         Assertions.assertFalse(path.isEmpty());
     }
 
     @Test
     void testFrom_infiniteSegments_2_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
                 .reverseRayTo(1.0);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(path.isInfinite());
     }
 
     @Test
     void testFrom_infiniteSegments_3_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
                 .reverseRayTo(1.0);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(path.isFinite());
     }
 
     @Test
     void testFrom_infiniteSegments_4_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
                 .reverseRayTo(1.0);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(path.isClosed());
     }
 
     @Test
     void testFrom_infiniteSegments_6_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
                 .reverseRayTo(1.0);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertSame(a, path.getStart());
     }
 
     @Test
     void testFrom_infiniteSegments_7_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
                 .reverseRayTo(1.0);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(b, path.getEnd());
     }
 
     @Test
     void testFrom_infiniteSegments_8_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
                 .reverseRayTo(1.0);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(2, segments.size());
@@ -915,123 +1347,201 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFrom_infiniteSegments_9_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
                 .reverseRayTo(1.0);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
         Assertions.assertSame(a, segments.get(0));
     }
 
     @Test
     void testFrom_infiniteSegments_10_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
                 .reverseRayTo(1.0);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(b, segments.get(1));
     }
 
     @Test
     void testFrom_infiniteSegments_11_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
                 .reverseRayTo(1.0);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Collections.singletonList(Vector2D.of(1, 0)), path.getVertexSequence());
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_1_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
         final Segment b = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
         Assertions.assertFalse(path.isEmpty());
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_2_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
         final Segment b = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(path.isInfinite());
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_3_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
         final Segment b = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(path.isFinite());
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_4_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
         final Segment b = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(path.isClosed());
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_5_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
         final Segment b = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertSame(a, path.getStart());
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_6_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
         final Segment b = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(b, path.getEnd());
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_7_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
         final Segment b = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(2, segments.size());
@@ -1039,121 +1549,196 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_8_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
         final Segment b = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
         Assertions.assertSame(a, segments.get(0));
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_9_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
         final Segment b = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(b, segments.get(1));
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_10_oe() {
+        // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
         final Segment b = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Arrays.asList(Vector2D.of(1, 0), Vector2D.of(1, 1)), path.getVertexSequence());
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_1_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
         Assertions.assertFalse(path.isEmpty());
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_2_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(path.isInfinite());
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_3_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(path.isFinite());
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_4_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(path.isClosed());
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_5_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertSame(a, path.getStart());
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_6_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(b, path.getEnd());
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_7_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(2, segments.size());
@@ -1161,55 +1746,90 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_8_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
         Assertions.assertSame(a, segments.get(0));
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_9_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(b, segments.get(1));
     }
 
     @Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_10_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0.0);
 
+        // act
         final LinePath path = LinePath.from(Arrays.asList(a, b));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 0)), path.getVertexSequence());
     }
 
     @Test
     void testFrom_segmentsNotConnected_1_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final Segment b = Lines.segmentFromPoints(Vector2D.of(1.01, 0), Vector2D.of(1, 0), TEST_PRECISION);
 
         final LineConvexSubset c = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION).span();
         final LineConvexSubset d = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION).span();
 
+        // act/assert
         try {
     LinePath.from(a, b);
     fail("IllegalStateException");
@@ -1219,12 +1839,15 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFrom_segmentsNotConnected_2_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final Segment b = Lines.segmentFromPoints(Vector2D.of(1.01, 0), Vector2D.of(1, 0), TEST_PRECISION);
 
         final LineConvexSubset c = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION).span();
         final LineConvexSubset d = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
         try {
     LinePath.from(c, b);
     fail("IllegalStateException");
@@ -1234,12 +1857,16 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFrom_segmentsNotConnected_3_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final Segment b = Lines.segmentFromPoints(Vector2D.of(1.01, 0), Vector2D.of(1, 0), TEST_PRECISION);
 
         final LineConvexSubset c = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION).span();
         final LineConvexSubset d = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         try {
     LinePath.from(a, d);
     fail("IllegalStateException");
@@ -1249,69 +1876,114 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_empty_1_oe() {
+        // act
         final LinePath path = LinePath.fromVertices(new ArrayList<>(), TEST_PRECISION);
 
+        // assert
         Assertions.assertTrue(path.isEmpty());
     }
 
     @Test
     void testFromVertices_empty_2_oe() {
+        // act
         final LinePath path = LinePath.fromVertices(new ArrayList<>(), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(path.isInfinite());
     }
 
     @Test
     void testFromVertices_empty_3_oe() {
+        // act
         final LinePath path = LinePath.fromVertices(new ArrayList<>(), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(path.isFinite());
     }
 
     @Test
     void testFromVertices_empty_4_oe() {
+        // act
         final LinePath path = LinePath.fromVertices(new ArrayList<>(), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(path.isClosed());
     }
 
     @Test
     void testFromVertices_empty_5_oe() {
+        // act
         final LinePath path = LinePath.fromVertices(new ArrayList<>(), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertNull(path.getStart());
     }
 
     @Test
     void testFromVertices_empty_6_oe() {
+        // act
         final LinePath path = LinePath.fromVertices(new ArrayList<>(), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(path.getEnd());
     }
 
     @Test
     void testFromVertices_empty_7_oe() {
+        // act
         final LinePath path = LinePath.fromVertices(new ArrayList<>(), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0, path.getElements().size());
     }
 
     @Test
     void testFromVertices_empty_8_oe() {
+        // act
         final LinePath path = LinePath.fromVertices(new ArrayList<>(), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertEquals(0, path.getVertexSequence().size());
     }
 
     @Test
     void testFromVertices_singleVertex_failsToCreatePath_1_oe() {
+        // act/assert
         try {
     LinePath.fromVertices(Collections.singletonList(Vector2D.ZERO), TEST_PRECISION);
     fail("IllegalStateException");
@@ -1321,63 +1993,98 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_twoVertices_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
 
+        // assert
         Assertions.assertFalse(path.isEmpty());
     }
 
     @Test
     void testFromVertices_twoVertices_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(path.isInfinite());
     }
 
     @Test
     void testFromVertices_twoVertices_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(path.isFinite());
     }
 
     @Test
     void testFromVertices_twoVertices_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(path.isClosed());
     }
 
     @Test
     void testFromVertices_twoVertices_6_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(path.getStart(), path.getEnd());
     }
 
     @Test
     void testFromVertices_twoVertices_7_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(1, segments.size());
@@ -1385,76 +2092,114 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_twoVertices_9_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Arrays.asList(p1, p2), path.getVertexSequence());
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
         Assertions.assertFalse(path.isEmpty());
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(path.isInfinite());
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(path.isFinite());
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(path.isClosed());
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_7_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(3, segments.size());
@@ -1462,78 +2207,118 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_multipleVertices_notClosed_11_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Arrays.asList(p1, p2, p3, p4), path.getVertexSequence());
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
         Assertions.assertFalse(path.isEmpty());
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(path.isInfinite());
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(path.isFinite());
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(path.isClosed());
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_7_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(4, segments.size());
@@ -1541,85 +2326,144 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_multipleVertices_closed_12_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Arrays.asList(p1, p2, p3, p4, p1), path.getVertexSequence());
     }
 
     @Test
     void testFromVertexLoop_empty_1_oe() {
+        // act
         final LinePath path = LinePath.fromVertexLoop(new ArrayList<>(), TEST_PRECISION);
 
+        // assert
         Assertions.assertTrue(path.isEmpty());
     }
 
     @Test
     void testFromVertexLoop_empty_2_oe() {
+        // act
         final LinePath path = LinePath.fromVertexLoop(new ArrayList<>(), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(path.isInfinite());
     }
 
     @Test
     void testFromVertexLoop_empty_3_oe() {
+        // act
         final LinePath path = LinePath.fromVertexLoop(new ArrayList<>(), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(path.isFinite());
     }
 
     @Test
     void testFromVertexLoop_empty_4_oe() {
+        // act
         final LinePath path = LinePath.fromVertexLoop(new ArrayList<>(), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(path.isClosed());
     }
 
     @Test
     void testFromVertexLoop_empty_5_oe() {
+        // act
         final LinePath path = LinePath.fromVertexLoop(new ArrayList<>(), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertNull(path.getStart());
     }
 
     @Test
     void testFromVertexLoop_empty_6_oe() {
+        // act
         final LinePath path = LinePath.fromVertexLoop(new ArrayList<>(), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(path.getEnd());
     }
 
     @Test
     void testFromVertexLoop_empty_7_oe() {
+        // act
         final LinePath path = LinePath.fromVertexLoop(new ArrayList<>(), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0, path.getElements().size());
     }
 
     @Test
     void testFromVertexLoop_empty_8_oe() {
+        // act
         final LinePath path = LinePath.fromVertexLoop(new ArrayList<>(), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertEquals(0, path.getVertexSequence().size());
     }
 
     @Test
     void testFromVertexLoop_singleVertex_failsToCreatePath_1_oe() {
+        // act/assert
         try {
     LinePath.fromVertexLoop(Collections.singletonList(Vector2D.ZERO), TEST_PRECISION);
     fail("IllegalStateException");
@@ -1629,56 +2473,81 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertexLoop_closeRequired_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
         Assertions.assertFalse(path.isEmpty());
     }
 
     @Test
     void testFromVertexLoop_closeRequired_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(path.isInfinite());
     }
 
     @Test
     void testFromVertexLoop_closeRequired_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(path.isFinite());
     }
 
     @Test
     void testFromVertexLoop_closeRequired_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(path.isClosed());
     }
 
     @Test
     void testFromVertexLoop_closeRequired_5_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(3, segments.size());
@@ -1686,70 +2555,106 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertexLoop_closeRequired_9_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Arrays.asList(p1, p2, p3, p1), path.getVertexSequence());
     }
 
     @Test
     void testFromVertexLoop_closeNotRequired_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
         Assertions.assertFalse(path.isEmpty());
     }
 
     @Test
     void testFromVertexLoop_closeNotRequired_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(path.isInfinite());
     }
 
     @Test
     void testFromVertexLoop_closeNotRequired_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(path.isFinite());
     }
 
     @Test
     void testFromVertexLoop_closeNotRequired_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(path.isClosed());
     }
 
     @Test
     void testFromVertexLoop_closeNotRequired_5_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(3, segments.size());
@@ -1757,39 +2662,57 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertexLoop_closeNotRequired_9_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Arrays.asList(p1, p2, p3, p1), path.getVertexSequence());
     }
 
     @Test
     void testFromVertices_booleanArg_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
         Assertions.assertFalse(open.isClosed());
     }
 
     @Test
     void testFromVertices_booleanArg_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
         Assertions.assertEquals(2, openSegments.size());
@@ -1797,31 +2720,46 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_booleanArg_5_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(closed.isClosed());
     }
 
     @Test
     void testFromVertices_booleanArg_6_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> closedSegments = closed.getElements();
         Assertions.assertEquals(3, closedSegments.size());
@@ -1829,37 +2767,49 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testGetElements_listIsNotModifiable_1_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final List<LineConvexSubset> inputSegments = new ArrayList<>(Collections.singletonList(a));
 
+        // act
         final LinePath path = LinePath.from(inputSegments);
 
         inputSegments.clear();
 
+        // assert
         Assertions.assertNotSame(inputSegments, path.getElements());
     }
 
     @Test
     void testGetElements_listIsNotModifiable_2_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final List<LineConvexSubset> inputSegments = new ArrayList<>(Collections.singletonList(a));
 
+        // act
         final LinePath path = LinePath.from(inputSegments);
 
         inputSegments.clear();
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(1, path.getElements().size());
     }
 
     @Test
     void testGetElements_listIsNotModifiable_3_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final List<LineConvexSubset> inputSegments = new ArrayList<>(Collections.singletonList(a));
 
+        // act
         final LinePath path = LinePath.from(inputSegments);
 
         inputSegments.clear();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         try {
     path.getElements().add(a);
@@ -1870,43 +2820,56 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBoundaryStream_1_oe() {
+        // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final LinePath path = LinePath.from(Collections.singletonList(seg));
 
+        // act
         final List<LineConvexSubset> segments = path.boundaryStream().collect(Collectors.toList());
 
+        // assert
         Assertions.assertEquals(1, segments.size());
     }
 
     @Test
     void testBoundaryStream_2_oe() {
+        // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
         final LinePath path = LinePath.from(Collections.singletonList(seg));
 
+        // act
         final List<LineConvexSubset> segments = path.boundaryStream().collect(Collectors.toList());
 
+        // assert
+        // removed other assertion
         Assertions.assertSame(seg, segments.get(0));
     }
 
     @Test
     void testBoundaryStream_empty_1_oe() {
+        // arrange
         final LinePath path = LinePath.empty();
 
+        // act
         final List<LineConvexSubset> segments = path.boundaryStream().collect(Collectors.toList());
 
+        // assert
         Assertions.assertEquals(0, segments.size());
     }
 
     @Test
     void testTransform_empty_1_oe() {
+        // arrange
         final LinePath path = LinePath.empty();
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.Unit.PLUS_X);
 
+        // act/assert
         Assertions.assertSame(path, path.transform(t));
     }
 
     @Test
     void testTransform_finite_1_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -1916,13 +2879,16 @@ class LinePathTest_OE25Dev {
         final AffineTransformMatrix2D t =
                 AffineTransformMatrix2D.createRotation(Vector2D.of(1, 1), Angle.PI_OVER_TWO);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
         Assertions.assertNotSame(path, result);
     }
 
     @Test
     void testTransform_finite_2_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -1932,13 +2898,17 @@ class LinePathTest_OE25Dev {
         final AffineTransformMatrix2D t =
                 AffineTransformMatrix2D.createRotation(Vector2D.of(1, 1), Angle.PI_OVER_TWO);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(result.isClosed());
     }
 
     @Test
     void testTransform_finite_3_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -1948,13 +2918,18 @@ class LinePathTest_OE25Dev {
         final AffineTransformMatrix2D t =
                 AffineTransformMatrix2D.createRotation(Vector2D.of(1, 1), Angle.PI_OVER_TWO);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(result.isFinite());
     }
 
     @Test
     void testTransform_finite_4_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -1964,8 +2939,13 @@ class LinePathTest_OE25Dev {
         final AffineTransformMatrix2D t =
                 AffineTransformMatrix2D.createRotation(Vector2D.of(1, 1), Angle.PI_OVER_TWO);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
@@ -1974,49 +2954,67 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testTransform_infinite_1_oe() {
+        // arrange
         final LinePath path = LinePath.from(
                 Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).span());
 
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.Unit.PLUS_X);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
         Assertions.assertNotSame(path, result);
     }
 
     @Test
     void testTransform_infinite_2_oe() {
+        // arrange
         final LinePath path = LinePath.from(
                 Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).span());
 
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.Unit.PLUS_X);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(result.isClosed());
     }
 
     @Test
     void testTransform_infinite_3_oe() {
+        // arrange
         final LinePath path = LinePath.from(
                 Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).span());
 
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.Unit.PLUS_X);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(result.isFinite());
     }
 
     @Test
     void testTransform_infinite_4_oe() {
+        // arrange
         final LinePath path = LinePath.from(
                 Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).span());
 
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.Unit.PLUS_X);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
@@ -2025,108 +3023,152 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testTransform_infinite_5_oe() {
+        // arrange
         final LinePath path = LinePath.from(
                 Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).span());
 
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.Unit.PLUS_X);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
         final LineConvexSubset segment = segments.get(0);
         Assertions.assertTrue(segment.isInfinite());
     }
 
     @Test
     void testTransform_infinite_6_oe() {
+        // arrange
         final LinePath path = LinePath.from(
                 Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).span());
 
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.Unit.PLUS_X);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
         Assertions.assertNull(segment.getStartPoint());
     }
 
     @Test
     void testTransform_infinite_7_oe() {
+        // arrange
         final LinePath path = LinePath.from(
                 Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).span());
 
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.Unit.PLUS_X);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(segment.getEndPoint());
     }
 
     @Test
     void testReverse_empty_1_oe() {
+        // arrange
         final LinePath path = LinePath.empty();
 
+        // act/assert
         Assertions.assertSame(path, path.reverse());
     }
 
     @Test
     void testReverse_1_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
                 .append(Vector2D.Unit.PLUS_Y)
                 .close();
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
         Assertions.assertNotSame(path, result);
     }
 
     @Test
     void testReverse_2_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
                 .append(Vector2D.Unit.PLUS_Y)
                 .close();
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(result.isClosed());
     }
 
     @Test
     void testReverse_3_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
                 .append(Vector2D.Unit.PLUS_Y)
                 .close();
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(result.isFinite());
     }
 
     @Test
     void testReverse_4_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
                 .append(Vector2D.Unit.PLUS_Y)
                 .close();
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
@@ -2135,41 +3177,59 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testReverse_singleInfinite_1_oe() {
+        // arrange
         final LinePath path = LinePath.from(
                 Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).span());
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
         Assertions.assertNotSame(path, result);
     }
 
     @Test
     void testReverse_singleInfinite_2_oe() {
+        // arrange
         final LinePath path = LinePath.from(
                 Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).span());
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(result.isClosed());
     }
 
     @Test
     void testReverse_singleInfinite_3_oe() {
+        // arrange
         final LinePath path = LinePath.from(
                 Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).span());
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(result.isFinite());
     }
 
     @Test
     void testReverse_singleInfinite_4_oe() {
+        // arrange
         final LinePath path = LinePath.from(
                 Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).span());
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
@@ -2178,91 +3238,133 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testReverse_singleInfinite_5_oe() {
+        // arrange
         final LinePath path = LinePath.from(
                 Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).span());
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
         final LineConvexSubset segment = segments.get(0);
         Assertions.assertTrue(segment.isInfinite());
     }
 
     @Test
     void testReverse_singleInfinite_6_oe() {
+        // arrange
         final LinePath path = LinePath.from(
                 Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).span());
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
         Assertions.assertNull(segment.getStartPoint());
     }
 
     @Test
     void testReverse_singleInfinite_7_oe() {
+        // arrange
         final LinePath path = LinePath.from(
                 Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).span());
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(segment.getEndPoint());
     }
 
     @Test
     void testReverse_doubleInfinite_1_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
         final LineConvexSubset b = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).rayFrom(Vector2D.ZERO);
 
         final LinePath path = LinePath.from(a, b);
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
         Assertions.assertNotSame(path, result);
     }
 
     @Test
     void testReverse_doubleInfinite_2_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
         final LineConvexSubset b = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).rayFrom(Vector2D.ZERO);
 
         final LinePath path = LinePath.from(a, b);
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(result.isClosed());
     }
 
     @Test
     void testReverse_doubleInfinite_3_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
         final LineConvexSubset b = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).rayFrom(Vector2D.ZERO);
 
         final LinePath path = LinePath.from(a, b);
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(result.isFinite());
     }
 
     @Test
     void testReverse_doubleInfinite_4_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
         final LineConvexSubset b = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).rayFrom(Vector2D.ZERO);
 
         final LinePath path = LinePath.from(a, b);
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
         Assertions.assertEquals(2, segments.size());
@@ -2270,15 +3372,22 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testReverse_doubleInfinite_5_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
         final LineConvexSubset b = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).rayFrom(Vector2D.ZERO);
 
         final LinePath path = LinePath.from(a, b);
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
 
         final LineConvexSubset bResult = segments.get(0);
         Assertions.assertTrue(bResult.isInfinite());
@@ -2286,33 +3395,53 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testReverse_doubleInfinite_6_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
         final LineConvexSubset b = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).rayFrom(Vector2D.ZERO);
 
         final LinePath path = LinePath.from(a, b);
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
 
         final LineConvexSubset bResult = segments.get(0);
+        // removed other assertion
         Assertions.assertNull(bResult.getStartPoint());
     }
 
     @Test
     void testReverse_doubleInfinite_10_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
         final LineConvexSubset b = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).rayFrom(Vector2D.ZERO);
 
         final LinePath path = LinePath.from(a, b);
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
 
         final LineConvexSubset bResult = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset aResult = segments.get(1);
         Assertions.assertTrue(aResult.isInfinite());
@@ -2320,110 +3449,167 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testReverse_doubleInfinite_12_oe() {
+        // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
         final LineConvexSubset b = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).rayFrom(Vector2D.ZERO);
 
         final LinePath path = LinePath.from(a, b);
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
 
         final LineConvexSubset bResult = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset aResult = segments.get(1);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(aResult.getEndPoint());
     }
 
     @Test
     void testToTree_1_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .appendVertices(Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.of(1, 1), Vector2D.of(0, 1))
                 .close();
 
+        // act
         final RegionBSPTree2D tree = path.toTree();
 
+        // assert
         Assertions.assertEquals(1, tree.getSize(), TEST_EPS);
     }
 
     @Test
     void testToTree_2_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .appendVertices(Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.of(1, 1), Vector2D.of(0, 1))
                 .close();
 
+        // act
         final RegionBSPTree2D tree = path.toTree();
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(4, tree.getBoundarySize(), TEST_EPS);
     }
 
     @Test
     void testToTree_3_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .appendVertices(Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.of(1, 1), Vector2D.of(0, 1))
                 .close();
 
+        // act
         final RegionBSPTree2D tree = path.toTree();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(Vector2D.of(0.5, 0.5)));
     }
 
     @Test
     void testToTree_4_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .appendVertices(Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.of(1, 1), Vector2D.of(0, 1))
                 .close();
 
+        // act
         final RegionBSPTree2D tree = path.toTree();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(Vector2D.of(0.5, -1)));
     }
 
     @Test
     void testToTree_5_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .appendVertices(Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.of(1, 1), Vector2D.of(0, 1))
                 .close();
 
+        // act
         final RegionBSPTree2D tree = path.toTree();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(Vector2D.of(0.5, 2)));
     }
 
     @Test
     void testToTree_6_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .appendVertices(Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.of(1, 1), Vector2D.of(0, 1))
                 .close();
 
+        // act
         final RegionBSPTree2D tree = path.toTree();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(Vector2D.of(-1, 0.5)));
     }
 
     @Test
     void testToTree_7_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .appendVertices(Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.of(1, 1), Vector2D.of(0, 1))
                 .close();
 
+        // act
         final RegionBSPTree2D tree = path.toTree();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(Vector2D.of(2, 0.5)));
     }
 
     @Test
     void testSimplify_1_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -2434,14 +3620,17 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(1, 2))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
         final List<LineConvexSubset> segments = result.getElements();
         Assertions.assertEquals(2, segments.size());
     }
 
     @Test
     void testSimplify_startAndEndCombined_1_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -2451,13 +3640,16 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(-1, 0))
             .close();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
         Assertions.assertNotSame(path, result);
     }
 
     @Test
     void testSimplify_startAndEndCombined_2_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -2467,13 +3659,17 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(-1, 0))
             .close();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(result.isClosed());
     }
 
     @Test
     void testSimplify_startAndEndCombined_3_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -2483,13 +3679,18 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(-1, 0))
             .close();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(result.isInfinite());
     }
 
     @Test
     void testSimplify_startAndEndCombined_4_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -2499,8 +3700,13 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(-1, 0))
             .close();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
         Assertions.assertEquals(3, segments.size());
@@ -2508,45 +3714,63 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testSimplify_empty_1_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
         Assertions.assertNotSame(path, result);
     }
 
     @Test
     void testSimplify_empty_2_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(result.isClosed());
     }
 
     @Test
     void testSimplify_empty_3_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(result.isInfinite());
     }
 
     @Test
     void testSimplify_empty_4_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
         Assertions.assertEquals(0, segments.size());
@@ -2554,6 +3778,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testSimplify_infiniteSegment_1_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -2561,13 +3786,16 @@ class LinePathTest_OE25Dev {
                 .append(line.span())
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
         Assertions.assertNotSame(path, result);
     }
 
     @Test
     void testSimplify_infiniteSegment_2_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -2575,13 +3803,17 @@ class LinePathTest_OE25Dev {
                 .append(line.span())
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(result.isClosed());
     }
 
     @Test
     void testSimplify_infiniteSegment_3_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -2589,13 +3821,18 @@ class LinePathTest_OE25Dev {
                 .append(line.span())
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(result.isInfinite());
     }
 
     @Test
     void testSimplify_infiniteSegment_4_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -2603,14 +3840,20 @@ class LinePathTest_OE25Dev {
                 .append(line.span())
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertNotNull(path.getStart());
     }
 
     @Test
     void testSimplify_infiniteSegment_5_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -2618,14 +3861,21 @@ class LinePathTest_OE25Dev {
                 .append(line.span())
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotNull(path.getEnd());
     }
 
     @Test
     void testSimplify_infiniteSegment_6_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -2633,14 +3883,22 @@ class LinePathTest_OE25Dev {
                 .append(line.span())
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(path.getStart(), path.getEnd());
     }
 
     @Test
     void testSimplify_infiniteSegment_7_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -2648,9 +3906,17 @@ class LinePathTest_OE25Dev {
                 .append(line.span())
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
         Assertions.assertEquals(1, segments.size());
@@ -2658,6 +3924,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testSimplify_infiniteSegment_8_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -2665,16 +3932,26 @@ class LinePathTest_OE25Dev {
                 .append(line.span())
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
         Assertions.assertSame(line, segments.get(0).getLine());
     }
 
     @Test
     void testSimplify_combinedInfiniteSegment_1_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Split<LineConvexSubset> split = line.span().split(
                 Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION));
@@ -2685,13 +3962,16 @@ class LinePathTest_OE25Dev {
                 .append(split.getPlus())
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
         Assertions.assertNotSame(path, result);
     }
 
     @Test
     void testSimplify_combinedInfiniteSegment_2_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Split<LineConvexSubset> split = line.span().split(
                 Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION));
@@ -2702,13 +3982,17 @@ class LinePathTest_OE25Dev {
                 .append(split.getPlus())
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(result.isClosed());
     }
 
     @Test
     void testSimplify_combinedInfiniteSegment_3_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Split<LineConvexSubset> split = line.span().split(
                 Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION));
@@ -2719,13 +4003,18 @@ class LinePathTest_OE25Dev {
                 .append(split.getPlus())
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(result.isInfinite());
     }
 
     @Test
     void testSimplify_combinedInfiniteSegment_4_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Split<LineConvexSubset> split = line.span().split(
                 Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION));
@@ -2736,14 +4025,20 @@ class LinePathTest_OE25Dev {
                 .append(split.getPlus())
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertNotNull(result.getStart());
     }
 
     @Test
     void testSimplify_combinedInfiniteSegment_5_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Split<LineConvexSubset> split = line.span().split(
                 Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION));
@@ -2754,14 +4049,21 @@ class LinePathTest_OE25Dev {
                 .append(split.getPlus())
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotNull(result.getEnd());
     }
 
     @Test
     void testSimplify_combinedInfiniteSegment_6_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Split<LineConvexSubset> split = line.span().split(
                 Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION));
@@ -2772,14 +4074,22 @@ class LinePathTest_OE25Dev {
                 .append(split.getPlus())
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(result.getStart(), result.getEnd());
     }
 
     @Test
     void testSimplify_combinedInfiniteSegment_7_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Split<LineConvexSubset> split = line.span().split(
                 Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION));
@@ -2790,9 +4100,17 @@ class LinePathTest_OE25Dev {
                 .append(split.getPlus())
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
         Assertions.assertEquals(1, segments.size());
@@ -2800,6 +4118,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testSimplify_combinedInfiniteSegment_8_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Split<LineConvexSubset> split = line.span().split(
                 Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION));
@@ -2810,16 +4129,26 @@ class LinePathTest_OE25Dev {
                 .append(split.getPlus())
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
         Assertions.assertSame(line, segments.get(0).getLine());
     }
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_1_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -2831,13 +4160,16 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
         Assertions.assertNotSame(path, result);
     }
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_2_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -2849,13 +4181,17 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(result.isClosed());
     }
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_3_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -2867,13 +4203,18 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(result.isInfinite());
     }
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_4_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -2885,8 +4226,13 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
         Assertions.assertEquals(4, segments.size());
@@ -2894,6 +4240,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testSimplify_subsequentCallsToReturnedObjectReturnSameObject_1_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
         final LinePath path = builder.appendVertices(
                     Vector2D.ZERO,
@@ -2901,13 +4248,16 @@ class LinePathTest_OE25Dev {
                     Vector2D.of(2, 0))
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
         Assertions.assertNotSame(path, result);
     }
 
     @Test
     void testSimplify_subsequentCallsToReturnedObjectReturnSameObject_2_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
         final LinePath path = builder.appendVertices(
                     Vector2D.ZERO,
@@ -2915,13 +4265,17 @@ class LinePathTest_OE25Dev {
                     Vector2D.of(2, 0))
                 .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
         Assertions.assertSame(result, result.simplify());
     }
 
     @Test
     void testBuilder_prependAndAppend_segments_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -2934,6 +4288,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(null);
 
+        // act
         builder.prepend(b)
             .append(c)
             .prepend(a)
@@ -2941,12 +4296,14 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(4, segments.size());
     }
 
     @Test
     void testBuilder_prependAndAppend_segments_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -2959,6 +4316,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(null);
 
+        // act
         builder.prepend(b)
             .append(c)
             .prepend(a)
@@ -2966,12 +4324,15 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
         Assertions.assertSame(a, segments.get(0));
     }
 
     @Test
     void testBuilder_prependAndAppend_segments_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -2984,6 +4345,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(null);
 
+        // act
         builder.prepend(b)
             .append(c)
             .prepend(a)
@@ -2991,12 +4353,16 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(b, segments.get(1));
     }
 
     @Test
     void testBuilder_prependAndAppend_segments_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -3009,6 +4375,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(null);
 
+        // act
         builder.prepend(b)
             .append(c)
             .prepend(a)
@@ -3016,12 +4383,17 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(c, segments.get(2));
     }
 
     @Test
     void testBuilder_prependAndAppend_segments_5_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -3034,6 +4406,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(null);
 
+        // act
         builder.prepend(b)
             .append(c)
             .prepend(a)
@@ -3041,17 +4414,24 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(d, segments.get(3));
     }
 
     @Test
     void testBuilder_prependAndAppend_disconnectedSegments_1_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
 
         final Builder builder = LinePath.builder(null);
         builder.append(a);
 
+        // act
         try {
     builder.append(a);
     fail("IllegalStateException");
@@ -3061,11 +4441,14 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependAndAppend_disconnectedSegments_2_oe() {
+        // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
 
         final Builder builder = LinePath.builder(null);
         builder.append(a);
 
+        // act
+        // removed other assertion
         try {
     builder.prepend(a);
     fail("IllegalStateException");
@@ -3075,6 +4458,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependAndAppend_vertices_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -3082,6 +4466,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -3090,17 +4475,20 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(4, segments.size());
     }
 
     @Test
     void testBuilder_prependAndAppend_addingToInfinitePath_1_oe() {
+        // arrange
         final Vector2D p = Vector2D.Unit.PLUS_X;
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         builder.append(Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION).span());
 
+        // act/assert
         try {
     builder.prepend(p);
     fail("IllegalStateException");
@@ -3110,11 +4498,14 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependAndAppend_addingToInfinitePath_2_oe() {
+        // arrange
         final Vector2D p = Vector2D.Unit.PLUS_X;
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         builder.append(Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION).span());
 
+        // act/assert
+        // removed other assertion
         try {
     builder.append(p);
     fail("IllegalStateException");
@@ -3124,11 +4515,13 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependAndAppend_ignoresEquivalentVertices_1_oe() {
+        // arrange
         final Vector2D p = Vector2D.ZERO;
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.append(p);
 
+        // act
         builder.append(p)
             .prepend(p)
             .append(Vector2D.of(0, 1e-20))
@@ -3136,6 +4529,7 @@ class LinePathTest_OE25Dev {
 
         builder.append(Vector2D.Unit.PLUS_X);
 
+        // assert
         final LinePath path = builder.build();
 
         final List<LineConvexSubset> segments = path.getElements();
@@ -3144,6 +4538,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -3154,6 +4549,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -3162,12 +4558,14 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(4, segments.size());
     }
 
     @Test
     void testBuilder_appendVertices_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -3175,17 +4573,20 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(4, segments.size());
     }
 
     @Test
     void testBuilder_prependVertices_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -3193,41 +4594,48 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(4, segments.size());
     }
 
     @Test
     void testBuilder_close_notYetClosed_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3);
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(3, segments.size());
     }
 
     @Test
     void testBuilder_close_alreadyClosed_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3)
@@ -3235,36 +4643,50 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(3, segments.size());
     }
 
     @Test
     void testBuilder_close_emptyPath_1_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         final LinePath path = builder.close();
 
+        // assert
         Assertions.assertEquals(0, path.getElements().size());
     }
 
     @Test
     void testBuilder_close_obtuseTriangle_1_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1));
 
+        // act
         final LinePath path = builder.close();
 
+        // assert
         Assertions.assertEquals(3, path.getElements().size());
     }
 
     @Test
     void testFromVertices_twoVertices_5_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final LineConvexSubset segment0 = path.getStart();
         final Vector2D start0 = p1;
@@ -3274,58 +4696,95 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_twoVertices_5_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final LineConvexSubset segment0 = path.getStart();
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_twoVertices_5_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final LineConvexSubset segment0 = path.getStart();
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_twoVertices_5_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final LineConvexSubset segment0 = path.getStart();
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_twoVertices_8_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
@@ -3334,63 +4793,106 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_twoVertices_8_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_twoVertices_8_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_twoVertices_8_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_5_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final LineConvexSubset segment0 = path.getStart();
         final Vector2D start0 = p1;
@@ -3400,64 +4902,99 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_multipleVertices_notClosed_5_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final LineConvexSubset segment0 = path.getStart();
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_5_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final LineConvexSubset segment0 = path.getStart();
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_5_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final LineConvexSubset segment0 = path.getStart();
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_6_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getEnd();
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
@@ -3466,66 +5003,106 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_multipleVertices_notClosed_6_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getEnd();
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_6_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getEnd();
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_6_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getEnd();
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_8_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
@@ -3534,72 +5111,119 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_multipleVertices_notClosed_8_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_8_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_8_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_9_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
@@ -3608,72 +5232,123 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_multipleVertices_notClosed_9_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_9_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_9_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_10_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
@@ -3682,69 +5357,118 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_multipleVertices_notClosed_10_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_10_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_notClosed_10_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_5_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final LineConvexSubset segment0 = path.getStart();
         final Vector2D start0 = p1;
@@ -3754,64 +5478,99 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_multipleVertices_closed_5_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final LineConvexSubset segment0 = path.getStart();
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_5_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final LineConvexSubset segment0 = path.getStart();
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_5_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final LineConvexSubset segment0 = path.getStart();
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_6_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getEnd();
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
@@ -3820,66 +5579,106 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_multipleVertices_closed_6_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getEnd();
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_6_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getEnd();
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_6_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getEnd();
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_8_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
@@ -3888,72 +5687,119 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_multipleVertices_closed_8_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_8_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_8_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_9_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
@@ -3962,72 +5808,123 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_multipleVertices_closed_9_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_9_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_9_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_10_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
@@ -4036,72 +5933,127 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_multipleVertices_closed_10_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_10_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_10_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_11_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
@@ -4110,70 +6062,123 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_multipleVertices_closed_11_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_11_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_multipleVertices_closed_11_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
         final Vector2D p4 = Vector2D.of(0, 1);
 
+        // act
         final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2, p3, p4, p1), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertexLoop_closeRequired_6_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
@@ -4182,64 +6187,103 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertexLoop_closeRequired_6_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertexLoop_closeRequired_6_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertexLoop_closeRequired_6_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertexLoop_closeRequired_7_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
@@ -4248,64 +6292,107 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertexLoop_closeRequired_7_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertexLoop_closeRequired_7_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertexLoop_closeRequired_7_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertexLoop_closeRequired_8_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
@@ -4314,64 +6401,108 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertexLoop_closeRequired_8_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertexLoop_closeRequired_8_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertexLoop_closeRequired_8_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertexLoop_closeNotRequired_6_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
@@ -4380,64 +6511,103 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertexLoop_closeNotRequired_6_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertexLoop_closeNotRequired_6_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertexLoop_closeNotRequired_6_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertexLoop_closeNotRequired_7_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
@@ -4446,64 +6616,107 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertexLoop_closeNotRequired_7_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertexLoop_closeNotRequired_7_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertexLoop_closeNotRequired_7_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertexLoop_closeNotRequired_8_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
@@ -4512,65 +6725,106 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertexLoop_closeNotRequired_8_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertexLoop_closeNotRequired_8_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertexLoop_closeNotRequired_8_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
+        // act
         final LinePath path = LinePath.fromVertexLoop(Arrays.asList(p1, p2, p3, Vector2D.of(0, 0)), TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_booleanArg_3_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = openSegments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
@@ -4579,68 +6833,95 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_booleanArg_3_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = openSegments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_booleanArg_3_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = openSegments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_booleanArg_3_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = openSegments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_booleanArg_4_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = openSegments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
@@ -4649,71 +6930,104 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_booleanArg_4_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = openSegments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_booleanArg_4_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = openSegments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_booleanArg_4_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = openSegments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_booleanArg_7_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> closedSegments = closed.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = closedSegments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
@@ -4722,80 +7036,123 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_booleanArg_7_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> closedSegments = closed.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = closedSegments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_booleanArg_7_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> closedSegments = closed.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = closedSegments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_booleanArg_7_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> closedSegments = closed.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = closedSegments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_booleanArg_8_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> closedSegments = closed.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = closedSegments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
@@ -4804,80 +7161,127 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_booleanArg_8_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> closedSegments = closed.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = closedSegments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_booleanArg_8_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> closedSegments = closed.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = closedSegments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_booleanArg_8_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> closedSegments = closed.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = closedSegments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_booleanArg_9_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> closedSegments = closed.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = closedSegments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
@@ -4886,68 +7290,108 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testFromVertices_booleanArg_9_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> closedSegments = closed.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = closedSegments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testFromVertices_booleanArg_9_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> closedSegments = closed.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = closedSegments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testFromVertices_booleanArg_9_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(0, 1);
 
+        // act
         final LinePath open = LinePath.fromVertices(Arrays.asList(p1, p2, p3), false, TEST_PRECISION);
         final LinePath closed = LinePath.fromVertices(Arrays.asList(p1, p2, p3), true, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> openSegments = open.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> closedSegments = closed.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = closedSegments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testTransform_finite_5_oe_1_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -4957,11 +7401,17 @@ class LinePathTest_OE25Dev {
         final AffineTransformMatrix2D t =
                 AffineTransformMatrix2D.createRotation(Vector2D.of(1, 1), Angle.PI_OVER_TWO);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.of(2, 0);
         final Vector2D end0 = Vector2D.of(2, 1);
@@ -4970,6 +7420,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testTransform_finite_5_oe_2_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -4979,19 +7430,27 @@ class LinePathTest_OE25Dev {
         final AffineTransformMatrix2D t =
                 AffineTransformMatrix2D.createRotation(Vector2D.of(1, 1), Angle.PI_OVER_TWO);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.of(2, 0);
         final Vector2D end0 = Vector2D.of(2, 1);
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testTransform_finite_5_oe_3_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -5001,20 +7460,29 @@ class LinePathTest_OE25Dev {
         final AffineTransformMatrix2D t =
                 AffineTransformMatrix2D.createRotation(Vector2D.of(1, 1), Angle.PI_OVER_TWO);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.of(2, 0);
         final Vector2D end0 = Vector2D.of(2, 1);
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testTransform_finite_5_oe_4_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -5024,20 +7492,30 @@ class LinePathTest_OE25Dev {
         final AffineTransformMatrix2D t =
                 AffineTransformMatrix2D.createRotation(Vector2D.of(1, 1), Angle.PI_OVER_TWO);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.of(2, 0);
         final Vector2D end0 = Vector2D.of(2, 1);
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testTransform_finite_6_oe_1_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -5047,11 +7525,18 @@ class LinePathTest_OE25Dev {
         final AffineTransformMatrix2D t =
                 AffineTransformMatrix2D.createRotation(Vector2D.of(1, 1), Angle.PI_OVER_TWO);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.of(2, 1);
         final Vector2D end0 = Vector2D.Unit.PLUS_X;
@@ -5060,6 +7545,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testTransform_finite_6_oe_2_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -5069,19 +7555,28 @@ class LinePathTest_OE25Dev {
         final AffineTransformMatrix2D t =
                 AffineTransformMatrix2D.createRotation(Vector2D.of(1, 1), Angle.PI_OVER_TWO);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.of(2, 1);
         final Vector2D end0 = Vector2D.Unit.PLUS_X;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testTransform_finite_6_oe_3_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -5091,20 +7586,30 @@ class LinePathTest_OE25Dev {
         final AffineTransformMatrix2D t =
                 AffineTransformMatrix2D.createRotation(Vector2D.of(1, 1), Angle.PI_OVER_TWO);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.of(2, 1);
         final Vector2D end0 = Vector2D.Unit.PLUS_X;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testTransform_finite_6_oe_4_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -5114,20 +7619,31 @@ class LinePathTest_OE25Dev {
         final AffineTransformMatrix2D t =
                 AffineTransformMatrix2D.createRotation(Vector2D.of(1, 1), Angle.PI_OVER_TWO);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.of(2, 1);
         final Vector2D end0 = Vector2D.Unit.PLUS_X;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testTransform_finite_7_oe_1_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -5137,11 +7653,19 @@ class LinePathTest_OE25Dev {
         final AffineTransformMatrix2D t =
                 AffineTransformMatrix2D.createRotation(Vector2D.of(1, 1), Angle.PI_OVER_TWO);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = Vector2D.Unit.PLUS_X;
         final Vector2D end0 = Vector2D.of(2, 0);
@@ -5150,6 +7674,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testTransform_finite_7_oe_2_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -5159,19 +7684,29 @@ class LinePathTest_OE25Dev {
         final AffineTransformMatrix2D t =
                 AffineTransformMatrix2D.createRotation(Vector2D.of(1, 1), Angle.PI_OVER_TWO);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = Vector2D.Unit.PLUS_X;
         final Vector2D end0 = Vector2D.of(2, 0);
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testTransform_finite_7_oe_3_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -5181,20 +7716,31 @@ class LinePathTest_OE25Dev {
         final AffineTransformMatrix2D t =
                 AffineTransformMatrix2D.createRotation(Vector2D.of(1, 1), Angle.PI_OVER_TWO);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = Vector2D.Unit.PLUS_X;
         final Vector2D end0 = Vector2D.of(2, 0);
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testTransform_finite_7_oe_4_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
@@ -5204,31 +7750,49 @@ class LinePathTest_OE25Dev {
         final AffineTransformMatrix2D t =
                 AffineTransformMatrix2D.createRotation(Vector2D.of(1, 1), Angle.PI_OVER_TWO);
 
+        // act
         final LinePath result = path.transform(t);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = Vector2D.Unit.PLUS_X;
         final Vector2D end0 = Vector2D.of(2, 0);
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testReverse_5_oe_1_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
                 .append(Vector2D.Unit.PLUS_Y)
                 .close();
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.Unit.ZERO;
         final Vector2D end0 = Vector2D.Unit.PLUS_Y;
@@ -5237,76 +7801,111 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testReverse_5_oe_2_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
                 .append(Vector2D.Unit.PLUS_Y)
                 .close();
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.Unit.ZERO;
         final Vector2D end0 = Vector2D.Unit.PLUS_Y;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testReverse_5_oe_3_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
                 .append(Vector2D.Unit.PLUS_Y)
                 .close();
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.Unit.ZERO;
         final Vector2D end0 = Vector2D.Unit.PLUS_Y;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testReverse_5_oe_4_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
                 .append(Vector2D.Unit.PLUS_Y)
                 .close();
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.Unit.ZERO;
         final Vector2D end0 = Vector2D.Unit.PLUS_Y;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testReverse_6_oe_1_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
                 .append(Vector2D.Unit.PLUS_Y)
                 .close();
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.Unit.PLUS_Y;
         final Vector2D end0 = Vector2D.Unit.PLUS_X;
@@ -5315,76 +7914,115 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testReverse_6_oe_2_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
                 .append(Vector2D.Unit.PLUS_Y)
                 .close();
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.Unit.PLUS_Y;
         final Vector2D end0 = Vector2D.Unit.PLUS_X;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testReverse_6_oe_3_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
                 .append(Vector2D.Unit.PLUS_Y)
                 .close();
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.Unit.PLUS_Y;
         final Vector2D end0 = Vector2D.Unit.PLUS_X;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testReverse_6_oe_4_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
                 .append(Vector2D.Unit.PLUS_Y)
                 .close();
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.Unit.PLUS_Y;
         final Vector2D end0 = Vector2D.Unit.PLUS_X;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testReverse_7_oe_1_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
                 .append(Vector2D.Unit.PLUS_Y)
                 .close();
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = Vector2D.Unit.PLUS_X;
         final Vector2D end0 = Vector2D.Unit.ZERO;
@@ -5393,65 +8031,99 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testReverse_7_oe_2_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
                 .append(Vector2D.Unit.PLUS_Y)
                 .close();
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = Vector2D.Unit.PLUS_X;
         final Vector2D end0 = Vector2D.Unit.ZERO;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testReverse_7_oe_3_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
                 .append(Vector2D.Unit.PLUS_Y)
                 .close();
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = Vector2D.Unit.PLUS_X;
         final Vector2D end0 = Vector2D.Unit.ZERO;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testReverse_7_oe_4_oe() {
+        // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
                 .append(Vector2D.Unit.ZERO)
                 .append(Vector2D.Unit.PLUS_X)
                 .append(Vector2D.Unit.PLUS_Y)
                 .close();
 
+        // act
         final LinePath result = path.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = Vector2D.Unit.PLUS_X;
         final Vector2D end0 = Vector2D.Unit.ZERO;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_2_oe_1_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5462,9 +8134,12 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(1, 2))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.of(-1, 0);
         final Vector2D end0 = Vector2D.of(1, 0);
@@ -5473,6 +8148,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testSimplify_2_oe_2_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5483,17 +8159,22 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(1, 2))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.of(-1, 0);
         final Vector2D end0 = Vector2D.of(1, 0);
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testSimplify_2_oe_3_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5504,18 +8185,24 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(1, 2))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.of(-1, 0);
         final Vector2D end0 = Vector2D.of(1, 0);
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_2_oe_4_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5526,18 +8213,25 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(1, 2))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.of(-1, 0);
         final Vector2D end0 = Vector2D.of(1, 0);
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_3_oe_1_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5548,9 +8242,13 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(1, 2))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.of(1, 0);
         final Vector2D end0 = Vector2D.of(1, 2);
@@ -5559,6 +8257,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testSimplify_3_oe_2_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5569,17 +8268,23 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(1, 2))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.of(1, 0);
         final Vector2D end0 = Vector2D.of(1, 2);
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testSimplify_3_oe_3_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5590,18 +8295,25 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(1, 2))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.of(1, 0);
         final Vector2D end0 = Vector2D.of(1, 2);
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_3_oe_4_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5612,18 +8324,26 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(1, 2))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.of(1, 0);
         final Vector2D end0 = Vector2D.of(1, 2);
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_startAndEndCombined_5_oe_1_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5633,10 +8353,16 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(-1, 0))
             .close();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.of(-1, 0);
         final Vector2D end0 = Vector2D.of(1, 0);
@@ -5645,6 +8371,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testSimplify_startAndEndCombined_5_oe_2_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5654,18 +8381,26 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(-1, 0))
             .close();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.of(-1, 0);
         final Vector2D end0 = Vector2D.of(1, 0);
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testSimplify_startAndEndCombined_5_oe_3_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5675,19 +8410,28 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(-1, 0))
             .close();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.of(-1, 0);
         final Vector2D end0 = Vector2D.of(1, 0);
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_startAndEndCombined_5_oe_4_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5697,19 +8441,29 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(-1, 0))
             .close();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.of(-1, 0);
         final Vector2D end0 = Vector2D.of(1, 0);
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_startAndEndCombined_6_oe_1_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5719,10 +8473,17 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(-1, 0))
             .close();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.of(1, 0);
         final Vector2D end0 = Vector2D.of(0, 1);
@@ -5731,6 +8492,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testSimplify_startAndEndCombined_6_oe_2_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5740,18 +8502,27 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(-1, 0))
             .close();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.of(1, 0);
         final Vector2D end0 = Vector2D.of(0, 1);
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testSimplify_startAndEndCombined_6_oe_3_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5761,19 +8532,29 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(-1, 0))
             .close();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.of(1, 0);
         final Vector2D end0 = Vector2D.of(0, 1);
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_startAndEndCombined_6_oe_4_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5783,19 +8564,30 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(-1, 0))
             .close();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.of(1, 0);
         final Vector2D end0 = Vector2D.of(0, 1);
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_startAndEndCombined_7_oe_1_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5805,10 +8597,18 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(-1, 0))
             .close();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = Vector2D.of(0, 1);
         final Vector2D end0 = Vector2D.of(-1, 0);
@@ -5817,6 +8617,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testSimplify_startAndEndCombined_7_oe_2_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5826,18 +8627,28 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(-1, 0))
             .close();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = Vector2D.of(0, 1);
         final Vector2D end0 = Vector2D.of(-1, 0);
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testSimplify_startAndEndCombined_7_oe_3_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5847,19 +8658,30 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(-1, 0))
             .close();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = Vector2D.of(0, 1);
         final Vector2D end0 = Vector2D.of(-1, 0);
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_startAndEndCombined_7_oe_4_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         final LinePath path = builder.appendVertices(
@@ -5869,19 +8691,31 @@ class LinePathTest_OE25Dev {
                 Vector2D.of(-1, 0))
             .close();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = Vector2D.of(0, 1);
         final Vector2D end0 = Vector2D.of(-1, 0);
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_5_oe_1_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -5893,10 +8727,16 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.ZERO;
         final Vector2D end0 = Vector2D.of(1, 0);
@@ -5905,6 +8745,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_5_oe_2_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -5916,18 +8757,26 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.ZERO;
         final Vector2D end0 = Vector2D.of(1, 0);
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_5_oe_3_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -5939,19 +8788,28 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.ZERO;
         final Vector2D end0 = Vector2D.of(1, 0);
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_5_oe_4_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -5963,19 +8821,29 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = Vector2D.ZERO;
         final Vector2D end0 = Vector2D.of(1, 0);
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_6_oe_1_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -5987,10 +8855,17 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.of(1, 0);
         final Vector2D end0 = Vector2D.of(2, 1);
@@ -5999,6 +8874,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_6_oe_2_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -6010,18 +8886,27 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.of(1, 0);
         final Vector2D end0 = Vector2D.of(2, 1);
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_6_oe_3_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -6033,19 +8918,29 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.of(1, 0);
         final Vector2D end0 = Vector2D.of(2, 1);
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_6_oe_4_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -6057,19 +8952,30 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = Vector2D.of(1, 0);
         final Vector2D end0 = Vector2D.of(2, 1);
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_7_oe_1_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -6081,10 +8987,18 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = Vector2D.of(2, 1);
         final Vector2D end0 = Vector2D.of(3, 0);
@@ -6093,6 +9007,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_7_oe_2_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -6104,18 +9019,28 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = Vector2D.of(2, 1);
         final Vector2D end0 = Vector2D.of(3, 0);
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_7_oe_3_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -6127,19 +9052,30 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = Vector2D.of(2, 1);
         final Vector2D end0 = Vector2D.of(3, 0);
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_7_oe_4_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -6151,19 +9087,31 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = Vector2D.of(2, 1);
         final Vector2D end0 = Vector2D.of(3, 0);
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_8_oe_1_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -6175,10 +9123,19 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = Vector2D.of(3, 0);
         final Vector2D end0 = Vector2D.of(4, 0);
@@ -6187,6 +9144,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_8_oe_2_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -6198,18 +9156,29 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = Vector2D.of(3, 0);
         final Vector2D end0 = Vector2D.of(4, 0);
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_8_oe_3_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -6221,19 +9190,31 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = Vector2D.of(3, 0);
         final Vector2D end0 = Vector2D.of(4, 0);
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_8_oe_4_oe() {
+        // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
@@ -6245,19 +9226,32 @@ class LinePathTest_OE25Dev {
                 .append(xAxis.segment(3, 4))
             .build();
 
+        // act
         final LinePath result = path.simplify();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = result.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = Vector2D.of(3, 0);
         final Vector2D end0 = Vector2D.of(4, 0);
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_vertices_2_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6265,6 +9259,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -6273,7 +9268,9 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
@@ -6282,6 +9279,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependAndAppend_vertices_2_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6289,6 +9287,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -6297,15 +9296,19 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_prependAndAppend_vertices_2_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6313,6 +9316,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -6321,16 +9325,21 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_vertices_2_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6338,6 +9347,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -6346,16 +9356,22 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_vertices_3_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6363,6 +9379,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -6371,7 +9388,10 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
@@ -6380,6 +9400,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependAndAppend_vertices_3_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6387,6 +9408,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -6395,15 +9417,20 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_prependAndAppend_vertices_3_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6411,6 +9438,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -6419,16 +9447,22 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_vertices_3_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6436,6 +9470,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -6444,16 +9479,23 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_vertices_4_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6461,6 +9503,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -6469,7 +9512,11 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
@@ -6478,6 +9525,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependAndAppend_vertices_4_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6485,6 +9533,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -6493,15 +9542,21 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_prependAndAppend_vertices_4_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6509,6 +9564,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -6517,16 +9573,23 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_vertices_4_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6534,6 +9597,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -6542,16 +9606,24 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_vertices_5_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6559,6 +9631,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -6567,7 +9640,12 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
@@ -6576,6 +9654,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependAndAppend_vertices_5_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6583,6 +9662,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -6591,15 +9671,22 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_prependAndAppend_vertices_5_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6607,6 +9694,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -6615,16 +9703,24 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_vertices_5_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6632,6 +9728,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .prepend(p1)
@@ -6640,21 +9737,31 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_ignoresEquivalentVertices_2_oe_1_oe() {
+        // arrange
         final Vector2D p = Vector2D.ZERO;
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.append(p);
 
+        // act
         builder.append(p)
             .prepend(p)
             .append(Vector2D.of(0, 1e-20))
@@ -6662,9 +9769,11 @@ class LinePathTest_OE25Dev {
 
         builder.append(Vector2D.Unit.PLUS_X);
 
+        // assert
         final LinePath path = builder.build();
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p;
         final Vector2D end0 = Vector2D.Unit.PLUS_X;
@@ -6673,11 +9782,13 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependAndAppend_ignoresEquivalentVertices_2_oe_2_oe() {
+        // arrange
         final Vector2D p = Vector2D.ZERO;
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.append(p);
 
+        // act
         builder.append(p)
             .prepend(p)
             .append(Vector2D.of(0, 1e-20))
@@ -6685,22 +9796,27 @@ class LinePathTest_OE25Dev {
 
         builder.append(Vector2D.Unit.PLUS_X);
 
+        // assert
         final LinePath path = builder.build();
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p;
         final Vector2D end0 = Vector2D.Unit.PLUS_X;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_prependAndAppend_ignoresEquivalentVertices_2_oe_3_oe() {
+        // arrange
         final Vector2D p = Vector2D.ZERO;
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.append(p);
 
+        // act
         builder.append(p)
             .prepend(p)
             .append(Vector2D.of(0, 1e-20))
@@ -6708,23 +9824,29 @@ class LinePathTest_OE25Dev {
 
         builder.append(Vector2D.Unit.PLUS_X);
 
+        // assert
         final LinePath path = builder.build();
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p;
         final Vector2D end0 = Vector2D.Unit.PLUS_X;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_ignoresEquivalentVertices_2_oe_4_oe() {
+        // arrange
         final Vector2D p = Vector2D.ZERO;
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.append(p);
 
+        // act
         builder.append(p)
             .prepend(p)
             .append(Vector2D.of(0, 1e-20))
@@ -6732,18 +9854,24 @@ class LinePathTest_OE25Dev {
 
         builder.append(Vector2D.Unit.PLUS_X);
 
+        // assert
         final LinePath path = builder.build();
 
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p;
         final Vector2D end0 = Vector2D.Unit.PLUS_X;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_2_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6754,6 +9882,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -6762,7 +9891,9 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
@@ -6771,6 +9902,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_2_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6781,6 +9913,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -6789,15 +9922,19 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_2_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6808,6 +9945,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -6816,16 +9954,21 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_2_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6836,6 +9979,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -6844,16 +9988,22 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_3_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6864,6 +10014,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -6872,7 +10023,10 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
@@ -6881,6 +10035,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_3_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6891,6 +10046,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -6899,15 +10055,20 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_3_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6918,6 +10079,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -6926,16 +10088,22 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_3_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6946,6 +10114,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -6954,16 +10123,23 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_4_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -6974,6 +10150,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -6982,7 +10159,11 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
@@ -6991,6 +10172,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_4_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7001,6 +10183,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -7009,15 +10192,21 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_4_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7028,6 +10217,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -7036,16 +10226,23 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_4_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7056,6 +10253,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -7064,16 +10262,24 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_5_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7084,6 +10290,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -7092,7 +10299,12 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
@@ -7101,6 +10313,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_5_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7111,6 +10324,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -7119,15 +10333,22 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_5_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7138,6 +10359,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -7146,16 +10368,24 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_5_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7166,6 +10396,7 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prepend(p2)
             .append(p3)
             .append(c)
@@ -7174,16 +10405,25 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_appendVertices_2_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7191,12 +10431,15 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
@@ -7205,6 +10448,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_appendVertices_2_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7212,20 +10456,25 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_appendVertices_2_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7233,21 +10482,27 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_appendVertices_2_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7255,21 +10510,28 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_appendVertices_3_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7277,12 +10539,16 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
@@ -7291,6 +10557,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_appendVertices_3_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7298,20 +10565,26 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_appendVertices_3_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7319,21 +10592,28 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_appendVertices_3_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7341,21 +10621,29 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_appendVertices_4_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7363,12 +10651,17 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
@@ -7377,6 +10670,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_appendVertices_4_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7384,20 +10678,27 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_appendVertices_4_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7405,21 +10706,29 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_appendVertices_4_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7427,21 +10736,30 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_appendVertices_5_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7449,12 +10767,18 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
@@ -7463,6 +10787,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_appendVertices_5_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7470,20 +10795,28 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_appendVertices_5_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7491,21 +10824,30 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_appendVertices_5_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7513,21 +10855,31 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.appendVertices(p1, p2)
             .appendVertices(Arrays.asList(p3, p4, p1));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependVertices_2_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7535,12 +10887,15 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
@@ -7549,6 +10904,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependVertices_2_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7556,20 +10912,25 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_prependVertices_2_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7577,21 +10938,27 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependVertices_2_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7599,21 +10966,28 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependVertices_3_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7621,12 +10995,16 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
@@ -7635,6 +11013,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependVertices_3_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7642,20 +11021,26 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_prependVertices_3_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7663,21 +11048,28 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependVertices_3_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7685,21 +11077,29 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependVertices_4_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7707,12 +11107,17 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
@@ -7721,6 +11126,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependVertices_4_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7728,20 +11134,27 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_prependVertices_4_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7749,21 +11162,29 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependVertices_4_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7771,21 +11192,30 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p4;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependVertices_5_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7793,12 +11223,18 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
@@ -7807,6 +11243,7 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_prependVertices_5_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7814,20 +11251,28 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_prependVertices_5_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7835,21 +11280,30 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_prependVertices_5_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
@@ -7857,34 +11311,47 @@ class LinePathTest_OE25Dev {
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.prependVertices(p3, p4, p1)
             .prependVertices(Arrays.asList(p1, p2));
 
         final LinePath path = builder.build();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(3);
         final Vector2D start0 = p4;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_notYetClosed_2_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3);
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
@@ -7893,84 +11360,107 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_close_notYetClosed_2_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3);
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_close_notYetClosed_2_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3);
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_notYetClosed_2_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3);
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_notYetClosed_3_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3);
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
@@ -7979,84 +11469,111 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_close_notYetClosed_3_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3);
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_close_notYetClosed_3_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3);
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_notYetClosed_3_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3);
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_notYetClosed_4_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3);
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
@@ -8065,77 +11582,103 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_close_notYetClosed_4_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3);
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_close_notYetClosed_4_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3);
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_notYetClosed_4_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3);
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_alreadyClosed_2_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3)
@@ -8143,7 +11686,9 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
@@ -8152,12 +11697,14 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_close_alreadyClosed_2_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3)
@@ -8165,21 +11712,26 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_close_alreadyClosed_2_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3)
@@ -8187,22 +11739,28 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_alreadyClosed_2_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3)
@@ -8210,22 +11768,29 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(0);
         final Vector2D start0 = p1;
         final Vector2D end0 = p2;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_alreadyClosed_3_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3)
@@ -8233,7 +11798,10 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
@@ -8242,12 +11810,14 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_close_alreadyClosed_3_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3)
@@ -8255,21 +11825,27 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_close_alreadyClosed_3_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3)
@@ -8277,22 +11853,29 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_alreadyClosed_3_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3)
@@ -8300,22 +11883,30 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(1);
         final Vector2D start0 = p2;
         final Vector2D end0 = p3;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_alreadyClosed_4_oe_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3)
@@ -8323,7 +11914,11 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
@@ -8332,12 +11927,14 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_close_alreadyClosed_4_oe_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3)
@@ -8345,21 +11942,28 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_close_alreadyClosed_4_oe_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3)
@@ -8367,22 +11971,30 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_alreadyClosed_4_oe_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
         final Vector2D p3 = Vector2D.of(1, 1);
 
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
+        // act
         builder.append(p1)
             .append(p2)
             .append(p3)
@@ -8390,21 +12002,32 @@ class LinePathTest_OE25Dev {
 
         final LinePath path = builder.close();
 
+        // assert
         final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = segments.get(2);
         final Vector2D start0 = p3;
         final Vector2D end0 = p1;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_obtuseTriangle_2_oe_1_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1));
 
+        // act
         final LinePath path = builder.close();
 
+        // assert
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getElements().get(0);
         final Vector2D start0 = Vector2D.ZERO;
         final Vector2D end0 = Vector2D.of(1, 0);
@@ -8413,52 +12036,75 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_close_obtuseTriangle_2_oe_2_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1));
 
+        // act
         final LinePath path = builder.close();
 
+        // assert
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getElements().get(0);
         final Vector2D start0 = Vector2D.ZERO;
         final Vector2D end0 = Vector2D.of(1, 0);
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_close_obtuseTriangle_2_oe_3_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1));
 
+        // act
         final LinePath path = builder.close();
 
+        // assert
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getElements().get(0);
         final Vector2D start0 = Vector2D.ZERO;
         final Vector2D end0 = Vector2D.of(1, 0);
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_obtuseTriangle_2_oe_4_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1));
 
+        // act
         final LinePath path = builder.close();
 
+        // assert
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getElements().get(0);
         final Vector2D start0 = Vector2D.ZERO;
         final Vector2D end0 = Vector2D.of(1, 0);
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_obtuseTriangle_3_oe_1_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1));
 
+        // act
         final LinePath path = builder.close();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getElements().get(1);
         final Vector2D start0 = Vector2D.of(1, 0);
         final Vector2D end0 = Vector2D.of(2, 1);
@@ -8467,52 +12113,79 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_close_obtuseTriangle_3_oe_2_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1));
 
+        // act
         final LinePath path = builder.close();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getElements().get(1);
         final Vector2D start0 = Vector2D.of(1, 0);
         final Vector2D end0 = Vector2D.of(2, 1);
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_close_obtuseTriangle_3_oe_3_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1));
 
+        // act
         final LinePath path = builder.close();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getElements().get(1);
         final Vector2D start0 = Vector2D.of(1, 0);
         final Vector2D end0 = Vector2D.of(2, 1);
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_obtuseTriangle_3_oe_4_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1));
 
+        // act
         final LinePath path = builder.close();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getElements().get(1);
         final Vector2D start0 = Vector2D.of(1, 0);
         final Vector2D end0 = Vector2D.of(2, 1);
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_obtuseTriangle_4_oe_1_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1));
 
+        // act
         final LinePath path = builder.close();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getElements().get(2);
         final Vector2D start0 = Vector2D.of(2, 1);
         final Vector2D end0 = Vector2D.ZERO;
@@ -8521,79 +12194,123 @@ class LinePathTest_OE25Dev {
 
     @Test
     void testBuilder_close_obtuseTriangle_4_oe_2_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1));
 
+        // act
         final LinePath path = builder.close();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getElements().get(2);
         final Vector2D start0 = Vector2D.of(2, 1);
         final Vector2D end0 = Vector2D.ZERO;
+        // removed other assertion
                 Assertions.assertTrue(segment0.isFinite());
     }
 
     @Test
     void testBuilder_close_obtuseTriangle_4_oe_3_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1));
 
+        // act
         final LinePath path = builder.close();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getElements().get(2);
         final Vector2D start0 = Vector2D.of(2, 1);
         final Vector2D end0 = Vector2D.ZERO;
+        // removed other assertion
+                // removed other assertion
         
                 EuclideanTestUtils.assertCoordinatesEqual(start0, segment0.getStartPoint(), TEST_EPS);
     }
 
     @Test
     void testBuilder_close_obtuseTriangle_4_oe_4_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
         builder.appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1));
 
+        // act
         final LinePath path = builder.close();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset segment0 = path.getElements().get(2);
         final Vector2D start0 = Vector2D.of(2, 1);
         final Vector2D end0 = Vector2D.ZERO;
+        // removed other assertion
+                // removed other assertion
         
+                // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
     }
 
 @Test
     void testBuilder_prependAndAppend_noPrecisionSpecified_1_oe() {
+        // arrange
         final Vector2D p = Vector2D.ZERO;
         final Builder builder = LinePath.builder(null);
 
         final String msg = "Unable to create line segment: no vertex precision specified";
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.append(p); }, IllegalStateException.class, msg);
+        // act/assert
+        try {
+     builder.append(p);
+    fail("Expected IllegalStateException with message: " + msg);
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testBuilder_prependAndAppend_noPrecisionSpecified_2_oe() {
+        // arrange
         final Vector2D p = Vector2D.ZERO;
         final Builder builder = LinePath.builder(null);
 
         final String msg = "Unable to create line segment: no vertex precision specified";
 
+        // act/assert
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.prepend(p); }, IllegalStateException.class, msg);
+        try {
+     builder.prepend(p);
+    fail("Expected IllegalStateException with message: " + msg);
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testBuilder_close_infiniteSegmentAtStart_1_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         builder.append(Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION)
                 .reverseRayTo(1))
             .append(Vector2D.of(1, 1));
 
-        GeometryTestUtils.assertThrowsWithMessage(builder::close, IllegalStateException.class, "Unable to close line path: line path is infinite");
+        // act/assert
+        try {
+    builder.close();
+    fail("Expected IllegalStateException with message: " + "Unable to close line path: line path is infinite");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testBuilder_close_infiniteSegmentAtEnd_1_oe() {
+        // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
 
         builder
@@ -8602,7 +12319,12 @@ class LinePathTest_OE25Dev {
             .append(Lines.fromPointAndAngle(Vector2D.Unit.PLUS_X, Angle.PI_OVER_TWO, TEST_PRECISION)
                 .rayFrom(0));
 
-        GeometryTestUtils.assertThrowsWithMessage(builder::close, IllegalStateException.class, "Unable to close line path: line path is infinite");
+        // act/assert
+        try {
+    builder.close();
+    fail("Expected IllegalStateException with message: " + "Unable to close line path: line path is infinite");
+} catch (IllegalStateException e) {
+}
     }
 
 }

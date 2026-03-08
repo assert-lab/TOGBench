@@ -62,6 +62,7 @@ public class CustomErrorPagesTest_OE25Dev {
     @Test
     public void testGetHi_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/hello", null);
+        // removed other assertion
         Assert.assertEquals(HELLO_WORLD, response.body);
     }
 
@@ -74,6 +75,7 @@ public class CustomErrorPagesTest_OE25Dev {
     @Test
     public void testCustomNotFound_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/othernotmapped", null);
+        // removed other assertion
         Assert.assertEquals(CUSTOM_NOT_FOUND, response.body);
     }
 
@@ -86,12 +88,15 @@ public class CustomErrorPagesTest_OE25Dev {
     @Test
     public void testCustomInternal_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/raiseinternal", null);
+        // removed other assertion
         Assert.assertEquals(APPLICATION_JSON, response.headers.get("Content-Type"));
     }
 
     @Test
     public void testCustomInternal_3_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/raiseinternal", null);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(CUSTOM_INTERNAL, response.body);
     }
 
@@ -104,6 +109,7 @@ public class CustomErrorPagesTest_OE25Dev {
     @Test
     public void testCustomInternalFailingRoute_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/raiseinternal?" + QUERY_PARAM_KEY + "=sumthin", null);
+        // removed other assertion
         Assert.assertEquals(CustomErrorPages.INTERNAL_ERROR, response.body);
     }
 

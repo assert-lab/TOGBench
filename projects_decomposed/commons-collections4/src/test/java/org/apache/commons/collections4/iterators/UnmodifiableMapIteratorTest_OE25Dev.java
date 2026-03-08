@@ -75,6 +75,22 @@ public class UnmodifiableMapIteratorTest_OE25Dev<K, V> extends AbstractMapIterat
     }
 
     //-----------------------------------------------------------------------
+    public void testMapIterator() {
+        assertTrue(makeEmptyIterator() instanceof Unmodifiable);
+    }
+
+    public void testDecorateFactory() {
+        MapIterator<K, V> it = makeObject();
+        assertSame(it, UnmodifiableMapIterator.unmodifiableMapIterator(it));
+
+        it = getMap().mapIterator() ;
+        assertTrue(it != UnmodifiableMapIterator.unmodifiableMapIterator(it));
+
+        try {
+            UnmodifiableMapIterator.unmodifiableMapIterator(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
 
     public void testMapIterator_1_oe() {
         assertTrue(makeEmptyIterator() instanceof Unmodifiable);
@@ -90,6 +106,13 @@ public class UnmodifiableMapIteratorTest_OE25Dev<K, V> extends AbstractMapIterat
 
         it = getMap().mapIterator() ;
         assertTrue(it != UnmodifiableMapIterator.unmodifiableMapIterator(it));
+    }
+
+public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableMapIterator.unmodifiableMapIterator(null);
+            fail();
+        } catch (final NullPointerException ex) {}
     }
 
 }

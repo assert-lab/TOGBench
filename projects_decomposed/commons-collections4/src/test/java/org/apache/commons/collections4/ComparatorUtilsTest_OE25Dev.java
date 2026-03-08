@@ -31,6 +31,97 @@ import org.junit.Test;
 public class ComparatorUtilsTest_OE25Dev {
 
     @Test
+    public void booleanComparator() {
+        Comparator<Boolean> comp = ComparatorUtils.booleanComparator(true);
+        assertTrue(comp.compare(Boolean.TRUE, Boolean.FALSE) < 0);
+        assertTrue(comp.compare(Boolean.TRUE, Boolean.TRUE) == 0);
+        assertTrue(comp.compare(Boolean.FALSE, Boolean.TRUE) > 0);
+
+        comp = ComparatorUtils.booleanComparator(false);
+        assertTrue(comp.compare(Boolean.TRUE, Boolean.FALSE) > 0);
+        assertTrue(comp.compare(Boolean.TRUE, Boolean.TRUE) == 0);
+        assertTrue(comp.compare(Boolean.FALSE, Boolean.TRUE) < 0);
+    }
+
+    @Test
+    public void chainedComparator() {
+        // simple test: chain 2 natural comparators
+        final Comparator<Integer> comp = ComparatorUtils.chainedComparator(ComparatorUtils.<Integer>naturalComparator(),
+                                                                     ComparatorUtils.<Integer>naturalComparator());
+        assertTrue(comp.compare(1, 2) < 0);
+        assertTrue(comp.compare(1, 1) == 0);
+        assertTrue(comp.compare(2, 1) > 0);
+    }
+
+    @Test
+    public void max() {
+        final Comparator<Integer> reversed =
+                ComparatorUtils.reversedComparator(ComparatorUtils.<Integer>naturalComparator());
+
+        assertEquals(Integer.valueOf(10), ComparatorUtils.max(1, 10, null));
+        assertEquals(Integer.valueOf(10), ComparatorUtils.max(10, -10, null));
+
+        assertEquals(Integer.valueOf(1), ComparatorUtils.max(1, 10, reversed));
+        assertEquals(Integer.valueOf(-10), ComparatorUtils.max(10, -10, reversed));
+
+        try {
+            ComparatorUtils.max(1, null, null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        try {
+            ComparatorUtils.max(null, 10, null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+
+    @Test
+    public void min() {
+        final Comparator<Integer> reversed =
+                ComparatorUtils.reversedComparator(ComparatorUtils.<Integer>naturalComparator());
+
+        assertEquals(Integer.valueOf(1), ComparatorUtils.min(1, 10, null));
+        assertEquals(Integer.valueOf(-10), ComparatorUtils.min(10, -10, null));
+
+        assertEquals(Integer.valueOf(10), ComparatorUtils.min(1, 10, reversed));
+        assertEquals(Integer.valueOf(10), ComparatorUtils.min(10, -10, reversed));
+
+        try {
+            ComparatorUtils.min(1, null, null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        try {
+            ComparatorUtils.min(null, 10, null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+
+    @Test
+    public void nullLowComparator() {
+        final Comparator<Integer> comp = ComparatorUtils.nullLowComparator(null);
+        assertTrue(comp.compare(null, 10) < 0);
+        assertTrue(comp.compare(null, null) == 0);
+        assertTrue(comp.compare(10, null) > 0);
+    }
+
+    @Test
+    public void nullHighComparator() {
+        final Comparator<Integer> comp = ComparatorUtils.nullHighComparator(null);
+        assertTrue(comp.compare(null, 10) > 0);
+        assertTrue(comp.compare(null, null) == 0);
+        assertTrue(comp.compare(10, null) < 0);
+    }
+
+    @Test
     public void booleanComparator_1_oe() {
         Comparator<Boolean> comp = ComparatorUtils.booleanComparator(true);
         assertTrue(comp.compare(Boolean.TRUE, Boolean.FALSE) < 0);
@@ -195,6 +286,46 @@ public class ComparatorUtilsTest_OE25Dev {
     public void nullHighComparator_3_oe() {
         final Comparator<Integer> comp = ComparatorUtils.nullHighComparator(null);
         assertTrue(comp.compare(10, null) < 0);
+    }
+
+@Test
+    public void max_oe_101_oe() {
+        try {
+            ComparatorUtils.max(1, null, null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+
+@Test
+    public void max_oe_102_oe() {
+        try {
+            ComparatorUtils.max(null, 10, null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+
+@Test
+    public void min_oe_101_oe() {
+        try {
+            ComparatorUtils.min(1, null, null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+
+@Test
+    public void min_oe_102_oe() {
+        try {
+            ComparatorUtils.min(null, 10, null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
     }
 
 }

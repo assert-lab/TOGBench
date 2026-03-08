@@ -194,6 +194,7 @@ public class TestConfigurationEventTypes_OE25Dev {
     @Test
     public void testFetchSuperEventTypesForBaseType_2_oe() {
         final Set<EventType<?>> superTypes = EventType.fetchSuperEventTypes(Event.ANY);
+        // removed other assertion
         assertTrue("Wrong super types", superTypes.contains(Event.ANY));
     }
 
@@ -222,6 +223,7 @@ public class TestConfigurationEventTypes_OE25Dev {
         expected.add(ConfigurationEvent.ANY_HIERARCHICAL);
         expected.add(ConfigurationEvent.ANY);
         expected.add(Event.ANY);
+        // removed other assertion
         assertTrue("Wrong super types: " + superTypes, superTypes.containsAll(expected));
     }
 
@@ -247,16 +249,22 @@ public class TestConfigurationEventTypes_OE25Dev {
 
     @Test
     public void testIsInstanceOfTrue_2_oe() {
+        // removed other assertion
         assertTrue("Wrong result (2)", EventType.isInstanceOf(ConfigurationEvent.ADD_NODES, ConfigurationEvent.ANY));
     }
 
     @Test
     public void testIsInstanceOfTrue_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertTrue("Wrong result (3)", EventType.isInstanceOf(ConfigurationEvent.ADD_NODES, Event.ANY));
     }
 
     @Test
     public void testIsInstanceOfTrue_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Wrong result (4)", EventType.isInstanceOf(ConfigurationEvent.ADD_NODES, ConfigurationEvent.ADD_NODES));
     }
 

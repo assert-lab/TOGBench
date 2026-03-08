@@ -73,6 +73,7 @@ public class RetryRequestTest_OE25Dev extends AbstractBasicTest {
   public void testMaxRetry_2_oe() {
     try (AsyncHttpClient ahc = asyncHttpClient(config().setMaxRequestRetry(0))) {
       ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build()).get();
+      // removed other assertion
     } catch (Exception t) {
       assertEquals(t.getCause(), RemotelyClosedException.INSTANCE);
   }

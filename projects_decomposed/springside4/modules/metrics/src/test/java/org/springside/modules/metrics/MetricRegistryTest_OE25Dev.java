@@ -28,6 +28,7 @@ public class MetricRegistryTest_OE25Dev {
 	public void counter_2_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 		Counter counter = metricRegistry.counter(MetricRegistry.name("UserService", "getUser.counter"));
+		// removed other assertion
 
 		Map<String, Counter> counters = metricRegistry.getCounters();
 
@@ -39,10 +40,12 @@ public class MetricRegistryTest_OE25Dev {
 	public void counter_3_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 		Counter counter = metricRegistry.counter(MetricRegistry.name("UserService", "getUser.counter"));
+		// removed other assertion
 
 		Map<String, Counter> counters = metricRegistry.getCounters();
 
 		Counter counter2 = counters.get("UserService.getUser.counter");
+		// removed other assertion
 
 		Counter counter3 = metricRegistry.counter(MetricRegistry.name("UserService", "getUser.counter"));
 		assertThat(counter3).isNotNull().isSameAs(counter);
@@ -59,6 +62,7 @@ public class MetricRegistryTest_OE25Dev {
 	public void histogram_2_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 		Histogram histogram = metricRegistry.histogram(MetricRegistry.name("UserService", "getUser.latency"));
+		// removed other assertion
 
 		Map<String, Histogram> histograms = metricRegistry.getHistograms();
 
@@ -70,10 +74,12 @@ public class MetricRegistryTest_OE25Dev {
 	public void histogram_3_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 		Histogram histogram = metricRegistry.histogram(MetricRegistry.name("UserService", "getUser.latency"));
+		// removed other assertion
 
 		Map<String, Histogram> histograms = metricRegistry.getHistograms();
 
 		Histogram histogram2 = histograms.get("UserService.getUser.latency");
+		// removed other assertion
 
 		Histogram histogram3 = metricRegistry.histogram(MetricRegistry.name("UserService", "getUser.latency"));
 		assertThat(histogram3).isNotNull().isSameAs(histogram);
@@ -92,6 +98,7 @@ public class MetricRegistryTest_OE25Dev {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
 		Timer execution = metricRegistry.timer(MetricRegistry.name("UserService", "getUser.execution"));
+		// removed other assertion
 
 		Map<String, Timer> executions = metricRegistry.getTimers();
 
@@ -104,10 +111,12 @@ public class MetricRegistryTest_OE25Dev {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
 		Timer execution = metricRegistry.timer(MetricRegistry.name("UserService", "getUser.execution"));
+		// removed other assertion
 
 		Map<String, Timer> executions = metricRegistry.getTimers();
 
 		Timer execution2 = executions.get("UserService.getUser.execution");
+		// removed other assertion
 
 		Timer execution3 = metricRegistry.timer(MetricRegistry.name("UserService", "getUser.execution"));
 		assertThat(execution3).isNotNull().isSameAs(execution);
@@ -117,6 +126,7 @@ public class MetricRegistryTest_OE25Dev {
 	public void defaultPcts_1_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
+		// set pcts 60,70
 		Histogram histogram = metricRegistry.histogram(MetricRegistry.name("UserService", "getUser.histogram.setPcts"),
 				60d, 70d);
 
@@ -133,6 +143,7 @@ public class MetricRegistryTest_OE25Dev {
 	public void defaultPcts_2_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
+		// set pcts 60,70
 		Histogram histogram = metricRegistry.histogram(MetricRegistry.name("UserService", "getUser.histogram.setPcts"),
 				60d, 70d);
 
@@ -142,6 +153,7 @@ public class MetricRegistryTest_OE25Dev {
 
 		HistogramMetric metric = histogram.calculateMetric();
 
+		// removed other assertion
 		assertThat(metric.pcts.get(70d)).isEqualTo(70);
 	}
 
@@ -149,6 +161,7 @@ public class MetricRegistryTest_OE25Dev {
 	public void defaultPcts_3_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
+		// set pcts 60,70
 		Histogram histogram = metricRegistry.histogram(MetricRegistry.name("UserService", "getUser.histogram.setPcts"),
 				60d, 70d);
 
@@ -158,7 +171,10 @@ public class MetricRegistryTest_OE25Dev {
 
 		HistogramMetric metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
 
+		// new default 50
 		metricRegistry.setDefaultPcts(new Double[] { 50d });
 		Histogram histogramWithNewDefaultPcts = metricRegistry.histogram(MetricRegistry.name("UserService",
 				"getUser.histogram.newDefault"));
@@ -176,6 +192,7 @@ public class MetricRegistryTest_OE25Dev {
 	public void defaultPcts_4_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
+		// set pcts 60,70
 		Histogram histogram = metricRegistry.histogram(MetricRegistry.name("UserService", "getUser.histogram.setPcts"),
 				60d, 70d);
 
@@ -185,7 +202,10 @@ public class MetricRegistryTest_OE25Dev {
 
 		HistogramMetric metric = histogram.calculateMetric();
 
+		// removed other assertion
+		// removed other assertion
 
+		// new default 50
 		metricRegistry.setDefaultPcts(new Double[] { 50d });
 		Histogram histogramWithNewDefaultPcts = metricRegistry.histogram(MetricRegistry.name("UserService",
 				"getUser.histogram.newDefault"));
@@ -196,6 +216,7 @@ public class MetricRegistryTest_OE25Dev {
 
 		metric = histogramWithNewDefaultPcts.calculateMetric();
 
+		// removed other assertion
 		assertThat(metric.pcts.get(90d)).isNull();
 	}
 

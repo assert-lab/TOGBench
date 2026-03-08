@@ -88,6 +88,16 @@ public class UnmodifiableSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<
         verifyUnmodifiable(set.subSet((E) Integer.valueOf(1), (E) Integer.valueOf(3)));
     }
 
+    public void testDecorateFactory() {
+        final SortedSet<E> set = makeFullCollection();
+        assertSame(set, UnmodifiableSortedSet.unmodifiableSortedSet(set));
+
+        try {
+            UnmodifiableSortedSet.unmodifiableSortedSet(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
     /**
      * Verifies that a set is not modifiable
      */
@@ -131,6 +141,12 @@ public class UnmodifiableSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<
         }
     }
 
+    public void testComparator() {
+        setupSet();
+        final Comparator<? super E> c = set.comparator();
+        assertTrue("natural order, so comparator should be null", c == null);
+    }
+
     //-----------------------------------------------------------------------
 
     @Override
@@ -154,6 +170,13 @@ public class UnmodifiableSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<
         setupSet();
         final Comparator<? super E> c = set.comparator();
         assertTrue("natural order, so comparator should be null", c == null);
+    }
+
+public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableSortedSet.unmodifiableSortedSet(null);
+            fail();
+        } catch (final NullPointerException ex) {}
     }
 
 }

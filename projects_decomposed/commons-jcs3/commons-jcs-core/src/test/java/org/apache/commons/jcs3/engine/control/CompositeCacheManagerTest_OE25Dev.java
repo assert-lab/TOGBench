@@ -36,11 +36,17 @@ public class CompositeCacheManagerTest_OE25Dev
 
     public void testRelease_1_oe()
     {
+        // See JCS-184
+        // create the manager
         final CompositeCacheManager manager = CompositeCacheManager.getInstance();
+        // add a simple cache
         final CompositeCacheAttributes cacheAttributes = new CompositeCacheAttributes();
         final CompositeCache<String, String> cache = new CompositeCache<>(cacheAttributes, /* attr */ null);
         manager.addCache("simple_cache", cache);
+        // add a client to the cache
         CompositeCacheManager.getUnconfiguredInstance();
+        // won't release as there are still clients. Only disposed when release() is called by
+        // the last client
         manager.release();
         assertEquals("The cache was disposed during release!", CacheStatus.ALIVE, cache.getStatus());
     }

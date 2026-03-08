@@ -68,12 +68,15 @@ public class CacheWriterAdapterTest_OE25Dev
     @Test
     public void checkWriteAllAndDeleteAll_2_oe()
     {
+        // removed other assertion
         assertFalse(cache.iterator().hasNext());
     }
 
     @Test
     public void checkWriteAllAndDeleteAll_3_oe()
     {
+        // removed other assertion
+        // removed other assertion
         cache.put("foo", "bar");
         assertEquals(1, copy.size());
     }
@@ -81,7 +84,10 @@ public class CacheWriterAdapterTest_OE25Dev
     @Test
     public void checkWriteAllAndDeleteAll_4_oe()
     {
+        // removed other assertion
+        // removed other assertion
         cache.put("foo", "bar");
+        // removed other assertion
         cache.remove("foo");
         assertTrue(copy.isEmpty());
     }
@@ -89,8 +95,12 @@ public class CacheWriterAdapterTest_OE25Dev
     @Test
     public void checkWriteAllAndDeleteAll_5_oe()
     {
+        // removed other assertion
+        // removed other assertion
         cache.put("foo", "bar");
+        // removed other assertion
         cache.remove("foo");
+        // removed other assertion
 
         cache.putAll(new HashMap<String, String>() {{
             put("a", "b");
@@ -102,13 +112,18 @@ public class CacheWriterAdapterTest_OE25Dev
     @Test
     public void checkWriteAllAndDeleteAll_6_oe()
     {
+        // removed other assertion
+        // removed other assertion
         cache.put("foo", "bar");
+        // removed other assertion
         cache.remove("foo");
+        // removed other assertion
 
         cache.putAll(new HashMap<String, String>() {{
             put("a", "b");
             put("b", "c");
         }});
+        // removed other assertion
         cache.removeAll(new HashSet<>(asList("a", "b")));
         assertTrue(copy.isEmpty());
     }

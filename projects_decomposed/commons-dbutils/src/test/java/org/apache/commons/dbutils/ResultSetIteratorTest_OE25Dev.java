@@ -52,6 +52,7 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
         assertEquals(COLS, row.length);
     }
@@ -61,7 +62,9 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
         assertEquals("1", row[0]);
     }
 
@@ -70,7 +73,10 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", row[1]);
     }
 
@@ -79,7 +85,11 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("THREE", row[2]);
     }
 
@@ -88,7 +98,12 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(iter.hasNext());
     }
@@ -98,8 +113,14 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
         assertEquals(COLS, row.length);
     }
@@ -109,9 +130,16 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
         assertEquals("4", row[0]);
     }
@@ -121,10 +149,18 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("5", row[1]);
     }
 
@@ -133,10 +169,19 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("SIX", row[2]);
     }
 
@@ -145,10 +190,20 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
         Object[] row = null;
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         row = iter.next();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse(iter.hasNext());
     }
@@ -162,6 +217,7 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
 
         try {
             resultSetIterator.rethrow(sQLException);
+            // removed other assertion
         } catch(RuntimeException e) {
             assertEquals(ResultSetIterator.class.getName(), e.getStackTrace()[0].getClassName());
     }

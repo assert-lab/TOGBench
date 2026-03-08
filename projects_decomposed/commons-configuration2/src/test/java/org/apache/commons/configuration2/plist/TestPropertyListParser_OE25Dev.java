@@ -42,24 +42,34 @@ public class TestPropertyListParser_OE25Dev {
     @Test
     public void testFilterData_2_oe() throws Exception {
         final byte[] expected = {0x20, 0x20};
+        // removed other assertion
         ArrayAssert.assertEquals("data with < >", expected, parser.filterData("<2020>"));
     }
 
     @Test
     public void testFilterData_3_oe() throws Exception {
         final byte[] expected = {0x20, 0x20};
+        // removed other assertion
+        // removed other assertion
         ArrayAssert.assertEquals("data without < >", expected, parser.filterData("2020"));
     }
 
     @Test
     public void testFilterData_4_oe() throws Exception {
         final byte[] expected = {0x20, 0x20};
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         ArrayAssert.assertEquals("data with space", expected, parser.filterData("20 20"));
     }
 
     @Test
     public void testFilterData_5_oe() throws Exception {
         final byte[] expected = {0x20, 0x20};
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         ArrayAssert.assertEquals("odd length", new byte[] {9, 0x20}, parser.filterData("920"));
     }
 
@@ -85,21 +95,31 @@ public class TestPropertyListParser_OE25Dev {
 
     @Test
     public void testRemoveQuotes_2_oe() {
+        // removed other assertion
         assertEquals("quoted string", "abc", parser.removeQuotes("\"abc\""));
     }
 
     @Test
     public void testRemoveQuotes_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals("empty quotes", "", parser.removeQuotes("\"\""));
     }
 
     @Test
     public void testRemoveQuotes_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("empty string", "", parser.removeQuotes(""));
     }
 
     @Test
     public void testRemoveQuotes_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("null string", parser.removeQuotes(null));
     }
 
@@ -110,6 +130,7 @@ public class TestPropertyListParser_OE25Dev {
 
     @Test
     public void testUnescapeQuotes_2_oe() {
+        // removed other assertion
         assertEquals("escaped quotes", "aaa\"bbb\"ccc", parser.unescapeQuotes("aaa\\\"bbb\\\"ccc"));
     }
 

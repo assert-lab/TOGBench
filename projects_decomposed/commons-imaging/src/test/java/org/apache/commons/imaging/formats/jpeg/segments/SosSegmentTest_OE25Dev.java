@@ -39,6 +39,7 @@ public class SosSegmentTest_OE25Dev{
       final SosSegment sosSegment = new SosSegment((-1044), byteArray);
       sosSegment.getComponents();
 
+      // removed other assertion
       assertEquals(0, sosSegment.successiveApproximationBitLow);
   }
 
@@ -55,6 +56,7 @@ public class SosSegmentTest_OE25Dev{
       final byte[] byteArray = new byte[5];
       final SosSegment sosSegment = new SosSegment((-1044), byteArray);
 
+      // removed other assertion
       assertEquals(0, sosSegment.successiveApproximationBitHigh);
   }
 
@@ -63,6 +65,8 @@ public class SosSegmentTest_OE25Dev{
       final byte[] byteArray = new byte[5];
       final SosSegment sosSegment = new SosSegment((-1044), byteArray);
 
+      // removed other assertion
+      // removed other assertion
 
       assertEquals("[Segment: SOS (Unknown)]", sosSegment.toString());
   }

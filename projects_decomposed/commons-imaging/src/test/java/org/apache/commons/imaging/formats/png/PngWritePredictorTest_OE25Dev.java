@@ -79,6 +79,7 @@ public class PngWritePredictorTest_OE25Dev {
   void testWriteWithPredictor_1_oe() {
     int[] argb = populateARGB();
 
+    // Test the RGB (no alpha) case ---------------------
     BufferedImage bImage = new BufferedImage(256, 256, BufferedImage.TYPE_INT_RGB);
     bImage.setRGB(0, 0, 256, 256, argb, 0, 256);
 
@@ -95,6 +96,7 @@ public class PngWritePredictorTest_OE25Dev {
   void testWriteWithPredictor_2_oe() {
     int[] argb = populateARGB();
 
+    // Test the RGB (no alpha) case ---------------------
     BufferedImage bImage = new BufferedImage(256, 256, BufferedImage.TYPE_INT_RGB);
     bImage.setRGB(0, 0, 256, 256, argb, 0, 256);
 
@@ -103,6 +105,7 @@ public class PngWritePredictorTest_OE25Dev {
     try {
       tempFile = File.createTempFile("PngWritePredictorRGB", ".png");
     } catch (IOException ioex) {
+      // removed other assertion
     }
     PngImagingParameters params = new PngImagingParameters();
     params.setPredictorEnabled(true);
@@ -119,6 +122,7 @@ public class PngWritePredictorTest_OE25Dev {
   void testWriteWithPredictor_4_oe() {
     int[] argb = populateARGB();
 
+    // Test the RGB (no alpha) case ---------------------
     BufferedImage bImage = new BufferedImage(256, 256, BufferedImage.TYPE_INT_RGB);
     bImage.setRGB(0, 0, 256, 256, argb, 0, 256);
 
@@ -127,6 +131,7 @@ public class PngWritePredictorTest_OE25Dev {
     try {
       tempFile = File.createTempFile("PngWritePredictorRGB", ".png");
     } catch (IOException ioex) {
+      // removed other assertion
     }
     PngImagingParameters params = new PngImagingParameters();
     params.setPredictorEnabled(true);
@@ -135,12 +140,14 @@ public class PngWritePredictorTest_OE25Dev {
       parser.writeImage(bImage, bos, params);
       bos.flush();
     } catch (IOException | ImageWriteException ex) {
+      // removed other assertion
     }
 
     try {
       int[] brgb = new int[256 * 256];
       bImage = ImageIO.read(tempFile);
       bImage.getRGB(0, 0, 256, 256, brgb, 0, 256);
+      // removed other assertion
     } catch (IOException ex) {
       fail("Failed reading RGB with exception " + ex.getMessage());
   }
@@ -150,6 +157,7 @@ public class PngWritePredictorTest_OE25Dev {
   void testWriteWithPredictor_5_oe() {
     int[] argb = populateARGB();
 
+    // Test the RGB (no alpha) case ---------------------
     BufferedImage bImage = new BufferedImage(256, 256, BufferedImage.TYPE_INT_RGB);
     bImage.setRGB(0, 0, 256, 256, argb, 0, 256);
 
@@ -158,6 +166,7 @@ public class PngWritePredictorTest_OE25Dev {
     try {
       tempFile = File.createTempFile("PngWritePredictorRGB", ".png");
     } catch (IOException ioex) {
+      // removed other assertion
     }
     PngImagingParameters params = new PngImagingParameters();
     params.setPredictorEnabled(true);
@@ -166,15 +175,19 @@ public class PngWritePredictorTest_OE25Dev {
       parser.writeImage(bImage, bos, params);
       bos.flush();
     } catch (IOException | ImageWriteException ex) {
+      // removed other assertion
     }
 
     try {
       int[] brgb = new int[256 * 256];
       bImage = ImageIO.read(tempFile);
       bImage.getRGB(0, 0, 256, 256, brgb, 0, 256);
+      // removed other assertion
     } catch (IOException ex) {
+      // removed other assertion
     }
 
+     // Test the ARGB (some semi-transparent alpha) case ---------------------
     for (int i = 0; i < 256; i++) {
       argb[i * 256 + i] &= 0x88ffffff;
     }
@@ -192,6 +205,7 @@ public class PngWritePredictorTest_OE25Dev {
   void testWriteWithPredictor_7_oe() {
     int[] argb = populateARGB();
 
+    // Test the RGB (no alpha) case ---------------------
     BufferedImage bImage = new BufferedImage(256, 256, BufferedImage.TYPE_INT_RGB);
     bImage.setRGB(0, 0, 256, 256, argb, 0, 256);
 
@@ -200,6 +214,7 @@ public class PngWritePredictorTest_OE25Dev {
     try {
       tempFile = File.createTempFile("PngWritePredictorRGB", ".png");
     } catch (IOException ioex) {
+      // removed other assertion
     }
     PngImagingParameters params = new PngImagingParameters();
     params.setPredictorEnabled(true);
@@ -208,15 +223,19 @@ public class PngWritePredictorTest_OE25Dev {
       parser.writeImage(bImage, bos, params);
       bos.flush();
     } catch (IOException | ImageWriteException ex) {
+      // removed other assertion
     }
 
     try {
       int[] brgb = new int[256 * 256];
       bImage = ImageIO.read(tempFile);
       bImage.getRGB(0, 0, 256, 256, brgb, 0, 256);
+      // removed other assertion
     } catch (IOException ex) {
+      // removed other assertion
     }
 
+     // Test the ARGB (some semi-transparent alpha) case ---------------------
     for (int i = 0; i < 256; i++) {
       argb[i * 256 + i] &= 0x88ffffff;
     }
@@ -226,11 +245,13 @@ public class PngWritePredictorTest_OE25Dev {
       parser.writeImage(bImage, bos, params);
       bos.flush();
     } catch (IOException | ImageWriteException ex) {
+      // removed other assertion
     }
     try {
       int[] brgb = new int[256 * 256];
       bImage = ImageIO.read(tempFile);
       bImage.getRGB(0, 0, 256, 256, brgb, 0, 256);
+      // removed other assertion
     } catch (IOException ex) {
       fail("Failed reading ARGB with exception " + ex.getMessage());
   }

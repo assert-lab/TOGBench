@@ -189,6 +189,7 @@ public class TestDefaultBeanFactory_OE25Dev {
         props.put("throwExceptionOnMissing", Boolean.TRUE);
         decl.setBeanProperties(props);
         final Object bean = factory.createBean(createBcc(PropertiesConfiguration.class, decl));
+        // removed other assertion
         assertEquals("Bean is of wrong class", PropertiesConfiguration.class, bean.getClass());
     }
 
@@ -199,6 +200,8 @@ public class TestDefaultBeanFactory_OE25Dev {
         props.put("throwExceptionOnMissing", Boolean.TRUE);
         decl.setBeanProperties(props);
         final Object bean = factory.createBean(createBcc(PropertiesConfiguration.class, decl));
+        // removed other assertion
+        // removed other assertion
         final PropertiesConfiguration config = (PropertiesConfiguration) bean;
         assertTrue("Bean was not initialized", config.isThrowExceptionOnMissing());
     }
@@ -222,6 +225,7 @@ public class TestDefaultBeanFactory_OE25Dev {
         args.add(ConstructorArg.forValue("42"));
         decl.setConstructorArgs(args);
         final BeanCreationTestCtorBean bean = (BeanCreationTestCtorBean) factory.createBean(createBcc(BeanCreationTestCtorBean.class, decl));
+        // removed other assertion
         assertEquals("Wrong int property", 42, bean.getIntValue());
     }
 
@@ -248,6 +252,7 @@ public class TestDefaultBeanFactory_OE25Dev {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         decl.setConstructorArgs(Collections.singleton(ConstructorArg.forBeanDeclaration(declNested, BeanCreationTestBean.class.getName())));
         final BeanCreationTestCtorBean bean = (BeanCreationTestCtorBean) factory.createBean(createBcc(BeanCreationTestCtorBean.class, decl));
+        // removed other assertion
         assertEquals("Wrong property of buddy bean", "test", bean.getBuddy().getStringValue());
     }
 
@@ -277,6 +282,7 @@ public class TestDefaultBeanFactory_OE25Dev {
         decl.setConstructorArgs(args);
         final Constructor<BeanCreationTestCtorBean> ctor = DefaultBeanFactory.findMatchingConstructor(BeanCreationTestCtorBean.class, decl);
         final Class<?>[] paramTypes = ctor.getParameterTypes();
+        // removed other assertion
         assertEquals("Wrong parameter type 1", String.class, paramTypes[0]);
     }
 
@@ -289,6 +295,8 @@ public class TestDefaultBeanFactory_OE25Dev {
         decl.setConstructorArgs(args);
         final Constructor<BeanCreationTestCtorBean> ctor = DefaultBeanFactory.findMatchingConstructor(BeanCreationTestCtorBean.class, decl);
         final Class<?>[] paramTypes = ctor.getParameterTypes();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong parameter type 2", Integer.TYPE, paramTypes[1]);
     }
 
@@ -311,6 +319,7 @@ public class TestDefaultBeanFactory_OE25Dev {
         decl.setConstructorArgs(args);
         final Constructor<BeanCreationTestCtorBean> ctor = DefaultBeanFactory.findMatchingConstructor(BeanCreationTestCtorBean.class, decl);
         final Class<?>[] paramTypes = ctor.getParameterTypes();
+        // removed other assertion
         assertEquals("Wrong parameter type", BeanCreationTestBean.class, paramTypes[0]);
     }
 
@@ -329,6 +338,7 @@ public class TestDefaultBeanFactory_OE25Dev {
         decl.setConstructorArgs(args);
         try {
             DefaultBeanFactory.findMatchingConstructor(BeanCreationTestCtorBean.class, decl);
+            // removed other assertion
         } catch (final ConfigurationRuntimeException crex) {
             final String msg = crex.getMessage();
             assertTrue("Bean class not found:" + msg, msg.indexOf(BeanCreationTestCtorBean.class.getName()) > 0);
@@ -343,8 +353,10 @@ public class TestDefaultBeanFactory_OE25Dev {
         decl.setConstructorArgs(args);
         try {
             DefaultBeanFactory.findMatchingConstructor(BeanCreationTestCtorBean.class, decl);
+            // removed other assertion
         } catch (final ConfigurationRuntimeException crex) {
             final String msg = crex.getMessage();
+            // removed other assertion
             assertTrue("Parameter value not found: " + msg, msg.indexOf(TEST_STRING) > 0);
     }
     }
@@ -357,8 +369,11 @@ public class TestDefaultBeanFactory_OE25Dev {
         decl.setConstructorArgs(args);
         try {
             DefaultBeanFactory.findMatchingConstructor(BeanCreationTestCtorBean.class, decl);
+            // removed other assertion
         } catch (final ConfigurationRuntimeException crex) {
             final String msg = crex.getMessage();
+            // removed other assertion
+            // removed other assertion
             assertTrue("Parameter type not found: " + msg, msg.indexOf("(" + getClass().getName() + ')') > 0);
     }
     }

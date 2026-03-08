@@ -342,6 +342,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
                         PropertiesConfiguration.class)
                         .configure(new FileBasedBuilderParametersImpl()
                                 .setFile(file));
+        // removed other assertion
         builder.setAutoSave(true);
         assertTrue("Auto save not enabled", builder.isAutoSave());
     }
@@ -412,6 +413,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         builder.reset();
         builder.configure(new FileBasedBuilderParametersImpl().setFile(file1));
         PropertiesConfiguration config = builder.getConfiguration();
+        // removed other assertion
         builder.getFileHandler().setFile(file2);
         builder.resetResult();
         config = builder.getConfiguration();
@@ -448,6 +450,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         final FileBasedConfigurationBuilder<PropertiesConfiguration> builder = new FileBasedConfigurationBuilder<>(PropertiesConfiguration.class)
             .configure(new FileBasedBuilderParametersImpl().setFile(file));
         final PropertiesConfiguration config = builder.getConfiguration();
+        // removed other assertion
         assertSame("FileHandler not initialized", config, builder.getFileHandler().getContent());
     }
 
@@ -472,6 +475,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         params.put("throwExceptionOnMissing", Boolean.TRUE);
         final FileBasedConfigurationBuilder<PropertiesConfiguration> builder = new FileBasedConfigurationBuilder<>(PropertiesConfiguration.class, params);
         final PropertiesConfiguration conf = builder.getConfiguration();
+        // removed other assertion
         assertTrue("Not empty", conf.isEmpty());
     }
 
@@ -490,6 +494,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         final String encoding = "testEncoding";
         FileBasedConfigurationBuilder.setDefaultEncoding(Configuration.class,
                 encoding);
+        // removed other assertion
         FileBasedConfigurationBuilder.setDefaultEncoding(Configuration.class,
                 null);
         assertNull("Default encoding not removed",FileBasedConfigurationBuilder .getDefaultEncoding(XMLConfiguration.class));
@@ -592,6 +597,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         final PropertiesConfiguration config = builder.getConfiguration();
         builder.resetResult();
         final PropertiesConfiguration config2 = builder.getConfiguration();
+        // removed other assertion
         assertEquals("Not read from file", 1, config2.getInt(PROP));
     }
 
@@ -622,6 +628,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         builder.getConfiguration();
         builder.reset();
         final PropertiesConfiguration config = builder.getConfiguration();
+        // removed other assertion
         assertFalse("FileHandler has location",builder.getFileHandler().isLocationDefined());
     }
 

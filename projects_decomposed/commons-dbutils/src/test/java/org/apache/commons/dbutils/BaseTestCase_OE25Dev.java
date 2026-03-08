@@ -132,6 +132,7 @@ public class BaseTestCase_OE25Dev extends TestCase {
     }
 
     public void testCheckDataSizes_2_oe() {
+        // removed other assertion
         assertEquals("Row 1 must contain correct number of columns", columnNames.length, row2.length);
     }
 

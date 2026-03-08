@@ -107,6 +107,7 @@ public class ByteBufferCapacityTest_OE25Dev extends AbstractBasicTest {
 
       }).get();
 
+      // removed other assertion
       assertEquals(response.getStatusCode(), 200);
   }
   }
@@ -126,6 +127,8 @@ public class ByteBufferCapacityTest_OE25Dev extends AbstractBasicTest {
 
       }).get();
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(byteReceived.get(), largeFile.length());
   }
   }
@@ -145,6 +148,9 @@ public class ByteBufferCapacityTest_OE25Dev extends AbstractBasicTest {
 
       }).get();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(response.getResponseBody().length(), largeFile.length());
   }
   }

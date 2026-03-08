@@ -125,7 +125,9 @@ public class PatternFileSelectorTest_OE25Dev {
     @Test
     public void testFileExtensions_2_oe() throws Exception {
         final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
+        // removed other assertion
         final String regExPrefix = ".*\\.";
+        // gather file extensions.
         final Set<String> extensionSet = new HashSet<>();
         for (final FileObject fo : foArray) {
             extensionSet.add(regExPrefix + fo.getName().getExtension());
@@ -138,13 +140,17 @@ public class PatternFileSelectorTest_OE25Dev {
     @Test
     public void testFileExtensions_3_oe() throws Exception {
         final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
+        // removed other assertion
         final String regExPrefix = ".*\\.";
+        // gather file extensions.
         final Set<String> extensionSet = new HashSet<>();
         for (final FileObject fo : foArray) {
             extensionSet.add(regExPrefix + fo.getName().getExtension());
         }
         final String message = String.format("Extensions: %s; files: %s", extensionSet.toString(),
                 Arrays.asList(foArray).toString());
+        // removed other assertion
+        // check each extension
         for (final String extension : extensionSet) {
             final FileSelector selector = new PatternFileSelector(extension);
             final FileObject[] list = BaseFolder.findFiles(selector);
@@ -155,17 +161,23 @@ public class PatternFileSelectorTest_OE25Dev {
     @Test
     public void testFileExtensions_4_oe() throws Exception {
         final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
+        // removed other assertion
         final String regExPrefix = ".*\\.";
+        // gather file extensions.
         final Set<String> extensionSet = new HashSet<>();
         for (final FileObject fo : foArray) {
             extensionSet.add(regExPrefix + fo.getName().getExtension());
         }
         final String message = String.format("Extensions: %s; files: %s", extensionSet.toString(),
                 Arrays.asList(foArray).toString());
+        // removed other assertion
+        // check each extension
         for (final String extension : extensionSet) {
             final FileSelector selector = new PatternFileSelector(extension);
             final FileObject[] list = BaseFolder.findFiles(selector);
+            // removed other assertion
         }
+        // check each file against itself
         for (final FileObject fo : foArray) {
             final FileSelector selector = new PatternFileSelector(regExPrefix + fo.getName().getExtension());
             final FileObject[] list = BaseFolder.findFiles(selector);
@@ -188,6 +200,7 @@ public class PatternFileSelectorTest_OE25Dev {
     @Test
     public void testMatchPartial_2_oe() throws Exception {
         final FileObject[] list = BaseFolder.findFiles(new PatternFileSelector(".*a.htm"));
+        // removed other assertion
         assertEquals("aa.htm", list[0].getName().getBaseName());
     }
 
@@ -200,6 +213,7 @@ public class PatternFileSelectorTest_OE25Dev {
     @Test
     public void testMatchPartialDelimited_2_oe() throws Exception {
         final FileObject[] list = BaseFolder.findFiles(new PatternFileSelector("^.*\\/b.htm$"));
+        // removed other assertion
         assertEquals("b.htm", list[0].getName().getBaseName());
     }
 

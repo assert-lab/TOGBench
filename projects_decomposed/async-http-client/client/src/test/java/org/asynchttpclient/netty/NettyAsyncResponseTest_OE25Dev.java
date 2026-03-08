@@ -31,6 +31,7 @@ public class NettyAsyncResponseTest_OE25Dev {
 
   @Test
   public void testCookieParseExpires_1_oe() {
+    // e.g. "Tue, 27 Oct 2015 12:54:24 GMT";
     SimpleDateFormat sdf = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z", Locale.US);
     sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
 
@@ -46,6 +47,7 @@ public class NettyAsyncResponseTest_OE25Dev {
 
   @Test
   public void testCookieParseExpires_2_oe() {
+    // e.g. "Tue, 27 Oct 2015 12:54:24 GMT";
     SimpleDateFormat sdf = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z", Locale.US);
     sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
 
@@ -56,6 +58,7 @@ public class NettyAsyncResponseTest_OE25Dev {
     NettyResponse response = new NettyResponse(new NettyResponseStatus(null, null, null), responseHeaders, null);
 
     List<Cookie> cookies = response.getCookies();
+    // removed other assertion
 
     Cookie cookie = cookies.get(0);
     assertTrue(cookie.maxAge() >= 58 && cookie.maxAge() <= 60);
@@ -78,6 +81,7 @@ public class NettyAsyncResponseTest_OE25Dev {
     HttpHeaders responseHeaders = new DefaultHttpHeaders().add(SET_COOKIE, cookieDef);
     NettyResponse response = new NettyResponse(new NettyResponseStatus(null, null, null), responseHeaders, null);
     List<Cookie> cookies = response.getCookies();
+    // removed other assertion
 
     Cookie cookie = cookies.get(0);
     assertEquals(cookie.maxAge(), 60);
@@ -100,6 +104,7 @@ public class NettyAsyncResponseTest_OE25Dev {
     NettyResponse response = new NettyResponse(new NettyResponseStatus(null, null, null), responseHeaders, null);
 
     List<Cookie> cookies = response.getCookies();
+    // removed other assertion
 
     Cookie cookie = cookies.get(0);
     assertEquals(cookie.maxAge(), Long.MIN_VALUE);

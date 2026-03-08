@@ -172,6 +172,7 @@ public class XmlMapperTest_OE25Dev {
 
 		System.out.println("Jaxb Xml to Object result:\n" + user);
 
+		// removed other assertion
 		assertThat(user.getInterests()).containsOnly("movie", "sports");
 	}
 
@@ -211,6 +212,7 @@ public class XmlMapperTest_OE25Dev {
 				try {
 					doc0 = DocumentHelper.parseText(xml0);
 				} catch (DocumentException e0) {
+					// removed other assertion
 				}
 				Element user0 = doc0.getRootElement();
 				assertThat(user0.attribute("id").getValue()).isEqualTo("1");

@@ -45,6 +45,7 @@ public class ArrayLiteralTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         Object o;
         o = JEXL.createExpression("[]").evaluate(jc);
+        // removed other assertion
         Assert.assertEquals(0, ((Object[]) o).length);
     }
 
@@ -53,6 +54,8 @@ public class ArrayLiteralTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         Object o;
         o = JEXL.createExpression("[]").evaluate(jc);
+        // removed other assertion
+        // removed other assertion
         o = JEXL.createExpression("[...]").evaluate(jc);
         Assert.assertTrue(o instanceof List<?>);
     }
@@ -62,7 +65,10 @@ public class ArrayLiteralTest_OE25Dev extends JexlTestCase {
         final JexlContext jc = new MapContext();
         Object o;
         o = JEXL.createExpression("[]").evaluate(jc);
+        // removed other assertion
+        // removed other assertion
         o = JEXL.createExpression("[...]").evaluate(jc);
+        // removed other assertion
         Assert.assertEquals(0, ((List<?>) o).size());
     }
 
@@ -93,6 +99,7 @@ public class ArrayLiteralTest_OE25Dev extends JexlTestCase {
 
         final Object o = e.evaluate(jc);
         final Object[] check = {"foo", "bar"};
+        // removed other assertion
         Assert.assertEquals(2, ((List<?>) o).size());
     }
 
@@ -123,6 +130,7 @@ public class ArrayLiteralTest_OE25Dev extends JexlTestCase {
 
         final Object o = e.evaluate(jc);
         final Object[] check = {new Double(5), new Integer(10)};
+        // removed other assertion
         Assert.assertTrue(o.getClass().isArray() && o.getClass().getComponentType().equals(Number.class));
     }
 
@@ -206,6 +214,7 @@ public class ArrayLiteralTest_OE25Dev extends JexlTestCase {
         jc.set("one", 1);
         jc.set("two", 2);
         final int[] o1 = (int[]) e147.evaluate(jc);
+        // removed other assertion
         Assert.assertEquals(2, o1[1]);
     }
 
@@ -217,6 +226,8 @@ public class ArrayLiteralTest_OE25Dev extends JexlTestCase {
         jc.set("one", 1);
         jc.set("two", 2);
         final int[] o1 = (int[]) e147.evaluate(jc);
+        // removed other assertion
+        // removed other assertion
 
         jc.set("one", 10);
         jc.set("two", 20);
@@ -232,10 +243,13 @@ public class ArrayLiteralTest_OE25Dev extends JexlTestCase {
         jc.set("one", 1);
         jc.set("two", 2);
         final int[] o1 = (int[]) e147.evaluate(jc);
+        // removed other assertion
+        // removed other assertion
 
         jc.set("one", 10);
         jc.set("two", 20);
         final int[] o2 = (int[]) e147.evaluate(jc);
+        // removed other assertion
         Assert.assertEquals(20, o2[1]);
     }
 

@@ -1,0 +1,49 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[352,13] cannot find symbol
+  symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[353,13] cannot find symbol
+  symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[354,13] cannot find symbol
+  symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[356,13] cannot find symbol
+  symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[358,13] cannot find symbol
+  symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[360,13] cannot find symbol
+  symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[361,13] cannot find symbol
+  symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[363,13] cannot find symbol
+  symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[365,13] cannot find symbol
+  symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[366,13] cannot find symbol
+  symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-lang3: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[352,13] cannot find symbol
+[ERROR]   symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[353,13] cannot find symbol
+[ERROR]   symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[354,13] cannot find symbol
+[ERROR]   symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[356,13] cannot find symbol
+[ERROR]   symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[358,13] cannot find symbol
+[ERROR]   symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[360,13] cannot find symbol
+[ERROR]   symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[361,13] cannot find symbol
+[ERROR]   symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[363,13] cannot find symbol
+[ERROR]   symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[365,13] cannot find symbol
+[ERROR]   symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest_OE25Dev.java:[366,13] cannot find symbol
+[ERROR]   symbol: method testCreateBigDecimalFailure(java.lang.String)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

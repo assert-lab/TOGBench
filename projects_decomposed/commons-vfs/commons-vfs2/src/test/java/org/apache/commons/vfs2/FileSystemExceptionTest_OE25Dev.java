@@ -56,6 +56,7 @@ public class FileSystemExceptionTest_OE25Dev {
         final FileSystemException fse = new FileSystemException("vfs.provider/rename.error", "file://test.bin",
                 "http://foo:bar@junit.org/test.bin");
 
+        // removed other assertion
         assertEquals("http://foo:***@junit.org/test.bin", fse.getInfo()[1]);
     }
 

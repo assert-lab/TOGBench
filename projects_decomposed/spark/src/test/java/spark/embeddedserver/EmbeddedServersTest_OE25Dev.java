@@ -58,6 +58,7 @@ public class EmbeddedServersTest_OE25Dev {
     public void testAdd_whenConfigureRoutes_createsCustomServer_1_oe() throws Exception {
         File requestLogDir = temporaryFolder.newFolder();
         File requestLogFile = new File(requestLogDir, "request.log");
+        // Register custom server
         EmbeddedServers.add(EmbeddedServers.Identifiers.JETTY, new EmbeddedJettyFactory(new JettyServerFactory() {
             @Override
             public Server create(int maxThreads, int minThreads, int threadTimeoutMillis) {

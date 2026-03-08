@@ -1,3 +1,4 @@
+# python3 scripts/remove_comments.py
 import os
 import csv
 from pathlib import Path

@@ -140,6 +140,7 @@ public class TestReloadingMultiFileConfigurationBuilder_OE25Dev extends Abstract
         final ReloadingMultiFileConfigurationBuilder<XMLConfiguration> builder = new ReloadingMultiFileConfigurationBuilder<>(XMLConfiguration.class);
         final FileBasedConfigurationBuilder<XMLConfiguration> managedBuilder = builder.createManagedBuilder("test.xml",
             createTestBuilderParameters(null).getParameters());
+        // removed other assertion
         assertFalse("Wrong flag value", managedBuilder.isAllowFailOnInit());
     }
 
@@ -182,6 +183,7 @@ public class TestReloadingMultiFileConfigurationBuilder_OE25Dev extends Abstract
         switchToConfig(2);
         builder.getConfiguration();
         final List<ReloadingController> controllers = builder.getReloadingControllers();
+        // removed other assertion
         EasyMock.reset(controllers.toArray());
         for (final ReloadingController c : controllers) {
             EasyMock.expect(c.checkForReloading(null)).andReturn(Boolean.FALSE);

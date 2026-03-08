@@ -867,6 +867,8 @@ class CStandardTest_OE25Dev {
         final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
         final ArrayList<Complex> zeroFinites = createZeroFinites();
 
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
         Assertions.assertEquals(nan, 0.0 * inf, "0 * inf");
     }
 
@@ -876,6 +878,9 @@ class CStandardTest_OE25Dev {
         final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
         final ArrayList<Complex> zeroFinites = createZeroFinites();
 
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
         Assertions.assertEquals(nan, 0.0 * negInf, "0 * -inf");
     }
 
@@ -885,6 +890,10 @@ class CStandardTest_OE25Dev {
         final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
         final ArrayList<Complex> zeroFinites = createZeroFinites();
 
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(nan, -0.0 * inf, "-0 * inf");
     }
 
@@ -894,6 +903,11 @@ class CStandardTest_OE25Dev {
         final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
         final ArrayList<Complex> zeroFinites = createZeroFinites();
 
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(nan, -0.0 * negInf, "-0 * -inf");
     }
 
@@ -904,11 +918,14 @@ class CStandardTest_OE25Dev {
 
     @Test
     void testAbs_2_oe() {
+        // removed other assertion
         Assertions.assertEquals(inf, complex(negInf, nan).abs());
     }
 
     @Test
     void testAbs_3_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
@@ -919,62 +936,97 @@ class CStandardTest_OE25Dev {
 
     @Test
     void testAbs_4_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
             final double y = next(rng);
+            // removed other assertion
             Assertions.assertEquals(complex(x, y).abs(), complex(x, -y).abs());
     }
     }
 
     @Test
     void testAbs_5_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
             final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
             Assertions.assertEquals(Math.abs(x), complex(x, 0.0).abs());
     }
     }
 
     @Test
     void testAbs_6_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
             final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             Assertions.assertEquals(Math.abs(x), complex(x, -0.0).abs());
     }
     }
 
     @Test
     void testAbs_7_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
             final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             Assertions.assertEquals(inf, complex(inf, y).abs());
     }
     }
 
     @Test
     void testAbs_8_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
             final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             Assertions.assertEquals(inf, complex(negInf, y).abs());
     }
     }
 
     @Test
     void testAbs_9_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
             final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Test verses Math.hypot due to the use of a custom implementation.
+        // First test edge cases. Use negatives to test the sign is correctly removed.
         final double[] parts = {-0.0, -Double.MIN_VALUE, -Double.MIN_NORMAL, -Double.MAX_VALUE,
             Double.NEGATIVE_INFINITY, Double.NaN};
         for (final double x : parts) {
@@ -986,19 +1038,36 @@ class CStandardTest_OE25Dev {
 
     @Test
     void testAbs_10_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
             final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Test verses Math.hypot due to the use of a custom implementation.
+        // First test edge cases. Use negatives to test the sign is correctly removed.
         final double[] parts = {-0.0, -Double.MIN_VALUE, -Double.MIN_NORMAL, -Double.MAX_VALUE,
             Double.NEGATIVE_INFINITY, Double.NaN};
         for (final double x : parts) {
             for (final double y : parts) {
+                // removed other assertion
             }
         }
 
+        // The reference fdlibm hypot implementation orders using the upper 32-bits of the double.
+        // Tests using random numbers that differ in only the lower 32-bits
+        // show a frequency of <1e-9 that the computation is not commutative: f(x, y) != f(y, x)
+        // Test known cases where ordering is required on the lower 32-bits to ensure |z| == |iz|.
+        // These cases would fail a direct fdlibm conversion of this:
+        // https://www.netlib.org/fdlibm/e_hypot.c
         for (final double[] pair : new double[][] {
                 {1.3122561682406755, 1.3122565442732959},
                 {1.40905821964671, 1.4090583434236112},
@@ -1012,6 +1081,7 @@ class CStandardTest_OE25Dev {
     void testSqrt1_1_oe_1_oe() {
                 final Complex c10 = complex(-2.0, 0.0).sqrt();
         final Complex c20 = complex(0.0, Math.sqrt(2));
+        // Use a delta of zero to allow comparison of -0.0 to 0.0
                 Assertions.assertEquals(c20.getReal(), c10.getReal(), 0.0, "real");
     }
 
@@ -1019,20 +1089,27 @@ class CStandardTest_OE25Dev {
     void testSqrt1_1_oe_2_oe() {
                 final Complex c10 = complex(-2.0, 0.0).sqrt();
         final Complex c20 = complex(0.0, Math.sqrt(2));
+        // Use a delta of zero to allow comparison of -0.0 to 0.0
+                // removed other assertion
                 Assertions.assertEquals(c20.getImaginary(), c10.getImaginary(), 0.0, "imaginary");
     }
 
     @Test
     void testSqrt1_2_oe_1_oe() {
+        // removed other assertion
                 final Complex c10 = complex(-2.0, -0.0).sqrt();
         final Complex c20 = complex(0.0, -Math.sqrt(2));
+        // Use a delta of zero to allow comparison of -0.0 to 0.0
                 Assertions.assertEquals(c20.getReal(), c10.getReal(), 0.0, "real");
     }
 
     @Test
     void testSqrt1_2_oe_2_oe() {
+        // removed other assertion
                 final Complex c10 = complex(-2.0, -0.0).sqrt();
         final Complex c20 = complex(0.0, -Math.sqrt(2));
+        // Use a delta of zero to allow comparison of -0.0 to 0.0
+                // removed other assertion
                 Assertions.assertEquals(c20.getImaginary(), c10.getImaginary(), 0.0, "imaginary");
     }
 
@@ -1046,6 +1123,7 @@ class CStandardTest_OE25Dev {
             final Complex iz = z.multiplyImaginary(1);
                         final Complex c10 = z.asin();
             final Complex c20 = iz.asinh().multiplyImaginary(-1);
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
                     Assertions.assertEquals(c20.getReal(), c10.getReal(), 0.0, "real");
     }
     }
@@ -1060,6 +1138,8 @@ class CStandardTest_OE25Dev {
             final Complex iz = z.multiplyImaginary(1);
                         final Complex c10 = z.asin();
             final Complex c20 = iz.asinh().multiplyImaginary(-1);
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
+                    // removed other assertion
                     Assertions.assertEquals(c20.getImaginary(), c10.getImaginary(), 0.0, "imaginary");
     }
     }
@@ -1072,8 +1152,10 @@ class CStandardTest_OE25Dev {
             final double im = next(rng);
             final Complex z = complex(re, im);
             final Complex iz = z.multiplyImaginary(1);
+            // removed other assertion
                         final Complex c10 = z.atan();
             final Complex c20 = iz.atanh().multiplyImaginary(-1);
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
                     Assertions.assertEquals(c20.getReal(), c10.getReal(), 0.0, "real");
     }
     }
@@ -1086,8 +1168,11 @@ class CStandardTest_OE25Dev {
             final double im = next(rng);
             final Complex z = complex(re, im);
             final Complex iz = z.multiplyImaginary(1);
+            // removed other assertion
                         final Complex c10 = z.atan();
             final Complex c20 = iz.atanh().multiplyImaginary(-1);
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
+                    // removed other assertion
                     Assertions.assertEquals(c20.getImaginary(), c10.getImaginary(), 0.0, "imaginary");
     }
     }
@@ -1100,8 +1185,11 @@ class CStandardTest_OE25Dev {
             final double im = next(rng);
             final Complex z = complex(re, im);
             final Complex iz = z.multiplyImaginary(1);
+            // removed other assertion
+            // removed other assertion
                         final Complex c10 = z.cos();
             final Complex c20 = iz.cosh();
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
                     Assertions.assertEquals(c20.getReal(), c10.getReal(), 0.0, "real");
     }
     }
@@ -1114,8 +1202,12 @@ class CStandardTest_OE25Dev {
             final double im = next(rng);
             final Complex z = complex(re, im);
             final Complex iz = z.multiplyImaginary(1);
+            // removed other assertion
+            // removed other assertion
                         final Complex c10 = z.cos();
             final Complex c20 = iz.cosh();
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
+                    // removed other assertion
                     Assertions.assertEquals(c20.getImaginary(), c10.getImaginary(), 0.0, "imaginary");
     }
     }
@@ -1128,8 +1220,12 @@ class CStandardTest_OE25Dev {
             final double im = next(rng);
             final Complex z = complex(re, im);
             final Complex iz = z.multiplyImaginary(1);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
                         final Complex c10 = z.sin();
             final Complex c20 = iz.sinh().multiplyImaginary(-1);
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
                     Assertions.assertEquals(c20.getReal(), c10.getReal(), 0.0, "real");
     }
     }
@@ -1142,8 +1238,13 @@ class CStandardTest_OE25Dev {
             final double im = next(rng);
             final Complex z = complex(re, im);
             final Complex iz = z.multiplyImaginary(1);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
                         final Complex c10 = z.sin();
             final Complex c20 = iz.sinh().multiplyImaginary(-1);
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
+                    // removed other assertion
                     Assertions.assertEquals(c20.getImaginary(), c10.getImaginary(), 0.0, "imaginary");
     }
     }
@@ -1156,8 +1257,13 @@ class CStandardTest_OE25Dev {
             final double im = next(rng);
             final Complex z = complex(re, im);
             final Complex iz = z.multiplyImaginary(1);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
                         final Complex c10 = z.tan();
             final Complex c20 = iz.tanh().multiplyImaginary(-1);
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
                     Assertions.assertEquals(c20.getReal(), c10.getReal(), 0.0, "real");
     }
     }
@@ -1170,8 +1276,14 @@ class CStandardTest_OE25Dev {
             final double im = next(rng);
             final Complex z = complex(re, im);
             final Complex iz = z.multiplyImaginary(1);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
                         final Complex c10 = z.tan();
             final Complex c20 = iz.tanh().multiplyImaginary(-1);
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
+                    // removed other assertion
                     Assertions.assertEquals(c20.getImaginary(), c10.getImaginary(), 0.0, "imaginary");
     }
     }
@@ -1180,10 +1292,14 @@ class CStandardTest_OE25Dev {
     void testAcos_1_oe_1_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
                             assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
     }
@@ -1195,14 +1311,20 @@ class CStandardTest_OE25Dev {
     void testAcos_1_oe_2_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
+                            // removed other assertion
                         }
                     }
                 }
+                // Random numbers
                 final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
                 for (int i0 = 0; i0 < 100; i0++) {
                     final double x0 = next(rng0);
@@ -1215,10 +1337,14 @@ class CStandardTest_OE25Dev {
     void testAcosh_1_oe_1_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
                             assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
     }
@@ -1230,14 +1356,20 @@ class CStandardTest_OE25Dev {
     void testAcosh_1_oe_2_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
+                            // removed other assertion
                         }
                     }
                 }
+                // Random numbers
                 final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
                 for (int i0 = 0; i0 < 100; i0++) {
                     final double x0 = next(rng0);
@@ -1251,10 +1383,14 @@ class CStandardTest_OE25Dev {
         final UnaryOperator<Complex> operation = Complex::asinh;
         final FunctionType type = FunctionType.ODD;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
                             assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
     }
@@ -1267,14 +1403,20 @@ class CStandardTest_OE25Dev {
         final UnaryOperator<Complex> operation = Complex::asinh;
         final FunctionType type = FunctionType.ODD;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
+                            // removed other assertion
                         }
                     }
                 }
+                // Random numbers
                 final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
                 for (int i0 = 0; i0 < 100; i0++) {
                     final double x0 = next(rng0);
@@ -1287,12 +1429,19 @@ class CStandardTest_OE25Dev {
     void testAsinh_2_oe_1_oe() {
         final UnaryOperator<Complex> operation = Complex::asinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
                 final UnaryOperator<Complex> operation0 = operation;
         final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
                 if (type0 == FunctionType.NONE) {
                     return;
                 }
         
+                // Edge cases around zero.
                 final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
@@ -1305,17 +1454,26 @@ class CStandardTest_OE25Dev {
     void testAsinh_2_oe_2_oe() {
         final UnaryOperator<Complex> operation = Complex::asinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
                 final UnaryOperator<Complex> operation0 = operation;
         final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
                 if (type0 == FunctionType.NONE) {
                     return;
                 }
         
+                // Edge cases around zero.
                 final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // removed other assertion
                     }
                 }
+                // Random numbers
                 final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
                 for (int i0 = 0; i0 < 100; i0++) {
                     final double x0 = next(rng0);
@@ -1329,10 +1487,14 @@ class CStandardTest_OE25Dev {
         final UnaryOperator<Complex> operation = Complex::atanh;
         final FunctionType type = FunctionType.ODD;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
                             assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
     }
@@ -1345,14 +1507,20 @@ class CStandardTest_OE25Dev {
         final UnaryOperator<Complex> operation = Complex::atanh;
         final FunctionType type = FunctionType.ODD;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
+                            // removed other assertion
                         }
                     }
                 }
+                // Random numbers
                 final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
                 for (int i0 = 0; i0 < 100; i0++) {
                     final double x0 = next(rng0);
@@ -1365,12 +1533,19 @@ class CStandardTest_OE25Dev {
     void testAtanh_2_oe_1_oe() {
         final UnaryOperator<Complex> operation = Complex::atanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
                 final UnaryOperator<Complex> operation0 = operation;
         final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
                 if (type0 == FunctionType.NONE) {
                     return;
                 }
         
+                // Edge cases around zero.
                 final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
@@ -1383,17 +1558,26 @@ class CStandardTest_OE25Dev {
     void testAtanh_2_oe_2_oe() {
         final UnaryOperator<Complex> operation = Complex::atanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
                 final UnaryOperator<Complex> operation0 = operation;
         final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
                 if (type0 == FunctionType.NONE) {
                     return;
                 }
         
+                // Edge cases around zero.
                 final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // removed other assertion
                     }
                 }
+                // Random numbers
                 final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
                 for (int i0 = 0; i0 < 100; i0++) {
                     final double x0 = next(rng0);
@@ -1407,10 +1591,14 @@ class CStandardTest_OE25Dev {
         final UnaryOperator<Complex> operation = Complex::cosh;
         final FunctionType type = FunctionType.EVEN;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
                             assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
     }
@@ -1423,14 +1611,20 @@ class CStandardTest_OE25Dev {
         final UnaryOperator<Complex> operation = Complex::cosh;
         final FunctionType type = FunctionType.EVEN;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
+                            // removed other assertion
                         }
                     }
                 }
+                // Random numbers
                 final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
                 for (int i0 = 0; i0 < 100; i0++) {
                     final double x0 = next(rng0);
@@ -1443,12 +1637,19 @@ class CStandardTest_OE25Dev {
     void testCosh_2_oe_1_oe() {
         final UnaryOperator<Complex> operation = Complex::cosh;
         final FunctionType type = FunctionType.EVEN;
+        // removed other assertion
                 final UnaryOperator<Complex> operation0 = operation;
         final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
                 if (type0 == FunctionType.NONE) {
                     return;
                 }
         
+                // Edge cases around zero.
                 final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
@@ -1461,17 +1662,26 @@ class CStandardTest_OE25Dev {
     void testCosh_2_oe_2_oe() {
         final UnaryOperator<Complex> operation = Complex::cosh;
         final FunctionType type = FunctionType.EVEN;
+        // removed other assertion
                 final UnaryOperator<Complex> operation0 = operation;
         final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
                 if (type0 == FunctionType.NONE) {
                     return;
                 }
         
+                // Edge cases around zero.
                 final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // removed other assertion
                     }
                 }
+                // Random numbers
                 final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
                 for (int i0 = 0; i0 < 100; i0++) {
                     final double x0 = next(rng0);
@@ -1485,10 +1695,14 @@ class CStandardTest_OE25Dev {
         final UnaryOperator<Complex> operation = Complex::sinh;
         final FunctionType type = FunctionType.ODD;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
                             assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
     }
@@ -1501,14 +1715,20 @@ class CStandardTest_OE25Dev {
         final UnaryOperator<Complex> operation = Complex::sinh;
         final FunctionType type = FunctionType.ODD;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
+                            // removed other assertion
                         }
                     }
                 }
+                // Random numbers
                 final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
                 for (int i0 = 0; i0 < 100; i0++) {
                     final double x0 = next(rng0);
@@ -1521,12 +1741,19 @@ class CStandardTest_OE25Dev {
     void testSinh_2_oe_1_oe() {
         final UnaryOperator<Complex> operation = Complex::sinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
                 final UnaryOperator<Complex> operation0 = operation;
         final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
                 if (type0 == FunctionType.NONE) {
                     return;
                 }
         
+                // Edge cases around zero.
                 final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
@@ -1539,17 +1766,26 @@ class CStandardTest_OE25Dev {
     void testSinh_2_oe_2_oe() {
         final UnaryOperator<Complex> operation = Complex::sinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
                 final UnaryOperator<Complex> operation0 = operation;
         final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
                 if (type0 == FunctionType.NONE) {
                     return;
                 }
         
+                // Edge cases around zero.
                 final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // removed other assertion
                     }
                 }
+                // Random numbers
                 final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
                 for (int i0 = 0; i0 < 100; i0++) {
                     final double x0 = next(rng0);
@@ -1563,10 +1799,14 @@ class CStandardTest_OE25Dev {
         final UnaryOperator<Complex> operation = Complex::tanh;
         final FunctionType type = FunctionType.ODD;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
                             assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
     }
@@ -1579,14 +1819,20 @@ class CStandardTest_OE25Dev {
         final UnaryOperator<Complex> operation = Complex::tanh;
         final FunctionType type = FunctionType.ODD;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
+                            // removed other assertion
                         }
                     }
                 }
+                // Random numbers
                 final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
                 for (int i0 = 0; i0 < 100; i0++) {
                     final double x0 = next(rng0);
@@ -1599,12 +1845,19 @@ class CStandardTest_OE25Dev {
     void testTanh_2_oe_1_oe() {
         final UnaryOperator<Complex> operation = Complex::tanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
                 final UnaryOperator<Complex> operation0 = operation;
         final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
                 if (type0 == FunctionType.NONE) {
                     return;
                 }
         
+                // Edge cases around zero.
                 final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
@@ -1617,17 +1870,26 @@ class CStandardTest_OE25Dev {
     void testTanh_2_oe_2_oe() {
         final UnaryOperator<Complex> operation = Complex::tanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
                 final UnaryOperator<Complex> operation0 = operation;
         final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
                 if (type0 == FunctionType.NONE) {
                     return;
                 }
         
+                // Edge cases around zero.
                 final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // removed other assertion
                     }
                 }
+                // Random numbers
                 final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
                 for (int i0 = 0; i0 < 100; i0++) {
                     final double x0 = next(rng0);
@@ -1640,10 +1902,14 @@ class CStandardTest_OE25Dev {
     void testExp_1_oe_1_oe() {
         final UnaryOperator<Complex> operation = Complex::exp;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
                             assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
     }
@@ -1655,14 +1921,20 @@ class CStandardTest_OE25Dev {
     void testExp_1_oe_2_oe() {
         final UnaryOperator<Complex> operation = Complex::exp;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
+                            // removed other assertion
                         }
                     }
                 }
+                // Random numbers
                 final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
                 for (int i0 = 0; i0 < 100; i0++) {
                     final double x0 = next(rng0);
@@ -1675,10 +1947,14 @@ class CStandardTest_OE25Dev {
     void testLog_1_oe_1_oe() {
         final UnaryOperator<Complex> operation = Complex::log;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
                             assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
     }
@@ -1690,14 +1966,20 @@ class CStandardTest_OE25Dev {
     void testLog_1_oe_2_oe() {
         final UnaryOperator<Complex> operation = Complex::log;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
+                            // removed other assertion
                         }
                     }
                 }
+                // Random numbers
                 final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
                 for (int i0 = 0; i0 < 100; i0++) {
                     final double x0 = next(rng0);
@@ -1710,10 +1992,14 @@ class CStandardTest_OE25Dev {
     void testLog10_1_oe_1_oe() {
         final UnaryOperator<Complex> operation = Complex::log10;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
                             assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
     }
@@ -1725,14 +2011,20 @@ class CStandardTest_OE25Dev {
     void testLog10_1_oe_2_oe() {
         final UnaryOperator<Complex> operation = Complex::log10;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
+                            // removed other assertion
                         }
                     }
                 }
+                // Random numbers
                 final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
                 for (int i0 = 0; i0 < 100; i0++) {
                     final double x0 = next(rng0);
@@ -1745,10 +2037,14 @@ class CStandardTest_OE25Dev {
     void testSqrt_1_oe_1_oe() {
         final UnaryOperator<Complex> operation = Complex::sqrt;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
                             assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
     }
@@ -1760,14 +2056,20 @@ class CStandardTest_OE25Dev {
     void testSqrt_1_oe_2_oe() {
         final UnaryOperator<Complex> operation = Complex::sqrt;
                 final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
                 final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
                                         Double.POSITIVE_INFINITY, Double.NaN};
                 for (final double x0 : parts0) {
                     for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
                         if (!Double.isNaN(y0)) {
+                            // removed other assertion
                         }
                     }
                 }
+                // Random numbers
                 final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
                 for (int i0 = 0; i0 < 100; i0++) {
                     final double x0 = next(rng0);
@@ -1778,235 +2080,556 @@ class CStandardTest_OE25Dev {
 
 @Test
     void testAbs_11_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
             final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Test verses Math.hypot due to the use of a custom implementation.
+        // First test edge cases. Use negatives to test the sign is correctly removed.
         final double[] parts = {-0.0, -Double.MIN_VALUE, -Double.MIN_NORMAL, -Double.MAX_VALUE,
             Double.NEGATIVE_INFINITY, Double.NaN};
         for (final double x : parts) {
             for (final double y : parts) {
+                // removed other assertion
             }
         }
 
+        // The reference fdlibm hypot implementation orders using the upper 32-bits of the double.
+        // Tests using random numbers that differ in only the lower 32-bits
+        // show a frequency of <1e-9 that the computation is not commutative: f(x, y) != f(y, x)
+        // Test known cases where ordering is required on the lower 32-bits to ensure |z| == |iz|.
+        // These cases would fail a direct fdlibm conversion of this:
+        // https://www.netlib.org/fdlibm/e_hypot.c
         for (final double[] pair : new double[][] {
                 {1.3122561682406755, 1.3122565442732959},
                 {1.40905821964671, 1.4090583434236112},
                 {1.912164268932753, 1.9121638616231227}}) {
             final Complex z = complex(pair[0], pair[1]);
+            // removed other assertion
         }
 
+        // Test with a range of numbers.
+        // Sub-normals require special handling so we use different variations of these to
+        // ensure they are handled correctly.
+        // Note:
+        // 1 ULP differences with Math.hypot can be observed due to the different implementations.
+        // For normal numbers observable differences require billions of numbers to show a
+        // few hundred cases of lower ULPs and a magnitude smaller count of higher ULPs.
+        // For sub-normal numbers a few thousand examples can demonstrate
+        // a larger count of 1 ULP improvements than 1 ULP errors verses Math.hypot.
+        // A formal statistical test to demonstrate differences are significant is not implemented.
+        // This test simply asserts the answer is either the same as Math.hypot or else is within
+        // 1 ULP of a high precision computation.
         final int samples = 100;
         assertAbs(rng, r -> createSubNormalNumber(r, 0), r -> createSubNormalNumber(r, 0), samples);
     }
 
 @Test
     void testAbs_12_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
             final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Test verses Math.hypot due to the use of a custom implementation.
+        // First test edge cases. Use negatives to test the sign is correctly removed.
         final double[] parts = {-0.0, -Double.MIN_VALUE, -Double.MIN_NORMAL, -Double.MAX_VALUE,
             Double.NEGATIVE_INFINITY, Double.NaN};
         for (final double x : parts) {
             for (final double y : parts) {
+                // removed other assertion
             }
         }
 
+        // The reference fdlibm hypot implementation orders using the upper 32-bits of the double.
+        // Tests using random numbers that differ in only the lower 32-bits
+        // show a frequency of <1e-9 that the computation is not commutative: f(x, y) != f(y, x)
+        // Test known cases where ordering is required on the lower 32-bits to ensure |z| == |iz|.
+        // These cases would fail a direct fdlibm conversion of this:
+        // https://www.netlib.org/fdlibm/e_hypot.c
         for (final double[] pair : new double[][] {
                 {1.3122561682406755, 1.3122565442732959},
                 {1.40905821964671, 1.4090583434236112},
                 {1.912164268932753, 1.9121638616231227}}) {
             final Complex z = complex(pair[0], pair[1]);
+            // removed other assertion
         }
 
+        // Test with a range of numbers.
+        // Sub-normals require special handling so we use different variations of these to
+        // ensure they are handled correctly.
+        // Note:
+        // 1 ULP differences with Math.hypot can be observed due to the different implementations.
+        // For normal numbers observable differences require billions of numbers to show a
+        // few hundred cases of lower ULPs and a magnitude smaller count of higher ULPs.
+        // For sub-normal numbers a few thousand examples can demonstrate
+        // a larger count of 1 ULP improvements than 1 ULP errors verses Math.hypot.
+        // A formal statistical test to demonstrate differences are significant is not implemented.
+        // This test simply asserts the answer is either the same as Math.hypot or else is within
+        // 1 ULP of a high precision computation.
         final int samples = 100;
+        // removed other assertion
         assertAbs(rng, r -> createSubNormalNumber(r, 0), r -> createSubNormalNumber(r, 1), samples);
     }
 
 @Test
     void testAbs_13_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
             final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Test verses Math.hypot due to the use of a custom implementation.
+        // First test edge cases. Use negatives to test the sign is correctly removed.
         final double[] parts = {-0.0, -Double.MIN_VALUE, -Double.MIN_NORMAL, -Double.MAX_VALUE,
             Double.NEGATIVE_INFINITY, Double.NaN};
         for (final double x : parts) {
             for (final double y : parts) {
+                // removed other assertion
             }
         }
 
+        // The reference fdlibm hypot implementation orders using the upper 32-bits of the double.
+        // Tests using random numbers that differ in only the lower 32-bits
+        // show a frequency of <1e-9 that the computation is not commutative: f(x, y) != f(y, x)
+        // Test known cases where ordering is required on the lower 32-bits to ensure |z| == |iz|.
+        // These cases would fail a direct fdlibm conversion of this:
+        // https://www.netlib.org/fdlibm/e_hypot.c
         for (final double[] pair : new double[][] {
                 {1.3122561682406755, 1.3122565442732959},
                 {1.40905821964671, 1.4090583434236112},
                 {1.912164268932753, 1.9121638616231227}}) {
             final Complex z = complex(pair[0], pair[1]);
+            // removed other assertion
         }
 
+        // Test with a range of numbers.
+        // Sub-normals require special handling so we use different variations of these to
+        // ensure they are handled correctly.
+        // Note:
+        // 1 ULP differences with Math.hypot can be observed due to the different implementations.
+        // For normal numbers observable differences require billions of numbers to show a
+        // few hundred cases of lower ULPs and a magnitude smaller count of higher ULPs.
+        // For sub-normal numbers a few thousand examples can demonstrate
+        // a larger count of 1 ULP improvements than 1 ULP errors verses Math.hypot.
+        // A formal statistical test to demonstrate differences are significant is not implemented.
+        // This test simply asserts the answer is either the same as Math.hypot or else is within
+        // 1 ULP of a high precision computation.
         final int samples = 100;
+        // removed other assertion
+        // removed other assertion
         assertAbs(rng, r -> createSubNormalNumber(r, 0), r -> createSubNormalNumber(r, 2), samples);
     }
 
 @Test
     void testAbs_14_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
             final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Test verses Math.hypot due to the use of a custom implementation.
+        // First test edge cases. Use negatives to test the sign is correctly removed.
         final double[] parts = {-0.0, -Double.MIN_VALUE, -Double.MIN_NORMAL, -Double.MAX_VALUE,
             Double.NEGATIVE_INFINITY, Double.NaN};
         for (final double x : parts) {
             for (final double y : parts) {
+                // removed other assertion
             }
         }
 
+        // The reference fdlibm hypot implementation orders using the upper 32-bits of the double.
+        // Tests using random numbers that differ in only the lower 32-bits
+        // show a frequency of <1e-9 that the computation is not commutative: f(x, y) != f(y, x)
+        // Test known cases where ordering is required on the lower 32-bits to ensure |z| == |iz|.
+        // These cases would fail a direct fdlibm conversion of this:
+        // https://www.netlib.org/fdlibm/e_hypot.c
         for (final double[] pair : new double[][] {
                 {1.3122561682406755, 1.3122565442732959},
                 {1.40905821964671, 1.4090583434236112},
                 {1.912164268932753, 1.9121638616231227}}) {
             final Complex z = complex(pair[0], pair[1]);
+            // removed other assertion
         }
 
+        // Test with a range of numbers.
+        // Sub-normals require special handling so we use different variations of these to
+        // ensure they are handled correctly.
+        // Note:
+        // 1 ULP differences with Math.hypot can be observed due to the different implementations.
+        // For normal numbers observable differences require billions of numbers to show a
+        // few hundred cases of lower ULPs and a magnitude smaller count of higher ULPs.
+        // For sub-normal numbers a few thousand examples can demonstrate
+        // a larger count of 1 ULP improvements than 1 ULP errors verses Math.hypot.
+        // A formal statistical test to demonstrate differences are significant is not implemented.
+        // This test simply asserts the answer is either the same as Math.hypot or else is within
+        // 1 ULP of a high precision computation.
         final int samples = 100;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Numbers on the same scale (fixed exponent)
         assertAbs(rng, r -> createFixedExponentNumber(r, 0), r -> createFixedExponentNumber(r, 0), samples);
     }
 
 @Test
     void testAbs_15_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
             final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Test verses Math.hypot due to the use of a custom implementation.
+        // First test edge cases. Use negatives to test the sign is correctly removed.
         final double[] parts = {-0.0, -Double.MIN_VALUE, -Double.MIN_NORMAL, -Double.MAX_VALUE,
             Double.NEGATIVE_INFINITY, Double.NaN};
         for (final double x : parts) {
             for (final double y : parts) {
+                // removed other assertion
             }
         }
 
+        // The reference fdlibm hypot implementation orders using the upper 32-bits of the double.
+        // Tests using random numbers that differ in only the lower 32-bits
+        // show a frequency of <1e-9 that the computation is not commutative: f(x, y) != f(y, x)
+        // Test known cases where ordering is required on the lower 32-bits to ensure |z| == |iz|.
+        // These cases would fail a direct fdlibm conversion of this:
+        // https://www.netlib.org/fdlibm/e_hypot.c
         for (final double[] pair : new double[][] {
                 {1.3122561682406755, 1.3122565442732959},
                 {1.40905821964671, 1.4090583434236112},
                 {1.912164268932753, 1.9121638616231227}}) {
             final Complex z = complex(pair[0], pair[1]);
+            // removed other assertion
         }
 
+        // Test with a range of numbers.
+        // Sub-normals require special handling so we use different variations of these to
+        // ensure they are handled correctly.
+        // Note:
+        // 1 ULP differences with Math.hypot can be observed due to the different implementations.
+        // For normal numbers observable differences require billions of numbers to show a
+        // few hundred cases of lower ULPs and a magnitude smaller count of higher ULPs.
+        // For sub-normal numbers a few thousand examples can demonstrate
+        // a larger count of 1 ULP improvements than 1 ULP errors verses Math.hypot.
+        // A formal statistical test to demonstrate differences are significant is not implemented.
+        // This test simply asserts the answer is either the same as Math.hypot or else is within
+        // 1 ULP of a high precision computation.
         final int samples = 100;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Numbers on the same scale (fixed exponent)
+        // removed other assertion
+        // Numbers on different scales
         assertAbs(rng, r -> createFixedExponentNumber(r, 0), r -> createFixedExponentNumber(r, 1), samples);
     }
 
 @Test
     void testAbs_16_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
             final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Test verses Math.hypot due to the use of a custom implementation.
+        // First test edge cases. Use negatives to test the sign is correctly removed.
         final double[] parts = {-0.0, -Double.MIN_VALUE, -Double.MIN_NORMAL, -Double.MAX_VALUE,
             Double.NEGATIVE_INFINITY, Double.NaN};
         for (final double x : parts) {
             for (final double y : parts) {
+                // removed other assertion
             }
         }
 
+        // The reference fdlibm hypot implementation orders using the upper 32-bits of the double.
+        // Tests using random numbers that differ in only the lower 32-bits
+        // show a frequency of <1e-9 that the computation is not commutative: f(x, y) != f(y, x)
+        // Test known cases where ordering is required on the lower 32-bits to ensure |z| == |iz|.
+        // These cases would fail a direct fdlibm conversion of this:
+        // https://www.netlib.org/fdlibm/e_hypot.c
         for (final double[] pair : new double[][] {
                 {1.3122561682406755, 1.3122565442732959},
                 {1.40905821964671, 1.4090583434236112},
                 {1.912164268932753, 1.9121638616231227}}) {
             final Complex z = complex(pair[0], pair[1]);
+            // removed other assertion
         }
 
+        // Test with a range of numbers.
+        // Sub-normals require special handling so we use different variations of these to
+        // ensure they are handled correctly.
+        // Note:
+        // 1 ULP differences with Math.hypot can be observed due to the different implementations.
+        // For normal numbers observable differences require billions of numbers to show a
+        // few hundred cases of lower ULPs and a magnitude smaller count of higher ULPs.
+        // For sub-normal numbers a few thousand examples can demonstrate
+        // a larger count of 1 ULP improvements than 1 ULP errors verses Math.hypot.
+        // A formal statistical test to demonstrate differences are significant is not implemented.
+        // This test simply asserts the answer is either the same as Math.hypot or else is within
+        // 1 ULP of a high precision computation.
         final int samples = 100;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Numbers on the same scale (fixed exponent)
+        // removed other assertion
+        // Numbers on different scales
+        // removed other assertion
         assertAbs(rng, r -> createFixedExponentNumber(r, 0), r -> createFixedExponentNumber(r, 2 + r.nextInt(10)), samples);
     }
 
 @Test
     void testAbs_17_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
             final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Test verses Math.hypot due to the use of a custom implementation.
+        // First test edge cases. Use negatives to test the sign is correctly removed.
         final double[] parts = {-0.0, -Double.MIN_VALUE, -Double.MIN_NORMAL, -Double.MAX_VALUE,
             Double.NEGATIVE_INFINITY, Double.NaN};
         for (final double x : parts) {
             for (final double y : parts) {
+                // removed other assertion
             }
         }
 
+        // The reference fdlibm hypot implementation orders using the upper 32-bits of the double.
+        // Tests using random numbers that differ in only the lower 32-bits
+        // show a frequency of <1e-9 that the computation is not commutative: f(x, y) != f(y, x)
+        // Test known cases where ordering is required on the lower 32-bits to ensure |z| == |iz|.
+        // These cases would fail a direct fdlibm conversion of this:
+        // https://www.netlib.org/fdlibm/e_hypot.c
         for (final double[] pair : new double[][] {
                 {1.3122561682406755, 1.3122565442732959},
                 {1.40905821964671, 1.4090583434236112},
                 {1.912164268932753, 1.9121638616231227}}) {
             final Complex z = complex(pair[0], pair[1]);
+            // removed other assertion
         }
 
+        // Test with a range of numbers.
+        // Sub-normals require special handling so we use different variations of these to
+        // ensure they are handled correctly.
+        // Note:
+        // 1 ULP differences with Math.hypot can be observed due to the different implementations.
+        // For normal numbers observable differences require billions of numbers to show a
+        // few hundred cases of lower ULPs and a magnitude smaller count of higher ULPs.
+        // For sub-normal numbers a few thousand examples can demonstrate
+        // a larger count of 1 ULP improvements than 1 ULP errors verses Math.hypot.
+        // A formal statistical test to demonstrate differences are significant is not implemented.
+        // This test simply asserts the answer is either the same as Math.hypot or else is within
+        // 1 ULP of a high precision computation.
         final int samples = 100;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Numbers on the same scale (fixed exponent)
+        // removed other assertion
+        // Numbers on different scales
+        // removed other assertion
+        // removed other assertion
+        // Intermediate overflow / underflow
         assertAbs(rng, r -> createFixedExponentNumber(r, 1022), r -> createFixedExponentNumber(r, 1022), samples);
     }
 
 @Test
     void testAbs_18_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
             final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Test verses Math.hypot due to the use of a custom implementation.
+        // First test edge cases. Use negatives to test the sign is correctly removed.
         final double[] parts = {-0.0, -Double.MIN_VALUE, -Double.MIN_NORMAL, -Double.MAX_VALUE,
             Double.NEGATIVE_INFINITY, Double.NaN};
         for (final double x : parts) {
             for (final double y : parts) {
+                // removed other assertion
             }
         }
 
+        // The reference fdlibm hypot implementation orders using the upper 32-bits of the double.
+        // Tests using random numbers that differ in only the lower 32-bits
+        // show a frequency of <1e-9 that the computation is not commutative: f(x, y) != f(y, x)
+        // Test known cases where ordering is required on the lower 32-bits to ensure |z| == |iz|.
+        // These cases would fail a direct fdlibm conversion of this:
+        // https://www.netlib.org/fdlibm/e_hypot.c
         for (final double[] pair : new double[][] {
                 {1.3122561682406755, 1.3122565442732959},
                 {1.40905821964671, 1.4090583434236112},
                 {1.912164268932753, 1.9121638616231227}}) {
             final Complex z = complex(pair[0], pair[1]);
+            // removed other assertion
         }
 
+        // Test with a range of numbers.
+        // Sub-normals require special handling so we use different variations of these to
+        // ensure they are handled correctly.
+        // Note:
+        // 1 ULP differences with Math.hypot can be observed due to the different implementations.
+        // For normal numbers observable differences require billions of numbers to show a
+        // few hundred cases of lower ULPs and a magnitude smaller count of higher ULPs.
+        // For sub-normal numbers a few thousand examples can demonstrate
+        // a larger count of 1 ULP improvements than 1 ULP errors verses Math.hypot.
+        // A formal statistical test to demonstrate differences are significant is not implemented.
+        // This test simply asserts the answer is either the same as Math.hypot or else is within
+        // 1 ULP of a high precision computation.
         final int samples = 100;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Numbers on the same scale (fixed exponent)
+        // removed other assertion
+        // Numbers on different scales
+        // removed other assertion
+        // removed other assertion
+        // Intermediate overflow / underflow
+        // removed other assertion
         assertAbs(rng, r -> createFixedExponentNumber(r, -1022), r -> createFixedExponentNumber(r, -1022), samples);
     }
 
 @Test
     void testAbs_19_oe() {
+        // removed other assertion
+        // removed other assertion
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
         for (int i = 0; i < 10; i++) {
             final double x = next(rng);
             final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
         }
 
+        // Test verses Math.hypot due to the use of a custom implementation.
+        // First test edge cases. Use negatives to test the sign is correctly removed.
         final double[] parts = {-0.0, -Double.MIN_VALUE, -Double.MIN_NORMAL, -Double.MAX_VALUE,
             Double.NEGATIVE_INFINITY, Double.NaN};
         for (final double x : parts) {
             for (final double y : parts) {
+                // removed other assertion
             }
         }
 
+        // The reference fdlibm hypot implementation orders using the upper 32-bits of the double.
+        // Tests using random numbers that differ in only the lower 32-bits
+        // show a frequency of <1e-9 that the computation is not commutative: f(x, y) != f(y, x)
+        // Test known cases where ordering is required on the lower 32-bits to ensure |z| == |iz|.
+        // These cases would fail a direct fdlibm conversion of this:
+        // https://www.netlib.org/fdlibm/e_hypot.c
         for (final double[] pair : new double[][] {
                 {1.3122561682406755, 1.3122565442732959},
                 {1.40905821964671, 1.4090583434236112},
                 {1.912164268932753, 1.9121638616231227}}) {
             final Complex z = complex(pair[0], pair[1]);
+            // removed other assertion
         }
 
+        // Test with a range of numbers.
+        // Sub-normals require special handling so we use different variations of these to
+        // ensure they are handled correctly.
+        // Note:
+        // 1 ULP differences with Math.hypot can be observed due to the different implementations.
+        // For normal numbers observable differences require billions of numbers to show a
+        // few hundred cases of lower ULPs and a magnitude smaller count of higher ULPs.
+        // For sub-normal numbers a few thousand examples can demonstrate
+        // a larger count of 1 ULP improvements than 1 ULP errors verses Math.hypot.
+        // A formal statistical test to demonstrate differences are significant is not implemented.
+        // This test simply asserts the answer is either the same as Math.hypot or else is within
+        // 1 ULP of a high precision computation.
         final int samples = 100;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Numbers on the same scale (fixed exponent)
+        // removed other assertion
+        // Numbers on different scales
+        // removed other assertion
+        // removed other assertion
+        // Intermediate overflow / underflow
+        // removed other assertion
+        // removed other assertion
+        // Complex cis numbers
         final ToDoubleFunction<UniformRandomProvider> cisGenerator = new ToDoubleFunction<UniformRandomProvider>() {
             private double tmp = Double.NaN;
             @Override
@@ -2027,30 +2650,45 @@ class CStandardTest_OE25Dev {
 @Test
     void testAcos_2_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
+        // removed other assertion
         assertComplex(Complex.ZERO, operation, piTwoNegZero);
     }
 
 @Test
     void testAcos_3_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
+        // removed other assertion
+        // removed other assertion
         assertComplex(negZeroZero, operation, piTwoNegZero);
     }
 
 @Test
     void testAcos_4_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertComplex(zeroNaN, operation, piTwoNaN);
     }
 
 @Test
     void testAcos_5_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertComplex(negZeroNaN, operation, piTwoNaN);
     }
 
 @Test
     void testAcos_6_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
             assertComplex(complex(x, inf), operation, piTwoNegInf);
     }
@@ -2059,7 +2697,13 @@ class CStandardTest_OE25Dev {
 @Test
     void testAcos_7_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
             assertComplex(complex(x, nan), operation, NAN);
@@ -2069,9 +2713,16 @@ class CStandardTest_OE25Dev {
 @Test
     void testAcos_8_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
             assertComplex(complex(-inf, y), operation, piNegInf);
@@ -2081,11 +2732,19 @@ class CStandardTest_OE25Dev {
 @Test
     void testAcos_9_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
             assertComplex(complex(inf, y), operation, zeroNegInf);
@@ -2095,13 +2754,22 @@ class CStandardTest_OE25Dev {
 @Test
     void testAcos_10_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         assertComplex(negInfInf, operation, threePiFourNegInf);
     }
@@ -2109,56 +2777,102 @@ class CStandardTest_OE25Dev {
 @Test
     void testAcos_11_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(infInf, operation, piFourNegInf);
     }
 
 @Test
     void testAcos_12_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         assertComplex(infNaN, operation, nanInf, UnspecifiedSign.IMAGINARY);
     }
 
 @Test
     void testAcos_13_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertComplex(negInfNaN, operation, nanNegInf, UnspecifiedSign.IMAGINARY);
     }
 
 @Test
     void testAcos_14_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
             assertComplex(complex(nan, y), operation, NAN);
     }
@@ -2167,15 +2881,29 @@ class CStandardTest_OE25Dev {
 @Test
     void testAcos_15_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
         assertComplex(nanInf, operation, nanNegInf);
     }
@@ -2183,34 +2911,55 @@ class CStandardTest_OE25Dev {
 @Test
     void testAcos_16_oe() {
         final UnaryOperator<Complex> operation = Complex::acos;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(NAN, operation, NAN);
     }
 
 @Test
     void testAcosh_2_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
+        // removed other assertion
         assertComplex(Complex.ZERO, operation, zeroPiTwo);
     }
 
 @Test
     void testAcosh_3_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
+        // removed other assertion
+        // removed other assertion
         assertComplex(negZeroZero, operation, zeroPiTwo);
     }
 
 @Test
     void testAcosh_4_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
             assertComplex(complex(x, inf), operation, infPiTwo);
     }
@@ -2219,7 +2968,11 @@ class CStandardTest_OE25Dev {
 @Test
     void testAcosh_5_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         assertComplex(zeroNaN, operation, nanPiTwo);
     }
@@ -2227,16 +2980,27 @@ class CStandardTest_OE25Dev {
 @Test
     void testAcosh_6_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(negZeroNaN, operation, nanPiTwo);
     }
 
 @Test
     void testAcosh_7_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
             assertComplex(complex(x, nan), operation, NAN);
     }
@@ -2245,9 +3009,16 @@ class CStandardTest_OE25Dev {
 @Test
     void testAcosh_8_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
             assertComplex(complex(-inf, y), operation, infPi);
@@ -2257,11 +3028,19 @@ class CStandardTest_OE25Dev {
 @Test
     void testAcosh_9_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
             assertComplex(complex(inf, y), operation, infZero);
@@ -2271,13 +3050,22 @@ class CStandardTest_OE25Dev {
 @Test
     void testAcosh_10_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         assertComplex(negInfInf, operation, infThreePiFour);
     }
@@ -2285,56 +3073,102 @@ class CStandardTest_OE25Dev {
 @Test
     void testAcosh_11_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(infInf, operation, infPiFour);
     }
 
 @Test
     void testAcosh_12_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         assertComplex(infNaN, operation, infNaN);
     }
 
 @Test
     void testAcosh_13_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertComplex(negInfNaN, operation, infNaN);
     }
 
 @Test
     void testAcosh_14_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
             assertComplex(complex(nan, y), operation, NAN);
     }
@@ -2343,15 +3177,29 @@ class CStandardTest_OE25Dev {
 @Test
     void testAcosh_15_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
         assertComplex(nanInf, operation, infNaN);
     }
@@ -2359,16 +3207,31 @@ class CStandardTest_OE25Dev {
 @Test
     void testAcosh_16_oe() {
         final UnaryOperator<Complex> operation = Complex::acosh;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(NAN, operation, NAN);
     }
 
@@ -2376,6 +3239,8 @@ class CStandardTest_OE25Dev {
     void testAsinh_3_oe() {
         final UnaryOperator<Complex> operation = Complex::asinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
         assertComplex(Complex.ZERO, operation, Complex.ZERO, type);
     }
 
@@ -2383,6 +3248,9 @@ class CStandardTest_OE25Dev {
     void testAsinh_4_oe() {
         final UnaryOperator<Complex> operation = Complex::asinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
             assertComplex(complex(x, inf), operation, infPiTwo, type);
     }
@@ -2392,7 +3260,11 @@ class CStandardTest_OE25Dev {
     void testAsinh_5_oe() {
         final UnaryOperator<Complex> operation = Complex::asinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
+            // removed other assertion
         }
         for (double x : finite) {
             assertComplex(complex(x, nan), operation, NAN, type);
@@ -2403,9 +3275,14 @@ class CStandardTest_OE25Dev {
     void testAsinh_6_oe() {
         final UnaryOperator<Complex> operation = Complex::asinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
             assertComplex(complex(inf, y), operation, infZero, type);
@@ -2416,11 +3293,17 @@ class CStandardTest_OE25Dev {
     void testAsinh_7_oe() {
         final UnaryOperator<Complex> operation = Complex::asinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         assertComplex(infInf, operation, infPiFour, type);
     }
@@ -2429,12 +3312,19 @@ class CStandardTest_OE25Dev {
     void testAsinh_8_oe() {
         final UnaryOperator<Complex> operation = Complex::asinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(infNaN, operation, infNaN, type);
     }
 
@@ -2442,12 +3332,20 @@ class CStandardTest_OE25Dev {
     void testAsinh_9_oe() {
         final UnaryOperator<Complex> operation = Complex::asinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         assertComplex(nanZero, operation, nanZero, type);
     }
 
@@ -2455,12 +3353,21 @@ class CStandardTest_OE25Dev {
     void testAsinh_10_oe() {
         final UnaryOperator<Complex> operation = Complex::asinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : nonZeroFinite) {
             assertComplex(complex(nan, y), operation, NAN, type);
     }
@@ -2470,13 +3377,23 @@ class CStandardTest_OE25Dev {
     void testAsinh_11_oe() {
         final UnaryOperator<Complex> operation = Complex::asinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
         assertComplex(nanInf, operation, infNaN, type, UnspecifiedSign.REAL);
     }
@@ -2485,14 +3402,25 @@ class CStandardTest_OE25Dev {
     void testAsinh_12_oe() {
         final UnaryOperator<Complex> operation = Complex::asinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(NAN, operation, NAN, type);
     }
 
@@ -2500,6 +3428,8 @@ class CStandardTest_OE25Dev {
     void testAtanh_3_oe() {
         final UnaryOperator<Complex> operation = Complex::atanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
         assertComplex(Complex.ZERO, operation, Complex.ZERO, type);
     }
 
@@ -2507,6 +3437,9 @@ class CStandardTest_OE25Dev {
     void testAtanh_4_oe() {
         final UnaryOperator<Complex> operation = Complex::atanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertComplex(zeroNaN, operation, zeroNaN, type);
     }
 
@@ -2514,6 +3447,10 @@ class CStandardTest_OE25Dev {
     void testAtanh_5_oe() {
         final UnaryOperator<Complex> operation = Complex::atanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertComplex(oneZero, operation, infZero, type);
     }
 
@@ -2521,6 +3458,11 @@ class CStandardTest_OE25Dev {
     void testAtanh_6_oe() {
         final UnaryOperator<Complex> operation = Complex::atanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
             assertComplex(complex(x, inf), operation, zeroPiTwo, type);
     }
@@ -2530,7 +3472,13 @@ class CStandardTest_OE25Dev {
     void testAtanh_7_oe() {
         final UnaryOperator<Complex> operation = Complex::atanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
             assertComplex(complex(x, nan), operation, NAN, type);
@@ -2541,9 +3489,16 @@ class CStandardTest_OE25Dev {
     void testAtanh_8_oe() {
         final UnaryOperator<Complex> operation = Complex::atanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
             assertComplex(complex(inf, y), operation, zeroPiTwo, type);
@@ -2554,11 +3509,19 @@ class CStandardTest_OE25Dev {
     void testAtanh_9_oe() {
         final UnaryOperator<Complex> operation = Complex::atanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         assertComplex(infInf, operation, zeroPiTwo, type);
     }
@@ -2567,12 +3530,21 @@ class CStandardTest_OE25Dev {
     void testAtanh_10_oe() {
         final UnaryOperator<Complex> operation = Complex::atanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(infNaN, operation, zeroNaN, type);
     }
 
@@ -2580,12 +3552,22 @@ class CStandardTest_OE25Dev {
     void testAtanh_11_oe() {
         final UnaryOperator<Complex> operation = Complex::atanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         assertComplex(nanZero, operation, NAN, type);
     }
 
@@ -2593,12 +3575,23 @@ class CStandardTest_OE25Dev {
     void testAtanh_12_oe() {
         final UnaryOperator<Complex> operation = Complex::atanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
             assertComplex(complex(nan, y), operation, NAN, type);
     }
@@ -2608,13 +3601,25 @@ class CStandardTest_OE25Dev {
     void testAtanh_13_oe() {
         final UnaryOperator<Complex> operation = Complex::atanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
         assertComplex(nanInf, operation, zeroPiTwo, type, UnspecifiedSign.REAL);
     }
@@ -2623,14 +3628,27 @@ class CStandardTest_OE25Dev {
     void testAtanh_14_oe() {
         final UnaryOperator<Complex> operation = Complex::atanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : positiveFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(NAN, operation, NAN, type);
     }
 
@@ -2638,6 +3656,8 @@ class CStandardTest_OE25Dev {
     void testCosh_3_oe() {
         final UnaryOperator<Complex> operation = Complex::cosh;
         final FunctionType type = FunctionType.EVEN;
+        // removed other assertion
+        // removed other assertion
         assertComplex(Complex.ZERO, operation, Complex.ONE, type);
     }
 
@@ -2645,6 +3665,9 @@ class CStandardTest_OE25Dev {
     void testCosh_4_oe() {
         final UnaryOperator<Complex> operation = Complex::cosh;
         final FunctionType type = FunctionType.EVEN;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertComplex(zeroInf, operation, nanZero, type, UnspecifiedSign.IMAGINARY);
     }
 
@@ -2652,6 +3675,10 @@ class CStandardTest_OE25Dev {
     void testCosh_5_oe() {
         final UnaryOperator<Complex> operation = Complex::cosh;
         final FunctionType type = FunctionType.EVEN;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertComplex(zeroNaN, operation, nanZero, type, UnspecifiedSign.IMAGINARY);
     }
 
@@ -2659,6 +3686,11 @@ class CStandardTest_OE25Dev {
     void testCosh_6_oe() {
         final UnaryOperator<Complex> operation = Complex::cosh;
         final FunctionType type = FunctionType.EVEN;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
             assertComplex(complex(x, inf), operation, NAN, type);
     }
@@ -2668,7 +3700,13 @@ class CStandardTest_OE25Dev {
     void testCosh_7_oe() {
         final UnaryOperator<Complex> operation = Complex::cosh;
         final FunctionType type = FunctionType.EVEN;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
             assertComplex(complex(x, nan), operation, NAN, type);
@@ -2679,9 +3717,16 @@ class CStandardTest_OE25Dev {
     void testCosh_8_oe() {
         final UnaryOperator<Complex> operation = Complex::cosh;
         final FunctionType type = FunctionType.EVEN;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         assertComplex(infZero, operation, infZero, type);
     }
@@ -2690,10 +3735,18 @@ class CStandardTest_OE25Dev {
     void testCosh_9_oe() {
         final UnaryOperator<Complex> operation = Complex::cosh;
         final FunctionType type = FunctionType.EVEN;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double y : nonZeroFinite) {
             assertComplex(complex(inf, y), operation, Complex.ofCis(y).multiply(inf), type);
     }
@@ -2703,11 +3756,20 @@ class CStandardTest_OE25Dev {
     void testCosh_10_oe() {
         final UnaryOperator<Complex> operation = Complex::cosh;
         final FunctionType type = FunctionType.EVEN;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
         assertComplex(infInf, operation, infNaN, type, UnspecifiedSign.REAL);
     }
@@ -2716,12 +3778,22 @@ class CStandardTest_OE25Dev {
     void testCosh_11_oe() {
         final UnaryOperator<Complex> operation = Complex::cosh;
         final FunctionType type = FunctionType.EVEN;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(infNaN, operation, infNaN, type);
     }
 
@@ -2729,12 +3801,23 @@ class CStandardTest_OE25Dev {
     void testCosh_12_oe() {
         final UnaryOperator<Complex> operation = Complex::cosh;
         final FunctionType type = FunctionType.EVEN;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         assertComplex(nanZero, operation, nanZero, type, UnspecifiedSign.IMAGINARY);
     }
 
@@ -2742,12 +3825,24 @@ class CStandardTest_OE25Dev {
     void testCosh_13_oe() {
         final UnaryOperator<Complex> operation = Complex::cosh;
         final FunctionType type = FunctionType.EVEN;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : nonZero) {
             assertComplex(complex(nan, y), operation, NAN, type);
     }
@@ -2757,13 +3852,26 @@ class CStandardTest_OE25Dev {
     void testCosh_14_oe() {
         final UnaryOperator<Complex> operation = Complex::cosh;
         final FunctionType type = FunctionType.EVEN;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : nonZero) {
+            // removed other assertion
         }
         assertComplex(NAN, operation, NAN, type);
     }
@@ -2772,6 +3880,8 @@ class CStandardTest_OE25Dev {
     void testSinh_3_oe() {
         final UnaryOperator<Complex> operation = Complex::sinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
         assertComplex(Complex.ZERO, operation, Complex.ZERO, type);
     }
 
@@ -2779,6 +3889,9 @@ class CStandardTest_OE25Dev {
     void testSinh_4_oe() {
         final UnaryOperator<Complex> operation = Complex::sinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertComplex(zeroInf, operation, zeroNaN, type, UnspecifiedSign.REAL);
     }
 
@@ -2786,6 +3899,10 @@ class CStandardTest_OE25Dev {
     void testSinh_5_oe() {
         final UnaryOperator<Complex> operation = Complex::sinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertComplex(zeroNaN, operation, zeroNaN, type, UnspecifiedSign.REAL);
     }
 
@@ -2793,6 +3910,11 @@ class CStandardTest_OE25Dev {
     void testSinh_6_oe() {
         final UnaryOperator<Complex> operation = Complex::sinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroPositiveFinite) {
             assertComplex(complex(x, inf), operation, NAN, type);
     }
@@ -2802,7 +3924,13 @@ class CStandardTest_OE25Dev {
     void testSinh_7_oe() {
         final UnaryOperator<Complex> operation = Complex::sinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroPositiveFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
             assertComplex(complex(x, nan), operation, NAN, type);
@@ -2813,9 +3941,16 @@ class CStandardTest_OE25Dev {
     void testSinh_8_oe() {
         final UnaryOperator<Complex> operation = Complex::sinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroPositiveFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         assertComplex(infZero, operation, infZero, type);
     }
@@ -2824,10 +3959,19 @@ class CStandardTest_OE25Dev {
     void testSinh_9_oe() {
         final UnaryOperator<Complex> operation = Complex::sinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroPositiveFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // Note: Error in the ISO C99 reference to use positive finite y but the zero case is different
         for (double y : nonZeroFinite) {
             assertComplex(complex(inf, y), operation, Complex.ofCis(y).multiply(inf), type);
     }
@@ -2837,11 +3981,21 @@ class CStandardTest_OE25Dev {
     void testSinh_10_oe() {
         final UnaryOperator<Complex> operation = Complex::sinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroPositiveFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // Note: Error in the ISO C99 reference to use positive finite y but the zero case is different
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
         assertComplex(infInf, operation, infNaN, type, UnspecifiedSign.REAL);
     }
@@ -2850,12 +4004,23 @@ class CStandardTest_OE25Dev {
     void testSinh_11_oe() {
         final UnaryOperator<Complex> operation = Complex::sinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroPositiveFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // Note: Error in the ISO C99 reference to use positive finite y but the zero case is different
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(infNaN, operation, infNaN, type, UnspecifiedSign.REAL);
     }
 
@@ -2863,12 +4028,24 @@ class CStandardTest_OE25Dev {
     void testSinh_12_oe() {
         final UnaryOperator<Complex> operation = Complex::sinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroPositiveFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // Note: Error in the ISO C99 reference to use positive finite y but the zero case is different
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         assertComplex(nanZero, operation, nanZero, type);
     }
 
@@ -2876,12 +4053,25 @@ class CStandardTest_OE25Dev {
     void testSinh_13_oe() {
         final UnaryOperator<Complex> operation = Complex::sinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroPositiveFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // Note: Error in the ISO C99 reference to use positive finite y but the zero case is different
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : nonZero) {
             assertComplex(complex(nan, y), operation, NAN, type);
     }
@@ -2891,13 +4081,27 @@ class CStandardTest_OE25Dev {
     void testSinh_14_oe() {
         final UnaryOperator<Complex> operation = Complex::sinh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroPositiveFinite) {
+            // removed other assertion
         }
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // Note: Error in the ISO C99 reference to use positive finite y but the zero case is different
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : nonZero) {
+            // removed other assertion
         }
         assertComplex(NAN, operation, NAN, type);
     }
@@ -2906,6 +4110,8 @@ class CStandardTest_OE25Dev {
     void testTanh_3_oe() {
         final UnaryOperator<Complex> operation = Complex::tanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
         assertComplex(Complex.ZERO, operation, Complex.ZERO, type);
     }
 
@@ -2913,6 +4119,9 @@ class CStandardTest_OE25Dev {
     void testTanh_4_oe() {
         final UnaryOperator<Complex> operation = Complex::tanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertComplex(zeroInf, operation, zeroNaN, type);
     }
 
@@ -2920,6 +4129,10 @@ class CStandardTest_OE25Dev {
     void testTanh_5_oe() {
         final UnaryOperator<Complex> operation = Complex::tanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
             assertComplex(complex(x, inf), operation, NAN, type);
     }
@@ -2929,7 +4142,12 @@ class CStandardTest_OE25Dev {
     void testTanh_6_oe() {
         final UnaryOperator<Complex> operation = Complex::tanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         assertComplex(zeroNaN, operation, zeroNaN, type);
     }
@@ -2938,8 +4156,14 @@ class CStandardTest_OE25Dev {
     void testTanh_7_oe() {
         final UnaryOperator<Complex> operation = Complex::tanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double x : nonZeroFinite) {
             assertComplex(complex(x, nan), operation, NAN, type);
     }
@@ -2949,9 +4173,16 @@ class CStandardTest_OE25Dev {
     void testTanh_8_oe() {
         final UnaryOperator<Complex> operation = Complex::tanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
             assertComplex(complex(inf, y), operation, complex(1.0, Math.copySign(0, Math.sin(2 * y))), type);
@@ -2962,11 +4193,19 @@ class CStandardTest_OE25Dev {
     void testTanh_9_oe() {
         final UnaryOperator<Complex> operation = Complex::tanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         assertComplex(infInf, operation, oneZero, type, UnspecifiedSign.IMAGINARY);
     }
@@ -2975,12 +4214,21 @@ class CStandardTest_OE25Dev {
     void testTanh_10_oe() {
         final UnaryOperator<Complex> operation = Complex::tanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(infNaN, operation, oneZero, type, UnspecifiedSign.IMAGINARY);
     }
 
@@ -2988,12 +4236,22 @@ class CStandardTest_OE25Dev {
     void testTanh_11_oe() {
         final UnaryOperator<Complex> operation = Complex::tanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         assertComplex(nanZero, operation, nanZero, type);
     }
 
@@ -3001,12 +4259,23 @@ class CStandardTest_OE25Dev {
     void testTanh_12_oe() {
         final UnaryOperator<Complex> operation = Complex::tanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : nonZero) {
             assertComplex(complex(nan, y), operation, NAN, type);
     }
@@ -3016,13 +4285,25 @@ class CStandardTest_OE25Dev {
     void testTanh_13_oe() {
         final UnaryOperator<Complex> operation = Complex::tanh;
         final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double x : nonZeroFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : nonZero) {
+            // removed other assertion
         }
         assertComplex(NAN, operation, NAN, type);
     }
@@ -3030,18 +4311,24 @@ class CStandardTest_OE25Dev {
 @Test
     void testExp_2_oe() {
         final UnaryOperator<Complex> operation = Complex::exp;
+        // removed other assertion
         assertComplex(Complex.ZERO, operation, oneZero);
     }
 
 @Test
     void testExp_3_oe() {
         final UnaryOperator<Complex> operation = Complex::exp;
+        // removed other assertion
+        // removed other assertion
         assertComplex(negZeroZero, operation, oneZero);
     }
 
 @Test
     void testExp_4_oe() {
         final UnaryOperator<Complex> operation = Complex::exp;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
             assertComplex(complex(x, inf), operation, NAN);
     }
@@ -3050,7 +4337,11 @@ class CStandardTest_OE25Dev {
 @Test
     void testExp_5_oe() {
         final UnaryOperator<Complex> operation = Complex::exp;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
             assertComplex(complex(x, nan), operation, NAN);
@@ -3060,9 +4351,14 @@ class CStandardTest_OE25Dev {
 @Test
     void testExp_6_oe() {
         final UnaryOperator<Complex> operation = Complex::exp;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         assertComplex(infZero, operation, infZero);
     }
@@ -3070,10 +4366,16 @@ class CStandardTest_OE25Dev {
 @Test
     void testExp_7_oe() {
         final UnaryOperator<Complex> operation = Complex::exp;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double y : finite) {
             assertComplex(complex(-inf, y), operation, Complex.ofCis(y).multiply(0.0));
     }
@@ -3082,11 +4384,18 @@ class CStandardTest_OE25Dev {
 @Test
     void testExp_8_oe() {
         final UnaryOperator<Complex> operation = Complex::exp;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
         for (double y : nonZeroFinite) {
             assertComplex(complex(inf, y), operation, Complex.ofCis(y).multiply(inf));
@@ -3096,13 +4405,21 @@ class CStandardTest_OE25Dev {
 @Test
     void testExp_9_oe() {
         final UnaryOperator<Complex> operation = Complex::exp;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
         assertComplex(negInfInf, operation, Complex.ZERO, UnspecifiedSign.REAL_IMAGINARY);
     }
@@ -3110,70 +4427,125 @@ class CStandardTest_OE25Dev {
 @Test
     void testExp_10_oe() {
         final UnaryOperator<Complex> operation = Complex::exp;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(infInf, operation, infNaN, UnspecifiedSign.REAL);
     }
 
 @Test
     void testExp_11_oe() {
         final UnaryOperator<Complex> operation = Complex::exp;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         assertComplex(negInfNaN, operation, Complex.ZERO, UnspecifiedSign.REAL_IMAGINARY);
     }
 
 @Test
     void testExp_12_oe() {
         final UnaryOperator<Complex> operation = Complex::exp;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertComplex(infNaN, operation, infNaN, UnspecifiedSign.REAL);
     }
 
 @Test
     void testExp_13_oe() {
         final UnaryOperator<Complex> operation = Complex::exp;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertComplex(nanZero, operation, nanZero);
     }
 
 @Test
     void testExp_14_oe() {
         final UnaryOperator<Complex> operation = Complex::exp;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : nonZero) {
             assertComplex(complex(nan, y), operation, NAN);
     }
@@ -3182,15 +4554,29 @@ class CStandardTest_OE25Dev {
 @Test
     void testExp_15_oe() {
         final UnaryOperator<Complex> operation = Complex::exp;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
         for (double y : nonZeroFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : nonZero) {
+            // removed other assertion
         }
         assertComplex(NAN, operation, NAN);
     }
@@ -3198,18 +4584,24 @@ class CStandardTest_OE25Dev {
 @Test
     void testLog_2_oe() {
         final UnaryOperator<Complex> operation = Complex::log;
+        // removed other assertion
         assertComplex(negZeroZero, operation, negInfPi);
     }
 
 @Test
     void testLog_3_oe() {
         final UnaryOperator<Complex> operation = Complex::log;
+        // removed other assertion
+        // removed other assertion
         assertComplex(Complex.ZERO, operation, negInfZero);
     }
 
 @Test
     void testLog_4_oe() {
         final UnaryOperator<Complex> operation = Complex::log;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
             assertComplex(complex(x, inf), operation, infPiTwo);
     }
@@ -3218,7 +4610,11 @@ class CStandardTest_OE25Dev {
 @Test
     void testLog_5_oe() {
         final UnaryOperator<Complex> operation = Complex::log;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
             assertComplex(complex(x, nan), operation, NAN);
@@ -3228,9 +4624,14 @@ class CStandardTest_OE25Dev {
 @Test
     void testLog_6_oe() {
         final UnaryOperator<Complex> operation = Complex::log;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
             assertComplex(complex(-inf, y), operation, infPi);
@@ -3240,11 +4641,17 @@ class CStandardTest_OE25Dev {
 @Test
     void testLog_7_oe() {
         final UnaryOperator<Complex> operation = Complex::log;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
             assertComplex(complex(inf, y), operation, infZero);
@@ -3254,13 +4661,20 @@ class CStandardTest_OE25Dev {
 @Test
     void testLog_8_oe() {
         final UnaryOperator<Complex> operation = Complex::log;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         assertComplex(negInfInf, operation, infThreePiFour);
     }
@@ -3268,56 +4682,94 @@ class CStandardTest_OE25Dev {
 @Test
     void testLog_9_oe() {
         final UnaryOperator<Complex> operation = Complex::log;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(infInf, operation, infPiFour);
     }
 
 @Test
     void testLog_10_oe() {
         final UnaryOperator<Complex> operation = Complex::log;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         assertComplex(negInfNaN, operation, infNaN);
     }
 
 @Test
     void testLog_11_oe() {
         final UnaryOperator<Complex> operation = Complex::log;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertComplex(infNaN, operation, infNaN);
     }
 
 @Test
     void testLog_12_oe() {
         final UnaryOperator<Complex> operation = Complex::log;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
             assertComplex(complex(nan, y), operation, NAN);
     }
@@ -3326,15 +4778,27 @@ class CStandardTest_OE25Dev {
 @Test
     void testLog_13_oe() {
         final UnaryOperator<Complex> operation = Complex::log;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
         assertComplex(nanInf, operation, infNaN);
     }
@@ -3342,34 +4806,53 @@ class CStandardTest_OE25Dev {
 @Test
     void testLog_14_oe() {
         final UnaryOperator<Complex> operation = Complex::log;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(NAN, operation, NAN);
     }
 
 @Test
     void testLog10_2_oe() {
         final UnaryOperator<Complex> operation = Complex::log10;
+        // removed other assertion
         assertComplex(negZeroZero, operation, negInfPi);
     }
 
 @Test
     void testLog10_3_oe() {
         final UnaryOperator<Complex> operation = Complex::log10;
+        // removed other assertion
+        // removed other assertion
         assertComplex(Complex.ZERO, operation, negInfZero);
     }
 
 @Test
     void testLog10_4_oe() {
         final UnaryOperator<Complex> operation = Complex::log10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
             assertComplex(complex(x, inf), operation, infPiTwo);
     }
@@ -3378,7 +4861,11 @@ class CStandardTest_OE25Dev {
 @Test
     void testLog10_5_oe() {
         final UnaryOperator<Complex> operation = Complex::log10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
             assertComplex(complex(x, nan), operation, NAN);
@@ -3388,9 +4875,14 @@ class CStandardTest_OE25Dev {
 @Test
     void testLog10_6_oe() {
         final UnaryOperator<Complex> operation = Complex::log10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
             assertComplex(complex(-inf, y), operation, infPi);
@@ -3400,11 +4892,17 @@ class CStandardTest_OE25Dev {
 @Test
     void testLog10_7_oe() {
         final UnaryOperator<Complex> operation = Complex::log10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
             assertComplex(complex(inf, y), operation, infZero);
@@ -3414,13 +4912,20 @@ class CStandardTest_OE25Dev {
 @Test
     void testLog10_8_oe() {
         final UnaryOperator<Complex> operation = Complex::log10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         assertComplex(negInfInf, operation, infThreePiFour);
     }
@@ -3428,56 +4933,94 @@ class CStandardTest_OE25Dev {
 @Test
     void testLog10_9_oe() {
         final UnaryOperator<Complex> operation = Complex::log10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(infInf, operation, infPiFour);
     }
 
 @Test
     void testLog10_10_oe() {
         final UnaryOperator<Complex> operation = Complex::log10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         assertComplex(negInfNaN, operation, infNaN);
     }
 
 @Test
     void testLog10_11_oe() {
         final UnaryOperator<Complex> operation = Complex::log10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertComplex(infNaN, operation, infNaN);
     }
 
 @Test
     void testLog10_12_oe() {
         final UnaryOperator<Complex> operation = Complex::log10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
             assertComplex(complex(nan, y), operation, NAN);
     }
@@ -3486,15 +5029,27 @@ class CStandardTest_OE25Dev {
 @Test
     void testLog10_13_oe() {
         final UnaryOperator<Complex> operation = Complex::log10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
         assertComplex(nanInf, operation, infNaN);
     }
@@ -3502,34 +5057,53 @@ class CStandardTest_OE25Dev {
 @Test
     void testLog10_14_oe() {
         final UnaryOperator<Complex> operation = Complex::log10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(NAN, operation, NAN);
     }
 
 @Test
     void testSqrt_2_oe() {
         final UnaryOperator<Complex> operation = Complex::sqrt;
+        // removed other assertion
         assertComplex(negZeroZero, operation, Complex.ZERO);
     }
 
 @Test
     void testSqrt_3_oe() {
         final UnaryOperator<Complex> operation = Complex::sqrt;
+        // removed other assertion
+        // removed other assertion
         assertComplex(Complex.ZERO, operation, Complex.ZERO);
     }
 
 @Test
     void testSqrt_4_oe() {
         final UnaryOperator<Complex> operation = Complex::sqrt;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
             assertComplex(complex(x, inf), operation, infInf);
     }
@@ -3538,32 +5112,58 @@ class CStandardTest_OE25Dev {
 @Test
     void testSqrt_5_oe() {
         final UnaryOperator<Complex> operation = Complex::sqrt;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // Include infinity and nan for (x, inf).
         assertComplex(infInf, operation, infInf);
     }
 
 @Test
     void testSqrt_6_oe() {
         final UnaryOperator<Complex> operation = Complex::sqrt;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // Include infinity and nan for (x, inf).
+        // removed other assertion
         assertComplex(negInfInf, operation, infInf);
     }
 
 @Test
     void testSqrt_7_oe() {
         final UnaryOperator<Complex> operation = Complex::sqrt;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // Include infinity and nan for (x, inf).
+        // removed other assertion
+        // removed other assertion
         assertComplex(nanInf, operation, infInf);
     }
 
 @Test
     void testSqrt_8_oe() {
         final UnaryOperator<Complex> operation = Complex::sqrt;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // Include infinity and nan for (x, inf).
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
             assertComplex(complex(x, nan), operation, NAN);
     }
@@ -3572,9 +5172,18 @@ class CStandardTest_OE25Dev {
 @Test
     void testSqrt_9_oe() {
         final UnaryOperator<Complex> operation = Complex::sqrt;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // Include infinity and nan for (x, inf).
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
             assertComplex(complex(-inf, y), operation, zeroInf);
@@ -3584,11 +5193,21 @@ class CStandardTest_OE25Dev {
 @Test
     void testSqrt_10_oe() {
         final UnaryOperator<Complex> operation = Complex::sqrt;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // Include infinity and nan for (x, inf).
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
             assertComplex(complex(inf, y), operation, infZero);
@@ -3598,13 +5217,24 @@ class CStandardTest_OE25Dev {
 @Test
     void testSqrt_11_oe() {
         final UnaryOperator<Complex> operation = Complex::sqrt;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // Include infinity and nan for (x, inf).
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         assertComplex(negInfNaN, operation, nanInf, UnspecifiedSign.IMAGINARY);
     }
@@ -3612,28 +5242,53 @@ class CStandardTest_OE25Dev {
 @Test
     void testSqrt_12_oe() {
         final UnaryOperator<Complex> operation = Complex::sqrt;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // Include infinity and nan for (x, inf).
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
         assertComplex(infNaN, operation, infNaN);
     }
 
 @Test
     void testSqrt_13_oe() {
         final UnaryOperator<Complex> operation = Complex::sqrt;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // Include infinity and nan for (x, inf).
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
             assertComplex(complex(nan, y), operation, NAN);
     }
@@ -3642,15 +5297,29 @@ class CStandardTest_OE25Dev {
 @Test
     void testSqrt_14_oe() {
         final UnaryOperator<Complex> operation = Complex::sqrt;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
+        // Include infinity and nan for (x, inf).
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         for (double x : finite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
         for (double y : positiveFinite) {
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         for (double y : finite) {
+            // removed other assertion
         }
         assertComplex(NAN, operation, NAN);
     }

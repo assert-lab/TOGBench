@@ -287,6 +287,7 @@ public class TestReadWriteSynchronizer_OE25Dev {
         }
         for (final ReaderThread t : readerThreads) {
             t.join();
+            // removed other assertion
         }
         sync.beginRead();
         assertEquals("Wrong sum of money", TOTAL_MONEY, sumUpAccounts(account1, account2));

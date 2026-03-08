@@ -55,15 +55,19 @@ public class JpegXmpRewriteTest_OE25Dev extends JpegXmpBaseTest {
         final ByteSource byteSource = new ByteSourceFile(imageFile);
         final JpegImagingParameters params = new JpegImagingParameters();
         final String xmpXml = new JpegImageParser().getXmpXml(byteSource, params);
+        // removed other assertion
 
         final File noXmpFile = File.createTempFile(imageFile.getName() + ".", ".jpg");
         {
+            // test remove
 
             try (FileOutputStream fos = new FileOutputStream(noXmpFile);
                     OutputStream os = new BufferedOutputStream(fos)) {
                 new JpegXmpRewriter().removeXmpXml(byteSource, os);
             }
 
+            // Debug.debug("Source Segments:");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(noXmpFile));
 
             final String outXmp = new JpegImageParser().getXmpXml(
                     new ByteSourceFile(noXmpFile), params);
@@ -77,21 +81,27 @@ public class JpegXmpRewriteTest_OE25Dev extends JpegXmpBaseTest {
         final ByteSource byteSource = new ByteSourceFile(imageFile);
         final JpegImagingParameters params = new JpegImagingParameters();
         final String xmpXml = new JpegImageParser().getXmpXml(byteSource, params);
+        // removed other assertion
 
         final File noXmpFile = File.createTempFile(imageFile.getName() + ".", ".jpg");
         {
+            // test remove
 
             try (FileOutputStream fos = new FileOutputStream(noXmpFile);
                     OutputStream os = new BufferedOutputStream(fos)) {
                 new JpegXmpRewriter().removeXmpXml(byteSource, os);
             }
 
+            // Debug.debug("Source Segments:");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(noXmpFile));
 
             final String outXmp = new JpegImageParser().getXmpXml(
                     new ByteSourceFile(noXmpFile), params);
+            // removed other assertion
         }
 
         {
+            // test update
 
             final String newXmpXml = "test";
             final File updated = File.createTempFile(imageFile.getName() + ".", ".jpg");
@@ -100,6 +110,8 @@ public class JpegXmpRewriteTest_OE25Dev extends JpegXmpBaseTest {
                 new JpegXmpRewriter().updateXmpXml(byteSource, os, newXmpXml);
             }
 
+            // Debug.debug("Source Segments:");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(updated));
 
             final String outXmp = new JpegImageParser().getXmpXml(
                     new ByteSourceFile(updated), params);
@@ -113,21 +125,27 @@ public class JpegXmpRewriteTest_OE25Dev extends JpegXmpBaseTest {
         final ByteSource byteSource = new ByteSourceFile(imageFile);
         final JpegImagingParameters params = new JpegImagingParameters();
         final String xmpXml = new JpegImageParser().getXmpXml(byteSource, params);
+        // removed other assertion
 
         final File noXmpFile = File.createTempFile(imageFile.getName() + ".", ".jpg");
         {
+            // test remove
 
             try (FileOutputStream fos = new FileOutputStream(noXmpFile);
                     OutputStream os = new BufferedOutputStream(fos)) {
                 new JpegXmpRewriter().removeXmpXml(byteSource, os);
             }
 
+            // Debug.debug("Source Segments:");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(noXmpFile));
 
             final String outXmp = new JpegImageParser().getXmpXml(
                     new ByteSourceFile(noXmpFile), params);
+            // removed other assertion
         }
 
         {
+            // test update
 
             final String newXmpXml = "test";
             final File updated = File.createTempFile(imageFile.getName() + ".", ".jpg");
@@ -136,9 +154,12 @@ public class JpegXmpRewriteTest_OE25Dev extends JpegXmpBaseTest {
                 new JpegXmpRewriter().updateXmpXml(byteSource, os, newXmpXml);
             }
 
+            // Debug.debug("Source Segments:");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(updated));
 
             final String outXmp = new JpegImageParser().getXmpXml(
                     new ByteSourceFile(updated), params);
+            // removed other assertion
             assertEquals(outXmp, newXmpXml);
     }
     }
@@ -149,21 +170,27 @@ public class JpegXmpRewriteTest_OE25Dev extends JpegXmpBaseTest {
         final ByteSource byteSource = new ByteSourceFile(imageFile);
         final JpegImagingParameters params = new JpegImagingParameters();
         final String xmpXml = new JpegImageParser().getXmpXml(byteSource, params);
+        // removed other assertion
 
         final File noXmpFile = File.createTempFile(imageFile.getName() + ".", ".jpg");
         {
+            // test remove
 
             try (FileOutputStream fos = new FileOutputStream(noXmpFile);
                     OutputStream os = new BufferedOutputStream(fos)) {
                 new JpegXmpRewriter().removeXmpXml(byteSource, os);
             }
 
+            // Debug.debug("Source Segments:");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(noXmpFile));
 
             final String outXmp = new JpegImageParser().getXmpXml(
                     new ByteSourceFile(noXmpFile), params);
+            // removed other assertion
         }
 
         {
+            // test update
 
             final String newXmpXml = "test";
             final File updated = File.createTempFile(imageFile.getName() + ".", ".jpg");
@@ -172,12 +199,17 @@ public class JpegXmpRewriteTest_OE25Dev extends JpegXmpBaseTest {
                 new JpegXmpRewriter().updateXmpXml(byteSource, os, newXmpXml);
             }
 
+            // Debug.debug("Source Segments:");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(updated));
 
             final String outXmp = new JpegImageParser().getXmpXml(
                     new ByteSourceFile(updated), params);
+            // removed other assertion
+            // removed other assertion
         }
 
         {
+            // test insert
 
             final String newXmpXml = "test";
             final File updated = File.createTempFile(imageFile.getName() + ".", ".jpg");
@@ -187,6 +219,8 @@ public class JpegXmpRewriteTest_OE25Dev extends JpegXmpBaseTest {
                         noXmpFile), os, newXmpXml);
             }
 
+            // Debug.debug("Source Segments:");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(updated));
 
             final String outXmp = new JpegImageParser().getXmpXml(
                     new ByteSourceFile(updated), params);
@@ -200,21 +234,27 @@ public class JpegXmpRewriteTest_OE25Dev extends JpegXmpBaseTest {
         final ByteSource byteSource = new ByteSourceFile(imageFile);
         final JpegImagingParameters params = new JpegImagingParameters();
         final String xmpXml = new JpegImageParser().getXmpXml(byteSource, params);
+        // removed other assertion
 
         final File noXmpFile = File.createTempFile(imageFile.getName() + ".", ".jpg");
         {
+            // test remove
 
             try (FileOutputStream fos = new FileOutputStream(noXmpFile);
                     OutputStream os = new BufferedOutputStream(fos)) {
                 new JpegXmpRewriter().removeXmpXml(byteSource, os);
             }
 
+            // Debug.debug("Source Segments:");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(noXmpFile));
 
             final String outXmp = new JpegImageParser().getXmpXml(
                     new ByteSourceFile(noXmpFile), params);
+            // removed other assertion
         }
 
         {
+            // test update
 
             final String newXmpXml = "test";
             final File updated = File.createTempFile(imageFile.getName() + ".", ".jpg");
@@ -223,12 +263,17 @@ public class JpegXmpRewriteTest_OE25Dev extends JpegXmpBaseTest {
                 new JpegXmpRewriter().updateXmpXml(byteSource, os, newXmpXml);
             }
 
+            // Debug.debug("Source Segments:");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(updated));
 
             final String outXmp = new JpegImageParser().getXmpXml(
                     new ByteSourceFile(updated), params);
+            // removed other assertion
+            // removed other assertion
         }
 
         {
+            // test insert
 
             final String newXmpXml = "test";
             final File updated = File.createTempFile(imageFile.getName() + ".", ".jpg");
@@ -238,9 +283,12 @@ public class JpegXmpRewriteTest_OE25Dev extends JpegXmpBaseTest {
                         noXmpFile), os, newXmpXml);
             }
 
+            // Debug.debug("Source Segments:");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(updated));
 
             final String outXmp = new JpegImageParser().getXmpXml(
                     new ByteSourceFile(updated), params);
+            // removed other assertion
             assertEquals(outXmp, newXmpXml);
     }
     }

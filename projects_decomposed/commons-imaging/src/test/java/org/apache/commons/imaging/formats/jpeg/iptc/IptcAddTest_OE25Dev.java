@@ -56,6 +56,7 @@ public class IptcAddTest_OE25Dev extends IptcBaseTest {
 
         final JpegPhotoshopMetadata metadata = new JpegImageParser().getPhotoshopMetadata(byteSource, params);
         if (metadata == null) {
+            // FIXME select only files with meta for this test
             return;
         }
 
@@ -97,6 +98,7 @@ public class IptcAddTest_OE25Dev extends IptcBaseTest {
 
         final JpegPhotoshopMetadata metadata = new JpegImageParser().getPhotoshopMetadata(byteSource, params);
         if (metadata == null) {
+            // FIXME select only files with meta for this test
             return;
         }
 
@@ -126,6 +128,7 @@ public class IptcAddTest_OE25Dev extends IptcBaseTest {
         final JpegPhotoshopMetadata outMetadata = new JpegImageParser().getPhotoshopMetadata(
                 updateByteSource, params);
 
+        // removed other assertion
         assertEquals(outMetadata.getItems().size(), newRecords.size());
     }
 

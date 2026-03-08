@@ -132,6 +132,7 @@ public class NtlmTest_OE25Dev extends AbstractBasicTest {
     ByteArrayOutputStream buf = new ByteArrayOutputStream();
     buf.write("NTLMSSP".getBytes(StandardCharsets.US_ASCII));
     buf.write(0);
+    // type 2 indicator
     buf.write(3);
     buf.write(0);
     buf.write(0);
@@ -148,6 +149,7 @@ public class NtlmTest_OE25Dev extends AbstractBasicTest {
     ByteArrayOutputStream buf = new ByteArrayOutputStream();
     buf.write("NTLMSSP".getBytes(StandardCharsets.US_ASCII));
     buf.write(0);
+    // type 2 indicator
     buf.write(2);
     buf.write(0);
     buf.write(0);
@@ -155,6 +157,7 @@ public class NtlmTest_OE25Dev extends AbstractBasicTest {
 
     buf.write(longToBytes(1L)); // we want to write a Long
 
+    // flags
     buf.write(0);// unicode support indicator
     buf.write(0);
     buf.write(0);
@@ -178,6 +181,7 @@ public class NtlmTest_OE25Dev extends AbstractBasicTest {
     ByteArrayOutputStream buf = new ByteArrayOutputStream();
     buf.write("NTLMSSP".getBytes(StandardCharsets.US_ASCII));
     buf.write(0);
+    // type 2 indicator
     buf.write(2);
     buf.write(0);
     buf.write(0);
@@ -185,6 +189,7 @@ public class NtlmTest_OE25Dev extends AbstractBasicTest {
 
     buf.write(longToBytes(0L)); // we want to write a Long
 
+    // flags
     buf.write(1);// unicode support indicator
     buf.write(0);
     buf.write(0);
@@ -200,6 +205,7 @@ public class NtlmTest_OE25Dev extends AbstractBasicTest {
 
   @Test
   public void testWriteULong_1_oe() {
+    // test different combinations so that different positions in the byte array will be written
     byte[] buffer = new byte[4];
     NtlmEngine.writeULong(buffer, 1, 0);
     assertEquals(buffer, new byte[]{1, 0, 0, 0}, "Unsigned long value 1 was not written correctly to the buffer");
@@ -207,8 +213,10 @@ public class NtlmTest_OE25Dev extends AbstractBasicTest {
 
   @Test
   public void testWriteULong_2_oe() {
+    // test different combinations so that different positions in the byte array will be written
     byte[] buffer = new byte[4];
     NtlmEngine.writeULong(buffer, 1, 0);
+    // removed other assertion
 
     buffer = new byte[4];
     NtlmEngine.writeULong(buffer, 257, 0);
@@ -217,11 +225,14 @@ public class NtlmTest_OE25Dev extends AbstractBasicTest {
 
   @Test
   public void testWriteULong_3_oe() {
+    // test different combinations so that different positions in the byte array will be written
     byte[] buffer = new byte[4];
     NtlmEngine.writeULong(buffer, 1, 0);
+    // removed other assertion
 
     buffer = new byte[4];
     NtlmEngine.writeULong(buffer, 257, 0);
+    // removed other assertion
 
     buffer = new byte[4];
     NtlmEngine.writeULong(buffer, 16777216, 0);

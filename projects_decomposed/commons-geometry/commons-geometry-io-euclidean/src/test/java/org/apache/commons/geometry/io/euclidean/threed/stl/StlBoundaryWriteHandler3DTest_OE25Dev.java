@@ -48,6 +48,8 @@ import org.apache.commons.numbers.core.Precision;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class StlBoundaryWriteHandler3DTest_OE25Dev {
 
     private static final double TEST_EPS = 1e-10;
@@ -115,75 +117,100 @@ class StlBoundaryWriteHandler3DTest_OE25Dev {
 
     @Test
     void testProperties_1_oe() {
+        // assert
         Assertions.assertEquals(GeometryFormat3D.STL, handler.getFormat());
     }
 
     @Test
     void testProperties_2_oe() {
+        // assert
+        // removed other assertion
         Assertions.assertEquals(51200, handler.getinitialBufferSize());
     }
 
     @Test
     void testSetInitialBufferSize_1_oe() {
+        // act
         handler.setInitialBufferSize(10);
 
+        // assert
         Assertions.assertEquals(10, handler.getinitialBufferSize());
     }
 
     @Test
     void testWrite_boundarySource_empty_1_oe() {
+        // arrange
         final BoundarySource3D src = BoundarySource3D.of();
 
+        // act
         handler.write(src, new StreamGeometryOutput(out));
 
+        // assert
         Assertions.assertEquals(0, readOutput().count());
     }
 
     @Test
     void testWrite_triangleMesh_empty_1_oe() {
+        // arrange
         final TriangleMesh mesh = SimpleTriangleMesh.builder(TEST_PRECISION)
                 .build();
 
+        // act
         handler.write(mesh, new StreamGeometryOutput(out));
 
+        // assert
         Assertions.assertEquals(0, readOutput().count());
     }
 
     @Test
     void testWriteFacets_list_empty_1_oe() {
+        // act
         handler.writeFacets(Collections.emptyList(), new StreamGeometryOutput(out));
 
+        // assert
         Assertions.assertEquals(0, readOutput().count());
     }
 
     @Test
     void testWriteFacets_includesStlFacetAttribute_3_oe() {
+        // arrange
         final List<Vector3D> vertices = Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0));
         final Vector3D normal = Vector3D.Unit.PLUS_Z;
         final int attr = 12;
 
         final BinaryStlFacetDefinition facet = new BinaryStlFacetDefinition(vertices, normal, attr);
 
+        // act
         handler.writeFacets(Collections.singletonList(facet), new StreamGeometryOutput(out));
 
+        // assert
         BinaryStlFacetDefinitionReader reader =
                 new BinaryStlFacetDefinitionReader(new ByteArrayInputStream(out.toByteArray()));
         BinaryStlFacetDefinition result = reader.readFacet();
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(attr, result.getAttributeValue());
     }
 
 @Test
     void setInitialBufferSize_invalidArg_1_oe() {
-        GeometryTestUtils.assertThrowsWithMessage( () -> handler.setInitialBufferSize(0), IllegalArgumentException.class, "Buffer size must be greater than 0");
+        // act/assert
+        try {
+    handler.setInitialBufferSize(0);
+    fail("Expected IllegalArgumentException with message: " + "Buffer size must be greater than 0");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testWriteStream_ioException_1_oe() {
+        // arrange
         final Stream<PlaneConvexSubset> stream = EuclideanIOTestUtils.cubeMinusSphere(TEST_PRECISION).boundaryStream();
         final OutputStream failOut = new OutputStream() {
             @Override
             public void write(final int b) throws IOException {
+                // do nothing
             }
 
             @Override
@@ -193,7 +220,12 @@ class StlBoundaryWriteHandler3DTest_OE25Dev {
         };
         final GeometryOutput output = new StreamGeometryOutput(failOut);
 
-        GeometryTestUtils.assertThrowsWithMessage( () -> handler.write(stream, output), UncheckedIOException.class, "IOException: close");
+        // act/assert
+        try {
+    handler.write(stream, output);
+    fail("Expected UncheckedIOException with message: " + "IOException: close");
+} catch (UncheckedIOException e) {
+}
     }
 
 }

@@ -71,30 +71,30 @@ public class ListUtilTest {
 		List<String> list7 = ListUtil.synchronizedList(list6);
 	}
 
-	@Test
-	public void general() {
-		List<String> list1 = ListUtil.newArrayList();
+	// @Test
+	// public void general() {
+	// 	List<String> list1 = ListUtil.newArrayList();
 
-		List<String> list2 = ListUtil.newArrayList("a", "b", "c");
-		List<String> list3 = ListUtil.newArrayList("a");
+	// 	List<String> list2 = ListUtil.newArrayList("a", "b", "c");
+	// 	List<String> list3 = ListUtil.newArrayList("a");
 
-		assertThat(ListUtil.isEmpty(list1)).isTrue();
-		assertThat(ListUtil.isEmpty(null)).isTrue();
-		assertThat(ListUtil.isEmpty(list2)).isFalse();
+	// 	assertThat(ListUtil.isEmpty(list1)).isTrue();
+	// 	assertThat(ListUtil.isEmpty(null)).isTrue();
+	// 	assertThat(ListUtil.isEmpty(list2)).isFalse();
 
-		assertThat(ListUtil.isNotEmpty(list1)).isFalse();
-		assertThat(ListUtil.isNotEmpty(null)).isFalse();
-		assertThat(ListUtil.isNotEmpty(list2)).isTrue();
+	// 	assertThat(ListUtil.isNotEmpty(list1)).isFalse();
+	// 	assertThat(ListUtil.isNotEmpty(null)).isFalse();
+	// 	assertThat(ListUtil.isNotEmpty(list2)).isTrue();
 
-		assertThat(ListUtil.getFirst(list2)).isEqualTo("a");
-		assertThat(ListUtil.getLast(list2)).isEqualTo("c");
+	// 	assertThat(ListUtil.getFirst(list2)).isEqualTo("a");
+	// 	assertThat(ListUtil.getLast(list2)).isEqualTo("c");
 
-		assertThat(ListUtil.getFirst(list3)).isEqualTo("a");
-		assertThat(ListUtil.getLast(list3)).isEqualTo("a");
+	// 	assertThat(ListUtil.getFirst(list3)).isEqualTo("a");
+	// 	assertThat(ListUtil.getLast(list3)).isEqualTo("a");
 
-		assertThat(ListUtil.getFirst(list1)).isNull();
-		assertThat(ListUtil.getFirst(null)).isNull();
-	}
+	// 	assertThat(ListUtil.getFirst(list1)).isNull();
+	// 	assertThat(ListUtil.getFirst(null)).isNull();
+	// }
 
 	@Test
 	public void sortAndSearch() {

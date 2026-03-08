@@ -84,8 +84,107 @@ public abstract class AbstractOrderedMapTest_OE25Dev<K, V> extends AbstractItera
     }
 
     //-----------------------------------------------------------------------
+    public void testFirstKey() {
+        resetEmpty();
+        OrderedMap<K, V> ordered = getMap();
+        try {
+            ordered.firstKey();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+
+        resetFull();
+        ordered = getMap();
+        final K confirmedFirst = confirmed.keySet().iterator().next();
+        assertEquals(confirmedFirst, ordered.firstKey());
+    }
+
+    public void testLastKey() {
+        resetEmpty();
+        OrderedMap<K, V> ordered = getMap();
+        try {
+            ordered.lastKey();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+
+        resetFull();
+        ordered = getMap();
+        K confirmedLast = null;
+        for (final Iterator<K> it = confirmed.keySet().iterator(); it.hasNext();) {
+            confirmedLast = it.next();
+        }
+        assertEquals(confirmedLast, ordered.lastKey());
+    }
 
     //-----------------------------------------------------------------------
+    public void testNextKey() {
+        resetEmpty();
+        OrderedMap<K, V> ordered = getMap();
+        assertEquals(null, ordered.nextKey(getOtherKeys()[0]));
+        if (!isAllowNullKey()) {
+            try {
+                assertEquals(null, ordered.nextKey(null)); // this is allowed too
+            } catch (final NullPointerException ex) {}
+        } else {
+            assertEquals(null, ordered.nextKey(null));
+        }
+
+        resetFull();
+        ordered = getMap();
+        final Iterator<K> it = confirmed.keySet().iterator();
+        K confirmedLast = it.next();
+        while (it.hasNext()) {
+            final K confirmedObject = it.next();
+            assertEquals(confirmedObject, ordered.nextKey(confirmedLast));
+            confirmedLast = confirmedObject;
+        }
+        assertEquals(null, ordered.nextKey(confirmedLast));
+
+        if (!isAllowNullKey()) {
+            try {
+                ordered.nextKey(null);
+                fail();
+            } catch (final NullPointerException ex) {}
+        } else {
+            assertEquals(null, ordered.nextKey(null));
+        }
+    }
+
+    public void testPreviousKey() {
+        resetEmpty();
+        OrderedMap<K, V> ordered = getMap();
+        assertEquals(null, ordered.previousKey(getOtherKeys()[0]));
+        if (!isAllowNullKey()) {
+            try {
+                assertEquals(null, ordered.previousKey(null)); // this is allowed too
+            } catch (final NullPointerException ex) {}
+        } else {
+            assertEquals(null, ordered.previousKey(null));
+        }
+
+        resetFull();
+        ordered = getMap();
+        final List<K> list = new ArrayList<>(confirmed.keySet());
+        Collections.reverse(list);
+        final Iterator<K> it = list.iterator();
+        K confirmedLast = it.next();
+        while (it.hasNext()) {
+            final K confirmedObject = it.next();
+            assertEquals(confirmedObject, ordered.previousKey(confirmedLast));
+            confirmedLast = confirmedObject;
+        }
+        assertEquals(null, ordered.previousKey(confirmedLast));
+
+        if (!isAllowNullKey()) {
+            try {
+                ordered.previousKey(null);
+                fail();
+            } catch (final NullPointerException ex) {}
+        } else {
+            if (!isAllowNullKey()) {
+                assertEquals(null, ordered.previousKey(null));
+            }
+        }
+    }
 
     //-----------------------------------------------------------------------
     public BulkTest bulkTestOrderedMapIterator() {

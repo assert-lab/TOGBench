@@ -49,6 +49,7 @@ public class ServiceLoaderTest_OE25Dev {
     public void testFindsLocalColumnHandler_1_oe() {
         boolean found = false;
         for (ColumnHandler handler : columns) {
+            // this class is defined outside of the main classes in dbutils
             if (handler instanceof TestColumnHandler) {
                 found = true;
             }
@@ -61,6 +62,7 @@ public class ServiceLoaderTest_OE25Dev {
     public void testFindsLocalPropertyHandler_1_oe() {
         boolean found = false;
         for (PropertyHandler handler : properties) {
+            // this class is defined outside of the main classes in dbutils
             if (handler instanceof TestPropertyHandler) {
                 found = true;
             }

@@ -1,0 +1,147 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for commons-net:commons-net:jar:3.8.0
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ line 218, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ----------------------< commons-net:commons-net >-----------------------
+[INFO] Building Apache Commons Net 3.8.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-net ---
+[INFO] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-net ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-net ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-net ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-net ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-net ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-net ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-net ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net
+[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772595157210
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-net ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-net ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 191 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-net ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-net ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-net ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 100 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net/target/test-classes
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-net ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-net ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.net.pop3.POP3ClientTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.net.pop3.POP3ClientTest_OE25Dev
+[INFO] Running org.apache.commons.net.pop3.POP3ConstructorTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.net.pop3.POP3ConstructorTest_OE25Dev
+[INFO] Running org.apache.commons.net.io.DotTerminatedMessageReaderTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.io.DotTerminatedMessageReaderTest_OE25Dev
+[INFO] Running org.apache.commons.net.SubnetUtilsTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.SubnetUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest_OE25Dev
+[INFO] Running org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactoryTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactoryTest_OE25Dev
+[INFO] Running org.apache.commons.net.ftp.parser.NTFTPEntryParserTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.ftp.parser.NTFTPEntryParserTest_OE25Dev
+[INFO] Running org.apache.commons.net.ftp.parser.FTPConfigEntryParserTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.ftp.parser.FTPConfigEntryParserTest_OE25Dev
+[INFO] Running org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest_OE25Dev
+[INFO] Running org.apache.commons.net.ftp.parser.VMSFTPEntryParserTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.net.ftp.parser.VMSFTPEntryParserTest_OE25Dev
+[INFO] Running org.apache.commons.net.ftp.parser.OS400FTPEntryParserTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.net.ftp.parser.OS400FTPEntryParserTest_OE25Dev
+[INFO] Running org.apache.commons.net.ftp.parser.MVSFTPEntryParserTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.ftp.parser.MVSFTPEntryParserTest_OE25Dev
+[INFO] Running org.apache.commons.net.ftp.FTPClientConfigTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.net.ftp.FTPClientConfigTest_OE25Dev
+[INFO] Running org.apache.commons.net.ftp.TestConnectTimeout_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.ftp.TestConnectTimeout_OE25Dev
+[INFO] Running org.apache.commons.net.ftp.FTPClientConfigFunctionalTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.ftp.FTPClientConfigFunctionalTest_OE25Dev
+[INFO] Running org.apache.commons.net.ftp.FTPClientTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.ftp.FTPClientTest_OE25Dev
+[INFO] Running org.apache.commons.net.smtp.SimpleSMTPHeaderTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.net.smtp.SimpleSMTPHeaderTestCase_OE25Dev
+[INFO] Running org.apache.commons.net.time.TimeTCPClientTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.time.TimeTCPClientTest_OE25Dev
+[INFO] Running org.apache.commons.net.util.Base64Test_OE25Dev
+[WARNING] Tests run: 23, Failures: 0, Errors: 0, Skipped: 19, Time elapsed: 0.002 s - in org.apache.commons.net.util.Base64Test_OE25Dev
+[INFO] Running org.apache.commons.net.telnet.SuppressGAOptionHandlerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.telnet.SuppressGAOptionHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.net.telnet.TelnetOptionTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.net.telnet.TelnetOptionTest_OE25Dev
+[INFO] Running org.apache.commons.net.telnet.TelnetClientTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.telnet.TelnetClientTest_OE25Dev
+[INFO] Running org.apache.commons.net.telnet.InvalidTelnetOptionExceptionTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.telnet.InvalidTelnetOptionExceptionTest_OE25Dev
+[INFO] Running org.apache.commons.net.telnet.EchoOptionHandlerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.telnet.EchoOptionHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.net.telnet.SimpleOptionHandlerTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.net.telnet.SimpleOptionHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.net.telnet.WindowSizeOptionHandlerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.telnet.WindowSizeOptionHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.net.telnet.TerminalTypeOptionHandlerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.telnet.TerminalTypeOptionHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev
+[INFO] Running org.apache.commons.net.tftp.TFTPTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.661 s - in org.apache.commons.net.tftp.TFTPTest_OE25Dev
+[INFO] Running org.apache.commons.net.SocketClientTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.SocketClientTest_OE25Dev
+[INFO] Running org.apache.commons.net.ntp.TestNtpPacket_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.ntp.TestNtpPacket_OE25Dev
+[INFO] Running org.apache.commons.net.ntp.TestTimeInfo_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.ntp.TestTimeInfo_OE25Dev
+[INFO] Running org.apache.commons.net.ntp.TimeStampTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.ntp.TimeStampTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 62, Failures: 0, Errors: 0, Skipped: 19
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.249 s
+[INFO] Finished at: 2026-03-03T21:32:39-06:00
+[INFO] ------------------------------------------------------------------------

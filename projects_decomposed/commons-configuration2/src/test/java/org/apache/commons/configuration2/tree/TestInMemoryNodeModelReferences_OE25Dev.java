@@ -177,6 +177,7 @@ public class TestInMemoryNodeModelReferences_OE25Dev {
         model.mergeRoot(node, null, null, rootRef, resolver);
         final ReferenceNodeHandler refHandler = model.getReferenceNodeHandler();
         final ImmutableNode checkNode = NodeStructureHelper.nodeForKey(model, "Simmons/Ilium");
+        // removed other assertion
         assertEquals("Wrong root reference", rootRef, refHandler.getReference(refHandler.getRootNode()));
     }
 
@@ -193,6 +194,7 @@ public class TestInMemoryNodeModelReferences_OE25Dev {
         final ImmutableNode node = new ImmutableNode.Builder().addAttribute("key", "value").create();
         model.mergeRoot(node, null, null, null, resolver);
         final ImmutableNode root = model.getNodeHandler().getRootNode();
+        // removed other assertion
         assertEquals("Wrong attribute", "value", root.getAttributes().get("key"));
     }
 
@@ -209,6 +211,7 @@ public class TestInMemoryNodeModelReferences_OE25Dev {
         final ImmutableNode node = NodeStructureHelper.createNode("newNode", "test");
         model.mergeRoot(node, null, null, null, resolver);
         final ImmutableNode root = model.getNodeHandler().getRootNode();
+        // removed other assertion
         assertEquals("Wrong node value", "test", root.getValue());
     }
 
@@ -232,6 +235,7 @@ public class TestInMemoryNodeModelReferences_OE25Dev {
     public void testQueryReferencesAfterUpdate_2_oe() {
         model.addProperty("Simmons.Hyperion", Collections.singleton("Lamia"), resolver);
         final ReferenceNodeHandler handler = model.getReferenceNodeHandler();
+        // removed other assertion
         assertEquals("Wrong reference 2", "Simmons", handler.getReference(NodeStructureHelper.nodeForKey(model, "Simmons")));
     }
 
@@ -259,6 +263,7 @@ public class TestInMemoryNodeModelReferences_OE25Dev {
         final List<Object> removedRefs = handler.removedReferences();
         final int authorIdx = 2;
         for (int i = 0; i < NodeStructureHelper.worksLength(authorIdx); i++) {
+            // removed other assertion
             for (int j = 0; j < NodeStructureHelper.personaeLength(authorIdx, i); j++) {
                 assertTrue("Persona not found: " + j, removedRefs.contains(NodeStructureHelper.persona(authorIdx, i, j)));
     }
@@ -292,6 +297,7 @@ public class TestInMemoryNodeModelReferences_OE25Dev {
 
         model.replaceRoot(NodeStructureHelper.ROOT_AUTHORS_TREE, resolver);
         final ImmutableNode node = model.getTrackedNode(selector);
+        // removed other assertion
         assertFalse("Node is detached", model.isTrackedNodeDetached(selector));
     }
 
@@ -304,6 +310,8 @@ public class TestInMemoryNodeModelReferences_OE25Dev {
 
         model.replaceRoot(NodeStructureHelper.ROOT_AUTHORS_TREE, resolver);
         final ImmutableNode node = model.getTrackedNode(selector);
+        // removed other assertion
+        // removed other assertion
         assertNull("Reference not cleared", model.getReferenceNodeHandler().getReference(trackedNode));
     }
 

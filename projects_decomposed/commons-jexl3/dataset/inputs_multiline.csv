@@ -1,0 +1,459 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+jexl_259_1,"    @Test
+    public void testFlags_1_oe() {
+        boolean a = builder().antish(true).antish();
+        Assert.assertTrue(a);
+    }",BuilderTest::testFlags_1_oe,org.apache.commons.jexl3.JexlBuilder,antish(final boolean flag),"/**
+     * Sets whether the engine will resolve antish variable names.
+     *
+     * @param flag true means antish resolution is enabled, false disables it
+     * @return this builder
+     */","public JexlBuilder antish(final boolean flag) {
+        options.setAntish(flag);
+        return this;
+    }"
+jexl_259_2,"    @Test
+    public void testFlags_2_oe() {
+        boolean a = builder().antish(false).antish();
+        Assert.assertFalse(a);
+    }",BuilderTest::testFlags_2_oe,org.apache.commons.jexl3.JexlBuilder,antish(final boolean flag),"/**
+     * Sets whether the engine will resolve antish variable names.
+     *
+     * @param flag true means antish resolution is enabled, false disables it
+     * @return this builder
+     */","public JexlBuilder antish(final boolean flag) {
+        options.setAntish(flag);
+        return this;
+    }"
+jexl_259_3,"    @Test
+    public void testFlags_3_oe() {
+        boolean a = builder().cancellable(true).cancellable();
+        Assert.assertTrue(a);
+    }",BuilderTest::testFlags_3_oe,org.apache.commons.jexl3.JexlBuilder,cancellable(final boolean flag),"/**
+     * Sets the engine behavior upon interruption: throw an JexlException.Cancel or terminates the current evaluation
+     * and return null.
+     *
+     * @param flag true implies the engine throws the exception, false makes the engine return null.
+     * @return this builder
+     * @since 3.1
+     */","public JexlBuilder cancellable(final boolean flag) {
+        this.cancellable = flag;
+        options.setCancellable(flag);
+        return this;
+    }"
+jexl_259_4,"    @Test
+    public void testFlags_4_oe() {
+        boolean a = builder().cancellable(false).cancellable();
+        Assert.assertFalse(a);
+    }",BuilderTest::testFlags_4_oe,org.apache.commons.jexl3.JexlBuilder,cancellable(final boolean flag),"/**
+     * Sets the engine behavior upon interruption: throw an JexlException.Cancel or terminates the current evaluation
+     * and return null.
+     *
+     * @param flag true implies the engine throws the exception, false makes the engine return null.
+     * @return this builder
+     * @since 3.1
+     */","public JexlBuilder cancellable(final boolean flag) {
+        this.cancellable = flag;
+        options.setCancellable(flag);
+        return this;
+    }"
+jexl_259_5,"    @Test
+    public void testFlags_5_oe() {
+        boolean a = builder().safe(true).safe();
+        Assert.assertTrue(a);
+    }",BuilderTest::testFlags_5_oe,org.apache.commons.jexl3.JexlBuilder,safe(final boolean flag),"/**
+     * Sets whether the engine considers dereferencing null in navigation expressions
+     * as errors or evaluates them as null.
+     * <p><code>x.y()</code> if x is null throws an exception when not safe,
+     * return null and warns if it is.<p>
+     *
+     * @param flag true means safe navigation, false throws exception when dereferencing null
+     * @return this builder
+     */","public JexlBuilder safe(final boolean flag) {
+        options.setSafe(flag);
+        return this;
+    }"
+jexl_259_6,"    @Test
+    public void testFlags_6_oe() {
+        boolean a = builder().safe(false).safe();
+        Assert.assertFalse(a);
+    }",BuilderTest::testFlags_6_oe,org.apache.commons.jexl3.JexlBuilder,safe(final boolean flag),"/**
+     * Sets whether the engine considers dereferencing null in navigation expressions
+     * as errors or evaluates them as null.
+     * <p><code>x.y()</code> if x is null throws an exception when not safe,
+     * return null and warns if it is.<p>
+     *
+     * @param flag true means safe navigation, false throws exception when dereferencing null
+     * @return this builder
+     */","public JexlBuilder safe(final boolean flag) {
+        options.setSafe(flag);
+        return this;
+    }"
+jexl_259_7,"    @Test
+    public void testFlags_7_oe() {
+        boolean a = builder().silent(true).silent();
+        Assert.assertTrue(a);
+    }",BuilderTest::testFlags_7_oe,org.apache.commons.jexl3.JexlBuilder,silent(final boolean flag),"/**
+     * Sets whether the engine will throw JexlException during evaluation when an error is triggered.
+     *
+     * @param flag true means no JexlException will occur, false allows them
+     * @return this builder
+     */","public JexlBuilder silent(final boolean flag) {
+        options.setSilent(flag);
+        return this;
+    }"
+jexl_259_8,"    @Test
+    public void testFlags_8_oe() {
+        boolean a = builder().silent(false).silent();
+        Assert.assertFalse(a);
+    }",BuilderTest::testFlags_8_oe,org.apache.commons.jexl3.JexlBuilder,silent(final boolean flag),"/**
+     * Sets whether the engine will throw JexlException during evaluation when an error is triggered.
+     *
+     * @param flag true means no JexlException will occur, false allows them
+     * @return this builder
+     */","public JexlBuilder silent(final boolean flag) {
+        options.setSilent(flag);
+        return this;
+    }"
+jexl_259_9,"    @Test
+    public void testFlags_9_oe() {
+        boolean a = builder().lexical(true).lexical();
+        Assert.assertTrue(a);
+    }",BuilderTest::testFlags_9_oe,org.apache.commons.jexl3.JexlBuilder,lexical(final boolean flag),"/**
+     * Sets whether the engine is in lexical mode.
+     *
+     * @param flag true means lexical function scope is in effect, false implies non-lexical scoping
+     * @return this builder
+     * @since 3.2
+     */","public JexlBuilder lexical(final boolean flag) {
+        options.setLexical(flag);
+        return this;
+    }"
+jexl_259_10,"    @Test
+    public void testFlags_10_oe() {
+        boolean a = builder().lexical(false).lexical();
+        Assert.assertFalse(a);
+    }",BuilderTest::testFlags_10_oe,org.apache.commons.jexl3.JexlBuilder,lexical(final boolean flag),"/**
+     * Sets whether the engine is in lexical mode.
+     *
+     * @param flag true means lexical function scope is in effect, false implies non-lexical scoping
+     * @return this builder
+     * @since 3.2
+     */","public JexlBuilder lexical(final boolean flag) {
+        options.setLexical(flag);
+        return this;
+    }"
+jexl_259_11,"    @Test
+    public void testFlags_11_oe() {
+        boolean a = builder().lexicalShade(true).lexicalShade();
+        Assert.assertTrue(a);
+    }",BuilderTest::testFlags_11_oe,org.apache.commons.jexl3.JexlBuilder,lexicalShade(final boolean flag),"/**
+     * Sets whether the engine is in lexical shading mode.
+     *
+     * @param flag true means lexical shading is in effect, false implies no lexical shading
+     * @return this builder
+     * @since 3.2
+     */","public JexlBuilder lexicalShade(final boolean flag) {
+        options.setLexicalShade(flag);
+        return this;
+    }"
+jexl_259_12,"    @Test
+    public void testFlags_12_oe() {
+        boolean a = builder().lexicalShade(false).lexicalShade();
+        Assert.assertFalse(a);
+    }",BuilderTest::testFlags_12_oe,org.apache.commons.jexl3.JexlBuilder,lexicalShade(final boolean flag),"/**
+     * Sets whether the engine is in lexical shading mode.
+     *
+     * @param flag true means lexical shading is in effect, false implies no lexical shading
+     * @return this builder
+     * @since 3.2
+     */","public JexlBuilder lexicalShade(final boolean flag) {
+        options.setLexicalShade(flag);
+        return this;
+    }"
+jexl_259_13,"    @Test
+    public void testFlags_13_oe() {
+        boolean a = builder().silent(true).silent();
+        Assert.assertTrue(a);
+    }",BuilderTest::testFlags_13_oe,org.apache.commons.jexl3.JexlBuilder,silent(final boolean flag),"/**
+     * Sets whether the engine will throw JexlException during evaluation when an error is triggered.
+     *
+     * @param flag true means no JexlException will occur, false allows them
+     * @return this builder
+     */","public JexlBuilder silent(final boolean flag) {
+        options.setSilent(flag);
+        return this;
+    }"
+jexl_259_14,"    @Test
+    public void testFlags_14_oe() {
+        boolean a = builder().silent(false).silent();
+        Assert.assertFalse(a);
+    }",BuilderTest::testFlags_14_oe,org.apache.commons.jexl3.JexlBuilder,silent(final boolean flag),"/**
+     * Sets whether the engine will throw JexlException during evaluation when an error is triggered.
+     *
+     * @param flag true means no JexlException will occur, false allows them
+     * @return this builder
+     */","public JexlBuilder silent(final boolean flag) {
+        options.setSilent(flag);
+        return this;
+    }"
+jexl_259_15,"    @Test
+    public void testFlags_15_oe() {
+        boolean a = builder().strict(true).strict();
+        Assert.assertTrue(a);
+    }",BuilderTest::testFlags_15_oe,org.apache.commons.jexl3.JexlBuilder,strict(final boolean flag),"/**
+     * Sets whether the engine considers unknown variables, methods, functions and constructors as errors or
+     * evaluates them as null.
+     *
+     * @param flag true means strict error reporting, false allows them to be evaluated as null
+     * @return this builder
+     */","public JexlBuilder strict(final boolean flag) {
+        options.setStrict(flag);
+        return this;
+    }"
+jexl_259_16,"    @Test
+    public void testFlags_16_oe() {
+        boolean a = builder().strict(false).strict();
+        Assert.assertFalse(a);
+    }",BuilderTest::testFlags_16_oe,org.apache.commons.jexl3.JexlBuilder,strict(final boolean flag),"/**
+     * Sets whether the engine considers unknown variables, methods, functions and constructors as errors or
+     * evaluates them as null.
+     *
+     * @param flag true means strict error reporting, false allows them to be evaluated as null
+     * @return this builder
+     */","public JexlBuilder strict(final boolean flag) {
+        options.setStrict(flag);
+        return this;
+    }"
+jexl_260_1,"    @Test
+    public void testValues_1_oe() {
+        int a = 1;
+        Assert.assertEquals(a, builder().collectMode(1).collectMode());
+    }",BuilderTest::testValues_1_oe,org.apache.commons.jexl3.JexlBuilder,collectMode(final int mode),"/**
+     * Experimental collector mode setter.
+     *
+     * @param mode 0 or 1 as equivalents to false and true, other values are experimental
+     * @return this builder
+     * @since 3.2
+     */","public JexlBuilder collectMode(final int mode) {
+        this.collectMode = mode;
+        return this;
+    }"
+jexl_260_2,"    @Test
+    public void testValues_2_oe() {
+        int a = 0;
+        Assert.assertEquals(a, builder().collectMode(0).collectMode());
+    }",BuilderTest::testValues_2_oe,org.apache.commons.jexl3.JexlBuilder,collectMode(final int mode),"/**
+     * Experimental collector mode setter.
+     *
+     * @param mode 0 or 1 as equivalents to false and true, other values are experimental
+     * @return this builder
+     * @since 3.2
+     */","public JexlBuilder collectMode(final int mode) {
+        this.collectMode = mode;
+        return this;
+    }"
+jexl_260_3,"    @Test
+    public void testValues_3_oe() {
+        int a = 32;
+        Assert.assertEquals(a, builder().cacheThreshold(32).cacheThreshold());
+    }",BuilderTest::testValues_3_oe,org.apache.commons.jexl3.JexlBuilder,cacheThreshold(final int length),"/**
+     * Sets the maximum length for an expression to be cached.
+     * <p>Expression whose length is greater than this expression cache length threshold will
+     * bypass the cache.</p>
+     * <p>It is expected that a ""long"" script will be parsed once and its reference kept
+     * around in user-space structures; the jexl expression cache has no added-value in this case.</p>
+     *
+     * @param length if not strictly positive, the value is silently replaced by the default value (64).
+     * @return this builder
+     */","public JexlBuilder cacheThreshold(final int length) {
+        this.cacheThreshold = length > 0? length : CACHE_THRESHOLD;
+        return this;
+    }"
+jexl_260_4,"    @Test
+    public void testValues_4_oe() {
+        int a = 8;
+        Assert.assertEquals(a, builder().stackOverflow(8).stackOverflow());
+    }",BuilderTest::testValues_4_oe,org.apache.commons.jexl3.JexlBuilder,stackOverflow(final int size),"/**
+     * Sets the number of script/expression evaluations that can be stacked.
+     * @param size if not strictly positive, limit is reached when java StackOverflow is thrown.
+     * @return this builder
+     */","public JexlBuilder stackOverflow(final int size) {
+        this.stackOverflow = size;
+        return this;
+    }"
+jexl_583_1,"    @Test
+    public void testCompilable_1_oe() throws Exception {
+        boolean a = engine instanceof Compilable;
+        Assert.assertTrue(""Engine should implement Compilable"", a);
+    }",JexlScriptEngineOptionalTest::testCompilable_1_oe,,,,
+jexl_left_390_1,"@Test
+    public void testAndWithTwoNulls_1_oe() throws Exception {
+        Object a = new Long(0);
+        asserter.assertExpression(""null & null"", a);
+    }",BitwiseOperatorTest::testAndWithTwoNulls_1_oe,,,,
+jexl_left_391_1,"@Test
+    public void testAndWithLeftNull_1_oe() throws Exception {
+        Object a = new Long(0);
+        asserter.assertExpression(""null & 1"", a);
+    }",BitwiseOperatorTest::testAndWithLeftNull_1_oe,,,,
+jexl_left_392_1,"@Test
+    public void testAndWithRightNull_1_oe() throws Exception {
+        Object a = new Long(0);
+        asserter.assertExpression(""1 & null"", a);
+    }",BitwiseOperatorTest::testAndWithRightNull_1_oe,,,,
+jexl_left_393_1,"@Test
+    public void testAndSimple_1_oe() throws Exception {
+        Object a = new Long(15 & 3);
+        asserter.assertExpression(""15 & 3"", a);
+    }",BitwiseOperatorTest::testAndSimple_1_oe,,,,
+jexl_left_396_1,"@Test
+    public void testComplementWithNull_1_oe() throws Exception {
+        Object a = new Long(-1);
+        asserter.assertExpression(""~null"", a);
+    }",BitwiseOperatorTest::testComplementWithNull_1_oe,,,,
+jexl_left_397_1,"@Test
+    public void testComplementSimple_1_oe() throws Exception {
+        Object a = new Long(-129);
+        asserter.assertExpression(""~128"", a);
+    }",BitwiseOperatorTest::testComplementSimple_1_oe,,,,
+jexl_left_400_1,"@Test
+    public void testOrWithTwoNulls_1_oe() throws Exception {
+        Object a = new Long(0);
+        asserter.assertExpression(""null | null"", a);
+    }",BitwiseOperatorTest::testOrWithTwoNulls_1_oe,,,,
+jexl_left_401_1,"@Test
+    public void testOrWithLeftNull_1_oe() throws Exception {
+        Object a = new Long(1);
+        asserter.assertExpression(""null | 1"", a);
+    }",BitwiseOperatorTest::testOrWithLeftNull_1_oe,,,,
+jexl_left_402_1,"@Test
+    public void testOrWithRightNull_1_oe() throws Exception {
+        Object a = new Long(1);
+        asserter.assertExpression(""1 | null"", a);
+    }",BitwiseOperatorTest::testOrWithRightNull_1_oe,,,,
+jexl_left_403_1,"@Test
+    public void testOrSimple_1_oe() throws Exception {
+        Object a = new Long(15);
+        asserter.assertExpression(""12 | 3"", a);
+    }",BitwiseOperatorTest::testOrSimple_1_oe,,,,
+jexl_left_406_1,"@Test
+    public void testXorWithTwoNulls_1_oe() throws Exception {
+        Object a = new Long(0);
+        asserter.assertExpression(""null ^ null"", a);
+    }",BitwiseOperatorTest::testXorWithTwoNulls_1_oe,,,,
+jexl_left_407_1,"@Test
+    public void testXorWithLeftNull_1_oe() throws Exception {
+        Object a = new Long(1);
+        asserter.assertExpression(""null ^ 1"", a);
+    }",BitwiseOperatorTest::testXorWithLeftNull_1_oe,,,,
+jexl_left_408_1,"@Test
+    public void testXorWithRightNull_1_oe() throws Exception {
+        Object a = new Long(1);
+        asserter.assertExpression(""1 ^ null"", a);
+    }",BitwiseOperatorTest::testXorWithRightNull_1_oe,,,,
+jexl_left_409_1,"@Test
+    public void testXorSimple_1_oe() throws Exception {
+        Object a = new Long(1 ^ 3);
+        asserter.assertExpression(""1 ^ 3"", a);
+    }",BitwiseOperatorTest::testXorSimple_1_oe,,,,
+jexl_left_412_1,"@Test
+    public void testParenthesized_1_oe() throws Exception {
+        Object a = Long.valueOf(3L);
+        asserter.assertExpression(""(2 | 1) & 3"", a);
+    }",BitwiseOperatorTest::testParenthesized_1_oe,,,,
+jexl_left_412_2,"@Test
+    public void testParenthesized_2_oe() throws Exception {
+        Object a = Long.valueOf(3L);
+        asserter.assertExpression(""(2 & 1) | 3"", a);
+    }",BitwiseOperatorTest::testParenthesized_2_oe,,,,
+jexl_left_412_3,"@Test
+    public void testParenthesized_3_oe() throws Exception {
+        Object a = new Long(~(120 | 42));
+        asserter.assertExpression(""~(120 | 42)"", a);
+    }",BitwiseOperatorTest::testParenthesized_3_oe,,,,
+jexl_left_498_1,"@Test
+    public void testOverflows_1_oe() throws Exception {
+        Object a = Long.valueOf(""2147483648"");
+        asserter.assertExpression(""1 + 2147483647"", a);
+    }",ArithmeticTest::testOverflows_1_oe,,,,
+jexl_left_498_2,"@Test
+    public void testOverflows_2_oe() throws Exception {
+        Object a = ""3 + "" + (Long.MAX_VALUE - 2);
+        asserter.assertExpression(a, BigInteger.valueOf(Long.MAX_VALUE).add(BigInteger.ONE));
+    }",ArithmeticTest::testOverflows_2_oe,org.apache.commons.jexl3.JexlArithmetic.ArrayBuilder,void add(Object value),"/**
+         * Adds a literal to the array.
+         *
+         * @param value the item to add
+         */",void add(Object value);
+jexl_left_498_3,"@Test
+    public void testOverflows_3_oe() throws Exception {
+        Object a = Long.valueOf(""-2147483649"");
+        asserter.assertExpression(""-2147483648 - 1"", a);
+    }",ArithmeticTest::testOverflows_3_oe,,,,
+jexl_left_498_4,"@Test
+    public void testOverflows_4_oe() throws Exception {
+        Object a = ""-3 + "" + (Long.MIN_VALUE + 2);
+        asserter.assertExpression(a, BigInteger.valueOf(Long.MIN_VALUE).subtract(BigInteger.ONE));
+    }",ArithmeticTest::testOverflows_4_oe,org.apache.commons.jexl3.JexlArithmetic,"subtract(final Object left, final Object right)","/**
+     * Subtract the right value from the left.
+     *
+     * @param left  left argument
+     * @param right  right argument
+     * @return left - right.
+     */","public Object subtract(final Object left, final Object right) {
+        if (left == null && right == null) {
+            return controlNullNullOperands();
+        }
+        // if both (non null) args fit as long
+        final Number ln = asLongNumber(left);
+        final Number rn = asLongNumber(right);
+        if (ln != null && rn != null) {
+            final long x = ln.longValue();
+            final long y = rn.longValue();
+            final long result = x - y;
+            // detect overflow, see java8 Math.subtractExact
+            if (((x ^ y) & (x ^ result)) < 0) {
+                return BigInteger.valueOf(x).subtract(BigInteger.valueOf(y));
+            }
+            return narrowLong(left, right, result);
+        }
+        // if either are bigdecimal use that type
+        if (left instanceof BigDecimal || right instanceof BigDecimal) {
+            final BigDecimal l = toBigDecimal(left);
+            final BigDecimal r = toBigDecimal(right);
+            final BigDecimal result = l.subtract(r, getMathContext());
+            return narrowBigDecimal(left, right, result);
+        }
+        // if either are floating point (double or float) use double
+        if (isFloatingPointNumber(left) || isFloatingPointNumber(right)) {
+            final double l = toDouble(left);
+            final double r = toDouble(right);
+            return l - r;
+        }
+        // otherwise treat as integers
+        final BigInteger l = toBigInteger(left);
+        final BigInteger r = toBigInteger(right);
+        final BigInteger result = l.subtract(r);
+        return narrowBigInteger(left, right, result);
+    }"
+jexl_left_498_5,"@Test
+    public void testOverflows_5_oe() throws Exception {
+        Object a = new BigInteger(""9223372036854775808"");
+        asserter.assertExpression(""1 + 9223372036854775807"", a);
+    }",ArithmeticTest::testOverflows_5_oe,,,,
+jexl_left_498_6,"@Test
+    public void testOverflows_6_oe() throws Exception {
+        Object a = new BigInteger(""-9223372036854775809"");
+        asserter.assertExpression(""-1 + (-9223372036854775808)"", a);
+    }",ArithmeticTest::testOverflows_6_oe,,,,
+jexl_left_498_7,"@Test
+    public void testOverflows_7_oe() throws Exception {
+        Object a = new BigInteger(""-9223372036854775809"");
+        asserter.assertExpression(""-9223372036854775808 - 1"", a);
+    }",ArithmeticTest::testOverflows_7_oe,,,,
+jexl_left_502_2,"@Test
+    public void testCoercions_2_oe() throws Exception {
+        Object a = new Long(5);
+        asserter.assertExpression(""5L"", a);
+    }",ArithmeticTest::testCoercions_2_oe,,,,

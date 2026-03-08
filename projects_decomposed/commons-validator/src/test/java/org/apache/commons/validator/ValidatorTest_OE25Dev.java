@@ -139,7 +139,9 @@ public class ValidatorTest_OE25Dev extends TestCase {
    }
 
    public void testManualObject_5_oe() {
+        //     property name of the method we are validating
         String property = "date";
+        // name of ValidatorAction
         String action = "date";
         ValidatorResources resources = setupDateResources(property, action);
 
@@ -152,18 +154,24 @@ public class ValidatorTest_OE25Dev extends TestCase {
       try {
          ValidatorResults results = validator.validate();
          
+         // removed other assertion
          
          ValidatorResult result = results.getValidatorResult(property);
          
+         // removed other assertion
          
+         // removed other assertion
          
+         // removed other assertion
       } catch (Exception e) {
          fail("An exception was thrown while calling Validator.validate()");
    }
    }
 
    public void testManualObject_10_oe() {
+        //     property name of the method we are validating
         String property = "date";
+        // name of ValidatorAction
         String action = "date";
         ValidatorResources resources = setupDateResources(property, action);
 
@@ -176,12 +184,17 @@ public class ValidatorTest_OE25Dev extends TestCase {
       try {
          ValidatorResults results = validator.validate();
          
+         // removed other assertion
          
          ValidatorResult result = results.getValidatorResult(property);
          
+         // removed other assertion
          
+         // removed other assertion
          
+         // removed other assertion
       } catch (Exception e) {
+         // removed other assertion
       }
 
       bean.setDate("2/30/1999");
@@ -189,18 +202,24 @@ public class ValidatorTest_OE25Dev extends TestCase {
       try {
          ValidatorResults results = validator.validate();
          
+         // removed other assertion
          
          ValidatorResult result = results.getValidatorResult(property);
          
+         // removed other assertion
          
+         // removed other assertion
          
+         // removed other assertion
       } catch (Exception e) {
          fail("An exception was thrown while calling Validator.validate()");
    }
    }
 
    public void testOnlyReturnErrors_1_oe() throws ValidatorException {
+        //     property name of the method we are validating
         String property = "date";
+        // name of ValidatorAction
         String action = "date";
         ValidatorResources resources = setupDateResources(property, action);
     
@@ -216,7 +235,9 @@ public class ValidatorTest_OE25Dev extends TestCase {
    }
 
    public void testOnlyReturnErrors_2_oe() throws ValidatorException {
+        //     property name of the method we are validating
         String property = "date";
+        // name of ValidatorAction
         String action = "date";
         ValidatorResources resources = setupDateResources(property, action);
     
@@ -228,12 +249,16 @@ public class ValidatorTest_OE25Dev extends TestCase {
     
         ValidatorResults results = validator.validate();
     
+        // removed other assertion
     
+        // Field passed and should be in results
         assertTrue(results.getPropertyNames().contains(property));
    }
 
    public void testOnlyReturnErrors_3_oe() throws ValidatorException {
+        //     property name of the method we are validating
         String property = "date";
+        // name of ValidatorAction
         String action = "date";
         ValidatorResources resources = setupDateResources(property, action);
     
@@ -245,15 +270,21 @@ public class ValidatorTest_OE25Dev extends TestCase {
     
         ValidatorResults results = validator.validate();
     
+        // removed other assertion
     
+        // Field passed and should be in results
+        // removed other assertion
         
+        // Field passed but should not be in results
         validator.setOnlyReturnErrors(true);
         results = validator.validate();
         assertFalse(results.getPropertyNames().contains(property));
    }
 
    public void testOnlyValidateField_1_oe() throws ValidatorException {
+        //     property name of the method we are validating
         String property = "date";
+        // name of ValidatorAction
         String action = "date";
         ValidatorResources resources = setupDateResources(property, action);
     
@@ -269,7 +300,9 @@ public class ValidatorTest_OE25Dev extends TestCase {
    }
 
    public void testOnlyValidateField_2_oe() throws ValidatorException {
+        //     property name of the method we are validating
         String property = "date";
+        // name of ValidatorAction
         String action = "date";
         ValidatorResources resources = setupDateResources(property, action);
     
@@ -281,7 +314,9 @@ public class ValidatorTest_OE25Dev extends TestCase {
     
         ValidatorResults results = validator.validate();
     
+        // removed other assertion
     
+        // Field passed and should be in results
         assertTrue(results.getPropertyNames().contains(property));
    }
 
@@ -357,6 +392,7 @@ public class ValidatorTest_OE25Dev extends TestCase {
       try {
          validator.validate();
       } catch (Exception e) {
+         // removed other assertion
       }
 
       assertEquals("Validation of the letter 'A'.", 0, l.size());
@@ -396,8 +432,10 @@ public class ValidatorTest_OE25Dev extends TestCase {
       try {
          validator.validate();
       } catch (Exception e) {
+         // removed other assertion
       }
 
+      // removed other assertion
 
       l.clear();       
       bean.setLetter("AA");
@@ -443,8 +481,10 @@ public class ValidatorTest_OE25Dev extends TestCase {
       try {
          validator.validate();
       } catch (Exception e) {
+         // removed other assertion
       }
 
+      // removed other assertion
 
       l.clear();       
       bean.setLetter("AA");
@@ -452,6 +492,7 @@ public class ValidatorTest_OE25Dev extends TestCase {
       try {
          validator.validate();
       } catch (Exception e) {
+         // removed other assertion
       }
       
       assertEquals("Validation of the letter 'AA'.", 1, l.size());

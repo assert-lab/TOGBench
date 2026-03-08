@@ -192,6 +192,7 @@ public class PngWriteReadTest_OE25Dev extends ImagingTest {
 
     @Test
     public void testTransparency_1_oe() throws Exception {
+        // Test for https://issues.apache.org/jira/browse/SANSELAN-52
         final int[][] smallAscendingPixels = getAscendingRawData(256, 256);
         final byte[] pngBytes = Imaging.writeImageToBytes(imageDataToBufferedImage(smallAscendingPixels), ImageFormats.PNG);
         assertTrue(Imaging.getImageInfo(pngBytes).isTransparent());
@@ -228,6 +229,7 @@ public class PngWriteReadTest_OE25Dev extends ImagingTest {
         }
         final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(pngBytes);
         final PhysicalScale physicalScale = imageInfo.getPhysicalScale();
+        // removed other assertion
         assertEquals(0.01, physicalScale.getHorizontalUnitsPerPixel(), 0.001);
     }
 
@@ -245,6 +247,8 @@ public class PngWriteReadTest_OE25Dev extends ImagingTest {
         }
         final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(pngBytes);
         final PhysicalScale physicalScale = imageInfo.getPhysicalScale();
+        // removed other assertion
+        // removed other assertion
         assertEquals(0.02, physicalScale.getVerticalUnitsPerPixel(), 0.001);
     }
 
@@ -279,6 +283,7 @@ public class PngWriteReadTest_OE25Dev extends ImagingTest {
         }
         final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(pngBytes);
         final PhysicalScale physicalScale = imageInfo.getPhysicalScale();
+        // removed other assertion
         assertEquals(0.01, physicalScale.getHorizontalUnitsPerPixel(), 0.001);
     }
 
@@ -296,6 +301,8 @@ public class PngWriteReadTest_OE25Dev extends ImagingTest {
         }
         final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(pngBytes);
         final PhysicalScale physicalScale = imageInfo.getPhysicalScale();
+        // removed other assertion
+        // removed other assertion
         assertEquals(0.02, physicalScale.getVerticalUnitsPerPixel(), 0.001);
     }
 

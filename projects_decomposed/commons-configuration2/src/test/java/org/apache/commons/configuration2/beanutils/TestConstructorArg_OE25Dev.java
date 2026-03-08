@@ -78,6 +78,7 @@ public class TestConstructorArg_OE25Dev {
     @Test
     public void testMatchesNoType_2_oe() {
         final ConstructorArg arg = ConstructorArg.forValue(42);
+        // removed other assertion
         assertTrue("No match (2)", arg.matches(getClass()));
     }
 
@@ -96,12 +97,15 @@ public class TestConstructorArg_OE25Dev {
     @Test
     public void testMatchesWithType_2_oe() {
         final ConstructorArg arg = ConstructorArg.forValue("42", int.class.getName());
+        // removed other assertion
         assertFalse("Wrong result (2)", arg.matches(Integer.class));
     }
 
     @Test
     public void testMatchesWithType_3_oe() {
         final ConstructorArg arg = ConstructorArg.forValue("42", int.class.getName());
+        // removed other assertion
+        // removed other assertion
         assertFalse("Wrong result (3)", arg.matches(String.class));
     }
 

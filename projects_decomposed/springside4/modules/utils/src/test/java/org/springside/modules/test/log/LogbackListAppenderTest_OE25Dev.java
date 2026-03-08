@@ -20,6 +20,7 @@ public class LogbackListAppenderTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger(LogbackListAppenderTest.class);
 
+		// null
 		assertThat(appender.getFirstLog()).isNull();
 	}
 
@@ -30,6 +31,8 @@ public class LogbackListAppenderTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger(LogbackListAppenderTest.class);
 
+		// null
+		// removed other assertion
 		assertThat(appender.getLastLog()).isNull();
 	}
 
@@ -40,6 +43,9 @@ public class LogbackListAppenderTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger(LogbackListAppenderTest.class);
 
+		// null
+		// removed other assertion
+		// removed other assertion
 		assertThat(appender.getFirstMessage()).isNull();
 	}
 
@@ -50,6 +56,10 @@ public class LogbackListAppenderTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger(LogbackListAppenderTest.class);
 
+		// null
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(appender.getFirstMessage()).isNull();
 	}
 
@@ -60,11 +70,17 @@ public class LogbackListAppenderTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger(LogbackListAppenderTest.class);
 
+		// null
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
 		logger.warn(testString1);
 		logger.warn(testString2);
 
+		// getFirstLog/getLastLog
 		assertThat(appender.getFirstLog().getMessage()).isEqualTo(testString1);
 	}
 
@@ -75,11 +91,18 @@ public class LogbackListAppenderTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger(LogbackListAppenderTest.class);
 
+		// null
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
 		logger.warn(testString1);
 		logger.warn(testString2);
 
+		// getFirstLog/getLastLog
+		// removed other assertion
 		assertThat(appender.getLastLog().getMessage()).isEqualTo(testString2);
 	}
 
@@ -90,11 +113,19 @@ public class LogbackListAppenderTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger(LogbackListAppenderTest.class);
 
+		// null
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
 		logger.warn(testString1);
 		logger.warn(testString2);
 
+		// getFirstLog/getLastLog
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(appender.getFirstMessage()).isEqualTo(testString1);
 	}
@@ -106,12 +137,21 @@ public class LogbackListAppenderTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger(LogbackListAppenderTest.class);
 
+		// null
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
 		logger.warn(testString1);
 		logger.warn(testString2);
 
+		// getFirstLog/getLastLog
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(appender.getLastMessage()).isEqualTo(testString2);
 	}
 
@@ -122,13 +162,24 @@ public class LogbackListAppenderTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger(LogbackListAppenderTest.class);
 
+		// null
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
 		logger.warn(testString1);
 		logger.warn(testString2);
 
+		// getFirstLog/getLastLog
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// getAllLogs
 		assertThat(appender.getLogsCount()).isEqualTo(2);
 	}
 
@@ -139,13 +190,25 @@ public class LogbackListAppenderTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger(LogbackListAppenderTest.class);
 
+		// null
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
 		logger.warn(testString1);
 		logger.warn(testString2);
 
+		// getFirstLog/getLastLog
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// getAllLogs
+		// removed other assertion
 		assertThat(appender.getAllLogs()).hasSize(2);
 	}
 
@@ -156,13 +219,26 @@ public class LogbackListAppenderTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger(LogbackListAppenderTest.class);
 
+		// null
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
 		logger.warn(testString1);
 		logger.warn(testString2);
 
+		// getFirstLog/getLastLog
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// getAllLogs
+		// removed other assertion
+		// removed other assertion
 		assertThat(appender.getAllLogs().get(1).getMessage()).isEqualTo(testString2);
 	}
 
@@ -173,14 +249,29 @@ public class LogbackListAppenderTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger(LogbackListAppenderTest.class);
 
+		// null
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
 		logger.warn(testString1);
 		logger.warn(testString2);
 
+		// getFirstLog/getLastLog
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// getAllLogs
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// clearLogs
 		appender.clearLogs();
 		assertThat(appender.getFirstLog()).isNull();
 	}
@@ -192,15 +283,31 @@ public class LogbackListAppenderTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger(LogbackListAppenderTest.class);
 
+		// null
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
 		logger.warn(testString1);
 		logger.warn(testString2);
 
+		// getFirstLog/getLastLog
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 
+		// getAllLogs
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// clearLogs
 		appender.clearLogs();
+		// removed other assertion
 		assertThat(appender.getLastLog()).isNull();
 	}
 
@@ -209,6 +316,7 @@ public class LogbackListAppenderTest_OE25Dev {
 		String testString = "Hello";
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
 		LogbackListAppender appender = new LogbackListAppender();
+		// class
 		appender.addToLogger(LogbackListAppenderTest.class);
 		logger.warn(testString);
 		assertThat(appender.getFirstLog()).isNotNull();
@@ -219,8 +327,10 @@ public class LogbackListAppenderTest_OE25Dev {
 		String testString = "Hello";
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
 		LogbackListAppender appender = new LogbackListAppender();
+		// class
 		appender.addToLogger(LogbackListAppenderTest.class);
 		logger.warn(testString);
+		// removed other assertion
 
 		appender.clearLogs();
 		appender.removeFromLogger(LogbackListAppenderTest.class);
@@ -233,13 +343,17 @@ public class LogbackListAppenderTest_OE25Dev {
 		String testString = "Hello";
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
 		LogbackListAppender appender = new LogbackListAppender();
+		// class
 		appender.addToLogger(LogbackListAppenderTest.class);
 		logger.warn(testString);
+		// removed other assertion
 
 		appender.clearLogs();
 		appender.removeFromLogger(LogbackListAppenderTest.class);
 		logger.warn(testString);
+		// removed other assertion
 
+		// name
 		appender.clearLogs();
 		appender.addToLogger("org.springside.modules.test.log");
 		logger.warn(testString);
@@ -251,16 +365,21 @@ public class LogbackListAppenderTest_OE25Dev {
 		String testString = "Hello";
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
 		LogbackListAppender appender = new LogbackListAppender();
+		// class
 		appender.addToLogger(LogbackListAppenderTest.class);
 		logger.warn(testString);
+		// removed other assertion
 
 		appender.clearLogs();
 		appender.removeFromLogger(LogbackListAppenderTest.class);
 		logger.warn(testString);
+		// removed other assertion
 
+		// name
 		appender.clearLogs();
 		appender.addToLogger("org.springside.modules.test.log");
 		logger.warn(testString);
+		// removed other assertion
 
 		appender.clearLogs();
 		appender.removeFromLogger("org.springside.modules.test.log");

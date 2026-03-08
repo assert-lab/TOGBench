@@ -80,8 +80,10 @@ public class RemoteHttpCacheServletUnitTest_OE25Dev
     {
         final RemoteCacheRequest<Serializable, Serializable> request = null;
 
+        // DO WORK
         final RemoteCacheResponse<Object> result = servlet.processRequest( request );
 
+        // VERIFY
         assertNotNull( "Should have a result.", result );
     }
 
@@ -89,8 +91,11 @@ public class RemoteHttpCacheServletUnitTest_OE25Dev
     {
         final RemoteCacheRequest<Serializable, Serializable> request = null;
 
+        // DO WORK
         final RemoteCacheResponse<Object> result = servlet.processRequest( request );
 
+        // VERIFY
+        // removed other assertion
         assertTrue( "Should have 'The request is null' in the errorMessage", result.getErrorMessage().indexOf( "The request is null" ) != -1 );
     }
 
@@ -98,8 +103,12 @@ public class RemoteHttpCacheServletUnitTest_OE25Dev
     {
         final RemoteCacheRequest<Serializable, Serializable> request = null;
 
+        // DO WORK
         final RemoteCacheResponse<Object> result = servlet.processRequest( request );
 
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
         assertTrue( "Should have 'The request is null' in the toString", result.toString().indexOf( "The request is null" ) != -1 );
     }
 
@@ -110,8 +119,10 @@ public class RemoteHttpCacheServletUnitTest_OE25Dev
         final long requesterId = 2;
         final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createGetRequest( cacheName, key, requesterId );
 
+        // DO WORK
         final RemoteCacheResponse<Object> result = servlet.processRequest( request );
 
+        // VERIFY
         assertNotNull( "Should have a result.", result );
     }
 
@@ -122,8 +133,11 @@ public class RemoteHttpCacheServletUnitTest_OE25Dev
         final long requesterId = 2;
         final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createGetRequest( cacheName, key, requesterId );
 
+        // DO WORK
         final RemoteCacheResponse<Object> result = servlet.processRequest( request );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong key.", key, remoteHttpCacheService.lastGetKey );
     }
 
@@ -135,8 +149,10 @@ public class RemoteHttpCacheServletUnitTest_OE25Dev
         final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createGetMatchingRequest( cacheName, pattern,
                                                                                                   requesterId );
 
+        // DO WORK
         final RemoteCacheResponse<Object> result = servlet.processRequest( request );
 
+        // VERIFY
         assertNotNull( "Should have a result.", result );
     }
 
@@ -148,8 +164,11 @@ public class RemoteHttpCacheServletUnitTest_OE25Dev
         final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createGetMatchingRequest( cacheName, pattern,
                                                                                                   requesterId );
 
+        // DO WORK
         final RemoteCacheResponse<Object> result = servlet.processRequest( request );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong pattern.", pattern, remoteHttpCacheService.lastGetMatchingPattern );
     }
 
@@ -161,8 +180,10 @@ public class RemoteHttpCacheServletUnitTest_OE25Dev
         final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createGetMultipleRequest( cacheName, keys,
                                                                                                   requesterId );
 
+        // DO WORK
         final RemoteCacheResponse<Object> result = servlet.processRequest( request );
 
+        // VERIFY
         assertNotNull( "Should have a result.", result );
     }
 
@@ -174,8 +195,11 @@ public class RemoteHttpCacheServletUnitTest_OE25Dev
         final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createGetMultipleRequest( cacheName, keys,
                                                                                                   requesterId );
 
+        // DO WORK
         final RemoteCacheResponse<Object> result = servlet.processRequest( request );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong keys.", keys, remoteHttpCacheService.lastGetMultipleKeys );
     }
 
@@ -187,8 +211,10 @@ public class RemoteHttpCacheServletUnitTest_OE25Dev
         final CacheElement<Serializable, Serializable> element = new CacheElement<>( cacheName, key, null );
         final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createUpdateRequest( element, requesterId );
 
+        // DO WORK
         final RemoteCacheResponse<Object> result = servlet.processRequest( request );
 
+        // VERIFY
         assertNotNull( "Should have a result.", result );
     }
 
@@ -200,8 +226,11 @@ public class RemoteHttpCacheServletUnitTest_OE25Dev
         final CacheElement<Serializable, Serializable> element = new CacheElement<>( cacheName, key, null );
         final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createUpdateRequest( element, requesterId );
 
+        // DO WORK
         final RemoteCacheResponse<Object> result = servlet.processRequest( request );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong object.", element, remoteHttpCacheService.lastUpdate );
     }
 
@@ -212,8 +241,10 @@ public class RemoteHttpCacheServletUnitTest_OE25Dev
         final long requesterId = 2;
         final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createRemoveRequest( cacheName, key, requesterId );
 
+        // DO WORK
         final RemoteCacheResponse<Object> result = servlet.processRequest( request );
 
+        // VERIFY
         assertNotNull( "Should have a result.", result );
     }
 
@@ -224,8 +255,11 @@ public class RemoteHttpCacheServletUnitTest_OE25Dev
         final long requesterId = 2;
         final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createRemoveRequest( cacheName, key, requesterId );
 
+        // DO WORK
         final RemoteCacheResponse<Object> result = servlet.processRequest( request );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong key.", key, remoteHttpCacheService.lastRemoveKey );
     }
 
@@ -235,8 +269,10 @@ public class RemoteHttpCacheServletUnitTest_OE25Dev
         final long requesterId = 2;
         final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createRemoveAllRequest( cacheName, requesterId );
 
+        // DO WORK
         final RemoteCacheResponse<Object> result = servlet.processRequest( request );
 
+        // VERIFY
         assertNotNull( "Should have a result.", result );
     }
 
@@ -246,8 +282,11 @@ public class RemoteHttpCacheServletUnitTest_OE25Dev
         final long requesterId = 2;
         final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createRemoveAllRequest( cacheName, requesterId );
 
+        // DO WORK
         final RemoteCacheResponse<Object> result = servlet.processRequest( request );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong cacheName.", cacheName, remoteHttpCacheService.lastRemoveAllCacheName );
     }
 

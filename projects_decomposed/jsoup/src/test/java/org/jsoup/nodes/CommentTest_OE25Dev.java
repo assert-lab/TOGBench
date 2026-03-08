@@ -26,6 +26,7 @@ public class CommentTest_OE25Dev {
 
     @Test
     public void testToString_2_oe() {
+        // removed other assertion
 
         Document doc = Jsoup.parse("<div><!-- comment--></div>");
         assertEquals("<div>\n <!-- comment-->\n</div>", doc.body().html());
@@ -33,8 +34,10 @@ public class CommentTest_OE25Dev {
 
     @Test
     public void testToString_3_oe() {
+        // removed other assertion
 
         Document doc = Jsoup.parse("<div><!-- comment--></div>");
+        // removed other assertion
 
         doc = Jsoup.parse("<p>One<!-- comment -->Two</p>");
         assertEquals("<p>One<!-- comment -->Two</p>", doc.body().html());
@@ -42,10 +45,13 @@ public class CommentTest_OE25Dev {
 
     @Test
     public void testToString_4_oe() {
+        // removed other assertion
 
         Document doc = Jsoup.parse("<div><!-- comment--></div>");
+        // removed other assertion
 
         doc = Jsoup.parse("<p>One<!-- comment -->Two</p>");
+        // removed other assertion
         assertEquals("OneTwo", doc.text());
     }
 
@@ -60,6 +66,7 @@ public class CommentTest_OE25Dev {
     public void testHtmlNoPretty_2_oe() {
         Document doc = Jsoup.parse("<!-- a simple comment -->");
         doc.outputSettings().prettyPrint(false);
+        // removed other assertion
         Node node = doc.childNode(0);
         Comment c1 = (Comment) node;
         assertEquals("<!-- a simple comment -->", c1.outerHtml());
@@ -74,12 +81,15 @@ public class CommentTest_OE25Dev {
     @Test
     public void testClone_2_oe() {
         Comment c1 = comment.clone();
+        // removed other assertion
         assertEquals(comment.getData(), comment.getData());
     }
 
     @Test
     public void testClone_3_oe() {
         Comment c1 = comment.clone();
+        // removed other assertion
+        // removed other assertion
         c1.setData("New");
         assertEquals("New", c1.getData());
     }
@@ -87,7 +97,10 @@ public class CommentTest_OE25Dev {
     @Test
     public void testClone_4_oe() {
         Comment c1 = comment.clone();
+        // removed other assertion
+        // removed other assertion
         c1.setData("New");
+        // removed other assertion
         assertNotEquals(c1.getData(), comment.getData());
     }
 
@@ -98,6 +111,7 @@ public class CommentTest_OE25Dev {
 
     @Test
     public void isXmlDeclaration_2_oe() {
+        // removed other assertion
         assertTrue(decl.isXmlDeclaration());
     }
 

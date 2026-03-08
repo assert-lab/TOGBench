@@ -179,6 +179,7 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .setRealm(basicAuthRealm(USER, ADMIN).build())
               .execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
       assertNotNull(resp.getHeader("X-Auth"));
   }
   }
@@ -190,6 +191,8 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .setRealm(basicAuthRealm(USER, ADMIN).build())
               .execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -212,6 +215,7 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .setRealm(basicAuthRealm(USER, ADMIN).build())
               .execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
       assertNotNull(resp);
   }
   }
@@ -223,6 +227,8 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .setRealm(basicAuthRealm(USER, ADMIN).build())
               .execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
       assertNotNull(resp.getHeader("X-Auth"));
   }
   }
@@ -305,6 +311,7 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
         }
       });
       Integer statusCode = f.get(10, TimeUnit.SECONDS);
+      // removed other assertion
       assertEquals(statusCode.intValue(), 401);
   }
   }
@@ -312,6 +319,8 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
   @Test
   public void basicAuthTestPreemptiveTest_1_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
+      // send the request to the no-auth endpoint to be able to verify the
+      // auth header is really sent preemptively for the initial call.
       Future<Response> f = client.prepareGet(getTargetUrlNoAuth())
               .setRealm(basicAuthRealm(USER, ADMIN).setUsePreemptiveAuth(true).build())
               .execute();
@@ -324,11 +333,14 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
   @Test
   public void basicAuthTestPreemptiveTest_2_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
+      // send the request to the no-auth endpoint to be able to verify the
+      // auth header is really sent preemptively for the initial call.
       Future<Response> f = client.prepareGet(getTargetUrlNoAuth())
               .setRealm(basicAuthRealm(USER, ADMIN).setUsePreemptiveAuth(true).build())
               .execute();
 
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
       assertNotNull(resp.getHeader("X-Auth"));
   }
   }
@@ -336,11 +348,15 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
   @Test
   public void basicAuthTestPreemptiveTest_3_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
+      // send the request to the no-auth endpoint to be able to verify the
+      // auth header is really sent preemptively for the initial call.
       Future<Response> f = client.prepareGet(getTargetUrlNoAuth())
               .setRealm(basicAuthRealm(USER, ADMIN).setUsePreemptiveAuth(true).build())
               .execute();
 
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -365,6 +381,7 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .execute();
 
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
       assertEquals(resp.getStatusCode(), 401);
   }
   }
@@ -391,6 +408,7 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .execute();
 
       Response resp = f.get(30, TimeUnit.SECONDS);
+      // removed other assertion
       assertNotNull(resp.getHeader("X-Auth"));
   }
   }
@@ -404,6 +422,8 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .execute();
 
       Response resp = f.get(30, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -417,6 +437,9 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .execute();
 
       Response resp = f.get(30, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getResponseBody(), "test");
   }
   }
@@ -443,6 +466,7 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .execute();
 
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
       assertNotNull(resp.getHeader("X-Auth"));
   }
   }
@@ -456,6 +480,8 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .execute();
 
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -469,6 +495,9 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .execute();
 
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getResponseBody(), SIMPLE_TEXT_FILE_STRING);
   }
   }
@@ -493,6 +522,7 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .execute();
 
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
       assertNotNull(resp.getHeader("X-Auth"));
   }
   }
@@ -505,6 +535,8 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .execute();
 
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -517,6 +549,9 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .execute();
 
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getResponseBody(), SIMPLE_TEXT_FILE_STRING);
   }
   }
@@ -545,6 +580,7 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .execute();
 
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
       assertNotNull(resp.getHeader("X-Auth"));
   }
   }
@@ -559,6 +595,8 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .execute();
 
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -573,6 +611,9 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
               .execute();
 
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getResponseBody(), SIMPLE_TEXT_FILE_STRING);
   }
   }
@@ -595,6 +636,7 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
 
       Future<Response> f = r.execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
       assertNotNull(resp.getHeader("X-Auth"));
   }
   }
@@ -606,6 +648,8 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
 
       Future<Response> f = r.execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }

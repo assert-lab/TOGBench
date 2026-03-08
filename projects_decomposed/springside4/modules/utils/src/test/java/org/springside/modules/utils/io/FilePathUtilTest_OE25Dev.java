@@ -20,6 +20,7 @@ public class FilePathUtilTest_OE25Dev {
 	@Test
 	public void pathName_2_oe() {
 		String filePath = FilePathUtil.contact(sep + "abc", "ef");
+		// removed other assertion
 
 		String filePath2 = FilePathUtil.contact(sep + "stuv" + sep, "xy");
 		assertThat(filePath2).isEqualTo(FilePathUtil.normalizePath("/stuv/xy"));
@@ -28,8 +29,10 @@ public class FilePathUtilTest_OE25Dev {
 	@Test
 	public void pathName_3_oe() {
 		String filePath = FilePathUtil.contact(sep + "abc", "ef");
+		// removed other assertion
 
 		String filePath2 = FilePathUtil.contact(sep + "stuv" + sep, "xy");
+		// removed other assertion
 
 		assertThat(FilePathUtil.simplifyPath("../dd/../abc")).isEqualTo("../abc");
 	}
@@ -37,27 +40,39 @@ public class FilePathUtilTest_OE25Dev {
 	@Test
 	public void pathName_4_oe() {
 		String filePath = FilePathUtil.contact(sep + "abc", "ef");
+		// removed other assertion
 
 		String filePath2 = FilePathUtil.contact(sep + "stuv" + sep, "xy");
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(FilePathUtil.simplifyPath("../../dd/../abc")).isEqualTo("../../abc");
 	}
 
 	@Test
 	public void pathName_5_oe() {
 		String filePath = FilePathUtil.contact(sep + "abc", "ef");
+		// removed other assertion
 
 		String filePath2 = FilePathUtil.contact(sep + "stuv" + sep, "xy");
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(FilePathUtil.simplifyPath("./abc")).isEqualTo("abc");
 	}
 
 	@Test
 	public void pathName_6_oe() {
 		String filePath = FilePathUtil.contact(sep + "abc", "ef");
+		// removed other assertion
 
 		String filePath2 = FilePathUtil.contact(sep + "stuv" + sep, "xy");
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(FilePathUtil.getParentPath(FilePathUtil.normalizePath("/abc/dd/efg/"))).isEqualTo(FilePathUtil.normalizePath("/abc/dd/"));
 	}
@@ -65,10 +80,16 @@ public class FilePathUtilTest_OE25Dev {
 	@Test
 	public void pathName_7_oe() {
 		String filePath = FilePathUtil.contact(sep + "abc", "ef");
+		// removed other assertion
 
 		String filePath2 = FilePathUtil.contact(sep + "stuv" + sep, "xy");
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 
 		assertThat(FilePathUtil.getParentPath(FilePathUtil.normalizePath("/abc/dd/efg.txt"))).isEqualTo(FilePathUtil.normalizePath("/abc/dd/"));
 	}

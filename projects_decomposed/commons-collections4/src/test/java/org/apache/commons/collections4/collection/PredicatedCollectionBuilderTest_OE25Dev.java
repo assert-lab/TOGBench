@@ -37,14 +37,34 @@ public class PredicatedCollectionBuilderTest_OE25Dev {
     /**
      * Verify that passing the Predicate means ending up in the buffer.
      */
+    @Test
+    public void addPass() {
+        final PredicatedCollection.Builder<String> builder = PredicatedCollection.notNullBuilder();
+        builder.add("test");
+        Assert.assertEquals(builder.createPredicatedList().size(), 1);
+    }
 
     /**
      * Verify that failing the Predicate means NOT ending up in the buffer.
      */
+    @Test
+    public void addFail() {
+        final PredicatedCollection.Builder<String> builder = PredicatedCollection.notNullBuilder();
+        builder.add((String) null);
+        Assert.assertTrue(builder.createPredicatedList().isEmpty());
+
+        Assert.assertEquals(1, builder.rejectedElements().size());
+    }
 
     /**
      * Verify that only items that pass the Predicate end up in the buffer.
      */
+    @Test
+    public void addAllPass() {
+        final PredicatedCollection.Builder<String> builder = PredicatedCollection.notNullBuilder();
+        builder.addAll(Arrays.asList("test1", null, "test2"));
+        Assert.assertEquals(builder.createPredicatedList().size(), 2);
+    }
 
     @Test
     public void createPredicatedCollectionWithNotNullPredicate() {

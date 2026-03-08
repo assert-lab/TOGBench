@@ -1,0 +1,9 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
+commons-weaver_3,commons-weaver,FinderTest,testFindAssignableTypes_oe,processor/src/test/java/org/apache/commons/weaver/FinderTest.java,,,,multiple,unknown,standard,
+commons-weaver_4,commons-weaver,FinderTest,testFindAllTypes_oe,processor/src/test/java/org/apache/commons/weaver/FinderTest.java,,,,multiple,unknown,standard,
+commons-weaver_5,commons-weaver,ArgsTest,testCompare_oe,processor/src/test/java/org/apache/commons/weaver/utils/ArgsTest.java,,,,multiple,unknown,standard,
+commons-weaver_6,commons-weaver,ProvidersTest,testSort_oe,processor/src/test/java/org/apache/commons/weaver/utils/ProvidersTest.java,,,,multiple,unknown,standard,
+commons-weaver_7,commons-weaver,WeaveProcessorTest,testWeaveVisiting_oe,processor/src/test/java/org/apache/commons/weaver/test/WeaveProcessorTest.java,,,,multiple,unknown,standard,
+commons-weaver_8,commons-weaver,CleanProcessorTest,testWeaveVisiting_oe,processor/src/test/java/org/apache/commons/weaver/test/CleanProcessorTest.java,,,,multiple,unknown,standard,
+commons-weaver_9,commons-weaver,UtilsTest,testValidatePackageName_oe,modules/normalizer/src/test/java/org/apache/commons/weaver/normalizer/UtilsTest.java,,,,multiple,unknown,standard,
+commons-weaver_10,commons-weaver,UtilsTest,testParseTypes_oe,modules/normalizer/src/test/java/org/apache/commons/weaver/normalizer/UtilsTest.java,,,,multiple,unknown,standard,

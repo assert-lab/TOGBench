@@ -91,6 +91,7 @@ public class ProvidersTest_OE25Dev {
 
     @Test
     public void testSort_2_oe() {
+        // removed other assertion
         assertThat(Providers.sort(Arrays.asList(y, w, x, z)), IsIterableContainingInOrder.contains(z, y, x, w));
     }
 

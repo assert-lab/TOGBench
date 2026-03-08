@@ -428,6 +428,7 @@ public class TestXPathExpressionEngine_OE25Dev {
         final ImmutableNode parent = parentBuilder.create();
         final NodeHandler<ImmutableNode> testHandler = new InMemoryNodeModel(parent).getNodeHandler();
         final XPathExpressionEngine engine = new XPathExpressionEngine();
+        // removed other assertion
         assertEquals("Wrong key 2", "parent/child[2]", engine.canonicalKey(c2, "parent", testHandler));
     }
 
@@ -495,6 +496,7 @@ public class TestXPathExpressionEngine_OE25Dev {
         final JXPathContext ctx = expectSelect(attrResult);
         final XPathExpressionEngine engine = setUpEngine(ctx);
         final List<QueryResult<ImmutableNode>> result = engine.query(root, TEST_KEY, handler);
+        // removed other assertion
         assertSame("Wrong result", attrResult, result.get(0));
     }
 
@@ -511,6 +513,7 @@ public class TestXPathExpressionEngine_OE25Dev {
         final JXPathContext ctx = expectSelect(root);
         final XPathExpressionEngine engine = setUpEngine(ctx);
         final List<QueryResult<ImmutableNode>> result = engine.query(root, TEST_KEY, handler);
+        // removed other assertion
         assertSame("Wrong result node", root, result.get(0).getNode());
     }
 
@@ -519,6 +522,8 @@ public class TestXPathExpressionEngine_OE25Dev {
         final JXPathContext ctx = expectSelect(root);
         final XPathExpressionEngine engine = setUpEngine(ctx);
         final List<QueryResult<ImmutableNode>> result = engine.query(root, TEST_KEY, handler);
+        // removed other assertion
+        // removed other assertion
         assertFalse("No node result", result.get(0).isAttributeResult());
     }
 

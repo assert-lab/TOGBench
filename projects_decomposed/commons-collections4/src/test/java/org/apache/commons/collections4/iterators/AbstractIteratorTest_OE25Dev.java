@@ -99,10 +99,62 @@ public abstract class AbstractIteratorTest_OE25Dev<E> extends AbstractObjectTest
     /**
      * Test the empty iterator.
      */
+    public void testEmptyIterator() {
+        if (!supportsEmptyIterator()) {
+            return;
+        }
+
+        final Iterator<E> it = makeEmptyIterator();
+
+        // hasNext() should return false
+        assertEquals("hasNext() should return false for empty iterators", false, it.hasNext());
+
+        // next() should throw a NoSuchElementException
+        try {
+            it.next();
+            fail("NoSuchElementException must be thrown when Iterator is exhausted");
+        } catch (final NoSuchElementException e) {
+        }
+        verify();
+
+        assertNotNull(it.toString());
+    }
 
     /**
      * Test normal iteration behaviour.
      */
+    public void testFullIterator() {
+        if (!supportsFullIterator()) {
+            return;
+        }
+
+        final Iterator<E> it = makeObject();
+
+        // hasNext() must be true (ensure makeFullIterator is correct!)
+        assertEquals("hasNext() should return true for at least one element", true, it.hasNext());
+
+        // next() must not throw exception (ensure makeFullIterator is correct!)
+        try {
+            it.next();
+        } catch (final NoSuchElementException e) {
+            fail("Full iterators must have at least one element");
+        }
+
+        // iterate through
+        while (it.hasNext()) {
+            it.next();
+            verify();
+        }
+
+        // next() must throw NoSuchElementException now
+        try {
+            it.next();
+            fail("NoSuchElementException must be thrown when Iterator is exhausted");
+        } catch (final NoSuchElementException e) {
+        }
+
+        assertNotNull(it.toString());
+    }
 
     /**
      * Test remove behaviour.

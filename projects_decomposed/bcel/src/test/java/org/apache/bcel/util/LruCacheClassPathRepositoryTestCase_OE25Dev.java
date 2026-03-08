@@ -52,6 +52,7 @@ public class LruCacheClassPathRepositoryTestCase_OE25Dev {
         try (final ClassPath classPath = new ClassPath("")) {
             final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
             final JavaClass class1 = repository.loadClass("java.lang.String");
+            // removed other assertion
             final JavaClass class2 = repository.loadClass("java.lang.Long");
             Assert.assertNotNull(class2);
     }
@@ -62,7 +63,9 @@ public class LruCacheClassPathRepositoryTestCase_OE25Dev {
         try (final ClassPath classPath = new ClassPath("")) {
             final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
             final JavaClass class1 = repository.loadClass("java.lang.String");
+            // removed other assertion
             final JavaClass class2 = repository.loadClass("java.lang.Long");
+            // removed other assertion
             final JavaClass class3 = repository.loadClass("java.lang.Integer"); // Evicts class1
             Assert.assertNotNull(class3);
     }
@@ -73,8 +76,11 @@ public class LruCacheClassPathRepositoryTestCase_OE25Dev {
         try (final ClassPath classPath = new ClassPath("")) {
             final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
             final JavaClass class1 = repository.loadClass("java.lang.String");
+            // removed other assertion
             final JavaClass class2 = repository.loadClass("java.lang.Long");
+            // removed other assertion
             final JavaClass class3 = repository.loadClass("java.lang.Integer"); // Evicts class1
+            // removed other assertion
 
             assertNull(repository.findClass("java.lang.String"));
     }
@@ -85,9 +91,13 @@ public class LruCacheClassPathRepositoryTestCase_OE25Dev {
         try (final ClassPath classPath = new ClassPath("")) {
             final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
             final JavaClass class1 = repository.loadClass("java.lang.String");
+            // removed other assertion
             final JavaClass class2 = repository.loadClass("java.lang.Long");
+            // removed other assertion
             final JavaClass class3 = repository.loadClass("java.lang.Integer"); // Evicts class1
+            // removed other assertion
 
+            // removed other assertion
             final JavaClass cachedClass2 = repository.findClass("java.lang.Long");
             assertEquals(class2, cachedClass2);
     }
@@ -107,6 +117,7 @@ public class LruCacheClassPathRepositoryTestCase_OE25Dev {
         try (final ClassPath classPath = new ClassPath("")) {
             final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
             final JavaClass class1 = repository.loadClass("java.lang.String");
+            // removed other assertion
             final JavaClass class2 = repository.loadClass("java.lang.Long");
             Assert.assertNotNull(class2);
     }
@@ -117,7 +128,9 @@ public class LruCacheClassPathRepositoryTestCase_OE25Dev {
         try (final ClassPath classPath = new ClassPath("")) {
             final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
             final JavaClass class1 = repository.loadClass("java.lang.String");
+            // removed other assertion
             final JavaClass class2 = repository.loadClass("java.lang.Long");
+            // removed other assertion
             repository.findClass("java.lang.String"); // Uses class1
             final JavaClass class3 = repository.loadClass("java.lang.Integer"); // Evicts class2
             Assert.assertNotNull(class3);
@@ -129,9 +142,12 @@ public class LruCacheClassPathRepositoryTestCase_OE25Dev {
         try (final ClassPath classPath = new ClassPath("")) {
             final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
             final JavaClass class1 = repository.loadClass("java.lang.String");
+            // removed other assertion
             final JavaClass class2 = repository.loadClass("java.lang.Long");
+            // removed other assertion
             repository.findClass("java.lang.String"); // Uses class1
             final JavaClass class3 = repository.loadClass("java.lang.Integer"); // Evicts class2
+            // removed other assertion
 
             assertNull(repository.findClass("java.lang.Long"));
     }
@@ -142,10 +158,14 @@ public class LruCacheClassPathRepositoryTestCase_OE25Dev {
         try (final ClassPath classPath = new ClassPath("")) {
             final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
             final JavaClass class1 = repository.loadClass("java.lang.String");
+            // removed other assertion
             final JavaClass class2 = repository.loadClass("java.lang.Long");
+            // removed other assertion
             repository.findClass("java.lang.String"); // Uses class1
             final JavaClass class3 = repository.loadClass("java.lang.Integer"); // Evicts class2
+            // removed other assertion
 
+            // removed other assertion
             final JavaClass cachedClass1 = repository.findClass("java.lang.String");
             assertEquals(class1, cachedClass1);
     }

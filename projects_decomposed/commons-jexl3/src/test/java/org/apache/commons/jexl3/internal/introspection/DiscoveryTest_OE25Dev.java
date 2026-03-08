@@ -157,6 +157,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(bean, "value");
         final JexlPropertySet set = uber.getPropertySet(bean, "value", "foo");
+        // removed other assertion
         Assert.assertTrue("bean property setter", set instanceof PropertySetExecutor);
     }
 
@@ -167,6 +168,9 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(bean, "value");
         final JexlPropertySet set = uber.getPropertySet(bean, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
         Assert.assertEquals(get, uber.getPropertyGet(bean, "value"));
     }
 
@@ -177,6 +181,10 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(bean, "value");
         final JexlPropertySet set = uber.getPropertySet(bean, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
         Assert.assertEquals(set, uber.getPropertySet(bean, "value", "foo"));
     }
 
@@ -187,6 +195,12 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(bean, "value");
         final JexlPropertySet set = uber.getPropertySet(bean, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
         Assert.assertNotEquals(get, uber.getPropertyGet(bean, "eulav"));
     }
 
@@ -197,6 +211,13 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(bean, "value");
         final JexlPropertySet set = uber.getPropertySet(bean, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
         Assert.assertNotEquals(set, uber.getPropertySet(bean, "eulav", "foo"));
     }
 
@@ -207,6 +228,15 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(bean, "value");
         final JexlPropertySet set = uber.getPropertySet(bean, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(bean, "bar");
         Assert.assertEquals("bar", bar);
     }
@@ -218,7 +248,18 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(bean, "value");
         final JexlPropertySet set = uber.getPropertySet(bean, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(bean, "bar");
+        // removed other assertion
+        // getter should return last value
         Assert.assertEquals("bar", get.invoke(bean));
     }
 
@@ -229,7 +270,20 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(bean, "value");
         final JexlPropertySet set = uber.getPropertySet(bean, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(bean, "bar");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property
         final Object quux = set.tryInvoke(bean, "value", "quux");
         Assert.assertEquals("quux", quux);
     }
@@ -241,8 +295,22 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(bean, "value");
         final JexlPropertySet set = uber.getPropertySet(bean, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(bean, "bar");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property
         final Object quux = set.tryInvoke(bean, "value", "quux");
+        // removed other assertion
         Assert.assertEquals("quux", get.invoke(bean));
     }
 
@@ -253,8 +321,24 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(bean, "value");
         final JexlPropertySet set = uber.getPropertySet(bean, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(bean, "bar");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property
         final Object quux = set.tryInvoke(bean, "value", "quux");
+        // removed other assertion
+        // removed other assertion
+        // tryExecute should fail on different property
         Assert.assertEquals(AbstractExecutor.TRY_FAILED, set.tryInvoke(bean, "eulav", "nope"));
     }
 
@@ -275,6 +359,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(duck, "value");
         final JexlPropertySet set = uber.getPropertySet(duck, "value", "foo");
+        // removed other assertion
         Assert.assertTrue("duck property setter", set instanceof DuckSetExecutor);
     }
 
@@ -285,6 +370,9 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(duck, "value");
         final JexlPropertySet set = uber.getPropertySet(duck, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
         Assert.assertEquals(get, uber.getPropertyGet(duck, "value"));
     }
 
@@ -295,6 +383,10 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(duck, "value");
         final JexlPropertySet set = uber.getPropertySet(duck, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
         Assert.assertEquals(set, uber.getPropertySet(duck, "value", "foo"));
     }
 
@@ -305,6 +397,12 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(duck, "value");
         final JexlPropertySet set = uber.getPropertySet(duck, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
         Assert.assertNotEquals(get, uber.getPropertyGet(duck, "eulav"));
     }
 
@@ -315,6 +413,13 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(duck, "value");
         final JexlPropertySet set = uber.getPropertySet(duck, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
         Assert.assertNotEquals(set, uber.getPropertySet(duck, "eulav", "foo"));
     }
 
@@ -325,6 +430,15 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(duck, "value");
         final JexlPropertySet set = uber.getPropertySet(duck, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(duck, "bar");
         Assert.assertEquals("bar", bar);
     }
@@ -336,7 +450,18 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(duck, "value");
         final JexlPropertySet set = uber.getPropertySet(duck, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(duck, "bar");
+        // removed other assertion
+        // getter should return last value
         Assert.assertEquals("bar", get.invoke(duck));
     }
 
@@ -347,7 +472,20 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(duck, "value");
         final JexlPropertySet set = uber.getPropertySet(duck, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(duck, "bar");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property
         final Object quux = set.tryInvoke(duck, "value", "quux");
         Assert.assertEquals("quux", quux);
     }
@@ -359,8 +497,22 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(duck, "value");
         final JexlPropertySet set = uber.getPropertySet(duck, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(duck, "bar");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property
         final Object quux = set.tryInvoke(duck, "value", "quux");
+        // removed other assertion
         Assert.assertEquals("quux", get.invoke(duck));
     }
 
@@ -371,8 +523,24 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(duck, "value");
         final JexlPropertySet set = uber.getPropertySet(duck, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(duck, "bar");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property
         final Object quux = set.tryInvoke(duck, "value", "quux");
+        // removed other assertion
+        // removed other assertion
+        // tryExecute should fail on different property
         Assert.assertEquals(AbstractExecutor.TRY_FAILED, set.tryInvoke(duck, "eulav", "nope"));
     }
 
@@ -397,6 +565,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(list, 1);
         final JexlPropertySet set = uber.getPropertySet(list, 1, "foo");
+        // removed other assertion
         Assert.assertTrue("list property setter", set instanceof ListSetExecutor);
     }
 
@@ -409,6 +578,9 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(list, 1);
         final JexlPropertySet set = uber.getPropertySet(list, 1, "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
         Assert.assertEquals(get, uber.getPropertyGet(list, 1));
     }
 
@@ -421,6 +593,10 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(list, 1);
         final JexlPropertySet set = uber.getPropertySet(list, 1, "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
         Assert.assertEquals(set, uber.getPropertySet(list, 1, "foo"));
     }
 
@@ -433,6 +609,12 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(list, 1);
         final JexlPropertySet set = uber.getPropertySet(list, 1, "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
         Assert.assertNotEquals(get, uber.getPropertyGet(list, 0));
     }
 
@@ -445,6 +627,13 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(list, 1);
         final JexlPropertySet set = uber.getPropertySet(list, 1, "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
         Assert.assertNotEquals(get, uber.getPropertySet(list, 0, "foo"));
     }
 
@@ -457,6 +646,15 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(list, 1);
         final JexlPropertySet set = uber.getPropertySet(list, 1, "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(list, "bar");
         Assert.assertEquals("bar", bar);
     }
@@ -470,7 +668,18 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(list, 1);
         final JexlPropertySet set = uber.getPropertySet(list, 1, "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(list, "bar");
+        // removed other assertion
+        // getter should return last value
         Assert.assertEquals("bar", get.invoke(list));
     }
 
@@ -483,7 +692,20 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(list, 1);
         final JexlPropertySet set = uber.getPropertySet(list, 1, "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(list, "bar");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on integer property
         final Object quux = set.tryInvoke(list, 1, "quux");
         Assert.assertEquals("quux", quux);
     }
@@ -497,8 +719,23 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(list, 1);
         final JexlPropertySet set = uber.getPropertySet(list, 1, "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(list, "bar");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on integer property
         final Object quux = set.tryInvoke(list, 1, "quux");
+        // removed other assertion
+        // getter should return last value
         Assert.assertEquals("quux", get.invoke(list));
     }
 
@@ -511,8 +748,25 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(list, 1);
         final JexlPropertySet set = uber.getPropertySet(list, 1, "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(list, "bar");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on integer property
         final Object quux = set.tryInvoke(list, 1, "quux");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should fail on non-integer property class
         Assert.assertEquals(AbstractExecutor.TRY_FAILED, set.tryInvoke(list, "eulav", "nope"));
     }
 
@@ -537,6 +791,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(map, "value");
         final JexlPropertySet set = uber.getPropertySet(map, "value", "foo");
+        // removed other assertion
         Assert.assertTrue("map property setter", set instanceof MapSetExecutor);
     }
 
@@ -549,6 +804,9 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(map, "value");
         final JexlPropertySet set = uber.getPropertySet(map, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
         Assert.assertEquals(get, uber.getPropertyGet(map, "value"));
     }
 
@@ -561,6 +819,10 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(map, "value");
         final JexlPropertySet set = uber.getPropertySet(map, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
         Assert.assertEquals(set, uber.getPropertySet(map, "value", "foo"));
     }
 
@@ -573,6 +835,12 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(map, "value");
         final JexlPropertySet set = uber.getPropertySet(map, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
         Assert.assertNotEquals(get, uber.getPropertyGet(map, "eulav"));
     }
 
@@ -585,6 +853,13 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(map, "value");
         final JexlPropertySet set = uber.getPropertySet(map, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
         Assert.assertNotEquals(get, uber.getPropertySet(map, "eulav", "foo"));
     }
 
@@ -597,6 +872,15 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(map, "value");
         final JexlPropertySet set = uber.getPropertySet(map, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(map, "bar");
         Assert.assertEquals("bar", bar);
     }
@@ -610,7 +894,18 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(map, "value");
         final JexlPropertySet set = uber.getPropertySet(map, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(map, "bar");
+        // removed other assertion
+        // getter should return last value
         Assert.assertEquals("bar", get.invoke(map));
     }
 
@@ -623,7 +918,20 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(map, "value");
         final JexlPropertySet set = uber.getPropertySet(map, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(map, "bar");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property class
         final Object quux = set.tryInvoke(map, "value", "quux");
         Assert.assertEquals("quux", quux);
     }
@@ -637,8 +945,23 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(map, "value");
         final JexlPropertySet set = uber.getPropertySet(map, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(map, "bar");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property class
         final Object quux = set.tryInvoke(map, "value", "quux");
+        // removed other assertion
+        // getter should return last value
         Assert.assertEquals("quux", get.invoke(map));
     }
 
@@ -651,8 +974,25 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
 
         final JexlPropertyGet get = uber.getPropertyGet(map, "value");
         final JexlPropertySet set = uber.getPropertySet(map, "value", "foo");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
         final Object bar = set.invoke(map, "bar");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property class
         final Object quux = set.tryInvoke(map, "value", "quux");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should fail on different property class
         Assert.assertEquals(AbstractExecutor.TRY_FAILED, set.tryInvoke(map, 1, "nope"));
     }
 
@@ -675,6 +1015,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Object result;
         jmethod = uber.getMethod(bulgroz, "list", 0);
         result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1");
         result = jmethod.invoke(bulgroz, "1");
         Assert.assertEquals(1, result);
@@ -688,8 +1029,10 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Object result;
         jmethod = uber.getMethod(bulgroz, "list", 0);
         result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1");
         result = jmethod.invoke(bulgroz, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz);
         Assert.assertEquals(2, result);
@@ -703,10 +1046,13 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Object result;
         jmethod = uber.getMethod(bulgroz, "list", 0);
         result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1");
         result = jmethod.invoke(bulgroz, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz);
         Assert.assertEquals(3, result);
@@ -720,12 +1066,16 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Object result;
         jmethod = uber.getMethod(bulgroz, "list", 0);
         result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1");
         result = jmethod.invoke(bulgroz, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
         Assert.assertEquals(3, result);
@@ -739,14 +1089,19 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Object result;
         jmethod = uber.getMethod(bulgroz, "list", 0);
         result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1");
         result = jmethod.invoke(bulgroz, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, 2);
         result = jmethod.invoke(bulgroz, 1, 2);
         Assert.assertEquals(4, result);
@@ -760,16 +1115,22 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Object result;
         jmethod = uber.getMethod(bulgroz, "list", 0);
         result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1");
         result = jmethod.invoke(bulgroz, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, 2);
         result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", bulgroz);
         result = jmethod.invoke(bulgroz, "1", bulgroz);
         Assert.assertEquals(5, result);
@@ -783,18 +1144,25 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Object result;
         jmethod = uber.getMethod(bulgroz, "list", 0);
         result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1");
         result = jmethod.invoke(bulgroz, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, 2);
         result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", bulgroz);
         result = jmethod.invoke(bulgroz, "1", bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", "2");
         result = jmethod.invoke(bulgroz, "1", "2");
         Assert.assertEquals(6, result);
@@ -808,20 +1176,28 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Object result;
         jmethod = uber.getMethod(bulgroz, "list", 0);
         result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1");
         result = jmethod.invoke(bulgroz, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, 2);
         result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", bulgroz);
         result = jmethod.invoke(bulgroz, "1", bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", "2");
         result = jmethod.invoke(bulgroz, "1", "2");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz, bulgroz);
         Assert.assertEquals(8, result);
@@ -835,22 +1211,31 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Object result;
         jmethod = uber.getMethod(bulgroz, "list", 0);
         result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1");
         result = jmethod.invoke(bulgroz, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, 2);
         result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", bulgroz);
         result = jmethod.invoke(bulgroz, "1", bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", "2");
         result = jmethod.invoke(bulgroz, "1", "2");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, 1, bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz, 1, bulgroz);
         Assert.assertEquals(7, result);
@@ -864,24 +1249,34 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Object result;
         jmethod = uber.getMethod(bulgroz, "list", 0);
         result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1");
         result = jmethod.invoke(bulgroz, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, 2);
         result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", bulgroz);
         result = jmethod.invoke(bulgroz, "1", bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", "2");
         result = jmethod.invoke(bulgroz, "1", "2");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, 1, bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, 1, "1");
         result = jmethod.invoke(bulgroz, bulgroz, 1, "1");
         Assert.assertEquals(7, result);
@@ -895,26 +1290,37 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Object result;
         jmethod = uber.getMethod(bulgroz, "list", 0);
         result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1");
         result = jmethod.invoke(bulgroz, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, 2);
         result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", bulgroz);
         result = jmethod.invoke(bulgroz, "1", bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", "2");
         result = jmethod.invoke(bulgroz, "1", "2");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, 1, bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, 1, "1");
         result = jmethod.invoke(bulgroz, bulgroz, 1, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", (Object) null);
         result = jmethod.invoke(bulgroz,  (Object) null);
         Assert.assertEquals(2, result);
@@ -928,28 +1334,40 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Object result;
         jmethod = uber.getMethod(bulgroz, "list", 0);
         result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1");
         result = jmethod.invoke(bulgroz, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, 2);
         result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", bulgroz);
         result = jmethod.invoke(bulgroz, "1", bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", "2");
         result = jmethod.invoke(bulgroz, "1", "2");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, 1, bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, 1, "1");
         result = jmethod.invoke(bulgroz, bulgroz, 1, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", (Object) null);
         result = jmethod.invoke(bulgroz,  (Object) null);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, (Object) null);
         result = jmethod.invoke(bulgroz, bulgroz, (Object) null);
         Assert.assertEquals(8, result);
@@ -963,30 +1381,43 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Object result;
         jmethod = uber.getMethod(bulgroz, "list", 0);
         result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1");
         result = jmethod.invoke(bulgroz, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, 2);
         result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", bulgroz);
         result = jmethod.invoke(bulgroz, "1", bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", "2");
         result = jmethod.invoke(bulgroz, "1", "2");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, 1, bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, 1, "1");
         result = jmethod.invoke(bulgroz, bulgroz, 1, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", (Object) null);
         result = jmethod.invoke(bulgroz,  (Object) null);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, (Object) null);
         result = jmethod.invoke(bulgroz, bulgroz, (Object) null);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", null, "1");
         result = jmethod.invoke(bulgroz, null, "1");
         Assert.assertEquals(8, result);
@@ -1000,32 +1431,46 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Object result;
         jmethod = uber.getMethod(bulgroz, "list", 0);
         result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1");
         result = jmethod.invoke(bulgroz, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, 2);
         result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", bulgroz);
         result = jmethod.invoke(bulgroz, "1", bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", "2");
         result = jmethod.invoke(bulgroz, "1", "2");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, 1, bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, 1, "1");
         result = jmethod.invoke(bulgroz, bulgroz, 1, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", (Object) null);
         result = jmethod.invoke(bulgroz,  (Object) null);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, (Object) null);
         result = jmethod.invoke(bulgroz, bulgroz, (Object) null);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", null, "1");
         result = jmethod.invoke(bulgroz, null, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, null, null);
         result = jmethod.invoke(bulgroz, bulgroz, null, null);
         Assert.assertEquals(7, result);
@@ -1039,34 +1484,49 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Object result;
         jmethod = uber.getMethod(bulgroz, "list", 0);
         result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1");
         result = jmethod.invoke(bulgroz, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", 1, 2);
         result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", bulgroz);
         result = jmethod.invoke(bulgroz, "1", bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", "1", "2");
         result = jmethod.invoke(bulgroz, "1", "2");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, 1, bulgroz);
         result = jmethod.invoke(bulgroz, bulgroz, 1, bulgroz);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, 1, "1");
         result = jmethod.invoke(bulgroz, bulgroz, 1, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", (Object) null);
         result = jmethod.invoke(bulgroz,  (Object) null);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, (Object) null);
         result = jmethod.invoke(bulgroz, bulgroz, (Object) null);
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", null, "1");
         result = jmethod.invoke(bulgroz, null, "1");
+        // removed other assertion
         jmethod = uber.getMethod(bulgroz, "list", bulgroz, null, null);
         result = jmethod.invoke(bulgroz, bulgroz, null, null);
+        // removed other assertion
 
         jmethod = uber.getMethod(bulgroz, "amb", 3d);
         Assert.assertNotNull(null, jmethod);

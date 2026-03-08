@@ -45,18 +45,87 @@ public class MultiSetUtilsTest_OE25Dev {
     /**
      * Tests {@link MultiSetUtils#emptyMultiSet()}.
      */
+    @Test
+    public void testEmptyMultiSet() {
+        final MultiSet<Integer> empty = MultiSetUtils.emptyMultiSet();
+        assertEquals(0, empty.size());
+        try {
+            empty.add(55);
+            fail("Empty multi set must be read-only");
+        } catch (final UnsupportedOperationException e) {
+        }
+    }
 
     /**
      * Tests {@link MultiSetUtils#unmodifiableMultiSet(org.apache.commons.collections4.MultiSet) ()}.
      */
+    @Test
+    public void testUnmodifiableMultiSet() {
+        final MultiSet<String> unmodifiable = MultiSetUtils.unmodifiableMultiSet(multiSet);
+        assertEquals(multiSet, unmodifiable);
+
+        try {
+            unmodifiable.add("a");
+            fail("Empty multi set must be read-only");
+        } catch (final UnsupportedOperationException e) {
+        }
+
+        try {
+            MultiSetUtils.unmodifiableMultiSet(null);
+            fail("Expecting NPE");
+        } catch (final NullPointerException e) {
+        }
+    }
 
     /**
      * Tests {@link MultiSetUtils#unmodifiableMultiSet(org.apache.commons.collections4.MultiSet) ()}.
      */
+    @Test
+    public void testSynchronizedMultiSet() {
+        final MultiSet<String> synced = MultiSetUtils.synchronizedMultiSet(multiSet);
+        assertEquals(multiSet, synced);
+        synced.add("a"); // ensure adding works
+    }
 
     /**
      * Tests {@link MultiSetUtils#predicatedMultiSet(org.apache.commons.collections4.MultiSet, org.apache.commons.collections4.Predicate)}.
      */
+    @Test
+    public void testPredicatedMultiSet() {
+        final Predicate<String> predicate = new Predicate<String>() {
+            @Override
+            public boolean evaluate(final String object) {
+                return object.length() == 1;
+            };
+        };
+        final MultiSet<String> predicated = MultiSetUtils.predicatedMultiSet(multiSet, predicate);
+        assertEquals(multiSet.size(), predicated.size());
+        assertEquals(multiSet.getCount("a"), predicated.getCount("a"));
+
+        try {
+            MultiSetUtils.predicatedMultiSet(null, predicate);
+            fail("Expecting NPE");
+        } catch (final NullPointerException e) {
+        }
+
+        try {
+            MultiSetUtils.predicatedMultiSet(multiSet, null);
+            fail("Expecting NPE");
+        } catch (final NullPointerException e) {
+        }
+
+        try {
+            MultiSetUtils.predicatedMultiSet(multiSet, new Predicate<String>() {
+                @Override
+                public boolean evaluate(final String object) {
+                    return object.equals("a");
+                };
+            });
+            fail("Predicate is violated for all elements not being 'a'");
+        }
+        catch (final IllegalArgumentException iae) {
+        }
+    }
 
     @Test
     public void testEmptyMultiSet_1_oe() {
@@ -98,6 +167,24 @@ public class MultiSetUtilsTest_OE25Dev {
         };
         final MultiSet<String> predicated = MultiSetUtils.predicatedMultiSet(multiSet, predicate);
         assertEquals(multiSet.getCount("a"), predicated.getCount("a"));
+    }
+
+@Test
+    public void testUnmodifiableMultiSet_oe_102_oe() {
+        try {
+            MultiSetUtils.unmodifiableMultiSet(null);
+            fail("Expecting NPE");
+        } catch (final NullPointerException e) {
+        }
+    }
+
+@Test
+    public void testPredicatedMultiSet_oe_102_oe() {
+        try {
+            MultiSetUtils.predicatedMultiSet(multiSet, null);
+            fail("Expecting NPE");
+        } catch (final NullPointerException e) {
+        }
     }
 
 }

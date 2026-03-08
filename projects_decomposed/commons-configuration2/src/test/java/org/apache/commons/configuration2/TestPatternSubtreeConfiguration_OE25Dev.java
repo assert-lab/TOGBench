@@ -83,6 +83,7 @@ public class TestPatternSubtreeConfiguration_OE25Dev {
         config.setExpressionEngine(new XPathExpressionEngine());
 
         System.setProperty("Id", "1001");
+        // removed other assertion
 
         System.setProperty("Id", "1002");
         assertEquals(25, config.getInt("rowsPerPage"));
@@ -94,8 +95,10 @@ public class TestPatternSubtreeConfiguration_OE25Dev {
         config.setExpressionEngine(new XPathExpressionEngine());
 
         System.setProperty("Id", "1001");
+        // removed other assertion
 
         System.setProperty("Id", "1002");
+        // removed other assertion
 
         System.setProperty("Id", "1003");
         assertEquals(35, config.getInt("rowsPerPage"));

@@ -85,48 +85,84 @@ public class RangeTest_OE25Dev extends JexlTestCase {
     @Test
     public void testRanges_2_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
         Assert.assertEquals(20L, lr0.getMax());
     }
 
     @Test
     public void testRanges_3_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(lr0.isEmpty());
     }
 
     @Test
     public void testRanges_4_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(lr0.contains(10L));
     }
 
     @Test
     public void testRanges_5_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(lr0.contains(20L));
     }
 
     @Test
     public void testRanges_6_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(lr0.contains(30L));
     }
 
     @Test
     public void testRanges_7_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(lr0.contains(5L));
     }
 
     @Test
     public void testRanges_8_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(lr0.contains(null));
     }
 
     @Test
     public void testRanges_9_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
@@ -136,9 +172,18 @@ public class RangeTest_OE25Dev extends JexlTestCase {
     @Test
     public void testRanges_10_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
         Assert.assertNotEquals(lr0, lr2);
     }
@@ -146,30 +191,63 @@ public class RangeTest_OE25Dev extends JexlTestCase {
     @Test
     public void testRanges_11_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
         Assert.assertTrue(lr0.containsAll(lr2));
     }
 
     @Test
     public void testRanges_12_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(lr2.containsAll(lr1));
     }
 
     @Test
     public void testRanges_13_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir0 = IntegerRange.create(20,10);
         checkIteration(ir0, 20, 10);
         Assert.assertEquals(10, ir0.getMin());
@@ -178,96 +256,228 @@ public class RangeTest_OE25Dev extends JexlTestCase {
     @Test
     public void testRanges_14_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir0 = IntegerRange.create(20,10);
         checkIteration(ir0, 20, 10);
+        // removed other assertion
         Assert.assertEquals(20, ir0.getMax());
     }
 
     @Test
     public void testRanges_15_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir0 = IntegerRange.create(20,10);
         checkIteration(ir0, 20, 10);
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ir0.isEmpty());
     }
 
     @Test
     public void testRanges_16_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir0 = IntegerRange.create(20,10);
         checkIteration(ir0, 20, 10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ir0.contains(10));
     }
 
     @Test
     public void testRanges_17_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir0 = IntegerRange.create(20,10);
         checkIteration(ir0, 20, 10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(ir0.contains(20));
     }
 
     @Test
     public void testRanges_18_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir0 = IntegerRange.create(20,10);
         checkIteration(ir0, 20, 10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ir0.contains(30));
     }
 
     @Test
     public void testRanges_19_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir0 = IntegerRange.create(20,10);
         checkIteration(ir0, 20, 10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ir0.contains(5));
     }
 
     @Test
     public void testRanges_20_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir0 = IntegerRange.create(20,10);
         checkIteration(ir0, 20, 10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ir0.contains(null));
     }
 
     @Test
     public void testRanges_21_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir0 = IntegerRange.create(20,10);
         checkIteration(ir0, 20, 10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir1 = IntegerRange.create(10,20);
         checkIteration(ir1, 10, 20);
         Assert.assertTrue(ir0.containsAll(ir1));
@@ -276,42 +486,108 @@ public class RangeTest_OE25Dev extends JexlTestCase {
     @Test
     public void testRanges_22_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir0 = IntegerRange.create(20,10);
         checkIteration(ir0, 20, 10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir1 = IntegerRange.create(10,20);
         checkIteration(ir1, 10, 20);
+        // removed other assertion
         Assert.assertNotEquals(ir0, lr0);
     }
 
     @Test
     public void testRanges_23_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir0 = IntegerRange.create(20,10);
         checkIteration(ir0, 20, 10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir1 = IntegerRange.create(10,20);
         checkIteration(ir1, 10, 20);
+        // removed other assertion
+        // removed other assertion
         Assert.assertNotEquals(ir1, lr1);
     }
 
     @Test
     public void testRanges_24_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir0 = IntegerRange.create(20,10);
         checkIteration(ir0, 20, 10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir1 = IntegerRange.create(10,20);
         checkIteration(ir1, 10, 20);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir2 = IntegerRange.create(10,15);
         Assert.assertNotEquals(ir0, ir2);
     }
@@ -319,50 +595,126 @@ public class RangeTest_OE25Dev extends JexlTestCase {
     @Test
     public void testRanges_25_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir0 = IntegerRange.create(20,10);
         checkIteration(ir0, 20, 10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir1 = IntegerRange.create(10,20);
         checkIteration(ir1, 10, 20);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir2 = IntegerRange.create(10,15);
+        // removed other assertion
         Assert.assertTrue(ir0.containsAll(ir2));
     }
 
     @Test
     public void testRanges_26_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir0 = IntegerRange.create(20,10);
         checkIteration(ir0, 20, 10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir1 = IntegerRange.create(10,20);
         checkIteration(ir1, 10, 20);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir2 = IntegerRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(ir2.containsAll(ir1));
     }
 
     @Test
     public void testRanges_28_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir0 = IntegerRange.create(20,10);
         checkIteration(ir0, 20, 10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir1 = IntegerRange.create(10,20);
         checkIteration(ir1, 10, 20);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir2 = IntegerRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         long lc0 = 20;
         final Iterator<Long> il0 = lr0.iterator();
         while(il0.hasNext()) {
             final long v0 = il0.next();
+            // removed other assertion
             try {
                 switch((int)v0) {
                     case 10:  il0.remove(); Assert.fail(); break;
@@ -373,6 +725,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
                     case 15: lr1.retainAll(Collections.singletonList(v0)); Assert.fail(); break;
                 }
             } catch(final UnsupportedOperationException xuo) {
+                // ok
             }
             lc0 -= 1;
         }
@@ -382,20 +735,47 @@ public class RangeTest_OE25Dev extends JexlTestCase {
     @Test
     public void testRanges_31_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkIteration(lr0, 20L, 10L);
         final LongRange lr1 = LongRange.create(10,20);
         checkIteration(lr1, 10L, 20L);
+        // removed other assertion
         final LongRange lr2 = LongRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir0 = IntegerRange.create(20,10);
         checkIteration(ir0, 20, 10);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir1 = IntegerRange.create(10,20);
         checkIteration(ir1, 10, 20);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final IntegerRange ir2 = IntegerRange.create(10,15);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         long lc0 = 20;
         final Iterator<Long> il0 = lr0.iterator();
         while(il0.hasNext()) {
             final long v0 = il0.next();
+            // removed other assertion
             try {
                 switch((int)v0) {
                     case 10:  il0.remove(); Assert.fail(); break;
@@ -406,18 +786,23 @@ public class RangeTest_OE25Dev extends JexlTestCase {
                     case 15: lr1.retainAll(Collections.singletonList(v0)); Assert.fail(); break;
                 }
             } catch(final UnsupportedOperationException xuo) {
+                // ok
             }
             lc0 -= 1;
         }
+        // removed other assertion
         try {
             il0.next();
+            // removed other assertion
         } catch(final NoSuchElementException xns) {
+            // ok
         }
 
         int ic0 = 20;
         final Iterator<Integer> ii0 = ir0.iterator();
         while(ii0.hasNext()) {
             final int v0 = ii0.next();
+            // removed other assertion
             try {
                 switch(v0) {
                     case 10: ii0.remove(); Assert.fail(); break;
@@ -428,6 +813,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
                     case 15: ir1.retainAll(Collections.singletonList(v0)); Assert.fail(); break;
                 }
             } catch(final UnsupportedOperationException xuo) {
+                // ok
             }
             ic0 -= 1;
         }

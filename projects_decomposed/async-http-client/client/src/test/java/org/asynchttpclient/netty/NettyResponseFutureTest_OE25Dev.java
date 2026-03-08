@@ -39,6 +39,7 @@ public class NettyResponseFutureTest_OE25Dev {
     NettyResponseFuture<?> nettyResponseFuture = new NettyResponseFuture<>(null, asyncHandler, null, 3, null, null, null);
     boolean result = nettyResponseFuture.cancel(false);
     verify(asyncHandler).onThrowable(anyObject());
+    // removed other assertion
     assertTrue(nettyResponseFuture.isCancelled(), "isCancelled should return true for a cancelled Future");
   }
 
@@ -57,6 +58,7 @@ public class NettyResponseFutureTest_OE25Dev {
     NettyResponseFuture<?> nettyResponseFuture = new NettyResponseFuture<>(null, asyncHandler, null, 3, null, null, null);
     nettyResponseFuture.cancel(false);
     boolean result = nettyResponseFuture.cancel(false);
+    // removed other assertion
     assertTrue(nettyResponseFuture.isCancelled(), "isCancelled should return true for a cancelled Future");
   }
 

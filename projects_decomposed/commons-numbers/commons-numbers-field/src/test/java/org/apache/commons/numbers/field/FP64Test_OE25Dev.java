@@ -39,6 +39,7 @@ class FP64Test_OE25Dev {
         final Double a = Double.valueOf(v);
         final FP64 b = FP64.of(v);
 
+        // removed other assertion
         Assertions.assertEquals(a.floatValue(), b.floatValue());
     }
 
@@ -48,6 +49,8 @@ class FP64Test_OE25Dev {
         final Double a = Double.valueOf(v);
         final FP64 b = FP64.of(v);
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(a.intValue(), b.intValue());
     }
 
@@ -57,6 +60,9 @@ class FP64Test_OE25Dev {
         final Double a = Double.valueOf(v);
         final FP64 b = FP64.of(v);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(a.longValue(), b.longValue());
     }
 
@@ -66,6 +72,10 @@ class FP64Test_OE25Dev {
         final Double a = Double.valueOf(v);
         final FP64 b = FP64.of(v);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(a.byteValue(), b.byteValue());
     }
 
@@ -75,6 +85,11 @@ class FP64Test_OE25Dev {
         final Double a = Double.valueOf(v);
         final FP64 b = FP64.of(v);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(a.hashCode(), b.hashCode());
     }
 
@@ -83,6 +98,7 @@ class FP64Test_OE25Dev {
         final FP64 a = FP64.of(1.23);
         final FP64 b = FP64.of(4.56);
 
+        // Same instance
         Assertions.assertEquals(a, a);
     }
 
@@ -91,6 +107,9 @@ class FP64Test_OE25Dev {
         final FP64 a = FP64.of(1.23);
         final FP64 b = FP64.of(4.56);
 
+        // Same instance
+        // removed other assertion
+        // Same value
         Assertions.assertEquals(a, FP64.of(a.doubleValue()));
     }
 
@@ -99,6 +118,11 @@ class FP64Test_OE25Dev {
         final FP64 a = FP64.of(1.23);
         final FP64 b = FP64.of(4.56);
 
+        // Same instance
+        // removed other assertion
+        // Same value
+        // removed other assertion
+        // Different value
         Assertions.assertNotEquals(a, b);
     }
 
@@ -107,6 +131,13 @@ class FP64Test_OE25Dev {
         final FP64 a = FP64.of(1.23);
         final FP64 b = FP64.of(4.56);
 
+        // Same instance
+        // removed other assertion
+        // Same value
+        // removed other assertion
+        // Different value
+        // removed other assertion
+        // Different object
         Assertions.assertNotEquals(a, new Object());
     }
 
@@ -115,6 +146,14 @@ class FP64Test_OE25Dev {
         final FP64 a = FP64.of(1.23);
         final FP64 b = FP64.of(4.56);
 
+        // Same instance
+        // removed other assertion
+        // Same value
+        // removed other assertion
+        // Different value
+        // removed other assertion
+        // Different object
+        // removed other assertion
         Assertions.assertNotEquals(a, null);
     }
 
@@ -172,11 +211,14 @@ class FP64Test_OE25Dev {
 
     @Test
     void testCompare_2_oe() {
+        // removed other assertion
         Assertions.assertTrue(FP64.of(1).compareTo(FP64.of(2)) < 0);
     }
 
     @Test
     void testCompare_3_oe() {
+        // removed other assertion
+        // removed other assertion
 
         final double v = 123.45;
         Assertions.assertEquals(0, FP64.of(v).compareTo(FP64.of(v)));

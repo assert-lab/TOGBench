@@ -129,7 +129,7 @@ def extract_project(project: str, projects_root: str = "projects_decomposed"):
         print(f"[SKIP] {project} is not a directory")
         return
 
-    dataset_path = os.path.join(project_path, "dataset")
+    dataset_path = os.path.join(project_path, "dataset_custom")
     os.makedirs(dataset_path, exist_ok=True)
 
     prefix = get_project_prefix(project)
@@ -209,15 +209,15 @@ def extract_project(project: str, projects_root: str = "projects_decomposed"):
 
             global_test_counter += 1
 
-    inputs_path = os.path.join(dataset_path, "inputs.csv")
-    meta_path = os.path.join(dataset_path, "meta.csv")
+    # inputs_path = os.path.join(dataset_path, "inputs.csv")
+    # meta_path = os.path.join(dataset_path, "meta.csv")
     inputs_custom_path = os.path.join(dataset_path, "inputs_custom.csv")
     meta_custom_path = os.path.join(dataset_path, "meta_custom.csv")
 
-    with open(inputs_path, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=["id", "test_prefix", "test_name"])
-        w.writeheader()
-        w.writerows(rows_inputs)
+    # with open(inputs_path, "w", newline="", encoding="utf-8") as f:
+    #     w = csv.DictWriter(f, fieldnames=["id", "test_prefix", "test_name"])
+    #     w.writeheader()
+    #     w.writerows(rows_inputs)
 
     with open(inputs_custom_path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=["id", "test_prefix", "test_name"])
@@ -239,10 +239,10 @@ def extract_project(project: str, projects_root: str = "projects_decomposed"):
         "assert_name",
     ]
 
-    with open(meta_path, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=meta_fields)
-        w.writeheader()
-        w.writerows(rows_meta)
+    # with open(meta_path, "w", newline="", encoding="utf-8") as f:
+    #     w = csv.DictWriter(f, fieldnames=meta_fields)
+    #     w.writeheader()
+    #     w.writerows(rows_meta)
 
     with open(meta_custom_path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=meta_fields)
@@ -253,7 +253,7 @@ def extract_project(project: str, projects_root: str = "projects_decomposed"):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("project")
-    ap.add_argument("--projects_root", default="projects_decomposed/commons-pool2")
+    ap.add_argument("--projects_root", default="")
     args = ap.parse_args()
     extract_project(args.project, projects_root=args.projects_root)
 

@@ -41,6 +41,7 @@ public class ArrayHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Object[]> h = new ArrayHandler();
         Object[] results = h.handle(this.rs);
 
+        // removed other assertion
         assertEquals(COLS, results.length);
     }
 
@@ -48,6 +49,8 @@ public class ArrayHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Object[]> h = new ArrayHandler();
         Object[] results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("1", results[0]);
     }
 
@@ -55,6 +58,9 @@ public class ArrayHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Object[]> h = new ArrayHandler();
         Object[] results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("2", results[1]);
     }
 
@@ -62,6 +68,10 @@ public class ArrayHandlerTest_OE25Dev extends BaseTestCase {
         ResultSetHandler<Object[]> h = new ArrayHandler();
         Object[] results = h.handle(this.rs);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("THREE", results[2]);
     }
 

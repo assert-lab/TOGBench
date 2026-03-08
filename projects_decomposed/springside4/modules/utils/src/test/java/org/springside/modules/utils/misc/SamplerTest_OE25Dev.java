@@ -34,6 +34,8 @@ public class SamplerTest_OE25Dev {
 		}
 		System.out.println("sample 10.5% in 10000 hits should close to 1050, actual is " + hits);
 
+		// removed other assertion
+		//////////
 		Sampler sampler2 = Sampler.create(0.5);
 
 		hits = 0;
@@ -55,6 +57,7 @@ public class SamplerTest_OE25Dev {
 	@Test
 	public void always_2_oe() {
 		Sampler sampler = Sampler.create(0d);
+		// removed other assertion
 		sampler = Sampler.create(100d);
 		assertThat(sampler).isInstanceOf(AlwaysSampler.class);
 	}
@@ -62,10 +65,13 @@ public class SamplerTest_OE25Dev {
 	@Test
 	public void always_4_oe() {
 		Sampler sampler = Sampler.create(0d);
+		// removed other assertion
 		sampler = Sampler.create(100d);
+		// removed other assertion
 
 		try {
 			sampler = Sampler.create(101d);
+			// removed other assertion
 		} catch (Exception e) {
 			assertThat(e).isInstanceOf(IllegalArgumentException.class);
 	}
@@ -74,15 +80,20 @@ public class SamplerTest_OE25Dev {
 	@Test
 	public void always_6_oe() {
 		Sampler sampler = Sampler.create(0d);
+		// removed other assertion
 		sampler = Sampler.create(100d);
+		// removed other assertion
 
 		try {
 			sampler = Sampler.create(101d);
+			// removed other assertion
 		} catch (Exception e) {
+			// removed other assertion
 		}
 
 		try {
 			sampler = Sampler.create(-2.2);
+			// removed other assertion
 		} catch (Exception e) {
 			assertThat(e).isInstanceOf(IllegalArgumentException.class);
 	}

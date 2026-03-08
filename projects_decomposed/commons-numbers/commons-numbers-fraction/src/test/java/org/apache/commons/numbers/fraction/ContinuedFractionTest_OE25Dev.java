@@ -56,6 +56,15 @@ class ContinuedFractionTest_OE25Dev {
 
     @Test
     void test415Over93_1_oe() throws Exception {
+        // https://en.wikipedia.org/wiki/Continued_fraction
+        // 415             1
+        // ---  = 4 + ---------
+        //  93        2 +   1
+        //                -----
+        //                6 + 1
+        //                    -
+        //                    7
+        //      = [4; 2, 6, 7]
 
         ContinuedFraction cf = new ContinuedFraction() {
             @Override
@@ -105,6 +114,7 @@ class ContinuedFractionTest_OE25Dev {
 
     @Test
     void testNaNThrows_1_oe() throws Exception {
+        // Create a NaN during the iteration
         ContinuedFraction cf = new ContinuedFraction() {
             @Override
             public double getA(int n, double x) {
@@ -127,6 +137,8 @@ class ContinuedFractionTest_OE25Dev {
 
     @Test
     void testInfThrows_1_oe() throws Exception {
+        // Create an infinity during the iteration:
+        // a / cPrev  => a_1 / b_0 => Double.MAX_VALUE / 0.5
         ContinuedFraction cf = new ContinuedFraction() {
             @Override
             public double getA(int n, double x) {

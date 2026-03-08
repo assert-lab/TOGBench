@@ -35,6 +35,7 @@ public class ValidateTest_OE25Dev {
             Validate.notNull(null);
         } catch (ValidationException e) {
             threw = true;
+            // removed other assertion
             StackTraceElement[] stackTrace = e.getStackTrace();
             for (StackTraceElement trace : stackTrace) {
                 assertNotEquals(trace.getClassName(), Validate.class.getName());
@@ -48,8 +49,10 @@ public class ValidateTest_OE25Dev {
             Validate.notNull(null);
         } catch (ValidationException e) {
             threw = true;
+            // removed other assertion
             StackTraceElement[] stackTrace = e.getStackTrace();
             for (StackTraceElement trace : stackTrace) {
+                // removed other assertion
             }
             assertTrue(stackTrace.length >= 1);
         }
@@ -61,9 +64,12 @@ public class ValidateTest_OE25Dev {
             Validate.notNull(null);
         } catch (ValidationException e) {
             threw = true;
+            // removed other assertion
             StackTraceElement[] stackTrace = e.getStackTrace();
             for (StackTraceElement trace : stackTrace) {
+                // removed other assertion
             }
+            // removed other assertion
         }
         Assertions.assertTrue(threw);
         }
@@ -82,6 +88,7 @@ public class ValidateTest_OE25Dev {
         try {
             Validate.notNullParam(null, "foo");
         } catch (ValidationException e) {
+            // removed other assertion
         }
         assertTrue(threw);
         }

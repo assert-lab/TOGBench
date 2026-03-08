@@ -17,6 +17,8 @@ public class CryptoUtilTest_OE25Dev {
 	public void mac_1_oe() {
 		String input = "foo message";
 
+		// key可为任意字符串
+		// byte[] key = "a foo key".getBytes();
 		byte[] key = CryptoUtil.generateHmacSha1Key();
 		assertThat(key).hasSize(20);
 	}
@@ -25,7 +27,10 @@ public class CryptoUtilTest_OE25Dev {
 	public void mac_2_oe() {
 		String input = "foo message";
 
+		// key可为任意字符串
+		// byte[] key = "a foo key".getBytes();
 		byte[] key = CryptoUtil.generateHmacSha1Key();
+		// removed other assertion
 
 		byte[] macResult = CryptoUtil.hmacSha1(input.getBytes(), key);
 		System.out.println("hmac-sha1 key in hex      :" + EncodeUtil.encodeHex(key));
@@ -43,6 +48,7 @@ public class CryptoUtilTest_OE25Dev {
 	@Test
 	public void aes_2_oe() {
 		byte[] key = CryptoUtil.generateAesKey();
+		// removed other assertion
 		String input = "foo message";
 
 		byte[] encryptResult = CryptoUtil.aesEncrypt(input.getBytes(), key);
@@ -64,6 +70,7 @@ public class CryptoUtilTest_OE25Dev {
 	public void aesWithIV_2_oe() {
 		byte[] key = CryptoUtil.generateAesKey();
 		byte[] iv = CryptoUtil.generateIV();
+		// removed other assertion
 		assertThat(iv).hasSize(16);
 	}
 
@@ -71,6 +78,8 @@ public class CryptoUtilTest_OE25Dev {
 	public void aesWithIV_3_oe() {
 		byte[] key = CryptoUtil.generateAesKey();
 		byte[] iv = CryptoUtil.generateIV();
+		// removed other assertion
+		// removed other assertion
 		String input = "foo message";
 
 		byte[] encryptResult = CryptoUtil.aesEncrypt(input.getBytes(), key, iv);

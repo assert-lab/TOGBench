@@ -644,6 +644,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
         final NodeHandler<ImmutableNode> handler = model.getTrackedNodeHandler(selector);
+        // removed other assertion
         assertSame("Wrong root node", model.getTrackedNode(selector), handler.getRootNode());
     }
 
@@ -652,6 +653,8 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
         final NodeHandler<ImmutableNode> handler = model.getTrackedNodeHandler(selector);
+        // removed other assertion
+        // removed other assertion
         final TrackedNodeHandler tnh = (TrackedNodeHandler) handler;
         assertSame("Wrong parent handler", model.getTreeData(), tnh.getParentHandler());
     }
@@ -671,6 +674,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         model.trackNode(selector, resolver);
         initDetachedNode(resolver);
         final NodeHandler<ImmutableNode> handler = model.getTrackedNodeHandler(selector);
+        // removed other assertion
         assertTrue("Wrong handler: " + handler, handler instanceof TreeData);
     }
 
@@ -680,6 +684,8 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         model.trackNode(selector, resolver);
         initDetachedNode(resolver);
         final NodeHandler<ImmutableNode> handler = model.getTrackedNodeHandler(selector);
+        // removed other assertion
+        // removed other assertion
         assertNotSame("Shared handler", model.getNodeHandler(), handler);
     }
 
@@ -755,6 +761,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         final Collection<NodeSelector> selectors = model.selectAndTrackNodes(TEST_KEY, resolver);
         final Iterator<NodeSelector> it = selectors.iterator();
         NodeSelector sel = it.next();
+        // removed other assertion
         assertSame("Wrong tracked node 1", node1, model.getTrackedNode(sel));
     }
 
@@ -773,6 +780,8 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         final Collection<NodeSelector> selectors = model.selectAndTrackNodes(TEST_KEY, resolver);
         final Iterator<NodeSelector> it = selectors.iterator();
         NodeSelector sel = it.next();
+        // removed other assertion
+        // removed other assertion
         sel = it.next();
         assertEquals("Wrong selector 2", new NodeSelector(nodeKey2), sel);
     }
@@ -792,7 +801,10 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         final Collection<NodeSelector> selectors = model.selectAndTrackNodes(TEST_KEY, resolver);
         final Iterator<NodeSelector> it = selectors.iterator();
         NodeSelector sel = it.next();
+        // removed other assertion
+        // removed other assertion
         sel = it.next();
+        // removed other assertion
         assertSame("Wrong tracked node 2", node2, model.getTrackedNode(sel));
     }
 
@@ -811,7 +823,11 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         final Collection<NodeSelector> selectors = model.selectAndTrackNodes(TEST_KEY, resolver);
         final Iterator<NodeSelector> it = selectors.iterator();
         NodeSelector sel = it.next();
+        // removed other assertion
+        // removed other assertion
         sel = it.next();
+        // removed other assertion
+        // removed other assertion
         assertFalse("Too many selectors", it.hasNext());
     }
 
@@ -840,6 +856,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         EasyMock.replay(resolver);
 
         final Collection<NodeSelector> selectors = model.selectAndTrackNodes(TEST_KEY, resolver);
+        // removed other assertion
         assertEquals("Wrong selector", selector, selectors.iterator().next());
     }
 
@@ -854,6 +871,8 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         EasyMock.replay(resolver);
 
         final Collection<NodeSelector> selectors = model.selectAndTrackNodes(TEST_KEY, resolver);
+        // removed other assertion
+        // removed other assertion
         model.untrackNode(selector);
         assertSame("Node not tracked", node, model.getTrackedNode(selector));
     }
@@ -925,6 +944,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         EasyMock.replay(resolver);
 
         final NodeSelector childSelector = model.trackChildNodeWithCreation(TEST_KEY, childName, resolver);
+        // removed other assertion
         assertSame("Wrong tracked node", child, model.getTrackedNode(childSelector));
     }
 
@@ -957,6 +977,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         EasyMock.replay(resolver);
 
         final NodeSelector childSelector = model.trackChildNodeWithCreation(TEST_KEY, childName, resolver);
+        // removed other assertion
         final ImmutableNode child = model.getTrackedNode(childSelector);
         assertEquals("Wrong child name", childName, child.getNodeName());
     }
@@ -974,7 +995,9 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         EasyMock.replay(resolver);
 
         final NodeSelector childSelector = model.trackChildNodeWithCreation(TEST_KEY, childName, resolver);
+        // removed other assertion
         final ImmutableNode child = model.getTrackedNode(childSelector);
+        // removed other assertion
         assertNull("Got a value", child.getValue());
     }
 
@@ -991,7 +1014,10 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         EasyMock.replay(resolver);
 
         final NodeSelector childSelector = model.trackChildNodeWithCreation(TEST_KEY, childName, resolver);
+        // removed other assertion
         final ImmutableNode child = model.getTrackedNode(childSelector);
+        // removed other assertion
+        // removed other assertion
         final ImmutableNode parent = model.getNodeHandler().getParent(child);
         assertEquals("Wrong parent node", "table", parent.getNodeName());
     }
@@ -1009,8 +1035,12 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         EasyMock.replay(resolver);
 
         final NodeSelector childSelector = model.trackChildNodeWithCreation(TEST_KEY, childName, resolver);
+        // removed other assertion
         final ImmutableNode child = model.getTrackedNode(childSelector);
+        // removed other assertion
+        // removed other assertion
         final ImmutableNode parent = model.getNodeHandler().getParent(child);
+        // removed other assertion
         assertEquals("Wrong node path", child, NodeStructureHelper.nodeForKey(model, childKey));
     }
 
@@ -1027,6 +1057,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
         model.clearTree(null, selector, resolver);
+        // removed other assertion
         final ImmutableNode node = model.getTrackedNode(selector);
         assertEquals("Name was changed", "table", node.getNodeName());
     }
@@ -1036,7 +1067,9 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
         model.clearTree(null, selector, resolver);
+        // removed other assertion
         final ImmutableNode node = model.getTrackedNode(selector);
+        // removed other assertion
         assertFalse("Node is defined", model.getNodeHandler().isDefined(node));
     }
 

@@ -82,6 +82,7 @@ public class FlagsTest_OE25Dev extends TestCase {
         Flags f = new Flags();
         f.turnOn(LONG_FLAG);
         f.turnOn(INT_FLAG);
+        // removed other assertion
         assertTrue(!f.isOff(LONG_FLAG));
     }
 
@@ -89,6 +90,8 @@ public class FlagsTest_OE25Dev extends TestCase {
         Flags f = new Flags();
         f.turnOn(LONG_FLAG);
         f.turnOn(INT_FLAG);
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(f.isOn(INT_FLAG));
     }
@@ -97,7 +100,10 @@ public class FlagsTest_OE25Dev extends TestCase {
         Flags f = new Flags();
         f.turnOn(LONG_FLAG);
         f.turnOn(INT_FLAG);
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue(!f.isOff(INT_FLAG));
     }
 
@@ -105,7 +111,11 @@ public class FlagsTest_OE25Dev extends TestCase {
         Flags f = new Flags();
         f.turnOn(LONG_FLAG);
         f.turnOn(INT_FLAG);
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(f.isOff(LONG_FLAG_2));
     }
@@ -151,6 +161,7 @@ public class FlagsTest_OE25Dev extends TestCase {
     public void testToString_2_oe() {
         Flags f = new Flags();
         String s = f.toString();
+        // removed other assertion
 
         f.turnOn(INT_FLAG);
         s = f.toString();
@@ -160,9 +171,11 @@ public class FlagsTest_OE25Dev extends TestCase {
     public void testToString_3_oe() {
         Flags f = new Flags();
         String s = f.toString();
+        // removed other assertion
 
         f.turnOn(INT_FLAG);
         s = f.toString();
+        // removed other assertion
 
         assertEquals("0000000000000000000000000000000000000000000000000000000000000100",s);
     }

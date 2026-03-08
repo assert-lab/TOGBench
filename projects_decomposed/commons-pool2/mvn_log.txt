@@ -1,0 +1,343 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.commons:commons-pool2 >------------------
+[INFO] Building Apache Commons Pool 2.11.1
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-pool2 ---
+[INFO] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-pool2 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-pool2 ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-pool2 ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-pool2 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-pool2 ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-pool2 ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-pool2 ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2
+[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772885677591
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-pool2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-pool2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 49 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/main/java/org/apache/commons/pool2/impl/DefaultPooledObject.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/main/java/org/apache/commons/pool2/impl/DefaultPooledObject.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/main/java/org/apache/commons/pool2/impl/EvictionTimer.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/main/java/org/apache/commons/pool2/impl/EvictionTimer.java: Recompile with -Xlint:removal for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.2:manifest (bundle-manifest) @ commons-pool2 ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-pool2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-pool2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 72 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/test/java/org/apache/commons/pool2/impl/TestGenericObjectPool_OE25Dev.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/test/java/org/apache/commons/pool2/impl/TestGenericObjectPool_OE25Dev.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/test/java/org/apache/commons/pool2/TestPoolUtils.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/test/java/org/apache/commons/pool2/TestPoolUtils.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.20:check (checkAPIcompatibility) @ commons-pool2 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ commons-pool2 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[ERROR] OpenJDK 64-Bit Server VM warning: Ignoring option --illegal-access=permit; support was removed in 17.0
+[INFO] Running org.apache.commons.pool2.impl.NoOpCallStackTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.pool2.impl.NoOpCallStackTest_OE25Dev
+[INFO] Running org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev
+[ERROR] Tests run: 134, Failures: 11, Errors: 0, Skipped: 0, Time elapsed: 13.375 s <<< FAILURE! - in org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev
+[ERROR] org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testInlined_13_oe  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <3>
+	at org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testInlined_13_oe(TestGenericObjectPool_OE25Dev.java:4017)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testExceptionOnActivateDuringBorrow_1_oe  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <1>
+	at org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testExceptionOnActivateDuringBorrow_1_oe(TestGenericObjectPool_OE25Dev.java:3949)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testDefaultConfiguration_1_serial_13_oe_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <3>
+	at org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testDefaultConfiguration_1_serial_13_oe_1_oe(TestGenericObjectPool_OE25Dev.java:4089)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testSetConfig_2_serial_13_oe_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1> but was: <9>
+	at org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testSetConfig_2_serial_13_oe_1_oe(TestGenericObjectPool_OE25Dev.java:4226)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testSetConfig_1_serial_13_oe_1_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1> but was: <3>
+	at org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testSetConfig_1_serial_13_oe_1_oe(TestGenericObjectPool_OE25Dev.java:4803)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testExceptionOnDestroyDuringBorrow_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <1>
+	at org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testExceptionOnDestroyDuringBorrow_2_oe(TestGenericObjectPool_OE25Dev.java:4695)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testWhenExhaustedFail_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <1>
+	at org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testWhenExhaustedFail_3_oe(TestGenericObjectPool_OE25Dev.java:4778)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testMaxIdle_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <100>
+	at org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testMaxIdle_1_oe(TestGenericObjectPool_OE25Dev.java:4707)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testMaxIdleZero_1_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <100>
+	at org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testMaxIdleZero_1_oe(TestGenericObjectPool_OE25Dev.java:4731)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testSwallowedExceptionListener_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1> but was: <2>
+	at org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testSwallowedExceptionListener_2_oe(TestGenericObjectPool_OE25Dev.java:4768)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testAppendStats_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev.testAppendStats_1_oe(TestGenericObjectPool_OE25Dev.java:4679)
+
+[INFO] Running org.apache.commons.pool2.impl.TestDefaultPooledObject_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.pool2.impl.TestDefaultPooledObject_OE25Dev
+[INFO] Running org.apache.commons.pool2.impl.TestSoftRefOutOfMemory_OE25Dev
+[ERROR] Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.038 s <<< FAILURE! - in org.apache.commons.pool2.impl.TestSoftRefOutOfMemory_OE25Dev
+[ERROR] org.apache.commons.pool2.impl.TestSoftRefOutOfMemory_OE25Dev.testOutOfMemory1000_2_oe  Time elapsed: 0.012 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <1000>
+	at org.apache.commons.pool2.impl.TestSoftRefOutOfMemory_OE25Dev.testOutOfMemory1000_2_oe(TestSoftRefOutOfMemory_OE25Dev.java:318)
+
+[ERROR] org.apache.commons.pool2.impl.TestSoftRefOutOfMemory_OE25Dev.testOutOfMemoryLarge_2_oe  Time elapsed: 0.016 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <1>
+	at org.apache.commons.pool2.impl.TestSoftRefOutOfMemory_OE25Dev.testOutOfMemoryLarge_2_oe(TestSoftRefOutOfMemory_OE25Dev.java:329)
+
+[ERROR] org.apache.commons.pool2.impl.TestSoftRefOutOfMemory_OE25Dev.testOutOfMemory_2_oe  Time elapsed: 0.009 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <1>
+	at org.apache.commons.pool2.impl.TestSoftRefOutOfMemory_OE25Dev.testOutOfMemory_2_oe(TestSoftRefOutOfMemory_OE25Dev.java:303)
+
+[INFO] Running org.apache.commons.pool2.impl.TestEvictionConfig_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.pool2.impl.TestEvictionConfig_OE25Dev
+[INFO] Running org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev
+[ERROR] Tests run: 34, Failures: 13, Errors: 0, Skipped: 0, Time elapsed: 21.087 s <<< FAILURE! - in org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev
+[ERROR] org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testClear_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <2>
+	at org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testClear_1_oe(TestGenericKeyedObjectPool_OE25Dev.java:2474)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testExceptionOnActivateDuringBorrow_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
+	at org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testExceptionOnActivateDuringBorrow_4_oe(TestGenericKeyedObjectPool_OE25Dev.java:2576)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testValidateOnCreateFailure_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <1>
+	at org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testValidateOnCreateFailure_4_oe(TestGenericKeyedObjectPool_OE25Dev.java:3003)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testValidateOnCreateFailure_5_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <1>
+	at org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testValidateOnCreateFailure_5_oe(TestGenericKeyedObjectPool_OE25Dev.java:3018)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testExceptionOnDestroyDuringReturn_3_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <1>
+	at org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testExceptionOnDestroyDuringReturn_3_oe(TestGenericKeyedObjectPool_OE25Dev.java:2600)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testExceptionInValidationDuringEviction_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
+	at org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testExceptionInValidationDuringEviction_2_oe(TestGenericKeyedObjectPool_OE25Dev.java:2563)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testMaxTotal_6_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <1>
+	at org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testMaxTotal_6_oe(TestGenericKeyedObjectPool_OE25Dev.java:2664)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testMaxTotal_15_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <4>
+	at org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testMaxTotal_15_oe(TestGenericKeyedObjectPool_OE25Dev.java:2722)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testNumActiveNumIdle2_13_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <4>
+	at org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testNumActiveNumIdle2_13_oe(TestGenericKeyedObjectPool_OE25Dev.java:2870)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testNumActiveNumIdle2_19_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <2>
+	at org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testNumActiveNumIdle2_19_oe(TestGenericKeyedObjectPool_OE25Dev.java:2902)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testNumActiveNumIdle2_20_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <2>
+	at org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testNumActiveNumIdle2_20_oe(TestGenericKeyedObjectPool_OE25Dev.java:2920)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testNumActiveNumIdle2_26_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <4>
+	at org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testNumActiveNumIdle2_26_oe(TestGenericKeyedObjectPool_OE25Dev.java:2964)
+
+[ERROR] org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testMaxIdle_9_oe  Time elapsed: 0.004 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <16>
+	at org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev.testMaxIdle_9_oe(TestGenericKeyedObjectPool_OE25Dev.java:2623)
+
+[INFO] Running org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev
+[ERROR] Tests run: 53, Failures: 16, Errors: 0, Skipped: 0, Time elapsed: 0.113 s <<< FAILURE! - in org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev
+[ERROR] org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testTake_1_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testTake_1_oe(TestLinkedBlockingDeque_OE25Dev.java:740)
+
+[ERROR] org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testOfferFirst_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <2>
+	at org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testOfferFirst_1_oe(TestLinkedBlockingDeque_OE25Dev.java:518)
+
+[ERROR] org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testOffer_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testOffer_2_oe(TestLinkedBlockingDeque_OE25Dev.java:505)
+
+[ERROR] org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testPollLast_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testPollLast_2_oe(TestLinkedBlockingDeque_OE25Dev.java:643)
+
+[ERROR] org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testPush_1_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1> but was: <2>
+	at org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testPush_1_oe(TestLinkedBlockingDeque_OE25Dev.java:687)
+
+[ERROR] org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testOfferWithTimeout_1_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testOfferWithTimeout_1_oe(TestLinkedBlockingDeque_OE25Dev.java:556)
+
+[ERROR] org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testOfferWithTimeout_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testOfferWithTimeout_2_oe(TestLinkedBlockingDeque_OE25Dev.java:562)
+
+[ERROR] org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testOfferWithTimeout_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testOfferWithTimeout_3_oe(TestLinkedBlockingDeque_OE25Dev.java:568)
+
+[ERROR] org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testConstructors_1_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <2147483647>
+	at org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testConstructors_1_oe(TestLinkedBlockingDeque_OE25Dev.java:470)
+
+[ERROR] org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testConstructors_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <2>
+	at org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testConstructors_2_oe(TestLinkedBlockingDeque_OE25Dev.java:478)
+
+[ERROR] org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testOfferLastWithTimeout_4_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testOfferLastWithTimeout_4_oe(TestLinkedBlockingDeque_OE25Dev.java:550)
+
+[ERROR] org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testPutFirst_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1> but was: <2>
+	at org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testPutFirst_2_oe(TestLinkedBlockingDeque_OE25Dev.java:694)
+
+[ERROR] org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testPutLast_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1> but was: <2>
+	at org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testPutLast_2_oe(TestLinkedBlockingDeque_OE25Dev.java:701)
+
+[ERROR] org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testRemoveLastOccurrence_1_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testRemoveLastOccurrence_1_oe(TestLinkedBlockingDeque_OE25Dev.java:728)
+
+[ERROR] org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testRemoveLastOccurrence_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testRemoveLastOccurrence_2_oe(TestLinkedBlockingDeque_OE25Dev.java:734)
+
+[ERROR] org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testAddFirst_1_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1> but was: <2>
+	at org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev.testAddFirst_1_oe(TestLinkedBlockingDeque_OE25Dev.java:464)
+
+[INFO] Running org.apache.commons.pool2.impl.TestAbandonedObjectPool_OE25Dev
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in org.apache.commons.pool2.impl.TestAbandonedObjectPool_OE25Dev
+[ERROR] org.apache.commons.pool2.impl.TestAbandonedObjectPool_OE25Dev.testAbandonedReturn_2_oe  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.pool2.impl.GenericObjectPool.close()" because "this.pool" is null
+	at org.apache.commons.pool2.impl.TestAbandonedObjectPool_OE25Dev.testAbandonedReturn_2_oe(TestAbandonedObjectPool_OE25Dev.java:438)
+
+[ERROR] org.apache.commons.pool2.impl.TestAbandonedObjectPool_OE25Dev.testAbandonedInvalidate_2_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.pool2.impl.GenericObjectPool.close()" because "this.pool" is null
+	at org.apache.commons.pool2.impl.TestAbandonedObjectPool_OE25Dev.testAbandonedInvalidate_2_oe(TestAbandonedObjectPool_OE25Dev.java:415)
+
+[INFO] Running org.apache.commons.pool2.impl.CallStackTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.pool2.impl.CallStackTest_OE25Dev
+[INFO] Running org.apache.commons.pool2.impl.TestPooledSoftReference_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.pool2.impl.TestPooledSoftReference_OE25Dev
+[INFO] Running org.apache.commons.pool2.TestBaseObjectPool_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.pool2.TestBaseObjectPool_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   TestGenericKeyedObjectPool_OE25Dev.testClear_1_oe:2474 expected: <0> but was: <2>
+[ERROR]   TestGenericKeyedObjectPool_OE25Dev.testExceptionInValidationDuringEviction_2_oe:2563 expected: <1> but was: <0>
+[ERROR]   TestGenericKeyedObjectPool_OE25Dev.testExceptionOnActivateDuringBorrow_4_oe:2576 expected: <1> but was: <0>
+[ERROR]   TestGenericKeyedObjectPool_OE25Dev.testExceptionOnDestroyDuringReturn_3_oe:2600 expected: <0> but was: <1>
+[ERROR]   TestGenericKeyedObjectPool_OE25Dev.testMaxIdle_9_oe:2623 expected: <0> but was: <16>
+[ERROR]   TestGenericKeyedObjectPool_OE25Dev.testMaxTotal_15_oe:2722 expected: <0> but was: <4>
+[ERROR]   TestGenericKeyedObjectPool_OE25Dev.testMaxTotal_6_oe:2664 expected: <0> but was: <1>
+[ERROR]   TestGenericKeyedObjectPool_OE25Dev.testNumActiveNumIdle2_13_oe:2870 expected: <0> but was: <4>
+[ERROR]   TestGenericKeyedObjectPool_OE25Dev.testNumActiveNumIdle2_19_oe:2902 expected: <0> but was: <2>
+[ERROR]   TestGenericKeyedObjectPool_OE25Dev.testNumActiveNumIdle2_20_oe:2920 expected: <0> but was: <2>
+[ERROR]   TestGenericKeyedObjectPool_OE25Dev.testNumActiveNumIdle2_26_oe:2964 expected: <0> but was: <4>
+[ERROR]   TestGenericKeyedObjectPool_OE25Dev.testValidateOnCreateFailure_4_oe:3003 expected: <0> but was: <1>
+[ERROR]   TestGenericKeyedObjectPool_OE25Dev.testValidateOnCreateFailure_5_oe:3018 expected: <0> but was: <1>
+[ERROR]   TestGenericObjectPool_OE25Dev.testAppendStats_1_oe:4679 expected: <true> but was: <false>
+[ERROR]   TestGenericObjectPool_OE25Dev.testDefaultConfiguration_1_serial_13_oe_1_oe:4089 expected: <0> but was: <3>
+[ERROR]   TestGenericObjectPool_OE25Dev.testExceptionOnActivateDuringBorrow_1_oe:3949 expected: <0> but was: <1>
+[ERROR]   TestGenericObjectPool_OE25Dev.testExceptionOnDestroyDuringBorrow_2_oe:4695 expected: <0> but was: <1>
+[ERROR]   TestGenericObjectPool_OE25Dev.testInlined_13_oe:4017 expected: <0> but was: <3>
+[ERROR]   TestGenericObjectPool_OE25Dev.testMaxIdleZero_1_oe:4731 expected: <0> but was: <100>
+[ERROR]   TestGenericObjectPool_OE25Dev.testMaxIdle_1_oe:4707 expected: <0> but was: <100>
+[ERROR]   TestGenericObjectPool_OE25Dev.testSetConfig_1_serial_13_oe_1_oe:4803 expected: <1> but was: <3>
+[ERROR]   TestGenericObjectPool_OE25Dev.testSetConfig_2_serial_13_oe_1_oe:4226 expected: <1> but was: <9>
+[ERROR]   TestGenericObjectPool_OE25Dev.testSwallowedExceptionListener_2_oe:4768 expected: <1> but was: <2>
+[ERROR]   TestGenericObjectPool_OE25Dev.testWhenExhaustedFail_3_oe:4778 expected: <0> but was: <1>
+[ERROR]   TestLinkedBlockingDeque_OE25Dev.testAddFirst_1_oe:464 expected: <1> but was: <2>
+[ERROR]   TestLinkedBlockingDeque_OE25Dev.testConstructors_1_oe:470 expected: <0> but was: <2147483647>
+[ERROR]   TestLinkedBlockingDeque_OE25Dev.testConstructors_2_oe:478 expected: <0> but was: <2>
+[ERROR]   TestLinkedBlockingDeque_OE25Dev.testOfferFirst_1_oe:518 expected: <0> but was: <2>
+[ERROR]   TestLinkedBlockingDeque_OE25Dev.testOfferLastWithTimeout_4_oe:550 expected: <false> but was: <true>
+[ERROR]   TestLinkedBlockingDeque_OE25Dev.testOfferWithTimeout_1_oe:556 expected: <false> but was: <true>
+[ERROR]   TestLinkedBlockingDeque_OE25Dev.testOfferWithTimeout_2_oe:562 expected: <false> but was: <true>
+[ERROR]   TestLinkedBlockingDeque_OE25Dev.testOfferWithTimeout_3_oe:568 expected: <false> but was: <true>
+[ERROR]   TestLinkedBlockingDeque_OE25Dev.testOffer_2_oe:505 expected: <false> but was: <true>
+[ERROR]   TestLinkedBlockingDeque_OE25Dev.testPollLast_2_oe:643 expected: <false> but was: <true>
+[ERROR]   TestLinkedBlockingDeque_OE25Dev.testPush_1_oe:687 expected: <1> but was: <2>
+[ERROR]   TestLinkedBlockingDeque_OE25Dev.testPutFirst_2_oe:694 expected: <1> but was: <2>
+[ERROR]   TestLinkedBlockingDeque_OE25Dev.testPutLast_2_oe:701 expected: <1> but was: <2>
+[ERROR]   TestLinkedBlockingDeque_OE25Dev.testRemoveLastOccurrence_1_oe:728 expected: <true> but was: <false>
+[ERROR]   TestLinkedBlockingDeque_OE25Dev.testRemoveLastOccurrence_2_oe:734 expected: <true> but was: <false>
+[ERROR]   TestLinkedBlockingDeque_OE25Dev.testTake_1_oe:740 expected: <false> but was: <true>
+[ERROR]   TestSoftRefOutOfMemory_OE25Dev.testOutOfMemory1000_2_oe:318 expected: <0> but was: <1000>
+[ERROR]   TestSoftRefOutOfMemory_OE25Dev.testOutOfMemoryLarge_2_oe:329 expected: <0> but was: <1>
+[ERROR]   TestSoftRefOutOfMemory_OE25Dev.testOutOfMemory_2_oe:303 expected: <0> but was: <1>
+[ERROR] Errors: 
+[ERROR]   TestAbandonedObjectPool_OE25Dev.testAbandonedInvalidate_2_oe:415 NullPointer C...
+[ERROR]   TestAbandonedObjectPool_OE25Dev.testAbandonedReturn_2_oe:438 NullPointer Canno...
+[INFO] 
+[ERROR] Tests run: 248, Failures: 43, Errors: 2, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  37.665 s
+[INFO] Finished at: 2026-03-07T06:15:14-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project commons-pool2: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

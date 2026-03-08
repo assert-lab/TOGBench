@@ -143,6 +143,7 @@ public class TestEqualBehavior_OE25Dev {
         final String key = "existing.property";
         final String value = "new value";
 
+        // removed other assertion
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
@@ -154,6 +155,8 @@ public class TestEqualBehavior_OE25Dev {
         final String key = "existing.property";
         final String value = "new value";
 
+        // removed other assertion
+        // removed other assertion
 
         simple.addProperty(key, value);
         composite.addProperty(key, value);
@@ -169,10 +172,13 @@ public class TestEqualBehavior_OE25Dev {
         final String key = "existing.property";
         final String value = "new value";
 
+        // removed other assertion
+        // removed other assertion
 
         simple.addProperty(key, value);
         composite.addProperty(key, value);
 
+        // removed other assertion
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
@@ -195,6 +201,7 @@ public class TestEqualBehavior_OE25Dev {
         final String key = "nonexisting.property";
         final String value = "new value";
 
+        // removed other assertion
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
@@ -215,6 +222,7 @@ public class TestEqualBehavior_OE25Dev {
 
         final String key = "clear.property";
 
+        // removed other assertion
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
@@ -225,6 +233,8 @@ public class TestEqualBehavior_OE25Dev {
 
         final String key = "clear.property";
 
+        // removed other assertion
+        // removed other assertion
 
         simple.clearProperty(key);
         composite.clearProperty(key);
@@ -239,10 +249,13 @@ public class TestEqualBehavior_OE25Dev {
 
         final String key = "clear.property";
 
+        // removed other assertion
+        // removed other assertion
 
         simple.clearProperty(key);
         composite.clearProperty(key);
 
+        // removed other assertion
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
@@ -263,6 +276,7 @@ public class TestEqualBehavior_OE25Dev {
 
         final String key = "nonexisting.clear.property";
 
+        // removed other assertion
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
@@ -273,6 +287,8 @@ public class TestEqualBehavior_OE25Dev {
 
         final String key = "nonexisting.clear.property";
 
+        // removed other assertion
+        // removed other assertion
 
         simple.clearProperty(key);
         composite.clearProperty(key);
@@ -287,10 +303,13 @@ public class TestEqualBehavior_OE25Dev {
 
         final String key = "nonexisting.clear.property";
 
+        // removed other assertion
+        // removed other assertion
 
         simple.clearProperty(key);
         composite.clearProperty(key);
 
+        // removed other assertion
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
@@ -313,6 +332,7 @@ public class TestEqualBehavior_OE25Dev {
         final String key = "existing.property";
         final String value = "new value";
 
+        // removed other assertion
         assertNotEquals(value, simple.getString(key));
     }
 
@@ -324,6 +344,8 @@ public class TestEqualBehavior_OE25Dev {
         final String key = "existing.property";
         final String value = "new value";
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
@@ -335,6 +357,9 @@ public class TestEqualBehavior_OE25Dev {
         final String key = "existing.property";
         final String value = "new value";
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         simple.setProperty(key, value);
         composite.setProperty(key, value);
@@ -350,10 +375,14 @@ public class TestEqualBehavior_OE25Dev {
         final String key = "existing.property";
         final String value = "new value";
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         simple.setProperty(key, value);
         composite.setProperty(key, value);
 
+        // removed other assertion
         assertEquals(simple.getString(key), value);
     }
 
@@ -365,10 +394,15 @@ public class TestEqualBehavior_OE25Dev {
         final String key = "existing.property";
         final String value = "new value";
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         simple.setProperty(key, value);
         composite.setProperty(key, value);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
@@ -391,6 +425,7 @@ public class TestEqualBehavior_OE25Dev {
         final String key = "nonexisting.property";
         final String value = "new value";
 
+        // removed other assertion
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
@@ -402,6 +437,8 @@ public class TestEqualBehavior_OE25Dev {
         final String key = "nonexisting.property";
         final String value = "new value";
 
+        // removed other assertion
+        // removed other assertion
 
         simple.setProperty(key, value);
         composite.setProperty(key, value);
@@ -417,10 +454,13 @@ public class TestEqualBehavior_OE25Dev {
         final String key = "nonexisting.property";
         final String value = "new value";
 
+        // removed other assertion
+        // removed other assertion
 
         simple.setProperty(key, value);
         composite.setProperty(key, value);
 
+        // removed other assertion
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 

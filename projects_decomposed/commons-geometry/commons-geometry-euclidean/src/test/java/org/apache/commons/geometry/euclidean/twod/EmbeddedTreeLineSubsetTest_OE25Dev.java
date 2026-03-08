@@ -100,216 +100,356 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
     @Test
     void testCtor_lineOnly_1_oe() {
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
 
+        // assert
         Assertions.assertSame(DEFAULT_TEST_LINE, sub.getLine());
     }
 
     @Test
     void testCtor_lineOnly_2_oe() {
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
 
+        // assert
+        // removed other assertion
         Assertions.assertSame(TEST_PRECISION, sub.getPrecision());
     }
 
     @Test
     void testCtor_lineOnly_3_oe() {
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(sub.isFull());
     }
 
     @Test
     void testCtor_lineOnly_4_oe() {
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(sub.isEmpty());
     }
 
     @Test
     void testCtor_lineOnly_5_oe() {
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(sub.isInfinite());
     }
 
     @Test
     void testCtor_lineOnly_6_oe() {
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(sub.isFinite());
     }
 
     @Test
     void testCtor_lineOnly_7_oe() {
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0, sub.getSize(), TEST_EPS);
     }
 
     @Test
     void testCtor_lineOnly_8_oe() {
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(sub.getCentroid());
     }
 
     @Test
     void testCtor_lineAndBoolean_1_oe() {
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
 
+        // assert
         Assertions.assertSame(DEFAULT_TEST_LINE, sub.getLine());
     }
 
     @Test
     void testCtor_lineAndBoolean_2_oe() {
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
 
+        // assert
+        // removed other assertion
         Assertions.assertSame(TEST_PRECISION, sub.getPrecision());
     }
 
     @Test
     void testCtor_lineAndBoolean_3_oe() {
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(sub.isFull());
     }
 
     @Test
     void testCtor_lineAndBoolean_4_oe() {
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(sub.isEmpty());
     }
 
     @Test
     void testCtor_lineAndBoolean_5_oe() {
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(sub.isInfinite());
     }
 
     @Test
     void testCtor_lineAndBoolean_6_oe() {
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(sub.isFinite());
     }
 
     @Test
     void testCtor_lineAndBoolean_8_oe() {
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(sub.getCentroid());
     }
 
     @Test
     void testCtor_lineAndRegion_1_oe() {
+        // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
 
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, tree);
 
+        // assert
         Assertions.assertSame(DEFAULT_TEST_LINE, sub.getLine());
     }
 
     @Test
     void testCtor_lineAndRegion_2_oe() {
+        // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
 
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, tree);
 
+        // assert
+        // removed other assertion
         Assertions.assertSame(tree, sub.getSubspaceRegion());
     }
 
     @Test
     void testCtor_lineAndRegion_3_oe() {
+        // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
 
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, tree);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(TEST_PRECISION, sub.getPrecision());
     }
 
     @Test
     void testCtor_lineAndRegion_4_oe() {
+        // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
 
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, tree);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(sub.isFull());
     }
 
     @Test
     void testCtor_lineAndRegion_5_oe() {
+        // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
 
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, tree);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(sub.isEmpty());
     }
 
     @Test
     void testCtor_lineAndRegion_6_oe() {
+        // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
 
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, tree);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(sub.isInfinite());
     }
 
     @Test
     void testCtor_lineAndRegion_7_oe() {
+        // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
 
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, tree);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(sub.isFinite());
     }
 
     @Test
     void testCtor_lineAndRegion_9_oe() {
+        // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
 
+        // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, tree);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(sub.getCentroid());
     }
 
     @Test
     void testToConvex_full_1_oe() {
+        // arrange
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
 
+        // act
         final List<LineConvexSubset> segments = sub.toConvex();
 
+        // assert
         Assertions.assertEquals(1, segments.size());
     }
 
     @Test
     void testToConvex_full_2_oe() {
+        // arrange
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
 
+        // act
         final List<LineConvexSubset> segments = sub.toConvex();
 
+        // assert
+        // removed other assertion
 
         final LineConvexSubset seg = segments.get(0);
         Assertions.assertTrue(seg.isFull());
@@ -317,87 +457,114 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
     @Test
     void testToConvex_empty_1_oe() {
+        // arrange
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, false);
 
+        // act
         final List<LineConvexSubset> segments = sub.toConvex();
 
+        // assert
         Assertions.assertEquals(0, segments.size());
     }
 
     @Test
     void testToConvex_finiteAndInfiniteSegments_1_oe() {
+        // arrange
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, false);
         final RegionBSPTree1D tree = sub.getSubspaceRegion();
         tree.add(Interval.max(-2.0, TEST_PRECISION));
         tree.add(Interval.of(-1, 2, TEST_PRECISION));
 
+        // act
         final List<LineConvexSubset> segments = sub.toConvex();
 
+        // assert
         Assertions.assertEquals(2, segments.size());
     }
 
     @Test
     void testToConvex_finiteAndInfiniteSegments_2_oe() {
+        // arrange
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, false);
         final RegionBSPTree1D tree = sub.getSubspaceRegion();
         tree.add(Interval.max(-2.0, TEST_PRECISION));
         tree.add(Interval.of(-1, 2, TEST_PRECISION));
 
+        // act
         final List<LineConvexSubset> segments = sub.toConvex();
 
+        // assert
+        // removed other assertion
 
         Assertions.assertNull(segments.get(0).getStartPoint());
     }
 
     @Test
     void testAdd_lineSegment_1_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
         final Line otherLine = Lines.fromPointAndAngle(Vector2D.of(0, 1), 1e-11, TEST_PRECISION);
 
         final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(line);
 
+        // act
         subset.add(Lines.subsetFromInterval(line, 2, 4));
         subset.add(Lines.subsetFromInterval(otherLine, 1, 3));
         subset.add(Lines.segmentFromPoints(Vector2D.of(-3, 1), Vector2D.of(-1, 1), TEST_PRECISION));
 
+        // assert
         Assertions.assertFalse(subset.isFull());
     }
 
     @Test
     void testAdd_lineSegment_2_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
         final Line otherLine = Lines.fromPointAndAngle(Vector2D.of(0, 1), 1e-11, TEST_PRECISION);
 
         final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(line);
 
+        // act
         subset.add(Lines.subsetFromInterval(line, 2, 4));
         subset.add(Lines.subsetFromInterval(otherLine, 1, 3));
         subset.add(Lines.segmentFromPoints(Vector2D.of(-3, 1), Vector2D.of(-1, 1), TEST_PRECISION));
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(subset.isEmpty());
     }
 
     @Test
     void testAdd_lineSegment_7_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
         final Line otherLine = Lines.fromPointAndAngle(Vector2D.of(0, 1), 1e-11, TEST_PRECISION);
 
         final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(line);
 
+        // act
         subset.add(Lines.subsetFromInterval(line, 2, 4));
         subset.add(Lines.subsetFromInterval(otherLine, 1, 3));
         subset.add(Lines.segmentFromPoints(Vector2D.of(-3, 1), Vector2D.of(-1, 1), TEST_PRECISION));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = subset.toConvex();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(5, subset.getSize(), TEST_EPS);
     }
 
     @Test
     void testAdd_subset_1_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
 
         final EmbeddedTreeLineSubset a = new EmbeddedTreeLineSubset(line);
@@ -415,14 +582,17 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         final int aTreeCount = aTree.count();
         final int bTreeCount = bTree.count();
 
+        // act
         subset.add(a);
         subset.add(b);
 
+        // assert
         Assertions.assertFalse(subset.isFull());
     }
 
     @Test
     void testAdd_subset_2_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
 
         final EmbeddedTreeLineSubset a = new EmbeddedTreeLineSubset(line);
@@ -440,14 +610,18 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         final int aTreeCount = aTree.count();
         final int bTreeCount = bTree.count();
 
+        // act
         subset.add(a);
         subset.add(b);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(subset.isEmpty());
     }
 
     @Test
     void testAdd_subset_3_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
 
         final EmbeddedTreeLineSubset a = new EmbeddedTreeLineSubset(line);
@@ -465,9 +639,13 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         final int aTreeCount = aTree.count();
         final int bTreeCount = bTree.count();
 
+        // act
         subset.add(a);
         subset.add(b);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = subset.toConvex();
 
@@ -476,6 +654,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
     @Test
     void testAdd_subset_4_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
 
         final EmbeddedTreeLineSubset a = new EmbeddedTreeLineSubset(line);
@@ -493,18 +672,24 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         final int aTreeCount = aTree.count();
         final int bTreeCount = bTree.count();
 
+        // act
         subset.add(a);
         subset.add(b);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = subset.toConvex();
 
+        // removed other assertion
 
         Assertions.assertNull(segments.get(0).getStartPoint());
     }
 
     @Test
     void testAdd_subset_8_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
 
         final EmbeddedTreeLineSubset a = new EmbeddedTreeLineSubset(line);
@@ -522,20 +707,30 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         final int aTreeCount = aTree.count();
         final int bTreeCount = bTree.count();
 
+        // act
         subset.add(a);
         subset.add(b);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = subset.toConvex();
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(aTreeCount, aTree.count());
     }
 
     @Test
     void testAdd_subset_9_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
 
         final EmbeddedTreeLineSubset a = new EmbeddedTreeLineSubset(line);
@@ -553,20 +748,31 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         final int aTreeCount = aTree.count();
         final int bTreeCount = bTree.count();
 
+        // act
         subset.add(a);
         subset.add(b);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = subset.toConvex();
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(bTreeCount, bTree.count());
     }
 
     @Test
     void testAdd_subset_11_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
 
         final EmbeddedTreeLineSubset a = new EmbeddedTreeLineSubset(line);
@@ -584,26 +790,40 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         final int aTreeCount = aTree.count();
         final int bTreeCount = bTree.count();
 
+        // act
         subset.add(a);
         subset.add(b);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = subset.toConvex();
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(subset.getCentroid());
     }
 
     @Test
     void testAdd_argumentsFromDifferentLine_1_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
         final Line otherLine = Lines.fromPointAndAngle(Vector2D.of(0, 1), 1e-2, TEST_PRECISION);
 
         final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(line);
 
+        // act/assert
         try {
     subset.add(Lines.subsetFromInterval(otherLine, 0, 1));
     fail("IllegalArgumentException");
@@ -613,11 +833,14 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
     @Test
     void testAdd_argumentsFromDifferentLine_2_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
         final Line otherLine = Lines.fromPointAndAngle(Vector2D.of(0, 1), 1e-2, TEST_PRECISION);
 
         final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(line);
 
+        // act/assert
+        // removed other assertion
         try {
     subset.add(new EmbeddedTreeLineSubset(otherLine));
     fail("IllegalArgumentException");
@@ -627,39 +850,49 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
     @Test
     void testGetBounds_noBounds_1_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
 
         final EmbeddedTreeLineSubset full = new EmbeddedTreeLineSubset(line, RegionBSPTree1D.full());
         final EmbeddedTreeLineSubset empty = new EmbeddedTreeLineSubset(line, RegionBSPTree1D.empty());
         final EmbeddedTreeLineSubset halfFull = new EmbeddedTreeLineSubset(line, Interval.min(1.0, TEST_PRECISION).toTree());
 
+        // act/assert
         Assertions.assertNull(full.getBounds());
     }
 
     @Test
     void testGetBounds_noBounds_2_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
 
         final EmbeddedTreeLineSubset full = new EmbeddedTreeLineSubset(line, RegionBSPTree1D.full());
         final EmbeddedTreeLineSubset empty = new EmbeddedTreeLineSubset(line, RegionBSPTree1D.empty());
         final EmbeddedTreeLineSubset halfFull = new EmbeddedTreeLineSubset(line, Interval.min(1.0, TEST_PRECISION).toTree());
 
+        // act/assert
+        // removed other assertion
         Assertions.assertNull(empty.getBounds());
     }
 
     @Test
     void testGetBounds_noBounds_3_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
 
         final EmbeddedTreeLineSubset full = new EmbeddedTreeLineSubset(line, RegionBSPTree1D.full());
         final EmbeddedTreeLineSubset empty = new EmbeddedTreeLineSubset(line, RegionBSPTree1D.empty());
         final EmbeddedTreeLineSubset halfFull = new EmbeddedTreeLineSubset(line, Interval.min(1.0, TEST_PRECISION).toTree());
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(halfFull.getBounds());
     }
 
     @Test
     void testSplit_both_anglePositive_1_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -669,13 +902,16 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.1 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
     @Test
     void testSplit_both_anglePositive_2_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -685,8 +921,11 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.1 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> minusSegments = split.getMinus().toConvex();
         Assertions.assertEquals(1, minusSegments.size());
@@ -694,6 +933,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
     @Test
     void testSplit_both_anglePositive_3_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -703,10 +943,14 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.1 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> minusSegments = split.getMinus().toConvex();
+        // removed other assertion
         checkFiniteSegment(minusSegments.get(0), Vector2D.ZERO, Vector2D.of(1, 0));
 
         final List<LineConvexSubset> plusSegments = split.getPlus().toConvex();
@@ -715,6 +959,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
     @Test
     void testSplit_both_angleNegative_1_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -724,13 +969,16 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), -0.9 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
     @Test
     void testSplit_both_angleNegative_2_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -740,8 +988,11 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), -0.9 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> minusSegments = split.getMinus().toConvex();
         Assertions.assertEquals(2, minusSegments.size());
@@ -749,6 +1000,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
     @Test
     void testSplit_both_angleNegative_3_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -758,10 +1010,14 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), -0.9 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> minusSegments = split.getMinus().toConvex();
+        // removed other assertion
         checkFiniteSegment(minusSegments.get(0), Vector2D.of(1, 0), Vector2D.of(2, 0));
         checkFiniteSegment(minusSegments.get(1), Vector2D.of(3, 0), Vector2D.of(4, 0));
 
@@ -771,6 +1027,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
     @Test
     void testSplit_intersection_plusOnly_1_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -780,13 +1037,16 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(-1, 0), 0.1 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
     @Test
     void testSplit_intersection_plusOnly_2_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -796,14 +1056,18 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(-1, 0), 0.1 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertNull(split.getMinus());
     }
 
     @Test
     void testSplit_intersection_plusOnly_3_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -813,14 +1077,19 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(-1, 0), 0.1 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(subset, split.getPlus());
     }
 
     @Test
     void testSplit_intersection_minusOnly_1_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -830,13 +1099,16 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(10, 0), 0.1 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
     @Test
     void testSplit_intersection_minusOnly_2_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -846,14 +1118,18 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(10, 0), 0.1 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertSame(subset, split.getMinus());
     }
 
     @Test
     void testSplit_intersection_minusOnly_3_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -863,14 +1139,19 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(10, 0), 0.1 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(split.getPlus());
     }
 
     @Test
     void testSplit_parallel_plus_1_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -880,13 +1161,16 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
     @Test
     void testSplit_parallel_plus_2_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -896,14 +1180,18 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertNull(split.getMinus());
     }
 
     @Test
     void testSplit_parallel_plus_3_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -913,14 +1201,19 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertSame(subset, split.getPlus());
     }
 
     @Test
     void testSplit_parallel_minus_1_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -930,13 +1223,16 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(0, -1), 0.0, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
     @Test
     void testSplit_parallel_minus_2_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -946,14 +1242,18 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(0, -1), 0.0, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertSame(subset, split.getMinus());
     }
 
     @Test
     void testSplit_parallel_minus_3_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -963,14 +1263,19 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(0, -1), 0.0, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(split.getPlus());
     }
 
     @Test
     void testSplit_coincident_sameDirection_1_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -980,13 +1285,16 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
     @Test
     void testSplit_coincident_sameDirection_2_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -996,14 +1304,18 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertNull(split.getMinus());
     }
 
     @Test
     void testSplit_coincident_sameDirection_3_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -1013,14 +1325,19 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(split.getPlus());
     }
 
     @Test
     void testSplit_coincident_oppositeDirection_1_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -1030,13 +1347,16 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, Math.PI, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
     @Test
     void testSplit_coincident_oppositeDirection_2_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -1046,14 +1366,18 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, Math.PI, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertNull(split.getMinus());
     }
 
     @Test
     void testSplit_coincident_oppositeDirection_3_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0,  2, TEST_PRECISION));
         subRegion.add(Interval.of(3,  4, TEST_PRECISION));
@@ -1063,14 +1387,19 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, Math.PI, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeLineSubset> split = subset.split(splitter);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(split.getPlus());
     }
 
     @Test
     void testTransform_1_oe() {
+        // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D
                 .createRotation(Vector2D.of(0, 1), Angle.PI_OVER_TWO)
                 .scale(Vector2D.of(3, 2));
@@ -1079,13 +1408,16 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         subset.getSubspaceRegion().add(Interval.of(0, 1, TEST_PRECISION));
         subset.getSubspaceRegion().add(Interval.min(3, TEST_PRECISION));
 
+        // act
         final EmbeddedTreeLineSubset transformed = subset.transform(mat);
 
+        // assert
         Assertions.assertNotSame(subset, transformed);
     }
 
     @Test
     void testTransform_2_oe() {
+        // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D
                 .createRotation(Vector2D.of(0, 1), Angle.PI_OVER_TWO)
                 .scale(Vector2D.of(3, 2));
@@ -1094,8 +1426,11 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         subset.getSubspaceRegion().add(Interval.of(0, 1, TEST_PRECISION));
         subset.getSubspaceRegion().add(Interval.min(3, TEST_PRECISION));
 
+        // act
         final EmbeddedTreeLineSubset transformed = subset.transform(mat);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> originalSegments = subset.toConvex();
         Assertions.assertEquals(2, originalSegments.size());
@@ -1103,6 +1438,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
     @Test
     void testTransform_4_oe() {
+        // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D
                 .createRotation(Vector2D.of(0, 1), Angle.PI_OVER_TWO)
                 .scale(Vector2D.of(3, 2));
@@ -1111,16 +1447,22 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         subset.getSubspaceRegion().add(Interval.of(0, 1, TEST_PRECISION));
         subset.getSubspaceRegion().add(Interval.min(3, TEST_PRECISION));
 
+        // act
         final EmbeddedTreeLineSubset transformed = subset.transform(mat);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> originalSegments = subset.toConvex();
+        // removed other assertion
         checkFiniteSegment(originalSegments.get(0), Vector2D.ZERO, Vector2D.Unit.PLUS_X);
+        // removed other assertion
         Assertions.assertNull(originalSegments.get(1).getEndPoint());
     }
 
     @Test
     void testTransform_5_oe() {
+        // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D
                 .createRotation(Vector2D.of(0, 1), Angle.PI_OVER_TWO)
                 .scale(Vector2D.of(3, 2));
@@ -1129,11 +1471,17 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         subset.getSubspaceRegion().add(Interval.of(0, 1, TEST_PRECISION));
         subset.getSubspaceRegion().add(Interval.min(3, TEST_PRECISION));
 
+        // act
         final EmbeddedTreeLineSubset transformed = subset.transform(mat);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> originalSegments = subset.toConvex();
+        // removed other assertion
         checkFiniteSegment(originalSegments.get(0), Vector2D.ZERO, Vector2D.Unit.PLUS_X);
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> transformedSegments = transformed.toConvex();
         Assertions.assertEquals(2, transformedSegments.size());
@@ -1141,6 +1489,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
     @Test
     void testTransform_7_oe() {
+        // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D
                 .createRotation(Vector2D.of(0, 1), Angle.PI_OVER_TWO)
                 .scale(Vector2D.of(3, 2));
@@ -1149,40 +1498,55 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         subset.getSubspaceRegion().add(Interval.of(0, 1, TEST_PRECISION));
         subset.getSubspaceRegion().add(Interval.min(3, TEST_PRECISION));
 
+        // act
         final EmbeddedTreeLineSubset transformed = subset.transform(mat);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> originalSegments = subset.toConvex();
+        // removed other assertion
         checkFiniteSegment(originalSegments.get(0), Vector2D.ZERO, Vector2D.Unit.PLUS_X);
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> transformedSegments = transformed.toConvex();
+        // removed other assertion
         checkFiniteSegment(transformedSegments.get(0), Vector2D.of(3, 2), Vector2D.of(3, 4));
+        // removed other assertion
         Assertions.assertNull(transformedSegments.get(1).getEndPoint());
     }
 
     @Test
     void testTransform_reflection_1_oe() {
+        // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D.createScale(Vector2D.of(-1, 2));
 
         final EmbeddedTreeLineSubset subset =
                 new EmbeddedTreeLineSubset(Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION));
         subset.getSubspaceRegion().add(Interval.of(0, 1, TEST_PRECISION));
 
+        // act
         final EmbeddedTreeLineSubset transformed = subset.transform(mat);
 
+        // assert
         Assertions.assertNotSame(subset, transformed);
     }
 
     @Test
     void testTransform_reflection_2_oe() {
+        // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D.createScale(Vector2D.of(-1, 2));
 
         final EmbeddedTreeLineSubset subset =
                 new EmbeddedTreeLineSubset(Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION));
         subset.getSubspaceRegion().add(Interval.of(0, 1, TEST_PRECISION));
 
+        // act
         final EmbeddedTreeLineSubset transformed = subset.transform(mat);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> originalSegments = subset.toConvex();
         Assertions.assertEquals(1, originalSegments.size());
@@ -1190,16 +1554,21 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
     @Test
     void testTransform_reflection_3_oe() {
+        // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D.createScale(Vector2D.of(-1, 2));
 
         final EmbeddedTreeLineSubset subset =
                 new EmbeddedTreeLineSubset(Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION));
         subset.getSubspaceRegion().add(Interval.of(0, 1, TEST_PRECISION));
 
+        // act
         final EmbeddedTreeLineSubset transformed = subset.transform(mat);
 
+        // assert
+        // removed other assertion
 
         final List<LineConvexSubset> originalSegments = subset.toConvex();
+        // removed other assertion
         checkFiniteSegment(originalSegments.get(0), Vector2D.of(0, 1), Vector2D.of(1, 1));
 
         final List<LineConvexSubset> transformedSegments = transformed.toConvex();
@@ -1208,41 +1577,56 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
     @Test
     void testClosest_empty_1_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
         final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(line, RegionBSPTree1D.empty());
 
+        // act/assert
         Assertions.assertNull(subset.closest(Vector2D.ZERO));
     }
 
     @Test
     void testToString_1_oe() {
+        // arrange
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
 
+        // act
         final String str = sub.toString();
 
+        // assert
         Assertions.assertTrue(str.contains("EmbeddedTreeLineSubset[lineOrigin= "));
     }
 
     @Test
     void testToString_2_oe() {
+        // arrange
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
 
+        // act
         final String str = sub.toString();
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(str.contains(", lineDirection= "));
     }
 
     @Test
     void testToString_3_oe() {
+        // arrange
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
 
+        // act
         final String str = sub.toString();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(str.contains(", region= "));
     }
 
 @Test
     void testClassify_1_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0, 2, TEST_PRECISION));
         subRegion.add(Interval.of(3, 4, TEST_PRECISION));
@@ -1250,11 +1634,13 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 2), 0.0, TEST_PRECISION);
         final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(line, subRegion);
 
+        // act/assert
         EuclideanTestUtils.assertRegionLocation(subset, RegionLocation.INSIDE, Vector2D.of(1, 2), Vector2D.of(3.5, 2));
     }
 
 @Test
     void testClassify_2_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0, 2, TEST_PRECISION));
         subRegion.add(Interval.of(3, 4, TEST_PRECISION));
@@ -1262,12 +1648,15 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 2), 0.0, TEST_PRECISION);
         final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(line, subRegion);
 
+        // act/assert
+        // removed other assertion
 
         EuclideanTestUtils.assertRegionLocation(subset, RegionLocation.BOUNDARY, Vector2D.of(0, 2), Vector2D.of(2, 2), Vector2D.of(3, 2), Vector2D.of(4, 2));
     }
 
 @Test
     void testClassify_3_oe() {
+        // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
         subRegion.add(Interval.of(0, 2, TEST_PRECISION));
         subRegion.add(Interval.of(3, 4, TEST_PRECISION));
@@ -1275,7 +1664,10 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 2), 0.0, TEST_PRECISION);
         final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(line, subRegion);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
         EuclideanTestUtils.assertRegionLocation(subset, RegionLocation.OUTSIDE, Vector2D.of(-1, 2), Vector2D.of(2.5, 2), Vector2D.of(5, 2), Vector2D.of(1, 3), Vector2D.of(3.5, 1));
     }

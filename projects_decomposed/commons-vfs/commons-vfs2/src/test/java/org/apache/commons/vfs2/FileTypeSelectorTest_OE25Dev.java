@@ -63,6 +63,7 @@ public class FileTypeSelectorTest_OE25Dev {
     public void testFileOrFolders_1_oe() throws Exception {
         final FileSelector selector = new FileTypeSelector(FileType.FILE_OR_FOLDER);
         final FileObject[] foList = BaseFolder.findFiles(selector);
+        // Why 0?
         Assert.assertEquals(0, foList.length);
     }
 

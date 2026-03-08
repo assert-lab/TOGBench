@@ -147,6 +147,7 @@ public class TestQueryResult_OE25Dev {
     public void testToStringAttributeResult_2_oe() {
         final QueryResult<ImmutableNode> result = QueryResult.createAttributeResult(attributeNode, ATTR);
         final String s = result.toString();
+        // removed other assertion
         assertThat(s, containsString("parentNode=" + attributeNode));
     }
 

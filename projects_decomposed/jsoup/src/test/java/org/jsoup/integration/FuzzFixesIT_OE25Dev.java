@@ -53,6 +53,7 @@ public class FuzzFixesIT_OE25Dev {
 
         for (int i = 0; i < numIters; i++) {
             Document doc = Jsoup.parse(file, "UTF-8", "https://example.com/");
+            // removed other assertion
             if (System.currentTimeMillis() > completeBy)
                 Assertions.fail(String.format("Timeout: only completed %d iters of [%s] in %d seconds", i, file.getName(), timeout));
     }
@@ -78,6 +79,7 @@ public class FuzzFixesIT_OE25Dev {
 
         for (int i = 0; i < numIters; i++) {
             Document doc = Jsoup.parse(file, "UTF-8", "https://example.com/", Parser.xmlParser());
+            // removed other assertion
             if (System.currentTimeMillis() > completeBy)
                 Assertions.fail(String.format("Timeout: only completed %d iters of [%s] in %d seconds", i, file.getName(), timeout));
     }

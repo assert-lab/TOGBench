@@ -66,6 +66,7 @@ public class ParserTest_OE25Dev {
         final Parser parser = new Parser(";");
         JexlNode sn;
         sn = parser.parse(null, FEATURES, "foo = 1;", null);
+        // removed other assertion
 
         sn = parser.parse(null, FEATURES, "foo = \"bar\";", null);
         Assert.assertNotNull("parsed node is null", sn);
@@ -76,8 +77,10 @@ public class ParserTest_OE25Dev {
         final Parser parser = new Parser(";");
         JexlNode sn;
         sn = parser.parse(null, FEATURES, "foo = 1;", null);
+        // removed other assertion
 
         sn = parser.parse(null, FEATURES, "foo = \"bar\";", null);
+        // removed other assertion
 
         sn = parser.parse(null, FEATURES, "foo = 'bar';", null);
         Assert.assertNotNull("parsed node is null", sn);
@@ -88,7 +91,9 @@ public class ParserTest_OE25Dev {
         final Parser parser = new Parser(";");
         try {
             final JexlNode sn = parser.parse(null, FEATURES, "x = 1 y = 5", null);
+            // removed other assertion
         } catch (final JexlException.Ambiguous xambiguous) {
+            // ok
         } catch(final JexlException xother) {
             Assert.fail(xother.toString());
     }
@@ -108,6 +113,7 @@ public class ParserTest_OE25Dev {
         final String[] ids = new String[]{"a\\ b", "a\\ b\\ c", "a\\'b\\\"c", "a\\ \\ c"};
         for(final String id : ids) {
             final String esc0 = StringParser.unescapeIdentifier(id);
+            // removed other assertion
             final String esc1 = StringParser.escapeIdentifier(esc0);
             Assert.assertEquals(id, esc1);
     }
@@ -115,6 +121,8 @@ public class ParserTest_OE25Dev {
 
     @Test
     public void testControlCharacters_1_oe() {
+        // Both '' and "" are valid JEXL string
+        // The array of tuples where the first element is an expected result and the second element is a test string.
         final String[][] strings = new String[][] {
             new String[] {"a\nb\tc", "'a\nb\tc'"}, // we still honor the actual characters
             new String[] {"a\nb\tc", "'a\\nb\\tc'"},

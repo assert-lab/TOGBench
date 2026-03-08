@@ -137,6 +137,7 @@ public class GifReadTest_OE25Dev extends GifBaseTest {
             height = Math.max(height, image.getHeight() + yOffset);
         }
 
+        // removed other assertion
         assertEquals(height, metadata.getHeight());
     }
 
@@ -158,6 +159,8 @@ public class GifReadTest_OE25Dev extends GifBaseTest {
             height = Math.max(height, image.getHeight() + yOffset);
         }
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(width, imageInfo.getWidth());
     }
 
@@ -179,6 +182,9 @@ public class GifReadTest_OE25Dev extends GifBaseTest {
             height = Math.max(height, image.getHeight() + yOffset);
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(height, imageInfo.getHeight());
     }
 
@@ -234,6 +240,7 @@ public class GifReadTest_OE25Dev extends GifBaseTest {
         final DisposalMethod toBeDefined2 = GifImageParser.createDisposalMethodFromIntValue(5);
         final DisposalMethod toBeDefined3 = GifImageParser.createDisposalMethodFromIntValue(6);
         final DisposalMethod toBeDefined4 = GifImageParser.createDisposalMethodFromIntValue(7);
+        // removed other assertion
         Assertions.assertEquals(doNotDispose, DisposalMethod.DO_NOT_DISPOSE);
     }
 
@@ -247,6 +254,8 @@ public class GifReadTest_OE25Dev extends GifBaseTest {
         final DisposalMethod toBeDefined2 = GifImageParser.createDisposalMethodFromIntValue(5);
         final DisposalMethod toBeDefined3 = GifImageParser.createDisposalMethodFromIntValue(6);
         final DisposalMethod toBeDefined4 = GifImageParser.createDisposalMethodFromIntValue(7);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(restoreToBackground, DisposalMethod.RESTORE_TO_BACKGROUND);
     }
 
@@ -260,6 +269,9 @@ public class GifReadTest_OE25Dev extends GifBaseTest {
         final DisposalMethod toBeDefined2 = GifImageParser.createDisposalMethodFromIntValue(5);
         final DisposalMethod toBeDefined3 = GifImageParser.createDisposalMethodFromIntValue(6);
         final DisposalMethod toBeDefined4 = GifImageParser.createDisposalMethodFromIntValue(7);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(restoreToPrevious, DisposalMethod.RESTORE_TO_PREVIOUS);
     }
 
@@ -273,6 +285,10 @@ public class GifReadTest_OE25Dev extends GifBaseTest {
         final DisposalMethod toBeDefined2 = GifImageParser.createDisposalMethodFromIntValue(5);
         final DisposalMethod toBeDefined3 = GifImageParser.createDisposalMethodFromIntValue(6);
         final DisposalMethod toBeDefined4 = GifImageParser.createDisposalMethodFromIntValue(7);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(toBeDefined1, DisposalMethod.TO_BE_DEFINED_1);
     }
 
@@ -286,6 +302,11 @@ public class GifReadTest_OE25Dev extends GifBaseTest {
         final DisposalMethod toBeDefined2 = GifImageParser.createDisposalMethodFromIntValue(5);
         final DisposalMethod toBeDefined3 = GifImageParser.createDisposalMethodFromIntValue(6);
         final DisposalMethod toBeDefined4 = GifImageParser.createDisposalMethodFromIntValue(7);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(toBeDefined2, DisposalMethod.TO_BE_DEFINED_2);
     }
 
@@ -299,6 +320,12 @@ public class GifReadTest_OE25Dev extends GifBaseTest {
         final DisposalMethod toBeDefined2 = GifImageParser.createDisposalMethodFromIntValue(5);
         final DisposalMethod toBeDefined3 = GifImageParser.createDisposalMethodFromIntValue(6);
         final DisposalMethod toBeDefined4 = GifImageParser.createDisposalMethodFromIntValue(7);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(toBeDefined3, DisposalMethod.TO_BE_DEFINED_3);
     }
 
@@ -312,6 +339,13 @@ public class GifReadTest_OE25Dev extends GifBaseTest {
         final DisposalMethod toBeDefined2 = GifImageParser.createDisposalMethodFromIntValue(5);
         final DisposalMethod toBeDefined3 = GifImageParser.createDisposalMethodFromIntValue(6);
         final DisposalMethod toBeDefined4 = GifImageParser.createDisposalMethodFromIntValue(7);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(toBeDefined4, DisposalMethod.TO_BE_DEFINED_4);
     }
 

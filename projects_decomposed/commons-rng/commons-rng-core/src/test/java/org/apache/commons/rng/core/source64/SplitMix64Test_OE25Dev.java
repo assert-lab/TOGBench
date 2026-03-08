@@ -58,7 +58,9 @@ class SplitMix64Test_OE25Dev {
 
          long seed = 0x1a2b3c4d5e6f7531L;
 
+        // removed other assertion
 
+        // Test with Long
         RandomAssert.assertEquals(expectedSequence, new SplitMix64(Long.valueOf(seed)));
     }
 

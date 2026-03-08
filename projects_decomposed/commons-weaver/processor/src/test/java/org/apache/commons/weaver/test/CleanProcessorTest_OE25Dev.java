@@ -57,6 +57,7 @@ public class CleanProcessorTest_OE25Dev extends WeaverTestBase {
         final CleanProcessor cp = new CleanProcessor(getClassPathEntries(), getTargetFolder(), config);
         cp.clean();
 
+        // removed other assertion
         Assert.assertFalse(new File(getTargetFolder(),TestBeanWithClassAnnotation.class.getName().replace('.',File.separatorChar)+ ".class").exists());
     }
 

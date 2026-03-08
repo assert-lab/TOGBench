@@ -112,11 +112,14 @@ public class CanExecuteFileFilterTest_OE25Dev extends BaseFilterTest {
 
     @Test
     public void testAcceptCanExecute_2_oe() throws FileSystemException {
+        // removed other assertion
         Assert.assertTrue(CanExecuteFileFilter.CAN_EXECUTE.accept(notExecutableFileInfo));
     }
 
     @Test
     public void testAcceptCanExecute_3_oe() throws FileSystemException {
+        // removed other assertion
+        // removed other assertion
         Assert.assertFalse(CanExecuteFileFilter.CAN_EXECUTE.accept(notExistingFileInfo));
     }
 
@@ -127,11 +130,14 @@ public class CanExecuteFileFilterTest_OE25Dev extends BaseFilterTest {
 
     @Test
     public void testAcceptCannotExecute_2_oe() throws FileSystemException {
+        // removed other assertion
         Assert.assertFalse(CanExecuteFileFilter.CANNOT_EXECUTE.accept(notExecutableFileInfo));
     }
 
     @Test
     public void testAcceptCannotExecute_3_oe() throws FileSystemException {
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(CanExecuteFileFilter.CANNOT_EXECUTE.accept(notExistingFileInfo));
     }
 

@@ -57,6 +57,7 @@ public class TestImageWriteException_OE25Dev {
     @Test
     public void testCreateExceptionWithMessage_2_oe() {
         final ImageWriteException exception = new ImageWriteException("imaging");
+        // removed other assertion
         assertNull(exception.getCause());
     }
 
@@ -69,6 +70,7 @@ public class TestImageWriteException_OE25Dev {
     @Test
     public void testCreateExceptionWithMessageAndCause_2_oe() {
         final ImageWriteException exception = new ImageWriteException("imaging", new Exception("cause"));
+        // removed other assertion
         assertNotNull(exception.getCause());
     }
 

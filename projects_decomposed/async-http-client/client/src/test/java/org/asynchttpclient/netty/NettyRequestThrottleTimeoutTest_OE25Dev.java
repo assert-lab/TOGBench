@@ -96,6 +96,7 @@ public class NettyRequestThrottleTimeoutTest_OE25Dev extends AbstractBasicTest {
                           try {
                             Thread.sleep(100);
                           } catch (InterruptedException e) {
+                            //
                           }
                           requestThrottle.release();
                         }
@@ -107,6 +108,7 @@ public class NettyRequestThrottleTimeoutTest_OE25Dev extends AbstractBasicTest {
             if (responseFuture != null)
               responseFuture.get();
           } catch (Exception e) {
+            //
           } finally {
             latch.countDown();
           }
@@ -151,6 +153,7 @@ public class NettyRequestThrottleTimeoutTest_OE25Dev extends AbstractBasicTest {
                           try {
                             Thread.sleep(100);
                           } catch (InterruptedException e) {
+                            //
                           }
                           requestThrottle.release();
                         }
@@ -162,6 +165,7 @@ public class NettyRequestThrottleTimeoutTest_OE25Dev extends AbstractBasicTest {
             if (responseFuture != null)
               responseFuture.get();
           } catch (Exception e) {
+            //
           } finally {
             latch.countDown();
           }
@@ -171,6 +175,7 @@ public class NettyRequestThrottleTimeoutTest_OE25Dev extends AbstractBasicTest {
       try {
         latch.await(30, TimeUnit.SECONDS);
       } catch (Exception e) {
+        // removed other assertion
       }
 
       for (Exception e : tooManyConnections)

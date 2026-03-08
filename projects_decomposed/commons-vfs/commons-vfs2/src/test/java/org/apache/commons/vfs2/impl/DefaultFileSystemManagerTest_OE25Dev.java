@@ -145,6 +145,7 @@ public class DefaultFileSystemManagerTest_OE25Dev {
             VFS.setManager(fileSystemManager);
             VFS.setManager(null);
         }
+        // removed other assertion
         Assert.assertFalse(VFS.getManager().resolveFile(Paths.get("DoesNotExist.not").toUri()).exists());
     }
 
@@ -170,6 +171,7 @@ public class DefaultFileSystemManagerTest_OE25Dev {
             final RamFileProvider provider = Mockito.spy(new RamFileProvider());
             fileSystemManager.addProvider("ram1", provider);
             fileSystemManager.addProvider("ram2", provider);
+            // removed other assertion
             Assert.assertNotNull(fileSystemManager.resolveFile("ram2:///"));
     }
     }
@@ -183,10 +185,16 @@ public class DefaultFileSystemManagerTest_OE25Dev {
             final RamFileProvider provider = Mockito.spy(new RamFileProvider());
             fileSystemManager.addProvider("ram1", provider);
             fileSystemManager.addProvider("ram2", provider);
+            // removed other assertion
+            // removed other assertion
 
             fileSystemManager.removeProvider("ram1");
             Mockito.verify(provider, Mockito.never()).close();
-            Assert.assertThrows(FileSystemException.class, () -> fileSystemManager.resolveFile("ram1:///"));
+            try {
+    fileSystemManager.resolveFile("ram1:///");
+    fail("Expected FileSystemException");
+} catch (FileSystemException e) {
+}
     }
     }
 
@@ -199,9 +207,12 @@ public class DefaultFileSystemManagerTest_OE25Dev {
             final RamFileProvider provider = Mockito.spy(new RamFileProvider());
             fileSystemManager.addProvider("ram1", provider);
             fileSystemManager.addProvider("ram2", provider);
+            // removed other assertion
+            // removed other assertion
 
             fileSystemManager.removeProvider("ram1");
             Mockito.verify(provider, Mockito.never()).close();
+            // removed other assertion
             Assert.assertNotNull(fileSystemManager.resolveFile("ram2:///"));
     }
     }
@@ -215,19 +226,28 @@ public class DefaultFileSystemManagerTest_OE25Dev {
             final RamFileProvider provider = Mockito.spy(new RamFileProvider());
             fileSystemManager.addProvider("ram1", provider);
             fileSystemManager.addProvider("ram2", provider);
+            // removed other assertion
+            // removed other assertion
 
             fileSystemManager.removeProvider("ram1");
             Mockito.verify(provider, Mockito.never()).close();
+            // removed other assertion
+            // removed other assertion
 
             fileSystemManager.removeProvider("ram2");
             Mockito.verify(provider).close();
-            Assert.assertThrows(FileSystemException.class, () -> fileSystemManager.resolveFile("ram2:///"));
+            try {
+    fileSystemManager.resolveFile("ram2:///");
+    fail("Expected FileSystemException");
+} catch (FileSystemException e) {
+}
     }
     }
 
     @Test
     public void testFileCacheEmptyAfterManagerClose_2_oe() throws FileSystemException {
         final FileSystemManager manager = VFS.getManager();
+        // removed other assertion
         try (final FileObject fileObject = manager
                 .resolveFile(Paths.get("src/test/resources/test-data/read-tests/file1.txt").toUri())) {
             Assert.assertTrue(fileObject.exists());
@@ -237,10 +257,13 @@ public class DefaultFileSystemManagerTest_OE25Dev {
     @Test
     public void testFileCacheEmptyAfterManagerClose_3_oe() throws FileSystemException {
         final FileSystemManager manager = VFS.getManager();
+        // removed other assertion
         try (final FileObject fileObject = manager
                 .resolveFile(Paths.get("src/test/resources/test-data/read-tests/file1.txt").toUri())) {
+            // removed other assertion
             final FilesCache filesCache = manager.getFilesCache();
             final FileName name = fileObject.getName();
+            // Make sure we have file object in the cache.
             Assert.assertNotNull(filesCache.getFile(fileObject.getFileSystem(), name));
     }
     }
@@ -248,11 +271,16 @@ public class DefaultFileSystemManagerTest_OE25Dev {
     @Test
     public void testFileCacheEmptyAfterManagerClose_4_oe() throws FileSystemException {
         final FileSystemManager manager = VFS.getManager();
+        // removed other assertion
         try (final FileObject fileObject = manager
                 .resolveFile(Paths.get("src/test/resources/test-data/read-tests/file1.txt").toUri())) {
+            // removed other assertion
             final FilesCache filesCache = manager.getFilesCache();
             final FileName name = fileObject.getName();
+            // Make sure we have file object in the cache.
+            // removed other assertion
             manager.close();
+            // Cache MUST now be empty.
             Assert.assertNull(filesCache.getFile(fileObject.getFileSystem(), name));
     }
     }
@@ -260,6 +288,7 @@ public class DefaultFileSystemManagerTest_OE25Dev {
     @Test
     public void testFileCacheEmptyAfterVFSClose_2_oe() throws FileSystemException {
         final FileSystemManager manager = VFS.getManager();
+        // removed other assertion
         try (final FileObject fileObject = manager
                 .resolveFile(Paths.get("src/test/resources/test-data/read-tests/file1.txt").toUri())) {
             Assert.assertTrue(fileObject.exists());
@@ -269,10 +298,13 @@ public class DefaultFileSystemManagerTest_OE25Dev {
     @Test
     public void testFileCacheEmptyAfterVFSClose_3_oe() throws FileSystemException {
         final FileSystemManager manager = VFS.getManager();
+        // removed other assertion
         try (final FileObject fileObject = manager
                 .resolveFile(Paths.get("src/test/resources/test-data/read-tests/file1.txt").toUri())) {
+            // removed other assertion
             final FilesCache filesCache = manager.getFilesCache();
             final FileName name = fileObject.getName();
+            // Make sure we have file object in the cache.
             Assert.assertNotNull(filesCache.getFile(fileObject.getFileSystem(), name));
     }
     }
@@ -280,11 +312,16 @@ public class DefaultFileSystemManagerTest_OE25Dev {
     @Test
     public void testFileCacheEmptyAfterVFSClose_4_oe() throws FileSystemException {
         final FileSystemManager manager = VFS.getManager();
+        // removed other assertion
         try (final FileObject fileObject = manager
                 .resolveFile(Paths.get("src/test/resources/test-data/read-tests/file1.txt").toUri())) {
+            // removed other assertion
             final FilesCache filesCache = manager.getFilesCache();
             final FileName name = fileObject.getName();
+            // Make sure we have file object in the cache.
+            // removed other assertion
             VFS.close();
+            // Cache MUST now be empty.
             Assert.assertNull(filesCache.getFile(fileObject.getFileSystem(), name));
     }
     }

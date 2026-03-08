@@ -392,6 +392,7 @@ class IO3DTest_OE25Dev {
 
         final RegionBSPTree3D result = IO3D.read(scaledFile, precision).toTree();
 
+        // assert
         Assertions.assertEquals(8, result.getSize(), TEST_EPS);
     }
 

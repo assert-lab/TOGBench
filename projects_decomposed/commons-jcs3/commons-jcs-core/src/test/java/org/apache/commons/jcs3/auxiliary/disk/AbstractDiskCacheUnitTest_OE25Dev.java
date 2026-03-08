@@ -203,6 +203,7 @@ public class AbstractDiskCacheUnitTest_OE25Dev
     public void testUpdateGet_allowed_1_oe()
         throws IOException
     {
+        // SETUP
         final String cacheName = "testUpdateGet_allowed";
         final IDiskCacheAttributes diskCacheAttributes = new IndexedDiskCacheAttributes();
         diskCacheAttributes.setCacheName( cacheName );
@@ -216,14 +217,18 @@ public class AbstractDiskCacheUnitTest_OE25Dev
 
         diskCache.update( cacheElement );
 
+        // DO WORK
         final ICacheElement<String, String> result = diskCache.get( key );
 
+        // VERIFY
+        //System.out.println( diskCache.getStats() );
         assertNotNull( "Item should be in the map.", result );
     }
 
     public void testDispose_1_oe()
         throws IOException
     {
+        // SETUP
         final String cacheName = "testDispose";
         final IDiskCacheAttributes diskCacheAttributes = new IndexedDiskCacheAttributes();
         diskCacheAttributes.setCacheName( cacheName );
@@ -237,14 +242,17 @@ public class AbstractDiskCacheUnitTest_OE25Dev
 
         diskCache.update( cacheElement );
 
+        // DO WORK
         diskCache.dispose();
 
+        // VERIFY
         assertFalse( "disk cache should not be alive.", diskCache.isAlive() );
     }
 
     public void testDispose_2_oe()
         throws IOException
     {
+        // SETUP
         final String cacheName = "testDispose";
         final IDiskCacheAttributes diskCacheAttributes = new IndexedDiskCacheAttributes();
         diskCacheAttributes.setCacheName( cacheName );
@@ -258,14 +266,18 @@ public class AbstractDiskCacheUnitTest_OE25Dev
 
         diskCache.update( cacheElement );
 
+        // DO WORK
         diskCache.dispose();
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Status should be disposed", CacheStatus.DISPOSED, diskCache.getStatus() );
     }
 
     public void testRemoveAll_notAllowed_1_oe()
         throws IOException
     {
+        // SETUP
         final StringWriter stringWriter = new StringWriter();
         TestLogConfigurationUtil.configureLogger( stringWriter, AbstractDiskCache.class.getName() );
 
@@ -282,15 +294,18 @@ public class AbstractDiskCacheUnitTest_OE25Dev
 
         diskCache.update( cacheElement );
 
+        // DO WORK
         diskCache.removeAll();
         final String result = stringWriter.toString();
 
+        // VERIFY
         assertTrue( "Should say not allowed.", result.indexOf( "set to false" ) != -1 );
     }
 
     public void testRemoveAll_notAllowed_2_oe()
         throws IOException
     {
+        // SETUP
         final StringWriter stringWriter = new StringWriter();
         TestLogConfigurationUtil.configureLogger( stringWriter, AbstractDiskCache.class.getName() );
 
@@ -307,15 +322,19 @@ public class AbstractDiskCacheUnitTest_OE25Dev
 
         diskCache.update( cacheElement );
 
+        // DO WORK
         diskCache.removeAll();
         final String result = stringWriter.toString();
 
+        // VERIFY
+        // removed other assertion
         assertNotNull( "Item should be in the map.", diskCache.get( key ) );
     }
 
     public void testRemoveAll_allowed_1_oe()
         throws IOException
     {
+        // SETUP
         final IDiskCacheAttributes diskCacheAttributes = new IndexedDiskCacheAttributes();
         diskCacheAttributes.setAllowRemoveAll( true );
 
@@ -329,8 +348,10 @@ public class AbstractDiskCacheUnitTest_OE25Dev
 
         diskCache.update( cacheElement );
 
+        // DO WORK
         diskCache.removeAll();
 
+        // VERIFY
         assertNull( "Item should not be in the map.", diskCache.get( key ) );
     }
 

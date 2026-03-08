@@ -125,6 +125,7 @@ public class ScheduleParserUtilUnitTest_OE25Dev
     {
         final String schedule = "12:34:56,03:51:00,12:34:12";
         final Date[] dates = ScheduleParser.createDatesForSchedule( schedule );
+        //System.out.println( dates );
         assertEquals( "Wrong number of dates returned.", 3, dates.length );
     }
 

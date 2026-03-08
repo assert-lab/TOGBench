@@ -245,6 +245,7 @@ public class UrlValidatorTest_OE25Dev {
       if (printStatus) {
          System.out.print("\n testIsValidScheme() ");
       }
+      //UrlValidator urlVal = new UrlValidator(schemes,false,false,false);
       UrlValidator urlVal = new UrlValidator(schemes, 0);
       for (int sIndex = 0; sIndex < testScheme.length; sIndex++) {
          ResultPair testPair = testScheme[sIndex];
@@ -260,6 +261,7 @@ public class UrlValidatorTest_OE25Dev {
 
    public void testIsValid_2_oe(Object[] testObjects, long options) {
       UrlValidator urlVal = new UrlValidator(null, null, options);
+      // removed other assertion
       assertTrue(urlVal.isValid("http://www.google.com/"));
    }
 
@@ -302,6 +304,7 @@ public class UrlValidatorTest_OE25Dev {
            return; // Cannot run the test
        }
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
        assertTrue("президент.рф should validate", validator.isValid("http://президент.рф"));
    }
 
@@ -313,6 +316,8 @@ public class UrlValidatorTest_OE25Dev {
            return; // Cannot run the test
        }
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
+       // removed other assertion
        assertTrue("www.b\u00fccher.ch should validate", validator.isValid("http://www.b\u00fccher.ch"));
    }
 
@@ -324,6 +329,9 @@ public class UrlValidatorTest_OE25Dev {
            return; // Cannot run the test
        }
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
        assertFalse("www.\uFFFD.ch FFFD should fail", validator.isValid("http://www.\uFFFD.ch"));
    }
 
@@ -335,6 +343,10 @@ public class UrlValidatorTest_OE25Dev {
            return; // Cannot run the test
        }
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
        assertTrue("www.b\u00fccher.ch should validate", validator.isValid("ftp://www.b\u00fccher.ch"));
    }
 
@@ -346,6 +358,11 @@ public class UrlValidatorTest_OE25Dev {
            return; // Cannot run the test
        }
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
        assertFalse("www.\uFFFD.ch FFFD should fail", validator.isValid("ftp://www.\uFFFD.ch"));
    }
 
@@ -362,6 +379,7 @@ public class UrlValidatorTest_OE25Dev {
         RegexValidator regex = new RegexValidator(new String[] {"localhost", ".*\\.my-testing"});
         UrlValidator validator = new UrlValidator(regex, 0);
 
+        // removed other assertion
         assertTrue("first.my-testing should validate",validator.isValid("http://first.my-testing/test/index.html"));
     }
 
@@ -370,6 +388,8 @@ public class UrlValidatorTest_OE25Dev {
         RegexValidator regex = new RegexValidator(new String[] {"localhost", ".*\\.my-testing"});
         UrlValidator validator = new UrlValidator(regex, 0);
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("sup3r.my-testing should validate",validator.isValid("http://sup3r.my-testing/test/index.html"));
     }
 
@@ -378,6 +398,9 @@ public class UrlValidatorTest_OE25Dev {
         RegexValidator regex = new RegexValidator(new String[] {"localhost", ".*\\.my-testing"});
         UrlValidator validator = new UrlValidator(regex, 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("broke.my-test should not validate",validator.isValid("http://broke.my-test/test/index.html"));
     }
@@ -387,7 +410,11 @@ public class UrlValidatorTest_OE25Dev {
         RegexValidator regex = new RegexValidator(new String[] {"localhost", ".*\\.my-testing"});
         UrlValidator validator = new UrlValidator(regex, 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue("www.apache.org should still validate",validator.isValid("http://www.apache.org/test/index.html"));
     }
@@ -397,9 +424,15 @@ public class UrlValidatorTest_OE25Dev {
         RegexValidator regex = new RegexValidator(new String[] {"localhost", ".*\\.my-testing"});
         UrlValidator validator = new UrlValidator(regex, 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // Now check using options
         validator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
 
         assertTrue("localhost URL should validate",validator.isValid("http://localhost/test/index.html"));
@@ -410,11 +443,18 @@ public class UrlValidatorTest_OE25Dev {
         RegexValidator regex = new RegexValidator(new String[] {"localhost", ".*\\.my-testing"});
         UrlValidator validator = new UrlValidator(regex, 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // Now check using options
         validator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
 
+        // removed other assertion
 
         assertTrue("machinename URL should validate",validator.isValid("http://machinename/test/index.html"));
     }
@@ -424,12 +464,20 @@ public class UrlValidatorTest_OE25Dev {
         RegexValidator regex = new RegexValidator(new String[] {"localhost", ".*\\.my-testing"});
         UrlValidator validator = new UrlValidator(regex, 0);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // Now check using options
         validator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue("www.apache.org should still validate",validator.isValid("http://www.apache.org/test/index.html"));
     }
@@ -445,6 +493,7 @@ public class UrlValidatorTest_OE25Dev {
     public void testValidator288_2_oe() {
         UrlValidator validator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
 
+        // removed other assertion
 
         assertTrue("hostname with path should validate",validator.isValid("http://hostname/test/index.html"));
     }
@@ -453,7 +502,9 @@ public class UrlValidatorTest_OE25Dev {
     public void testValidator288_3_oe() {
         UrlValidator validator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue("localhost URL should validate",validator.isValid("http://localhost/test/index.html"));
     }
@@ -462,8 +513,11 @@ public class UrlValidatorTest_OE25Dev {
     public void testValidator288_4_oe() {
         UrlValidator validator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertFalse("first.my-testing should not validate",validator.isValid("http://first.my-testing/test/index.html"));
     }
@@ -472,9 +526,13 @@ public class UrlValidatorTest_OE25Dev {
     public void testValidator288_5_oe() {
         UrlValidator validator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertFalse("broke.hostname should not validate",validator.isValid("http://broke.hostname/test/index.html"));
     }
@@ -483,10 +541,15 @@ public class UrlValidatorTest_OE25Dev {
     public void testValidator288_6_oe() {
         UrlValidator validator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue("www.apache.org should still validate",validator.isValid("http://www.apache.org/test/index.html"));
     }
@@ -495,12 +558,19 @@ public class UrlValidatorTest_OE25Dev {
     public void testValidator288_7_oe() {
         UrlValidator validator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // Turn it off, and check
         validator = new UrlValidator(0);
 
         assertFalse("hostname should no longer validate",validator.isValid("http://hostname"));
@@ -510,14 +580,22 @@ public class UrlValidatorTest_OE25Dev {
     public void testValidator288_8_oe() {
         UrlValidator validator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // Turn it off, and check
         validator = new UrlValidator(0);
 
+        // removed other assertion
 
         assertFalse("localhost URL should no longer validate",validator.isValid("http://localhost/test/index.html"));
     }
@@ -526,21 +604,31 @@ public class UrlValidatorTest_OE25Dev {
     public void testValidator288_9_oe() {
         UrlValidator validator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // Turn it off, and check
         validator = new UrlValidator(0);
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue("www.apache.org should still validate",validator.isValid("http://www.apache.org/test/index.html"));
     }
 
     @Test
     public void testValidator276_1_oe() {
+        // file:// isn't allowed by default
         UrlValidator validator = new UrlValidator();
 
         assertTrue("http://apache.org/ should be allowed by default",validator.isValid("http://www.apache.org/test/index.html"));
@@ -548,64 +636,93 @@ public class UrlValidatorTest_OE25Dev {
 
     @Test
     public void testValidator276_2_oe() {
+        // file:// isn't allowed by default
         UrlValidator validator = new UrlValidator();
 
+        // removed other assertion
 
         assertFalse("file:///c:/ shouldn't be allowed by default",validator.isValid("file:///C:/some.file"));
     }
 
     @Test
     public void testValidator276_3_oe() {
+        // file:// isn't allowed by default
         UrlValidator validator = new UrlValidator();
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertFalse("file:///c:\\ shouldn't be allowed by default",validator.isValid("file:///C:\\some.file"));
     }
 
     @Test
     public void testValidator276_4_oe() {
+        // file:// isn't allowed by default
         UrlValidator validator = new UrlValidator();
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertFalse("file:///etc/ shouldn't be allowed by default",validator.isValid("file:///etc/hosts"));
     }
 
     @Test
     public void testValidator276_5_oe() {
+        // file:// isn't allowed by default
         UrlValidator validator = new UrlValidator();
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertFalse("file://localhost/etc/ shouldn't be allowed by default",validator.isValid("file://localhost/etc/hosts"));
     }
 
     @Test
     public void testValidator276_6_oe() {
+        // file:// isn't allowed by default
         UrlValidator validator = new UrlValidator();
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertFalse("file://localhost/c:/ shouldn't be allowed by default",validator.isValid("file://localhost/c:/some.file"));
     }
 
     @Test
     public void testValidator276_7_oe() {
+        // file:// isn't allowed by default
         UrlValidator validator = new UrlValidator();
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // Turn it on, and check
+        // Note - we need to enable local urls when working with file:
         validator = new UrlValidator(new String[] {"http","file"}, UrlValidator.ALLOW_LOCAL_URLS);
 
         assertTrue("http://apache.org/ should be allowed by default",validator.isValid("http://www.apache.org/test/index.html"));
@@ -613,111 +730,188 @@ public class UrlValidatorTest_OE25Dev {
 
     @Test
     public void testValidator276_8_oe() {
+        // file:// isn't allowed by default
         UrlValidator validator = new UrlValidator();
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // Turn it on, and check
+        // Note - we need to enable local urls when working with file:
         validator = new UrlValidator(new String[] {"http","file"}, UrlValidator.ALLOW_LOCAL_URLS);
 
+        // removed other assertion
 
         assertTrue("file:///c:/ should now be allowed",validator.isValid("file:///C:/some.file"));
     }
 
     @Test
     public void testValidator276_9_oe() {
+        // file:// isn't allowed by default
         UrlValidator validator = new UrlValidator();
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // Turn it on, and check
+        // Note - we need to enable local urls when working with file:
         validator = new UrlValidator(new String[] {"http","file"}, UrlValidator.ALLOW_LOCAL_URLS);
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue("file:///etc/ should now be allowed",validator.isValid("file:///etc/hosts"));
     }
 
     @Test
     public void testValidator276_10_oe() {
+        // file:// isn't allowed by default
         UrlValidator validator = new UrlValidator();
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // Turn it on, and check
+        // Note - we need to enable local urls when working with file:
         validator = new UrlValidator(new String[] {"http","file"}, UrlValidator.ALLOW_LOCAL_URLS);
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue("file://localhost/etc/ should now be allowed",validator.isValid("file://localhost/etc/hosts"));
     }
 
     @Test
     public void testValidator276_11_oe() {
+        // file:// isn't allowed by default
         UrlValidator validator = new UrlValidator();
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // Turn it on, and check
+        // Note - we need to enable local urls when working with file:
         validator = new UrlValidator(new String[] {"http","file"}, UrlValidator.ALLOW_LOCAL_URLS);
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertTrue("file://localhost/c:/ should now be allowed",validator.isValid("file://localhost/c:/some.file"));
     }
 
     @Test
     public void testValidator276_12_oe() {
+        // file:// isn't allowed by default
         UrlValidator validator = new UrlValidator();
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // Turn it on, and check
+        // Note - we need to enable local urls when working with file:
         validator = new UrlValidator(new String[] {"http","file"}, UrlValidator.ALLOW_LOCAL_URLS);
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // These are never valid
         assertFalse("file://c:/ shouldn't ever be allowed,needs file:///c:/",validator.isValid("file://C:/some.file"));
     }
 
     @Test
     public void testValidator276_13_oe() {
+        // file:// isn't allowed by default
         UrlValidator validator = new UrlValidator();
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // Turn it on, and check
+        // Note - we need to enable local urls when working with file:
         validator = new UrlValidator(new String[] {"http","file"}, UrlValidator.ALLOW_LOCAL_URLS);
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // These are never valid
+        // removed other assertion
 
         assertFalse("file://c:\\ shouldn't ever be allowed,needs file:///c:/",validator.isValid("file://C:\\some.file"));
     }
@@ -745,18 +939,24 @@ public class UrlValidatorTest_OE25Dev {
     @Test
     public void testValidator309_2_oe() {
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
         assertTrue(urlValidator.isValid("hTtP://sample.ondemand.CoM/"));
     }
 
     @Test
     public void testValidator309_3_oe() {
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
         assertTrue(urlValidator.isValid("httpS://SAMPLE.ONEMAND.COM/"));
     }
 
     @Test
     public void testValidator309_4_oe() {
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         urlValidator = new UrlValidator(new String[] {"HTTP","HTTPS"});
         assertTrue(urlValidator.isValid("http://sample.ondemand.com/"));
     }
@@ -764,14 +964,23 @@ public class UrlValidatorTest_OE25Dev {
     @Test
     public void testValidator309_5_oe() {
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         urlValidator = new UrlValidator(new String[] {"HTTP","HTTPS"});
+        // removed other assertion
         assertTrue(urlValidator.isValid("hTtP://sample.ondemand.CoM/"));
     }
 
     @Test
     public void testValidator309_6_oe() {
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         urlValidator = new UrlValidator(new String[] {"HTTP","HTTPS"});
+        // removed other assertion
+        // removed other assertion
         assertTrue(urlValidator.isValid("httpS://SAMPLE.ONEMAND.COM/"));
     }
 
@@ -784,6 +993,7 @@ public class UrlValidatorTest_OE25Dev {
     @Test
     public void testValidator339_2_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
         assertFalse(urlValidator.isValid("http://www.cnn.invalid./")); // check . does not affect invalid domains;
     }
 
@@ -796,24 +1006,34 @@ public class UrlValidatorTest_OE25Dev {
     @Test
     public void testValidator339IDN_2_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
         assertTrue(urlValidator.isValid("http://президент.рф./WORLD/?hpt=sitenav")); // with;
     }
 
     @Test
     public void testValidator339IDN_3_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
         assertFalse(urlValidator.isValid("http://президент.рф..../")); // very dotty;
     }
 
     @Test
     public void testValidator339IDN_4_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(urlValidator.isValid("http://президент.рф.../")); // triply dotty;
     }
 
     @Test
     public void testValidator339IDN_5_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(urlValidator.isValid("http://президент.рф../")); // doubly dotty;
     }
 
@@ -826,6 +1046,7 @@ public class UrlValidatorTest_OE25Dev {
     @Test
     public void testValidator342_2_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
         assertTrue(urlValidator.isValid("http://example.rocks"));
     }
 
@@ -838,24 +1059,34 @@ public class UrlValidatorTest_OE25Dev {
     @Test
     public void testValidator411_2_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
         assertTrue(urlValidator.isValid("http://example.rocks:0/"));
     }
 
     @Test
     public void testValidator411_3_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
         assertTrue(urlValidator.isValid("http://example.rocks:65535/"));
     }
 
     @Test
     public void testValidator411_4_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(urlValidator.isValid("http://example.rocks:65536/"));
     }
 
     @Test
     public void testValidator411_5_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(urlValidator.isValid("http://example.rocks:100000/"));
     }
 
@@ -887,186 +1118,744 @@ public class UrlValidatorTest_OE25Dev {
    @Test
    public void testValidator290_2_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
         assertTrue(validator.isValid("http://test.xn--lgbbat1ad8j")); //Algeria;
    }
 
    @Test
    public void testValidator290_3_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--fiqs8s")); // China;
    }
 
    @Test
    public void testValidator290_4_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--fiqz9s")); // China;
    }
 
    @Test
    public void testValidator290_5_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--wgbh1c")); // Egypt;
    }
 
    @Test
    public void testValidator290_6_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--j6w193g")); // Hong Kong;
    }
 
    @Test
    public void testValidator290_7_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--h2brj9c")); // India;
    }
 
    @Test
    public void testValidator290_8_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--mgbbh1a71e")); // India;
    }
 
    @Test
    public void testValidator290_9_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--fpcrj9c3d")); // India;
    }
 
    @Test
    public void testValidator290_10_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--gecrj9c")); // India;
    }
 
    @Test
    public void testValidator290_11_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--s9brj9c")); // India;
    }
 
    @Test
    public void testValidator290_12_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--xkc2dl3a5ee0h")); // India;
    }
 
    @Test
    public void testValidator290_13_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--45brj9c")); // India;
    }
 
    @Test
    public void testValidator290_14_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--mgba3a4f16a")); // Iran;
    }
 
    @Test
    public void testValidator290_15_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--mgbayh7gpa")); // Jordan;
    }
 
    @Test
    public void testValidator290_16_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--mgbc0a9azcg")); // Morocco;
    }
 
    @Test
    public void testValidator290_17_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--ygbi2ammx")); // Palestinian Territory;
    }
 
    @Test
    public void testValidator290_18_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--wgbl6a")); // Qatar;
    }
 
    @Test
    public void testValidator290_19_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--p1ai")); // Russia;
    }
 
    @Test
    public void testValidator290_20_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--mgberp4a5d4ar")); //  Saudi Arabia;
    }
 
    @Test
    public void testValidator290_21_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--90a3ac")); // Serbia;
    }
 
    @Test
    public void testValidator290_22_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--yfro4i67o")); // Singapore;
    }
 
    @Test
    public void testValidator290_23_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--clchc0ea0b2g2a9gcd")); // Singapore;
    }
 
    @Test
    public void testValidator290_24_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--3e0b707e")); // South Korea;
    }
 
    @Test
    public void testValidator290_25_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--fzc2c9e2c")); // Sri Lanka;
    }
 
    @Test
    public void testValidator290_26_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--xkc2al3hye2a")); // Sri Lanka;
    }
 
    @Test
    public void testValidator290_27_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--ogbpf8fl")); // Syria;
    }
 
    @Test
    public void testValidator290_28_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--kprw13d")); // Taiwan;
    }
 
    @Test
    public void testValidator290_29_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--kpry57d")); // Taiwan;
    }
 
    @Test
    public void testValidator290_30_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--o3cw4h")); // Thailand;
    }
 
    @Test
    public void testValidator290_31_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--pgbs0dh")); // Tunisia;
    }
 
    @Test
    public void testValidator290_32_oe() {
         UrlValidator validator = new UrlValidator();
+        // removed other assertion
+//        assertTrue(validator.isValid("http://xn--e1afmkfd.xn--80akhbyknj4f"));
+        // Internationalized country code top-level domains
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(validator.isValid("http://test.xn--mgbaam7a8h")); // United Arab Emirates;
    }
 
@@ -1085,90 +1874,210 @@ public class UrlValidatorTest_OE25Dev {
    @Test
    public void testValidator363_2_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
         assertTrue(urlValidator.isValid("http://www.example.org/a/hello..world"));
    }
 
    @Test
    public void testValidator363_3_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
         assertTrue(urlValidator.isValid("http://www.example.org/hello.world/"));
    }
 
    @Test
    public void testValidator363_4_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(urlValidator.isValid("http://www.example.org/hello..world/"));
    }
 
    @Test
    public void testValidator363_5_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(urlValidator.isValid("http://www.example.org/hello.world"));
    }
 
    @Test
    public void testValidator363_6_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(urlValidator.isValid("http://www.example.org/hello..world"));
    }
 
    @Test
    public void testValidator363_7_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(urlValidator.isValid("http://www.example.org/..world"));
    }
 
    @Test
    public void testValidator363_8_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(urlValidator.isValid("http://www.example.org/.../world"));
    }
 
    @Test
    public void testValidator363_9_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(urlValidator.isValid("http://www.example.org/../world"));
    }
 
    @Test
    public void testValidator363_10_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(urlValidator.isValid("http://www.example.org/.."));
    }
 
    @Test
    public void testValidator363_11_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(urlValidator.isValid("http://www.example.org/../"));
    }
 
    @Test
    public void testValidator363_12_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(urlValidator.isValid("http://www.example.org/./.."));
    }
 
    @Test
    public void testValidator363_13_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(urlValidator.isValid("http://www.example.org/././.."));
    }
 
    @Test
    public void testValidator363_14_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(urlValidator.isValid("http://www.example.org/..."));
    }
 
    @Test
    public void testValidator363_15_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(urlValidator.isValid("http://www.example.org/.../"));
    }
 
    @Test
    public void testValidator363_16_oe(){
         UrlValidator urlValidator = new UrlValidator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(urlValidator.isValid("http://www.example.org/.../.."));
    }
 
@@ -1183,6 +2092,7 @@ public class UrlValidatorTest_OE25Dev {
    public void testValidator375_2_oe() {
        UrlValidator validator = new UrlValidator();
        String url = "http://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:80/index.html";
+       // removed other assertion
        url = "http://[::1]:80/index.html";
        assertTrue("IPv6 address URL should validate: " + url, validator.isValid(url));
    }
@@ -1191,7 +2101,9 @@ public class UrlValidatorTest_OE25Dev {
    public void testValidator375_3_oe() {
        UrlValidator validator = new UrlValidator();
        String url = "http://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:80/index.html";
+       // removed other assertion
        url = "http://[::1]:80/index.html";
+       // removed other assertion
        url = "http://FEDC:BA98:7654:3210:FEDC:BA98:7654:3210:80/index.html";
        assertFalse("IPv6 address without [] should not validate: " + url, validator.isValid(url));
    }
@@ -1205,48 +2117,84 @@ public class UrlValidatorTest_OE25Dev {
    @Test
    public void testValidator353_2_oe() { // userinfo
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
        assertTrue(validator.isValid("http://user:pass@www.apache.org:80/path"));
    }
 
    @Test
    public void testValidator353_3_oe() { // userinfo
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
+       // removed other assertion
        assertTrue(validator.isValid("http://user:@www.apache.org:80/path"));
    }
 
    @Test
    public void testValidator353_4_oe() { // userinfo
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
        assertTrue(validator.isValid("http://user@www.apache.org:80/path"));
    }
 
    @Test
    public void testValidator353_5_oe() { // userinfo
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
        assertTrue(validator.isValid("http://us%00er:-._~!$&'()*+,;=@www.apache.org:80/path"));
    }
 
    @Test
    public void testValidator353_6_oe() { // userinfo
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
        assertFalse(validator.isValid("http://:pass@www.apache.org:80/path"));
    }
 
    @Test
    public void testValidator353_7_oe() { // userinfo
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
        assertFalse(validator.isValid("http://:@www.apache.org:80/path"));
    }
 
    @Test
    public void testValidator353_8_oe() { // userinfo
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
        assertFalse(validator.isValid("http://user:pa:ss@www.apache.org/path"));
    }
 
    @Test
    public void testValidator353_9_oe() { // userinfo
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
+       // removed other assertion
        assertFalse(validator.isValid("http://user:pa@ss@www.apache.org/path"));
    }
 
@@ -1265,12 +2213,15 @@ public class UrlValidatorTest_OE25Dev {
    @Test
    public void testValidator380_2_oe() {
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
        assertTrue(validator.isValid("http://www.apache.org:8/path"));
    }
 
    @Test
    public void testValidator380_3_oe() {
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
+       // removed other assertion
        assertTrue(validator.isValid("http://www.apache.org:/path"));
    }
 
@@ -1283,12 +2234,15 @@ public class UrlValidatorTest_OE25Dev {
    @Test
    public void testValidator420_2_oe() {
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
        assertTrue(validator.isValid("http://example.com/serach?address=Main%20Avenue"));
    }
 
    @Test
    public void testValidator420_3_oe() {
        UrlValidator validator = new UrlValidator();
+       // removed other assertion
+       // removed other assertion
        assertTrue(validator.isValid("http://example.com/serach?address=Main+Avenue"));
    }
 
@@ -1301,18 +2255,24 @@ public class UrlValidatorTest_OE25Dev {
    @Test
    public void testValidator467_2_oe() {
       UrlValidator validator = new UrlValidator(UrlValidator.ALLOW_2_SLASHES);
+      // removed other assertion
       assertTrue(validator.isValid("https://example.com//somepath/path/"));
    }
 
    @Test
    public void testValidator467_3_oe() {
       UrlValidator validator = new UrlValidator(UrlValidator.ALLOW_2_SLASHES);
+      // removed other assertion
+      // removed other assertion
       assertTrue(validator.isValid("https://example.com//some_path/path/"));
    }
 
    @Test
    public void testValidator467_4_oe() {
       UrlValidator validator = new UrlValidator(UrlValidator.ALLOW_2_SLASHES);
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertTrue(validator.isValid("http://example.com//_test")); // VALIDATOR-429;
    }
 
@@ -1325,6 +2285,7 @@ public class UrlValidatorTest_OE25Dev {
   @Test
   public void testValidator283_2_oe() {
    UrlValidator validator = new UrlValidator();
+   // removed other assertion
    assertTrue(validator.isValid("http://finance.yahoo.com/news/Owners-54B-NY-housing-apf-2493139299.html?x=0&ap=%22"));
   }
 
@@ -1339,6 +2300,7 @@ public class UrlValidatorTest_OE25Dev {
   public void testFragments_2_oe() {
    String[] schemes = {"http","https"};
    UrlValidator urlValidator = new UrlValidator(schemes, UrlValidator.NO_FRAGMENTS);
+   // removed other assertion
    urlValidator = new UrlValidator(schemes);
    assertTrue(urlValidator.isValid("http://apache.org/a/b/c#frag"));
   }

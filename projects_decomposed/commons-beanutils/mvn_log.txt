@@ -28,7 +28,7 @@ main:
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils
 [WARNING] Cannot get the revision information from the scm repository, proceeding with revision of ?????? : 
 Exception while executing SCM command.
-[INFO] Storing buildNumber: ?????? at timestamp: 1772512995863
+[INFO] Storing buildNumber: ?????? at timestamp: 1772939763113
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils' && 'svn' '--non-interactive' 'info'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils
 [WARNING] Cannot get the branch information from the scm repository, proceeding with UNKNOWN_BRANCH : 
@@ -62,13 +62,13 @@ Exception while executing SCM command.
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ commons-beanutils ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 235 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/target/test-classes
+[INFO] Compiling 238 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/converters/BooleanConverterTestCase.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/converters/BooleanConverterTestCase.java: Recompile with -Xlint:deprecation for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/converters/FloatLocaleConverterTestCase_OE25Dev.java: Some input files use or override a deprecated API that is marked for removal.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/converters/FloatLocaleConverterTestCase_OE25Dev.java: Recompile with -Xlint:removal for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev.java: Some input files use unchecked or unsafe operations.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev.java: Recompile with -Xlint:unchecked for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanMapTestCase_OE25Dev.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanMapTestCase_OE25Dev.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-beanutils ---
 [INFO] 
@@ -76,828 +76,363 @@ Exception while executing SCM command.
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.beanutils.BeanUtils2TestCase_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.apache.commons.beanutils.BeanUtils2TestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.beanutils.BeanUtils2TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanPropertyValueChangeClosureTestCase_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.BeanPropertyValueChangeClosureTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.BeanPropertyValueChangeClosureTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.SuppressPropertiesBeanIntrospectorTestCase_OE25Dev
-[ERROR] Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.beanutils.SuppressPropertiesBeanIntrospectorTestCase_OE25Dev
-[ERROR] testPropertyNamesDefensiveCopy_1_oe(org.apache.commons.beanutils.SuppressPropertiesBeanIntrospectorTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<1> but was:<2>
-	at org.apache.commons.beanutils.SuppressPropertiesBeanIntrospectorTestCase_OE25Dev.testPropertyNamesDefensiveCopy_1_oe(SuppressPropertiesBeanIntrospectorTestCase_OE25Dev.java:148)
-
-[ERROR] testPropertyNamesDefensiveCopy_2_oe(org.apache.commons.beanutils.SuppressPropertiesBeanIntrospectorTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<false> but was:<true>
-	at org.apache.commons.beanutils.SuppressPropertiesBeanIntrospectorTestCase_OE25Dev.testPropertyNamesDefensiveCopy_2_oe(SuppressPropertiesBeanIntrospectorTestCase_OE25Dev.java:161)
-
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.SuppressPropertiesBeanIntrospectorTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.FluentPropertyBeanIntrospectorTestCase_OE25Dev
-[ERROR] Tests run: 10, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.beanutils.FluentPropertyBeanIntrospectorTestCase_OE25Dev
-[ERROR] testIntrospection_3_oe(org.apache.commons.beanutils.FluentPropertyBeanIntrospectorTestCase_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Method.getName()" because the return value of "java.beans.PropertyDescriptor.getReadMethod()" is null
-	at org.apache.commons.beanutils.FluentPropertyBeanIntrospectorTestCase_OE25Dev.testIntrospection_3_oe(FluentPropertyBeanIntrospectorTestCase_OE25Dev.java:123)
+[ERROR] Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in org.apache.commons.beanutils.FluentPropertyBeanIntrospectorTestCase_OE25Dev
+[ERROR] testIntrospection_3_oe(org.apache.commons.beanutils.FluentPropertyBeanIntrospectorTestCase_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.FluentPropertyBeanIntrospectorTestCase_OE25Dev.testIntrospection_3_oe(FluentPropertyBeanIntrospectorTestCase_OE25Dev.java:147)
 
 [INFO] Running org.apache.commons.beanutils.IndexedPropertyTestCase_OE25Dev
-[ERROR] Tests run: 43, Failures: 2, Errors: 0, Skipped: 2, Time elapsed: 0.017 s <<< FAILURE! - in org.apache.commons.beanutils.IndexedPropertyTestCase_OE25Dev
-[ERROR] testListIndexedPropertyDescriptor_3_oe(org.apache.commons.beanutils.IndexedPropertyTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-java.lang.AssertionError: expected:<class java.lang.String> but was:<interface java.util.List>
-	at org.apache.commons.beanutils.IndexedPropertyTestCase_OE25Dev.testListIndexedPropertyDescriptor_3_oe(IndexedPropertyTestCase_OE25Dev.java:304)
-
-[ERROR] testSetArrayList_1_oe(org.apache.commons.beanutils.IndexedPropertyTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-java.lang.AssertionError: expected:<false> but was:<true>
-	at org.apache.commons.beanutils.IndexedPropertyTestCase_OE25Dev.testSetArrayList_1_oe(IndexedPropertyTestCase_OE25Dev.java:547)
-
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.beanutils.IndexedPropertyTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.LazyDynaClassTestCase_OE25Dev
-[ERROR] Tests run: 21, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.beanutils.LazyDynaClassTestCase_OE25Dev
-[ERROR] testGetPropertyDoesntExist1_2_oe(org.apache.commons.beanutils.LazyDynaClassTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<[test]Property> but was:<[my]Property>
-	at org.apache.commons.beanutils.LazyDynaClassTestCase_OE25Dev.testGetPropertyDoesntExist1_2_oe(LazyDynaClassTestCase_OE25Dev.java:229)
-
-[ERROR] testGetPropertyDoesntExist1_3_oe(org.apache.commons.beanutils.LazyDynaClassTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<class java.lang.String> but was:<class java.lang.Object>
-	at org.apache.commons.beanutils.LazyDynaClassTestCase_OE25Dev.testGetPropertyDoesntExist1_3_oe(LazyDynaClassTestCase_OE25Dev.java:237)
-
-[ERROR] testAddProperty1_1_oe(org.apache.commons.beanutils.LazyDynaClassTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<[test]Property> but was:<[my]Property>
-	at org.apache.commons.beanutils.LazyDynaClassTestCase_OE25Dev.testAddProperty1_1_oe(LazyDynaClassTestCase_OE25Dev.java:182)
-
-[ERROR] testAddProperty1_2_oe(org.apache.commons.beanutils.LazyDynaClassTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<class java.lang.String> but was:<class java.lang.Object>
-	at org.apache.commons.beanutils.LazyDynaClassTestCase_OE25Dev.testAddProperty1_2_oe(LazyDynaClassTestCase_OE25Dev.java:189)
-
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.LazyDynaClassTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
-[ERROR] Tests run: 26, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
-[ERROR] testGetByContextClassLoader_2_oe(org.apache.commons.beanutils.BeanificationTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: org.apache.commons.beanutils.BeanUtilsBean@262b2c86
-	at org.apache.commons.beanutils.BeanificationTestCase_OE25Dev.testGetByContextClassLoader_2_oe(BeanificationTestCase_OE25Dev.java:566)
-
-[ERROR] testGetByContextClassLoader_3_oe(org.apache.commons.beanutils.BeanificationTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: org.apache.commons.beanutils.ConvertUtilsBean@50d0686
-	at org.apache.commons.beanutils.BeanificationTestCase_OE25Dev.testGetByContextClassLoader_3_oe(BeanificationTestCase_OE25Dev.java:604)
-
-[ERROR] testBeanUtilsBeanSetInstance_2_oe(org.apache.commons.beanutils.BeanificationTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<1> but was:<21>
-	at org.apache.commons.beanutils.BeanificationTestCase_OE25Dev.testBeanUtilsBeanSetInstance_2_oe(BeanificationTestCase_OE25Dev.java:1135)
-
-[ERROR] testBeanUtilsBeanSetInstance_3_oe(org.apache.commons.beanutils.BeanificationTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<1> but was:<21>
-	at org.apache.commons.beanutils.BeanificationTestCase_OE25Dev.testBeanUtilsBeanSetInstance_3_oe(BeanificationTestCase_OE25Dev.java:1179)
-
-[ERROR] testContextClassLoaderUnset_2_oe(org.apache.commons.beanutils.BeanificationTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected same:<org.apache.commons.beanutils.BeanUtilsBean@ed9d034> was not:<null>
-	at org.apache.commons.beanutils.BeanificationTestCase_OE25Dev.testContextClassLoaderUnset_2_oe(BeanificationTestCase_OE25Dev.java:1240)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev
-[ERROR] Tests run: 93, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev
-[ERROR] testSimplePropertyRestricted_2_oe(org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<false> but was:<true>
-	at org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev.testSimplePropertyRestricted_2_oe(LazyDynaBeanTestCase_OE25Dev.java:248)
-
-[ERROR] testIndexedPropertyRestricted_2_oe(org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<false> but was:<true>
-	at org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev.testIndexedPropertyRestricted_2_oe(LazyDynaBeanTestCase_OE25Dev.java:1542)
-
-[ERROR] testIndexedPropertyDefault_9_oe(org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<3> but was:<6>
-	at org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev.testIndexedPropertyDefault_9_oe(LazyDynaBeanTestCase_OE25Dev.java:717)
-
-[ERROR] testMappedPropertyRestricted_2_oe(org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<false> but was:<true>
-	at org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev.testMappedPropertyRestricted_2_oe(LazyDynaBeanTestCase_OE25Dev.java:567)
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev
+[ERROR] testMappedPropertyRestricted_1_oe(org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev.testMappedPropertyRestricted_1_oe(LazyDynaBeanTestCase_OE25Dev.java:511)
 
 [INFO] Running org.apache.commons.beanutils.LazyDynaMapTestCase_OE25Dev
-[ERROR] Tests run: 97, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.beanutils.LazyDynaMapTestCase_OE25Dev
-[ERROR] testSimplePropertyRestricted_2_oe(org.apache.commons.beanutils.LazyDynaMapTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<false> but was:<true>
-	at org.apache.commons.beanutils.LazyDynaMapTestCase_OE25Dev.testSimplePropertyRestricted_2_oe(LazyDynaMapTestCase_OE25Dev.java:253)
-
-[ERROR] testIndexedPropertyRestricted_2_oe(org.apache.commons.beanutils.LazyDynaMapTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<false> but was:<true>
-	at org.apache.commons.beanutils.LazyDynaMapTestCase_OE25Dev.testIndexedPropertyRestricted_2_oe(LazyDynaMapTestCase_OE25Dev.java:1557)
-
-[ERROR] testNewInstance_1_oe(org.apache.commons.beanutils.LazyDynaMapTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<1> but was:<2>
-	at org.apache.commons.beanutils.LazyDynaMapTestCase_OE25Dev.testNewInstance_1_oe(LazyDynaMapTestCase_OE25Dev.java:1586)
-
-[ERROR] testMappedPropertyRestricted_2_oe(org.apache.commons.beanutils.LazyDynaMapTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<false> but was:<true>
-	at org.apache.commons.beanutils.LazyDynaMapTestCase_OE25Dev.testMappedPropertyRestricted_2_oe(LazyDynaMapTestCase_OE25Dev.java:582)
-
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.LazyDynaMapTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.WrapDynaBeanTestCase_OE25Dev
-[ERROR] Tests run: 12, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in org.apache.commons.beanutils.WrapDynaBeanTestCase_OE25Dev
-[ERROR] testIntrospectionWithCustomPropUtils_1_oe(org.apache.commons.beanutils.WrapDynaBeanTestCase_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.lang.IllegalArgumentException: Error reading property 'fluentProperty', exception - java.lang.NoSuchMethodException: Property 'fluentProperty' has no getter method in class 'class org.apache.commons.beanutils.FluentIntrospectionTestBean'
-	at org.apache.commons.beanutils.WrapDynaBeanTestCase_OE25Dev.testIntrospectionWithCustomPropUtils_1_oe(WrapDynaBeanTestCase_OE25Dev.java:335)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.WrapDynaBeanTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira61TestCase_OE25Dev
-[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira61TestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.bugs.Jira61TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira465TestCase_OE25Dev
-[ERROR] Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.beanutils.bugs.Jira465TestCase_OE25Dev
-[ERROR] testArrayProperty_1_oe(org.apache.commons.beanutils.bugs.Jira465TestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<[[]]> but was:<[org.apache.commons.beanutils.bugs.Jira465TestCase_OE25Dev$ArrayProp@1445d7f]>
-	at org.apache.commons.beanutils.bugs.Jira465TestCase_OE25Dev.testArrayProperty_1_oe(Jira465TestCase_OE25Dev.java:110)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira465TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira520TestCase_OE25Dev
-[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.beanutils.bugs.Jira520TestCase_OE25Dev
-[ERROR] testAllowAccessToClassProperty_1_oe(org.apache.commons.beanutils.bugs.Jira520TestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: class org.apache.commons.beanutils.AlphaBean
-	at org.apache.commons.beanutils.bugs.Jira520TestCase_OE25Dev.testAllowAccessToClassProperty_1_oe(Jira520TestCase_OE25Dev.java:54)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira520TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira463TestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira463TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira157TestCase_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.beanutils.bugs.Jira157TestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira157TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira422bTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira422bTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira422bTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira18TestCase_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.beanutils.bugs.Jira18TestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira18TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira422TestCase_OE25Dev
 [WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira422TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira454TestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira454TestCase_OE25Dev
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.beanutils.bugs.Jira454TestCase_OE25Dev
+[ERROR] testCopyProperties_1_oe(org.apache.commons.beanutils.bugs.Jira454TestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.bugs.Jira454TestCase_OE25Dev.testCopyProperties_1_oe(Jira454TestCase_OE25Dev.java:55)
+
 [INFO] Running org.apache.commons.beanutils.bugs.Jira87TestCase_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira87TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira381TestCase_OE25Dev
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.beanutils.bugs.Jira381TestCase_OE25Dev
-[ERROR] testIssue_BEANUTILS_381_getMatchingAccessibleMethod_2_oe(org.apache.commons.beanutils.bugs.Jira381TestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<[org.apache.commons.beanutils.proxy.TestServiceBean]> but was:<[performOp]>
-	at org.apache.commons.beanutils.bugs.Jira381TestCase_OE25Dev.testIssue_BEANUTILS_381_getMatchingAccessibleMethod_2_oe(Jira381TestCase_OE25Dev.java:101)
-
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira381TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira345TestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira345TestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira345TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira492TestCase_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira492TestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira492TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira368TestCase_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira368TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira456TestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira456TestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira456TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira298TestCase_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira298TestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira298TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira347TestCase_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.bugs.Jira347TestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira347TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira349TestCase_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira349TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira493TestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira493TestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira493TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira358TestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira358TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira339TestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira339TestCase_OE25Dev
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.beanutils.bugs.Jira339TestCase_OE25Dev
+[ERROR] testIssue_BEANUTILS_339_BeanUtilsBean_setProperty_2_oe(org.apache.commons.beanutils.bugs.Jira339TestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.bugs.Jira339TestCase_OE25Dev.testIssue_BEANUTILS_339_BeanUtilsBean_setProperty_2_oe(Jira339TestCase_OE25Dev.java:153)
+
+[ERROR] testIssue_BEANUTILS_331_BeanUtilsBean_populate_2_oe(org.apache.commons.beanutils.bugs.Jira339TestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.bugs.Jira339TestCase_OE25Dev.testIssue_BEANUTILS_331_BeanUtilsBean_populate_2_oe(Jira339TestCase_OE25Dev.java:166)
+
 [INFO] Running org.apache.commons.beanutils.bugs.Jira359TestCase_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira359TestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira359TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira369TestCase_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira369TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira273TestCase_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira273TestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira273TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.DynaPropertyUtilsTestCase_OE25Dev
-[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.DynaPropertyUtilsTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.DynaPropertyUtilsTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanPredicateTestCase_OE25Dev
-[ERROR] Tests run: 8, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.beanutils.BeanPredicateTestCase_OE25Dev
-[ERROR] testEqual_2_oe(org.apache.commons.beanutils.BeanPredicateTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.IllegalArgumentException: No bean specified
-	at org.apache.commons.beanutils.BeanPredicateTestCase_OE25Dev.testEqual_2_oe(BeanPredicateTestCase_OE25Dev.java:46)
-
-[ERROR] testNotEqual_2_oe(org.apache.commons.beanutils.BeanPredicateTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.IllegalArgumentException: Property not found.
-	at org.apache.commons.beanutils.BeanPredicateTestCase_OE25Dev.testNotEqual_2_oe(BeanPredicateTestCase_OE25Dev.java:59)
-
-[ERROR] testNull_2_oe(org.apache.commons.beanutils.BeanPredicateTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.IllegalArgumentException: No bean specified
-	at org.apache.commons.beanutils.BeanPredicateTestCase_OE25Dev.testNull_2_oe(BeanPredicateTestCase_OE25Dev.java:87)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.BeanPredicateTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.ConstructorUtilsTestCase_OE25Dev
-[INFO] Tests run: 57, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.ConstructorUtilsTestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.ConstructorUtilsTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev
-[ERROR] Tests run: 44, Failures: 10, Errors: 0, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev
-[ERROR] testListCount_1_oe(org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<0> but was:<5>
-	at org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev.testListCount_1_oe(DynaRowSetTestCase_OE25Dev.java:299)
-
-[ERROR] testListCount_2_oe(org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<0> but was:<5>
-	at org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev.testListCount_2_oe(DynaRowSetTestCase_OE25Dev.java:306)
-
-[ERROR] testGetDynaProperties_1_oe(org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<0> but was:<13>
-	at org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev.testGetDynaProperties_1_oe(DynaRowSetTestCase_OE25Dev.java:276)
-
-[ERROR] testInconsistentOracleDriver_1_oe(org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<[DATECOL]> but was:<[dateProperty]>
-	at org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev.testInconsistentOracleDriver_1_oe(DynaRowSetTestCase_OE25Dev.java:940)
-
-[ERROR] testInconsistentOracleDriver_2_oe(org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<java.sql.[Date]> but was:<java.sql.[Timestamp]>
-	at org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev.testInconsistentOracleDriver_2_oe(DynaRowSetTestCase_OE25Dev.java:952)
-
-[ERROR] testInconsistentOracleDriver_4_oe(org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<20[13-07-01 00:00:00.0]> but was:<20[26-03-02 22:43:18.642]>
-	at org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev.testInconsistentOracleDriver_4_oe(DynaRowSetTestCase_OE25Dev.java:979)
-
-[ERROR] testInconsistentOracleDriver_5_oe(org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<[TIMESTAMPCOL]> but was:<[timestampProperty]>
-	at org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev.testInconsistentOracleDriver_5_oe(DynaRowSetTestCase_OE25Dev.java:997)
-
-[ERROR] testInconsistentOracleDriver_7_oe(org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<[java.sql.]Timestamp> but was:<[org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev$Custom]Timestamp>
-	at org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev.testInconsistentOracleDriver_7_oe(DynaRowSetTestCase_OE25Dev.java:1036)
-
-[ERROR] testInconsistentOracleDriver_8_oe(org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<20[13-07-01 00:00:00.0]> but was:<20[26-03-02 22:43:18.643]>
-	at org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev.testInconsistentOracleDriver_8_oe(DynaRowSetTestCase_OE25Dev.java:1057)
-
-[ERROR] testLimitedRows_1_oe(org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<0> but was:<3>
-	at org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev.testLimitedRows_1_oe(DynaRowSetTestCase_OE25Dev.java:920)
-
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev
-[ERROR] Tests run: 20, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev
-[ERROR] testEntrySet_1_oe(org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<1> but was:<5>
-	at org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev.testEntrySet_1_oe(DynaBeanMapDecoratorTestCase_OE25Dev.java:292)
+[ERROR] Tests run: 8, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev
+[ERROR] testContainsKey_1_oe(org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev.testContainsKey_1_oe(DynaBeanMapDecoratorTestCase_OE25Dev.java:393)
 
-[ERROR] testValues_1_oe(org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<1> but was:<5>
-	at org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev.testValues_1_oe(DynaBeanMapDecoratorTestCase_OE25Dev.java:451)
+[ERROR] testContainsKey_2_oe(org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev.testContainsKey_2_oe(DynaBeanMapDecoratorTestCase_OE25Dev.java:398)
 
-[ERROR] testKeySet_1_oe(org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<0> but was:<5>
-	at org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev.testKeySet_1_oe(DynaBeanMapDecoratorTestCase_OE25Dev.java:365)
+[ERROR] testContainsValue_2_oe(org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev.testContainsValue_2_oe(DynaBeanMapDecoratorTestCase_OE25Dev.java:408)
+
+[ERROR] testIsReadOnly_1_oe(org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev.testIsReadOnly_1_oe(DynaBeanMapDecoratorTestCase_OE25Dev.java:383)
+
+[ERROR] testIsEmpty_2_oe(org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev.testIsEmpty_2_oe(DynaBeanMapDecoratorTestCase_OE25Dev.java:418)
 
 [INFO] Running org.apache.commons.beanutils.converters.ByteConverterTestCase_OE25Dev
-[ERROR] Tests run: 5, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.beanutils.converters.ByteConverterTestCase_OE25Dev
-[ERROR] testInvalidAmount_1_oe(org.apache.commons.beanutils.converters.ByteConverterTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: -129
-	at org.apache.commons.beanutils.converters.ByteConverterTestCase_OE25Dev.testInvalidAmount_1_oe(ByteConverterTestCase_OE25Dev.java:258)
-
-[ERROR] testInvalidAmount_2_oe(org.apache.commons.beanutils.converters.ByteConverterTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: -129
-	at org.apache.commons.beanutils.converters.ByteConverterTestCase_OE25Dev.testInvalidAmount_2_oe(ByteConverterTestCase_OE25Dev.java:274)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.ByteConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.CharacterConverterTestCase_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.CharacterConverterTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.CharacterConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.StringArrayConverterTestCase_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.StringArrayConverterTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.StringArrayConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.ClassConverterTestCase_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.ClassConverterTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.ClassConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.BooleanConverterTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.BooleanConverterTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.BooleanConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.FileConverterTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.FileConverterTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.FileConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.BigDecimalConverterTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.BigDecimalConverterTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.BigDecimalConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.StringConverterTestCase_OE25Dev
-[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.beanutils.converters.StringConverterTestCase_OE25Dev
-[ERROR] testConvertToTypeString_1_oe(org.apache.commons.beanutils.converters.StringConverterTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: java.lang.Object@2ddc8ecb
-	at org.apache.commons.beanutils.converters.StringConverterTestCase_OE25Dev.testConvertToTypeString_1_oe(StringConverterTestCase_OE25Dev.java:65)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.StringConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev
-[ERROR] Tests run: 12, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev
-[ERROR] testUnderscore_BEANUTILS_302_1_oe(org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<2> but was:<4>
-	at org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev.testUnderscore_BEANUTILS_302_1_oe(ArrayConverterTestCase_OE25Dev.java:178)
-
-[ERROR] testUnderscore_BEANUTILS_302_2_oe(org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: [Ljava.lang.String;@33afa13b
-	at org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev.testUnderscore_BEANUTILS_302_2_oe(ArrayConverterTestCase_OE25Dev.java:188)
-
-[ERROR] testUnderscore_BEANUTILS_302_3_oe(org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: [Ljava.lang.String;@7a4ccb53
-	at org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev.testUnderscore_BEANUTILS_302_3_oe(ArrayConverterTestCase_OE25Dev.java:199)
-
-[ERROR] testUnderscore_BEANUTILS_302_4_oe(org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: [Ljava.lang.String;@309e345f
-	at org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev.testUnderscore_BEANUTILS_302_4_oe(ArrayConverterTestCase_OE25Dev.java:211)
-
-[ERROR] testUnderscore_BEANUTILS_302_5_oe(org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: [Ljava.lang.String;@56a6d5a6
-	at org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev.testUnderscore_BEANUTILS_302_5_oe(ArrayConverterTestCase_OE25Dev.java:224)
-
-[ERROR] testUnderscore_BEANUTILS_302_6_oe(org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: [Ljava.lang.String;@18ce0030
-	at org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev.testUnderscore_BEANUTILS_302_6_oe(ArrayConverterTestCase_OE25Dev.java:238)
-
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.ClassReloaderTestCase_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.ClassReloaderTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.ClassReloaderTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.DoubleConverterTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.DoubleConverterTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.DoubleConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.IntegerConverterTestCase_OE25Dev
-[ERROR] Tests run: 5, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.beanutils.converters.IntegerConverterTestCase_OE25Dev
-[ERROR] testInvalidAmount_2_oe(org.apache.commons.beanutils.converters.IntegerConverterTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: -2147483649
-	at org.apache.commons.beanutils.converters.IntegerConverterTestCase_OE25Dev.testInvalidAmount_2_oe(IntegerConverterTestCase_OE25Dev.java:289)
-
-[ERROR] testSimpleConversion_1_oe(org.apache.commons.beanutils.converters.IntegerConverterTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<true> but was:<false>
-	at org.apache.commons.beanutils.converters.IntegerConverterTestCase_OE25Dev.testSimpleConversion_1_oe(IntegerConverterTestCase_OE25Dev.java:148)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.IntegerConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.FloatConverterTestCase_OE25Dev
-[ERROR] Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.beanutils.converters.FloatConverterTestCase_OE25Dev
-[ERROR] testInvalidAmount_1_oe(org.apache.commons.beanutils.converters.FloatConverterTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: class java.lang.Float
-	at org.apache.commons.beanutils.converters.FloatConverterTestCase_OE25Dev.testInvalidAmount_1_oe(FloatConverterTestCase_OE25Dev.java:258)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.FloatConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.SqlDateConverterTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.SqlDateConverterTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.SqlDateConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.ShortConverterTestCase_OE25Dev
-[ERROR] Tests run: 5, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.beanutils.converters.ShortConverterTestCase_OE25Dev
-[ERROR] testInvalidAmount_1_oe(org.apache.commons.beanutils.converters.ShortConverterTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: -32769
-	at org.apache.commons.beanutils.converters.ShortConverterTestCase_OE25Dev.testInvalidAmount_1_oe(ShortConverterTestCase_OE25Dev.java:259)
-
-[ERROR] testInvalidAmount_2_oe(org.apache.commons.beanutils.converters.ShortConverterTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: -32769
-	at org.apache.commons.beanutils.converters.ShortConverterTestCase_OE25Dev.testInvalidAmount_2_oe(ShortConverterTestCase_OE25Dev.java:275)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.ShortConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.URLConverterTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.URLConverterTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.URLConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.BooleanArrayConverterTestCase_OE25Dev
-[ERROR] Tests run: 52, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.beanutils.converters.BooleanArrayConverterTestCase_OE25Dev
-[ERROR] testRegistration_1_oe(org.apache.commons.beanutils.converters.BooleanArrayConverterTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: [Z@778d1062
-	at org.apache.commons.beanutils.converters.BooleanArrayConverterTestCase_OE25Dev.testRegistration_1_oe(BooleanArrayConverterTestCase_OE25Dev.java:1470)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.BooleanArrayConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.LongConverterTestCase_OE25Dev
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.beanutils.converters.LongConverterTestCase_OE25Dev
-[ERROR] testSimpleConversion_1_oe(org.apache.commons.beanutils.converters.LongConverterTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<true> but was:<false>
-	at org.apache.commons.beanutils.converters.LongConverterTestCase_OE25Dev.testSimpleConversion_1_oe(LongConverterTestCase_OE25Dev.java:130)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.LongConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.BigIntegerConverterTestCase_OE25Dev
-[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.beanutils.converters.BigIntegerConverterTestCase_OE25Dev
-[ERROR] testSimpleConversion_2_oe(org.apache.commons.beanutils.converters.BigIntegerConverterTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<9223372036854775807> but was:<12>
-	at org.apache.commons.beanutils.converters.BigIntegerConverterTestCase_OE25Dev.testSimpleConversion_2_oe(BigIntegerConverterTestCase_OE25Dev.java:186)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.BigIntegerConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev
-[ERROR] Tests run: 138, Failures: 11, Errors: 0, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev
-[ERROR] testDeregisteringSingleConverter_1_oe(org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<true> but was:<true>
-	at org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev.testDeregisteringSingleConverter_1_oe(ConvertUtilsTestCase_OE25Dev.java:7052)
+[ERROR] Tests run: 29, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev
+[ERROR] testObjectToStringArray_1_oe(org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev.testObjectToStringArray_1_oe(ConvertUtilsTestCase_OE25Dev.java:745)
 
-[ERROR] testNegativeScalar_1_oe(org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: false
-	at org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev.testNegativeScalar_1_oe(ConvertUtilsTestCase_OE25Dev.java:295)
-
-[ERROR] testNegativeScalar_2_oe(org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: false
-	at org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev.testNegativeScalar_2_oe(ConvertUtilsTestCase_OE25Dev.java:304)
-
-[ERROR] testNegativeScalar_3_oe(org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: false
-	at org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev.testNegativeScalar_3_oe(ConvertUtilsTestCase_OE25Dev.java:316)
-
-[ERROR] testNegativeScalar_4_oe(org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: false
-	at org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev.testNegativeScalar_4_oe(ConvertUtilsTestCase_OE25Dev.java:329)
-
-[ERROR] testNegativeScalar_6_oe(org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: 0
-	at org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev.testNegativeScalar_6_oe(ConvertUtilsTestCase_OE25Dev.java:362)
-
-[ERROR] testNegativeScalar_7_oe(org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: 0
-	at org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev.testNegativeScalar_7_oe(ConvertUtilsTestCase_OE25Dev.java:382)
-
-[ERROR] testNegativeScalar_8_oe(org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: 0
-	at org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev.testNegativeScalar_8_oe(ConvertUtilsTestCase_OE25Dev.java:403)
-
-[ERROR] testPositiveScalar_1_oe(org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: true
-	at org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev.testPositiveScalar_1_oe(ConvertUtilsTestCase_OE25Dev.java:1735)
-
-[ERROR] testPositiveScalar_3_oe(org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<true> but was:<true>
-	at org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev.testPositiveScalar_3_oe(ConvertUtilsTestCase_OE25Dev.java:1756)
-
-[ERROR] testPositiveScalar_7_oe(org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<true> but was:<true>
-	at org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev.testPositiveScalar_7_oe(ConvertUtilsTestCase_OE25Dev.java:1822)
+[ERROR] testObjectToStringArray_4_oe(org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev.testObjectToStringArray_4_oe(ConvertUtilsTestCase_OE25Dev.java:758)
 
 [INFO] Running org.apache.commons.beanutils.DefaultIntrospectionContextTestCase_OE25Dev
-[ERROR] Tests run: 15, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.beanutils.DefaultIntrospectionContextTestCase_OE25Dev
-[ERROR] testGetPropertyDescriptorUnknown_2_oe(org.apache.commons.beanutils.DefaultIntrospectionContextTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.beanutils.DefaultIntrospectionContextTestCase_OE25Dev
+[ERROR] testGetPropertyDescriptorUnknown_1_oe(org.apache.commons.beanutils.DefaultIntrospectionContextTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError
-	at org.apache.commons.beanutils.DefaultIntrospectionContextTestCase_OE25Dev.testGetPropertyDescriptorUnknown_2_oe(DefaultIntrospectionContextTestCase_OE25Dev.java:259)
-
-[ERROR] testAddPropertyDescriptors_5_oe(org.apache.commons.beanutils.DefaultIntrospectionContextTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<4> but was:<5>
-	at org.apache.commons.beanutils.DefaultIntrospectionContextTestCase_OE25Dev.testAddPropertyDescriptors_5_oe(DefaultIntrospectionContextTestCase_OE25Dev.java:238)
-
-[ERROR] testAddPropertyDescriptor_1_oe(org.apache.commons.beanutils.DefaultIntrospectionContextTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<false> but was:<true>
-	at org.apache.commons.beanutils.DefaultIntrospectionContextTestCase_OE25Dev.testAddPropertyDescriptor_1_oe(DefaultIntrospectionContextTestCase_OE25Dev.java:132)
+	at org.apache.commons.beanutils.DefaultIntrospectionContextTestCase_OE25Dev.testGetPropertyDescriptorUnknown_1_oe(DefaultIntrospectionContextTestCase_OE25Dev.java:182)
 
 [INFO] Running org.apache.commons.beanutils.MappedPropertyTestCase_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.MappedPropertyTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanToPropertyValueTransformerTestCase_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.BeanToPropertyValueTransformerTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.BeanToPropertyValueTransformerTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.expression.DefaultResolverTestCase_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.expression.DefaultResolverTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.expression.DefaultResolverTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.DynaPropertyTestCase_OE25Dev
-[ERROR] Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.beanutils.DynaPropertyTestCase_OE25Dev
-[ERROR] testEqualsObject_5_oe(org.apache.commons.beanutils.DynaPropertyTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<0.0> but was:<NaN>
-	at org.apache.commons.beanutils.DynaPropertyTestCase_OE25Dev.testEqualsObject_5_oe(DynaPropertyTestCase_OE25Dev.java:158)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.DynaPropertyTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.locale.LocaleBeanUtilsTestCase_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.beanutils.locale.LocaleBeanUtilsTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.locale.LocaleBeanUtilsTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.locale.converters.FloatLocaleConverterTestCase_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.locale.converters.FloatLocaleConverterTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.locale.converters.FloatLocaleConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.locale.converters.IntegerLocaleConverterTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.locale.converters.IntegerLocaleConverterTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.locale.converters.IntegerLocaleConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.locale.converters.BigIntegerLocaleConverterTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.locale.converters.BigIntegerLocaleConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.locale.converters.DateLocaleConverterTestCase_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.beanutils.locale.converters.DateLocaleConverterTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.locale.converters.DateLocaleConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev
-[ERROR] Tests run: 45, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev
-[ERROR] testObjectToStringScalar_11_oe(org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<null> but was:<null>
-	at org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev.testObjectToStringScalar_11_oe(LocaleConvertUtilsTestCase_OE25Dev.java:563)
-
-[ERROR] testDefaultToStringConversionUnsupportedType_1_oe(org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<20[131]101> but was:<20[,131,]101>
-	at org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev.testDefaultToStringConversionUnsupportedType_1_oe(LocaleConvertUtilsTestCase_OE25Dev.java:3603)
-
-[ERROR] testObjectToStringScalar_1_oe(org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<null> but was:<null>
-	at org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev.testObjectToStringScalar_1_oe(LocaleConvertUtilsTestCase_OE25Dev.java:458)
-
-[ERROR] testObjectToStringScalar_2_oe(org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<null> but was:<null>
-	at org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev.testObjectToStringScalar_2_oe(LocaleConvertUtilsTestCase_OE25Dev.java:464)
-
-[ERROR] testObjectToStringScalar_3_oe(org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<null> but was:<null>
-	at org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev.testObjectToStringScalar_3_oe(LocaleConvertUtilsTestCase_OE25Dev.java:471)
-
-[ERROR] testObjectToStringScalar_4_oe(org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<null> but was:<null>
-	at org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev.testObjectToStringScalar_4_oe(LocaleConvertUtilsTestCase_OE25Dev.java:479)
-
-[ERROR] testObjectToStringScalar_5_oe(org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<null> but was:<null>
-	at org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev.testObjectToStringScalar_5_oe(LocaleConvertUtilsTestCase_OE25Dev.java:488)
-
-[ERROR] testObjectToStringScalar_7_oe(org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<null> but was:<null>
-	at org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev.testObjectToStringScalar_7_oe(LocaleConvertUtilsTestCase_OE25Dev.java:509)
-
-[ERROR] testObjectToStringScalar_9_oe(org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<null> but was:<null>
-	at org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev.testObjectToStringScalar_9_oe(LocaleConvertUtilsTestCase_OE25Dev.java:534)
-
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
-[ERROR] Tests run: 24, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
-[ERROR] testGetByContextClassLoader_3_oe(org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<org.apache.commons.beanutils.locale.LocaleConvertUtilsBean@5fdcaa40> but was:<org.apache.commons.beanutils.locale.LocaleConvertUtilsBean@6dc17b83>
-	at org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev.testGetByContextClassLoader_3_oe(LocaleBeanificationTestCase_OE25Dev.java:574)
-
-[ERROR] testBeanUtilsBeanSetInstance_2_oe(org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<1> but was:<21>
-	at org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev.testBeanUtilsBeanSetInstance_2_oe(LocaleBeanificationTestCase_OE25Dev.java:1093)
-
-[ERROR] testContextClassLoaderUnset_2_oe(org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected same:<org.apache.commons.beanutils.locale.LocaleBeanUtilsBean@47af7f3d> was not:<null>
-	at org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev.testContextClassLoaderUnset_2_oe(LocaleBeanificationTestCase_OE25Dev.java:1198)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanComparatorTestCase_OE25Dev
-[ERROR] Tests run: 7, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.beanutils.BeanComparatorTestCase_OE25Dev
-[ERROR] testSimpleCompare_1_oe(org.apache.commons.beanutils.BeanComparatorTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<1> but was:<-1>
-	at org.apache.commons.beanutils.BeanComparatorTestCase_OE25Dev.testSimpleCompare_1_oe(BeanComparatorTestCase_OE25Dev.java:162)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.BeanComparatorTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.DynaResultSetTestCase_OE25Dev
-[ERROR] Tests run: 30, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.beanutils.DynaResultSetTestCase_OE25Dev
-[ERROR] testGetDynaProperties_1_oe(org.apache.commons.beanutils.DynaResultSetTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<0> but was:<13>
-	at org.apache.commons.beanutils.DynaResultSetTestCase_OE25Dev.testGetDynaProperties_1_oe(DynaResultSetTestCase_OE25Dev.java:204)
-
-[ERROR] testIteratorCount_1_oe(org.apache.commons.beanutils.DynaResultSetTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<false> but was:<true>
-	at org.apache.commons.beanutils.DynaResultSetTestCase_OE25Dev.testIteratorCount_1_oe(DynaResultSetTestCase_OE25Dev.java:227)
-
-[ERROR] testIteratorCount_3_oe(org.apache.commons.beanutils.DynaResultSetTestCase_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.util.NoSuchElementException
-	at org.apache.commons.beanutils.DynaResultSetTestCase_OE25Dev.testIteratorCount_3_oe(DynaResultSetTestCase_OE25Dev.java:242)
-
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.DynaResultSetTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.DynaBeanUtilsTestCase_OE25Dev
-[ERROR] Tests run: 139, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in org.apache.commons.beanutils.DynaBeanUtilsTestCase_OE25Dev
-[ERROR] testCopyPropertyNestedSimple_2_oe(org.apache.commons.beanutils.DynaBeanUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<0> but was:<1>
-	at org.apache.commons.beanutils.DynaBeanUtilsTestCase_OE25Dev.testCopyPropertyNestedSimple_2_oe(DynaBeanUtilsTestCase_OE25Dev.java:4539)
-
-[ERROR] testCopyPropertyNestedSimple_4_oe(org.apache.commons.beanutils.DynaBeanUtilsTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<0> but was:<2>
-	at org.apache.commons.beanutils.DynaBeanUtilsTestCase_OE25Dev.testCopyPropertyNestedSimple_4_oe(DynaBeanUtilsTestCase_OE25Dev.java:4570)
-
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.DynaBeanUtilsTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanIntrospectionDataTestCase_OE25Dev
-[ERROR] Tests run: 5, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.beanutils.BeanIntrospectionDataTestCase_OE25Dev
-[ERROR] testGetWriteMethodDefined_1_oe(org.apache.commons.beanutils.BeanIntrospectionDataTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: public org.apache.commons.beanutils.FluentIntrospectionTestBean org.apache.commons.beanutils.FluentIntrospectionTestBean.setFluentGetProperty(java.lang.String)
-	at org.apache.commons.beanutils.BeanIntrospectionDataTestCase_OE25Dev.testGetWriteMethodDefined_1_oe(BeanIntrospectionDataTestCase_OE25Dev.java:90)
-
-[ERROR] testGetWriteMethodDefined_2_oe(org.apache.commons.beanutils.BeanIntrospectionDataTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: public org.apache.commons.beanutils.FluentIntrospectionTestBean org.apache.commons.beanutils.FluentIntrospectionTestBean.setFluentGetProperty(java.lang.String)
-	at org.apache.commons.beanutils.BeanIntrospectionDataTestCase_OE25Dev.testGetWriteMethodDefined_2_oe(BeanIntrospectionDataTestCase_OE25Dev.java:97)
-
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.BeanIntrospectionDataTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanPropertyValueEqualsPredicateTestCase_OE25Dev
-[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.BeanPropertyValueEqualsPredicateTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.BeanPropertyValueEqualsPredicateTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev
-[ERROR] Tests run: 48, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev
-[ERROR] testGetAccessibleMethodIndirectInterface_1_oe_2_oe(org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<[org.apache.commons.beanutils.MethodUtilsTest$PrivateBeanFactory]> but was:<[methodBaz]>
-	at org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev.testGetAccessibleMethodIndirectInterface_1_oe_2_oe(MethodUtilsTestCase_OE25Dev.java:709)
-
-[ERROR] testSetCacheMethods_1_oe(org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<0> but was:<1>
-	at org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev.testSetCacheMethods_1_oe(MethodUtilsTestCase_OE25Dev.java:598)
-
-[ERROR] testInvokeExactMethodNullArray_1_oe(org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: parent
-	at org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev.testInvokeExactMethodNullArray_1_oe(MethodUtilsTestCase_OE25Dev.java:169)
-
-[ERROR] testInvokeExactMethodNullArrayNullArray_1_oe(org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: parent
-	at org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev.testInvokeExactMethodNullArrayNullArray_1_oe(MethodUtilsTestCase_OE25Dev.java:179)
-
-[ERROR] testClearCache_1_oe(org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<0> but was:<1>
-	at org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev.testClearCache_1_oe(MethodUtilsTestCase_OE25Dev.java:589)
-
-[ERROR] testGetAccessibleMethod_1_oe_2_oe(org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<[org.apache.commons.beanutils.MethodUtilsTest$TestBean]> but was:<[setStringProperty]>
-	at org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev.testGetAccessibleMethod_1_oe_2_oe(MethodUtilsTestCase_OE25Dev.java:628)
-
-[ERROR] testInvokeExactMethodIndirectInterface_1_oe(org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: YET ANOTHER TEST
-	at org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev.testInvokeExactMethodIndirectInterface_1_oe(MethodUtilsTestCase_OE25Dev.java:161)
-
-[ERROR] testGetAccessibleMethodFromInterface_1_oe_2_oe(org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<[org.apache.commons.beanutils.MethodUtilsTest$PrivateBeanFactory]> but was:<[methodBar]>
-	at org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev.testGetAccessibleMethodFromInterface_1_oe_2_oe(MethodUtilsTestCase_OE25Dev.java:667)
-
-[ERROR] testInvokeExactMethodNull_1_oe(org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: java.lang.Object@8f4ea7c
-	at org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev.testInvokeExactMethodNull_1_oe(MethodUtilsTestCase_OE25Dev.java:185)
+[ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev
+[ERROR] testNoCaching_1_oe(org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<1> but was:<0>
+	at org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev.testNoCaching_1_oe(MethodUtilsTestCase_OE25Dev.java:620)
 
 [INFO] Running org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev
-[ERROR] Tests run: 112, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 0.054 s <<< FAILURE! - in org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev
-[ERROR] testCustomIntrospection_1_oe(org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: public void org.apache.commons.beanutils.AlphaBean.setName(java.lang.String)
-	at org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev.testCustomIntrospection_1_oe(PropertyUtilsTestCase_OE25Dev.java:3573)
+[ERROR] Tests run: 10, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev
+[ERROR] testCustomIntrospection_3_oe(org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev.testCustomIntrospection_3_oe(PropertyUtilsTestCase_OE25Dev.java:4426)
 
-[ERROR] testGetReadMethodPublicInterface_1_oe(org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<[java.lang.Object]> but was:<[foo]>
-	at org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev.testGetReadMethodPublicInterface_1_oe(PropertyUtilsTestCase_OE25Dev.java:2162)
-
-[ERROR] testMappedPropertyType_2_oe(org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<class java.lang.Integer> but was:<int>
-	at org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev.testMappedPropertyType_2_oe(PropertyUtilsTestCase_OE25Dev.java:2261)
-
-[ERROR] testGetDescriptorInvalidBoolean_2_oe(org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: public boolean org.apache.commons.beanutils.TestBean.isInvalidBoolean()
-	at org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev.testGetDescriptorInvalidBoolean_2_oe(PropertyUtilsTestCase_OE25Dev.java:1979)
-
-[ERROR] testGetSetParentBean_2_oe(org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<[org.apache.commons.beanutils.SonOfAlphaBean]> but was:<[abcd]>
-	at org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev.testGetSetParentBean_2_oe(PropertyUtilsTestCase_OE25Dev.java:3131)
-
-[ERROR] testCustomIntrospectionEx_1_oe(org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<0> but was:<2>
-	at org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev.testCustomIntrospectionEx_1_oe(PropertyUtilsTestCase_OE25Dev.java:3651)
-
-[ERROR] testNestedWithIndex_11_oe(org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<[org.apache.commons.beanutils.NestedTestBean]> but was:<[base]>
-	at org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev.testNestedWithIndex_11_oe(PropertyUtilsTestCase_OE25Dev.java:2964)
-
-[ERROR] testNestedWithIndex_1_oe(org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<[org.apache.commons.beanutils.NestedTestBean]> but was:<[base]>
-	at org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev.testNestedWithIndex_1_oe(PropertyUtilsTestCase_OE25Dev.java:2584)
-
-[ERROR] testNestedWithIndex_3_oe(org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<[org.apache.commons.beanutils.NestedTestBean]> but was:<[base]>
-	at org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev.testNestedWithIndex_3_oe(PropertyUtilsTestCase_OE25Dev.java:2623)
+[ERROR] testGetDescriptorInvalidBoolean_3_oe(org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev.testGetDescriptorInvalidBoolean_3_oe(PropertyUtilsTestCase_OE25Dev.java:4336)
 
 [INFO] Running org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev
-[ERROR] Tests run: 49, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev
-[ERROR] testMappedPropertyDescriptor_MappedMethodReference1_6_oe(org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-java.lang.AssertionError: expected null, but was:<public java.lang.String org.apache.commons.beanutils.memoryleaktests.pojotests.SomeMappedPojo.getMappedProperty(java.lang.String)>
-	at org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev.testMappedPropertyDescriptor_MappedMethodReference1_6_oe(MemoryLeakTestCase_OE25Dev.java:569)
-
-[ERROR] testMappedPropertyDescriptor_MappedMethodReference1_7_oe(org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-java.lang.AssertionError: expected null, but was:<public void org.apache.commons.beanutils.memoryleaktests.pojotests.SomeMappedPojo.setMappedProperty(java.lang.String,java.lang.String)>
-	at org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev.testMappedPropertyDescriptor_MappedMethodReference1_7_oe(MemoryLeakTestCase_OE25Dev.java:593)
-
-[ERROR] testMappedPropertyDescriptor_MappedMethodReference1_9_oe(org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<[org.apache.commons.beanutils.memoryleaktests.pojotests.SomeMappedPojo]> but was:<[mappedProperty]>
-	at org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev.testMappedPropertyDescriptor_MappedMethodReference1_9_oe(MemoryLeakTestCase_OE25Dev.java:644)
-
-[ERROR] testMappedPropertyDescriptor_MappedMethodReference2_6_oe(org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-java.lang.AssertionError: expected null, but was:<public java.lang.String org.apache.commons.beanutils.memoryleaktests.pojotests.SomeMappedPojo.getMappedProperty(java.lang.String)>
-	at org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev.testMappedPropertyDescriptor_MappedMethodReference2_6_oe(MemoryLeakTestCase_OE25Dev.java:757)
-
-[ERROR] testMappedPropertyDescriptor_MappedMethodReference2_7_oe(org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-java.lang.AssertionError: expected null, but was:<public void org.apache.commons.beanutils.memoryleaktests.pojotests.SomeMappedPojo.setMappedProperty(java.lang.String,java.lang.String)>
-	at org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev.testMappedPropertyDescriptor_MappedMethodReference2_7_oe(MemoryLeakTestCase_OE25Dev.java:781)
-
-[ERROR] testMappedPropertyDescriptor_MappedMethodReference2_9_oe(org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<[org.apache.commons.beanutils.memoryleaktests.pojotests.SomeMappedPojo]> but was:<[mappedProperty]>
-	at org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev.testMappedPropertyDescriptor_MappedMethodReference2_9_oe(MemoryLeakTestCase_OE25Dev.java:832)
-
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanMapTestCase_OE25Dev
-[ERROR] Tests run: 123, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.026 s <<< FAILURE! - in org.apache.commons.beanutils.BeanMapTestCase_OE25Dev
-[ERROR] testGetDefaultTransformersMap_2_oe(org.apache.commons.beanutils.BeanMapTestCase_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "java.util.Map.get(Object)" because "this.map" is null
-	at org.apache.commons.beanutils.BeanMapTestCase_OE25Dev.testGetDefaultTransformersMap_2_oe(BeanMapTestCase_OE25Dev.java:455)
+[ERROR] Tests run: 90, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.023 s <<< FAILURE! - in org.apache.commons.beanutils.BeanMapTestCase_OE25Dev
+[ERROR] testDefaultTransformersMap_5_oe(org.apache.commons.beanutils.BeanMapTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.BeanMapTestCase_OE25Dev.testDefaultTransformersMap_5_oe(BeanMapTestCase_OE25Dev.java:545)
 
-[ERROR] testGetDefaultTransformersMap_3_oe(org.apache.commons.beanutils.BeanMapTestCase_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "java.util.Map.get(Object)" because "this.map" is null
-	at org.apache.commons.beanutils.BeanMapTestCase_OE25Dev.testGetDefaultTransformersMap_3_oe(BeanMapTestCase_OE25Dev.java:461)
+[ERROR] testDefaultTransformersMap_6_oe(org.apache.commons.beanutils.BeanMapTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.BeanMapTestCase_OE25Dev.testDefaultTransformersMap_6_oe(BeanMapTestCase_OE25Dev.java:550)
 
-[ERROR] testGetDefaultTransformersMap_4_oe(org.apache.commons.beanutils.BeanMapTestCase_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "java.util.Map.get(Object)" because "this.map" is null
-	at org.apache.commons.beanutils.BeanMapTestCase_OE25Dev.testGetDefaultTransformersMap_4_oe(BeanMapTestCase_OE25Dev.java:468)
+[ERROR] testDefaultTransformersMap_7_oe(org.apache.commons.beanutils.BeanMapTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.BeanMapTestCase_OE25Dev.testDefaultTransformersMap_7_oe(BeanMapTestCase_OE25Dev.java:555)
 
-[ERROR] testGetDefaultTransformersMap_5_oe(org.apache.commons.beanutils.BeanMapTestCase_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "java.util.Map.get(Object)" because "this.map" is null
-	at org.apache.commons.beanutils.BeanMapTestCase_OE25Dev.testGetDefaultTransformersMap_5_oe(BeanMapTestCase_OE25Dev.java:476)
-
-[ERROR] testGetDefaultTransformersMap_6_oe(org.apache.commons.beanutils.BeanMapTestCase_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "java.util.Map.get(Object)" because "this.map" is null
-	at org.apache.commons.beanutils.BeanMapTestCase_OE25Dev.testGetDefaultTransformersMap_6_oe(BeanMapTestCase_OE25Dev.java:485)
-
-[ERROR] testGetDefaultTransformersMap_7_oe(org.apache.commons.beanutils.BeanMapTestCase_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "java.util.Map.get(Object)" because "this.map" is null
-	at org.apache.commons.beanutils.BeanMapTestCase_OE25Dev.testGetDefaultTransformersMap_7_oe(BeanMapTestCase_OE25Dev.java:495)
-
-[ERROR] testGetDefaultTransformersMap_8_oe(org.apache.commons.beanutils.BeanMapTestCase_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "java.util.Map.get(Object)" because "this.map" is null
-	at org.apache.commons.beanutils.BeanMapTestCase_OE25Dev.testGetDefaultTransformersMap_8_oe(BeanMapTestCase_OE25Dev.java:506)
+[ERROR] testDefaultTransformersMap_9_oe(org.apache.commons.beanutils.BeanMapTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.BeanMapTestCase_OE25Dev.testDefaultTransformersMap_9_oe(BeanMapTestCase_OE25Dev.java:565)
 
 [INFO] Running org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev
-[ERROR] Tests run: 196, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.044 s <<< FAILURE! - in org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev
+[ERROR] Tests run: 35, Failures: 16, Errors: 0, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev
+[ERROR] testSetPropertyNull_1_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0.008 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testSetPropertyNull_1_oe(BeanUtilsTestCase_OE25Dev.java:2004)
+
+[ERROR] testCopyPropertyLong_1_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<1> but was:<123>
+	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testCopyPropertyLong_1_oe(BeanUtilsTestCase_OE25Dev.java:2023)
+
+[ERROR] testCopyPropertyLong_2_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<0> but was:<123>
+	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testCopyPropertyLong_2_oe(BeanUtilsTestCase_OE25Dev.java:2030)
+
+[ERROR] testCopyPropertyLong_3_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<0> but was:<123>
+	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testCopyPropertyLong_3_oe(BeanUtilsTestCase_OE25Dev.java:2038)
+
+[ERROR] testCopyPropertyLong_4_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<0> but was:<123>
+	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testCopyPropertyLong_4_oe(BeanUtilsTestCase_OE25Dev.java:2047)
+
+[ERROR] testCopyPropertyLong_5_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<0> but was:<123>
+	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testCopyPropertyLong_5_oe(BeanUtilsTestCase_OE25Dev.java:2057)
+
+[ERROR] testCopyPropertyLong_6_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<0> but was:<123>
+	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testCopyPropertyLong_6_oe(BeanUtilsTestCase_OE25Dev.java:2068)
+
+[ERROR] testCopyPropertyInteger_1_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<1> but was:<123>
+	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testCopyPropertyInteger_1_oe(BeanUtilsTestCase_OE25Dev.java:2010)
+
+[ERROR] testCopyPropertyInteger_2_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<0> but was:<123>
+	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testCopyPropertyInteger_2_oe(BeanUtilsTestCase_OE25Dev.java:2017)
+
 [ERROR] testCopyPropertyNull_1_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<non-null value> but was:<null>
-	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testCopyPropertyNull_1_oe(BeanUtilsTestCase_OE25Dev.java:4593)
+junit.framework.AssertionFailedError
+	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testCopyPropertyNull_1_oe(BeanUtilsTestCase_OE25Dev.java:2075)
 
-[ERROR] testCopyPropertyNestedSimple_4_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<1> but was:<2>
-	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testCopyPropertyNestedSimple_4_oe(BeanUtilsTestCase_OE25Dev.java:4395)
+[ERROR] testSetPropertyLong_1_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<1> but was:<123>
+	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testSetPropertyLong_1_oe(BeanUtilsTestCase_OE25Dev.java:1955)
 
-[ERROR] testCopyPropertyNestedSimple_5_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<1> but was:<2>
-	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testCopyPropertyNestedSimple_5_oe(BeanUtilsTestCase_OE25Dev.java:4412)
+[ERROR] testSetPropertyLong_2_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<1> but was:<123>
+	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testSetPropertyLong_2_oe(BeanUtilsTestCase_OE25Dev.java:1968)
 
-[ERROR] testCopyPropertyNestedSimple_6_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<0> but was:<2>
-	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testCopyPropertyNestedSimple_6_oe(BeanUtilsTestCase_OE25Dev.java:4430)
+[ERROR] testSetPropertyLong_3_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<1> but was:<123>
+	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testSetPropertyLong_3_oe(BeanUtilsTestCase_OE25Dev.java:1982)
 
-[ERROR] testCopyPropertyNestedSimple_9_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<1> but was:<3>
-	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testCopyPropertyNestedSimple_9_oe(BeanUtilsTestCase_OE25Dev.java:4499)
+[ERROR] testSetPropertyLong_4_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<1> but was:<123>
+	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testSetPropertyLong_4_oe(BeanUtilsTestCase_OE25Dev.java:1997)
+
+[ERROR] testSetPropertyInteger_1_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<1> but was:<123>
+	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testSetPropertyInteger_1_oe(BeanUtilsTestCase_OE25Dev.java:1936)
+
+[ERROR] testSetPropertyInteger_2_oe(org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<1> but was:<123>
+	at org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev.testSetPropertyInteger_2_oe(BeanUtilsTestCase_OE25Dev.java:1949)
 
 [INFO] 
 [INFO] Results:
 [INFO] 
 [ERROR] Failures: 
-[ERROR]   BeanComparatorTestCase_OE25Dev.testSimpleCompare_1_oe:162 expected:<1> but was:<-1>
-[ERROR]   BeanIntrospectionDataTestCase_OE25Dev.testGetWriteMethodDefined_1_oe:90 Expected: <null> but was: public org.apache.commons.beanutils.FluentIntrospectionTestBean org.apache.commons.beanutils.FluentIntrospectionTestBean.setFluentGetProperty(java.lang.String)
-[ERROR]   BeanIntrospectionDataTestCase_OE25Dev.testGetWriteMethodDefined_2_oe:97 Expected: <null> but was: public org.apache.commons.beanutils.FluentIntrospectionTestBean org.apache.commons.beanutils.FluentIntrospectionTestBean.setFluentGetProperty(java.lang.String)
-[ERROR]   BeanUtilsTestCase_OE25Dev.testCopyPropertyNestedSimple_4_oe:4395 expected:<1> but was:<2>
-[ERROR]   BeanUtilsTestCase_OE25Dev.testCopyPropertyNestedSimple_5_oe:4412 expected:<1> but was:<2>
-[ERROR]   BeanUtilsTestCase_OE25Dev.testCopyPropertyNestedSimple_6_oe:4430 expected:<0> but was:<2>
-[ERROR]   BeanUtilsTestCase_OE25Dev.testCopyPropertyNestedSimple_9_oe:4499 expected:<1> but was:<3>
-[ERROR]   BeanUtilsTestCase_OE25Dev.testCopyPropertyNull_1_oe:4593 expected:<non-null value> but was:<null>
-[ERROR]   BeanificationTestCase_OE25Dev.testBeanUtilsBeanSetInstance_2_oe:1135 expected:<1> but was:<21>
-[ERROR]   BeanificationTestCase_OE25Dev.testBeanUtilsBeanSetInstance_3_oe:1179 expected:<1> but was:<21>
-[ERROR]   BeanificationTestCase_OE25Dev.testContextClassLoaderUnset_2_oe:1240 expected same:<org.apache.commons.beanutils.BeanUtilsBean@ed9d034> was not:<null>
-[ERROR]   BeanificationTestCase_OE25Dev.testGetByContextClassLoader_2_oe:566 Expected: <null> but was: org.apache.commons.beanutils.BeanUtilsBean@262b2c86
-[ERROR]   BeanificationTestCase_OE25Dev.testGetByContextClassLoader_3_oe:604 Expected: <null> but was: org.apache.commons.beanutils.ConvertUtilsBean@50d0686
-[ERROR]   ConvertUtilsTestCase_OE25Dev.testDeregisteringSingleConverter_1_oe:7052 expected:<true> but was:<true>
-[ERROR]   ConvertUtilsTestCase_OE25Dev.testNegativeScalar_1_oe:295 Expected: <null> but was: false
-[ERROR]   ConvertUtilsTestCase_OE25Dev.testNegativeScalar_2_oe:304 Expected: <null> but was: false
-[ERROR]   ConvertUtilsTestCase_OE25Dev.testNegativeScalar_3_oe:316 Expected: <null> but was: false
-[ERROR]   ConvertUtilsTestCase_OE25Dev.testNegativeScalar_4_oe:329 Expected: <null> but was: false
-[ERROR]   ConvertUtilsTestCase_OE25Dev.testNegativeScalar_6_oe:362 Expected: <null> but was: 0
-[ERROR]   ConvertUtilsTestCase_OE25Dev.testNegativeScalar_7_oe:382 Expected: <null> but was: 0
-[ERROR]   ConvertUtilsTestCase_OE25Dev.testNegativeScalar_8_oe:403 Expected: <null> but was: 0
-[ERROR]   ConvertUtilsTestCase_OE25Dev.testPositiveScalar_1_oe:1735 Expected: <null> but was: true
-[ERROR]   ConvertUtilsTestCase_OE25Dev.testPositiveScalar_3_oe:1756 expected:<true> but was:<true>
-[ERROR]   ConvertUtilsTestCase_OE25Dev.testPositiveScalar_7_oe:1822 expected:<true> but was:<true>
-[ERROR]   DefaultIntrospectionContextTestCase_OE25Dev.testAddPropertyDescriptor_1_oe:132 expected:<false> but was:<true>
-[ERROR]   DefaultIntrospectionContextTestCase_OE25Dev.testAddPropertyDescriptors_5_oe:238 expected:<4> but was:<5>
-[ERROR]   DefaultIntrospectionContextTestCase_OE25Dev.testGetPropertyDescriptorUnknown_2_oe:259
-[ERROR]   DynaBeanMapDecoratorTestCase_OE25Dev.testEntrySet_1_oe:292 expected:<1> but was:<5>
-[ERROR]   DynaBeanMapDecoratorTestCase_OE25Dev.testKeySet_1_oe:365 expected:<0> but was:<5>
-[ERROR]   DynaBeanMapDecoratorTestCase_OE25Dev.testValues_1_oe:451 expected:<1> but was:<5>
-[ERROR]   DynaBeanUtilsTestCase_OE25Dev.testCopyPropertyNestedSimple_2_oe:4539 expected:<0> but was:<1>
-[ERROR]   DynaBeanUtilsTestCase_OE25Dev.testCopyPropertyNestedSimple_4_oe:4570 expected:<0> but was:<2>
-[ERROR]   DynaPropertyTestCase_OE25Dev.testEqualsObject_5_oe:158 expected:<0.0> but was:<NaN>
-[ERROR]   DynaResultSetTestCase_OE25Dev.testGetDynaProperties_1_oe:204 expected:<0> but was:<13>
-[ERROR]   DynaResultSetTestCase_OE25Dev.testIteratorCount_1_oe:227 expected:<false> but was:<true>
-[ERROR]   DynaRowSetTestCase_OE25Dev.testGetDynaProperties_1_oe:276 expected:<0> but was:<13>
-[ERROR]   DynaRowSetTestCase_OE25Dev.testInconsistentOracleDriver_1_oe:940 expected:<[DATECOL]> but was:<[dateProperty]>
-[ERROR]   DynaRowSetTestCase_OE25Dev.testInconsistentOracleDriver_2_oe:952 expected:<java.sql.[Date]> but was:<java.sql.[Timestamp]>
-[ERROR]   DynaRowSetTestCase_OE25Dev.testInconsistentOracleDriver_4_oe:979 expected:<20[13-07-01 00:00:00.0]> but was:<20[26-03-02 22:43:18.642]>
-[ERROR]   DynaRowSetTestCase_OE25Dev.testInconsistentOracleDriver_5_oe:997 expected:<[TIMESTAMPCOL]> but was:<[timestampProperty]>
-[ERROR]   DynaRowSetTestCase_OE25Dev.testInconsistentOracleDriver_7_oe:1036 expected:<[java.sql.]Timestamp> but was:<[org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev$Custom]Timestamp>
-[ERROR]   DynaRowSetTestCase_OE25Dev.testInconsistentOracleDriver_8_oe:1057 expected:<20[13-07-01 00:00:00.0]> but was:<20[26-03-02 22:43:18.643]>
-[ERROR]   DynaRowSetTestCase_OE25Dev.testLimitedRows_1_oe:920 expected:<0> but was:<3>
-[ERROR]   DynaRowSetTestCase_OE25Dev.testListCount_1_oe:299 expected:<0> but was:<5>
-[ERROR]   DynaRowSetTestCase_OE25Dev.testListCount_2_oe:306 expected:<0> but was:<5>
-[ERROR]   IndexedPropertyTestCase_OE25Dev.testListIndexedPropertyDescriptor_3_oe:304 expected:<class java.lang.String> but was:<interface java.util.List>
-[ERROR]   IndexedPropertyTestCase_OE25Dev.testSetArrayList_1_oe:547 expected:<false> but was:<true>
-[ERROR]   LazyDynaBeanTestCase_OE25Dev.testIndexedPropertyDefault_9_oe:717 expected:<3> but was:<6>
-[ERROR]   LazyDynaBeanTestCase_OE25Dev.testIndexedPropertyRestricted_2_oe:1542 expected:<false> but was:<true>
-[ERROR]   LazyDynaBeanTestCase_OE25Dev.testMappedPropertyRestricted_2_oe:567 expected:<false> but was:<true>
-[ERROR]   LazyDynaBeanTestCase_OE25Dev.testSimplePropertyRestricted_2_oe:248 expected:<false> but was:<true>
-[ERROR]   LazyDynaClassTestCase_OE25Dev.testAddProperty1_1_oe:182 expected:<[test]Property> but was:<[my]Property>
-[ERROR]   LazyDynaClassTestCase_OE25Dev.testAddProperty1_2_oe:189 expected:<class java.lang.String> but was:<class java.lang.Object>
-[ERROR]   LazyDynaClassTestCase_OE25Dev.testGetPropertyDoesntExist1_2_oe:229 expected:<[test]Property> but was:<[my]Property>
-[ERROR]   LazyDynaClassTestCase_OE25Dev.testGetPropertyDoesntExist1_3_oe:237 expected:<class java.lang.String> but was:<class java.lang.Object>
-[ERROR]   LazyDynaMapTestCase_OE25Dev.testIndexedPropertyRestricted_2_oe:1557 expected:<false> but was:<true>
-[ERROR]   LazyDynaMapTestCase_OE25Dev.testMappedPropertyRestricted_2_oe:582 expected:<false> but was:<true>
-[ERROR]   LazyDynaMapTestCase_OE25Dev.testNewInstance_1_oe:1586 expected:<1> but was:<2>
-[ERROR]   LazyDynaMapTestCase_OE25Dev.testSimplePropertyRestricted_2_oe:253 expected:<false> but was:<true>
-[ERROR]   MethodUtilsTestCase_OE25Dev.testClearCache_1_oe:589 expected:<0> but was:<1>
-[ERROR]   MethodUtilsTestCase_OE25Dev.testGetAccessibleMethodFromInterface_1_oe_2_oe:667 expected:<[org.apache.commons.beanutils.MethodUtilsTest$PrivateBeanFactory]> but was:<[methodBar]>
-[ERROR]   MethodUtilsTestCase_OE25Dev.testGetAccessibleMethodIndirectInterface_1_oe_2_oe:709 expected:<[org.apache.commons.beanutils.MethodUtilsTest$PrivateBeanFactory]> but was:<[methodBaz]>
-[ERROR]   MethodUtilsTestCase_OE25Dev.testGetAccessibleMethod_1_oe_2_oe:628 expected:<[org.apache.commons.beanutils.MethodUtilsTest$TestBean]> but was:<[setStringProperty]>
-[ERROR]   MethodUtilsTestCase_OE25Dev.testInvokeExactMethodIndirectInterface_1_oe:161 Expected: <null> but was: YET ANOTHER TEST
-[ERROR]   MethodUtilsTestCase_OE25Dev.testInvokeExactMethodNullArrayNullArray_1_oe:179 Expected: <null> but was: parent
-[ERROR]   MethodUtilsTestCase_OE25Dev.testInvokeExactMethodNullArray_1_oe:169 Expected: <null> but was: parent
-[ERROR]   MethodUtilsTestCase_OE25Dev.testInvokeExactMethodNull_1_oe:185 Expected: <null> but was: java.lang.Object@8f4ea7c
-[ERROR]   MethodUtilsTestCase_OE25Dev.testSetCacheMethods_1_oe:598 expected:<0> but was:<1>
-[ERROR]   PropertyUtilsTestCase_OE25Dev.testCustomIntrospectionEx_1_oe:3651 expected:<0> but was:<2>
-[ERROR]   PropertyUtilsTestCase_OE25Dev.testCustomIntrospection_1_oe:3573 Expected: <null> but was: public void org.apache.commons.beanutils.AlphaBean.setName(java.lang.String)
-[ERROR]   PropertyUtilsTestCase_OE25Dev.testGetDescriptorInvalidBoolean_2_oe:1979 Expected: <null> but was: public boolean org.apache.commons.beanutils.TestBean.isInvalidBoolean()
-[ERROR]   PropertyUtilsTestCase_OE25Dev.testGetReadMethodPublicInterface_1_oe:2162 expected:<[java.lang.Object]> but was:<[foo]>
-[ERROR]   PropertyUtilsTestCase_OE25Dev.testGetSetParentBean_2_oe:3131 expected:<[org.apache.commons.beanutils.SonOfAlphaBean]> but was:<[abcd]>
-[ERROR]   PropertyUtilsTestCase_OE25Dev.testMappedPropertyType_2_oe:2261 expected:<class java.lang.Integer> but was:<int>
-[ERROR]   PropertyUtilsTestCase_OE25Dev.testNestedWithIndex_11_oe:2964 expected:<[org.apache.commons.beanutils.NestedTestBean]> but was:<[base]>
-[ERROR]   PropertyUtilsTestCase_OE25Dev.testNestedWithIndex_1_oe:2584 expected:<[org.apache.commons.beanutils.NestedTestBean]> but was:<[base]>
-[ERROR]   PropertyUtilsTestCase_OE25Dev.testNestedWithIndex_3_oe:2623 expected:<[org.apache.commons.beanutils.NestedTestBean]> but was:<[base]>
-[ERROR]   SuppressPropertiesBeanIntrospectorTestCase_OE25Dev.testPropertyNamesDefensiveCopy_1_oe:148 expected:<1> but was:<2>
-[ERROR]   SuppressPropertiesBeanIntrospectorTestCase_OE25Dev.testPropertyNamesDefensiveCopy_2_oe:161 expected:<false> but was:<true>
-[ERROR]   Jira381TestCase_OE25Dev.testIssue_BEANUTILS_381_getMatchingAccessibleMethod_2_oe:101 expected:<[org.apache.commons.beanutils.proxy.TestServiceBean]> but was:<[performOp]>
-[ERROR]   Jira465TestCase_OE25Dev.testArrayProperty_1_oe:110 expected:<[[]]> but was:<[org.apache.commons.beanutils.bugs.Jira465TestCase_OE25Dev$ArrayProp@1445d7f]>
-[ERROR]   Jira520TestCase_OE25Dev.testAllowAccessToClassProperty_1_oe:54 Expected: <null> but was: class org.apache.commons.beanutils.AlphaBean
-[ERROR]   ArrayConverterTestCase_OE25Dev.testUnderscore_BEANUTILS_302_1_oe:178 expected:<2> but was:<4>
-[ERROR]   ArrayConverterTestCase_OE25Dev.testUnderscore_BEANUTILS_302_2_oe:188 Expected: <null> but was: [Ljava.lang.String;@33afa13b
-[ERROR]   ArrayConverterTestCase_OE25Dev.testUnderscore_BEANUTILS_302_3_oe:199 Expected: <null> but was: [Ljava.lang.String;@7a4ccb53
-[ERROR]   ArrayConverterTestCase_OE25Dev.testUnderscore_BEANUTILS_302_4_oe:211 Expected: <null> but was: [Ljava.lang.String;@309e345f
-[ERROR]   ArrayConverterTestCase_OE25Dev.testUnderscore_BEANUTILS_302_5_oe:224 Expected: <null> but was: [Ljava.lang.String;@56a6d5a6
-[ERROR]   ArrayConverterTestCase_OE25Dev.testUnderscore_BEANUTILS_302_6_oe:238 Expected: <null> but was: [Ljava.lang.String;@18ce0030
-[ERROR]   BigIntegerConverterTestCase_OE25Dev.testSimpleConversion_2_oe:186 expected:<9223372036854775807> but was:<12>
-[ERROR]   BooleanArrayConverterTestCase_OE25Dev.testRegistration_1_oe:1470 Expected: <null> but was: [Z@778d1062
-[ERROR]   ByteConverterTestCase_OE25Dev.testInvalidAmount_1_oe:258 Expected: <null> but was: -129
-[ERROR]   ByteConverterTestCase_OE25Dev.testInvalidAmount_2_oe:274 Expected: <null> but was: -129
-[ERROR]   FloatConverterTestCase_OE25Dev.testInvalidAmount_1_oe:258 Expected: <null> but was: class java.lang.Float
-[ERROR]   IntegerConverterTestCase_OE25Dev.testInvalidAmount_2_oe:289 Expected: <null> but was: -2147483649
-[ERROR]   IntegerConverterTestCase_OE25Dev.testSimpleConversion_1_oe:148 expected:<true> but was:<false>
-[ERROR]   LongConverterTestCase_OE25Dev.testSimpleConversion_1_oe:130 expected:<true> but was:<false>
-[ERROR]   ShortConverterTestCase_OE25Dev.testInvalidAmount_1_oe:259 Expected: <null> but was: -32769
-[ERROR]   ShortConverterTestCase_OE25Dev.testInvalidAmount_2_oe:275 Expected: <null> but was: -32769
-[ERROR]   StringConverterTestCase_OE25Dev.testConvertToTypeString_1_oe:65 Expected: <null> but was: java.lang.Object@2ddc8ecb
-[ERROR]   LocaleBeanificationTestCase_OE25Dev.testBeanUtilsBeanSetInstance_2_oe:1093 expected:<1> but was:<21>
-[ERROR]   LocaleBeanificationTestCase_OE25Dev.testContextClassLoaderUnset_2_oe:1198 expected same:<org.apache.commons.beanutils.locale.LocaleBeanUtilsBean@47af7f3d> was not:<null>
-[ERROR]   LocaleBeanificationTestCase_OE25Dev.testGetByContextClassLoader_3_oe:574 expected:<org.apache.commons.beanutils.locale.LocaleConvertUtilsBean@5fdcaa40> but was:<org.apache.commons.beanutils.locale.LocaleConvertUtilsBean@6dc17b83>
-[ERROR]   LocaleConvertUtilsTestCase_OE25Dev.testDefaultToStringConversionUnsupportedType_1_oe:3603 expected:<20[131]101> but was:<20[,131,]101>
-[ERROR]   LocaleConvertUtilsTestCase_OE25Dev.testObjectToStringScalar_11_oe:563 expected:<null> but was:<null>
-[ERROR]   LocaleConvertUtilsTestCase_OE25Dev.testObjectToStringScalar_1_oe:458 expected:<null> but was:<null>
-[ERROR]   LocaleConvertUtilsTestCase_OE25Dev.testObjectToStringScalar_2_oe:464 expected:<null> but was:<null>
-[ERROR]   LocaleConvertUtilsTestCase_OE25Dev.testObjectToStringScalar_3_oe:471 expected:<null> but was:<null>
-[ERROR]   LocaleConvertUtilsTestCase_OE25Dev.testObjectToStringScalar_4_oe:479 expected:<null> but was:<null>
-[ERROR]   LocaleConvertUtilsTestCase_OE25Dev.testObjectToStringScalar_5_oe:488 expected:<null> but was:<null>
-[ERROR]   LocaleConvertUtilsTestCase_OE25Dev.testObjectToStringScalar_7_oe:509 expected:<null> but was:<null>
-[ERROR]   LocaleConvertUtilsTestCase_OE25Dev.testObjectToStringScalar_9_oe:534 expected:<null> but was:<null>
-[ERROR]   MemoryLeakTestCase_OE25Dev.testMappedPropertyDescriptor_MappedMethodReference1_6_oe:569 expected null, but was:<public java.lang.String org.apache.commons.beanutils.memoryleaktests.pojotests.SomeMappedPojo.getMappedProperty(java.lang.String)>
-[ERROR]   MemoryLeakTestCase_OE25Dev.testMappedPropertyDescriptor_MappedMethodReference1_7_oe:593 expected null, but was:<public void org.apache.commons.beanutils.memoryleaktests.pojotests.SomeMappedPojo.setMappedProperty(java.lang.String,java.lang.String)>
-[ERROR]   MemoryLeakTestCase_OE25Dev.testMappedPropertyDescriptor_MappedMethodReference1_9_oe:644 expected:<[org.apache.commons.beanutils.memoryleaktests.pojotests.SomeMappedPojo]> but was:<[mappedProperty]>
-[ERROR]   MemoryLeakTestCase_OE25Dev.testMappedPropertyDescriptor_MappedMethodReference2_6_oe:757 expected null, but was:<public java.lang.String org.apache.commons.beanutils.memoryleaktests.pojotests.SomeMappedPojo.getMappedProperty(java.lang.String)>
-[ERROR]   MemoryLeakTestCase_OE25Dev.testMappedPropertyDescriptor_MappedMethodReference2_7_oe:781 expected null, but was:<public void org.apache.commons.beanutils.memoryleaktests.pojotests.SomeMappedPojo.setMappedProperty(java.lang.String,java.lang.String)>
-[ERROR]   MemoryLeakTestCase_OE25Dev.testMappedPropertyDescriptor_MappedMethodReference2_9_oe:832 expected:<[org.apache.commons.beanutils.memoryleaktests.pojotests.SomeMappedPojo]> but was:<[mappedProperty]>
-[ERROR] Errors: 
-[ERROR]   BeanMapTestCase_OE25Dev.testGetDefaultTransformersMap_2_oe:455 NullPointer Can...
-[ERROR]   BeanMapTestCase_OE25Dev.testGetDefaultTransformersMap_3_oe:461 NullPointer Can...
-[ERROR]   BeanMapTestCase_OE25Dev.testGetDefaultTransformersMap_4_oe:468 NullPointer Can...
-[ERROR]   BeanMapTestCase_OE25Dev.testGetDefaultTransformersMap_5_oe:476 NullPointer Can...
-[ERROR]   BeanMapTestCase_OE25Dev.testGetDefaultTransformersMap_6_oe:485 NullPointer Can...
-[ERROR]   BeanMapTestCase_OE25Dev.testGetDefaultTransformersMap_7_oe:495 NullPointer Can...
-[ERROR]   BeanMapTestCase_OE25Dev.testGetDefaultTransformersMap_8_oe:506 NullPointer Can...
-[ERROR]   BeanPredicateTestCase_OE25Dev.testEqual_2_oe:46 » IllegalArgument No bean spec...
-[ERROR]   BeanPredicateTestCase_OE25Dev.testNotEqual_2_oe:59 » IllegalArgument Property ...
-[ERROR]   BeanPredicateTestCase_OE25Dev.testNull_2_oe:87 » IllegalArgument No bean speci...
-[ERROR]   DynaResultSetTestCase_OE25Dev.testIteratorCount_3_oe:242 » NoSuchElement
-[ERROR]   FluentPropertyBeanIntrospectorTestCase_OE25Dev.testIntrospection_3_oe:123 NullPointer
-[ERROR]   WrapDynaBeanTestCase_OE25Dev.testIntrospectionWithCustomPropUtils_1_oe:335 » IllegalArgument
+[ERROR]   BeanMapTestCase_OE25Dev.testDefaultTransformersMap_5_oe:545
+[ERROR]   BeanMapTestCase_OE25Dev.testDefaultTransformersMap_6_oe:550
+[ERROR]   BeanMapTestCase_OE25Dev.testDefaultTransformersMap_7_oe:555
+[ERROR]   BeanMapTestCase_OE25Dev.testDefaultTransformersMap_9_oe:565
+[ERROR]   BeanUtilsTestCase_OE25Dev.testCopyPropertyInteger_1_oe:2010 expected:<1> but was:<123>
+[ERROR]   BeanUtilsTestCase_OE25Dev.testCopyPropertyInteger_2_oe:2017 expected:<0> but was:<123>
+[ERROR]   BeanUtilsTestCase_OE25Dev.testCopyPropertyLong_1_oe:2023 expected:<1> but was:<123>
+[ERROR]   BeanUtilsTestCase_OE25Dev.testCopyPropertyLong_2_oe:2030 expected:<0> but was:<123>
+[ERROR]   BeanUtilsTestCase_OE25Dev.testCopyPropertyLong_3_oe:2038 expected:<0> but was:<123>
+[ERROR]   BeanUtilsTestCase_OE25Dev.testCopyPropertyLong_4_oe:2047 expected:<0> but was:<123>
+[ERROR]   BeanUtilsTestCase_OE25Dev.testCopyPropertyLong_5_oe:2057 expected:<0> but was:<123>
+[ERROR]   BeanUtilsTestCase_OE25Dev.testCopyPropertyLong_6_oe:2068 expected:<0> but was:<123>
+[ERROR]   BeanUtilsTestCase_OE25Dev.testCopyPropertyNull_1_oe:2075
+[ERROR]   BeanUtilsTestCase_OE25Dev.testSetPropertyInteger_1_oe:1936 expected:<1> but was:<123>
+[ERROR]   BeanUtilsTestCase_OE25Dev.testSetPropertyInteger_2_oe:1949 expected:<1> but was:<123>
+[ERROR]   BeanUtilsTestCase_OE25Dev.testSetPropertyLong_1_oe:1955 expected:<1> but was:<123>
+[ERROR]   BeanUtilsTestCase_OE25Dev.testSetPropertyLong_2_oe:1968 expected:<1> but was:<123>
+[ERROR]   BeanUtilsTestCase_OE25Dev.testSetPropertyLong_3_oe:1982 expected:<1> but was:<123>
+[ERROR]   BeanUtilsTestCase_OE25Dev.testSetPropertyLong_4_oe:1997 expected:<1> but was:<123>
+[ERROR]   BeanUtilsTestCase_OE25Dev.testSetPropertyNull_1_oe:2004
+[ERROR]   ConvertUtilsTestCase_OE25Dev.testObjectToStringArray_1_oe:745
+[ERROR]   ConvertUtilsTestCase_OE25Dev.testObjectToStringArray_4_oe:758
+[ERROR]   DefaultIntrospectionContextTestCase_OE25Dev.testGetPropertyDescriptorUnknown_1_oe:182
+[ERROR]   DynaBeanMapDecoratorTestCase_OE25Dev.testContainsKey_1_oe:393
+[ERROR]   DynaBeanMapDecoratorTestCase_OE25Dev.testContainsKey_2_oe:398
+[ERROR]   DynaBeanMapDecoratorTestCase_OE25Dev.testContainsValue_2_oe:408
+[ERROR]   DynaBeanMapDecoratorTestCase_OE25Dev.testIsEmpty_2_oe:418
+[ERROR]   DynaBeanMapDecoratorTestCase_OE25Dev.testIsReadOnly_1_oe:383
+[ERROR]   FluentPropertyBeanIntrospectorTestCase_OE25Dev.testIntrospection_3_oe:147
+[ERROR]   LazyDynaBeanTestCase_OE25Dev.testMappedPropertyRestricted_1_oe:511
+[ERROR]   MethodUtilsTestCase_OE25Dev.testNoCaching_1_oe:620 expected:<1> but was:<0>
+[ERROR]   PropertyUtilsTestCase_OE25Dev.testCustomIntrospection_3_oe:4426
+[ERROR]   PropertyUtilsTestCase_OE25Dev.testGetDescriptorInvalidBoolean_3_oe:4336
+[ERROR]   Jira339TestCase_OE25Dev.testIssue_BEANUTILS_331_BeanUtilsBean_populate_2_oe:166
+[ERROR]   Jira339TestCase_OE25Dev.testIssue_BEANUTILS_339_BeanUtilsBean_setProperty_2_oe:153
+[ERROR]   Jira454TestCase_OE25Dev.testCopyProperties_1_oe:55
 [INFO] 
-[ERROR] Tests run: 1763, Failures: 117, Errors: 13, Skipped: 3
+[ERROR] Tests run: 258, Failures: 36, Errors: 0, Skipped: 1
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  3.833 s
-[INFO] Finished at: 2026-03-02T22:43:19-06:00
+[INFO] Total time:  3.409 s
+[INFO] Finished at: 2026-03-07T21:16:06-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-beanutils: There are test failures.
 [ERROR] 

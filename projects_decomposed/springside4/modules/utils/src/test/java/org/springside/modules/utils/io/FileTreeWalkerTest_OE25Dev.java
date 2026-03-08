@@ -24,6 +24,7 @@ public class FileTreeWalkerTest_OE25Dev {
 		File tmpDir = FileUtil.createTempDir();
 
 		List<File> all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		List<File> files = FileTreeWalker.listFile(tmpDir);
 		assertThat(files).hasSize(0);
@@ -34,8 +35,10 @@ public class FileTreeWalkerTest_OE25Dev {
 		File tmpDir = FileUtil.createTempDir();
 
 		List<File> all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		List<File> files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".tmp");
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".abc");
@@ -54,8 +57,10 @@ public class FileTreeWalkerTest_OE25Dev {
 		File tmpDir = FileUtil.createTempDir();
 
 		List<File> all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		List<File> files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".tmp");
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".abc");
@@ -66,6 +71,7 @@ public class FileTreeWalkerTest_OE25Dev {
 		FileUtil.touch(FilePathUtil.contact(childDir, "tmp-" + RandomUtil.nextInt()) + ".tmp");
 
 		all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		files = FileTreeWalker.listFile(tmpDir);
 		assertThat(files).hasSize(3);
@@ -76,8 +82,10 @@ public class FileTreeWalkerTest_OE25Dev {
 		File tmpDir = FileUtil.createTempDir();
 
 		List<File> all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		List<File> files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".tmp");
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".abc");
@@ -88,9 +96,12 @@ public class FileTreeWalkerTest_OE25Dev {
 		FileUtil.touch(FilePathUtil.contact(childDir, "tmp-" + RandomUtil.nextInt()) + ".tmp");
 
 		all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
+		//extension
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tmp");
 		assertThat(files).hasSize(2);
 	}
@@ -100,8 +111,10 @@ public class FileTreeWalkerTest_OE25Dev {
 		File tmpDir = FileUtil.createTempDir();
 
 		List<File> all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		List<File> files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".tmp");
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".abc");
@@ -112,10 +125,14 @@ public class FileTreeWalkerTest_OE25Dev {
 		FileUtil.touch(FilePathUtil.contact(childDir, "tmp-" + RandomUtil.nextInt()) + ".tmp");
 
 		all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
+		//extension
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tmp");
+		// removed other assertion
 
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tp");
 		assertThat(files).hasSize(0);
@@ -126,8 +143,10 @@ public class FileTreeWalkerTest_OE25Dev {
 		File tmpDir = FileUtil.createTempDir();
 
 		List<File> all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		List<File> files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".tmp");
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".abc");
@@ -138,13 +157,19 @@ public class FileTreeWalkerTest_OE25Dev {
 		FileUtil.touch(FilePathUtil.contact(childDir, "tmp-" + RandomUtil.nextInt()) + ".tmp");
 
 		all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
+		//extension
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tmp");
+		// removed other assertion
 
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tp");
+		// removed other assertion
 
+		//wildcard
 		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, "*.tmp");
 		assertThat(files).hasSize(2);
 	}
@@ -154,8 +179,10 @@ public class FileTreeWalkerTest_OE25Dev {
 		File tmpDir = FileUtil.createTempDir();
 
 		List<File> all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		List<File> files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".tmp");
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".abc");
@@ -166,14 +193,21 @@ public class FileTreeWalkerTest_OE25Dev {
 		FileUtil.touch(FilePathUtil.contact(childDir, "tmp-" + RandomUtil.nextInt()) + ".tmp");
 
 		all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
+		//extension
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tmp");
+		// removed other assertion
 
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tp");
+		// removed other assertion
 
+		//wildcard
 		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, "*.tmp");
+		// removed other assertion
 		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, "*.tp");
 		assertThat(files).hasSize(0);
 	}
@@ -183,8 +217,10 @@ public class FileTreeWalkerTest_OE25Dev {
 		File tmpDir = FileUtil.createTempDir();
 
 		List<File> all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		List<File> files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".tmp");
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".abc");
@@ -195,16 +231,25 @@ public class FileTreeWalkerTest_OE25Dev {
 		FileUtil.touch(FilePathUtil.contact(childDir, "tmp-" + RandomUtil.nextInt()) + ".tmp");
 
 		all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
+		//extension
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tmp");
+		// removed other assertion
 
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tp");
+		// removed other assertion
 
+		//wildcard
 		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, "*.tmp");
+		// removed other assertion
 		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, "*.tp");
+		// removed other assertion
 
+		//regex
 		files = FileTreeWalker.listFileWithRegexFileName(tmpDir, ".*\\.tmp");
 		assertThat(files).hasSize(2);
 	}
@@ -214,8 +259,10 @@ public class FileTreeWalkerTest_OE25Dev {
 		File tmpDir = FileUtil.createTempDir();
 
 		List<File> all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		List<File> files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".tmp");
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".abc");
@@ -226,17 +273,27 @@ public class FileTreeWalkerTest_OE25Dev {
 		FileUtil.touch(FilePathUtil.contact(childDir, "tmp-" + RandomUtil.nextInt()) + ".tmp");
 
 		all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
+		//extension
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tmp");
+		// removed other assertion
 
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tp");
+		// removed other assertion
 
+		//wildcard
 		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, "*.tmp");
+		// removed other assertion
 		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, "*.tp");
+		// removed other assertion
 
+		//regex
 		files = FileTreeWalker.listFileWithRegexFileName(tmpDir, ".*\\.tmp");
+		// removed other assertion
 		files = FileTreeWalker.listFileWithRegexFileName(tmpDir, ".*\\.tp");
 		assertThat(files).hasSize(0);
 	}
@@ -246,8 +303,10 @@ public class FileTreeWalkerTest_OE25Dev {
 		File tmpDir = FileUtil.createTempDir();
 
 		List<File> all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		List<File> files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".tmp");
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".abc");
@@ -258,20 +317,32 @@ public class FileTreeWalkerTest_OE25Dev {
 		FileUtil.touch(FilePathUtil.contact(childDir, "tmp-" + RandomUtil.nextInt()) + ".tmp");
 
 		all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
+		//extension
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tmp");
+		// removed other assertion
 
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tp");
+		// removed other assertion
 
+		//wildcard
 		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, "*.tmp");
+		// removed other assertion
 		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, "*.tp");
+		// removed other assertion
 
+		//regex
 		files = FileTreeWalker.listFileWithRegexFileName(tmpDir, ".*\\.tmp");
+		// removed other assertion
 		files = FileTreeWalker.listFileWithRegexFileName(tmpDir, ".*\\.tp");
+		// removed other assertion
 		
 		
+		//antpath
 		files = FileTreeWalker.listFileWithAntPath(tmpDir, "**/*.tmp");
 		assertThat(files).hasSize(2);
 		
@@ -284,8 +355,10 @@ public class FileTreeWalkerTest_OE25Dev {
 		File tmpDir = FileUtil.createTempDir();
 
 		List<File> all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		List<File> files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".tmp");
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".abc");
@@ -296,24 +369,37 @@ public class FileTreeWalkerTest_OE25Dev {
 		FileUtil.touch(FilePathUtil.contact(childDir, "tmp-" + RandomUtil.nextInt()) + ".tmp");
 
 		all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
+		//extension
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tmp");
+		// removed other assertion
 
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tp");
+		// removed other assertion
 
+		//wildcard
 		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, "*.tmp");
+		// removed other assertion
 		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, "*.tp");
+		// removed other assertion
 
+		//regex
 		files = FileTreeWalker.listFileWithRegexFileName(tmpDir, ".*\\.tmp");
+		// removed other assertion
 		files = FileTreeWalker.listFileWithRegexFileName(tmpDir, ".*\\.tp");
+		// removed other assertion
 		
 		
+		//antpath
 		files = FileTreeWalker.listFileWithAntPath(tmpDir, "**/*.tmp");
 		assertThat(files).hasSize(2);
 		
 		files = FileTreeWalker.listFileWithAntPath(tmpDir, "*/*.tmp");
+		// removed other assertion
 		
 		files = FileTreeWalker.listFileWithAntPath(tmpDir, "*.tp");
 		assertThat(files).hasSize(0);
@@ -324,8 +410,10 @@ public class FileTreeWalkerTest_OE25Dev {
 		File tmpDir = FileUtil.createTempDir();
 
 		List<File> all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		List<File> files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".tmp");
 		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".abc");
@@ -336,26 +424,40 @@ public class FileTreeWalkerTest_OE25Dev {
 		FileUtil.touch(FilePathUtil.contact(childDir, "tmp-" + RandomUtil.nextInt()) + ".tmp");
 
 		all = FileTreeWalker.listAll(tmpDir);
+		// removed other assertion
 
 		files = FileTreeWalker.listFile(tmpDir);
+		// removed other assertion
 
+		//extension
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tmp");
+		// removed other assertion
 
 		files = FileTreeWalker.listFileWithExtension(tmpDir, "tp");
+		// removed other assertion
 
+		//wildcard
 		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, "*.tmp");
+		// removed other assertion
 		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, "*.tp");
+		// removed other assertion
 
+		//regex
 		files = FileTreeWalker.listFileWithRegexFileName(tmpDir, ".*\\.tmp");
+		// removed other assertion
 		files = FileTreeWalker.listFileWithRegexFileName(tmpDir, ".*\\.tp");
+		// removed other assertion
 		
 		
+		//antpath
 		files = FileTreeWalker.listFileWithAntPath(tmpDir, "**/*.tmp");
 		assertThat(files).hasSize(2);
 		
 		files = FileTreeWalker.listFileWithAntPath(tmpDir, "*/*.tmp");
+		// removed other assertion
 		
 		files = FileTreeWalker.listFileWithAntPath(tmpDir, "*.tp");
+		// removed other assertion
 
 		FileUtil.deleteDir(tmpDir);
 

@@ -107,6 +107,7 @@ public class OAuth2AccessTokenExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             extracted = extractor.extract(response);
         }
+        // removed other assertion
         assertEquals(Integer.valueOf(5108), extracted.getExpiresIn());
     }
 
@@ -129,6 +130,7 @@ public class OAuth2AccessTokenExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             extracted = extractor.extract(response);
         }
+        // removed other assertion
         assertEquals(Integer.valueOf(5108), extracted.getExpiresIn());
     }
 
@@ -140,6 +142,8 @@ public class OAuth2AccessTokenExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             extracted = extractor.extract(response);
         }
+        // removed other assertion
+        // removed other assertion
         assertEquals("bearer", extracted.getTokenType());
     }
 
@@ -151,6 +155,9 @@ public class OAuth2AccessTokenExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             extracted = extractor.extract(response);
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("166942940015970", extracted.getRefreshToken());
     }
 

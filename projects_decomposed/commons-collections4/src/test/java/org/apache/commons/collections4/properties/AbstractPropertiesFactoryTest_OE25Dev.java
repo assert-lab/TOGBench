@@ -43,6 +43,31 @@ public abstract class AbstractPropertiesFactoryTest_OE25Dev<T extends Properties
     }
 
     @Test
+    public void testInstance() {
+        Assert.assertNotNull(PropertiesFactory.INSTANCE);
+    }
+
+    @Test
+    public void testLoadClassLoaderMissingResource() throws Exception {
+        Assert.assertNull(factory.load(ClassLoader.getSystemClassLoader(), "missing/test.properties"));
+    }
+
+    @Test
+    public void testLoadClassLoaderResource() throws Exception {
+        assertContents(factory.load(ClassLoader.getSystemClassLoader(), "properties/test.properties"));
+    }
+
+    @Test
+    public void testLoadFile() throws Exception {
+        assertContents(factory.load(Paths.get(PATH_STRING).toFile()));
+    }
+
+    @Test
+    public void testLoadFileName() throws Exception {
+        assertContents(factory.load(PATH_STRING));
+    }
+
+    @Test
     public void testLoadInputStream() throws Exception {
         try (final FileInputStream inputStream = new FileInputStream(PATH_STRING)) {
             assertContents(factory.load(inputStream));
@@ -50,10 +75,25 @@ public abstract class AbstractPropertiesFactoryTest_OE25Dev<T extends Properties
     }
 
     @Test
+    public void testLoadPath() throws Exception {
+        assertContents(factory.load(Paths.get(PATH_STRING)));
+    }
+
+    @Test
     public void testLoadReader() throws Exception {
         try (final BufferedReader inputStream = Files.newBufferedReader(Paths.get(PATH_STRING))) {
             assertContents(factory.load(inputStream));
         }
+    }
+
+    @Test
+    public void testLoadUri() throws Exception {
+        assertContents(factory.load(Paths.get(PATH_STRING).toUri()));
+    }
+
+    @Test
+    public void testLoadUrl() throws Exception {
+        assertContents(factory.load(Paths.get(PATH_STRING).toUri().toURL()));
     }
 
     @Test

@@ -1,0 +1,19 @@
+id,test_prefix,test_name,focal_method,docstring
+http-request_2_101,"@Test
+  public void malformedStringUrlCause_oe_101_oe() {
+    try {
+      delete(""\\m/"");
+      fail(""Exception not thrown"");
+    } catch (HttpRequestException e) {
+    }
+    }
+",HttpRequestTest::malformedStringUrlCause_oe_101_oe,"public static HttpRequest delete(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_DELETE);
+  }","/**
+   * Start a 'DELETE' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"

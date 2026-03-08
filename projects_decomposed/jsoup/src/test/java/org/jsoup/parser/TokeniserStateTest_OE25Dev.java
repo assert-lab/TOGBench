@@ -84,6 +84,7 @@ public class TokeniserStateTest_OE25Dev {
         body = "<div>hello world</";
         doc = Jsoup.parse(body);
         els = doc.select("div");
+        // removed other assertion
 
         body = "<div>hello world</div>";
         doc = Jsoup.parse(body);
@@ -100,10 +101,12 @@ public class TokeniserStateTest_OE25Dev {
         body = "<div>hello world</";
         doc = Jsoup.parse(body);
         els = doc.select("div");
+        // removed other assertion
 
         body = "<div>hello world</div>";
         doc = Jsoup.parse(body);
         els = doc.select("div");
+        // removed other assertion
 
         body = "<div>fake</></div>";
         doc = Jsoup.parse(body);
@@ -120,14 +123,17 @@ public class TokeniserStateTest_OE25Dev {
         body = "<div>hello world</";
         doc = Jsoup.parse(body);
         els = doc.select("div");
+        // removed other assertion
 
         body = "<div>hello world</div>";
         doc = Jsoup.parse(body);
         els = doc.select("div");
+        // removed other assertion
 
         body = "<div>fake</></div>";
         doc = Jsoup.parse(body);
         els = doc.select("div");
+        // removed other assertion
 
         body = "<div>fake</?</div>";
         doc = Jsoup.parse(body);
@@ -156,6 +162,7 @@ public class TokeniserStateTest_OE25Dev {
         body = "<textarea><fake></textarea>";
         doc = Jsoup.parse(body);
         els = doc.select("textarea");
+        // removed other assertion
 
         body = "<textarea><open";
         doc = Jsoup.parse(body);
@@ -172,10 +179,12 @@ public class TokeniserStateTest_OE25Dev {
         body = "<textarea><fake></textarea>";
         doc = Jsoup.parse(body);
         els = doc.select("textarea");
+        // removed other assertion
 
         body = "<textarea><open";
         doc = Jsoup.parse(body);
         els = doc.select("textarea");
+        // removed other assertion
 
         body = "<textarea>hello world</?fake</textarea>";
         doc = Jsoup.parse(body);
@@ -210,6 +219,7 @@ public class TokeniserStateTest_OE25Dev {
 
         Element body = doc.body();
         Comment comment = (Comment) body.childNode(1);
+        // removed other assertion
         Element p = body.child(1);
         TextNode text = (TextNode) p.childNode(0);
         assertEquals("Hello", text.getWholeText());
@@ -232,6 +242,7 @@ public class TokeniserStateTest_OE25Dev {
 
         Element body = doc.body();
         Comment comment = (Comment) body.childNode(1);
+        // removed other assertion
         Element p = body.child(1);
         TextNode text = (TextNode) p.childNode(0);
         assertEquals("Hello", text.getWholeText());
@@ -300,6 +311,7 @@ public class TokeniserStateTest_OE25Dev {
     }
 
     @Test public void handlesLessInTagThanAsNewTag_1_oe() {
+        // out of spec, but clear author intent
         String html = "<p\n<p<div id=one <span>Two";
         Document doc = Jsoup.parse(html);
         assertEquals("<p></p><p></p><div id=\"one\"><span>Two</span></div>", TextUtil.stripNewlines(doc.body().html()));
@@ -377,6 +389,7 @@ public class TokeniserStateTest_OE25Dev {
     public void attributeValUnquoted_2_oe() {
         Document doc = Jsoup.parse("<p name=foo&lt;bar>");
         Element p = doc.selectFirst("p");
+        // removed other assertion
 
         doc = Jsoup.parse("<p foo=");
         assertEquals("<p foo></p>", doc.body().html());

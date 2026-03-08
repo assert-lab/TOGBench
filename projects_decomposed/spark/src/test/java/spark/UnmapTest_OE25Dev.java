@@ -28,6 +28,7 @@ public class UnmapTest_OE25Dev {
         awaitInitialization();
 
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/tobeunmapped", null);
+        // removed other assertion
         Assert.assertEquals("tobeunmapped", response.body);
     }
 
@@ -37,6 +38,8 @@ public class UnmapTest_OE25Dev {
         awaitInitialization();
 
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/tobeunmapped", null);
+        // removed other assertion
+        // removed other assertion
 
         unmap("/tobeunmapped");
 
@@ -50,10 +53,13 @@ public class UnmapTest_OE25Dev {
         awaitInitialization();
 
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/tobeunmapped", null);
+        // removed other assertion
+        // removed other assertion
 
         unmap("/tobeunmapped");
 
         response = testUtil.doMethod("GET", "/tobeunmapped", null);
+        // removed other assertion
 
         get("/tobeunmapped", (q, a) -> "tobeunmapped");
 
@@ -67,14 +73,18 @@ public class UnmapTest_OE25Dev {
         awaitInitialization();
 
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/tobeunmapped", null);
+        // removed other assertion
+        // removed other assertion
 
         unmap("/tobeunmapped");
 
         response = testUtil.doMethod("GET", "/tobeunmapped", null);
+        // removed other assertion
 
         get("/tobeunmapped", (q, a) -> "tobeunmapped");
 
         response = testUtil.doMethod("GET", "/tobeunmapped", null);
+        // removed other assertion
         Assert.assertEquals("tobeunmapped", response.body);
     }
 
@@ -84,14 +94,19 @@ public class UnmapTest_OE25Dev {
         awaitInitialization();
 
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/tobeunmapped", null);
+        // removed other assertion
+        // removed other assertion
 
         unmap("/tobeunmapped");
 
         response = testUtil.doMethod("GET", "/tobeunmapped", null);
+        // removed other assertion
 
         get("/tobeunmapped", (q, a) -> "tobeunmapped");
 
         response = testUtil.doMethod("GET", "/tobeunmapped", null);
+        // removed other assertion
+        // removed other assertion
 
         unmap("/tobeunmapped", "get");
 

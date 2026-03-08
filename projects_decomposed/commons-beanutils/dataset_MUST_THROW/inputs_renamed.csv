@@ -1,0 +1,2101 @@
+id,test_prefix,test_name
+commons-beanutils_7_101,"public void testAddPropertyRestricted1_oe_101_oe() {
+        try {
+            dynaClass.add(testProperty);
+            fail(""add(name) did not throw IllegalStateException"");
+        } catch (final IllegalStateException expected) {
+            // expected result
+        }
+    }
+",LazyDynaClassTestCase::testAddPropertyRestricted1_oe_101_oe
+commons-beanutils_8_101,"public void testAddPropertyRestricted2_oe_101_oe() {
+        try {
+            dynaClass.add(testProperty, String.class);
+            fail(""add(name, type) did not throw IllegalStateException"");
+        } catch (final IllegalStateException expected) {
+            // expected result
+        }
+    }
+",LazyDynaClassTestCase::testAddPropertyRestricted2_oe_101_oe
+commons-beanutils_14_101,"public void testRemovePropertyRestricted_oe_101_oe() {
+        try {
+            dynaClass.remove(testProperty);
+            fail(""remove property when MutableDynaClassis restricted did not throw IllegalStateException"");
+        } catch (final IllegalStateException expected) {
+            // expected result
+        }
+    }
+",LazyDynaClassTestCase::testRemovePropertyRestricted_oe_101_oe
+commons-beanutils_82_101,"public void testIteratorResults_oe_101_oe() {
+        try {
+            row.get(""unknownProperty"");
+            fail(""Did not throw IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            // Expected result
+        }
+    }
+",DynaResultSetTestCase::testIteratorResults_oe_101_oe
+commons-beanutils_83_102,"public void testIteratorResultsNormalCase_oe_102_oe() {
+        try {
+            row.get(""unknownProperty"");
+            fail(""Did not throw IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            // Expected result
+        }
+    }
+",DynaResultSetTestCase::testIteratorResultsNormalCase_oe_102_oe
+commons-beanutils_96_101,"public void testNegativeScalar_oe_101_oe() {
+        try {
+            value = ConvertUtils.convert
+                (""org.apache.commons.beanutils.Undefined"", Class.class);
+            fail(""Should have thrown conversion exception"");
+        } catch (final ConversionException e) {
+            // Expected result
+        }
+    }
+",ConvertUtilsTestCase::testNegativeScalar_oe_101_oe
+commons-beanutils_101_101,"public void testSeparateConvertInstances_oe_101_oe() throws Exception {
+        try {
+
+            utilsOne.convert(""true"", Boolean.TYPE);
+            fail(""Register converter failed."");
+
+        } catch (final PassTestException e) { /* This shows that the registration has worked */ }
+    }
+",ConvertUtilsTestCase::testSeparateConvertInstances_oe_101_oe
+commons-beanutils_101_102,"public void testSeparateConvertInstances_oe_102_oe() throws Exception {
+        try {
+            // nothing should have changed
+            value = utilsTwo.convert(""true"", Boolean.TYPE);
+
+        } catch (final PassTestException e) {
+            // This is a failure since utilsTwo should still have
+            // standard converters registered
+            fail(""Registering a converter for an instance should not effect another instance."");
+        }
+    }
+",ConvertUtilsTestCase::testSeparateConvertInstances_oe_102_oe
+commons-beanutils_108_101,"public void testGetIndexedValues_oe_101_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean, ""intArray"", i);
+            } catch (final Throwable t) {
+                fail(""intArray "" + i + "" threw "" + t);
+            }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_101_oe
+commons-beanutils_108_102,"public void testGetIndexedValues_oe_102_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean, ""intIndexed"", i);
+            } catch (final Throwable t) {
+                fail(""intIndexed "" + i + "" threw "" + t);
+            }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_102_oe
+commons-beanutils_108_103,"public void testGetIndexedValues_oe_103_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean, ""listIndexed"", i);
+            } catch (final Throwable t) {
+                fail(""listIndexed "" + i + "" threw "" + t);
+            }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_103_oe
+commons-beanutils_108_104,"public void testGetIndexedValues_oe_104_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean, ""stringArray"", i);
+            } catch (final Throwable t) {
+                fail(""stringArray "" + i + "" threw "" + t);
+            }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_104_oe
+commons-beanutils_108_105,"public void testGetIndexedValues_oe_105_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean, ""stringIndexed"", i);
+            } catch (final Throwable t) {
+                fail(""stringIndexed "" + i + "" threw "" + t);
+            }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_105_oe
+commons-beanutils_108_106,"public void testGetIndexedValues_oe_106_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean,
+                                ""intArray["" + i + ""]"");
+            } catch (final Throwable t) {
+                fail(""intArray "" + i + "" threw "" + t);
+            }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_106_oe
+commons-beanutils_108_107,"public void testGetIndexedValues_oe_107_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean,
+                                ""intIndexed["" + i + ""]"");
+            } catch (final Throwable t) {
+                fail(""intIndexed "" + i + "" threw "" + t);
+            }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_107_oe
+commons-beanutils_108_108,"public void testGetIndexedValues_oe_108_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean,
+                                ""listIndexed["" + i + ""]"");
+            } catch (final Throwable t) {
+                fail(""listIndexed "" + i + "" threw "" + t);
+            }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_108_oe
+commons-beanutils_108_109,"public void testGetIndexedValues_oe_109_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean,
+                                ""stringArray["" + i + ""]"");
+            } catch (final Throwable t) {
+                fail(""stringArray "" + i + "" threw "" + t);
+            }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_109_oe
+commons-beanutils_108_110,"public void testGetIndexedValues_oe_110_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean,
+                                ""stringIndexed["" + i + ""]"");
+            } catch (final Throwable t) {
+                fail(""stringIndexed "" + i + "" threw "" + t);
+            }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_110_oe
+commons-beanutils_108_111,"public void testGetIndexedValues_oe_111_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""intArray"", -1);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_111_oe
+commons-beanutils_108_112,"public void testGetIndexedValues_oe_112_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""intArray"", 5);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_112_oe
+commons-beanutils_108_113,"public void testGetIndexedValues_oe_113_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""intIndexed"", -1);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_113_oe
+commons-beanutils_108_114,"public void testGetIndexedValues_oe_114_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""intIndexed"", 5);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_114_oe
+commons-beanutils_108_115,"public void testGetIndexedValues_oe_115_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""listIndexed"", -1);
+            fail(""Should have thrown IndexOutOfBoundsException"");
+        } catch (final IndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_115_oe
+commons-beanutils_108_116,"public void testGetIndexedValues_oe_116_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""listIndexed"", 5);
+            fail(""Should have thrown IndexOutOfBoundsException"");
+        } catch (final IndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_116_oe
+commons-beanutils_108_117,"public void testGetIndexedValues_oe_117_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""stringArray"", -1);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_117_oe
+commons-beanutils_108_118,"public void testGetIndexedValues_oe_118_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""stringArray"", 5);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_118_oe
+commons-beanutils_108_119,"public void testGetIndexedValues_oe_119_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""stringIndexed"", -1);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_119_oe
+commons-beanutils_108_120,"public void testGetIndexedValues_oe_120_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""stringIndexed"", 5);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",DynaPropertyUtilsTestCase::testGetIndexedValues_oe_120_oe
+commons-beanutils_135_101,"public void testSetIndexedValues_oe_101_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""intArray"", 0,
+                    new Integer(1));
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""intArray"", 0);
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_101_oe
+commons-beanutils_135_102,"public void testSetIndexedValues_oe_102_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""intIndexed"", 1,
+                    new Integer(11));
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""intIndexed"", 1);
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_102_oe
+commons-beanutils_135_103,"public void testSetIndexedValues_oe_103_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""listIndexed"", 2,
+                    ""New Value 2"");
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""listIndexed"", 2);
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_103_oe
+commons-beanutils_135_104,"public void testSetIndexedValues_oe_104_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""stringArray"", 2,
+                    ""New Value 2"");
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""stringArray"", 2);
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_104_oe
+commons-beanutils_135_105,"public void testSetIndexedValues_oe_105_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""stringArray"", 3,
+                    ""New Value 3"");
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""stringArray"", 3);
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_105_oe
+commons-beanutils_135_106,"public void testSetIndexedValues_oe_106_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""intArray[4]"",
+                    new Integer(1));
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""intArray[4]"");
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_106_oe
+commons-beanutils_135_107,"public void testSetIndexedValues_oe_107_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""intIndexed[3]"",
+                    new Integer(11));
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""intIndexed[3]"");
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_107_oe
+commons-beanutils_135_108,"public void testSetIndexedValues_oe_108_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""listIndexed[1]"",
+                    ""New Value 2"");
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""listIndexed[1]"");
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_108_oe
+commons-beanutils_135_109,"public void testSetIndexedValues_oe_109_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""stringArray[1]"",
+                    ""New Value 2"");
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""stringArray[2]"");
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_109_oe
+commons-beanutils_135_110,"public void testSetIndexedValues_oe_110_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""stringArray[0]"",
+                    ""New Value 3"");
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""stringArray[0]"");
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",DynaPropertyUtilsTestCase::testSetIndexedValues_oe_110_oe
+commons-beanutils_160_101,"public void testGetDescriptorArguments_oe_101_oe() {
+        try {
+            final DynaProperty descriptor =
+                    bean.getDynaClass().getDynaProperty(""unknown"");
+        } catch (final Throwable t) {
+            fail(""Threw "" + t + "" instead of returning null"");
+        }
+    }
+",BasicDynaBeanTestCase::testGetDescriptorArguments_oe_101_oe
+commons-beanutils_160_102,"public void testGetDescriptorArguments_oe_102_oe() {
+        try {
+            bean.getDynaClass().getDynaProperty(null);
+            fail(""Should throw IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",BasicDynaBeanTestCase::testGetDescriptorArguments_oe_102_oe
+commons-beanutils_162_101,"public void testGetIndexedArguments_oe_101_oe() {
+        try {
+            bean.get(""intArray"", -1);
+            fail(""Should throw IndexOutOfBoundsException"");
+        } catch (final IndexOutOfBoundsException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",BasicDynaBeanTestCase::testGetIndexedArguments_oe_101_oe
+commons-beanutils_166_101,"public void testGetSimpleArguments_oe_101_oe() {
+        try {
+            bean.get(null);
+            fail(""Should throw IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            // Expected response
+        } catch (final Throwable t) {
+        }
+    }
+",BasicDynaBeanTestCase::testGetSimpleArguments_oe_101_oe
+commons-beanutils_233_101,"public void testGetSuppressedPropertiesModify_oe_101_oe() {
+        try {
+            properties.add(""anotherProperty"");
+            fail(""Could modify properties"");
+        } catch (final UnsupportedOperationException uoex) {
+            // ok
+        }
+    }
+",SuppressPropertiesBeanIntrospectorTestCase::testGetSuppressedPropertiesModify_oe_101_oe
+commons-beanutils_268_101,"public void testPut_oe_101_oe() {
+        try {
+            decoratedMap.put(stringProp.getName(), newValue);
+            fail(""Not read only"");
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+    }
+",DynaBeanMapDecoratorTestCase::testPut_oe_101_oe
+commons-beanutils_269_101,"public void testPutAll_oe_101_oe() {
+        try {
+            decoratedMap.putAll(newMap);
+            fail(""Not read only"");
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+    }
+",DynaBeanMapDecoratorTestCase::testPutAll_oe_101_oe
+commons-beanutils_275_101,"public void testNotFound_oe_101_oe() {
+        try {
+            new MappedPropertyDescriptor(property, clazz);
+            fail(""Property '"" + property + ""' found in "" + clazz.getName());
+        } catch (final Exception ex) {
+            // expected result
+        }
+    }
+",MappedPropertyTestCase::testNotFound_oe_101_oe
+commons-beanutils_284_101,"public void testProtected_oe_101_oe() {
+        try {
+            new MappedPropertyDescriptor(property, clazz);
+            fail(""Property '"" + property + ""' found in "" + clazz.getName());
+        } catch (final Exception ex) {
+            // expected result
+        }
+    }
+",MappedPropertyTestCase::testProtected_oe_101_oe
+commons-beanutils_286_101,"public void testProtectedParentMethod_oe_101_oe() {
+        try {
+            new MappedPropertyDescriptor(property, clazz);
+            fail(""Property '"" + property + ""' found in "" + clazz.getName());
+        } catch (final Exception ex) {
+        }
+    }
+",MappedPropertyTestCase::testProtectedParentMethod_oe_101_oe
+commons-beanutils_288_101,"public void testInterfaceNotFound_oe_101_oe() {
+        try {
+            new MappedPropertyDescriptor(property, clazz);
+            fail(""Property '"" + property + ""' found in "" + clazz.getName());
+        } catch (final Exception ex) {
+        }
+    }
+",MappedPropertyTestCase::testInterfaceNotFound_oe_101_oe
+commons-beanutils_315_101,"public void testPropertyNamesModify_oe_101_oe() {
+        try {
+            names.add(PROP);
+            fail(""Could modify property names set!"");
+        } catch (final UnsupportedOperationException uex) {
+            // ok
+        }
+    }
+",DefaultIntrospectionContextTestCase::testPropertyNamesModify_oe_101_oe
+commons-beanutils_322_101,"public void testListResults_oe_101_oe() {
+        try {
+            row.get(""unknownProperty"");
+            fail(""Did not throw IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            // Expected result
+        }
+    }
+",DynaRowSetTestCase::testListResults_oe_101_oe
+commons-beanutils_323_102,"public void testListResultsNormalCase_oe_102_oe() {
+        try {
+            row.get(""unknownProperty"");
+            fail(""Did not throw IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            // Expected result
+        }
+    }
+",DynaRowSetTestCase::testListResultsNormalCase_oe_102_oe
+commons-beanutils_326_101,"public void testSimpleProperty_oe_101_oe() {
+        try {
+            bean.set(testProperty, testString1);
+            fail(""expected ConversionException trying to set an Integer property to a String"");
+        } catch (final ConversionException expected) {
+            // expected result
+        }
+    }
+",LazyDynaBeanTestCase::testSimpleProperty_oe_101_oe
+commons-beanutils_328_101,"public void testSimplePropertyRestricted_oe_101_oe() {
+        try {
+            bean.set(testProperty, testString1);
+            fail(""expected IllegalArgumentException trying to add new property to restricted DynaClass"");
+        } catch (final IllegalArgumentException expected) {
+            // expected result
+        }
+    }
+",LazyDynaBeanTestCase::testSimplePropertyRestricted_oe_101_oe
+commons-beanutils_332_101,"public void testMappedPropertyRestricted_oe_101_oe() {
+        try {
+            bean.set(testProperty, testKey, testInteger1);
+            fail(""expected IllegalArgumentException trying to add new property to restricted MutableDynaClass"");
+        } catch (final IllegalArgumentException expected) {
+            // expected result
+        }
+    }
+",LazyDynaBeanTestCase::testMappedPropertyRestricted_oe_101_oe
+commons-beanutils_333_101,"public void testMappedInvalidType_oe_101_oe() {
+        try {
+            bean.set(testProperty, testKey, testInteger1);
+            fail(""set(property, key, value) should have thrown IllegalArgumentException"");
+        } catch (final IllegalArgumentException expected) {
+            // expected result
+        }
+    }
+",LazyDynaBeanTestCase::testMappedInvalidType_oe_101_oe
+commons-beanutils_340_101,"public void testIndexedPropertyRestricted_oe_101_oe() {
+        try {
+            bean.set(testProperty, index, testInteger1);
+            fail(""expected IllegalArgumentException trying to add new property to restricted MutableDynaClass"");
+        } catch (final IllegalArgumentException expected) {
+            // expected result
+        }
+    }
+",LazyDynaBeanTestCase::testIndexedPropertyRestricted_oe_101_oe
+commons-beanutils_341_101,"public void testIndexedInvalidType_oe_101_oe() {
+        try {
+            bean.set(testProperty, index, testString1);
+            fail(""set(property, index, value) should have thrown IllegalArgumentException"");
+        } catch (final IllegalArgumentException expected) {
+            // expected result
+        }
+    }
+",LazyDynaBeanTestCase::testIndexedInvalidType_oe_101_oe
+commons-beanutils_391_101,"public void testSeparateInstances_oe_101_oe() throws Exception {
+        try {
+
+            bean.setBooleanProperty(false);
+            utilsOne.setProperty(bean, ""booleanProperty"", ""true"");
+            fail(""Registered conversion not used."");
+
+        } catch (final PassTestException e) { /* Do nothing */ }
+    }
+",BeanUtilsTestCase::testSeparateInstances_oe_101_oe
+commons-beanutils_391_102,"public void testSeparateInstances_oe_102_oe() throws Exception {
+        try {
+
+            bean.setBooleanProperty(false);
+            utilsTwo.setProperty(bean, ""booleanProperty"", ""true"");
+
+        } catch (final PassTestException e) {
+            fail(""Registed converter is used by other instances"");
+        }
+    }
+",BeanUtilsTestCase::testSeparateInstances_oe_102_oe
+commons-beanutils_406_101,"public void testTransformWithIndexedProperty_oe_101_oe() {
+        try {
+            transformer.transform(testBean);
+            fail(""Should have thrown an ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException e) {
+            /* this is what should happen */
+        }
+    }
+",BeanToPropertyValueTransformerTestCase::testTransformWithIndexedProperty_oe_101_oe
+commons-beanutils_408_101,"public void testTransformWithNullInPath_oe_101_oe() {
+        try {
+            transformer.transform(new TestBean());
+            fail(""Should have throw IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            /* ignore this is what should happen */
+        }
+    }
+",BeanToPropertyValueTransformerTestCase::testTransformWithNullInPath_oe_101_oe
+commons-beanutils_412_101,"public void testSimplePropertyRestricted_oe_101_oe() {
+        try {
+            dynaMap.set(testProperty, testString1);
+            fail(""expected IllegalArgumentException trying to add new property to restricted DynaClass"");
+        } catch (final IllegalArgumentException expected) {
+            // expected result
+        }
+    }
+",LazyDynaMapTestCase::testSimplePropertyRestricted_oe_101_oe
+commons-beanutils_416_101,"public void testMappedPropertyRestricted_oe_101_oe() {
+        try {
+            dynaMap.set(testProperty, testKey, testInteger1);
+            fail(""expected IllegalArgumentException trying to add new property to restricted MutableDynaClass"");
+        } catch (final IllegalArgumentException expected) {
+            // expected result
+        }
+    }
+",LazyDynaMapTestCase::testMappedPropertyRestricted_oe_101_oe
+commons-beanutils_417_101,"public void testMappedInvalidType_oe_101_oe() {
+        try {
+            dynaMap.set(testProperty, testKey, testInteger1);
+            fail(""set(property, key, value) should have thrown IllegalArgumentException"");
+        } catch (final IllegalArgumentException expected) {
+            // expected result
+        }
+    }
+",LazyDynaMapTestCase::testMappedInvalidType_oe_101_oe
+commons-beanutils_424_101,"public void testIndexedPropertyRestricted_oe_101_oe() {
+        try {
+            dynaMap.set(testProperty, index, testInteger1);
+            fail(""expected IllegalArgumentException trying to add new property to restricted MutableDynaClass"");
+        } catch (final IllegalArgumentException expected) {
+            // expected result
+        }
+    }
+",LazyDynaMapTestCase::testIndexedPropertyRestricted_oe_101_oe
+commons-beanutils_425_101,"public void testIndexedInvalidType_oe_101_oe() {
+        try {
+            dynaMap.set(testProperty, index, testString1);
+            fail(""set(property, index, value) should have thrown IllegalArgumentException"");
+        } catch (final IllegalArgumentException expected) {
+            // expected result
+        }
+    }
+",LazyDynaMapTestCase::testIndexedInvalidType_oe_101_oe
+commons-beanutils_435_101,"public void testGetIndexedValues_oe_101_oe() {
+            try {
+                value = PropertyUtils.getIndexedProperty
+                    (bean, ""dupProperty"", i);
+            } catch (final Throwable t) {
+                fail(""dupProperty "" + i + "" threw "" + t);
+            }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_101_oe
+commons-beanutils_435_102,"public void testGetIndexedValues_oe_102_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean, ""intArray"", i);
+            } catch (final Throwable t) {
+                fail(""intArray "" + i + "" threw "" + t);
+            }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_102_oe
+commons-beanutils_435_103,"public void testGetIndexedValues_oe_103_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean, ""intIndexed"", i);
+            } catch (final Throwable t) {
+                fail(""intIndexed "" + i + "" threw "" + t);
+            }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_103_oe
+commons-beanutils_435_104,"public void testGetIndexedValues_oe_104_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean, ""listIndexed"", i);
+            } catch (final Throwable t) {
+                fail(""listIndexed "" + i + "" threw "" + t);
+            }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_104_oe
+commons-beanutils_435_105,"public void testGetIndexedValues_oe_105_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean, ""stringArray"", i);
+            } catch (final Throwable t) {
+                fail(""stringArray "" + i + "" threw "" + t);
+            }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_105_oe
+commons-beanutils_435_106,"public void testGetIndexedValues_oe_106_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean, ""stringIndexed"", i);
+            } catch (final Throwable t) {
+                fail(""stringIndexed "" + i + "" threw "" + t);
+            }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_106_oe
+commons-beanutils_435_107,"public void testGetIndexedValues_oe_107_oe() {
+            try {
+                value = PropertyUtils.getIndexedProperty
+                    (bean, ""dupProperty["" + i + ""]"");
+            } catch (final Throwable t) {
+                fail(""dupProperty "" + i + "" threw "" + t);
+            }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_107_oe
+commons-beanutils_435_108,"public void testGetIndexedValues_oe_108_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean,
+                                ""intArray["" + i + ""]"");
+            } catch (final Throwable t) {
+                fail(""intArray "" + i + "" threw "" + t);
+            }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_108_oe
+commons-beanutils_435_109,"public void testGetIndexedValues_oe_109_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean,
+                                ""intIndexed["" + i + ""]"");
+            } catch (final Throwable t) {
+                fail(""intIndexed "" + i + "" threw "" + t);
+            }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_109_oe
+commons-beanutils_435_110,"public void testGetIndexedValues_oe_110_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean,
+                                ""listIndexed["" + i + ""]"");
+            } catch (final Throwable t) {
+                fail(""listIndexed "" + i + "" threw "" + t);
+            }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_110_oe
+commons-beanutils_435_111,"public void testGetIndexedValues_oe_111_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean,
+                                ""stringArray["" + i + ""]"");
+            } catch (final Throwable t) {
+                fail(""stringArray "" + i + "" threw "" + t);
+            }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_111_oe
+commons-beanutils_435_112,"public void testGetIndexedValues_oe_112_oe() {
+            try {
+                value =
+                        PropertyUtils.getIndexedProperty(bean,
+                                ""stringIndexed["" + i + ""]"");
+            } catch (final Throwable t) {
+                fail(""stringIndexed "" + i + "" threw "" + t);
+            }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_112_oe
+commons-beanutils_435_113,"public void testGetIndexedValues_oe_113_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""dupProperty"", -1);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_113_oe
+commons-beanutils_435_114,"public void testGetIndexedValues_oe_114_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""dupProperty"", 5);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_114_oe
+commons-beanutils_435_115,"public void testGetIndexedValues_oe_115_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""intArray"", -1);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_115_oe
+commons-beanutils_435_116,"public void testGetIndexedValues_oe_116_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""intArray"", 5);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_116_oe
+commons-beanutils_435_117,"public void testGetIndexedValues_oe_117_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""intIndexed"", -1);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_117_oe
+commons-beanutils_435_118,"public void testGetIndexedValues_oe_118_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""intIndexed"", 5);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_118_oe
+commons-beanutils_435_119,"public void testGetIndexedValues_oe_119_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""listIndexed"", -1);
+            fail(""Should have thrown IndexOutOfBoundsException"");
+        } catch (final IndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_119_oe
+commons-beanutils_435_120,"public void testGetIndexedValues_oe_120_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""listIndexed"", 5);
+            fail(""Should have thrown IndexOutOfBoundsException"");
+        } catch (final IndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_120_oe
+commons-beanutils_435_121,"public void testGetIndexedValues_oe_121_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""stringArray"", -1);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_121_oe
+commons-beanutils_435_122,"public void testGetIndexedValues_oe_122_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""stringArray"", 5);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_122_oe
+commons-beanutils_435_123,"public void testGetIndexedValues_oe_123_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""stringIndexed"", -1);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_123_oe
+commons-beanutils_435_124,"public void testGetIndexedValues_oe_124_oe() {
+        try {
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""stringIndexed"", 5);
+            fail(""Should have thrown ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException t) {
+            // Expected results
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetIndexedValues_oe_124_oe
+commons-beanutils_456_101,"public void testThrowNestedNull_oe_101_oe() throws Exception {
+        try {
+            PropertyUtils.getProperty(
+                                nestedBean,
+                                ""simpleBeanProperty.indexedProperty[0]"");
+            fail(""NestedNullException not thrown"");
+        } catch (final NestedNullException e) {
+            // that's what we wanted!
+        }
+    }
+",PropertyUtilsTestCase::testThrowNestedNull_oe_101_oe
+commons-beanutils_458_101,"public void testGetPropertyType_oe_101_oe() {
+        try {
+
+            // Scalar and Indexed Properties
+            clazz = PropertyUtils.getPropertyType(bean, ""booleanProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""booleanSecond"");
+            clazz = PropertyUtils.getPropertyType(bean, ""doubleProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""dupProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""floatProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""intArray"");
+            clazz = PropertyUtils.getPropertyType(bean, ""intIndexed"");
+            clazz = PropertyUtils.getPropertyType(bean, ""intProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""listIndexed"");
+            clazz = PropertyUtils.getPropertyType(bean, ""longProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""mappedProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""mappedIntProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""readOnlyProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""shortProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""stringArray"");
+            clazz = PropertyUtils.getPropertyType(bean, ""stringIndexed"");
+            clazz = PropertyUtils.getPropertyType(bean, ""stringProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""writeOnlyProperty"");
+
+            // Nested Properties
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.booleanProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.booleanSecond"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.doubleProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.dupProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.floatProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.intArray"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.intIndexed"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.intProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.listIndexed"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.longProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.mappedProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.mappedIntProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.readOnlyProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.shortProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.stringArray"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.stringIndexed"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.stringProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nested.writeOnlyProperty"");
+
+            // Nested DynaBean
+            clazz = PropertyUtils.getPropertyType(bean, ""nestedDynaBean"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nestedDynaBean.stringProperty"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nestedDynaBean.nestedBean"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nestedDynaBean.nestedBean.nestedDynaBean"");
+            clazz = PropertyUtils.getPropertyType(bean, ""nestedDynaBean.nestedBean.nestedDynaBean.stringProperty"");
+
+            // test Null
+            clazz = PropertyUtils.getPropertyType(bean, ""nestedDynaBean.nullDynaBean"");
+            try {
+                clazz = PropertyUtils.getPropertyType(bean, ""nestedDynaBean.nullDynaBean.foo"");
+                fail(""Expected NestedNullException for nestedDynaBean.nullDynaBean.foo"");
+            } catch (final NestedNullException e) {
+                // expected
+            }
+
+        } catch (final Exception e) {
+        }
+    }
+",PropertyUtilsTestCase::testGetPropertyType_oe_101_oe
+commons-beanutils_460_101,"public void testGetReadMethodPublicInterface_oe_101_oe() {
+        try {
+            reader.invoke(beanPrivate, (Object[]) new Class<?>[0]);
+            fail(""Foo reader did throw IllegalAccessException"");
+        } catch (final IllegalAccessException e) {
+            // Expected result for this test
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testGetReadMethodPublicInterface_oe_101_oe
+commons-beanutils_474_101,"public void testIsReadable_oe_101_oe() {
+        try {
+            property = ""stringProperty"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isReadable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsReadable_oe_101_oe
+commons-beanutils_474_102,"public void testIsReadable_oe_102_oe() {
+        try {
+            property = ""stringIndexed"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isReadable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsReadable_oe_102_oe
+commons-beanutils_474_103,"public void testIsReadable_oe_103_oe() {
+        try {
+            property = ""mappedProperty"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isReadable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsReadable_oe_103_oe
+commons-beanutils_474_104,"public void testIsReadable_oe_104_oe() {
+        try {
+            property = ""nestedDynaBean"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isReadable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsReadable_oe_104_oe
+commons-beanutils_474_105,"public void testIsReadable_oe_105_oe() {
+        try {
+            property = ""nestedDynaBean.stringProperty"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isReadable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsReadable_oe_105_oe
+commons-beanutils_474_106,"public void testIsReadable_oe_106_oe() {
+        try {
+            property = ""nestedDynaBean.nestedBean"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isReadable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsReadable_oe_106_oe
+commons-beanutils_474_107,"public void testIsReadable_oe_107_oe() {
+        try {
+            property = ""nestedDynaBean.nestedBean.nestedDynaBean"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isReadable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsReadable_oe_107_oe
+commons-beanutils_474_108,"public void testIsReadable_oe_108_oe() {
+        try {
+            property = ""nestedDynaBean.nestedBean.nestedDynaBean.stringProperty"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isReadable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsReadable_oe_108_oe
+commons-beanutils_474_109,"public void testIsReadable_oe_109_oe() {
+        try {
+            property = ""nestedDynaBean.nullDynaBean"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isReadable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsReadable_oe_109_oe
+commons-beanutils_474_110,"public void testIsReadable_oe_110_oe() {
+        try {
+            property = ""nestedDynaBean.nullDynaBean.foo"";
+            fail(""Property "" + property +"" isReadable expected NestedNullException"");
+        } catch (final NestedNullException e) {
+            // expected result
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testIsReadable_oe_110_oe
+commons-beanutils_475_101,"public void testIsWriteable_oe_101_oe() {
+        try {
+            property = ""stringProperty"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isWriteable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsWriteable_oe_101_oe
+commons-beanutils_475_102,"public void testIsWriteable_oe_102_oe() {
+        try {
+            property = ""stringIndexed"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isWriteable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsWriteable_oe_102_oe
+commons-beanutils_475_103,"public void testIsWriteable_oe_103_oe() {
+        try {
+            property = ""mappedProperty"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isWriteable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsWriteable_oe_103_oe
+commons-beanutils_475_104,"public void testIsWriteable_oe_104_oe() {
+        try {
+            property = ""nestedDynaBean"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isWriteable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsWriteable_oe_104_oe
+commons-beanutils_475_105,"public void testIsWriteable_oe_105_oe() {
+        try {
+            property = ""nestedDynaBean.stringProperty"";
+        } catch (final Throwable t) {
+            t.printStackTrace();
+            fail(""Property "" + property +"" isWriteable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsWriteable_oe_105_oe
+commons-beanutils_475_106,"public void testIsWriteable_oe_106_oe() {
+        try {
+            property = ""nestedDynaBean.nestedBean"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isWriteable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsWriteable_oe_106_oe
+commons-beanutils_475_107,"public void testIsWriteable_oe_107_oe() {
+        try {
+            property = ""nestedDynaBean.nestedBean.nestedDynaBean"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isWriteable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsWriteable_oe_107_oe
+commons-beanutils_475_108,"public void testIsWriteable_oe_108_oe() {
+        try {
+            property = ""nestedDynaBean.nestedBean.nestedDynaBean.stringProperty"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isWriteable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsWriteable_oe_108_oe
+commons-beanutils_475_109,"public void testIsWriteable_oe_109_oe() {
+        try {
+            property = ""nestedDynaBean.nullDynaBean"";
+        } catch (final Throwable t) {
+            fail(""Property "" + property +"" isWriteable Threw exception: "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testIsWriteable_oe_109_oe
+commons-beanutils_475_110,"public void testIsWriteable_oe_110_oe() {
+        try {
+            property = ""nestedDynaBean.nullDynaBean.foo"";
+            fail(""Property "" + property +"" isWriteable expected NestedNullException"");
+        } catch (final NestedNullException e) {
+            // expected result
+        } catch (final Throwable t) {
+        }
+    }
+",PropertyUtilsTestCase::testIsWriteable_oe_110_oe
+commons-beanutils_481_101,"public void testSetIndexedValues_oe_101_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""dupProperty"", 0,
+                    ""New 0"");
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""dupProperty"", 0);
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_101_oe
+commons-beanutils_481_102,"public void testSetIndexedValues_oe_102_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""intArray"", 0,
+                    new Integer(1));
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""intArray"", 0);
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_102_oe
+commons-beanutils_481_103,"public void testSetIndexedValues_oe_103_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""intIndexed"", 1,
+                    new Integer(11));
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""intIndexed"", 1);
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_103_oe
+commons-beanutils_481_104,"public void testSetIndexedValues_oe_104_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""listIndexed"", 2,
+                    ""New Value 2"");
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""listIndexed"", 2);
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_104_oe
+commons-beanutils_481_105,"public void testSetIndexedValues_oe_105_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""stringArray"", 2,
+                    ""New Value 2"");
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""stringArray"", 2);
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_105_oe
+commons-beanutils_481_106,"public void testSetIndexedValues_oe_106_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""stringArray"", 3,
+                    ""New Value 3"");
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""stringArray"", 3);
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_106_oe
+commons-beanutils_481_107,"public void testSetIndexedValues_oe_107_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""dupProperty[4]"",
+                    ""New 4"");
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""dupProperty[4]"");
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_107_oe
+commons-beanutils_481_108,"public void testSetIndexedValues_oe_108_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""intArray[4]"",
+                    new Integer(1));
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""intArray[4]"");
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_108_oe
+commons-beanutils_481_109,"public void testSetIndexedValues_oe_109_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""intIndexed[3]"",
+                    new Integer(11));
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""intIndexed[3]"");
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_109_oe
+commons-beanutils_481_110,"public void testSetIndexedValues_oe_110_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""listIndexed[1]"",
+                    ""New Value 2"");
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""listIndexed[1]"");
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_110_oe
+commons-beanutils_481_111,"public void testSetIndexedValues_oe_111_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""stringArray[1]"",
+                    ""New Value 2"");
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""stringArray[2]"");
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_111_oe
+commons-beanutils_481_112,"public void testSetIndexedValues_oe_112_oe() {
+        try {
+            PropertyUtils.setIndexedProperty(bean,
+                    ""stringArray[0]"",
+                    ""New Value 3"");
+            value =
+                    PropertyUtils.getIndexedProperty(bean,
+                            ""stringArray[0]"");
+        } catch (final Throwable t) {
+            fail(""Threw "" + t);
+        }
+    }
+",PropertyUtilsTestCase::testSetIndexedValues_oe_112_oe
+commons-beanutils_520_101,"public void testNestedPropertyKeyOrIndexOnBeanImplementingMap_oe_101_oe() throws Exception {
+        try {
+            // One would expect that the command below would be equivalent to
+            //   Map m = (Map) map.get(""submap"");
+            //   m.put(""beta2"", betaBean2)
+            // However this isn't how javabeans property methods work. A map
+            // only effectively has ""simple"" properties, even when the
+            // returned object is a Map or Array.
+            PropertyUtils.setNestedProperty(map, ""submap(beta2)"", betaBean2);
+
+            // What, no exception? In that case, setNestedProperties has
+            // probably just tried to do
+            //    map.set(""submap(beta2)"", betaBean2)
+            // which is almost certainly not what the used expected. This is
+            // what beanutils 1.5.0 to 1.7.1 did....
+            fail(""Exception not thrown for invalid setNestedProperty syntax"");
+        } catch(final IllegalArgumentException ex) {
+            // ok, getting an exception was expected. As it is of a generic
+            // type, let's check the message string to make sure it really
+            // was caused by the issue we expected.
+            final int index = ex.getMessage().indexOf(
+                    ""Indexed or mapped properties are not supported"");
+        }
+    }
+",PropertyUtilsTestCase::testNestedPropertyKeyOrIndexOnBeanImplementingMap_oe_101_oe
+commons-beanutils_520_102,"public void testNestedPropertyKeyOrIndexOnBeanImplementingMap_oe_102_oe() throws Exception {
+        try {
+            // One would expect that ""submap[3]"" would be equivalent to
+            //   Object[] objects = (Object[]) map.get(""submap"");
+            //   return objects[3];
+            // However this isn't how javabeans property methods work. A map
+            // only effectively has ""simple"" properties, even when the
+            // returned object is a Map or Array.
+            PropertyUtils.getNestedProperty(map, ""submap[3]"");
+
+            // What, no exception? In that case, getNestedProperties has
+            // probably just tried to do
+            //    map.get(""submap[3]"")
+            // which is almost certainly not what the used expected. This is
+            // what beanutils 1.5.0 to 1.7.1 did....
+            fail(""Exception not thrown for invalid setNestedProperty syntax"");
+        } catch(final IllegalArgumentException ex) {
+            // ok, getting an exception was expected. As it is of a generic
+            // type, let's check the message string to make sure it really
+            // was caused by the issue we expected.
+            final int index = ex.getMessage().indexOf(
+                    ""Indexed or mapped properties are not supported"");
+        }
+    }
+",PropertyUtilsTestCase::testNestedPropertyKeyOrIndexOnBeanImplementingMap_oe_102_oe
+commons-beanutils_532_101,"public void testEvaluateWithNullInPath_oe_101_oe() {
+        try {
+            // try to evaluate the predicate
+            predicate.evaluate(new TestBean());
+            fail(""Should have throw IllegalArgumentException"");
+        } catch (final IllegalArgumentException e) {
+            /* ignore this is what should happen */
+        }
+    }
+",BeanPropertyValueEqualsPredicateTestCase::testEvaluateWithNullInPath_oe_101_oe
+commons-beanutils_548_101,"public void testCompareWithNulls_oe_101_oe() {
+        try {
+          final BeanComparator<AlphaBean> beanComparator = new BeanComparator<AlphaBean>(""name"");
+          beanComparator.compare(alphaBean2, null);
+
+          fail(""Should not be able to compare a null value."");
+        }
+    }
+",BeanComparatorTestCase::testCompareWithNulls_oe_101_oe
+commons-beanutils_549_101,"public void testCompareOnMissingProperty_oe_101_oe() {
+        try {
+          final BeanComparator<AlphaBean> beanComparator = new BeanComparator<AlphaBean>(""bogusName"");
+          beanComparator.compare(alphaBean2, alphaBean1);
+          fail(""should not be able to compare"");
+
+
+        }
+    }
+",BeanComparatorTestCase::testCompareOnMissingProperty_oe_101_oe
+commons-beanutils_550_101,"public void testCompareOnBooleanProperty_oe_101_oe() {
+        try {
+          final TestBean testBeanA = new TestBean();
+          final TestBean testBeanB = new TestBean();
+
+          testBeanA.setBooleanProperty(true);
+          testBeanB.setBooleanProperty(false);
+
+          final BeanComparator<TestBean> beanComparator = new BeanComparator<TestBean>(""booleanProperty"");
+          beanComparator.compare(testBeanA, testBeanB);
+
+          // **** java.lang.Boolean implements Comparable from JDK 1.5 onwards
+          //      so this test no longer fails
+          // fail(""BeanComparator should throw an exception when comparing two booleans."");
+
+        }
+    }
+",BeanComparatorTestCase::testCompareOnBooleanProperty_oe_101_oe
+commons-beanutils_562_101,"public void testInvokeExactConstructorWithArgArray_oe_101_oe() throws Exception {
+            try {
+                ConstructorUtils.invokeExactConstructor(TestBean.class,args);
+                fail(""Expected NoSuchMethodException"");
+            } catch(final NoSuchMethodException e) {
+                // expected
+            }
+    }
+",ConstructorUtilsTestCase::testInvokeExactConstructorWithArgArray_oe_101_oe
+commons-beanutils_563_101,"public void testInvokeExactConstructorWithTypeArray_oe_101_oe() throws Exception {
+            try {
+                ConstructorUtils.invokeExactConstructor(TestBean.class,args,types);
+                fail(""Expected NoSuchMethodException"");
+            } catch(final NoSuchMethodException e) {
+                // expected
+            }
+    }
+",ConstructorUtilsTestCase::testInvokeExactConstructorWithTypeArray_oe_101_oe
+commons-beanutils_567_103,"public void testIndexedProperties_oe_103_oe() {
+        try {
+            testValue = ""Some new value"";
+            bean.set(testProperty, 0, testValue);
+        } catch (final IllegalArgumentException t) {
+            fail(""Get threw exception: "" + t);
+        }
+    }
+",WrapDynaBeanTestCase::testIndexedProperties_oe_103_oe
+commons-beanutils_568_101,"@Override
+    public void testMappedContains_oe_101_oe() {
+        try {
+            fail(""Should have thrown UnsupportedOperationException"");
+        } catch (final UnsupportedOperationException t) {
+            // Expected result
+        } catch (final Throwable t) {
+        }
+    }
+",WrapDynaBeanTestCase::testMappedContains_oe_101_oe
+commons-beanutils_568_102,"@Override
+    public void testMappedContains_oe_102_oe() {
+        try {
+            fail(""Should have thrown UnsupportedOperationException"");
+        } catch (final UnsupportedOperationException t) {
+            // Expected result
+        } catch (final Throwable t) {
+        }
+    }
+",WrapDynaBeanTestCase::testMappedContains_oe_102_oe
+commons-beanutils_569_101,"@Override
+    public void testMappedRemove_oe_101_oe() {
+        try {
+            bean.remove(""mappedProperty"", ""First Key"");
+            fail(""Should have thrown UnsupportedOperationException"");
+            //         !bean.contains(""mappedProperty"", ""First Key""));
+        } catch (final UnsupportedOperationException t) {
+            // Expected result
+        } catch (final Throwable t) {
+        }
+    }
+",WrapDynaBeanTestCase::testMappedRemove_oe_101_oe
+commons-beanutils_569_102,"@Override
+    public void testMappedRemove_oe_102_oe() {
+        try {
+            bean.remove(""mappedProperty"", ""Unknown Key"");
+            fail(""Should have thrown UnsupportedOperationException"");
+            //         !bean.contains(""mappedProperty"", ""Unknown Key""));
+        } catch (final UnsupportedOperationException t) {
+            // Expected result
+        } catch (final Throwable t) {
+        }
+    }
+",WrapDynaBeanTestCase::testMappedRemove_oe_102_oe
+commons-beanutils_592_101,"public void testSuppressClassProperty_oe_101_oe() throws Exception {
+        try {
+            bub.getProperty(bean, ""class"");
+            fail(""Could access class property!"");
+        } catch (final NoSuchMethodException ex) {
+            // ok
+        }
+    }
+",Jira463TestCase::testSuppressClassProperty_oe_101_oe
+commons-beanutils_596_101,"public void testPropertyUtils_getIndexedProperty_Array_oe_101_oe() throws Exception {
+        try {
+            PropertyUtils.getIndexedProperty(bean, ""intArray"", bean.getIntArray().length);
+            fail(""Expected ArrayIndexOutOfBoundsException"");
+        } catch (final ArrayIndexOutOfBoundsException e) {
+            // expected result
+        }
+    }
+",Jira358TestCase::testPropertyUtils_getIndexedProperty_Array_oe_101_oe
+commons-beanutils_597_101,"public void testPropertyUtils_getIndexedProperty_List_oe_101_oe() throws Exception {
+        try {
+            PropertyUtils.getIndexedProperty(bean, ""listIndexed"", bean.getListIndexed().size());
+            fail(""Expected IndexOutOfBoundsException"");
+        } catch (final IndexOutOfBoundsException e) {
+            // expected result
+        }
+    }
+",Jira358TestCase::testPropertyUtils_getIndexedProperty_List_oe_101_oe
+commons-beanutils_598_101,"public void testBeanUtilsGetProperty_aRatedCd_oe_101_oe() throws Exception {
+        try {
+            fail(""Expected NoSuchMethodException"");
+        } catch (final NoSuchMethodException e) {
+            // expected result
+        } catch (final Exception e) {
+        }
+    }
+",Jira369TestCase::testBeanUtilsGetProperty_aRatedCd_oe_101_oe
+commons-beanutils_617_101,"public void testSuppressClassPropertyByDefault_oe_101_oe() throws Exception {
+        try {
+            bub.getProperty(bean, ""class"");
+            fail(""Could access class property!"");
+        } catch (final NoSuchMethodException ex) {
+            // ok
+        }
+    }
+",Jira520TestCase::testSuppressClassPropertyByDefault_oe_101_oe
+commons-beanutils_660_101,"public void testConvertNull_oe_101_oe() {
+        try {
+            makeConverter().convert(getExpectedType(), null);
+            fail(""Expected ConversionException"");
+        } catch(final ConversionException e) {
+            // expected
+        }
+    }
+",DateConverterTestBase::testConvertNull_oe_101_oe
+commons-beanutils_663_101,"public void testDefaultStringToTypeConvert_oe_101_oe() {
+        try {
+            converter.convert(getExpectedType(), ""2006-10-23"");
+            fail(""Expected Conversion exception"");
+        } catch (final ConversionException e) {
+            // expected result
+        }
+    }
+",DateConverterTestBase::testDefaultStringToTypeConvert_oe_101_oe
+commons-beanutils_665_101,"public void testInvalidType_oe_101_oe() {
+        try {
+            converter.convert(Character.class, new Date());
+            fail(""Requested Character.class conversion, expected ConversionException"");
+        } catch (final ConversionException e) {
+            // Expected result
+        }
+    }
+",DateConverterTestBase::testInvalidType_oe_101_oe
+commons-beanutils_673_101,"public void testConvertToCharacterNullNoDefault_oe_101_oe() {
+        try {
+            converter.convert(Character.class, null);
+            fail(""Expected a ConversionException for null value"");
+        } catch (final Exception e) {
+            // expected result
+        }
+    }
+",CharacterConverterTestCase::testConvertToCharacterNullNoDefault_oe_101_oe
+commons-beanutils_675_101,"public void testConvertToUnsupportedType_oe_101_oe() {
+        try {
+            converter.convert(Integer.class, ""Test"");
+            fail(""Could convert to unsupported type!"");
+        } catch (final ConversionException cex) {
+            // expected result
+        }
+    }
+",CharacterConverterTestCase::testConvertToUnsupportedType_oe_101_oe
+commons-beanutils_676_101,"public void testInvalidString_oe_101_oe() {
+        try {
+            converter.convert(Boolean.class, ""bogus"");
+            fail(""Converting invalid string should have generated an exception"");
+        } catch (final ConversionException expected) {
+            // Exception is successful test
+        }
+    }
+",BooleanConverterTestCase::testInvalidString_oe_101_oe
+commons-beanutils_678_101,"public void testAdditionalStrings_oe_101_oe() {
+        try {
+            converter.convert(Boolean.class, ""true"");
+            fail(""Converting obsolete true value should have generated an exception"");
+        } catch (final ConversionException expected) {
+            // Exception is successful test
+        }
+    }
+",BooleanConverterTestCase::testAdditionalStrings_oe_101_oe
+commons-beanutils_678_102,"public void testAdditionalStrings_oe_102_oe() {
+        try {
+            converter.convert(Boolean.class, ""bogus"");
+            fail(""Converting invalid string should have generated an exception"");
+        } catch (final ConversionException expected) {
+            // Exception is successful test
+        }
+    }
+",BooleanConverterTestCase::testAdditionalStrings_oe_102_oe
+commons-beanutils_679_101,"public void testConversionToOtherType_oe_101_oe() {
+        try {
+            converter.convert(Integer.class, STANDARD_TRUES[0]);
+            fail(""Could convert to unsupported type!"");
+        } catch (final ConversionException cex) {
+            // Expected result
+        }
+    }
+",BooleanConverterTestCase::testConversionToOtherType_oe_101_oe
+commons-beanutils_683_101,"public void testInvalidAmount_oe_101_oe() {
+        try {
+            fail(""Less than minimum, expected ConversionException"");
+        } catch (final Exception e) {
+            // expected result
+        }
+    }
+",ByteConverterTestCase::testInvalidAmount_oe_101_oe
+commons-beanutils_683_102,"public void testInvalidAmount_oe_102_oe() {
+        try {
+            fail(""More than maximum, expected ConversionException"");
+        } catch (final Exception e) {
+            // expected result
+        }
+    }
+",ByteConverterTestCase::testInvalidAmount_oe_102_oe
+commons-beanutils_687_101,"public void testAdditionalStrings_oe_101_oe() {
+        try {
+            // the literal string 'true' should no longer be recognized as
+            // a true value..
+            converter.convert(null, ""true"");
+            fail(""Converting invalid string should have generated an exception"");
+        } catch(final Exception ex) {
+            // ok, expected
+        }
+    }
+",BooleanArrayConverterTestCase::testAdditionalStrings_oe_101_oe
+commons-beanutils_688_101,"public void testInvalidStringWithoutDefault_oe_101_oe() {
+        try {
+            converter.convert(null, ""true!"");
+            fail(""Converting invalid string should have generated an exception"");
+        } catch (final ConversionException expected) {
+            // Exception is successful test
+        }
+    }
+",BooleanArrayConverterTestCase::testInvalidStringWithoutDefault_oe_101_oe
+commons-beanutils_690_101,"public void testInvalidElementWithoutDefault_oe_101_oe() {
+        try {
+            converter.convert(null, ""true,bogus"");
+            fail(""Converting invalid string should have generated an exception"");
+        } catch (final ConversionException expected) {
+            // Exception is successful test
+        }
+    }
+",BooleanArrayConverterTestCase::testInvalidElementWithoutDefault_oe_101_oe
+commons-beanutils_697_101,"public void testInvalidAmount_oe_101_oe() {
+        try {
+            fail(""More than maximum, expected ConversionException"");
+        } catch (final Exception e) {
+            // expected result
+        }
+    }
+",FloatConverterTestCase::testInvalidAmount_oe_101_oe
+commons-beanutils_701_101,"public void testConvertToClass_oe_101_oe() {
+        try {
+            converter.convert(Class.class, new Integer(6));
+            fail(""Expected invalid value to fail"");
+        } catch (final ConversionException e) {
+            // expected result
+        }
+    }
+",ClassConverterTestCase::testConvertToClass_oe_101_oe
+commons-beanutils_701_102,"public void testConvertToClass_oe_102_oe() {
+        try {
+            converter.convert(Class.class, null);
+            fail(""Expected null value to fail"");
+        } catch (final ConversionException e) {
+            // expected result
+        }
+    }
+",ClassConverterTestCase::testConvertToClass_oe_102_oe
+commons-beanutils_705_101,"public void testInvalid_oe_101_oe() {
+        try {
+            converter.convert(Class.class, ""foo.bar"");
+            fail(""Invalid class name, expected ConversionException"");
+        } catch (final ConversionException e) {
+            // expected result
+        }
+    }
+",ClassConverterTestCase::testInvalid_oe_101_oe
+commons-beanutils_706_101,"public void testUnsupportedTargetType_oe_101_oe() {
+        try {
+            converter.convert(Integer.class, getClass().getName());
+            fail(""Invalid target class not detected!"");
+        } catch (final ConversionException cex) {
+            // expected result
+        }
+    }
+",ClassConverterTestCase::testUnsupportedTargetType_oe_101_oe
+commons-beanutils_718_101,"public void testInvalidAmount_oe_101_oe() {
+        try {
+            fail(""Less than minimum, expected ConversionException"");
+        } catch (final Exception e) {
+            // expected result
+        }
+    }
+",ShortConverterTestCase::testInvalidAmount_oe_101_oe
+commons-beanutils_718_102,"public void testInvalidAmount_oe_102_oe() {
+        try {
+            fail(""More than maximum, expected ConversionException"");
+        } catch (final Exception e) {
+            // expected result
+        }
+    }
+",ShortConverterTestCase::testInvalidAmount_oe_102_oe
+commons-beanutils_719_101,"public void testConvertNull_oe_101_oe() {
+        try {
+            makeConverter().convert(getExpectedType(),null);
+            fail(""Expected ConversionException"");
+        } catch(final ConversionException e) {
+            // expected
+        }
+    }
+",NumberConverterTestBase::testConvertNull_oe_101_oe
+commons-beanutils_725_101,"public void testStringToNumberPattern_oe_101_oe() {
+        try {
+            converter.convert(getExpectedType(), ""1,2"");
+            fail(""Expected invalid value to cause ConversionException"");
+        } catch (final Exception e) {
+            // expected result
+        }
+    }
+",NumberConverterTestBase::testStringToNumberPattern_oe_101_oe
+commons-beanutils_725_102,"public void testStringToNumberPattern_oe_102_oe() {
+        try {
+            converter.convert(getExpectedType(), obj);
+            fail(""Expected invalid value to cause ConversionException"");
+        } catch (final Exception e) {
+            // expected result
+        }
+    }
+",NumberConverterTestBase::testStringToNumberPattern_oe_102_oe
+commons-beanutils_726_101,"public void testStringToNumberLocale_oe_101_oe() {
+        try {
+            converter.convert(getExpectedType(), ""0,02x"");
+            fail(""Expected invalid value to cause ConversionException"");
+        } catch (final Exception e) {
+            // expected result
+        }
+    }
+",NumberConverterTestBase::testStringToNumberLocale_oe_101_oe
+commons-beanutils_726_102,"public void testStringToNumberLocale_oe_102_oe() {
+        try {
+            converter.convert(getExpectedType(), ""0.02x"");
+            fail(""Expected invalid value to cause ConversionException"");
+        } catch (final Exception e) {
+            // expected result
+        }
+    }
+",NumberConverterTestBase::testStringToNumberLocale_oe_102_oe
+commons-beanutils_727_101,"public void testStringToNumberDefault_oe_101_oe() {
+        try {
+            converter.convert(getExpectedType(), ""12x"");
+            fail(""Expected invalid value to cause ConversionException"");
+        } catch (final Exception e) {
+            // expected result
+        }
+    }
+",NumberConverterTestBase::testStringToNumberDefault_oe_101_oe
+commons-beanutils_730_101,"public void testDateToNumber_oe_101_oe() {
+        try {
+            converter.convert(Integer.class, dateValue);
+            fail(""Date to Integer - expected a ConversionException"");
+        } catch (final ConversionException e) {
+            // expected result - too large for Integer
+        }
+    }
+",NumberConverterTestBase::testDateToNumber_oe_101_oe
+commons-beanutils_731_101,"public void testCalendarToNumber_oe_101_oe() {
+        try {
+            converter.convert(Integer.class, calendarValue);
+            fail(""Calendar to Integer - expected a ConversionException"");
+        } catch (final ConversionException e) {
+            // expected result - too large for Integer
+        }
+    }
+",NumberConverterTestBase::testCalendarToNumber_oe_101_oe
+commons-beanutils_734_101,"public void testInvalidException_oe_101_oe() {
+        try {
+            converter.convert(getExpectedType(), null);
+            fail(""Null test, expected ConversionException"");
+        } catch (final ConversionException e) {
+            // expected result
+        }
+    }
+",NumberConverterTestBase::testInvalidException_oe_101_oe
+commons-beanutils_734_102,"public void testInvalidException_oe_102_oe() {
+        try {
+            converter.convert(getExpectedType(), ""XXXX"");
+            fail(""Invalid test, expected ConversionException"");
+        } catch (final ConversionException e) {
+            // expected result
+        }
+    }
+",NumberConverterTestBase::testInvalidException_oe_102_oe
+commons-beanutils_735_101,"public void testInvalidType_oe_101_oe() {
+        try {
+            converter.convert(Object.class, numbers[0]);
+            fail(""Invalid type test, expected ConversionException"");
+        } catch (final ConversionException e) {
+            // expected result
+        }
+    }
+",NumberConverterTestBase::testInvalidType_oe_101_oe
+commons-beanutils_736_101,"public void testInvalidTypeWithDefault_oe_101_oe() {
+        try {
+            converter.convert(Object.class, numbers[0]);
+            fail(""Invalid type with default test, expected ConversionException"");
+        } catch(final ConversionException e) {
+            // expected result
+        }
+    }
+",NumberConverterTestBase::testInvalidTypeWithDefault_oe_101_oe
+commons-beanutils_741_101,"public void testInvalidAmount_oe_101_oe() {
+        try {
+            fail(""Less than minimum, expected ConversionException"");
+        } catch (final Exception e) {
+            // expected result
+        }
+    }
+",IntegerConverterTestCase::testInvalidAmount_oe_101_oe
+commons-beanutils_741_102,"public void testInvalidAmount_oe_102_oe() {
+        try {
+            fail(""More than maximum, expected ConversionException"");
+        } catch (final Exception e) {
+            // expected result
+        }
+    }
+",IntegerConverterTestCase::testInvalidAmount_oe_102_oe
+commons-beanutils_742_101,"public void testInvalidDefaultObject_oe_101_oe() {
+        try {
+            converter.setDefaultValue(""notANumber"");
+            fail(""Invalid default value not detected!"");
+        } catch (final ConversionException cex) {
+            // expected result
+        }
+    }
+",IntegerConverterTestCase::testInvalidDefaultObject_oe_101_oe
+commons-beanutils_743_101,"public void testGetIndex_oe_101_oe() {
+            try {
+                label = ""Simple "" + label(validProperties[i], i);
+            } catch (final Throwable t) {
+                fail(label + "" threw "" + t);
+            }
+    }
+",DefaultResolverTestCase::testGetIndex_oe_101_oe
+commons-beanutils_743_102,"public void testGetIndex_oe_102_oe() {
+            try {
+                label = ""Indexed "" + label(validIndexProperties[i], i);
+            } catch (final Throwable t) {
+                fail(label + "" threw "" + t);
+            }
+    }
+",DefaultResolverTestCase::testGetIndex_oe_102_oe
+commons-beanutils_743_103,"public void testGetIndex_oe_103_oe() {
+            try {
+                label = ""Mapped "" + label(validMapProperties[i], i);
+            } catch (final Throwable t) {
+                fail(label + "" threw "" + t);
+            }
+    }
+",DefaultResolverTestCase::testGetIndex_oe_103_oe
+commons-beanutils_743_104,"public void testGetIndex_oe_104_oe() {
+        try {
+            final int index  = resolver.getIndex(""foo[]"");
+            fail(label + "" expected IllegalArgumentException: "" + index);
+        } catch (final IllegalArgumentException e) {
+        } catch (final Throwable t) {
+        }
+    }
+",DefaultResolverTestCase::testGetIndex_oe_104_oe
+commons-beanutils_743_105,"public void testGetIndex_oe_105_oe() {
+        try {
+            final int index  = resolver.getIndex(""foo[12"");
+            fail(label + "" expected IllegalArgumentException: "" + index);
+        } catch (final IllegalArgumentException e) {
+        } catch (final Throwable t) {
+        }
+    }
+",DefaultResolverTestCase::testGetIndex_oe_105_oe
+commons-beanutils_743_106,"public void testGetIndex_oe_106_oe() {
+        try {
+            final int index  = resolver.getIndex(""foo[BAR]"");
+            fail(label + "" expected IllegalArgumentException: "" + index);
+        } catch (final IllegalArgumentException e) {
+        } catch (final Throwable t) {
+        }
+    }
+",DefaultResolverTestCase::testGetIndex_oe_106_oe
+commons-beanutils_744_101,"public void testGetMapKey_oe_101_oe() {
+            try {
+                label = ""Simple "" + label(validProperties[i], i);
+            } catch (final Throwable t) {
+                fail(label + "" threw "" + t);
+            }
+    }
+",DefaultResolverTestCase::testGetMapKey_oe_101_oe
+commons-beanutils_744_102,"public void testGetMapKey_oe_102_oe() {
+            try {
+                label = ""Indexed "" + label(validIndexProperties[i], i);
+            } catch (final Throwable t) {
+                fail(label + "" threw "" + t);
+            }
+    }
+",DefaultResolverTestCase::testGetMapKey_oe_102_oe
+commons-beanutils_744_103,"public void testGetMapKey_oe_103_oe() {
+            try {
+                label = ""Mapped "" + label(validMapProperties[i], i);
+            } catch (final Throwable t) {
+                fail(label + "" threw "" + t);
+            }
+    }
+",DefaultResolverTestCase::testGetMapKey_oe_103_oe
+commons-beanutils_744_104,"public void testGetMapKey_oe_104_oe() {
+        try {
+            final String key  = resolver.getKey(""foo(bar"");
+            fail(label + "" expected IllegalArgumentException: "" + key);
+        } catch (final IllegalArgumentException e) {
+        } catch (final Throwable t) {
+        }
+    }
+",DefaultResolverTestCase::testGetMapKey_oe_104_oe
+commons-beanutils_759_103,"public void testNegativeScalar_oe_103_oe() {
+         try {
+             value = LocaleConvertUtils.convert(""org.apache.commons.beanutils.Undefined"", Class.class);
+             fail(""Should have thrown conversion exception"");
+         } catch (ConversionException e) {
+             ; // Expected result
+         }
+    }
+",LocaleConvertUtilsTestCase::testNegativeScalar_oe_103_oe
+commons-beanutils_777_101,"public void testFloatLimits_oe_101_oe() {
+        try {
+            converter.convert(fmt.format((double)Float.MAX_VALUE * (double)10));
+            fail(""Positive Too Large should throw ConversionException"");
+        } catch (final ConversionException e) {
+            // expected result
+        }
+    }
+",FloatLocaleConverterTestCase::testFloatLimits_oe_101_oe
+commons-beanutils_777_102,"public void testFloatLimits_oe_102_oe() {
+        try {
+            converter.convert(fmt.format((double)Float.MAX_VALUE * (double)-10));
+            fail(""Negative Too Large should throw ConversionException"");
+        } catch (final ConversionException e) {
+            // expected result
+        }
+    }
+",FloatLocaleConverterTestCase::testFloatLimits_oe_102_oe
+commons-beanutils_777_103,"public void testFloatLimits_oe_103_oe() {
+        try {
+            converter.convert(fmt.format((double)Float.MIN_VALUE / (double)10));
+            fail(""Positive Too Small should throw ConversionException"");
+        } catch (final ConversionException e) {
+            // expected result
+        }
+    }
+",FloatLocaleConverterTestCase::testFloatLimits_oe_103_oe
+commons-beanutils_777_104,"public void testFloatLimits_oe_104_oe() {
+        try {
+            converter.convert(fmt.format((double)Float.MIN_VALUE / (double)-10));
+            fail(""Negative Too Small should throw ConversionException"");
+        } catch (final ConversionException e) {
+            // expected result
+        }
+    }
+",FloatLocaleConverterTestCase::testFloatLimits_oe_104_oe
+commons-beanutils_779_101,"public void testUnsupportedType_oe_101_oe() {
+        try {
+            converter.convert(getClass(), ""test"", null);
+            fail(""Unsupported type not detected!"");
+        } catch (final ConversionException cex) {
+            // expected result
+        }
+    }
+",BigIntegerLocaleConverterTestCase::testUnsupportedType_oe_101_oe
+commons-beanutils_780_101,"public void testSetLenient_oe_101_oe() {
+        try {
+
+            dateFormat.parse(""Feb 10, 2001"");
+
+        } catch (final ParseException e) {
+            fail(""Could not parse date (1) - "" + e.getMessage());
+        }
+    }
+",DateLocaleConverterTestCase::testSetLenient_oe_101_oe
+commons-beanutils_780_102,"public void testSetLenient_oe_102_oe() {
+        try {
+
+            dateFormat.parse(""Feb 31, 2001"");
+            fail(""Parsed illegal date (1)"");
+
+        } catch (final ParseException e) {
+            // that's what we expected
+        }
+    }
+",DateLocaleConverterTestCase::testSetLenient_oe_102_oe
+commons-beanutils_780_103,"public void testSetLenient_oe_103_oe() {
+        try {
+
+            dateFormat.parse(""Feb 10, 2001"");
+
+        } catch (final ParseException e) {
+            fail(""Could not parse date (2) - "" + e.getMessage());
+        }
+    }
+",DateLocaleConverterTestCase::testSetLenient_oe_103_oe
+commons-beanutils_780_104,"public void testSetLenient_oe_104_oe() {
+        try {
+
+            dateFormat.parse(""Feb 31, 2001"");
+
+        } catch (final ParseException e) {
+            fail(""Could not parse date (3) - "" + e.getMessage());
+        }
+    }
+",DateLocaleConverterTestCase::testSetLenient_oe_104_oe
+commons-beanutils_780_105,"public void testSetLenient_oe_105_oe() {
+        try {
+
+            converter.convert(""Feb 10, 2001"");
+
+        } catch (final ConversionException e) {
+            fail(""Could not parse date (4) - "" + e.getMessage());
+        }
+    }
+",DateLocaleConverterTestCase::testSetLenient_oe_105_oe
+commons-beanutils_780_106,"public void testSetLenient_oe_106_oe() {
+        try {
+
+            converter.convert(""Feb 31, 2001"");
+            fail(""Parsed illegal date (2)"");
+
+        } catch (final ConversionException e) {
+            // that's what we expected
+        }
+    }
+",DateLocaleConverterTestCase::testSetLenient_oe_106_oe
+commons-beanutils_780_107,"public void testSetLenient_oe_107_oe() {
+        try {
+
+            converter.convert(""Feb 10, 2001"");
+
+        } catch (final ConversionException e) {
+            fail(""Could not parse date (5) - "" + e.getMessage());
+        }
+    }
+",DateLocaleConverterTestCase::testSetLenient_oe_107_oe
+commons-beanutils_780_108,"public void testSetLenient_oe_108_oe() {
+        try {
+
+            converter.convert(""Feb 31, 2001"");
+
+        } catch (final ConversionException e) {
+            fail(""Could not parse date (6) - "" + e.getMessage());
+        }
+    }
+",DateLocaleConverterTestCase::testSetLenient_oe_108_oe

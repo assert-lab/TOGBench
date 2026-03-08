@@ -31,79 +31,109 @@ class BoundarySource2STest_OE25Dev {
 
     @Test
     void testToList_1_oe() {
+        // act
         final BoundarySource2S src = BoundarySource2S.of(
             GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION),
             GreatCircles.arcFromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
         );
 
+        // act
         final BoundaryList2S list = src.toList();
 
+        // assert
         Assertions.assertEquals(2, list.count());
     }
 
     @Test
     void testToList_noBoundaries_1_oe() {
+        // act
         final BoundarySource2S src = BoundarySource2S.of();
 
+        // act
         final BoundaryList2S list = src.toList();
 
+        // assert
         Assertions.assertEquals(0, list.count());
     }
 
     @Test
     void testToTree_1_oe() {
+        // act
         final BoundarySource2S src = BoundarySource2S.of(
                 GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION));
 
+        // act
         final RegionBSPTree2S tree = src.toTree();
 
+        // assert
         Assertions.assertEquals(3, tree.count());
     }
 
     @Test
     void testToTree_2_oe() {
+        // act
         final BoundarySource2S src = BoundarySource2S.of(
                 GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION));
 
+        // act
         final RegionBSPTree2S tree = src.toTree();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testToTree_3_oe() {
+        // act
         final BoundarySource2S src = BoundarySource2S.of(
                 GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION));
 
+        // act
         final RegionBSPTree2S tree = src.toTree();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(tree.isEmpty());
     }
 
     @Test
     void testToTree_noBoundaries_1_oe() {
+        // act
         final BoundarySource2S src = BoundarySource2S.of(Collections.emptyList());
 
+        // act
         final RegionBSPTree2S tree = src.toTree();
 
+        // assert
         Assertions.assertEquals(1, tree.count());
     }
 
     @Test
     void testToTree_noBoundaries_2_oe() {
+        // act
         final BoundarySource2S src = BoundarySource2S.of(Collections.emptyList());
 
+        // act
         final RegionBSPTree2S tree = src.toTree();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testToTree_noBoundaries_3_oe() {
+        // act
         final BoundarySource2S src = BoundarySource2S.of(Collections.emptyList());
 
+        // act
         final RegionBSPTree2S tree = src.toTree();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(tree.isEmpty());
     }
 

@@ -46,6 +46,7 @@ public class StatementConfigurationTest_OE25Dev {
     public void testEmptyBuilder_2_oe() {
         StatementConfiguration config = new StatementConfiguration.Builder().build();
 
+        // removed other assertion
         assertFalse(config.isFetchSizeSet());
     }
 
@@ -53,6 +54,8 @@ public class StatementConfigurationTest_OE25Dev {
     public void testEmptyBuilder_3_oe() {
         StatementConfiguration config = new StatementConfiguration.Builder().build();
 
+        // removed other assertion
+        // removed other assertion
         assertFalse(config.isMaxFieldSizeSet());
     }
 
@@ -60,6 +63,9 @@ public class StatementConfigurationTest_OE25Dev {
     public void testEmptyBuilder_4_oe() {
         StatementConfiguration config = new StatementConfiguration.Builder().build();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(config.isMaxRowsSet());
     }
 
@@ -67,6 +73,10 @@ public class StatementConfigurationTest_OE25Dev {
     public void testEmptyBuilder_5_oe() {
         StatementConfiguration config = new StatementConfiguration.Builder().build();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(config.isQueryTimeoutSet());
     }
 
@@ -93,6 +103,7 @@ public class StatementConfigurationTest_OE25Dev {
                 .queryTimeout(5);
         StatementConfiguration config = builder.build();
 
+        // removed other assertion
         assertEquals(Integer.valueOf(1), config.getFetchDirection());
     }
 
@@ -106,6 +117,8 @@ public class StatementConfigurationTest_OE25Dev {
                 .queryTimeout(5);
         StatementConfiguration config = builder.build();
 
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(config.isFetchSizeSet());
     }
@@ -120,7 +133,10 @@ public class StatementConfigurationTest_OE25Dev {
                 .queryTimeout(5);
         StatementConfiguration config = builder.build();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals(Integer.valueOf(2), config.getFetchSize());
     }
 
@@ -134,7 +150,11 @@ public class StatementConfigurationTest_OE25Dev {
                 .queryTimeout(5);
         StatementConfiguration config = builder.build();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(config.isMaxFieldSizeSet());
     }
@@ -149,8 +169,13 @@ public class StatementConfigurationTest_OE25Dev {
                 .queryTimeout(5);
         StatementConfiguration config = builder.build();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals(Integer.valueOf(3), config.getMaxFieldSize());
     }
 
@@ -164,8 +189,14 @@ public class StatementConfigurationTest_OE25Dev {
                 .queryTimeout(5);
         StatementConfiguration config = builder.build();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(config.isMaxRowsSet());
     }
@@ -180,9 +211,16 @@ public class StatementConfigurationTest_OE25Dev {
                 .queryTimeout(5);
         StatementConfiguration config = builder.build();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals(Integer.valueOf(4), config.getMaxRows());
     }
 
@@ -196,9 +234,17 @@ public class StatementConfigurationTest_OE25Dev {
                 .queryTimeout(5);
         StatementConfiguration config = builder.build();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(config.isQueryTimeoutSet());
     }
@@ -213,10 +259,19 @@ public class StatementConfigurationTest_OE25Dev {
                 .queryTimeout(5);
         StatementConfiguration config = builder.build();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals(Integer.valueOf(5), config.getQueryTimeout());
     }
 
@@ -231,6 +286,7 @@ public class StatementConfigurationTest_OE25Dev {
     public void testConstructor_2_oe() {
         StatementConfiguration config = new StatementConfiguration(1, 2, 3, 4, 5);
 
+        // removed other assertion
         assertEquals(Integer.valueOf(2), config.getFetchSize());
     }
 
@@ -238,6 +294,8 @@ public class StatementConfigurationTest_OE25Dev {
     public void testConstructor_3_oe() {
         StatementConfiguration config = new StatementConfiguration(1, 2, 3, 4, 5);
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(Integer.valueOf(3), config.getMaxFieldSize());
     }
 
@@ -245,6 +303,9 @@ public class StatementConfigurationTest_OE25Dev {
     public void testConstructor_4_oe() {
         StatementConfiguration config = new StatementConfiguration(1, 2, 3, 4, 5);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(Integer.valueOf(4), config.getMaxRows());
     }
 
@@ -252,6 +313,10 @@ public class StatementConfigurationTest_OE25Dev {
     public void testConstructor_5_oe() {
         StatementConfiguration config = new StatementConfiguration(1, 2, 3, 4, 5);
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(Integer.valueOf(5), config.getQueryTimeout());
     }
 

@@ -43,6 +43,7 @@ public class Bzip2TestCase_OE25Dev extends AbstractVfsTestCase {
     public void testBZip2_2_oe() throws IOException {
         final File testResource = getTestResource("bla.txt.bz2");
         try (final FileObject bz2FileObject = VFS.getManager().resolveFile("bz2://" + testResource)) {
+            // removed other assertion
             Assert.assertTrue(bz2FileObject.isFolder());
     }
     }
@@ -51,6 +52,8 @@ public class Bzip2TestCase_OE25Dev extends AbstractVfsTestCase {
     public void testBZip2_3_oe() throws IOException {
         final File testResource = getTestResource("bla.txt.bz2");
         try (final FileObject bz2FileObject = VFS.getManager().resolveFile("bz2://" + testResource)) {
+            // removed other assertion
+            // removed other assertion
             try (final FileObject fileObjectDir = bz2FileObject.resolveFile("bla.txt")) {
                 Assert.assertTrue(fileObjectDir.exists());
     }
@@ -61,7 +64,10 @@ public class Bzip2TestCase_OE25Dev extends AbstractVfsTestCase {
     public void testBZip2_4_oe() throws IOException {
         final File testResource = getTestResource("bla.txt.bz2");
         try (final FileObject bz2FileObject = VFS.getManager().resolveFile("bz2://" + testResource)) {
+            // removed other assertion
+            // removed other assertion
             try (final FileObject fileObjectDir = bz2FileObject.resolveFile("bla.txt")) {
+                // removed other assertion
                 Assert.assertTrue(bz2FileObject.isFolder());
     }
     }
@@ -71,7 +77,11 @@ public class Bzip2TestCase_OE25Dev extends AbstractVfsTestCase {
     public void testBZip2_5_oe() throws IOException {
         final File testResource = getTestResource("bla.txt.bz2");
         try (final FileObject bz2FileObject = VFS.getManager().resolveFile("bz2://" + testResource)) {
+            // removed other assertion
+            // removed other assertion
             try (final FileObject fileObjectDir = bz2FileObject.resolveFile("bla.txt")) {
+                // removed other assertion
+                // removed other assertion
                 try (final FileObject fileObject = fileObjectDir.resolveFile("bla.txt")) {
                     Assert.assertTrue(fileObject.exists());
     }
@@ -83,8 +93,13 @@ public class Bzip2TestCase_OE25Dev extends AbstractVfsTestCase {
     public void testBZip2_6_oe() throws IOException {
         final File testResource = getTestResource("bla.txt.bz2");
         try (final FileObject bz2FileObject = VFS.getManager().resolveFile("bz2://" + testResource)) {
+            // removed other assertion
+            // removed other assertion
             try (final FileObject fileObjectDir = bz2FileObject.resolveFile("bla.txt")) {
+                // removed other assertion
+                // removed other assertion
                 try (final FileObject fileObject = fileObjectDir.resolveFile("bla.txt")) {
+                    // removed other assertion
                     Assert.assertFalse(fileObject.isFolder());
     }
     }
@@ -95,8 +110,14 @@ public class Bzip2TestCase_OE25Dev extends AbstractVfsTestCase {
     public void testBZip2_7_oe() throws IOException {
         final File testResource = getTestResource("bla.txt.bz2");
         try (final FileObject bz2FileObject = VFS.getManager().resolveFile("bz2://" + testResource)) {
+            // removed other assertion
+            // removed other assertion
             try (final FileObject fileObjectDir = bz2FileObject.resolveFile("bla.txt")) {
+                // removed other assertion
+                // removed other assertion
                 try (final FileObject fileObject = fileObjectDir.resolveFile("bla.txt")) {
+                    // removed other assertion
+                    // removed other assertion
                     Assert.assertTrue(fileObject.isFile());
     }
     }
@@ -107,8 +128,15 @@ public class Bzip2TestCase_OE25Dev extends AbstractVfsTestCase {
     public void testBZip2_8_oe() throws IOException {
         final File testResource = getTestResource("bla.txt.bz2");
         try (final FileObject bz2FileObject = VFS.getManager().resolveFile("bz2://" + testResource)) {
+            // removed other assertion
+            // removed other assertion
             try (final FileObject fileObjectDir = bz2FileObject.resolveFile("bla.txt")) {
+                // removed other assertion
+                // removed other assertion
                 try (final FileObject fileObject = fileObjectDir.resolveFile("bla.txt")) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
                     try (final FileContent content = fileObject.getContent()) {
                         Assert.assertEquals(CompressedFileFileObject.SIZE_UNDEFINED, content.getSize());
     }
@@ -121,9 +149,18 @@ public class Bzip2TestCase_OE25Dev extends AbstractVfsTestCase {
     public void testBZip2_9_oe() throws IOException {
         final File testResource = getTestResource("bla.txt.bz2");
         try (final FileObject bz2FileObject = VFS.getManager().resolveFile("bz2://" + testResource)) {
+            // removed other assertion
+            // removed other assertion
             try (final FileObject fileObjectDir = bz2FileObject.resolveFile("bla.txt")) {
+                // removed other assertion
+                // removed other assertion
                 try (final FileObject fileObject = fileObjectDir.resolveFile("bla.txt")) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
                     try (final FileContent content = fileObject.getContent()) {
+                        // removed other assertion
+                        // blows up, Commons Compress?
                         final String string = content.getString(StandardCharsets.UTF_8);
                         Assert.assertEquals(26, string.length());
     }
@@ -136,10 +173,20 @@ public class Bzip2TestCase_OE25Dev extends AbstractVfsTestCase {
     public void testBZip2_10_oe() throws IOException {
         final File testResource = getTestResource("bla.txt.bz2");
         try (final FileObject bz2FileObject = VFS.getManager().resolveFile("bz2://" + testResource)) {
+            // removed other assertion
+            // removed other assertion
             try (final FileObject fileObjectDir = bz2FileObject.resolveFile("bla.txt")) {
+                // removed other assertion
+                // removed other assertion
                 try (final FileObject fileObject = fileObjectDir.resolveFile("bla.txt")) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
                     try (final FileContent content = fileObject.getContent()) {
+                        // removed other assertion
+                        // blows up, Commons Compress?
                         final String string = content.getString(StandardCharsets.UTF_8);
+                        // removed other assertion
                         Assert.assertEquals("Hallo, dies ist ein Test.\n", string);
     }
     }

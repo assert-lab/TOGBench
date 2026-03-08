@@ -70,6 +70,7 @@ public class OptionalTest_OE25Dev {
 
         script = jexl.createScript(info.at(53, 1),"thing.name.length()", "thing");
         Object result = script.execute(null, thing);
+        // removed other assertion
 
         thing.name = "foo";
         result = script.execute(null, thing);
@@ -87,13 +88,16 @@ public class OptionalTest_OE25Dev {
 
         script = jexl.createScript(info.at(53, 1),"thing.name.length()", "thing");
         Object result = script.execute(null, thing);
+        // removed other assertion
 
         thing.name = "foo";
         result = script.execute(null, thing);
+        // removed other assertion
 
         try {
             script = jexl.createScript(info.at(62, 1), "thing.name.size()", "thing");
             result = script.execute(null, thing);
+            // removed other assertion
         } catch(JexlException.Method xmethod) {
             Assert.assertEquals("size", xmethod.getDetail());
     }
@@ -110,14 +114,18 @@ public class OptionalTest_OE25Dev {
 
         script = jexl.createScript(info.at(53, 1),"thing.name.length()", "thing");
         Object result = script.execute(null, thing);
+        // removed other assertion
 
         thing.name = "foo";
         result = script.execute(null, thing);
+        // removed other assertion
 
         try {
             script = jexl.createScript(info.at(62, 1), "thing.name.size()", "thing");
             result = script.execute(null, thing);
+            // removed other assertion
         } catch(JexlException.Method xmethod) {
+            // removed other assertion
             Assert.assertEquals("test352@62:11 unsolvable function/method 'size'", xmethod.getMessage());
     }
     }
@@ -133,14 +141,19 @@ public class OptionalTest_OE25Dev {
 
         script = jexl.createScript(info.at(53, 1),"thing.name.length()", "thing");
         Object result = script.execute(null, thing);
+        // removed other assertion
 
         thing.name = "foo";
         result = script.execute(null, thing);
+        // removed other assertion
 
         try {
             script = jexl.createScript(info.at(62, 1), "thing.name.size()", "thing");
             result = script.execute(null, thing);
+            // removed other assertion
         } catch(JexlException.Method xmethod) {
+            // removed other assertion
+            // removed other assertion
         }
 
         try {
@@ -162,20 +175,26 @@ public class OptionalTest_OE25Dev {
 
         script = jexl.createScript(info.at(53, 1),"thing.name.length()", "thing");
         Object result = script.execute(null, thing);
+        // removed other assertion
 
         thing.name = "foo";
         result = script.execute(null, thing);
+        // removed other assertion
 
         try {
             script = jexl.createScript(info.at(62, 1), "thing.name.size()", "thing");
             result = script.execute(null, thing);
+            // removed other assertion
         } catch(JexlException.Method xmethod) {
+            // removed other assertion
+            // removed other assertion
         }
 
         try {
             script = jexl.createScript(info.at(71, 1), "thing.name?.size()", "thing");
             result = script.execute(null, thing);
         } catch(JexlException.Method xmethod) {
+            // removed other assertion
         }
 
         thing.name = null;
@@ -195,25 +214,32 @@ public class OptionalTest_OE25Dev {
 
         script = jexl.createScript(info.at(53, 1),"thing.name.length()", "thing");
         Object result = script.execute(null, thing);
+        // removed other assertion
 
         thing.name = "foo";
         result = script.execute(null, thing);
+        // removed other assertion
 
         try {
             script = jexl.createScript(info.at(62, 1), "thing.name.size()", "thing");
             result = script.execute(null, thing);
+            // removed other assertion
         } catch(JexlException.Method xmethod) {
+            // removed other assertion
+            // removed other assertion
         }
 
         try {
             script = jexl.createScript(info.at(71, 1), "thing.name?.size()", "thing");
             result = script.execute(null, thing);
         } catch(JexlException.Method xmethod) {
+            // removed other assertion
         }
 
         thing.name = null;
         script = jexl.createScript(info,"thing.names.size()", "thing");
         result = script.execute(null, thing);
+        // removed other assertion
         thing.name = "froboz";
         result = script.execute(null, thing);
         Assert.assertEquals(1, result);

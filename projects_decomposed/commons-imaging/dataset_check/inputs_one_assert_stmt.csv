@@ -1,0 +1,1952 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition,focal_method,docstring
+imag_3_1,"    @Test
+    public void testColorType_1_oe() {
+        // ColorType is an enum within ImageInfo. We don't want to test every value
+        // of the enum. Just that one has the right values should be enough.
+        assertEquals(""RGB"", ColorType.RGB.toString());
+    }
+",TestImageInfo::testColorType_1_oe,,,,,,
+imag_3_2,"    @Test
+    public void testColorType_2_oe() {
+        // ColorType is an enum within ImageInfo. We don't want to test every value
+        // of the enum. Just that one has the right values should be enough.
+        // removed other assertion
+        assertEquals(ColorType.RGB, ColorType.valueOf(""RGB""));
+    }
+",TestImageInfo::testColorType_2_oe,org.apache.commons.imaging.common.RationalNumber,valueOf(double value),"/**
+     * Calculate rational number using successive approximations.
+     *
+     * @param value rational number double value
+     * @return the RationalNumber representation of the double value
+     */","public static RationalNumber valueOf(double value) {
+        if (value >= Integer.MAX_VALUE) {
+            return new RationalNumber(Integer.MAX_VALUE, 1);
+        }
+        if (value <= -Integer.MAX_VALUE) {
+            return new RationalNumber(-Integer.MAX_VALUE, 1);
+        }
+
+        boolean negative = false;
+        if (value < 0) {
+            negative = true;
+            value = Math.abs(value);
+        }
+
+        RationalNumber l;
+        RationalNumber h;
+
+        if (value == 0) {
+            return new RationalNumber(0, 1);
+        }
+        if (value >= 1) {
+            final int approx = (int) value;
+            if (approx < value) {
+                l = new RationalNumber(approx, 1);
+                h = new RationalNumber(approx + 1, 1);
+            } else {
+                l = new RationalNumber(approx - 1, 1);
+                h = new RationalNumber(approx, 1);
+            }
+        } else {
+            final int approx = (int) (1.0 / value);
+            if ((1.0 / approx) < value) {
+                l = new RationalNumber(1, approx);
+                h = new RationalNumber(1, approx - 1);
+            } else {
+                l = new RationalNumber(1, approx + 1);
+                h = new RationalNumber(1, approx);
+            }
+        }
+        Option low = Option.factory(l, value);
+        Option high = Option.factory(h, value);
+
+        Option bestOption = (low.error < high.error) ? low : high;
+
+        final int maxIterations = 100; // value is quite high, actually.
+                                       // shouldn't matter.
+        for (int count = 0; bestOption.error > TOLERANCE
+                && count < maxIterations; count++) {
+            final RationalNumber mediant = RationalNumber.factoryMethod(
+                    (long) low.rationalNumber.numerator
+                            + (long) high.rationalNumber.numerator,
+                    (long) low.rationalNumber.divisor
+                            + (long) high.rationalNumber.divisor);
+            final Option mediantOption = Option.factory(mediant, value);
+
+            if (value < mediant.doubleValue()) {
+                if (high.error <= mediantOption.error) {
+                    break;
+                }
+
+                high = mediantOption;
+            } else {
+                if (low.error <= mediantOption.error) {
+                    break;
+                }
+
+                low = mediantOption;
+            }
+
+            if (mediantOption.error < bestOption.error) {
+                bestOption = mediantOption;
+            }
+        }
+
+        return negative ? bestOption.rationalNumber.negate()
+                : bestOption.rationalNumber;
+    }","public static RationalNumber valueOf(double value) {
+        if (value >= Integer.MAX_VALUE) {
+            return new RationalNumber(Integer.MAX_VALUE, 1);
+        }
+        if (value <= -Integer.MAX_VALUE) {
+            return new RationalNumber(-Integer.MAX_VALUE, 1);
+        }
+
+        boolean negative = false;
+        if (value < 0) {
+            negative = true;
+            value = Math.abs(value);
+        }
+
+        RationalNumber l;
+        RationalNumber h;
+
+        if (value == 0) {
+            return new RationalNumber(0, 1);
+        }
+        if (value >= 1) {
+            final int approx = (int) value;
+            if (approx < value) {
+                l = new RationalNumber(approx, 1);
+                h = new RationalNumber(approx + 1, 1);
+            } else {
+                l = new RationalNumber(approx - 1, 1);
+                h = new RationalNumber(approx, 1);
+            }
+        } else {
+            final int approx = (int) (1.0 / value);
+            if ((1.0 / approx) < value) {
+                l = new RationalNumber(1, approx);
+                h = new RationalNumber(1, approx - 1);
+            } else {
+                l = new RationalNumber(1, approx + 1);
+                h = new RationalNumber(1, approx);
+            }
+        }
+        Option low = Option.factory(l, value);
+        Option high = Option.factory(h, value);
+
+        Option bestOption = (low.error < high.error) ? low : high;
+
+        final int maxIterations = 100; // value is quite high, actually.
+                                       // shouldn't matter.
+        for (int count = 0; bestOption.error > TOLERANCE
+                && count < maxIterations; count++) {
+            final RationalNumber mediant = RationalNumber.factoryMethod(
+                    (long) low.rationalNumber.numerator
+                            + (long) high.rationalNumber.numerator,
+                    (long) low.rationalNumber.divisor
+                            + (long) high.rationalNumber.divisor);
+            final Option mediantOption = Option.factory(mediant, value);
+
+            if (value < mediant.doubleValue()) {
+                if (high.error <= mediantOption.error) {
+                    break;
+                }
+
+                high = mediantOption;
+            } else {
+                if (low.error <= mediantOption.error) {
+                    break;
+                }
+
+                low = mediantOption;
+            }
+
+            if (mediantOption.error < bestOption.error) {
+                bestOption = mediantOption;
+            }
+        }
+
+        return negative ? bestOption.rationalNumber.negate()
+                : bestOption.rationalNumber;
+    }","/**
+     * Calculate rational number using successive approximations.
+     *
+     * @param value rational number double value
+     * @return the RationalNumber representation of the double value
+     */"
+imag_4_1,"    @Test
+    public void testCompressionAlgorithm_1_oe() {
+        assertEquals(""LZW"", CompressionAlgorithm.LZW.toString());
+    }
+",TestImageInfo::testCompressionAlgorithm_1_oe,,,,,,
+imag_4_2,"    @Test
+    public void testCompressionAlgorithm_2_oe() {
+        // removed other assertion
+        assertEquals(CompressionAlgorithm.LZW, CompressionAlgorithm.valueOf(""LZW""));
+    }
+",TestImageInfo::testCompressionAlgorithm_2_oe,org.apache.commons.imaging.common.RationalNumber,valueOf(double value),"/**
+     * Calculate rational number using successive approximations.
+     *
+     * @param value rational number double value
+     * @return the RationalNumber representation of the double value
+     */","public static RationalNumber valueOf(double value) {
+        if (value >= Integer.MAX_VALUE) {
+            return new RationalNumber(Integer.MAX_VALUE, 1);
+        }
+        if (value <= -Integer.MAX_VALUE) {
+            return new RationalNumber(-Integer.MAX_VALUE, 1);
+        }
+
+        boolean negative = false;
+        if (value < 0) {
+            negative = true;
+            value = Math.abs(value);
+        }
+
+        RationalNumber l;
+        RationalNumber h;
+
+        if (value == 0) {
+            return new RationalNumber(0, 1);
+        }
+        if (value >= 1) {
+            final int approx = (int) value;
+            if (approx < value) {
+                l = new RationalNumber(approx, 1);
+                h = new RationalNumber(approx + 1, 1);
+            } else {
+                l = new RationalNumber(approx - 1, 1);
+                h = new RationalNumber(approx, 1);
+            }
+        } else {
+            final int approx = (int) (1.0 / value);
+            if ((1.0 / approx) < value) {
+                l = new RationalNumber(1, approx);
+                h = new RationalNumber(1, approx - 1);
+            } else {
+                l = new RationalNumber(1, approx + 1);
+                h = new RationalNumber(1, approx);
+            }
+        }
+        Option low = Option.factory(l, value);
+        Option high = Option.factory(h, value);
+
+        Option bestOption = (low.error < high.error) ? low : high;
+
+        final int maxIterations = 100; // value is quite high, actually.
+                                       // shouldn't matter.
+        for (int count = 0; bestOption.error > TOLERANCE
+                && count < maxIterations; count++) {
+            final RationalNumber mediant = RationalNumber.factoryMethod(
+                    (long) low.rationalNumber.numerator
+                            + (long) high.rationalNumber.numerator,
+                    (long) low.rationalNumber.divisor
+                            + (long) high.rationalNumber.divisor);
+            final Option mediantOption = Option.factory(mediant, value);
+
+            if (value < mediant.doubleValue()) {
+                if (high.error <= mediantOption.error) {
+                    break;
+                }
+
+                high = mediantOption;
+            } else {
+                if (low.error <= mediantOption.error) {
+                    break;
+                }
+
+                low = mediantOption;
+            }
+
+            if (mediantOption.error < bestOption.error) {
+                bestOption = mediantOption;
+            }
+        }
+
+        return negative ? bestOption.rationalNumber.negate()
+                : bestOption.rationalNumber;
+    }","public static RationalNumber valueOf(double value) {
+        if (value >= Integer.MAX_VALUE) {
+            return new RationalNumber(Integer.MAX_VALUE, 1);
+        }
+        if (value <= -Integer.MAX_VALUE) {
+            return new RationalNumber(-Integer.MAX_VALUE, 1);
+        }
+
+        boolean negative = false;
+        if (value < 0) {
+            negative = true;
+            value = Math.abs(value);
+        }
+
+        RationalNumber l;
+        RationalNumber h;
+
+        if (value == 0) {
+            return new RationalNumber(0, 1);
+        }
+        if (value >= 1) {
+            final int approx = (int) value;
+            if (approx < value) {
+                l = new RationalNumber(approx, 1);
+                h = new RationalNumber(approx + 1, 1);
+            } else {
+                l = new RationalNumber(approx - 1, 1);
+                h = new RationalNumber(approx, 1);
+            }
+        } else {
+            final int approx = (int) (1.0 / value);
+            if ((1.0 / approx) < value) {
+                l = new RationalNumber(1, approx);
+                h = new RationalNumber(1, approx - 1);
+            } else {
+                l = new RationalNumber(1, approx + 1);
+                h = new RationalNumber(1, approx);
+            }
+        }
+        Option low = Option.factory(l, value);
+        Option high = Option.factory(h, value);
+
+        Option bestOption = (low.error < high.error) ? low : high;
+
+        final int maxIterations = 100; // value is quite high, actually.
+                                       // shouldn't matter.
+        for (int count = 0; bestOption.error > TOLERANCE
+                && count < maxIterations; count++) {
+            final RationalNumber mediant = RationalNumber.factoryMethod(
+                    (long) low.rationalNumber.numerator
+                            + (long) high.rationalNumber.numerator,
+                    (long) low.rationalNumber.divisor
+                            + (long) high.rationalNumber.divisor);
+            final Option mediantOption = Option.factory(mediant, value);
+
+            if (value < mediant.doubleValue()) {
+                if (high.error <= mediantOption.error) {
+                    break;
+                }
+
+                high = mediantOption;
+            } else {
+                if (low.error <= mediantOption.error) {
+                    break;
+                }
+
+                low = mediantOption;
+            }
+
+            if (mediantOption.error < bestOption.error) {
+                bestOption = mediantOption;
+            }
+        }
+
+        return negative ? bestOption.rationalNumber.negate()
+                : bestOption.rationalNumber;
+    }","/**
+     * Calculate rational number using successive approximations.
+     *
+     * @param value rational number double value
+     * @return the RationalNumber representation of the double value
+     */"
+imag_23_1,"    @Test
+    public void testLAssignment_1_oe() {
+        assertEquals(1.0, color.L, 0.0);
+    }
+",ColorHunterLabTest::testLAssignment_1_oe,,,,,,
+imag_24_1,"    @Test
+    public void testAAssignment_1_oe() {
+        assertEquals(2.0, color.a, 0.0);
+    }
+",ColorHunterLabTest::testAAssignment_1_oe,,,,,,
+imag_25_1,"    @Test
+    public void testBAssignment_1_oe() {
+        assertEquals(3.0, color.b, 0.0);
+    }
+",ColorHunterLabTest::testBAssignment_1_oe,,,,,,
+imag_26_1,"    @Test
+    public void testToString_1_oe() {
+        assertEquals(""{L: 1.0, a: 2.0, b: 3.0}"", color.toString());
+    }
+",ColorHunterLabTest::testToString_1_oe,,,,,,
+imag_27_1,"    @Test
+    public void testHashCodeAndEquals_1_oe() {
+        assertTrue(color.equals(colorCopy) && colorCopy.equals(color));
+    }
+",ColorHunterLabTest::testHashCodeAndEquals_1_oe,,,,,,
+imag_27_2,"    @Test
+    public void testHashCodeAndEquals_2_oe() {
+        // removed other assertion
+        assertThat(color.hashCode(), is(colorCopy.hashCode()));
+    }
+",ColorHunterLabTest::testHashCodeAndEquals_2_oe,,,,,,
+imag_28_1,"    @Test
+    public void testLAssignment_1_oe() {
+        assertEquals(1.0, color.L, 0.0);
+    }
+",ColorCieLabTest::testLAssignment_1_oe,,,,,,
+imag_29_1,"    @Test
+    public void testAAssignment_1_oe() {
+        assertEquals(2.0, color.a, 0.0);
+    }
+",ColorCieLabTest::testAAssignment_1_oe,,,,,,
+imag_30_1,"    @Test
+    public void testBAssignment_1_oe() {
+        assertEquals(3.0, color.b, 0.0);
+    }
+",ColorCieLabTest::testBAssignment_1_oe,,,,,,
+imag_31_1,"    @Test
+    public void testToString_1_oe() {
+        assertEquals(""{L: 1.0, a: 2.0, b: 3.0}"", color.toString());
+    }
+",ColorCieLabTest::testToString_1_oe,,,,,,
+imag_32_1,"    @Test
+    public void testHashCodeAndEquals_1_oe() {
+        assertTrue(color.equals(colorCopy) && colorCopy.equals(color));
+    }
+",ColorCieLabTest::testHashCodeAndEquals_1_oe,,,,,,
+imag_32_2,"    @Test
+    public void testHashCodeAndEquals_2_oe() {
+        // removed other assertion
+        assertThat(color.hashCode(), is(colorCopy.hashCode()));
+    }
+",ColorCieLabTest::testHashCodeAndEquals_2_oe,,,,,,
+imag_33_1,"    @Test
+    public void testHAssignment_1_oe() {
+        assertEquals(1.0, color.H, 0.0);
+    }
+",ColorHsvTest::testHAssignment_1_oe,,,,,,
+imag_34_1,"    @Test
+    public void testSAssignment_1_oe() {
+        assertEquals(2.0, color.S, 0.0);
+    }
+",ColorHsvTest::testSAssignment_1_oe,,,,,,
+imag_35_1,"    @Test
+    public void testVAssignment_1_oe() {
+        assertEquals(3.0, color.V, 0.0);
+    }
+",ColorHsvTest::testVAssignment_1_oe,,,,,,
+imag_36_1,"    @Test
+    public void testToString_1_oe() {
+        assertEquals(""{H: 1.0, S: 2.0, V: 3.0}"", color.toString());
+    }
+",ColorHsvTest::testToString_1_oe,,,,,,
+imag_37_1,"    @Test
+    public void testHashCodeAndEquals_1_oe() {
+        assertTrue(color.equals(colorCopy) && colorCopy.equals(color));
+    }
+",ColorHsvTest::testHashCodeAndEquals_1_oe,,,,,,
+imag_37_2,"    @Test
+    public void testHashCodeAndEquals_2_oe() {
+        // removed other assertion
+        assertThat(color.hashCode(), is(colorCopy.hashCode()));
+    }
+",ColorHsvTest::testHashCodeAndEquals_2_oe,,,,,,
+imag_38_1,"    @Test
+    public void testCAssignment_1_oe() {
+        assertEquals(1.0, color.C, 0.0);
+    }
+",ColorCmyTest::testCAssignment_1_oe,,,,,,
+imag_39_1,"    @Test
+    public void testMAssignment_1_oe() {
+        assertEquals(2.0, color.M, 0.0);
+    }
+",ColorCmyTest::testMAssignment_1_oe,,,,,,
+imag_40_1,"    @Test
+    public void testYAssignment_1_oe() {
+        assertEquals(3.0, color.Y, 0.0);
+    }
+",ColorCmyTest::testYAssignment_1_oe,,,,,,
+imag_41_1,"    @Test
+    public void testToString_1_oe() {
+        assertEquals(""{C: 1.0, M: 2.0, Y: 3.0}"", color.toString());
+    }
+",ColorCmyTest::testToString_1_oe,,,,,,
+imag_43_1,"    @Test
+    public void testEquals_1_oe() {
+        assertTrue(color.equals(colorCopy) && colorCopy.equals(color));
+    }
+",ColorCmyTest::testEquals_1_oe,,,,,,
+imag_43_2,"    @Test
+    public void testEquals_2_oe() {
+        // removed other assertion
+        assertThat(color.hashCode(), is(colorCopy.hashCode()));
+    }
+",ColorCmyTest::testEquals_2_oe,,,,,,
+imag_44_1,"    @Test
+    public void testLAssignment_1_oe() {
+        assertEquals(1.0, color.L, 0.0);
+    }
+",ColorCieLchTest::testLAssignment_1_oe,,,,,,
+imag_45_1,"    @Test
+    public void testCAssignment_1_oe() {
+        assertEquals(2.0, color.C, 0.0);
+    }
+",ColorCieLchTest::testCAssignment_1_oe,,,,,,
+imag_46_1,"    @Test
+    public void testHAssignment_1_oe() {
+        assertEquals(3.0, color.h, 0.0);
+    }
+",ColorCieLchTest::testHAssignment_1_oe,,,,,,
+imag_47_1,"    @Test
+    public void testToString_1_oe() {
+        assertEquals(""{L: 1.0, C: 2.0, h: 3.0}"", color.toString());
+    }
+",ColorCieLchTest::testToString_1_oe,,,,,,
+imag_48_1,"    @Test
+    public void testHashCodeAndEquals_1_oe() {
+        assertTrue(color.equals(colorCopy) && colorCopy.equals(color));
+    }
+",ColorCieLchTest::testHashCodeAndEquals_1_oe,,,,,,
+imag_48_2,"    @Test
+    public void testHashCodeAndEquals_2_oe() {
+        // removed other assertion
+        assertThat(color.hashCode(), is(colorCopy.hashCode()));
+    }
+",ColorCieLchTest::testHashCodeAndEquals_2_oe,,,,,,
+imag_49_1,"    @Test
+    public void testCAssignment_1_oe() {
+        assertEquals(1.0, color.C, 0.0);
+    }
+",ColorCmykTest::testCAssignment_1_oe,,,,,,
+imag_50_1,"    @Test
+    public void testMAssignment_1_oe() {
+        assertEquals(2.0, color.M, 0.0);
+    }
+",ColorCmykTest::testMAssignment_1_oe,,,,,,
+imag_51_1,"    @Test
+    public void testYAssignment_1_oe() {
+        assertEquals(3.0, color.Y, 0.0);
+    }
+",ColorCmykTest::testYAssignment_1_oe,,,,,,
+imag_52_1,"    @Test
+    public void testKAssignment_1_oe() {
+        assertEquals(4.0, color.K, 0.0);
+    }
+",ColorCmykTest::testKAssignment_1_oe,,,,,,
+imag_53_1,"    @Test
+    public void testToString_1_oe() {
+        assertEquals(""{C: 1.0, M: 2.0, Y: 3.0, K: 4.0}"", color.toString());
+    }
+",ColorCmykTest::testToString_1_oe,,,,,,
+imag_54_1,"    @Test
+    public void testHashCodeAndEquals_1_oe() {
+        assertTrue(color.equals(colorCopy) && colorCopy.equals(color));
+    }
+",ColorCmykTest::testHashCodeAndEquals_1_oe,,,,,,
+imag_54_2,"    @Test
+    public void testHashCodeAndEquals_2_oe() {
+        // removed other assertion
+        assertThat(color.hashCode(), is(colorCopy.hashCode()));
+    }
+",ColorCmykTest::testHashCodeAndEquals_2_oe,,,,,,
+imag_55_1,"    @Test
+    public void testXAssignment_1_oe() {
+        assertEquals(1.0, color.X, 0.0);
+    }
+",ColorXyzTest::testXAssignment_1_oe,,,,,,
+imag_56_1,"    @Test
+    public void testYAssignment_1_oe() {
+        assertEquals(2.0, color.Y, 0.0);
+    }
+",ColorXyzTest::testYAssignment_1_oe,,,,,,
+imag_57_1,"    @Test
+    public void testZAssignment_1_oe() {
+        assertEquals(3.0, color.Z, 0.0);
+    }
+",ColorXyzTest::testZAssignment_1_oe,,,,,,
+imag_58_1,"    @Test
+    public void testToString_1_oe() {
+        assertEquals(""{X: 1.0, Y: 2.0, Z: 3.0}"", color.toString());
+    }
+",ColorXyzTest::testToString_1_oe,,,,,,
+imag_59_1,"    @Test
+    public void testHashCodeAndEquals_1_oe() {
+        assertTrue(color.equals(colorCopy) && colorCopy.equals(color));
+    }
+",ColorXyzTest::testHashCodeAndEquals_1_oe,,,,,,
+imag_59_2,"    @Test
+    public void testHashCodeAndEquals_2_oe() {
+        // removed other assertion
+        assertThat(color.hashCode(), is(colorCopy.hashCode()));
+    }
+",ColorXyzTest::testHashCodeAndEquals_2_oe,,,,,,
+imag_60_1,"    @Test
+    public void testLAssignment_1_oe() {
+        assertEquals(1.0, color.L, 0.0);
+    }
+",ColorCieLuvTest::testLAssignment_1_oe,,,,,,
+imag_61_1,"    @Test
+    public void testUAssignment_1_oe() {
+        assertEquals(2.0, color.u, 0.0);
+    }
+",ColorCieLuvTest::testUAssignment_1_oe,,,,,,
+imag_62_1,"    @Test
+    public void testVAssignment_1_oe() {
+        assertEquals(3.0, color.v, 0.0);
+    }
+",ColorCieLuvTest::testVAssignment_1_oe,,,,,,
+imag_63_1,"    @Test
+    public void testToString_1_oe() {
+        assertEquals(""{L: 1.0, u: 2.0, v: 3.0}"", color.toString());
+    }
+",ColorCieLuvTest::testToString_1_oe,,,,,,
+imag_64_1,"    @Test
+    public void testHashCodeAndEquals_1_oe() {
+        assertTrue(color.equals(colorCopy) && colorCopy.equals(color));
+    }
+",ColorCieLuvTest::testHashCodeAndEquals_1_oe,,,,,,
+imag_64_2,"    @Test
+    public void testHashCodeAndEquals_2_oe() {
+        // removed other assertion
+        assertThat(color.hashCode(), is(colorCopy.hashCode()));
+    }
+",ColorCieLuvTest::testHashCodeAndEquals_2_oe,,,,,,
+imag_65_1,"    @Test
+    public void testHAssignment_1_oe() {
+        assertEquals(1.0, color.H, 0.0);
+    }
+",ColorHslTest::testHAssignment_1_oe,,,,,,
+imag_66_1,"    @Test
+    public void testSAssignment_1_oe() {
+        assertEquals(2.0, color.S, 0.0);
+    }
+",ColorHslTest::testSAssignment_1_oe,,,,,,
+imag_67_1,"    @Test
+    public void testLAssignment_1_oe() {
+        assertEquals(3.0, color.L, 0.0);
+    }
+",ColorHslTest::testLAssignment_1_oe,,,,,,
+imag_68_1,"    @Test
+    public void testToString_1_oe() {
+        assertEquals(""{H: 1.0, S: 2.0, L: 3.0}"", color.toString());
+    }
+",ColorHslTest::testToString_1_oe,,,,,,
+imag_69_1,"    @Test
+    public void testHashCodeAndEquals_1_oe() {
+        assertTrue(color.equals(colorCopy) && colorCopy.equals(color));
+    }
+",ColorHslTest::testHashCodeAndEquals_1_oe,,,,,,
+imag_69_2,"    @Test
+    public void testHashCodeAndEquals_2_oe() {
+        // removed other assertion
+        assertThat(color.hashCode(), is(colorCopy.hashCode()));
+    }
+",ColorHslTest::testHashCodeAndEquals_2_oe,,,,,,
+imag_154_1,"    @Test
+    public void testGetWidth_1_oe() {
+        assertEquals(width, raster.getWidth(), ""Improper width stored"");
+    }
+",TiffRasterDataTest::testGetWidth_1_oe,org.apache.commons.imaging.ImageInfo,getWidth(),"/**
+     * Returns the width of the image in pixels.
+     *
+     * @return image width in pixels.
+     * @see #getHeight()
+     */","public int getWidth() {
+        return width;
+    }","public final int getWidth() {
+        return width;
+    }","/**
+     * Gets the width (number of columns) of the raster.
+     *
+     * @return the width of the raster
+     */"
+imag_155_1,"    @Test
+    public void testGetHeight_1_oe() {
+        assertEquals(width, raster.getWidth(), ""Improper height stored"");
+    }
+",TiffRasterDataTest::testGetHeight_1_oe,org.apache.commons.imaging.ImageInfo,getWidth(),"/**
+     * Returns the width of the image in pixels.
+     *
+     * @return image width in pixels.
+     * @see #getHeight()
+     */","public int getWidth() {
+        return width;
+    }","public final int getWidth() {
+        return width;
+    }","/**
+     * Gets the width (number of columns) of the raster.
+     *
+     * @return the width of the raster
+     */"
+imag_163_1,"    @Test
+    public void testGetCountOfSamples_1_oe() {
+        assertEquals(width * height - 1, stat0.getCountOfSamples());
+    }
+",TiffRasterStatisticsTest::testGetCountOfSamples_1_oe,org.apache.commons.imaging.formats.tiff.TiffRasterStatistics,getCountOfSamples(),"/**
+     * Get the count of the number of non-null and non-excluded samples in the
+     * collection.
+     *
+     * @return the a positive number, potentially zero
+     */","public int getCountOfSamples() {
+        return nSample;
+    }","public int getCountOfSamples() {
+        return nSample;
+    }","/**
+     * Get the count of the number of non-null and non-excluded samples in the
+     * collection.
+     *
+     * @return the a positive number, potentially zero
+     */"
+imag_163_2,"    @Test
+    public void testGetCountOfSamples_2_oe() {
+        // removed other assertion
+        assertEquals(width * height - 2, stat1.getCountOfSamples());
+    }
+",TiffRasterStatisticsTest::testGetCountOfSamples_2_oe,org.apache.commons.imaging.formats.tiff.TiffRasterStatistics,getCountOfSamples(),"/**
+     * Get the count of the number of non-null and non-excluded samples in the
+     * collection.
+     *
+     * @return the a positive number, potentially zero
+     */","public int getCountOfSamples() {
+        return nSample;
+    }","public int getCountOfSamples() {
+        return nSample;
+    }","/**
+     * Get the count of the number of non-null and non-excluded samples in the
+     * collection.
+     *
+     * @return the a positive number, potentially zero
+     */"
+imag_164_1,"    @Test
+    public void testGetCountOfNulls_1_oe() {
+        assertEquals(1, stat0.getCountOfNulls());
+    }
+",TiffRasterStatisticsTest::testGetCountOfNulls_1_oe,org.apache.commons.imaging.formats.tiff.TiffRasterStatistics,getCountOfNulls(),"/**
+     * Get the count of the number of null samples in the collection.
+     *
+     * @return the a positive number, potentially zero
+     */","public int getCountOfNulls() {
+        return nNull;
+    }","public int getCountOfNulls() {
+        return nNull;
+    }","/**
+     * Get the count of the number of null samples in the collection.
+     *
+     * @return the a positive number, potentially zero
+     */"
+imag_164_2,"    @Test
+    public void testGetCountOfNulls_2_oe() {
+        // removed other assertion
+        assertEquals(1, stat1.getCountOfNulls());
+    }
+",TiffRasterStatisticsTest::testGetCountOfNulls_2_oe,org.apache.commons.imaging.formats.tiff.TiffRasterStatistics,getCountOfNulls(),"/**
+     * Get the count of the number of null samples in the collection.
+     *
+     * @return the a positive number, potentially zero
+     */","public int getCountOfNulls() {
+        return nNull;
+    }","public int getCountOfNulls() {
+        return nNull;
+    }","/**
+     * Get the count of the number of null samples in the collection.
+     *
+     * @return the a positive number, potentially zero
+     */"
+imag_165_1,"    @Test
+    public void testGetMinValue_1_oe() {
+        assertEquals(0, stat0.getMinValue());
+    }
+",TiffRasterStatisticsTest::testGetMinValue_1_oe,org.apache.commons.imaging.formats.tiff.TiffRasterStatistics,getMinValue(),"/**
+     * Get the minimum value found in the source data
+     *
+     * @return the minimum value found in the source data
+     */","public float getMinValue() {
+        return minValue;
+    }","public float getMinValue() {
+        return minValue;
+    }","/**
+     * Get the minimum value found in the source data
+     *
+     * @return the minimum value found in the source data
+     */"
+imag_165_2,"    @Test
+    public void testGetMinValue_2_oe() {
+        // removed other assertion
+        assertEquals(0, stat1.getMinValue());
+    }
+",TiffRasterStatisticsTest::testGetMinValue_2_oe,org.apache.commons.imaging.formats.tiff.TiffRasterStatistics,getMinValue(),"/**
+     * Get the minimum value found in the source data
+     *
+     * @return the minimum value found in the source data
+     */","public float getMinValue() {
+        return minValue;
+    }","public float getMinValue() {
+        return minValue;
+    }","/**
+     * Get the minimum value found in the source data
+     *
+     * @return the minimum value found in the source data
+     */"
+imag_166_1,"    @Test
+    public void testGetMaxValue_1_oe() {
+        assertEquals(width * height - 1, stat0.getMaxValue());
+    }
+",TiffRasterStatisticsTest::testGetMaxValue_1_oe,org.apache.commons.imaging.formats.tiff.TiffRasterStatistics,getMaxValue(),"/**
+     * Get the maximum value found in the source data
+     *
+     * @return the maximum value found in the source data
+     */","public float getMaxValue() {
+        return maxValue;
+    }","public float getMaxValue() {
+        return maxValue;
+    }","/**
+     * Get the maximum value found in the source data
+     *
+     * @return the maximum value found in the source data
+     */"
+imag_166_2,"    @Test
+    public void testGetMaxValue_2_oe() {
+        // removed other assertion
+        assertEquals(width * height - 2, stat1.getMaxValue());
+    }
+",TiffRasterStatisticsTest::testGetMaxValue_2_oe,org.apache.commons.imaging.formats.tiff.TiffRasterStatistics,getMaxValue(),"/**
+     * Get the maximum value found in the source data
+     *
+     * @return the maximum value found in the source data
+     */","public float getMaxValue() {
+        return maxValue;
+    }","public float getMaxValue() {
+        return maxValue;
+    }","/**
+     * Get the maximum value found in the source data
+     *
+     * @return the maximum value found in the source data
+     */"
+imag_167_1,"    @Test
+    public void testGetMeanValue_1_oe() {
+        assertNotEquals(0, stat0.getMeanValue());
+    }
+",TiffRasterStatisticsTest::testGetMeanValue_1_oe,org.apache.commons.imaging.formats.tiff.TiffRasterStatistics,getMeanValue(),"/**
+     * Get the mean value for all sample values in the raster. Null-data values
+     * and excluded values are not considered.
+     *
+     * @return the mean value of the samples
+     */","public float getMeanValue() {
+        return meanValue;
+    }","public float getMeanValue() {
+        return meanValue;
+    }","/**
+     * Get the mean value for all sample values in the raster. Null-data values
+     * and excluded values are not considered.
+     *
+     * @return the mean value of the samples
+     */"
+imag_168_1,"    @Test
+    public void testIsAnExcludedValueSet_1_oe() {
+        assertFalse(stat0.isAnExcludedValueSet());
+    }
+",TiffRasterStatisticsTest::testIsAnExcludedValueSet_1_oe,org.apache.commons.imaging.formats.tiff.TiffRasterStatistics,isAnExcludedValueSet(),"/**
+     * Indicates if a sample value was set to be deliberately excluded from the
+     * statistics.
+     *
+     * @return true if a value was set for exclusion; otherwise, false
+     */","public boolean isAnExcludedValueSet() {
+        return !Float.isNaN(excludedValue);
+    }","public boolean isAnExcludedValueSet() {
+        return !Float.isNaN(excludedValue);
+    }","/**
+     * Indicates if a sample value was set to be deliberately excluded from the
+     * statistics.
+     *
+     * @return true if a value was set for exclusion; otherwise, false
+     */"
+imag_168_2,"    @Test
+    public void testIsAnExcludedValueSet_2_oe() {
+        // removed other assertion
+        assertTrue(stat1.isAnExcludedValueSet());
+    }
+",TiffRasterStatisticsTest::testIsAnExcludedValueSet_2_oe,org.apache.commons.imaging.formats.tiff.TiffRasterStatistics,isAnExcludedValueSet(),"/**
+     * Indicates if a sample value was set to be deliberately excluded from the
+     * statistics.
+     *
+     * @return true if a value was set for exclusion; otherwise, false
+     */","public boolean isAnExcludedValueSet() {
+        return !Float.isNaN(excludedValue);
+    }","public boolean isAnExcludedValueSet() {
+        return !Float.isNaN(excludedValue);
+    }","/**
+     * Indicates if a sample value was set to be deliberately excluded from the
+     * statistics.
+     *
+     * @return true if a value was set for exclusion; otherwise, false
+     */"
+imag_169_1,"    @Test
+    public void testGetExcludedValue_1_oe() {
+        assertTrue(Float.isNaN(stat0.getExcludedValue()));
+    }
+",TiffRasterStatisticsTest::testGetExcludedValue_1_oe,org.apache.commons.imaging.formats.tiff.TiffRasterStatistics,getExcludedValue(),"/**
+     * Get the value that was set for exclusion, or a Float&#46;NaN if not was
+     * set.
+     *
+     * @return the excluded value (if any).
+     */","public float getExcludedValue() {
+        return excludedValue;
+    }",,
+imag_169_2,"    @Test
+    public void testGetExcludedValue_2_oe() {
+        // removed other assertion
+        assertEquals(width * height - 1, stat1.getExcludedValue());
+    }
+",TiffRasterStatisticsTest::testGetExcludedValue_2_oe,org.apache.commons.imaging.formats.tiff.TiffRasterStatistics,getExcludedValue(),"/**
+     * Get the value that was set for exclusion, or a Float&#46;NaN if not was
+     * set.
+     *
+     * @return the excluded value (if any).
+     */","public float getExcludedValue() {
+        return excludedValue;
+    }","public float getExcludedValue() {
+        return excludedValue;
+    }","/**
+     * Get the value that was set for exclusion, or a Float&#46;NaN if not was
+     * set.
+     *
+     * @return the excluded value (if any).
+     */"
+imag_182_1,"    @Test
+    public void testGetWidth_1_oe() {
+        assertEquals(width, raster.getWidth(), ""Improper width stored"");
+    }
+",TiffRasterDataIntTest::testGetWidth_1_oe,org.apache.commons.imaging.ImageInfo,getWidth(),"/**
+     * Returns the width of the image in pixels.
+     *
+     * @return image width in pixels.
+     * @see #getHeight()
+     */","public int getWidth() {
+        return width;
+    }","public int getWidth() {
+        return width;
+    }","/**
+     * Returns the width of the image in pixels.
+     *
+     * @return image width in pixels.
+     * @see #getHeight()
+     */"
+imag_183_1,"    @Test
+    public void testGetHeight_1_oe() {
+        assertEquals(width, raster.getWidth(), ""Improper height stored"");
+    }
+",TiffRasterDataIntTest::testGetHeight_1_oe,org.apache.commons.imaging.ImageInfo,getWidth(),"/**
+     * Returns the width of the image in pixels.
+     *
+     * @return image width in pixels.
+     * @see #getHeight()
+     */","public int getWidth() {
+        return width;
+    }","public int getWidth() {
+        return width;
+    }","/**
+     * Returns the width of the image in pixels.
+     *
+     * @return image width in pixels.
+     * @see #getHeight()
+     */"
+imag_215_1,"    @Test
+    public void testConstructor_1_oe() {
+        assertEquals(samplesPerPixel, p.samplesPerPixel);
+    }
+",PhotometricInterpreterRgbTest::testConstructor_1_oe,,,,,,
+imag_217_1,"    @Test
+    public void testConstructor_1_oe() {
+        assertEquals(samplesPerPixel, p.samplesPerPixel);
+    }
+",PhotometricInterpreterLogLuvTest::testConstructor_1_oe,,,,,,
+imag_218_1,"    @Test
+    public void testGetTristimulusValues_1_oe() {
+        // any value equals 0 will have its pow(N, 3) equal to 0
+        assertEquals(0.0d, p.getTristimulusValues(0, 0, 0).x, 0.001d);
+    }
+",PhotometricInterpreterLogLuvTest::testGetTristimulusValues_1_oe,org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuv,"getTristimulusValues(final int cieL, final int cieA, final int cieB)","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */"
+imag_218_2,"    @Test
+    public void testGetTristimulusValues_2_oe() {
+        // any value equals 0 will have its pow(N, 3) equal to 0
+        // removed other assertion
+        assertEquals(0.0d, p.getTristimulusValues(0, 0, 0).y, 0.001d);
+    }
+",PhotometricInterpreterLogLuvTest::testGetTristimulusValues_2_oe,org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuv,"getTristimulusValues(final int cieL, final int cieA, final int cieB)","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */"
+imag_218_3,"    @Test
+    public void testGetTristimulusValues_3_oe() {
+        // any value equals 0 will have its pow(N, 3) equal to 0
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0.0d, p.getTristimulusValues(0, 0, 0).z, 0.001d);
+    }
+",PhotometricInterpreterLogLuvTest::testGetTristimulusValues_3_oe,org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuv,"getTristimulusValues(final int cieL, final int cieA, final int cieB)","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */"
+imag_218_4,"    @Test
+    public void testGetTristimulusValues_4_oe() {
+        // any value equals 0 will have its pow(N, 3) equal to 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // values under the threshold used in the if statements
+        assertEquals(0.04126d, p.getTristimulusValues(1, 0, 0).x, 0.001d);
+    }
+",PhotometricInterpreterLogLuvTest::testGetTristimulusValues_4_oe,org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuv,"getTristimulusValues(final int cieL, final int cieA, final int cieB)","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */"
+imag_218_5,"    @Test
+    public void testGetTristimulusValues_5_oe() {
+        // any value equals 0 will have its pow(N, 3) equal to 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // values under the threshold used in the if statements
+        // removed other assertion
+        assertEquals(0.04341d, p.getTristimulusValues(1, 0, 0).y, 0.001d);
+    }
+",PhotometricInterpreterLogLuvTest::testGetTristimulusValues_5_oe,org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuv,"getTristimulusValues(final int cieL, final int cieA, final int cieB)","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */"
+imag_218_6,"    @Test
+    public void testGetTristimulusValues_6_oe() {
+        // any value equals 0 will have its pow(N, 3) equal to 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // values under the threshold used in the if statements
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0.04727d, p.getTristimulusValues(1, 0, 0).z, 0.001d);
+    }
+",PhotometricInterpreterLogLuvTest::testGetTristimulusValues_6_oe,org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuv,"getTristimulusValues(final int cieL, final int cieA, final int cieB)","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */"
+imag_218_7,"    @Test
+    public void testGetTristimulusValues_7_oe() {
+        // any value equals 0 will have its pow(N, 3) equal to 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // values under the threshold used in the if statements
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // values under the threshold used in the if statements
+        assertEquals(29.36116d, p.getTristimulusValues(100, 100, 50).x, 0.001d);
+    }
+",PhotometricInterpreterLogLuvTest::testGetTristimulusValues_7_oe,org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuv,"getTristimulusValues(final int cieL, final int cieA, final int cieB)","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */"
+imag_218_8,"    @Test
+    public void testGetTristimulusValues_8_oe() {
+        // any value equals 0 will have its pow(N, 3) equal to 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // values under the threshold used in the if statements
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // values under the threshold used in the if statements
+        // removed other assertion
+        assertEquals(10.78483d, p.getTristimulusValues(100, 100, 50).y, 0.001d);
+    }
+",PhotometricInterpreterLogLuvTest::testGetTristimulusValues_8_oe,org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuv,"getTristimulusValues(final int cieL, final int cieA, final int cieB)","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */"
+imag_218_9,"    @Test
+    public void testGetTristimulusValues_9_oe() {
+        // any value equals 0 will have its pow(N, 3) equal to 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // values under the threshold used in the if statements
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // values under the threshold used in the if statements
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1.25681d, p.getTristimulusValues(100, 100, 50).z, 0.001d);
+    }
+",PhotometricInterpreterLogLuvTest::testGetTristimulusValues_9_oe,org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuv,"getTristimulusValues(final int cieL, final int cieA, final int cieB)","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","TristimulusValues getTristimulusValues(final int cieL, final int cieA, final int cieB) {
+        float var_Y = ((cieL * 100.0f / 255.0f) + 16.0f) / 116.0f;
+        float var_X = cieA / 500.0f + var_Y;
+        float var_Z = var_Y - cieB / 200.0f;
+
+        final float var_x_cube = (float) Math.pow(var_X, 3.0d);
+        final float var_y_cube = (float) Math.pow(var_Y, 3.0d);
+        final float var_z_cube = (float) Math.pow(var_Z, 3.0d);
+
+        if (var_y_cube > 0.008856f) {
+            var_Y = var_y_cube;
+        } else {
+            var_Y = (var_Y - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_x_cube > 0.008856f) {
+            var_X = var_x_cube;
+        } else {
+            var_X = (var_X - 16 / 116.0f) / 7.787f;
+        }
+
+        if (var_z_cube > 0.008856f) {
+            var_Z = var_z_cube;
+        } else {
+            var_Z = (var_Z - 16 / 116.0f) / 7.787f;
+        }
+
+        // These reference values are the relative white points (XYZ) for commons scene types.
+        // The chosen values here reflect a scene with Summer Sun and Sky, temperature of 6504 K,
+        // X 95.047, Y 100.0, and Z 108.883.
+        // See Color Science by Wyszecki and Stiles for more
+        final float ref_X = 95.047f;
+        final float ref_Y = 100.000f;
+        final float ref_Z = 108.883f;
+
+        final TristimulusValues values = new TristimulusValues();
+        values.x = ref_X * var_X; // ref_X = 95.047 Observer= 2°, Illuminant= D65
+        values.y = ref_Y * var_Y; // ref_Y = 100.000
+        values.z = ref_Z * var_Z; // ref_Z = 108.883
+        return values;
+    }","/**
+     * Receives a triplet of CIELAB values, and calculates the tristimulus values.
+     * The reference white point used here is the equivalent to summer sun and sky.
+     *
+     * @param cieL lightness from black to white
+     * @param cieA lightness from green to red
+     * @param cieB lightness from blue to yellow
+     * @return tristimulus (X, Y, and Z) values
+     * @see <a href=""https://en.wikipedia.org/wiki/CIELAB_color_space"">CIELAB color space</a>
+     * @see <a href=""https://en.wikipedia.org/wiki/White_point"">White point</a>
+     */"

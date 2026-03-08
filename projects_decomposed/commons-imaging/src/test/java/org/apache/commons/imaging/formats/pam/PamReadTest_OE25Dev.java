@@ -56,6 +56,7 @@ public class PamReadTest_OE25Dev extends PamBaseTest {
             Debug.debug("imageFile", imageFile);
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            // removed other assertion
             final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
             assertNotNull(imageInfo);
     }
@@ -71,7 +72,9 @@ public class PamReadTest_OE25Dev extends PamBaseTest {
             Debug.debug("imageFile", imageFile);
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            // removed other assertion
             final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+            // removed other assertion
 
             final BufferedImage image = Imaging.getBufferedImage(imageFile);
             assertNotNull(image);

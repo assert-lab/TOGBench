@@ -36,14 +36,18 @@ public class RamFileRandomAccessContentTestCase_OE25Dev {
     @Test
     public void testInputStreamRead0xff_1_oe() throws IOException {
 
+        // create ram file to test
         final FileObject file = VFS.getManager().resolveFile("ram://file");
         file.createFile();
 
+        // write test data,a single byte 0xFF
         try (OutputStream out = file.getContent().getOutputStream()) {
             out.write(0xFF);
         }
 
+        // read test data,first data should be 0xFF instead of -1. Will read -1 finally (EOF)
         try (InputStream in = new RamFileRandomAccessContent((RamFileObject) file, RandomAccessMode.READ).getInputStream()) {
+            // read first data
             final int read = in.read();
             Assert.assertNotEquals(EOF, read);
     }
@@ -52,15 +56,20 @@ public class RamFileRandomAccessContentTestCase_OE25Dev {
     @Test
     public void testInputStreamRead0xff_2_oe() throws IOException {
 
+        // create ram file to test
         final FileObject file = VFS.getManager().resolveFile("ram://file");
         file.createFile();
 
+        // write test data,a single byte 0xFF
         try (OutputStream out = file.getContent().getOutputStream()) {
             out.write(0xFF);
         }
 
+        // read test data,first data should be 0xFF instead of -1. Will read -1 finally (EOF)
         try (InputStream in = new RamFileRandomAccessContent((RamFileObject) file, RandomAccessMode.READ).getInputStream()) {
+            // read first data
             final int read = in.read();
+            // removed other assertion
             Assert.assertEquals(0xFF, read);
     }
     }
@@ -68,16 +77,23 @@ public class RamFileRandomAccessContentTestCase_OE25Dev {
     @Test
     public void testInputStreamRead0xff_3_oe() throws IOException {
 
+        // create ram file to test
         final FileObject file = VFS.getManager().resolveFile("ram://file");
         file.createFile();
 
+        // write test data,a single byte 0xFF
         try (OutputStream out = file.getContent().getOutputStream()) {
             out.write(0xFF);
         }
 
+        // read test data,first data should be 0xFF instead of -1. Will read -1 finally (EOF)
         try (InputStream in = new RamFileRandomAccessContent((RamFileObject) file, RandomAccessMode.READ).getInputStream()) {
+            // read first data
             final int read = in.read();
+            // removed other assertion
+            // removed other assertion
 
+            // read EOF
             Assert.assertEquals(EOF, in.read());
     }
     }

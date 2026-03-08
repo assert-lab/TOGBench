@@ -467,6 +467,7 @@ public class TestEventListenerList_OE25Dev {
         list.addAll(list2);
         final Iterator<EventListenerRegistrationData<?>> it = list.getRegistrations().iterator();
         EventListenerRegistrationData<?> reg = it.next();
+        // removed other assertion
         assertEquals("Wrong listener (1)", l1, reg.getListener());
     }
 
@@ -483,6 +484,8 @@ public class TestEventListenerList_OE25Dev {
         list.addAll(list2);
         final Iterator<EventListenerRegistrationData<?>> it = list.getRegistrations().iterator();
         EventListenerRegistrationData<?> reg = it.next();
+        // removed other assertion
+        // removed other assertion
         reg = it.next();
         assertEquals("Wrong type (2)", typeSub1, reg.getEventType());
     }
@@ -500,7 +503,10 @@ public class TestEventListenerList_OE25Dev {
         list.addAll(list2);
         final Iterator<EventListenerRegistrationData<?>> it = list.getRegistrations().iterator();
         EventListenerRegistrationData<?> reg = it.next();
+        // removed other assertion
+        // removed other assertion
         reg = it.next();
+        // removed other assertion
         assertEquals("Wrong listener (2)", l2, reg.getListener());
     }
 
@@ -517,7 +523,11 @@ public class TestEventListenerList_OE25Dev {
         list.addAll(list2);
         final Iterator<EventListenerRegistrationData<?>> it = list.getRegistrations().iterator();
         EventListenerRegistrationData<?> reg = it.next();
+        // removed other assertion
+        // removed other assertion
         reg = it.next();
+        // removed other assertion
+        // removed other assertion
         reg = it.next();
         assertEquals("Wrong type (3)", typeBase, reg.getEventType());
     }
@@ -535,8 +545,13 @@ public class TestEventListenerList_OE25Dev {
         list.addAll(list2);
         final Iterator<EventListenerRegistrationData<?>> it = list.getRegistrations().iterator();
         EventListenerRegistrationData<?> reg = it.next();
+        // removed other assertion
+        // removed other assertion
         reg = it.next();
+        // removed other assertion
+        // removed other assertion
         reg = it.next();
+        // removed other assertion
         assertEquals("Wrong listener (3)", l3, reg.getListener());
     }
 
@@ -587,6 +602,7 @@ public class TestEventListenerList_OE25Dev {
         list.addEventListener(reg2);
 
         final List<EventListenerRegistrationData<?>> registrations = list.getRegistrations();
+        // removed other assertion
         assertTrue("Registration 1 not found", registrations.contains(reg1));
     }
 
@@ -598,6 +614,8 @@ public class TestEventListenerList_OE25Dev {
         list.addEventListener(reg2);
 
         final List<EventListenerRegistrationData<?>> registrations = list.getRegistrations();
+        // removed other assertion
+        // removed other assertion
         assertTrue("Registration 2 not found", registrations.contains(reg2));
     }
 

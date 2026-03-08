@@ -1,0 +1,323 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+numb_482_2,"    @Test
+    void testBadEndpoints_2_oe() {
+        final DoubleUnaryOperator f = new Sin();
+        final BrentSolver solver = new BrentSolver(DEFAULT_ABSOLUTE_ACCURACY,
+                                                   DEFAULT_RELATIVE_ACCURACY,
+                                                   DEFAULT_FUNCTION_ACCURACY);
+        try {  // Bad interval.
+            solver.findRoot(f, 1, -1);
+        } catch (SolverException ex) {
+            Assertions.assertNotEquals(-1, ex.getMessage().indexOf("" > ""));
+    }
+    }",BrentSolverTest::testBadEndpoints_2_oe,org.apache.commons.numbers.rootfinder.BrentSolver,"findRoot(DoubleUnaryOperator func,
+                           double min,
+                           double max)","/**
+     * Search the function's zero within the given interval.
+     *
+     * @param func Function to solve.
+     * @param min Lower bound.
+     * @param max Upper bound.
+     * @return the root.
+     * @throws IllegalArgumentException if {@code min > max}.
+     * @throws IllegalArgumentException if the given interval does
+     * not bracket the root.
+     */","public double findRoot(DoubleUnaryOperator func,
+                           double min,
+                           double max) {
+        return findRoot(func, min, 0.5 * (min + max), max);
+    }"
+numb_482_4,"    @Test
+    void testBadEndpoints_4_oe() {
+        final DoubleUnaryOperator f = new Sin();
+        final BrentSolver solver = new BrentSolver(DEFAULT_ABSOLUTE_ACCURACY,
+                                                   DEFAULT_RELATIVE_ACCURACY,
+                                                   DEFAULT_FUNCTION_ACCURACY);
+        try {  // Bad interval.
+            solver.findRoot(f, 1, -1);
+        } catch (SolverException ex) {
+        }
+        try {  // No bracketing.
+            solver.findRoot(f, 1, 1.5);
+        } catch (SolverException ex) {
+            Assertions.assertNotEquals(-1, ex.getMessage().indexOf(""No bracketing""));
+    }
+    }",BrentSolverTest::testBadEndpoints_4_oe,org.apache.commons.numbers.rootfinder.BrentSolver,"findRoot(DoubleUnaryOperator func,
+                           double min,
+                           double max)","/**
+     * Search the function's zero within the given interval.
+     *
+     * @param func Function to solve.
+     * @param min Lower bound.
+     * @param max Upper bound.
+     * @return the root.
+     * @throws IllegalArgumentException if {@code min > max}.
+     * @throws IllegalArgumentException if the given interval does
+     * not bracket the root.
+     */","public double findRoot(DoubleUnaryOperator func,
+                           double min,
+                           double max) {
+        return findRoot(func, min, 0.5 * (min + max), max);
+    }"
+numb_482_6,"    @Test
+    void testBadEndpoints_6_oe() {
+        final DoubleUnaryOperator f = new Sin();
+        final BrentSolver solver = new BrentSolver(DEFAULT_ABSOLUTE_ACCURACY,
+                                                   DEFAULT_RELATIVE_ACCURACY,
+                                                   DEFAULT_FUNCTION_ACCURACY);
+        try {  // Bad interval.
+            solver.findRoot(f, 1, -1);
+        } catch (SolverException ex) {
+        }
+        try {  // No bracketing.
+            solver.findRoot(f, 1, 1.5);
+        } catch (SolverException ex) {
+        }
+        try {  // No bracketing.
+            solver.findRoot(f, 1, 1.2, 1.5);
+        } catch (SolverException ex) {
+            Assertions.assertNotEquals(-1, ex.getMessage().indexOf(""No bracketing""));
+    }
+    }",BrentSolverTest::testBadEndpoints_6_oe,org.apache.commons.numbers.rootfinder.BrentSolver,"findRoot(DoubleUnaryOperator func,
+                           double min,
+                           double max)","/**
+     * Search the function's zero within the given interval.
+     *
+     * @param func Function to solve.
+     * @param min Lower bound.
+     * @param max Upper bound.
+     * @return the root.
+     * @throws IllegalArgumentException if {@code min > max}.
+     * @throws IllegalArgumentException if the given interval does
+     * not bracket the root.
+     */","public double findRoot(DoubleUnaryOperator func,
+                           double min,
+                           double max) {
+        return findRoot(func, min, 0.5 * (min + max), max);
+    }"
+numb_483_2,"    @Test
+    void testBadInitialGuess_2_oe() {
+        final DoubleUnaryOperator func = new QuinticFunction();
+        final BrentSolver solver = new BrentSolver(DEFAULT_ABSOLUTE_ACCURACY,
+                                                   DEFAULT_RELATIVE_ACCURACY,
+                                                   DEFAULT_FUNCTION_ACCURACY);
+
+        try {
+            double result = solver.findRoot(func, 0.0, 7.0, 0.6);
+        } catch (SolverException ex) {
+            Assertions.assertNotEquals(-1, ex.getMessage().indexOf(""out of range""));
+    }
+    }",BrentSolverTest::testBadInitialGuess_2_oe,org.apache.commons.numbers.rootfinder.BrentSolver,"findRoot(DoubleUnaryOperator func,
+                           double min,
+                           double max)","/**
+     * Search the function's zero within the given interval.
+     *
+     * @param func Function to solve.
+     * @param min Lower bound.
+     * @param max Upper bound.
+     * @return the root.
+     * @throws IllegalArgumentException if {@code min > max}.
+     * @throws IllegalArgumentException if the given interval does
+     * not bracket the root.
+     */","public double findRoot(DoubleUnaryOperator func,
+                           double min,
+                           double max) {
+        return findRoot(func, min, 0.5 * (min + max), max);
+    }"
+numb_402_13_2,"    @Test
+    void testNextPrime_13_oe_2_oe() {
+
+
+        for (int i = 0; i < SmallPrimes.PRIMES.length - 1; i++) {
+            for (int j = SmallPrimes.PRIMES[i] + 1; j <= SmallPrimes.PRIMES[i + 1]; j++) {
+            }
+        }
+
+        for (int i = 25325981 + 1; i <= 25326023; i++) {
+        }
+
+
+                final int n0 = Integer.MIN_VALUE;
+        final String expected0 = MessageFormat.format(Primes.NUMBER_TOO_SMALL, Integer.MIN_VALUE, 0);
+        try {
+                    Primes.nextPrime(n0);
+                } catch (IllegalArgumentException e0) {
+                    Assertions.assertEquals(expected0, e0.getMessage());
+    }
+    }",PrimesTest::testNextPrime_13_oe_2_oe,org.apache.commons.numbers.primes.Primes,nextPrime(int n),"/**
+     * Return the smallest prime greater than or equal to n.
+     *
+     * @param n Positive number.
+     * @return the smallest prime greater than or equal to {@code n}.
+     * @throws IllegalArgumentException if n &lt; 0.
+     */","public static int nextPrime(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException(MessageFormat.format(NUMBER_TOO_SMALL, n, 0));
+        }
+        if (n <= 2) {
+            return 2;
+        }
+        n |= 1; // make sure n is odd
+
+        if (isPrime(n)) {
+            return n;
+        }
+
+        // prepare entry in the +2, +4 loop:
+        // n should not be a multiple of 3
+        final int rem = n % 3;
+        if (0 == rem) { // if n % 3 == 0
+            n += 2; // n % 3 == 2
+        } else if (1 == rem) { // if n % 3 == 1
+            n += 4; // n % 3 == 2
+        }
+        while (true) { // this loop skips all multiple of 3
+            if (isPrime(n)) {
+                return n;
+            }
+            n += 2; // n % 3 == 1
+            if (isPrime(n)) {
+                return n;
+            }
+            n += 4; // n % 3 == 2
+        }
+    }"
+numb_402_14_2,"    @Test
+    void testNextPrime_14_oe_2_oe() {
+
+
+        for (int i = 0; i < SmallPrimes.PRIMES.length - 1; i++) {
+            for (int j = SmallPrimes.PRIMES[i] + 1; j <= SmallPrimes.PRIMES[i + 1]; j++) {
+            }
+        }
+
+        for (int i = 25325981 + 1; i <= 25326023; i++) {
+        }
+
+
+                final int n0 = -1;
+        final String expected0 = MessageFormat.format(Primes.NUMBER_TOO_SMALL, -1, 0);
+        try {
+                    Primes.nextPrime(n0);
+                } catch (IllegalArgumentException e0) {
+                    Assertions.assertEquals(expected0, e0.getMessage());
+    }
+    }",PrimesTest::testNextPrime_14_oe_2_oe,org.apache.commons.numbers.primes.Primes,nextPrime(int n),"/**
+     * Return the smallest prime greater than or equal to n.
+     *
+     * @param n Positive number.
+     * @return the smallest prime greater than or equal to {@code n}.
+     * @throws IllegalArgumentException if n &lt; 0.
+     */","public static int nextPrime(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException(MessageFormat.format(NUMBER_TOO_SMALL, n, 0));
+        }
+        if (n <= 2) {
+            return 2;
+        }
+        n |= 1; // make sure n is odd
+
+        if (isPrime(n)) {
+            return n;
+        }
+
+        // prepare entry in the +2, +4 loop:
+        // n should not be a multiple of 3
+        final int rem = n % 3;
+        if (0 == rem) { // if n % 3 == 0
+            n += 2; // n % 3 == 2
+        } else if (1 == rem) { // if n % 3 == 1
+            n += 4; // n % 3 == 2
+        }
+        while (true) { // this loop skips all multiple of 3
+            if (isPrime(n)) {
+                return n;
+            }
+            n += 2; // n % 3 == 1
+            if (isPrime(n)) {
+                return n;
+            }
+            n += 4; // n % 3 == 2
+        }
+    }"
+numb_402_15_2,"    @Test
+    void testNextPrime_15_oe_2_oe() {
+
+
+        for (int i = 0; i < SmallPrimes.PRIMES.length - 1; i++) {
+            for (int j = SmallPrimes.PRIMES[i] + 1; j <= SmallPrimes.PRIMES[i + 1]; j++) {
+            }
+        }
+
+        for (int i = 25325981 + 1; i <= 25326023; i++) {
+        }
+
+
+                final int n0 = -13;
+        final String expected0 = MessageFormat.format(Primes.NUMBER_TOO_SMALL, -13, 0);
+        try {
+                    Primes.nextPrime(n0);
+                } catch (IllegalArgumentException e0) {
+                    Assertions.assertEquals(expected0, e0.getMessage());
+    }
+    }",PrimesTest::testNextPrime_15_oe_2_oe,org.apache.commons.numbers.primes.Primes,nextPrime(int n),"/**
+     * Return the smallest prime greater than or equal to n.
+     *
+     * @param n Positive number.
+     * @return the smallest prime greater than or equal to {@code n}.
+     * @throws IllegalArgumentException if n &lt; 0.
+     */","public static int nextPrime(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException(MessageFormat.format(NUMBER_TOO_SMALL, n, 0));
+        }
+        if (n <= 2) {
+            return 2;
+        }
+        n |= 1; // make sure n is odd
+
+        if (isPrime(n)) {
+            return n;
+        }
+
+        // prepare entry in the +2, +4 loop:
+        // n should not be a multiple of 3
+        final int rem = n % 3;
+        if (0 == rem) { // if n % 3 == 0
+            n += 2; // n % 3 == 2
+        } else if (1 == rem) { // if n % 3 == 1
+            n += 4; // n % 3 == 2
+        }
+        while (true) { // this loop skips all multiple of 3
+            if (isPrime(n)) {
+                return n;
+            }
+            n += 2; // n % 3 == 1
+            if (isPrime(n)) {
+                return n;
+            }
+            n += 4; // n % 3 == 2
+        }
+    }"
+numb_404_1_2,"    @Test
+    void testPrimeFactors_1_oe_2_oe() throws Exception {
+        for (int i : BELOW_2) {
+                        final int n0 = i;
+            final String expected0 = MessageFormat.format(Primes.NUMBER_TOO_SMALL, i, 2);
+            try {
+                        Primes.primeFactors(n0);
+                    } catch (IllegalArgumentException e0) {
+                        Assertions.assertEquals(expected0, e0.getMessage());
+    }
+    }
+    }",PrimesTest::testPrimeFactors_1_oe_2_oe,org.apache.commons.numbers.primes.Primes,primeFactors(int n),"/**
+     * Prime factors decomposition.
+     *
+     * @param n Number to factorize: must be &ge; 2.
+     * @return the list of prime factors of {@code n}.
+     * @throws IllegalArgumentException if n &lt; 2.
+     */","public static List<Integer> primeFactors(int n) {
+        if (n < 2) {
+            throw new IllegalArgumentException(MessageFormat.format(NUMBER_TOO_SMALL, n, 2));
+        }
+        return SmallPrimes.trialDivision(n);
+    }"

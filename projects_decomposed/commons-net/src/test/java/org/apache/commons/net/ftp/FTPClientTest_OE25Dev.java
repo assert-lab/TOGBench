@@ -105,6 +105,7 @@ public class FTPClientTest_OE25Dev extends TestCase {
 
     public void testParserCachingWithKey_2_oe() throws Exception {
         final FTPClient client = new FTPClient();
+        // removed other assertion
         client.createParser(FTPClientConfig.SYST_UNIX);
         final FTPFileEntryParser entryParserSYST = client.getEntryParser();
         assertNotNull(entryParserSYST);
@@ -112,18 +113,24 @@ public class FTPClientTest_OE25Dev extends TestCase {
 
     public void testParserCachingWithKey_3_oe() throws Exception {
         final FTPClient client = new FTPClient();
+        // removed other assertion
         client.createParser(FTPClientConfig.SYST_UNIX);
         final FTPFileEntryParser entryParserSYST = client.getEntryParser();
+        // removed other assertion
         client.createParser(FTPClientConfig.SYST_UNIX);
         assertSame(entryParserSYST,client.getEntryParser());// the previous entry was cached client.createParser(FTPClientConfig.SYST_VMS);
     }
 
     public void testParserCachingWithKey_5_oe() throws Exception {
         final FTPClient client = new FTPClient();
+        // removed other assertion
         client.createParser(FTPClientConfig.SYST_UNIX);
         final FTPFileEntryParser entryParserSYST = client.getEntryParser();
+        // removed other assertion
         client.createParser(FTPClientConfig.SYST_UNIX);
+        // removed other assertion
         final FTPFileEntryParser entryParserVMS = client.getEntryParser();
+        // removed other assertion
         assertSame(entryParserVMS, client.getEntryParser()); // the previous entry was cached;
     }
 
@@ -136,6 +143,7 @@ public class FTPClientTest_OE25Dev extends TestCase {
     public void testParserCachingNullKey_2_oe() throws Exception {
         final LocalClient client = new LocalClient();
         client.setSystemType(FTPClientConfig.SYST_UNIX);
+        // removed other assertion
         client.createParser(null);
         final FTPFileEntryParser entryParser = client.getEntryParser();
         assertNotNull(entryParser);
@@ -144,8 +152,10 @@ public class FTPClientTest_OE25Dev extends TestCase {
     public void testParserCachingNullKey_3_oe() throws Exception {
         final LocalClient client = new LocalClient();
         client.setSystemType(FTPClientConfig.SYST_UNIX);
+        // removed other assertion
         client.createParser(null);
         final FTPFileEntryParser entryParser = client.getEntryParser();
+        // removed other assertion
         client.createParser(null);
         assertSame(entryParser,client.getEntryParser());// parser was cached client.setSystemType(FTPClientConfig.SYST_NT);
     }
@@ -153,9 +163,12 @@ public class FTPClientTest_OE25Dev extends TestCase {
     public void testParserCachingNullKey_4_oe() throws Exception {
         final LocalClient client = new LocalClient();
         client.setSystemType(FTPClientConfig.SYST_UNIX);
+        // removed other assertion
         client.createParser(null);
         final FTPFileEntryParser entryParser = client.getEntryParser();
+        // removed other assertion
         client.createParser(null);
+        // removed other assertion
         client.createParser(null);
         assertSame(entryParser, client.getEntryParser()); // parser was cached;
     }
@@ -187,6 +200,7 @@ public class FTPClientTest_OE25Dev extends TestCase {
         config.setUnparseableEntries(false);
         engine.readServerList(new ByteArrayInputStream(baos.toByteArray()), null); // use default encoding
         FTPFile[] files = engine.getFiles();
+        // removed other assertion
         config.setUnparseableEntries(true);
         engine = new FTPListParseEngine(parser, config );
         engine.readServerList(new ByteArrayInputStream(baos.toByteArray()), null); // use default encoding

@@ -49,6 +49,7 @@ class ErfDifferenceTest_OE25Dev {
                 double a = ErfDifference.value(x1, x2);
                 double b = Erf.value(x2) - Erf.value(x1);
                 double c = Erfc.value(x1) - Erfc.value(x2);
+                // removed other assertion
                 Assertions.assertEquals(a, c, 1e-15);
     }
     }

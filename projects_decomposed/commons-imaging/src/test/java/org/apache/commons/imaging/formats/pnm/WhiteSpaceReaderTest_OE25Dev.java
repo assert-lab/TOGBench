@@ -43,6 +43,7 @@ public class WhiteSpaceReaderTest_OE25Dev{
       final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
       final WhiteSpaceReader whiteSpaceReader = new WhiteSpaceReader(byteArrayInputStream);
 
+      // removed other assertion
       assertEquals("[0, 0, 0, 0]", Arrays.toString( whiteSpaceReader.readLine().getBytes() ) );
   }
 

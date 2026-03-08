@@ -57,6 +57,47 @@ public class LazyListTest_OE25Dev extends AbstractObjectTest {
         // Factory and Transformer are not serializable
     }
 
+    public void testElementCreationWithFactory() {
+        final Factory<LocalDateTime> dateFactory = LocalDateTime::now;
+        final List<LocalDateTime> list = new LazyList<>(new ArrayList<>(), dateFactory);
+
+        assertTrue(list.isEmpty());
+
+        final LocalDateTime firstElement = list.get(0);
+        assertNotNull(firstElement);
+        assertFalse(list.isEmpty());
+    }
+
+    public void testElementCreationWithTransformer() {
+        final Factory<LocalDateTime> dateFactory = LocalDateTime::now;
+        final List<LocalDateTime> list = new LazyList<>(new ArrayList<>(), dateFactory);
+
+        assertTrue(list.isEmpty());
+
+        final LocalDateTime firstElement = list.get(0);
+        assertNotNull(firstElement);
+        assertFalse(list.isEmpty());
+    }
+
+    public void testCreateNullGapsWithFactory() {
+        final Factory<LocalDateTime> dateFactory = LocalDateTime::now;
+        final List<LocalDateTime> list = new LazyList<>(new ArrayList<>(), dateFactory);
+
+        final LocalDateTime fourthElement = list.get(3);
+        assertFalse(list.isEmpty());
+        assertNotNull(fourthElement);
+    }
+
+    public void testCreateNullGapsWithTransformer() {
+        final List<Integer> hours = Arrays.asList(7, 5, 8, 2);
+        final Transformer<Integer, LocalDateTime> dateFactory = input -> LocalDateTime.now().withHour(hours.get(input));
+        final List<LocalDateTime> list = new LazyList<>(new ArrayList<>(), dateFactory);
+
+        final LocalDateTime fourthElement = list.get(3);
+        assertFalse(list.isEmpty());
+        assertNotNull(fourthElement);
+    }
+
 
 
     public void testElementCreationWithFactory_1_oe() {

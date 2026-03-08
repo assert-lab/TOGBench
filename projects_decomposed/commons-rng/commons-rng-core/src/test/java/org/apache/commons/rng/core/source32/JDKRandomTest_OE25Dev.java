@@ -78,6 +78,7 @@ class JDKRandomTest_OE25Dev {
          JDKRandom rng = new JDKRandom(refSeed);
          Random jdk = new Random(refSeed);
 
+        // This is a trivial test since "JDKRandom" delegates to "Random".
 
          int numRepeats = 1000;
         for (int[] r = {0}; r[0] < numRepeats; r[0]++) {
@@ -91,6 +92,7 @@ class JDKRandomTest_OE25Dev {
          JDKRandom rng1 = new JDKRandom(seed);
          JDKRandom rng2 = new JDKRandom(seed + 1);
 
+        // Ensure different
          int numRepeats = 10;
         for (int[] r = {0}; r[0] < numRepeats; r[0]++) {
             Assertions.assertNotEquals(rng1.nextInt(), rng2.nextInt(), () -> r[0] + " nextInt");
@@ -99,11 +101,14 @@ class JDKRandomTest_OE25Dev {
 
     @Test
     void testRestoreWithInvalidClass_1_oe() throws IOException  {
+        // Serialize something
          ByteArrayOutputStream bos = new ByteArrayOutputStream();
         try (ObjectOutputStream oos = new ObjectOutputStream(bos)) {
             oos.writeObject(new SerializableTestObject());
         }
 
+        // Compose the size with the state.
+        // This is what is expected by the JDKRandom class.
          byte[] state = bos.toByteArray();
          int stateSize = state.length;
          byte[] sizeAndState = new byte[4 + stateSize];
@@ -113,7 +118,11 @@ class JDKRandomTest_OE25Dev {
          RandomProviderDefaultState dummyState = new RandomProviderDefaultState(sizeAndState);
 
          JDKRandom rng = new JDKRandom(13L);
-        Assertions.assertThrows(IllegalStateException.class, () -> rng.restoreState(dummyState));
+        try {
+    rng.restoreState(dummyState);
+    fail("Expected IllegalStateException");
+} catch (IllegalStateException e) {
+}
     }
 
 }

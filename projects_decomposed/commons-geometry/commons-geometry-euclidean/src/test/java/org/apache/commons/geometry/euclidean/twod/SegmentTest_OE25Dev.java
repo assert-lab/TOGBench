@@ -26,6 +26,8 @@ import org.apache.commons.numbers.core.Precision;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class SegmentTest_OE25Dev {
 
     private static final double TEST_EPS = 1e-10;
@@ -230,684 +232,1122 @@ class SegmentTest_OE25Dev {
 
     @Test
     void testFromPoints_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
         final Vector2D p2 = Vector2D.of(3, 2);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
 
+        // assert
         Assertions.assertFalse(seg.isFull());
     }
 
     @Test
     void testFromPoints_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
         final Vector2D p2 = Vector2D.of(3, 2);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(seg.isEmpty());
     }
 
     @Test
     void testFromPoints_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
         final Vector2D p2 = Vector2D.of(3, 2);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(seg.isInfinite());
     }
 
     @Test
     void testFromPoints_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
         final Vector2D p2 = Vector2D.of(3, 2);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(seg.isFinite());
     }
 
     @Test
     void testFromPoints_8_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
         final Vector2D p2 = Vector2D.of(3, 2);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1, seg.getSubspaceStart(), TEST_EPS);
     }
 
     @Test
     void testFromPoints_9_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
         final Vector2D p2 = Vector2D.of(3, 2);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(3, seg.getSubspaceEnd(), TEST_EPS);
     }
 
     @Test
     void testFromPoints_10_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
         final Vector2D p2 = Vector2D.of(3, 2);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(2, seg.getSize(), TEST_EPS);
     }
 
     @Test
     void testFromPoints_givenLine_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
         final Vector2D p2 = Vector2D.of(3, 3);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(line, p2, p1); // reverse location order
 
+        // assert
         Assertions.assertFalse(seg.isFull());
     }
 
     @Test
     void testFromPoints_givenLine_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
         final Vector2D p2 = Vector2D.of(3, 3);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(line, p2, p1); // reverse location order
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(seg.isEmpty());
     }
 
     @Test
     void testFromPoints_givenLine_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
         final Vector2D p2 = Vector2D.of(3, 3);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(line, p2, p1); // reverse location order
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(seg.isInfinite());
     }
 
     @Test
     void testFromPoints_givenLine_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
         final Vector2D p2 = Vector2D.of(3, 3);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(line, p2, p1); // reverse location order
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(seg.isFinite());
     }
 
     @Test
     void testFromPoints_givenLine_8_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
         final Vector2D p2 = Vector2D.of(3, 3);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(line, p2, p1); // reverse location order
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(2, seg.getSubspaceStart(), TEST_EPS);
     }
 
     @Test
     void testFromPoints_givenLine_9_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
         final Vector2D p2 = Vector2D.of(3, 3);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(line, p2, p1); // reverse location order
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(3, seg.getSubspaceEnd(), TEST_EPS);
     }
 
     @Test
     void testFromPoints_givenLine_10_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
         final Vector2D p2 = Vector2D.of(3, 3);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(line, p2, p1); // reverse location order
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1, seg.getSize(), TEST_EPS);
     }
 
     @Test
     void testFromPoints_givenLine_singlePoint_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(line, p1, p1);
 
+        // assert
         Assertions.assertFalse(seg.isFull());
     }
 
     @Test
     void testFromPoints_givenLine_singlePoint_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(line, p1, p1);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(seg.isEmpty());
     }
 
     @Test
     void testFromPoints_givenLine_singlePoint_3_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(line, p1, p1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(seg.isInfinite());
     }
 
     @Test
     void testFromPoints_givenLine_singlePoint_4_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(line, p1, p1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(seg.isFinite());
     }
 
     @Test
     void testFromPoints_givenLine_singlePoint_8_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(line, p1, p1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(2, seg.getSubspaceStart(), TEST_EPS);
     }
 
     @Test
     void testFromPoints_givenLine_singlePoint_9_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(line, p1, p1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(2, seg.getSubspaceEnd(), TEST_EPS);
     }
 
     @Test
     void testFromPoints_givenLine_singlePoint_10_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
 
         final Line line = Lines.fromPointAndDirection(Vector2D.of(1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromPoints(line, p1, p1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0, seg.getSize(), TEST_EPS);
     }
 
     @Test
     void testFromLocations_1_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, -1, 2);
 
+        // assert
         Assertions.assertFalse(seg.isFull());
     }
 
     @Test
     void testFromLocations_2_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, -1, 2);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(seg.isEmpty());
     }
 
     @Test
     void testFromLocations_3_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, -1, 2);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(seg.isInfinite());
     }
 
     @Test
     void testFromLocations_4_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, -1, 2);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(seg.isFinite());
     }
 
     @Test
     void testFromLocations_8_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, -1, 2);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(-1, seg.getSubspaceStart(), TEST_EPS);
     }
 
     @Test
     void testFromLocations_9_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, -1, 2);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(2, seg.getSubspaceEnd(), TEST_EPS);
     }
 
     @Test
     void testFromLocations_10_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, -1, 2);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(3, seg.getSize(), TEST_EPS);
     }
 
     @Test
     void testFromLocations_reversedLocationOrder_1_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, 2, -1);
 
+        // assert
         Assertions.assertFalse(seg.isFull());
     }
 
     @Test
     void testFromLocations_reversedLocationOrder_2_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, 2, -1);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(seg.isEmpty());
     }
 
     @Test
     void testFromLocations_reversedLocationOrder_3_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, 2, -1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(seg.isInfinite());
     }
 
     @Test
     void testFromLocations_reversedLocationOrder_4_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, 2, -1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(seg.isFinite());
     }
 
     @Test
     void testFromLocations_reversedLocationOrder_8_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, 2, -1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(-1, seg.getSubspaceStart(), TEST_EPS);
     }
 
     @Test
     void testFromLocations_reversedLocationOrder_9_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, 2, -1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(2, seg.getSubspaceEnd(), TEST_EPS);
     }
 
     @Test
     void testFromLocations_reversedLocationOrder_10_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, 2, -1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(3, seg.getSize(), TEST_EPS);
     }
 
     @Test
     void testFromLocations_singlePoint_1_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, 1, 1);
 
+        // assert
         Assertions.assertFalse(seg.isFull());
     }
 
     @Test
     void testFromLocations_singlePoint_2_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, 1, 1);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(seg.isEmpty());
     }
 
     @Test
     void testFromLocations_singlePoint_3_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, 1, 1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(seg.isInfinite());
     }
 
     @Test
     void testFromLocations_singlePoint_4_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, 1, 1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(seg.isFinite());
     }
 
     @Test
     void testFromLocations_singlePoint_8_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, 1, 1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1, seg.getSubspaceStart(), TEST_EPS);
     }
 
     @Test
     void testFromLocations_singlePoint_9_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, 1, 1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(1, seg.getSubspaceEnd(), TEST_EPS);
     }
 
     @Test
     void testFromLocations_singlePoint_10_oe() {
+        // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
+        // act
         final Segment seg = Lines.segmentFromLocations(line, 1, 1);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0, seg.getSize(), TEST_EPS);
     }
 
     @Test
     void testSplit_pointsOnSplitterWithLineIntersection_1_oe() {
+        // arrange
+        // Create a segment with both of its points lying on the splitter but with the intersection
+        // of the lines lying far enough away from the segment start point along the line to be
+        // considered a valid 1D distance for a split. In this case, no split should be performed since
+        // both points still lie on the splitter.
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-5);
 
         final Segment seg = Lines.segmentFromPoints(Vector2D.of(1, 1e-8), Vector2D.of(1.01, 1e-6), precision);
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0, precision);
 
+        // act
         final Split<LineConvexSubset> split = seg.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
     @Test
     void testSplit_pointsOnSplitterWithLineIntersection_2_oe() {
+        // arrange
+        // Create a segment with both of its points lying on the splitter but with the intersection
+        // of the lines lying far enough away from the segment start point along the line to be
+        // considered a valid 1D distance for a split. In this case, no split should be performed since
+        // both points still lie on the splitter.
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-5);
 
         final Segment seg = Lines.segmentFromPoints(Vector2D.of(1, 1e-8), Vector2D.of(1.01, 1e-6), precision);
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0, precision);
 
+        // act
         final Split<LineConvexSubset> split = seg.split(splitter);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertNull(split.getMinus());
     }
 
     @Test
     void testSplit_pointsOnSplitterWithLineIntersection_3_oe() {
+        // arrange
+        // Create a segment with both of its points lying on the splitter but with the intersection
+        // of the lines lying far enough away from the segment start point along the line to be
+        // considered a valid 1D distance for a split. In this case, no split should be performed since
+        // both points still lie on the splitter.
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-5);
 
         final Segment seg = Lines.segmentFromPoints(Vector2D.of(1, 1e-8), Vector2D.of(1.01, 1e-6), precision);
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0, precision);
 
+        // act
         final Split<LineConvexSubset> split = seg.split(splitter);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(split.getPlus());
     }
 
     @Test
     void testGetInterval_1_oe() {
+        // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.of(2, -1), Vector2D.of(2, 2), TEST_PRECISION);
 
+        // act
         final Interval interval = seg.getInterval();
 
+        // assert
         Assertions.assertEquals(-1, interval.getMin(), TEST_EPS);
     }
 
     @Test
     void testGetInterval_2_oe() {
+        // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.of(2, -1), Vector2D.of(2, 2), TEST_PRECISION);
 
+        // act
         final Interval interval = seg.getInterval();
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(2, interval.getMax(), TEST_EPS);
     }
 
     @Test
     void testGetInterval_3_oe() {
+        // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.of(2, -1), Vector2D.of(2, 2), TEST_PRECISION);
 
+        // act
         final Interval interval = seg.getInterval();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertSame(seg.getLine().getPrecision(), interval.getMinBoundary().getPrecision());
     }
 
     @Test
     void testGetInterval_singlePoint_1_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
         final Segment seg = Lines.segmentFromLocations(line, 1, 1);
 
+        // act
         final Interval interval = seg.getInterval();
 
+        // assert
         Assertions.assertEquals(1, interval.getMin(), TEST_EPS);
     }
 
     @Test
     void testGetInterval_singlePoint_2_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
         final Segment seg = Lines.segmentFromLocations(line, 1, 1);
 
+        // act
         final Interval interval = seg.getInterval();
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(1, interval.getMax(), TEST_EPS);
     }
 
     @Test
     void testGetInterval_singlePoint_3_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
         final Segment seg = Lines.segmentFromLocations(line, 1, 1);
 
+        // act
         final Interval interval = seg.getInterval();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, interval.getSize(), TEST_EPS);
     }
 
     @Test
     void testGetInterval_singlePoint_4_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
         final Segment seg = Lines.segmentFromLocations(line, 1, 1);
 
+        // act
         final Interval interval = seg.getInterval();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertSame(seg.getLine().getPrecision(), interval.getMinBoundary().getPrecision());
     }
 
 @Test
     void testFromPoints_invalidArgs_1_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(0, 2);
         final Vector2D p2 = Vector2D.of(1e-17, 2);
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromPoints(p1, p1, TEST_PRECISION); }, IllegalArgumentException.class, "Line direction cannot be zero");
+        // act/assert
+        try {
+     Lines.segmentFromPoints(p1, p1, TEST_PRECISION);
+    fail("Expected IllegalArgumentException with message: " + "Line direction cannot be zero");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testFromPoints_invalidArgs_2_oe() {
+        // arrange
         final Vector2D p1 = Vector2D.of(0, 2);
         final Vector2D p2 = Vector2D.of(1e-17, 2);
 
+        // act/assert
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromPoints(p1, p2, TEST_PRECISION); }, IllegalArgumentException.class, "Line direction cannot be zero");
+        try {
+     Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
+    fail("Expected IllegalArgumentException with message: " + "Line direction cannot be zero");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testFromPoints_givenLine_invalidArgs_1_oe() {
+        // arrange
         final Vector2D p0 = Vector2D.of(1, 0);
         final Vector2D p1 = Vector2D.of(2, 0);
 
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromPoints(line, Vector2D.NaN, p1); }, IllegalArgumentException.class, "Invalid line segment locations: NaN, 2.0");
+        // act/assert
+        try {
+     Lines.segmentFromPoints(line, Vector2D.NaN, p1);
+    fail("Expected IllegalArgumentException with message: " + "Invalid line segment locations: NaN, 2.0");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testFromPoints_givenLine_invalidArgs_2_oe() {
+        // arrange
         final Vector2D p0 = Vector2D.of(1, 0);
         final Vector2D p1 = Vector2D.of(2, 0);
 
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromPoints(line, p0, Vector2D.NaN); }, IllegalArgumentException.class, "Invalid line segment locations: 1.0, NaN");
+        try {
+     Lines.segmentFromPoints(line, p0, Vector2D.NaN);
+    fail("Expected IllegalArgumentException with message: " + "Invalid line segment locations: 1.0, NaN");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testFromPoints_givenLine_invalidArgs_3_oe() {
+        // arrange
         final Vector2D p0 = Vector2D.of(1, 0);
         final Vector2D p1 = Vector2D.of(2, 0);
 
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromPoints(line, Vector2D.NEGATIVE_INFINITY, p1); }, IllegalArgumentException.class, "Invalid line segment locations: NaN, 2.0");
+        try {
+     Lines.segmentFromPoints(line, Vector2D.NEGATIVE_INFINITY, p1);
+    fail("Expected IllegalArgumentException with message: " + "Invalid line segment locations: NaN, 2.0");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testFromPoints_givenLine_invalidArgs_4_oe() {
+        // arrange
         final Vector2D p0 = Vector2D.of(1, 0);
         final Vector2D p1 = Vector2D.of(2, 0);
 
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromPoints(line, p0, Vector2D.POSITIVE_INFINITY); }, IllegalArgumentException.class, "Invalid line segment locations: 1.0, NaN");
+        try {
+     Lines.segmentFromPoints(line, p0, Vector2D.POSITIVE_INFINITY);
+    fail("Expected IllegalArgumentException with message: " + "Invalid line segment locations: 1.0, NaN");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testFromLocations_invalidArgs_1_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromLocations(line, Double.NaN, 2); }, IllegalArgumentException.class, "Invalid line segment locations: NaN, 2.0");
+        // act/assert
+        try {
+     Lines.segmentFromLocations(line, Double.NaN, 2);
+    fail("Expected IllegalArgumentException with message: " + "Invalid line segment locations: NaN, 2.0");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testFromLocations_invalidArgs_2_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromLocations(line, 1, Double.NaN); }, IllegalArgumentException.class, "Invalid line segment locations: 1.0, NaN");
+        try {
+     Lines.segmentFromLocations(line, 1, Double.NaN);
+    fail("Expected IllegalArgumentException with message: " + "Invalid line segment locations: 1.0, NaN");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testFromLocations_invalidArgs_3_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromLocations(line, Double.NEGATIVE_INFINITY, 2); }, IllegalArgumentException.class, "Invalid line segment locations: -Infinity, 2.0");
+        try {
+     Lines.segmentFromLocations(line, Double.NEGATIVE_INFINITY, 2);
+    fail("Expected IllegalArgumentException with message: " + "Invalid line segment locations: -Infinity, 2.0");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testFromLocations_invalidArgs_4_oe() {
+        // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromLocations(line, 1, Double.POSITIVE_INFINITY); }, IllegalArgumentException.class, "Invalid line segment locations: 1.0, Infinity");
+        try {
+     Lines.segmentFromLocations(line, 1, Double.POSITIVE_INFINITY);
+    fail("Expected IllegalArgumentException with message: " + "Invalid line segment locations: 1.0, Infinity");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testClassify_1_oe() {
+        // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.of(1, 1), Vector2D.of(3, 1), TEST_PRECISION);
 
+        // act/assert
         EuclideanTestUtils.assertRegionLocation(seg, RegionLocation.OUTSIDE, Vector2D.of(2, 2), Vector2D.of(2, 0), Vector2D.of(0, 1), Vector2D.of(4, 1));
     }
 
 @Test
     void testClassify_2_oe() {
+        // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.of(1, 1), Vector2D.of(3, 1), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
 
         EuclideanTestUtils.assertRegionLocation(seg, RegionLocation.BOUNDARY, Vector2D.of(1, 1), Vector2D.of(3, 1), Vector2D.of(1 + 1e-16, 1), Vector2D.of(3, 1 - 1e-12));
     }

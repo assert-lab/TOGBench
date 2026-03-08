@@ -53,6 +53,9 @@ public class JCSLightLoadUnitTest_OE25Dev
         throws Exception
     {
         final CacheAccess<String, String> jcs = JCS.getInstance( "testCache1" );
+        //        ICompositeCacheAttributes cattr = jcs.getCacheAttributes();
+        //        cattr.setMaxObjects( 20002 );
+        //        jcs.setCacheAttributes( cattr );
 
         for ( int i = 1; i <= items; i++ )
         {
@@ -62,8 +65,10 @@ public class JCSLightLoadUnitTest_OE25Dev
         for ( int i = items; i > 0; i-- )
         {
             final String res = jcs.get( i + ":key" );
+            // removed other assertion
         }
 
+        // test removal
         jcs.remove( "300:key" );
         assertNull( jcs.get( "300:key" ) );
     }

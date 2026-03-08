@@ -43,8 +43,10 @@ public class CacheManagerStatsUnitTest_OE25Dev
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testCache1" );
 
+        // 1 miss, 1 hit, 1 put
         cache.get( "testKey" );
         cache.put( "testKey", "testdata" );
+        // should have 4 hits
         cache.get( "testKey" );
         cache.get( "testKey" );
         cache.get( "testKey" );
@@ -53,6 +55,7 @@ public class CacheManagerStatsUnitTest_OE25Dev
         final CompositeCacheManager mgr = CompositeCacheManager.getInstance();
         final String statsString = mgr.getStats();
 
+//        System.out.println( statsString );
 
         assertTrue( "Should have the cacheName in here.", statsString.indexOf("testCache1") != -1 );
     }
@@ -61,8 +64,10 @@ public class CacheManagerStatsUnitTest_OE25Dev
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testCache1" );
 
+        // 1 miss, 1 hit, 1 put
         cache.get( "testKey" );
         cache.put( "testKey", "testdata" );
+        // should have 4 hits
         cache.get( "testKey" );
         cache.get( "testKey" );
         cache.get( "testKey" );
@@ -71,7 +76,9 @@ public class CacheManagerStatsUnitTest_OE25Dev
         final CompositeCacheManager mgr = CompositeCacheManager.getInstance();
         final String statsString = mgr.getStats();
 
+//        System.out.println( statsString );
 
+        // removed other assertion
         assertTrue( "Should have the HitCountRam in here.", statsString.indexOf("HitCountRam") != -1 );
     }
 
@@ -79,8 +86,10 @@ public class CacheManagerStatsUnitTest_OE25Dev
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testCache1" );
 
+        // 1 miss, 1 hit, 1 put
         cache.get( "testKey" );
         cache.put( "testKey", "testdata" );
+        // should have 4 hits
         cache.get( "testKey" );
         cache.get( "testKey" );
         cache.get( "testKey" );
@@ -89,7 +98,10 @@ public class CacheManagerStatsUnitTest_OE25Dev
         final CompositeCacheManager mgr = CompositeCacheManager.getInstance();
         final String statsString = mgr.getStats();
 
+//        System.out.println( statsString );
 
+        // removed other assertion
+        // removed other assertion
         assertTrue( "Should have the 4 in here.", statsString.indexOf("4") != -1 );
     }
 

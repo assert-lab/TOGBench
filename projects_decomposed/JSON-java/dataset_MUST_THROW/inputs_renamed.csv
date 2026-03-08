@@ -1,0 +1,890 @@
+id,test_prefix,test_name
+JSON-java_6_101,"@Test
+    public void malFormedNameValueException_oe_101_oe() {
+        try {
+            Cookie.toJSONObject(cookieStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",CookieTest::malFormedNameValueException_oe_101_oe
+JSON-java_8_101,"@Test
+    public void emptyStringCookieException_oe_101_oe() {
+        try {
+            Cookie.toJSONObject(cookieStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",CookieTest::emptyStringCookieException_oe_101_oe
+JSON-java_9_101,"@Test
+    public void emptyNameCookieException_oe_101_oe() {
+        try {
+            Cookie.toJSONObject(cookieStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",CookieTest::emptyNameCookieException_oe_101_oe
+JSON-java_13_101,"@Test
+    public void emptyXMLException_oe_101_oe() {
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONMLTest::emptyXMLException_oe_101_oe
+JSON-java_15_101,"@Test
+    public void nonXMLException_oe_101_oe() {
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONMLTest::nonXMLException_oe_101_oe
+JSON-java_18_101,"@Test
+    public void invalidSlashInTagException_oe_101_oe() {
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONMLTest::invalidSlashInTagException_oe_101_oe
+JSON-java_19_101,"@Test
+    public void invalidBangInTagException_oe_101_oe() {
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONMLTest::invalidBangInTagException_oe_101_oe
+JSON-java_20_101,"@Test
+    public void invalidBangNoCloseInTagException_oe_101_oe() {
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONMLTest::invalidBangNoCloseInTagException_oe_101_oe
+JSON-java_21_101,"@Test
+    public void noCloseStartTagException_oe_101_oe() {
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONMLTest::noCloseStartTagException_oe_101_oe
+JSON-java_23_101,"@Test
+    public void noCloseEndBraceException_oe_101_oe() {
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONMLTest::noCloseEndBraceException_oe_101_oe
+JSON-java_24_101,"@Test
+    public void invalidCDATABangInTagException_oe_101_oe() {
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONMLTest::invalidCDATABangInTagException_oe_101_oe
+JSON-java_61_101,"@Test
+    public void shouldHandleInvalidSlashInTag_oe_101_oe() {
+        try {
+            XML.toJSONObject(xmlStr);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+        }
+    }
+",XMLTest::shouldHandleInvalidSlashInTag_oe_101_oe
+JSON-java_62_101,"@Test
+    public void shouldHandleInvalidBangInTag_oe_101_oe() {
+        try {
+            XML.toJSONObject(xmlStr);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+        }
+    }
+",XMLTest::shouldHandleInvalidBangInTag_oe_101_oe
+JSON-java_63_101,"@Test
+    public void shouldHandleInvalidBangNoCloseInTag_oe_101_oe() {
+        try {
+            XML.toJSONObject(xmlStr);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+        }
+    }
+",XMLTest::shouldHandleInvalidBangNoCloseInTag_oe_101_oe
+JSON-java_64_101,"@Test
+    public void shouldHandleNoCloseStartTag_oe_101_oe() {
+        try {
+            XML.toJSONObject(xmlStr);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+        }
+    }
+",XMLTest::shouldHandleNoCloseStartTag_oe_101_oe
+JSON-java_65_101,"@Test
+    public void shouldHandleInvalidCDATABangInTag_oe_101_oe() {
+        try {
+            XML.toJSONObject(xmlStr);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+        }
+    }
+",XMLTest::shouldHandleInvalidCDATABangInTag_oe_101_oe
+JSON-java_90_101,"@Test
+    public void shouldHandleInvalidSlashInTag_oe_101_oe() {
+        try {
+            XML.toJSONObject(xmlStr, XMLParserConfiguration.KEEP_STRINGS);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+        }
+    }
+",XMLConfigurationTest::shouldHandleInvalidSlashInTag_oe_101_oe
+JSON-java_91_101,"@Test
+    public void shouldHandleInvalidBangInTag_oe_101_oe() {
+        try {
+            XML.toJSONObject(xmlStr, XMLParserConfiguration.KEEP_STRINGS);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+        }
+    }
+",XMLConfigurationTest::shouldHandleInvalidBangInTag_oe_101_oe
+JSON-java_92_101,"@Test
+    public void shouldHandleInvalidBangNoCloseInTag_oe_101_oe() {
+        try {
+            XML.toJSONObject(xmlStr, XMLParserConfiguration.KEEP_STRINGS);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+        }
+    }
+",XMLConfigurationTest::shouldHandleInvalidBangNoCloseInTag_oe_101_oe
+JSON-java_93_101,"@Test
+    public void shouldHandleNoCloseStartTag_oe_101_oe() {
+        try {
+            XML.toJSONObject(xmlStr, XMLParserConfiguration.KEEP_STRINGS);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+        }
+    }
+",XMLConfigurationTest::shouldHandleNoCloseStartTag_oe_101_oe
+JSON-java_94_101,"@Test
+    public void shouldHandleInvalidCDATABangInTag_oe_101_oe() {
+        try {
+            XMLParserConfiguration config = 
+                    new XMLParserConfiguration().withcDataTagName(""altContent"");
+            XML.toJSONObject(xmlStr, config);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+        }
+    }
+",XMLConfigurationTest::shouldHandleInvalidCDATABangInTag_oe_101_oe
+JSON-java_130_101,"@SuppressWarnings_oe_101_oe(""boxing"")
+    @Test
+    public void jsonObjectAccumulate() {
+        try {
+            jsonObject.accumulate(""myArray"", Double.NaN);
+            fail(""Expected exception"");
+        } catch (JSONException ignored) {}
+    }
+",JSONObjectTest::SuppressWarnings_oe_101_oe
+JSON-java_131_101,"@SuppressWarnings_oe_101_oe(""boxing"")
+    @Test
+    public void jsonObjectAppend() {
+        try {
+            jsonObject.append(""myArray"", Double.NaN);
+            fail(""Expected exception"");
+        } catch (JSONException ignored) {}
+    }
+",JSONObjectTest::SuppressWarnings_oe_101_oe
+JSON-java_137_101,"@Test
+    public void jsonObjectNonAndWrongValues_oe_101_oe() {
+        try {
+            jsonObject.getBoolean(""nonKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::jsonObjectNonAndWrongValues_oe_101_oe
+JSON-java_137_102,"@Test
+    public void jsonObjectNonAndWrongValues_oe_102_oe() {
+        try {
+            jsonObject.getBoolean(""stringKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::jsonObjectNonAndWrongValues_oe_102_oe
+JSON-java_137_103,"@Test
+    public void jsonObjectNonAndWrongValues_oe_103_oe() {
+        try {
+            jsonObject.getString(""nonKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::jsonObjectNonAndWrongValues_oe_103_oe
+JSON-java_137_104,"@Test
+    public void jsonObjectNonAndWrongValues_oe_104_oe() {
+        try {
+            jsonObject.getString(""trueKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::jsonObjectNonAndWrongValues_oe_104_oe
+JSON-java_137_105,"@Test
+    public void jsonObjectNonAndWrongValues_oe_105_oe() {
+        try {
+            jsonObject.getDouble(""nonKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONObjectTest::jsonObjectNonAndWrongValues_oe_105_oe
+JSON-java_137_106,"@Test
+    public void jsonObjectNonAndWrongValues_oe_106_oe() {
+        try {
+            jsonObject.getDouble(""stringKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::jsonObjectNonAndWrongValues_oe_106_oe
+JSON-java_137_107,"@Test
+    public void jsonObjectNonAndWrongValues_oe_107_oe() {
+        try {
+            jsonObject.getFloat(""nonKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONObjectTest::jsonObjectNonAndWrongValues_oe_107_oe
+JSON-java_137_108,"@Test
+    public void jsonObjectNonAndWrongValues_oe_108_oe() {
+        try {
+            jsonObject.getFloat(""stringKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::jsonObjectNonAndWrongValues_oe_108_oe
+JSON-java_137_109,"@Test
+    public void jsonObjectNonAndWrongValues_oe_109_oe() {
+        try {
+            jsonObject.getInt(""nonKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::jsonObjectNonAndWrongValues_oe_109_oe
+JSON-java_137_110,"@Test
+    public void jsonObjectNonAndWrongValues_oe_110_oe() {
+        try {
+            jsonObject.getInt(""stringKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::jsonObjectNonAndWrongValues_oe_110_oe
+JSON-java_137_111,"@Test
+    public void jsonObjectNonAndWrongValues_oe_111_oe() {
+        try {
+            jsonObject.getLong(""nonKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::jsonObjectNonAndWrongValues_oe_111_oe
+JSON-java_137_112,"@Test
+    public void jsonObjectNonAndWrongValues_oe_112_oe() {
+        try {
+            jsonObject.getLong(""stringKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::jsonObjectNonAndWrongValues_oe_112_oe
+JSON-java_137_113,"@Test
+    public void jsonObjectNonAndWrongValues_oe_113_oe() {
+        try {
+            jsonObject.getJSONArray(""nonKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::jsonObjectNonAndWrongValues_oe_113_oe
+JSON-java_137_114,"@Test
+    public void jsonObjectNonAndWrongValues_oe_114_oe() {
+        try {
+            jsonObject.getJSONArray(""stringKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::jsonObjectNonAndWrongValues_oe_114_oe
+JSON-java_137_115,"@Test
+    public void jsonObjectNonAndWrongValues_oe_115_oe() {
+        try {
+            jsonObject.getJSONObject(""nonKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::jsonObjectNonAndWrongValues_oe_115_oe
+JSON-java_137_116,"@Test
+    public void jsonObjectNonAndWrongValues_oe_116_oe() {
+        try {
+            jsonObject.getJSONObject(""stringKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::jsonObjectNonAndWrongValues_oe_116_oe
+JSON-java_139_101,"@SuppressWarnings_oe_101_oe(""boxing"")
+    @Test
+    public void bigNumberOperations() {
+        try {
+            // bigInt key does not exist
+            jsonObject3.getBigDecimal(""bigInt"");
+            fail(""expected an exeption"");
+        } catch (JSONException ignored) {}
+    }
+",JSONObjectTest::SuppressWarnings_oe_101_oe
+JSON-java_139_102,"@SuppressWarnings_oe_102_oe(""boxing"")
+    @Test
+    public void bigNumberOperations() {
+        try {
+            jsonObject3.getBigDecimal(""stringKey"");
+            fail(""expected an exeption"");
+        } catch (JSONException ignored) {}
+    }
+",JSONObjectTest::SuppressWarnings_oe_102_oe
+JSON-java_139_103,"@SuppressWarnings_oe_103_oe(""boxing"")
+    @Test
+    public void bigNumberOperations() {
+        try {
+            jsonArray0.getBigInteger(2);
+            fail(""should not be able to get big int"");
+        } catch (Exception ignored) {}
+    }
+",JSONObjectTest::SuppressWarnings_oe_103_oe
+JSON-java_139_104,"@SuppressWarnings_oe_104_oe(""boxing"")
+    @Test
+    public void bigNumberOperations() {
+        try {
+            jsonArray0.getBigDecimal(2);
+            fail(""should not be able to get big dec"");
+        } catch (Exception ignored) {}
+    }
+",JSONObjectTest::SuppressWarnings_oe_104_oe
+JSON-java_154_101,"@SuppressWarnings_oe_101_oe({""boxing"", ""unused""})
+    @Test
+    public void jsonObjectParsingErrors() {
+        try {
+            // append to wrong key
+            String str = ""{\""myKey\"":true, \""myOtherKey\"":false}"";
+            JSONObject jsonObject = new JSONObject(str);
+            jsonObject.append(""myKey"", ""hello"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::SuppressWarnings_oe_101_oe
+JSON-java_154_102,"@SuppressWarnings_oe_102_oe({""boxing"", ""unused""})
+    @Test
+    public void jsonObjectParsingErrors() {
+        try {
+            // increment wrong key
+            String str = ""{\""myKey\"":true, \""myOtherKey\"":false}"";
+            JSONObject jsonObject = new JSONObject(str);
+            jsonObject.increment(""myKey"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::SuppressWarnings_oe_102_oe
+JSON-java_154_103,"@SuppressWarnings_oe_103_oe({""boxing"", ""unused""})
+    @Test
+    public void jsonObjectParsingErrors() {
+        try {
+            // invalid key
+            String str = ""{\""myKey\"":true, \""myOtherKey\"":false}"";
+            JSONObject jsonObject = new JSONObject(str);
+            jsonObject.get(null);
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::SuppressWarnings_oe_103_oe
+JSON-java_154_104,"@SuppressWarnings_oe_104_oe({""boxing"", ""unused""})
+    @Test
+    public void jsonObjectParsingErrors() {
+        try {
+            // invalid numberToString()
+            JSONObject.numberToString((Number)null);
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::SuppressWarnings_oe_104_oe
+JSON-java_154_105,"@SuppressWarnings_oe_105_oe({""boxing"", ""unused""})
+    @Test
+    public void jsonObjectParsingErrors() {
+        try {
+            // multiple putOnce key 
+            JSONObject jsonObject = new JSONObject(""{}"");
+            jsonObject.putOnce(""hello"", ""world"");
+            jsonObject.putOnce(""hello"", ""world!"");
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::SuppressWarnings_oe_105_oe
+JSON-java_154_106,"@SuppressWarnings_oe_106_oe({""boxing"", ""unused""})
+    @Test
+    public void jsonObjectParsingErrors() {
+        try {
+            // test validity of invalid double 
+            JSONObject.testValidity(Double.NaN);
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::SuppressWarnings_oe_106_oe
+JSON-java_154_107,"@SuppressWarnings_oe_107_oe({""boxing"", ""unused""})
+    @Test
+    public void jsonObjectParsingErrors() {
+        try {
+            // test validity of invalid float 
+            JSONObject.testValidity(Float.NEGATIVE_INFINITY);
+            fail(""Expected an exception"");
+        } catch (JSONException e) { 
+        }
+    }
+",JSONObjectTest::SuppressWarnings_oe_107_oe
+JSON-java_154_108,"@SuppressWarnings_oe_108_oe({""boxing"", ""unused""})
+    @Test
+    public void jsonObjectParsingErrors() {
+        try {
+            // test exception message when including a duplicate key (level 0)
+            String str = ""{\n""
+                        +""    \""attr01\"":\""value-01\"",\n""
+                        +""    \""attr02\"":\""value-02\"",\n""
+                        +""    \""attr03\"":\""value-03\"",\n""
+                        +""    \""attr03\"":\""value-04\""\n""
+                        + ""}"";
+            new JSONObject(str);
+            fail(""Expected an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONObjectTest::SuppressWarnings_oe_108_oe
+JSON-java_154_109,"@SuppressWarnings_oe_109_oe({""boxing"", ""unused""})
+    @Test
+    public void jsonObjectParsingErrors() {
+        try {
+            // test exception message when including a duplicate key (level 0) holding an object
+            String str = ""{\n""
+                        +""    \""attr01\"":\""value-01\"",\n""
+                        +""    \""attr02\"":\""value-02\"",\n""
+                        +""    \""attr03\"":\""value-03\"",\n""
+                        +""    \""attr03\"": {""
+                        +""        \""attr04-01\"":\""value-04-01\"",n""
+                        +""        \""attr04-02\"":\""value-04-02\"",n""
+                        +""        \""attr04-03\"":\""value-04-03\""n""
+                        + ""    }\n""
+                        + ""}"";
+            new JSONObject(str);
+            fail(""Expected an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONObjectTest::SuppressWarnings_oe_109_oe
+JSON-java_154_110,"@SuppressWarnings_oe_110_oe({""boxing"", ""unused""})
+    @Test
+    public void jsonObjectParsingErrors() {
+        try {
+            // test exception message when including a duplicate key (level 0) holding an array
+            String str = ""{\n""
+                        +""    \""attr01\"":\""value-01\"",\n""
+                        +""    \""attr02\"":\""value-02\"",\n""
+                        +""    \""attr03\"":\""value-03\"",\n""
+                        +""    \""attr03\"": [\n""
+                        +""        {""
+                        +""            \""attr04-01\"":\""value-04-01\"",n""
+                        +""            \""attr04-02\"":\""value-04-02\"",n""
+                        +""            \""attr04-03\"":\""value-04-03\""n""
+                        +""        }\n""
+                        + ""    ]\n""
+                        + ""}"";
+            new JSONObject(str);
+            fail(""Expected an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONObjectTest::SuppressWarnings_oe_110_oe
+JSON-java_154_111,"@SuppressWarnings_oe_111_oe({""boxing"", ""unused""})
+    @Test
+    public void jsonObjectParsingErrors() {
+        try {
+            // test exception message when including a duplicate key (level 1)
+            String str = ""{\n""
+                        +""    \""attr01\"":\""value-01\"",\n""
+                        +""    \""attr02\"":\""value-02\"",\n""
+                        +""    \""attr03\"":\""value-03\"",\n""
+                        +""    \""attr04\"": {\n""
+                        +""        \""attr04-01\"":\""value04-01\"",\n""
+                        +""        \""attr04-02\"":\""value04-02\"",\n""
+                        +""        \""attr04-03\"":\""value04-03\"",\n""
+                        +""        \""attr04-03\"":\""value04-04\""\n""
+                        + ""    }\n""
+                        + ""}"";
+            new JSONObject(str);
+            fail(""Expected an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONObjectTest::SuppressWarnings_oe_111_oe
+JSON-java_154_112,"@SuppressWarnings_oe_112_oe({""boxing"", ""unused""})
+    @Test
+    public void jsonObjectParsingErrors() {
+        try {
+            // test exception message when including a duplicate key (level 1) holding an object
+            String str = ""{\n""
+                        +""    \""attr01\"":\""value-01\"",\n""
+                        +""    \""attr02\"":\""value-02\"",\n""
+                        +""    \""attr03\"":\""value-03\"",\n""
+                        +""    \""attr04\"": {\n""
+                        +""        \""attr04-01\"":\""value04-01\"",\n""
+                        +""        \""attr04-02\"":\""value04-02\"",\n""
+                        +""        \""attr04-03\"":\""value04-03\"",\n""
+                        +""        \""attr04-03\"": {\n""
+                        +""            \""attr04-04-01\"":\""value04-04-01\"",\n""
+                        +""            \""attr04-04-02\"":\""value04-04-02\"",\n""
+                        +""            \""attr04-04-03\"":\""value04-04-03\"",\n""
+                        +""        }\n""
+                        +""    }\n""
+                        + ""}"";
+            new JSONObject(str);
+            fail(""Expected an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONObjectTest::SuppressWarnings_oe_112_oe
+JSON-java_154_113,"@SuppressWarnings_oe_113_oe({""boxing"", ""unused""})
+    @Test
+    public void jsonObjectParsingErrors() {
+        try {
+            // test exception message when including a duplicate key (level 1) holding an array
+            String str = ""{\n""
+                        +""    \""attr01\"":\""value-01\"",\n""
+                        +""    \""attr02\"":\""value-02\"",\n""
+                        +""    \""attr03\"":\""value-03\"",\n""
+                        +""    \""attr04\"": {\n""
+                        +""        \""attr04-01\"":\""value04-01\"",\n""
+                        +""        \""attr04-02\"":\""value04-02\"",\n""
+                        +""        \""attr04-03\"":\""value04-03\"",\n""
+                        +""        \""attr04-03\"": [\n""
+                        +""            {\n""
+                        +""                \""attr04-04-01\"":\""value04-04-01\"",\n""
+                        +""                \""attr04-04-02\"":\""value04-04-02\"",\n""
+                        +""                \""attr04-04-03\"":\""value04-04-03\"",\n""
+                        +""            }\n""
+                        +""        ]\n""
+                        +""    }\n""
+                        + ""}"";
+            new JSONObject(str);
+            fail(""Expected an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONObjectTest::SuppressWarnings_oe_113_oe
+JSON-java_154_114,"@SuppressWarnings_oe_114_oe({""boxing"", ""unused""})
+    @Test
+    public void jsonObjectParsingErrors() {
+        try {
+            // test exception message when including a duplicate key in object (level 0) within an array
+            String str = ""[\n""
+                        +""    {\n""
+                        +""        \""attr01\"":\""value-01\"",\n""
+                        +""        \""attr02\"":\""value-02\""\n""
+                        +""    },\n""
+                        +""    {\n""
+                        +""        \""attr01\"":\""value-01\"",\n""
+                        +""        \""attr01\"":\""value-02\""\n""
+                        +""    }\n""
+                        + ""]"";
+            new JSONArray(str);
+            fail(""Expected an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONObjectTest::SuppressWarnings_oe_114_oe
+JSON-java_154_115,"@SuppressWarnings_oe_115_oe({""boxing"", ""unused""})
+    @Test
+    public void jsonObjectParsingErrors() {
+        try {
+            // test exception message when including a duplicate key in object (level 1) within an array
+            String str = ""[\n""
+                        +""    {\n""
+                        +""        \""attr01\"":\""value-01\"",\n""
+                        +""        \""attr02\"": {\n""
+                        +""            \""attr02-01\"":\""value-02-01\"",\n""
+                        +""            \""attr02-02\"":\""value-02-02\""\n""
+                        +""        }\n""
+                        +""    },\n""
+                        +""    {\n""
+                        +""        \""attr01\"":\""value-01\"",\n""
+                        +""        \""attr02\"": {\n""
+                        +""            \""attr02-01\"":\""value-02-01\"",\n""
+                        +""            \""attr02-01\"":\""value-02-02\""\n""
+                        +""        }\n""
+                        +""    }\n""
+                        + ""]"";
+            new JSONArray(str);
+            fail(""Expected an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONObjectTest::SuppressWarnings_oe_115_oe
+JSON-java_167_101,"@Test
+    public void testJSONWriterException_oe_101_oe() {
+        try {
+            jsonObject.write(writer).toString();
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+        } catch(Exception e) {
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e) {}
+        }
+    }
+",JSONObjectTest::testJSONWriterException_oe_101_oe
+JSON-java_167_102,"@Test
+    public void testJSONWriterException_oe_102_oe() {
+        try {
+            jsonObject.write(writer).toString();
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+        } catch(Exception e) {
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e) {}
+        }
+    }
+",JSONObjectTest::testJSONWriterException_oe_102_oe
+JSON-java_167_103,"@Test
+    public void testJSONWriterException_oe_103_oe() {
+        try {
+            new JSONObject()
+                .put(""somethingElse"", ""a value"")
+                .put(""someKey"", new JSONArray()
+                        .put(new JSONObject().put(""key1"", new BrokenToString())))
+                .write(writer).toString();
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+        } catch(Exception e) {
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e) {}
+        }
+    }
+",JSONObjectTest::testJSONWriterException_oe_103_oe
+JSON-java_167_104,"@Test
+    public void testJSONWriterException_oe_104_oe() {
+        try {
+            new JSONObject()
+                .put(""somethingElse"", ""a value"")
+                .put(""someKey"", new JSONArray()
+                        .put(new JSONObject().put(""key1"", new BrokenToString()))
+                        .put(12345)
+                 )
+                .write(writer).toString();
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+        } catch(Exception e) {
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e) {}
+        }
+    }
+",JSONObjectTest::testJSONWriterException_oe_104_oe
+JSON-java_170_101,"@Test
+    public void jsonObjectNullOperations_oe_101_oe() {
+        try {
+            value = jsonObjectNull.get(""key"");
+            fail(""get() null should throw exception"");
+        } catch (Exception ignored) {}
+    }
+",JSONObjectTest::jsonObjectNullOperations_oe_101_oe
+JSON-java_201_101,"@Test
+    public void verifyBackFailureZeroIndex_oe_101_oe() throws IOException {
+        try {
+            final JSONTokener tokener = new JSONTokener(reader);
+            try {
+                // this should fail since the index is 0;
+                tokener.back();
+                fail(""Expected an exception"");
+            } catch (JSONException e) {
+            } catch (Exception e) {
+            }
+            
+        } finally {
+            reader.close();
+        }
+    }
+",JSONTokenerTest::verifyBackFailureZeroIndex_oe_101_oe
+JSON-java_202_101,"@Test
+    public void verifyBackFailureDoubleBack_oe_101_oe() throws IOException {
+        try {
+            final JSONTokener tokener = new JSONTokener(reader);
+            tokener.next();
+            tokener.back();
+            try {
+                // this should fail since the index is 0;
+                tokener.back();
+                fail(""Expected an exception"");
+            } catch (JSONException e) {
+            } catch (Exception e) {
+            }
+       } finally {
+           reader.close();
+       }
+    }
+",JSONTokenerTest::verifyBackFailureDoubleBack_oe_101_oe
+JSON-java_203_101,"@Test
+    public void testSkipToFailureWithBufferedReader_oe_101_oe() throws IOException {
+        try {
+            final JSONTokener tokener = new JSONTokener(reader);
+            try {
+                // this should fail since the internal markAhead buffer is only 1,000,000
+                // but 'B' doesn't exist in our buffer that is 1,000,001 in size
+                tokener.skipTo('B');
+                fail(""Expected exception"");
+            } catch (JSONException e) {
+            } catch (Exception e) {
+            }
+        } finally {
+            reader.close();
+        }
+    }
+",JSONTokenerTest::testSkipToFailureWithBufferedReader_oe_101_oe
+JSON-java_250_101,"@Test
+    public void malFormedCookieListException_oe_101_oe() {
+        try {
+            CookieList.toJSONObject(cookieStr);
+            fail(""should throw an exception"");
+        } catch (JSONException e) {
+            /**
+             * Not sure of the missing char, but full string compare fails 
+             */
+        }
+    }
+",CookieListTest::malFormedCookieListException_oe_101_oe
+JSON-java_258_101,"@Test
+    public void unbalancedQuoteInName_oe_101_oe() {
+        try {
+            CDL.toJSONArray(badLine);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+        }
+    }
+",CDLTest::unbalancedQuoteInName_oe_101_oe
+JSON-java_259_101,"@Test
+    public void unbalancedQuoteInValue_oe_101_oe() {
+        try {
+            CDL.toJSONArray(badLine);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            
+        }
+    }
+",CDLTest::unbalancedQuoteInValue_oe_101_oe
+JSON-java_260_101,"@Test
+    public void nullInName_oe_101_oe() {
+        try {
+            CDL.toJSONArray(badLine);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            
+        }
+    }
+",CDLTest::nullInName_oe_101_oe
+JSON-java_261_101,"@Test
+    public void unbalancedEscapedQuote_oe_101_oe(){
+           try {
+               CDL.toJSONArray(badLine);
+               fail(""Expecting an exception"");
+           } catch (JSONException e) {
+               
+           }
+    }
+",CDLTest::unbalancedEscapedQuote_oe_101_oe
+JSON-java_264_101,"@Test
+    public void badEscapedQuote_oe_101_oe(){
+    	       try {
+                   CDL.toJSONArray(badLine);
+                   fail(""Expecting an exception"");
+               } catch (JSONException e) {
+            	   //System.out.println(""Message"" + e.getMessage());
+                   
+               }
+    }
+",CDLTest::badEscapedQuote_oe_101_oe
+JSON-java_274_101,"@Test
+    public void testJSONNullStringValue_oe_101_oe() throws Exception {
+        try {
+            String output = jsonArray.write(writer).toString();
+    
+            // The only different between writeValue() and valueToString():
+            // in this case, valueToString throws a JSONException
+            try {
+                output = JSONObject.valueToString(jsonString);
+                fail(""Expected an exception, got a String value"");
+            } catch (Exception e) {
+            }
+        } finally {
+            writer.close();
+        }
+    }
+",JSONStringTest::testJSONNullStringValue_oe_101_oe
+JSON-java_275_101,"@Test
+    public void testJSONStringExceptionValue_oe_101_oe() {
+        try {
+            jsonArray.write(writer).toString();
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+        } catch(Exception e) {
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e){}
+        }
+    }
+",JSONStringTest::testJSONStringExceptionValue_oe_101_oe
+JSON-java_275_102,"@Test
+    public void testJSONStringExceptionValue_oe_102_oe() {
+        try {
+            JSONObject.valueToString(jsonString);
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+        } catch(Exception e) {
+        }
+    }
+",JSONStringTest::testJSONStringExceptionValue_oe_102_oe

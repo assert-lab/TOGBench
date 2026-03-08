@@ -43,6 +43,7 @@ public class FileUtilTest_OE25Dev {
 	public void opFiles_2_oe() throws IOException {
 		File file = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testFile" + RandomUtil.nextInt()));
 		FileUtil.touch(file);
+		// removed other assertion
 		FileUtil.touch(file);
 
 		String content = "haha\nhehe";
@@ -54,10 +55,12 @@ public class FileUtilTest_OE25Dev {
 	public void opFiles_3_oe() throws IOException {
 		File file = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testFile" + RandomUtil.nextInt()));
 		FileUtil.touch(file);
+		// removed other assertion
 		FileUtil.touch(file);
 
 		String content = "haha\nhehe";
 		FileUtil.write(content, file);
+		// removed other assertion
 		
 		File newFile = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testFile" + RandomUtil.nextInt()));
 		File newFile2 = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testFile" + RandomUtil.nextInt()));
@@ -70,15 +73,18 @@ public class FileUtilTest_OE25Dev {
 	public void opFiles_4_oe() throws IOException {
 		File file = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testFile" + RandomUtil.nextInt()));
 		FileUtil.touch(file);
+		// removed other assertion
 		FileUtil.touch(file);
 
 		String content = "haha\nhehe";
 		FileUtil.write(content, file);
+		// removed other assertion
 		
 		File newFile = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testFile" + RandomUtil.nextInt()));
 		File newFile2 = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testFile" + RandomUtil.nextInt()));
 
 		FileUtil.copyFile(file, newFile);
+		// removed other assertion
 		assertThat(FileUtil.toString(newFile)).isEqualTo(content);
 	}
 
@@ -86,15 +92,19 @@ public class FileUtilTest_OE25Dev {
 	public void opFiles_5_oe() throws IOException {
 		File file = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testFile" + RandomUtil.nextInt()));
 		FileUtil.touch(file);
+		// removed other assertion
 		FileUtil.touch(file);
 
 		String content = "haha\nhehe";
 		FileUtil.write(content, file);
+		// removed other assertion
 		
 		File newFile = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testFile" + RandomUtil.nextInt()));
 		File newFile2 = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testFile" + RandomUtil.nextInt()));
 
 		FileUtil.copyFile(file, newFile);
+		// removed other assertion
+		// removed other assertion
 
 		FileUtil.moveFile(newFile, newFile2);
 		assertThat(FileUtil.toString(newFile2)).isEqualTo("haha\nhehe");
@@ -129,6 +139,7 @@ public class FileUtilTest_OE25Dev {
 		File dir2 = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testDir2"));
 		FileUtil.copyDir(dir, dir2);
 		File file2 = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testDir2", fileName));
+		// removed other assertion
 
 		File dir3 = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testDir3"));
 		FileUtil.moveDir(dir, dir3);
@@ -149,10 +160,12 @@ public class FileUtilTest_OE25Dev {
 		File dir2 = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testDir2"));
 		FileUtil.copyDir(dir, dir2);
 		File file2 = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testDir2", fileName));
+		// removed other assertion
 
 		File dir3 = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testDir3"));
 		FileUtil.moveDir(dir, dir3);
 		File file3 = new File(FilePathUtil.contact(Platforms.TMP_DIR, "testDir3", fileName));
+		// removed other assertion
 		assertThat(FileUtil.isDirExists(dir)).isFalse();
 	}
 
@@ -163,6 +176,7 @@ public class FileUtilTest_OE25Dev {
 
 	@Test
 	public void fileExist_2_oe() throws IOException {
+		// removed other assertion
 		assertThat(FileUtil.isDirExists(Platforms.TMP_DIR + RandomUtil.nextInt())).isFalse();
 	}
 
@@ -175,12 +189,15 @@ public class FileUtilTest_OE25Dev {
 	@Test
 	public void getName_2_oe() {
 
+		// removed other assertion
 		assertThat(FileUtil.getFileName("abc.txt")).isEqualTo("abc.txt");
 	}
 
 	@Test
 	public void getName_3_oe() {
 
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(FileUtil.getFileExtension(FilePathUtil.normalizePath("a/d/b/abc.txt"))).isEqualTo("txt");
 	}
@@ -188,14 +205,21 @@ public class FileUtilTest_OE25Dev {
 	@Test
 	public void getName_4_oe() {
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(FileUtil.getFileExtension(FilePathUtil.normalizePath("/a/d/b/abc"))).isEqualTo("");
 	}
 
 	@Test
 	public void getName_5_oe() {
 
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(FileUtil.getFileExtension(FilePathUtil.normalizePath("/a/d/b/abc."))).isEqualTo("");
 	}
 

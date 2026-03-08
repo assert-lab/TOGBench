@@ -51,6 +51,8 @@ public class ThreadNameTest_OE25Dev extends AbstractBasicTest {
       Future<Response> f = client.prepareGet("http://localhost:" + port1 + "/").execute();
       f.get(3, TimeUnit.SECONDS);
 
+      // We cannot assert that all threads are created with specified name,
+      // so we checking that at least one thread is.
       boolean found = false;
       for (Thread thread : getThreads()) {
         if (thread.getName().startsWith(threadPoolName)) {

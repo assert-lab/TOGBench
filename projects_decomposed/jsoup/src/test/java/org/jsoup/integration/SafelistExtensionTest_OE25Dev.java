@@ -56,6 +56,7 @@ public class SafelistExtensionTest_OE25Dev {
         String openClean = Jsoup.clean(html, openSafelist);
         String clean = Jsoup.clean(html, safelist);
 
+        // removed other assertion
         assertEquals("<p>Hello</p>", clean);
         }
 

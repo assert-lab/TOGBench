@@ -124,6 +124,7 @@ class PermutationSamplerTest_OE25Dev {
 
     @Test
     void testSampleBoundaryCase_1_oe() {
+        // Check size = 1 boundary case.
          PermutationSampler sampler = new PermutationSampler(rng, 1, 1);
          int[] perm = sampler.sample();
         Assertions.assertEquals(1, perm.length);
@@ -131,13 +132,16 @@ class PermutationSamplerTest_OE25Dev {
 
     @Test
     void testSampleBoundaryCase_2_oe() {
+        // Check size = 1 boundary case.
          PermutationSampler sampler = new PermutationSampler(rng, 1, 1);
          int[] perm = sampler.sample();
+        // removed other assertion
         Assertions.assertEquals(0, perm[0]);
     }
 
     @Test
     void testSamplePrecondition1_1_oe() {
+        // Must fail for k > n.
         try {
     new PermutationSampler(rng, 2, 3);
     fail("IllegalArgumentException");
@@ -147,6 +151,7 @@ class PermutationSamplerTest_OE25Dev {
 
     @Test
     void testSamplePrecondition2_1_oe() {
+        // Must fail for n = 0.
         try {
     new PermutationSampler(rng, 0, 0);
     fail("IllegalArgumentException");
@@ -156,6 +161,7 @@ class PermutationSamplerTest_OE25Dev {
 
     @Test
     void testSamplePrecondition3_1_oe() {
+        // Must fail for k < n < 0.
         try {
     new PermutationSampler(rng, -1, 0);
     fail("IllegalArgumentException");
@@ -165,6 +171,7 @@ class PermutationSamplerTest_OE25Dev {
 
     @Test
     void testSamplePrecondition4_1_oe() {
+        // Must fail for k < n < 0.
         try {
     new PermutationSampler(rng, 1, -1);
     fail("IllegalArgumentException");
@@ -195,6 +202,7 @@ class PermutationSamplerTest_OE25Dev {
          int[] orig = PermutationSampler.natural(n);
         PermutationSampler.shuffle(rng, orig);
 
+        // Test that all (unique) entries exist in the shuffled array.
          int[] count = new int[n];
         for (int i = 0; i < n; i++) {
             count[orig[i]] += 1;
@@ -212,6 +220,7 @@ class PermutationSamplerTest_OE25Dev {
          int start = 4;
         PermutationSampler.shuffle(rng, list, start, false);
 
+        // Ensure that all entries below index "start" did not move.
         for (int i = 0; i < start; i++) {
             Assertions.assertEquals(orig[i], list[i]);
     }
@@ -224,9 +233,12 @@ class PermutationSamplerTest_OE25Dev {
          int start = 4;
         PermutationSampler.shuffle(rng, list, start, false);
 
+        // Ensure that all entries below index "start" did not move.
         for (int i = 0; i < start; i++) {
+            // removed other assertion
         }
 
+        // Ensure that at least one entry has moved.
         boolean ok = false;
         for (int i = start; i < orig.length - 1; i++) {
             if (orig[i] != list[i]) {
@@ -244,6 +256,7 @@ class PermutationSamplerTest_OE25Dev {
          int start = 4;
         PermutationSampler.shuffle(rng, list, start, true);
 
+        // Ensure that all entries above index "start" did not move.
         for (int i = start + 1; i < orig.length; i++) {
             Assertions.assertEquals(orig[i], list[i]);
     }
@@ -256,9 +269,12 @@ class PermutationSamplerTest_OE25Dev {
          int start = 4;
         PermutationSampler.shuffle(rng, list, start, true);
 
+        // Ensure that all entries above index "start" did not move.
         for (int i = start + 1; i < orig.length; i++) {
+            // removed other assertion
         }
 
+        // Ensure that at least one entry has moved.
         boolean ok = false;
         for (int i = 0; i <= start; i++) {
             if (orig[i] != list[i]) {

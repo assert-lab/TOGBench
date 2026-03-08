@@ -71,6 +71,7 @@ public class FileSystemOptionsTest_OE25Dev {
         final FileSystemOptions actual = new FileSystemOptions();
         builder.setId(actual, "Test");
 
+        // removed other assertion
         Assert.assertEquals(0, actual.compareTo(expected));
     }
 
@@ -83,6 +84,8 @@ public class FileSystemOptionsTest_OE25Dev {
         final FileSystemOptions actual = new FileSystemOptions();
         builder.setId(actual, "Test");
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(expected.hashCode(), actual.hashCode());
     }
 
@@ -95,6 +98,9 @@ public class FileSystemOptionsTest_OE25Dev {
         final FileSystemOptions actual = new FileSystemOptions();
         builder.setId(actual, "Test");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         builder.setNames(expected, new String[] { "A", "B", "C" });
 
@@ -110,9 +116,13 @@ public class FileSystemOptionsTest_OE25Dev {
         final FileSystemOptions actual = new FileSystemOptions();
         builder.setId(actual, "Test");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         builder.setNames(expected, new String[] { "A", "B", "C" });
 
+        // removed other assertion
         Assert.assertEquals(-1, actual.compareTo(expected));
     }
 
@@ -125,9 +135,14 @@ public class FileSystemOptionsTest_OE25Dev {
         final FileSystemOptions actual = new FileSystemOptions();
         builder.setId(actual, "Test");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         builder.setNames(expected, new String[] { "A", "B", "C" });
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertNotEquals(expected.hashCode(), actual.hashCode());
     }
 
@@ -140,9 +155,15 @@ public class FileSystemOptionsTest_OE25Dev {
         final FileSystemOptions actual = new FileSystemOptions();
         builder.setId(actual, "Test");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         builder.setNames(expected, new String[] { "A", "B", "C" });
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         builder.setNames(actual, new String[] { "A", "B", "C" });
 
@@ -158,12 +179,19 @@ public class FileSystemOptionsTest_OE25Dev {
         final FileSystemOptions actual = new FileSystemOptions();
         builder.setId(actual, "Test");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         builder.setNames(expected, new String[] { "A", "B", "C" });
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         builder.setNames(actual, new String[] { "A", "B", "C" });
 
+        // removed other assertion
         Assert.assertEquals(0, actual.compareTo(expected));
     }
 
@@ -176,12 +204,20 @@ public class FileSystemOptionsTest_OE25Dev {
         final FileSystemOptions actual = new FileSystemOptions();
         builder.setId(actual, "Test");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         builder.setNames(expected, new String[] { "A", "B", "C" });
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         builder.setNames(actual, new String[] { "A", "B", "C" });
 
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(expected.hashCode(), actual.hashCode());
     }
 

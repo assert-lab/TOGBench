@@ -60,27 +60,68 @@ public class AllPredicateTest_OE25Dev extends AbstractAnyAllOnePredicateTest<Int
     /**
      * Verifies that providing an empty predicate array evaluates to true.
      */
+    @SuppressWarnings({"unchecked"})
+    @Test
+    public void emptyArrayToGetInstance() {
+        assertTrue("empty array not true", getPredicateInstance(new Predicate[] {}).evaluate(null));
+    }
 
     /**
      * Verifies that providing an empty predicate collection evaluates to true.
      */
+    @Test
+    public void emptyCollectionToGetInstance() {
+        final Predicate<Integer> allPredicate = getPredicateInstance(
+                Collections.<Predicate<Integer>>emptyList());
+        assertTrue("empty collection not true", allPredicate.evaluate(getTestValue()));
+    }
 
     /**
      * Tests whether a single true predicate evaluates to true.
      */
+    @SuppressWarnings("unchecked")
+    @Test
+    public void oneTruePredicate() {
+        // use the constructor directly, as getInstance() returns the original predicate when passed
+        // an array of size one.
+        final Predicate<Integer> predicate = createMockPredicate(true);
+
+        assertTrue("single true predicate evaluated to false",allPredicate(predicate).evaluate(getTestValue()));
+    }
 
     /**
      * Tests whether a single false predicate evaluates to true.
      */
+    @SuppressWarnings("unchecked")
+    @Test
+    public void oneFalsePredicate() {
+        // use the constructor directly, as getInstance() returns the original predicate when passed
+        // an array of size one.
+        final Predicate<Integer> predicate = createMockPredicate(false);
+        assertFalse("single false predicate evaluated to true",allPredicate(predicate).evaluate(getTestValue()));
+    }
 
     /**
      * Tests whether multiple true predicates evaluates to true.
      */
+    @Test
+    public void allTrue() {
+        assertTrue("multiple true predicates evaluated to false",getPredicateInstance(true,true).evaluate(getTestValue()));
+        assertTrue("multiple true predicates evaluated to false",getPredicateInstance(true,true,true).evaluate(getTestValue()));
+    }
 
     /**
      * Tests whether combining some true and one false evalutes to false.  Also verifies that only the first
      * false predicate is actually evaluated
      */
+    @Test
+    public void trueAndFalseCombined() {
+        assertFalse("false predicate evaluated to true",getPredicateInstance(false,null).evaluate(getTestValue()));
+        assertFalse("false predicate evaluated to true",getPredicateInstance(false,null,null).evaluate(getTestValue()));
+        assertFalse("false predicate evaluated to true",getPredicateInstance(true,false,null).evaluate(getTestValue()));
+        assertFalse("false predicate evaluated to true",getPredicateInstance(true,true,false).evaluate(getTestValue()));
+        assertFalse("false predicate evaluated to true",getPredicateInstance(true,true,false,null).evaluate(getTestValue()));
+    }
 
     @Test
     public void emptyArrayToGetInstance_1_oe() {

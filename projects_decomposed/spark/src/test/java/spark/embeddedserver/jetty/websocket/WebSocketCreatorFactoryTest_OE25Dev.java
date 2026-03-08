@@ -42,6 +42,7 @@ public class WebSocketCreatorFactoryTest_OE25Dev {
     public void testCreateWebSocketHandler_2_oe() {
         WebSocketCreator annotated =
                 WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(AnnotatedHandler.class));
+        // removed other assertion
         assertTrue(SparkWebSocketCreator.class.cast(annotated).getHandler() instanceof AnnotatedHandler);
     }
 
@@ -49,6 +50,8 @@ public class WebSocketCreatorFactoryTest_OE25Dev {
     public void testCreateWebSocketHandler_3_oe() {
         WebSocketCreator annotated =
                 WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(AnnotatedHandler.class));
+        // removed other assertion
+        // removed other assertion
 
         WebSocketCreator listener =
                 WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(ListenerHandler.class));
@@ -59,9 +62,12 @@ public class WebSocketCreatorFactoryTest_OE25Dev {
     public void testCreateWebSocketHandler_4_oe() {
         WebSocketCreator annotated =
                 WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(AnnotatedHandler.class));
+        // removed other assertion
+        // removed other assertion
 
         WebSocketCreator listener =
                 WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(ListenerHandler.class));
+        // removed other assertion
         assertTrue(SparkWebSocketCreator.class.cast(listener).getHandler() instanceof ListenerHandler);
     }
 
@@ -69,6 +75,7 @@ public class WebSocketCreatorFactoryTest_OE25Dev {
     public void testCannotCreateInvalidHandlers_2_oe() {
         try {
             WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(InvalidHandler.class));
+            // removed other assertion
         } catch (IllegalArgumentException ex) {
             assertEquals("WebSocket handler must implement 'WebSocketListener' or be annotated as '@WebSocket'",ex.getMessage());
     }
@@ -78,6 +85,7 @@ public class WebSocketCreatorFactoryTest_OE25Dev {
     public void testCreate_whenInstantiationException_2_oe() throws Exception {
         try {
             WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(FailingHandler.class));
+            // removed other assertion
         } catch(RuntimeException ex) {
             assertEquals("Could not instantiate websocket handler", ex.getMessage());
     }

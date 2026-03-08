@@ -49,6 +49,7 @@ public class ResSchemeTestCase_OE25Dev {
 
     @Test(expected = FileSystemException.class)
     public void test_resolveFile_String_SSSnull_1_oe() throws FileSystemException {
+        // Resulting path is empty
         Assert.assertTrue(VFS.getManager().resolveFile("res:///").exists());
     }
 
@@ -94,6 +95,7 @@ public class ResSchemeTestCase_OE25Dev {
 
     @Test(expected = FileSystemException.class)
     public void test_resolveURI_String_SSSnull_1_oe() throws FileSystemException {
+        // Resulting path is empty
         Assert.assertTrue(VFS.getManager().resolveURI("res:///").isFile());
     }
 

@@ -34,6 +34,7 @@ public class QueryParamsMapTest_OE25Dev {
         
         QueryParamsMap queryMap = new QueryParamsMap(params);
         
+        // removed other assertion
         assertEquals("fede",queryMap.get("user","info","name").value());
     }
 
@@ -54,6 +55,7 @@ public class QueryParamsMapTest_OE25Dev {
         queryMap.loadKeys("user[info][first_name]",new String[] {"federico"});
         queryMap.loadKeys("user[info][last_name]",new String[] {"dayan"});
 
+        // removed other assertion
         assertFalse(queryMap.getQueryMap().get("user").getQueryMap().isEmpty());
     }
 
@@ -64,6 +66,8 @@ public class QueryParamsMapTest_OE25Dev {
         queryMap.loadKeys("user[info][first_name]",new String[] {"federico"});
         queryMap.loadKeys("user[info][last_name]",new String[] {"dayan"});
 
+        // removed other assertion
+        // removed other assertion
         assertFalse(queryMap.getQueryMap().get("user").getQueryMap().get("info").getQueryMap().isEmpty());
     }
 
@@ -74,6 +78,9 @@ public class QueryParamsMapTest_OE25Dev {
         queryMap.loadKeys("user[info][first_name]",new String[] {"federico"});
         queryMap.loadKeys("user[info][last_name]",new String[] {"dayan"});
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("federico",queryMap.getQueryMap().get("user").getQueryMap().get("info").getQueryMap().get("first_name").getValues()[0]);
     }
 
@@ -84,6 +91,10 @@ public class QueryParamsMapTest_OE25Dev {
         queryMap.loadKeys("user[info][first_name]",new String[] {"federico"});
         queryMap.loadKeys("user[info][last_name]",new String[] {"dayan"});
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("dayan",queryMap.getQueryMap().get("user").getQueryMap().get("info").getQueryMap().get("last_name").getValues()[0]);
     }
 
@@ -94,6 +105,11 @@ public class QueryParamsMapTest_OE25Dev {
         queryMap.loadKeys("user[info][first_name]",new String[] {"federico"});
         queryMap.loadKeys("user[info][last_name]",new String[] {"dayan"});
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(queryMap.hasKey("user"));
     }
@@ -105,7 +121,13 @@ public class QueryParamsMapTest_OE25Dev {
         queryMap.loadKeys("user[info][first_name]",new String[] {"federico"});
         queryMap.loadKeys("user[info][last_name]",new String[] {"dayan"});
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse(queryMap.hasKey("frame"));
     }
 
@@ -116,7 +138,14 @@ public class QueryParamsMapTest_OE25Dev {
         queryMap.loadKeys("user[info][first_name]",new String[] {"federico"});
         queryMap.loadKeys("user[info][last_name]",new String[] {"dayan"});
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse(queryMap.hasKey(null));
     }
 
@@ -127,7 +156,15 @@ public class QueryParamsMapTest_OE25Dev {
         queryMap.loadKeys("user[info][first_name]",new String[] {"federico"});
         queryMap.loadKeys("user[info][last_name]",new String[] {"dayan"});
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue(queryMap.hasKeys());
     }
@@ -139,8 +176,17 @@ public class QueryParamsMapTest_OE25Dev {
         queryMap.loadKeys("user[info][first_name]",new String[] {"federico"});
         queryMap.loadKeys("user[info][last_name]",new String[] {"dayan"});
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse(queryMap.hasValue());
     }
 
@@ -151,8 +197,18 @@ public class QueryParamsMapTest_OE25Dev {
         queryMap.loadKeys("user[info][first_name]",new String[] {"federico"});
         queryMap.loadKeys("user[info][last_name]",new String[] {"dayan"});
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(queryMap.getQueryMap().get("user").getQueryMap().get("info").getQueryMap().get("last_name").hasValue());
     }
 
@@ -173,6 +229,7 @@ public class QueryParamsMapTest_OE25Dev {
         queryMap.loadKeys("user[age]",new String[] {"10"});
         queryMap.loadKeys("user[agrees]",new String[] {"true"});
 
+        // removed other assertion
         assertEquals(new Float(10),queryMap.get("user").get("age").floatValue());
     }
 
@@ -183,6 +240,8 @@ public class QueryParamsMapTest_OE25Dev {
         queryMap.loadKeys("user[age]",new String[] {"10"});
         queryMap.loadKeys("user[agrees]",new String[] {"true"});
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(new Double(10),queryMap.get("user").get("age").doubleValue());
     }
 
@@ -193,6 +252,9 @@ public class QueryParamsMapTest_OE25Dev {
         queryMap.loadKeys("user[age]",new String[] {"10"});
         queryMap.loadKeys("user[agrees]",new String[] {"true"});
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(new Long(10),queryMap.get("user").get("age").longValue());
     }
 
@@ -203,6 +265,10 @@ public class QueryParamsMapTest_OE25Dev {
         queryMap.loadKeys("user[age]",new String[] {"10"});
         queryMap.loadKeys("user[agrees]",new String[] {"true"});
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(Boolean.TRUE,queryMap.get("user").get("agrees").booleanValue());
     }
 
@@ -217,6 +283,7 @@ public class QueryParamsMapTest_OE25Dev {
     public void parseKeyShouldParseRootKey_2_oe() {
         String[] parsed = queryMap.parseKey("user[name][more]");
         
+        // removed other assertion
         assertEquals("[name][more]",parsed[1]);
     }
 
@@ -235,6 +302,7 @@ public class QueryParamsMapTest_OE25Dev {
         
         parsed = queryMap.parseKey("[name][more]");
         
+        // removed other assertion
         assertEquals("[more]",parsed[1]);
     }
 
@@ -244,6 +312,8 @@ public class QueryParamsMapTest_OE25Dev {
         
         parsed = queryMap.parseKey("[name][more]");
         
+        // removed other assertion
+        // removed other assertion
         
         parsed = queryMap.parseKey("[more]");
         
@@ -256,9 +326,12 @@ public class QueryParamsMapTest_OE25Dev {
         
         parsed = queryMap.parseKey("[name][more]");
         
+        // removed other assertion
+        // removed other assertion
         
         parsed = queryMap.parseKey("[more]");
         
+        // removed other assertion
         assertEquals("",parsed[1]);
     }
 
@@ -282,6 +355,7 @@ public class QueryParamsMapTest_OE25Dev {
     public void testConstructor_2_oe() {
         QueryParamsMap queryMap = new QueryParamsMap("user[name][more]","fede");
 
+        // removed other assertion
         assertFalse(queryMap.getQueryMap().get("user").getQueryMap().isEmpty());
     }
 
@@ -289,6 +363,8 @@ public class QueryParamsMapTest_OE25Dev {
     public void testConstructor_3_oe() {
         QueryParamsMap queryMap = new QueryParamsMap("user[name][more]","fede");
 
+        // removed other assertion
+        // removed other assertion
         assertFalse(queryMap.getQueryMap().get("user").getQueryMap().get("name").getQueryMap().isEmpty());
     }
 
@@ -296,6 +372,9 @@ public class QueryParamsMapTest_OE25Dev {
     public void testConstructor_4_oe() {
         QueryParamsMap queryMap = new QueryParamsMap("user[name][more]","fede");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("fede",queryMap.getQueryMap().get("user").getQueryMap().get("name").getQueryMap().get("more").getValues()[0]);
     }
 
@@ -324,6 +403,7 @@ public class QueryParamsMapTest_OE25Dev {
         
         Map<String,String[]> map = queryMap.get("user","info").toMap();
         
+        // removed other assertion
         assertEquals("fede",map.get("name")[0]);
     }
 
@@ -338,6 +418,8 @@ public class QueryParamsMapTest_OE25Dev {
         
         Map<String,String[]> map = queryMap.get("user","info").toMap();
         
+        // removed other assertion
+        // removed other assertion
         assertEquals("dayan",map.get("last")[0]);
     }
 

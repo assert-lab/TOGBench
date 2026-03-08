@@ -145,11 +145,13 @@ class SumTest_OE25Dev {
 
     @Test
     void testSum_simple_1_oe() {
+        // act/assert
         Assertions.assertEquals(0d, Sum.create().getAsDouble());
     }
 
     @Test
     void testAdd_sumInstance_1_oe() {
+        // arrange
         final double a = Math.PI;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
@@ -157,11 +159,13 @@ class SumTest_OE25Dev {
         final double e = Math.scalb(a, -27);
         final double f = Math.scalb(a, -50);
 
+        // act/assert
         Assertions.assertEquals(exactSum(a, b, c, d), Sum.of(a, b, c, d).add(Sum.create()).getAsDouble());
     }
 
     @Test
     void testAdd_sumInstance_2_oe() {
+        // arrange
         final double a = Math.PI;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
@@ -169,11 +173,14 @@ class SumTest_OE25Dev {
         final double e = Math.scalb(a, -27);
         final double f = Math.scalb(a, -50);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(exactSum(a,a,b,c,d,e,f),Sum.of(a,b).add(Sum.of(a,c)).add(Sum.of(d,e,f)).getAsDouble());
     }
 
     @Test
     void testAdd_sumInstance_3_oe() {
+        // arrange
         final double a = Math.PI;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
@@ -181,6 +188,9 @@ class SumTest_OE25Dev {
         final double e = Math.scalb(a, -27);
         final double f = Math.scalb(a, -50);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         final Sum s = Sum.of(a, b);
         Assertions.assertEquals(exactSum(a, b, a, b), s.add(s).getAsDouble());
@@ -188,6 +198,7 @@ class SumTest_OE25Dev {
 
     @Test
     void testSumOfProducts_dimensionMismatch_1_oe() {
+        // act/assert
         final Sum sum = Sum.create();
         try {
     sum.addProducts(new double[1], new double[2]);
@@ -198,7 +209,9 @@ class SumTest_OE25Dev {
 
     @Test
     void testSumOfProducts_dimensionMismatch_2_oe() {
+        // act/assert
         final Sum sum = Sum.create();
+        // removed other assertion
 
         try {
     Sum.ofProducts(new double[1], new double[2]);
@@ -217,6 +230,7 @@ class SumTest_OE25Dev {
 
     @Test
     void testSumOfProducts_1_oe() {
+        // arrange
         final BigDecimal[] aFN = new BigDecimal[] {
             BigDecimal.valueOf(-1321008684645961L),
             BigDecimal.valueOf(-5774608829631843L),
@@ -246,8 +260,11 @@ class SumTest_OE25Dev {
             b[i] = bFN[i].doubleValue() / bFD[i].doubleValue();
         }
 
+        // act
         final double sum = Sum.ofProducts(a, b).getAsDouble();
 
+        // assert
+        // Compare with arbitrary precision computation.
         BigDecimal result = BigDecimal.ZERO;
         for (int i = 0; i < a.length; i++) {
             result = result.add(aFN[i].divide(aFD[i]).multiply(bFN[i].divide(bFD[i])));
@@ -258,6 +275,7 @@ class SumTest_OE25Dev {
 
     @Test
     void testSumOfProducts_2_oe() {
+        // arrange
         final BigDecimal[] aFN = new BigDecimal[] {
             BigDecimal.valueOf(-1321008684645961L),
             BigDecimal.valueOf(-5774608829631843L),
@@ -287,13 +305,17 @@ class SumTest_OE25Dev {
             b[i] = bFN[i].doubleValue() / bFD[i].doubleValue();
         }
 
+        // act
         final double sum = Sum.ofProducts(a, b).getAsDouble();
 
+        // assert
+        // Compare with arbitrary precision computation.
         BigDecimal result = BigDecimal.ZERO;
         for (int i = 0; i < a.length; i++) {
             result = result.add(aFN[i].divide(aFD[i]).multiply(bFN[i].divide(bFD[i])));
         }
         final double expected = result.doubleValue();
+        // removed other assertion
 
         final double naive = a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
         Assertions.assertTrue(Math.abs(naive - sum) > 1.5);
@@ -301,6 +323,7 @@ class SumTest_OE25Dev {
 
     @Test
     void testSumOfProducts_huge_1_oe() {
+        // arrange
         int scale = 971;
         final double[] a = new double[] {
             -1321008684645961.0 / 268435456.0,
@@ -321,13 +344,16 @@ class SumTest_OE25Dev {
             scaledB[i] = Math.scalb(b[i], scale);
         }
 
+        // act
         final double sum = Sum.ofProducts(scaledA, scaledB).getAsDouble();
 
+        // assert
         Assertions.assertEquals(-1.8551294182586248737720779899, sum, 1e-15);
     }
 
     @Test
     void testSumOfProducts_huge_2_oe() {
+        // arrange
         int scale = 971;
         final double[] a = new double[] {
             -1321008684645961.0 / 268435456.0,
@@ -348,8 +374,11 @@ class SumTest_OE25Dev {
             scaledB[i] = Math.scalb(b[i], scale);
         }
 
+        // act
         final double sum = Sum.ofProducts(scaledA, scaledB).getAsDouble();
 
+        // assert
+        // removed other assertion
 
         final double naive = scaledA[0] * scaledB[0] + scaledA[1] * scaledB[1] + scaledA[2] * scaledB[2];
         Assertions.assertTrue(Math.abs(naive - sum) > 1.5);
@@ -357,6 +386,9 @@ class SumTest_OE25Dev {
 
     @Test
     void testSumOfProducts_overflow_1_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
@@ -366,71 +398,121 @@ class SumTest_OE25Dev {
 
     @Test
     void testSumOfProducts_overflow_2_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
         Assertions.assertEquals(0, Math.getExponent(x));
     }
 
     @Test
     void testSumOfProducts_overflow_3_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
         Assertions.assertEquals(0, Math.getExponent(y));
     }
 
     @Test
     void testSumOfProducts_overflow_4_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
         Assertions.assertEquals(sxxMxy, a1 * b1 + a2 * b2);
     }
 
     @Test
     void testSumOfProducts_overflow_5_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
         Assertions.assertTrue(Double.isFinite(sxxMxy));
     }
 
     @Test
     void testSumOfProducts_overflow_6_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result using Dekker's multiplier.
         final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
         double c;
         c = a1 * m;
         final double ha1 = c - (c - a1);
@@ -445,19 +527,33 @@ class SumTest_OE25Dev {
 
     @Test
     void testSumOfProducts_overflow_7_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result using Dekker's multiplier.
         final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
         double c;
         c = a1 * m;
         final double ha1 = c - (c - a1);
@@ -467,24 +563,39 @@ class SumTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
         Assertions.assertTrue(Double.isFinite(hb1));
     }
 
     @Test
     void testSumOfProducts_overflow_8_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result using Dekker's multiplier.
         final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
         double c;
         c = a1 * m;
         final double ha1 = c - (c - a1);
@@ -494,24 +605,40 @@ class SumTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(Double.isFinite(ha2));
     }
 
     @Test
     void testSumOfProducts_overflow_9_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result using Dekker's multiplier.
         final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
         double c;
         c = a1 * m;
         final double ha1 = c - (c - a1);
@@ -521,24 +648,41 @@ class SumTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(Double.isFinite(hb2));
     }
 
     @Test
     void testSumOfProducts_overflow_10_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result using Dekker's multiplier.
         final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
         double c;
         c = a1 * m;
         final double ha1 = c - (c - a1);
@@ -548,24 +692,43 @@ class SumTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
         Assertions.assertTrue(Math.abs(ha1) > Math.abs(a1));
     }
 
     @Test
     void testSumOfProducts_overflow_11_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result using Dekker's multiplier.
         final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
         double c;
         c = a1 * m;
         final double ha1 = c - (c - a1);
@@ -575,24 +738,44 @@ class SumTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
         Assertions.assertTrue(Math.abs(hb1) > Math.abs(b1));
     }
 
     @Test
     void testSumOfProducts_overflow_12_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result using Dekker's multiplier.
         final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
         double c;
         c = a1 * m;
         final double ha1 = c - (c - a1);
@@ -602,24 +785,45 @@ class SumTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(Math.abs(ha2) > Math.abs(a2));
     }
 
     @Test
     void testSumOfProducts_overflow_13_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result using Dekker's multiplier.
         final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
         double c;
         c = a1 * m;
         final double ha1 = c - (c - a1);
@@ -629,24 +833,46 @@ class SumTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(Math.abs(hb2) > Math.abs(b2));
     }
 
     @Test
     void testSumOfProducts_overflow_14_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result using Dekker's multiplier.
         final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
         double c;
         c = a1 * m;
         final double ha1 = c - (c - a1);
@@ -656,24 +882,47 @@ class SumTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY, ha1 * hb1, "Expected split high part to overflow");
     }
 
     @Test
     void testSumOfProducts_overflow_15_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result using Dekker's multiplier.
         final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
         double c;
         c = a1 * m;
         final double ha1 = c - (c - a1);
@@ -683,145 +932,254 @@ class SumTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.NEGATIVE_INFINITY, ha2 * hb2, "Expected split high part to overflow");
     }
 
     @Test
     void testMixedSingleTermAndProduct_1_oe() {
+        // arrange
         final double a = 9.999999999;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
         final double d = Math.scalb(a, -27);
 
+        // act/assert
         Assertions.assertEquals(exactLinearCombination(1,a,-1,b,2,c,4,d),Sum.create().add(a).add(-b).addProduct(2,c).addProduct(d,4).getAsDouble());
     }
 
     @Test
     void testMixedSingleTermAndProduct_2_oe() {
+        // arrange
         final double a = 9.999999999;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
         final double d = Math.scalb(a, -27);
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertEquals(exactLinearCombination(1,a,-1,b,2,c,4,d),Sum.create().addProduct(d,4).add(a).addProduct(2,c).add(-b).getAsDouble());
     }
 
     @Test
     void testUnityValuesInProduct_1_oe() {
+        // arrange
         final double a = 9.999999999;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
         final double d = Math.scalb(a, -27);
 
+        // act/assert
         Assertions.assertEquals(exactLinearCombination(1,a,-1,b,2,c,4,d),Sum.create().addProduct(1,a).addProduct(-1,b).addProduct(2,c).addProduct(d,4).getAsDouble());
     }
 
     @Test
     void testUnityValuesInProduct_2_oe() {
+        // arrange
         final double a = 9.999999999;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
         final double d = Math.scalb(a, -27);
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertEquals(exactLinearCombination(1,a,-1,b,2,c,4,d),Sum.create().addProduct(a,1).addProduct(b,-1).addProduct(2,c).addProduct(d,4).getAsDouble());
     }
 
 @Test
     void testSum_simple_3_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         assertSum(Math.PI + Math.E, Math.PI, Math.E);
     }
 
 @Test
     void testSum_simple_4_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertSum(0, 0, 0, 0);
     }
 
 @Test
     void testSum_simple_5_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSum(6, 1, 2, 3);
     }
 
 @Test
     void testSum_simple_6_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertSum(2, 1, -2, 3);
     }
 
 @Test
     void testSum_simple_7_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertSum(Double.NaN, Double.NaN, 0, 0);
     }
 
 @Test
     void testSum_simple_8_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSum(Double.NaN, 0, Double.NaN, 0);
     }
 
 @Test
     void testSum_simple_9_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertSum(Double.NaN, 0, 0, Double.NaN);
     }
 
 @Test
     void testSum_simple_10_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertSum(Double.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, 0);
     }
 
 @Test
     void testSum_simple_11_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         assertSum(Double.POSITIVE_INFINITY, Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE);
     }
 
 @Test
     void testSum_simple_12_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         assertSum(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, 1, 1);
     }
 
 @Test
     void testSum_simple_13_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         assertSum(Double.NEGATIVE_INFINITY, 1, Double.NEGATIVE_INFINITY, 1);
     }
 
 @Test
     void testSumAccuracy_2_oe() {
+        // arrange
         final double a = 9.999999999;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
@@ -829,12 +1187,15 @@ class SumTest_OE25Dev {
         final double e = Math.scalb(a, -27);
         final double f = Math.scalb(a, -50);
 
+        // act/assert
+        // removed other assertion
 
         assertSumExact(a, b);
     }
 
 @Test
     void testSumAccuracy_3_oe() {
+        // arrange
         final double a = 9.999999999;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
@@ -842,12 +1203,16 @@ class SumTest_OE25Dev {
         final double e = Math.scalb(a, -27);
         final double f = Math.scalb(a, -50);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         assertSumExact(b, a);
     }
 
 @Test
     void testSumAccuracy_4_oe() {
+        // arrange
         final double a = 9.999999999;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
@@ -855,13 +1220,18 @@ class SumTest_OE25Dev {
         final double e = Math.scalb(a, -27);
         final double f = Math.scalb(a, -50);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertSumExact(a, b, c);
     }
 
 @Test
     void testSumAccuracy_5_oe() {
+        // arrange
         final double a = 9.999999999;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
@@ -869,13 +1239,19 @@ class SumTest_OE25Dev {
         final double e = Math.scalb(a, -27);
         final double f = Math.scalb(a, -50);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSumExact(c, b, a);
     }
 
 @Test
     void testSumAccuracy_6_oe() {
+        // arrange
         final double a = 9.999999999;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
@@ -883,14 +1259,21 @@ class SumTest_OE25Dev {
         final double e = Math.scalb(a, -27);
         final double f = Math.scalb(a, -50);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertSumExact(a, b, c, d);
     }
 
 @Test
     void testSumAccuracy_7_oe() {
+        // arrange
         final double a = 9.999999999;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
@@ -898,14 +1281,22 @@ class SumTest_OE25Dev {
         final double e = Math.scalb(a, -27);
         final double f = Math.scalb(a, -50);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSumExact(d, c, b, a);
     }
 
 @Test
     void testSumAccuracy_8_oe() {
+        // arrange
         final double a = 9.999999999;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
@@ -913,15 +1304,24 @@ class SumTest_OE25Dev {
         final double e = Math.scalb(a, -27);
         final double f = Math.scalb(a, -50);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertSumExact(a, -b, c, -d);
     }
 
 @Test
     void testSumAccuracy_9_oe() {
+        // arrange
         final double a = 9.999999999;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
@@ -929,15 +1329,25 @@ class SumTest_OE25Dev {
         final double e = Math.scalb(a, -27);
         final double f = Math.scalb(a, -50);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSumExact(d, -c, b, -a);
     }
 
 @Test
     void testSumAccuracy_10_oe() {
+        // arrange
         final double a = 9.999999999;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
@@ -945,16 +1355,27 @@ class SumTest_OE25Dev {
         final double e = Math.scalb(a, -27);
         final double f = Math.scalb(a, -50);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertSumExact(a, b, c, d, e, f);
     }
 
 @Test
     void testSumAccuracy_11_oe() {
+        // arrange
         final double a = 9.999999999;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
@@ -962,16 +1383,28 @@ class SumTest_OE25Dev {
         final double e = Math.scalb(a, -27);
         final double f = Math.scalb(a, -50);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSumExact(f, e, d, c, b, a);
     }
 
 @Test
     void testSumAccuracy_12_oe() {
+        // arrange
         final double a = 9.999999999;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
@@ -979,17 +1412,30 @@ class SumTest_OE25Dev {
         final double e = Math.scalb(a, -27);
         final double f = Math.scalb(a, -50);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         assertSumExact(a, -b, c, -d, e, f);
     }
 
 @Test
     void testSumAccuracy_13_oe() {
+        // arrange
         final double a = 9.999999999;
         final double b = Math.scalb(a, -53);
         final double c = Math.scalb(a, -53);
@@ -997,17 +1443,31 @@ class SumTest_OE25Dev {
         final double e = Math.scalb(a, -27);
         final double f = Math.scalb(a, -50);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSumExact(f, -e, d, -c, b, -a);
     }
 
 @Test
     void testSumOfProducts_nonFinite_1_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1035,11 +1495,13 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
         assertSumOfProducts(-3, a[0][0], b[0][0], a[0][1], b[0][1]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_2_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1067,11 +1529,14 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
         assertSumOfProducts(6, a[0][0], b[0][0], a[0][1], b[0][1], a[0][2], b[0][2]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_3_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1099,11 +1564,15 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         assertSumOfProducts(22, a[0], b[0]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_4_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1131,12 +1600,17 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertSumOfProducts(Double.NEGATIVE_INFINITY, a[1][0], b[1][0], a[1][1], b[1][1]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_5_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1164,12 +1638,18 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSumOfProducts(Double.NEGATIVE_INFINITY, a[1][0], b[1][0], a[1][1], b[1][1], a[1][2], b[1][2]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_6_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1197,12 +1677,19 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertSumOfProducts(Double.NEGATIVE_INFINITY, a[1], b[1]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_7_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1230,13 +1717,21 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertSumOfProducts(-3, a[2][0], b[2][0], a[2][1], b[2][1]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_8_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1264,13 +1759,22 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSumOfProducts(Double.POSITIVE_INFINITY, a[2][0], b[2][0], a[2][1], b[2][1], a[2][2], b[2][2]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_9_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1298,13 +1802,23 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertSumOfProducts(Double.POSITIVE_INFINITY, a[2], b[2]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_10_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1332,14 +1846,25 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertSumOfProducts(Double.NEGATIVE_INFINITY, a[3][0], b[3][0], a[3][1], b[3][1]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_11_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1367,14 +1892,26 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSumOfProducts(Double.NEGATIVE_INFINITY, a[3][0], b[3][0], a[3][1], b[3][1], a[3][2], b[3][2]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_12_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1402,14 +1939,27 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertSumOfProducts(Double.NEGATIVE_INFINITY, a[3], b[3]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_13_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1437,15 +1987,29 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertSumOfProducts(Double.POSITIVE_INFINITY, a[4][0], b[4][0], a[4][1], b[4][1]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_14_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1473,15 +2037,30 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSumOfProducts(Double.POSITIVE_INFINITY, a[4][0], b[4][0], a[4][1], b[4][1], a[4][2], b[4][2]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_15_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1509,15 +2088,31 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertSumOfProducts(Double.POSITIVE_INFINITY, a[4], b[4]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_16_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1545,16 +2140,33 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertSumOfProducts(-3, a[5][0], b[5][0], a[5][1], b[5][1]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_17_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1582,16 +2194,34 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSumOfProducts(Double.POSITIVE_INFINITY, a[5][0], b[5][0], a[5][1], b[5][1], a[5][2], b[5][2]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_18_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1619,16 +2249,35 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertSumOfProducts(Double.POSITIVE_INFINITY, a[5], b[5]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_19_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1656,17 +2305,37 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertSumOfProducts(Double.POSITIVE_INFINITY, a[6][0], b[6][0], a[6][1], b[6][1]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_20_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1694,17 +2363,38 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSumOfProducts(Double.POSITIVE_INFINITY, a[6][0], b[6][0], a[6][1], b[6][1], a[6][2], b[6][2]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_21_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1732,17 +2422,39 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertSumOfProducts(Double.NaN, a[6], b[6]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_22_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1770,18 +2482,41 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertSumOfProducts(Double.NaN, a[7][0], b[7][0], a[7][1], b[7][1]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_23_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1809,18 +2544,42 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSumOfProducts(Double.NaN, a[7][0], b[7][0], a[7][1], b[7][1], a[7][2], b[7][2]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_24_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1848,18 +2607,43 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertSumOfProducts(Double.NaN, a[7], b[7]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_25_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1887,19 +2671,45 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertSumOfProducts(Double.NEGATIVE_INFINITY, a[8][0], b[8][0], a[8][1], b[8][1]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_26_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1927,19 +2737,46 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSumOfProducts(Double.NEGATIVE_INFINITY, a[8][0], b[8][0], a[8][1], b[8][1], a[8][2], b[8][2]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_27_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -1967,19 +2804,47 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertSumOfProducts(Double.NEGATIVE_INFINITY, a[8], b[8]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_28_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -2007,20 +2872,49 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertSumOfProducts(-3, a[9][0], b[9][0], a[9][1], b[9][1]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_29_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -2048,20 +2942,50 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSumOfProducts(Double.POSITIVE_INFINITY, a[9][0], b[9][0], a[9][1], b[9][1], a[9][2], b[9][2]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_30_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -2089,20 +3013,51 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertSumOfProducts(Double.POSITIVE_INFINITY, a[9], b[9]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_31_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -2130,21 +3085,53 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertSumOfProducts(-Double.MAX_VALUE, a[10][0], b[10][0], a[10][1], b[10][1]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_32_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -2172,21 +3159,54 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertSumOfProducts(-Double.MAX_VALUE, a[10][0], b[10][0], a[10][1], b[10][1], a[10][2], b[10][2]);
     }
 
 @Test
     void testSumOfProducts_nonFinite_33_oe() {
+        // arrange
         final double[][] a = new double[][] {
             {1, 2, 3, 4},
             {1, Double.POSITIVE_INFINITY, 3, 4},
@@ -2214,34 +3234,81 @@ class SumTest_OE25Dev {
             {1, -2, 3, 4},
         };
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertSumOfProducts(Double.NEGATIVE_INFINITY, a[10], b[10]);
     }
 
 @Test
     void testSumOfProducts_overflow_16_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result using Dekker's multiplier.
         final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
         double c;
         c = a1 * m;
         final double ha1 = c - (c - a1);
@@ -2251,26 +3318,53 @@ class SumTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // LinearCombination should detect and handle intermediate overflow and return the
+        // high precision result.
         final double expected = Math.scalb(xxMxyHighPrecision, 1022);
         assertSumOfProducts(expected, a1, b1, a2, b2);
     }
 
 @Test
     void testSumOfProducts_overflow_17_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result using Dekker's multiplier.
         final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
         double c;
         c = a1 * m;
         final double ha1 = c - (c - a1);
@@ -2280,26 +3374,54 @@ class SumTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // LinearCombination should detect and handle intermediate overflow and return the
+        // high precision result.
         final double expected = Math.scalb(xxMxyHighPrecision, 1022);
+        // removed other assertion
         assertSumOfProducts(expected, a1, b1, a2, b2, 0, 0);
     }
 
 @Test
     void testSumOfProducts_overflow_18_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
         final double x = Math.nextDown(2.0);
         final double y = -Math.nextDown(x);
         final double xxMxy = x * x + x * y;
         final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
 
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
 
         final double a1 = Math.scalb(x, 1022 - 30);
         final double b1 = Math.scalb(x, 30);
         final double a2 = a1;
         final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
         final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
 
+        // High precision result using Dekker's multiplier.
         final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
         double c;
         c = a1 * m;
         final double ha1 = c - (c - a1);
@@ -2309,8 +3431,23 @@ class SumTest_OE25Dev {
         final double ha2 = c - (c - a2);
         c = b2 * m;
         final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // LinearCombination should detect and handle intermediate overflow and return the
+        // high precision result.
         final double expected = Math.scalb(xxMxyHighPrecision, 1022);
+        // removed other assertion
+        // removed other assertion
         assertSumOfProducts(expected, a1, b1, a2, b2, 0, 0, 0, 0);
     }
 

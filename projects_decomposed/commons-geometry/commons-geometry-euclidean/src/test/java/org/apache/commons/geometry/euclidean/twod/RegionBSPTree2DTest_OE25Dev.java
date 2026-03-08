@@ -428,111 +428,157 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testCtor_booleanArg_true_1_oe() {
+        // act
         final RegionBSPTree2D tree = new RegionBSPTree2D(true);
 
+        // assert
         Assertions.assertTrue(tree.isFull());
     }
 
     @Test
     void testCtor_booleanArg_true_2_oe() {
+        // act
         final RegionBSPTree2D tree = new RegionBSPTree2D(true);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tree.isEmpty());
     }
 
     @Test
     void testCtor_booleanArg_true_3_oe() {
+        // act
         final RegionBSPTree2D tree = new RegionBSPTree2D(true);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, tree.count());
     }
 
     @Test
     void testCtor_booleanArg_false_1_oe() {
+        // act
         final RegionBSPTree2D tree = new RegionBSPTree2D(false);
 
+        // assert
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testCtor_booleanArg_false_2_oe() {
+        // act
         final RegionBSPTree2D tree = new RegionBSPTree2D(false);
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(tree.isEmpty());
     }
 
     @Test
     void testCtor_booleanArg_false_3_oe() {
+        // act
         final RegionBSPTree2D tree = new RegionBSPTree2D(false);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, tree.count());
     }
 
     @Test
     void testCtor_default_1_oe() {
+        // act
         final RegionBSPTree2D tree = new RegionBSPTree2D();
 
+        // assert
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testCtor_default_2_oe() {
+        // act
         final RegionBSPTree2D tree = new RegionBSPTree2D();
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(tree.isEmpty());
     }
 
     @Test
     void testCtor_default_3_oe() {
+        // act
         final RegionBSPTree2D tree = new RegionBSPTree2D();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, tree.count());
     }
 
     @Test
     void testFull_factoryMethod_1_oe() {
+        // act
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
+        // assert
         Assertions.assertTrue(tree.isFull());
     }
 
     @Test
     void testFull_factoryMethod_2_oe() {
+        // act
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tree.isEmpty());
     }
 
     @Test
     void testFull_factoryMethod_3_oe() {
+        // act
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, tree.count());
     }
 
     @Test
     void testEmpty_factoryMethod_1_oe() {
+        // act
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // assert
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testEmpty_factoryMethod_2_oe() {
+        // act
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(tree.isEmpty());
     }
 
     @Test
     void testEmpty_factoryMethod_3_oe() {
+        // act
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1, tree.count());
     }
 
     @Test
     void testPartitionedRegionBuilder_halfSpace_1_oe() {
+        // act
         final RegionBSPTree2D tree = RegionBSPTree2D.partitionedRegionBuilder()
                 .insertPartition(
                     Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION))
@@ -540,11 +586,13 @@ class RegionBSPTree2DTest_OE25Dev {
                     Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.MINUS_X, TEST_PRECISION).span())
                 .build();
 
+        // assert
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testPartitionedRegionBuilder_halfSpace_2_oe() {
+        // act
         final RegionBSPTree2D tree = RegionBSPTree2D.partitionedRegionBuilder()
                 .insertPartition(
                     Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION))
@@ -552,81 +600,108 @@ class RegionBSPTree2DTest_OE25Dev {
                     Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.MINUS_X, TEST_PRECISION).span())
                 .build();
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(tree.isInfinite());
     }
 
     @Test
     void testCopy_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = new RegionBSPTree2D(true);
         tree.getRoot().cut(Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION));
 
+        // act
         final RegionBSPTree2D copy = tree.copy();
 
+        // assert
         Assertions.assertNotSame(tree, copy);
     }
 
     @Test
     void testCopy_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = new RegionBSPTree2D(true);
         tree.getRoot().cut(Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION));
 
+        // act
         final RegionBSPTree2D copy = tree.copy();
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(3, copy.count());
     }
 
     @Test
     void testBoundaries_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION)
                 .toTree();
 
+        // act
         final List<LineConvexSubset> segments = new ArrayList<>();
         tree.boundaries().forEach(segments::add);
 
+        // assert
         Assertions.assertEquals(4, segments.size());
     }
 
     @Test
     void testGetBoundaries_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION)
                 .toTree();
 
+        // act
         final List<LineConvexSubset> segments = tree.getBoundaries();
 
+        // assert
         Assertions.assertEquals(4, segments.size());
     }
 
     @Test
     void testBoundaryStream_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION)
                 .toTree();
 
+        // act
         final List<LineConvexSubset> segments = tree.boundaryStream().collect(Collectors.toList());
 
+        // assert
         Assertions.assertEquals(4, segments.size());
     }
 
     @Test
     void testBoundaryStream_noBoundaries_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
+        // act
         final List<LineConvexSubset> segments = tree.boundaryStream().collect(Collectors.toList());
 
+        // assert
         Assertions.assertEquals(0, segments.size());
     }
 
     @Test
     void testGetBounds_noBounds_1_oe() {
+        // act/assert
         Assertions.assertNull(RegionBSPTree2D.empty().getBounds());
     }
 
     @Test
     void testGetBounds_noBounds_2_oe() {
+        // act/assert
+        // removed other assertion
         Assertions.assertNull(RegionBSPTree2D.full().getBounds());
     }
 
     @Test
     void testGetBounds_noBounds_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         final RegionBSPTree2D halfFull = RegionBSPTree2D.empty();
         halfFull.getRoot().insertCut(Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION));
@@ -635,32 +710,40 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGetBoundaryPaths_cachesResult_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION));
 
+        // act
         final List<LinePath> a = tree.getBoundaryPaths();
         final List<LinePath> b = tree.getBoundaryPaths();
 
+        // assert
         Assertions.assertSame(a, b);
     }
 
     @Test
     void testGetBoundaryPaths_recomputesResultOnChange_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION));
 
+        // act
         final List<LinePath> a = tree.getBoundaryPaths();
         tree.insert(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION));
         final List<LinePath> b = tree.getBoundaryPaths();
 
+        // assert
         Assertions.assertNotSame(a, b);
     }
 
     @Test
     void testGetBoundaryPaths_isUnmodifiable_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION));
 
+        // act/assert
         try {
     tree.getBoundaryPaths().add(LinePath.builder(null).build());
     fail("UnsupportedOperationException");
@@ -670,8 +753,10 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testAdd_convexArea_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // act
         tree.add(ConvexArea.convexPolygonFromVertices(Arrays.asList(
                     Vector2D.ZERO, Vector2D.of(2, 0),
                     Vector2D.of(2, 2), Vector2D.of(0, 2)
@@ -681,13 +766,16 @@ class RegionBSPTree2DTest_OE25Dev {
                 Vector2D.of(3, 3), Vector2D.of(1, 3)
             ), TEST_PRECISION));
 
+        // assert
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testAdd_convexArea_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // act
         tree.add(ConvexArea.convexPolygonFromVertices(Arrays.asList(
                     Vector2D.ZERO, Vector2D.of(2, 0),
                     Vector2D.of(2, 2), Vector2D.of(0, 2)
@@ -697,13 +785,17 @@ class RegionBSPTree2DTest_OE25Dev {
                 Vector2D.of(3, 3), Vector2D.of(1, 3)
             ), TEST_PRECISION));
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tree.isEmpty());
     }
 
     @Test
     void testAdd_convexArea_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // act
         tree.add(ConvexArea.convexPolygonFromVertices(Arrays.asList(
                     Vector2D.ZERO, Vector2D.of(2, 0),
                     Vector2D.of(2, 2), Vector2D.of(0, 2)
@@ -713,14 +805,19 @@ class RegionBSPTree2DTest_OE25Dev {
                 Vector2D.of(3, 3), Vector2D.of(1, 3)
             ), TEST_PRECISION));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(7, tree.getSize(), TEST_EPS);
     }
 
     @Test
     void testAdd_convexArea_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // act
         tree.add(ConvexArea.convexPolygonFromVertices(Arrays.asList(
                     Vector2D.ZERO, Vector2D.of(2, 0),
                     Vector2D.of(2, 2), Vector2D.of(0, 2)
@@ -730,54 +827,75 @@ class RegionBSPTree2DTest_OE25Dev {
                 Vector2D.of(3, 3), Vector2D.of(1, 3)
             ), TEST_PRECISION));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(12, tree.getBoundarySize(), TEST_EPS);
     }
 
     @Test
     void testToConvex_full_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
         Assertions.assertEquals(1, result.size());
     }
 
     @Test
     void testToConvex_full_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(result.get(0).isFull());
     }
 
     @Test
     void testToConvex_empty_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
         Assertions.assertEquals(0, result.size());
     }
 
     @Test
     void testToConvex_halfSpace_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().insertCut(Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION));
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
         Assertions.assertEquals(1, result.size());
     }
 
     @Test
     void testToConvex_halfSpace_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().insertCut(Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION));
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
+        // removed other assertion
 
         final ConvexArea area = result.get(0);
         Assertions.assertFalse(area.isFull());
@@ -785,39 +903,51 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testToConvex_halfSpace_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().insertCut(Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION));
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
+        // removed other assertion
 
         final ConvexArea area = result.get(0);
+        // removed other assertion
         Assertions.assertFalse(area.isEmpty());
     }
 
     @Test
     void testToConvex_quadrantComplement_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(Lines.fromPointAndAngle(Vector2D.ZERO, Math.PI, TEST_PRECISION))
             .getPlus().cut(Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION));
 
         tree.complement();
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
         Assertions.assertEquals(1, result.size());
     }
 
     @Test
     void testToConvex_quadrantComplement_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(Lines.fromPointAndAngle(Vector2D.ZERO, Math.PI, TEST_PRECISION))
             .getPlus().cut(Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION));
 
         tree.complement();
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
+        // removed other assertion
 
         final ConvexArea area = result.get(0);
         Assertions.assertFalse(area.isFull());
@@ -825,34 +955,46 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testToConvex_quadrantComplement_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(Lines.fromPointAndAngle(Vector2D.ZERO, Math.PI, TEST_PRECISION))
             .getPlus().cut(Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION));
 
         tree.complement();
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
+        // removed other assertion
 
         final ConvexArea area = result.get(0);
+        // removed other assertion
         Assertions.assertFalse(area.isEmpty());
     }
 
     @Test
     void testToConvex_square_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION).toTree();
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
         Assertions.assertEquals(1, result.size());
     }
 
     @Test
     void testToConvex_square_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION).toTree();
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
+        // removed other assertion
 
         final ConvexArea area = result.get(0);
         Assertions.assertFalse(area.isFull());
@@ -860,29 +1002,41 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testToConvex_square_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION).toTree();
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
+        // removed other assertion
 
         final ConvexArea area = result.get(0);
+        // removed other assertion
         Assertions.assertFalse(area.isEmpty());
     }
 
     @Test
     void testToConvex_square_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION).toTree();
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
+        // removed other assertion
 
         final ConvexArea area = result.get(0);
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1, area.getSize(), TEST_EPS);
     }
 
     @Test
     void testToConvex_multipleConvexAreas_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(Arrays.asList(
                     Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION),
@@ -894,8 +1048,10 @@ class RegionBSPTree2DTest_OE25Dev {
                     Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION)
                 ));
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
         result.sort((a, b) ->
                 Vector2D.COORDINATE_ASCENDING_ORDER.compare(a.getCentroid(), b.getCentroid()));
 
@@ -904,6 +1060,7 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testToConvex_multipleConvexAreas_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(Arrays.asList(
                     Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION),
@@ -915,11 +1072,14 @@ class RegionBSPTree2DTest_OE25Dev {
                     Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION)
                 ));
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
         result.sort((a, b) ->
                 Vector2D.COORDINATE_ASCENDING_ORDER.compare(a.getCentroid(), b.getCentroid()));
 
+        // removed other assertion
 
         final ConvexArea firstArea = result.get(0);
         Assertions.assertFalse(firstArea.isFull());
@@ -927,6 +1087,7 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testToConvex_multipleConvexAreas_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(Arrays.asList(
                     Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION),
@@ -938,18 +1099,23 @@ class RegionBSPTree2DTest_OE25Dev {
                     Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION)
                 ));
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
         result.sort((a, b) ->
                 Vector2D.COORDINATE_ASCENDING_ORDER.compare(a.getCentroid(), b.getCentroid()));
 
+        // removed other assertion
 
         final ConvexArea firstArea = result.get(0);
+        // removed other assertion
         Assertions.assertFalse(firstArea.isEmpty());
     }
 
     @Test
     void testToConvex_multipleConvexAreas_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(Arrays.asList(
                     Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION),
@@ -961,19 +1127,25 @@ class RegionBSPTree2DTest_OE25Dev {
                     Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION)
                 ));
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
         result.sort((a, b) ->
                 Vector2D.COORDINATE_ASCENDING_ORDER.compare(a.getCentroid(), b.getCentroid()));
 
+        // removed other assertion
 
         final ConvexArea firstArea = result.get(0);
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0.5, firstArea.getSize(), TEST_EPS);
     }
 
     @Test
     void testToConvex_multipleConvexAreas_6_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(Arrays.asList(
                     Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION),
@@ -985,14 +1157,21 @@ class RegionBSPTree2DTest_OE25Dev {
                     Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION)
                 ));
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
         result.sort((a, b) ->
                 Vector2D.COORDINATE_ASCENDING_ORDER.compare(a.getCentroid(), b.getCentroid()));
 
+        // removed other assertion
 
         final ConvexArea firstArea = result.get(0);
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         checkClassify(firstArea, RegionLocation.INSIDE, Vector2D.of(1.0 / 3.0, 2.0 / 3.0));
         checkClassify(firstArea, RegionLocation.BOUNDARY, Vector2D.ZERO, Vector2D.of(1, 1), Vector2D.of(0.5, 0.5));
@@ -1006,6 +1185,7 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testToConvex_multipleConvexAreas_7_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(Arrays.asList(
                     Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION),
@@ -1017,14 +1197,21 @@ class RegionBSPTree2DTest_OE25Dev {
                     Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION)
                 ));
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
         result.sort((a, b) ->
                 Vector2D.COORDINATE_ASCENDING_ORDER.compare(a.getCentroid(), b.getCentroid()));
 
+        // removed other assertion
 
         final ConvexArea firstArea = result.get(0);
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         checkClassify(firstArea, RegionLocation.INSIDE, Vector2D.of(1.0 / 3.0, 2.0 / 3.0));
         checkClassify(firstArea, RegionLocation.BOUNDARY, Vector2D.ZERO, Vector2D.of(1, 1), Vector2D.of(0.5, 0.5));
@@ -1033,11 +1220,13 @@ class RegionBSPTree2DTest_OE25Dev {
                 Vector2D.of(-1, 0.5), Vector2D.of(0.75, 0.5));
 
         final ConvexArea secondArea = result.get(1);
+        // removed other assertion
         Assertions.assertFalse(secondArea.isEmpty());
     }
 
     @Test
     void testToConvex_multipleConvexAreas_8_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(Arrays.asList(
                     Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION),
@@ -1049,14 +1238,21 @@ class RegionBSPTree2DTest_OE25Dev {
                     Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(1, 1), TEST_PRECISION)
                 ));
 
+        // act
         final List<ConvexArea> result = tree.toConvex();
 
+        // assert
         result.sort((a, b) ->
                 Vector2D.COORDINATE_ASCENDING_ORDER.compare(a.getCentroid(), b.getCentroid()));
 
+        // removed other assertion
 
         final ConvexArea firstArea = result.get(0);
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         checkClassify(firstArea, RegionLocation.INSIDE, Vector2D.of(1.0 / 3.0, 2.0 / 3.0));
         checkClassify(firstArea, RegionLocation.BOUNDARY, Vector2D.ZERO, Vector2D.of(1, 1), Vector2D.of(0.5, 0.5));
@@ -1065,29 +1261,38 @@ class RegionBSPTree2DTest_OE25Dev {
                 Vector2D.of(-1, 0.5), Vector2D.of(0.75, 0.5));
 
         final ConvexArea secondArea = result.get(1);
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0.5, secondArea.getSize(), TEST_EPS);
     }
 
     @Test
     void testSplit_full_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
     @Test
     void testSplit_full_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
+        // removed other assertion
 
         checkClassify(split.getMinus(), RegionLocation.INSIDE, Vector2D.of(0, 1));
         checkClassify(split.getMinus(), RegionLocation.OUTSIDE, Vector2D.of(1, -1));
@@ -1098,17 +1303,22 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testSplit_full_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
+        // removed other assertion
 
         checkClassify(split.getMinus(), RegionLocation.INSIDE, Vector2D.of(0, 1));
         checkClassify(split.getMinus(), RegionLocation.OUTSIDE, Vector2D.of(1, -1));
 
         final List<LinePath> minusBoundaryList = split.getMinus().getBoundaryPaths();
+        // removed other assertion
 
         final LinePath minusBoundary = minusBoundaryList.get(0);
         Assertions.assertEquals(1, minusBoundary.getElements().size());
@@ -1116,55 +1326,76 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testSplit_full_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
+        // removed other assertion
 
         checkClassify(split.getMinus(), RegionLocation.INSIDE, Vector2D.of(0, 1));
         checkClassify(split.getMinus(), RegionLocation.OUTSIDE, Vector2D.of(1, -1));
 
         final List<LinePath> minusBoundaryList = split.getMinus().getBoundaryPaths();
+        // removed other assertion
 
         final LinePath minusBoundary = minusBoundaryList.get(0);
+        // removed other assertion
         Assertions.assertTrue(minusBoundary.isInfinite());
     }
 
     @Test
     void testSplit_full_5_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
+        // removed other assertion
 
         checkClassify(split.getMinus(), RegionLocation.INSIDE, Vector2D.of(0, 1));
         checkClassify(split.getMinus(), RegionLocation.OUTSIDE, Vector2D.of(1, -1));
 
         final List<LinePath> minusBoundaryList = split.getMinus().getBoundaryPaths();
+        // removed other assertion
 
         final LinePath minusBoundary = minusBoundaryList.get(0);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(splitter, minusBoundary.getStart().getLine());
     }
 
     @Test
     void testSplit_full_6_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
+        // removed other assertion
 
         checkClassify(split.getMinus(), RegionLocation.INSIDE, Vector2D.of(0, 1));
         checkClassify(split.getMinus(), RegionLocation.OUTSIDE, Vector2D.of(1, -1));
 
         final List<LinePath> minusBoundaryList = split.getMinus().getBoundaryPaths();
+        // removed other assertion
 
         final LinePath minusBoundary = minusBoundaryList.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         checkClassify(split.getPlus(), RegionLocation.OUTSIDE, Vector2D.of(0, 1));
         checkClassify(split.getPlus(), RegionLocation.INSIDE, Vector2D.of(1, -1));
@@ -1175,24 +1406,33 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testSplit_full_7_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
+        // removed other assertion
 
         checkClassify(split.getMinus(), RegionLocation.INSIDE, Vector2D.of(0, 1));
         checkClassify(split.getMinus(), RegionLocation.OUTSIDE, Vector2D.of(1, -1));
 
         final List<LinePath> minusBoundaryList = split.getMinus().getBoundaryPaths();
+        // removed other assertion
 
         final LinePath minusBoundary = minusBoundaryList.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         checkClassify(split.getPlus(), RegionLocation.OUTSIDE, Vector2D.of(0, 1));
         checkClassify(split.getPlus(), RegionLocation.INSIDE, Vector2D.of(1, -1));
 
         final List<LinePath> plusBoundaryList = split.getPlus().getBoundaryPaths();
+        // removed other assertion
 
         final LinePath plusBoundary = minusBoundaryList.get(0);
         Assertions.assertEquals(1, plusBoundary.getElements().size());
@@ -1200,110 +1440,150 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testSplit_full_8_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
+        // removed other assertion
 
         checkClassify(split.getMinus(), RegionLocation.INSIDE, Vector2D.of(0, 1));
         checkClassify(split.getMinus(), RegionLocation.OUTSIDE, Vector2D.of(1, -1));
 
         final List<LinePath> minusBoundaryList = split.getMinus().getBoundaryPaths();
+        // removed other assertion
 
         final LinePath minusBoundary = minusBoundaryList.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         checkClassify(split.getPlus(), RegionLocation.OUTSIDE, Vector2D.of(0, 1));
         checkClassify(split.getPlus(), RegionLocation.INSIDE, Vector2D.of(1, -1));
 
         final List<LinePath> plusBoundaryList = split.getPlus().getBoundaryPaths();
+        // removed other assertion
 
         final LinePath plusBoundary = minusBoundaryList.get(0);
+        // removed other assertion
         Assertions.assertTrue(plusBoundary.isInfinite());
     }
 
     @Test
     void testSplit_full_9_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
+        // removed other assertion
 
         checkClassify(split.getMinus(), RegionLocation.INSIDE, Vector2D.of(0, 1));
         checkClassify(split.getMinus(), RegionLocation.OUTSIDE, Vector2D.of(1, -1));
 
         final List<LinePath> minusBoundaryList = split.getMinus().getBoundaryPaths();
+        // removed other assertion
 
         final LinePath minusBoundary = minusBoundaryList.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         checkClassify(split.getPlus(), RegionLocation.OUTSIDE, Vector2D.of(0, 1));
         checkClassify(split.getPlus(), RegionLocation.INSIDE, Vector2D.of(1, -1));
 
         final List<LinePath> plusBoundaryList = split.getPlus().getBoundaryPaths();
+        // removed other assertion
 
         final LinePath plusBoundary = minusBoundaryList.get(0);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(splitter, plusBoundary.getStart().getLine());
     }
 
     @Test
     void testSplit_empty_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
     @Test
     void testSplit_empty_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertNull(split.getMinus());
     }
 
     @Test
     void testSplit_empty_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(split.getPlus());
     }
 
     @Test
     void testSplit_bothSides_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION)
                 .toTree();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
     @Test
     void testSplit_bothSides_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION)
                 .toTree();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final List<LinePath> minusPath = split.getMinus().getBoundaryPaths();
         Assertions.assertEquals(1, minusPath.size());
@@ -1311,15 +1591,20 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testSplit_bothSides_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION)
                 .toTree();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final List<LinePath> minusPath = split.getMinus().getBoundaryPaths();
+        // removed other assertion
         checkVertices(minusPath.get(0), Vector2D.ZERO, Vector2D.of(1, 1),
                 Vector2D.of(0, 1), Vector2D.ZERO);
 
@@ -1329,39 +1614,51 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testSplit_plusSideOnly_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION)
                 .toTree();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
     @Test
     void testSplit_plusSideOnly_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION)
                 .toTree();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
+        // removed other assertion
 
         Assertions.assertNull(split.getMinus());
     }
 
     @Test
     void testSplit_plusSideOnly_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION)
                 .toTree();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.25 * Math.PI, TEST_PRECISION);
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LinePath> plusPath = split.getPlus().getBoundaryPaths();
         Assertions.assertEquals(1, plusPath.size());
@@ -1369,27 +1666,34 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testSplit_minusSideOnly_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION)
                 .toTree();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.25 * Math.PI, TEST_PRECISION)
                 .reverse();
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
     @Test
     void testSplit_minusSideOnly_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION)
                 .toTree();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.25 * Math.PI, TEST_PRECISION)
                 .reverse();
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final List<LinePath> minusPath = split.getMinus().getBoundaryPaths();
         Assertions.assertEquals(1, minusPath.size());
@@ -1397,16 +1701,21 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testSplit_minusSideOnly_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION)
                 .toTree();
 
         final Line splitter = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.25 * Math.PI, TEST_PRECISION)
                 .reverse();
 
+        // act
         final Split<RegionBSPTree2D> split = tree.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final List<LinePath> minusPath = split.getMinus().getBoundaryPaths();
+        // removed other assertion
         checkVertices(minusPath.get(0), Vector2D.ZERO, Vector2D.of(2, 0),
                 Vector2D.of(2, 1), Vector2D.of(0, 1), Vector2D.ZERO);
 
@@ -1415,91 +1724,137 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_full_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
+        // act/assert
+        // removed other assertion
         Assertions.assertNull(tree.getCentroid());
     }
 
     @Test
     void testGeometricProperties_full_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0, tree.getBoundarySize(), TEST_EPS);
     }
 
     @Test
     void testGeometricProperties_full_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertEquals(0, tree.getBoundaries().size());
     }
 
     @Test
     void testGeometricProperties_full_5_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(0, tree.getBoundaryPaths().size());
     }
 
     @Test
     void testGeometricProperties_empty_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // act/assert
         Assertions.assertEquals(0, tree.getSize(), TEST_EPS);
     }
 
     @Test
     void testGeometricProperties_empty_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // act/assert
+        // removed other assertion
         Assertions.assertNull(tree.getCentroid());
     }
 
     @Test
     void testGeometricProperties_empty_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0, tree.getBoundarySize(), TEST_EPS);
     }
 
     @Test
     void testGeometricProperties_empty_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertEquals(0, tree.getBoundaries().size());
     }
 
     @Test
     void testGeometricProperties_empty_5_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(0, tree.getBoundaryPaths().size());
     }
 
     @Test
     void testGeometricProperties_halfSpace_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertNull(tree.getCentroid());
     }
 
     @Test
     void testGeometricProperties_halfSpace_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
         Assertions.assertEquals(1, segments.size());
@@ -1507,12 +1862,18 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_halfSpace_5_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
         Assertions.assertSame(X_AXIS, segment.getLine());
@@ -1520,40 +1881,64 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_halfSpace_6_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
         Assertions.assertNull(segment.getStartPoint());
     }
 
     @Test
     void testGeometricProperties_halfSpace_7_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(segment.getEndPoint());
     }
 
     @Test
     void testGeometricProperties_halfSpace_8_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
         Assertions.assertEquals(1, paths.size());
@@ -1561,16 +1946,26 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_halfSpace_9_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
         Assertions.assertEquals(1, path.getElements().size());
@@ -1578,22 +1973,30 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedHalfSpace_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
         Assertions.assertNull(tree.getCentroid());
     }
 
     @Test
     void testGeometricProperties_complementedHalfSpace_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
         Assertions.assertEquals(1, segments.size());
@@ -1601,14 +2004,20 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedHalfSpace_5_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
         Assertions.assertEquals(X_AXIS.reverse(), segment.getLine());
@@ -1616,46 +2025,70 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedHalfSpace_6_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
         Assertions.assertNull(segment.getStartPoint());
     }
 
     @Test
     void testGeometricProperties_complementedHalfSpace_7_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(segment.getEndPoint());
     }
 
     @Test
     void testGeometricProperties_complementedHalfSpace_8_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
         Assertions.assertEquals(1, paths.size());
@@ -1663,18 +2096,28 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedHalfSpace_9_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
         Assertions.assertEquals(1, path.getElements().size());
@@ -1682,20 +2125,28 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_quadrant_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertNull(tree.getCentroid());
     }
 
     @Test
     void testGeometricProperties_quadrant_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
         Assertions.assertEquals(2, segments.size());
@@ -1703,49 +2154,73 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_quadrant_6_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
         Assertions.assertNull(firstSegment.getEndPoint());
     }
 
     @Test
     void testGeometricProperties_quadrant_7_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(Y_AXIS, firstSegment.getLine());
     }
 
     @Test
     void testGeometricProperties_quadrant_8_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
         Assertions.assertNull(secondSegment.getStartPoint());
@@ -1753,37 +2228,60 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_quadrant_10_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(X_AXIS, secondSegment.getLine());
     }
 
     @Test
     void testGeometricProperties_quadrant_11_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
         Assertions.assertEquals(1, paths.size());
@@ -1791,21 +2289,34 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_quadrant_12_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
         Assertions.assertEquals(2, path.getElements().size());
@@ -1813,6 +2324,7 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_mixedCutRule_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
         tree.getRoot().cut(Lines.fromPointAndAngle(Vector2D.ZERO, 0.25 * Math.PI, TEST_PRECISION),
@@ -1827,11 +2339,13 @@ class RegionBSPTree2DTest_OE25Dev {
                 .getPlus().cut(Lines.fromPointAndAngle(Vector2D.of(1, 1), Math.PI, TEST_PRECISION))
                     .getMinus().cut(Lines.fromPointAndAngle(Vector2D.of(0.5, 0.5), 0.75 * Math.PI, TEST_PRECISION), RegionCutRule.INHERIT);
 
+        // act/assert
         Assertions.assertEquals(1, tree.getSize(), TEST_EPS);
     }
 
     @Test
     void testGeometricProperties_mixedCutRule_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
         tree.getRoot().cut(Lines.fromPointAndAngle(Vector2D.ZERO, 0.25 * Math.PI, TEST_PRECISION),
@@ -1846,12 +2360,16 @@ class RegionBSPTree2DTest_OE25Dev {
                 .getPlus().cut(Lines.fromPointAndAngle(Vector2D.of(1, 1), Math.PI, TEST_PRECISION))
                     .getMinus().cut(Lines.fromPointAndAngle(Vector2D.of(0.5, 0.5), 0.75 * Math.PI, TEST_PRECISION), RegionCutRule.INHERIT);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(4, tree.getBoundarySize(), TEST_EPS);
     }
 
     @Test
     void testGeometricProperties_mixedCutRule_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
         tree.getRoot().cut(Lines.fromPointAndAngle(Vector2D.ZERO, 0.25 * Math.PI, TEST_PRECISION),
@@ -1866,7 +2384,11 @@ class RegionBSPTree2DTest_OE25Dev {
                 .getPlus().cut(Lines.fromPointAndAngle(Vector2D.of(1, 1), Math.PI, TEST_PRECISION))
                     .getMinus().cut(Lines.fromPointAndAngle(Vector2D.of(0.5, 0.5), 0.75 * Math.PI, TEST_PRECISION), RegionCutRule.INHERIT);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
         Assertions.assertEquals(1, paths.size());
@@ -1874,6 +2396,7 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_mixedCutRule_5_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
         tree.getRoot().cut(Lines.fromPointAndAngle(Vector2D.ZERO, 0.25 * Math.PI, TEST_PRECISION),
@@ -1888,9 +2411,14 @@ class RegionBSPTree2DTest_OE25Dev {
                 .getPlus().cut(Lines.fromPointAndAngle(Vector2D.of(1, 1), Math.PI, TEST_PRECISION))
                     .getMinus().cut(Lines.fromPointAndAngle(Vector2D.of(0.5, 0.5), 0.75 * Math.PI, TEST_PRECISION), RegionCutRule.INHERIT);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
         Assertions.assertEquals(4, path.getElements().size());
@@ -1898,6 +2426,7 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_mixedCutRule_6_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
 
         tree.getRoot().cut(Lines.fromPointAndAngle(Vector2D.ZERO, 0.25 * Math.PI, TEST_PRECISION),
@@ -1912,11 +2441,17 @@ class RegionBSPTree2DTest_OE25Dev {
                 .getPlus().cut(Lines.fromPointAndAngle(Vector2D.of(1, 1), Math.PI, TEST_PRECISION))
                     .getMinus().cut(Lines.fromPointAndAngle(Vector2D.of(0.5, 0.5), 0.75 * Math.PI, TEST_PRECISION), RegionCutRule.INHERIT);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
 
         final List<Vector2D> vertices = path.getVertexSequence();
         Assertions.assertEquals(5, vertices.size());
@@ -1924,24 +2459,32 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedQuadrant_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
         Assertions.assertNull(tree.getCentroid());
     }
 
     @Test
     void testGeometricProperties_complementedQuadrant_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
         Assertions.assertEquals(2, segments.size());
@@ -1949,55 +2492,79 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedQuadrant_6_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
         Assertions.assertNull(firstSegment.getEndPoint());
     }
 
     @Test
     void testGeometricProperties_complementedQuadrant_7_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(X_AXIS.reverse(), firstSegment.getLine());
     }
 
     @Test
     void testGeometricProperties_complementedQuadrant_8_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
         Assertions.assertNull(secondSegment.getStartPoint());
@@ -2005,41 +2572,64 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedQuadrant_10_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Y_AXIS.reverse(), secondSegment.getLine());
     }
 
     @Test
     void testGeometricProperties_complementedQuadrant_11_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
         Assertions.assertEquals(1, paths.size());
@@ -2047,23 +2637,36 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedQuadrant_12_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
         Assertions.assertEquals(2, path.getElements().size());
@@ -2071,33 +2674,44 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_closedRegion_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(LinePath.builder(TEST_PRECISION)
                 .appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1))
                 .close());
 
+        // act/assert
         Assertions.assertEquals(0.5, tree.getSize(), TEST_EPS);
     }
 
     @Test
     void testGeometricProperties_closedRegion_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(LinePath.builder(TEST_PRECISION)
                 .appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1))
                 .close());
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1.0 + Math.sqrt(2) + Math.sqrt(5), tree.getBoundarySize(), TEST_EPS);
     }
 
     @Test
     void testGeometricProperties_closedRegion_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(LinePath.builder(TEST_PRECISION)
                 .appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1))
                 .close());
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
         segments.sort(SEGMENT_COMPARATOR);
@@ -2107,16 +2721,22 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_closedRegion_5_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(LinePath.builder(TEST_PRECISION)
                 .appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1))
                 .close());
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
         segments.sort(SEGMENT_COMPARATOR);
 
+        // removed other assertion
 
         checkFiniteSegment(segments.get(0), Vector2D.ZERO, Vector2D.of(1, 0));
         checkFiniteSegment(segments.get(1), Vector2D.of(1, 0), Vector2D.of(2, 1));
@@ -2128,6 +2748,7 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedClosedRegion_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(LinePath.builder(TEST_PRECISION)
                 .appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1))
@@ -2135,11 +2756,14 @@ class RegionBSPTree2DTest_OE25Dev {
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
         Assertions.assertNull(tree.getCentroid());
     }
 
     @Test
     void testGeometricProperties_complementedClosedRegion_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(LinePath.builder(TEST_PRECISION)
                 .appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1))
@@ -2147,12 +2771,16 @@ class RegionBSPTree2DTest_OE25Dev {
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1.0 + Math.sqrt(2) + Math.sqrt(5), tree.getBoundarySize(), TEST_EPS);
     }
 
     @Test
     void testGeometricProperties_complementedClosedRegion_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(LinePath.builder(TEST_PRECISION)
                 .appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1))
@@ -2160,7 +2788,11 @@ class RegionBSPTree2DTest_OE25Dev {
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
         segments.sort(SEGMENT_COMPARATOR);
@@ -2170,6 +2802,7 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedClosedRegion_5_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.insert(LinePath.builder(TEST_PRECISION)
                 .appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 1))
@@ -2177,11 +2810,16 @@ class RegionBSPTree2DTest_OE25Dev {
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
         segments.sort(SEGMENT_COMPARATOR);
 
+        // removed other assertion
 
         checkFiniteSegment(segments.get(0), Vector2D.ZERO, Vector2D.of(2, 1));
         checkFiniteSegment(segments.get(1), Vector2D.of(1, 0), Vector2D.ZERO);
@@ -2193,6 +2831,7 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_regionWithHole_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(3, 3), TEST_PRECISION)
                 .toTree();
         final RegionBSPTree2D inner = Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(2, 2), TEST_PRECISION)
@@ -2200,11 +2839,13 @@ class RegionBSPTree2DTest_OE25Dev {
 
         tree.difference(inner);
 
+        // act/assert
         Assertions.assertEquals(8, tree.getSize(), TEST_EPS);
     }
 
     @Test
     void testGeometricProperties_regionWithHole_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(3, 3), TEST_PRECISION)
                 .toTree();
         final RegionBSPTree2D inner = Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(2, 2), TEST_PRECISION)
@@ -2212,12 +2853,16 @@ class RegionBSPTree2DTest_OE25Dev {
 
         tree.difference(inner);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(16, tree.getBoundarySize(), TEST_EPS);
     }
 
     @Test
     void testGeometricProperties_regionWithHole_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(3, 3), TEST_PRECISION)
                 .toTree();
         final RegionBSPTree2D inner = Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(2, 2), TEST_PRECISION)
@@ -2225,7 +2870,11 @@ class RegionBSPTree2DTest_OE25Dev {
 
         tree.difference(inner);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
         Assertions.assertEquals(2, paths.size());
@@ -2233,6 +2882,7 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedRegionWithHole_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(3, 3), TEST_PRECISION)
                 .toTree();
         final RegionBSPTree2D inner = Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(2, 2), TEST_PRECISION)
@@ -2242,11 +2892,14 @@ class RegionBSPTree2DTest_OE25Dev {
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
         Assertions.assertNull(tree.getCentroid());
     }
 
     @Test
     void testGeometricProperties_complementedRegionWithHole_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(3, 3), TEST_PRECISION)
                 .toTree();
         final RegionBSPTree2D inner = Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(2, 2), TEST_PRECISION)
@@ -2256,12 +2909,16 @@ class RegionBSPTree2DTest_OE25Dev {
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(16, tree.getBoundarySize(), TEST_EPS);
     }
 
     @Test
     void testGeometricProperties_complementedRegionWithHole_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(3, 3), TEST_PRECISION)
                 .toTree();
         final RegionBSPTree2D inner = Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(2, 2), TEST_PRECISION)
@@ -2271,7 +2928,11 @@ class RegionBSPTree2DTest_OE25Dev {
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
         Assertions.assertEquals(2, paths.size());
@@ -2279,134 +2940,174 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testFrom_boundaries_1_oe() {
+        // act
         final RegionBSPTree2D tree = RegionBSPTree2D.from(Arrays.asList(
                     Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).span(),
                     Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION)
                         .rayFrom(Vector2D.ZERO)
                 ));
 
+        // assert
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testFrom_boundaries_2_oe() {
+        // act
         final RegionBSPTree2D tree = RegionBSPTree2D.from(Arrays.asList(
                     Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).span(),
                     Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION)
                         .rayFrom(Vector2D.ZERO)
                 ));
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tree.isEmpty());
     }
 
     @Test
     void testFrom_boundaries_3_oe() {
+        // act
         final RegionBSPTree2D tree = RegionBSPTree2D.from(Arrays.asList(
                     Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).span(),
                     Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION)
                         .rayFrom(Vector2D.ZERO)
                 ));
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.getRoot().getLocation());
     }
 
     @Test
     void testFrom_boundaries_fullIsTrue_1_oe() {
+        // act
         final RegionBSPTree2D tree = RegionBSPTree2D.from(Arrays.asList(
                     Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).span(),
                     Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION)
                         .rayFrom(Vector2D.ZERO)
                 ), true);
 
+        // assert
         Assertions.assertFalse(tree.isFull());
     }
 
     @Test
     void testFrom_boundaries_fullIsTrue_2_oe() {
+        // act
         final RegionBSPTree2D tree = RegionBSPTree2D.from(Arrays.asList(
                     Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).span(),
                     Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION)
                         .rayFrom(Vector2D.ZERO)
                 ), true);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tree.isEmpty());
     }
 
     @Test
     void testFrom_boundaries_fullIsTrue_3_oe() {
+        // act
         final RegionBSPTree2D tree = RegionBSPTree2D.from(Arrays.asList(
                     Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).span(),
                     Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION)
                         .rayFrom(Vector2D.ZERO)
                 ), true);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(RegionLocation.INSIDE, tree.getRoot().getLocation());
     }
 
     @Test
     void testFrom_boundaries_noBoundaries_1_oe() {
+        // act/assert
         Assertions.assertTrue(RegionBSPTree2D.from(Collections.emptyList()).isEmpty());
     }
 
     @Test
     void testFrom_boundaries_noBoundaries_2_oe() {
+        // act/assert
+        // removed other assertion
         Assertions.assertTrue(RegionBSPTree2D.from(Collections.emptyList(), true).isFull());
     }
 
     @Test
     void testFrom_boundaries_noBoundaries_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(RegionBSPTree2D.from(Collections.emptyList(), false).isEmpty());
     }
 
     @Test
     void testToList_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION).toTree();
 
+        // act
         final BoundaryList2D list = tree.toList();
 
+        // assert
         Assertions.assertEquals(4, list.toList().count());
     }
 
     @Test
     void testToList_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION).toTree();
 
+        // act
         final BoundaryList2D list = tree.toList();
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(1, list.toTree().getSize(), TEST_EPS);
     }
 
     @Test
     void testToList_fullAndEmpty_1_oe() {
+        // act/assert
         Assertions.assertEquals(0, RegionBSPTree2D.full().toList().count());
     }
 
     @Test
     void testToList_fullAndEmpty_2_oe() {
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(0, RegionBSPTree2D.empty().toList().count());
     }
 
     @Test
     void testToTree_returnsSameInstance_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(1, 2), TEST_PRECISION).toTree();
 
+        // act/assert
         Assertions.assertSame(tree, tree.toTree());
     }
 
     @Test
     void testProject_fullAndEmpty_1_oe() {
+        // act/assert
         Assertions.assertNull(RegionBSPTree2D.full().project(Vector2D.ZERO));
     }
 
     @Test
     void testProject_fullAndEmpty_2_oe() {
+        // act/assert
+        // removed other assertion
         Assertions.assertNull(RegionBSPTree2D.empty().project(Vector2D.of(1, 2)));
     }
 
     @Test
     void testTransform_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(3, 2), TEST_PRECISION)
                 .toTree();
 
@@ -2414,14 +3115,17 @@ class RegionBSPTree2DTest_OE25Dev {
                 .rotate(Angle.PI_OVER_TWO)
                 .translate(Vector2D.of(0, -1));
 
+        // act
         tree.transform(transform);
 
+        // assert
         final List<LinePath> paths = tree.getBoundaryPaths();
         Assertions.assertEquals(1, paths.size());
     }
 
     @Test
     void testTransform_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(3, 2), TEST_PRECISION)
                 .toTree();
 
@@ -2429,9 +3133,12 @@ class RegionBSPTree2DTest_OE25Dev {
                 .rotate(Angle.PI_OVER_TWO)
                 .translate(Vector2D.of(0, -1));
 
+        // act
         tree.transform(transform);
 
+        // assert
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
         Assertions.assertEquals(4, path.getElements().size());
@@ -2439,6 +3146,7 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testTransform_halfSpace_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().insertCut(Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION));
 
@@ -2446,14 +3154,17 @@ class RegionBSPTree2DTest_OE25Dev {
                 .rotate(Angle.PI_OVER_TWO)
                 .translate(Vector2D.of(1, 0));
 
+        // act
         tree.transform(transform);
 
+        // assert
         final List<LinePath> paths = tree.getBoundaryPaths();
         Assertions.assertEquals(1, paths.size());
     }
 
     @Test
     void testTransform_halfSpace_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().insertCut(Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION));
 
@@ -2461,9 +3172,12 @@ class RegionBSPTree2DTest_OE25Dev {
                 .rotate(Angle.PI_OVER_TWO)
                 .translate(Vector2D.of(1, 0));
 
+        // act
         tree.transform(transform);
 
+        // assert
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
         Assertions.assertEquals(1, path.getElements().size());
@@ -2471,6 +3185,7 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testTransform_halfSpace_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().insertCut(Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION));
 
@@ -2478,17 +3193,22 @@ class RegionBSPTree2DTest_OE25Dev {
                 .rotate(Angle.PI_OVER_TWO)
                 .translate(Vector2D.of(1, 0));
 
+        // act
         tree.transform(transform);
 
+        // assert
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
         final LineConvexSubset segment = path.getStart();
         Assertions.assertNull(segment.getStartPoint());
     }
 
     @Test
     void testTransform_halfSpace_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().insertCut(Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION));
 
@@ -2496,17 +3216,23 @@ class RegionBSPTree2DTest_OE25Dev {
                 .rotate(Angle.PI_OVER_TWO)
                 .translate(Vector2D.of(1, 0));
 
+        // act
         tree.transform(transform);
 
+        // assert
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
         final LineConvexSubset segment = path.getStart();
+        // removed other assertion
         Assertions.assertNull(segment.getEndPoint());
     }
 
     @Test
     void testTransform_halfSpace_5_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().insertCut(Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION));
 
@@ -2514,12 +3240,18 @@ class RegionBSPTree2DTest_OE25Dev {
                 .rotate(Angle.PI_OVER_TWO)
                 .translate(Vector2D.of(1, 0));
 
+        // act
         tree.transform(transform);
 
+        // assert
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
         final LineConvexSubset segment = path.getStart();
+        // removed other assertion
+        // removed other assertion
 
         final Line expectedLine = Lines.fromPointAndAngle(Vector2D.of(-1, 0), Angle.PI_OVER_TWO, TEST_PRECISION);
         Assertions.assertTrue(expectedLine.eq(segment.getLine(), expectedLine.getPrecision()));
@@ -2527,51 +3259,65 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testTransform_fullAndEmpty_1_oe() {
+        // arrange
         final RegionBSPTree2D full = RegionBSPTree2D.full();
         final RegionBSPTree2D empty = RegionBSPTree2D.empty();
 
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.createRotation(Angle.PI_OVER_TWO);
 
+        // act
         full.transform(transform);
         empty.transform(transform);
 
+        // assert
         Assertions.assertTrue(full.isFull());
     }
 
     @Test
     void testTransform_fullAndEmpty_2_oe() {
+        // arrange
         final RegionBSPTree2D full = RegionBSPTree2D.full();
         final RegionBSPTree2D empty = RegionBSPTree2D.empty();
 
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.createRotation(Angle.PI_OVER_TWO);
 
+        // act
         full.transform(transform);
         empty.transform(transform);
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(empty.isEmpty());
     }
 
     @Test
     void testTransform_reflection_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(2, 2), TEST_PRECISION).toTree();
 
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.from(v -> Vector2D.of(-v.getX(), v.getY()));
 
+        // act
         tree.transform(transform);
 
+        // assert
         final List<LinePath> paths = tree.getBoundaryPaths();
         Assertions.assertEquals(1, paths.size());
     }
 
     @Test
     void testTransform_reflection_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(2, 2), TEST_PRECISION).toTree();
 
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.from(v -> Vector2D.of(-v.getX(), v.getY()));
 
+        // act
         tree.transform(transform);
 
+        // assert
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
         Assertions.assertEquals(4, path.getElements().size());
@@ -2579,27 +3325,34 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testTransform_doubleReflection_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(
                     Vector2D.of(1, 1), Vector2D.of(2, 2), TEST_PRECISION).toTree();
 
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.from(Vector2D::negate);
 
+        // act
         tree.transform(transform);
 
+        // assert
         final List<LinePath> paths = tree.getBoundaryPaths();
         Assertions.assertEquals(1, paths.size());
     }
 
     @Test
     void testTransform_doubleReflection_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(
                     Vector2D.of(1, 1), Vector2D.of(2, 2), TEST_PRECISION).toTree();
 
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.from(Vector2D::negate);
 
+        // act
         tree.transform(transform);
 
+        // assert
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
         Assertions.assertEquals(4, path.getElements().size());
@@ -2607,9 +3360,11 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testBooleanOperations_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(3, 3), TEST_PRECISION).toTree();
         RegionBSPTree2D temp;
 
+        // act
         temp = Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(2, 2), TEST_PRECISION).toTree();
         temp.complement();
         tree.intersection(temp);
@@ -2623,24 +3378,36 @@ class RegionBSPTree2DTest_OE25Dev {
         temp.setFull();
         tree.xor(temp);
 
+        // assert
         final List<LinePath> paths = tree.getBoundaryPaths();
         Assertions.assertEquals(2, paths.size());
     }
 
     @Test
     void testGeometricProperties_halfSpace_10_oe_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = segment;
         final LineConvexSubset actual0 = path.getStart();
         Assertions.assertEquals(expected0.getLine(), actual0.getLine());
@@ -2648,20 +3415,32 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_halfSpace_10_oe_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = segment;
         final LineConvexSubset actual0 = path.getStart();
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
@@ -2673,25 +3452,38 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_halfSpace_10_oe_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = segment;
         final LineConvexSubset actual0 = path.getStart();
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
                     Assertions.assertNull(actual0.getStartPoint());
     }
@@ -2699,26 +3491,40 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_halfSpace_10_oe_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = segment;
         final LineConvexSubset actual0 = path.getStart();
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
+                    // removed other assertion
                 }
         
                 if (expectedEnd0 != null) {
@@ -2728,29 +3534,44 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_halfSpace_10_oe_5_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = segment;
         final LineConvexSubset actual0 = path.getStart();
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
+                    // removed other assertion
                 }
         
                 if (expectedEnd0 != null) {
+                    // removed other assertion
                 } else {
                     Assertions.assertNull(actual0.getEndPoint());
     }
@@ -2758,20 +3579,31 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedHalfSpace_10_oe_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = segment;
         final LineConvexSubset actual0 = path.getElements().get(0);
         Assertions.assertEquals(expected0.getLine(), actual0.getLine());
@@ -2779,22 +3611,34 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedHalfSpace_10_oe_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = segment;
         final LineConvexSubset actual0 = path.getElements().get(0);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
@@ -2806,27 +3650,40 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedHalfSpace_10_oe_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = segment;
         final LineConvexSubset actual0 = path.getElements().get(0);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
                     Assertions.assertNull(actual0.getStartPoint());
     }
@@ -2834,28 +3691,42 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedHalfSpace_10_oe_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = segment;
         final LineConvexSubset actual0 = path.getElements().get(0);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
+                    // removed other assertion
                 }
         
                 if (expectedEnd0 != null) {
@@ -2865,31 +3736,46 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedHalfSpace_10_oe_5_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
         tree.getRoot().cut(X_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = tree.getBoundaries();
+        // removed other assertion
 
         final LineConvexSubset segment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = segment;
         final LineConvexSubset actual0 = path.getElements().get(0);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
+                    // removed other assertion
                 }
         
                 if (expectedEnd0 != null) {
+                    // removed other assertion
                 } else {
                     Assertions.assertNull(actual0.getEndPoint());
     }
@@ -2897,23 +3783,37 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_quadrant_13_oe_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = secondSegment;
         final LineConvexSubset actual0 = path.getElements().get(0);
         Assertions.assertEquals(expected0.getLine(), actual0.getLine());
@@ -2921,25 +3821,40 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_quadrant_13_oe_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = secondSegment;
         final LineConvexSubset actual0 = path.getElements().get(0);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
@@ -2951,30 +3866,46 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_quadrant_13_oe_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = secondSegment;
         final LineConvexSubset actual0 = path.getElements().get(0);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
                     Assertions.assertNull(actual0.getStartPoint());
     }
@@ -2982,31 +3913,48 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_quadrant_13_oe_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = secondSegment;
         final LineConvexSubset actual0 = path.getElements().get(0);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
+                    // removed other assertion
                 }
         
                 if (expectedEnd0 != null) {
@@ -3016,34 +3964,52 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_quadrant_13_oe_5_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = secondSegment;
         final LineConvexSubset actual0 = path.getElements().get(0);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
+                    // removed other assertion
                 }
         
                 if (expectedEnd0 != null) {
+                    // removed other assertion
                 } else {
                     Assertions.assertNull(actual0.getEndPoint());
     }
@@ -3051,23 +4017,38 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_quadrant_14_oe_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset expected0 = firstSegment;
         final LineConvexSubset actual0 = path.getElements().get(1);
         Assertions.assertEquals(expected0.getLine(), actual0.getLine());
@@ -3075,25 +4056,41 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_quadrant_14_oe_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset expected0 = firstSegment;
         final LineConvexSubset actual0 = path.getElements().get(1);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
@@ -3105,30 +4102,47 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_quadrant_14_oe_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset expected0 = firstSegment;
         final LineConvexSubset actual0 = path.getElements().get(1);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
                     Assertions.assertNull(actual0.getStartPoint());
     }
@@ -3136,31 +4150,49 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_quadrant_14_oe_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset expected0 = firstSegment;
         final LineConvexSubset actual0 = path.getElements().get(1);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
+                    // removed other assertion
                 }
         
                 if (expectedEnd0 != null) {
@@ -3170,34 +4202,53 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_quadrant_14_oe_5_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset expected0 = firstSegment;
         final LineConvexSubset actual0 = path.getElements().get(1);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
+                    // removed other assertion
                 }
         
                 if (expectedEnd0 != null) {
+                    // removed other assertion
                 } else {
                     Assertions.assertNull(actual0.getEndPoint());
     }
@@ -3205,25 +4256,39 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedQuadrant_13_oe_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = secondSegment;
         final LineConvexSubset actual0 = path.getElements().get(0);
         Assertions.assertEquals(expected0.getLine(), actual0.getLine());
@@ -3231,27 +4296,42 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedQuadrant_13_oe_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = secondSegment;
         final LineConvexSubset actual0 = path.getElements().get(0);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
@@ -3263,32 +4343,48 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedQuadrant_13_oe_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = secondSegment;
         final LineConvexSubset actual0 = path.getElements().get(0);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
                     Assertions.assertNull(actual0.getStartPoint());
     }
@@ -3296,33 +4392,50 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedQuadrant_13_oe_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = secondSegment;
         final LineConvexSubset actual0 = path.getElements().get(0);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
+                    // removed other assertion
                 }
         
                 if (expectedEnd0 != null) {
@@ -3332,36 +4445,54 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedQuadrant_13_oe_5_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
                 final LineConvexSubset expected0 = secondSegment;
         final LineConvexSubset actual0 = path.getElements().get(0);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
+                    // removed other assertion
                 }
         
                 if (expectedEnd0 != null) {
+                    // removed other assertion
                 } else {
                     Assertions.assertNull(actual0.getEndPoint());
     }
@@ -3369,25 +4500,40 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedQuadrant_14_oe_1_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset expected0 = firstSegment;
         final LineConvexSubset actual0 = path.getElements().get(1);
         Assertions.assertEquals(expected0.getLine(), actual0.getLine());
@@ -3395,27 +4541,43 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedQuadrant_14_oe_2_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset expected0 = firstSegment;
         final LineConvexSubset actual0 = path.getElements().get(1);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
@@ -3427,32 +4589,49 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedQuadrant_14_oe_3_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset expected0 = firstSegment;
         final LineConvexSubset actual0 = path.getElements().get(1);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
                     Assertions.assertNull(actual0.getStartPoint());
     }
@@ -3460,33 +4639,51 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedQuadrant_14_oe_4_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset expected0 = firstSegment;
         final LineConvexSubset actual0 = path.getElements().get(1);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
+                    // removed other assertion
                 }
         
                 if (expectedEnd0 != null) {
@@ -3496,36 +4693,55 @@ class RegionBSPTree2DTest_OE25Dev {
 
     @Test
     void testGeometricProperties_complementedQuadrant_14_oe_5_oe() {
+        // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
         tree.getRoot().cut(X_AXIS)
             .getMinus().cut(Y_AXIS);
 
         tree.complement();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        // removed other assertion
 
         segments.sort(SEGMENT_COMPARATOR);
 
         final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<LinePath> paths = tree.getBoundaryPaths();
+        // removed other assertion
 
         final LinePath path = paths.get(0);
+        // removed other assertion
+        // removed other assertion
                 final LineConvexSubset expected0 = firstSegment;
         final LineConvexSubset actual0 = path.getElements().get(1);
+        // removed other assertion
         
                 final Vector2D expectedStart0 = expected0.getStartPoint();
                 final Vector2D expectedEnd0 = expected0.getEndPoint();
         
                 if (expectedStart0 != null) {
+                    // removed other assertion
                 } else {
+                    // removed other assertion
                 }
         
                 if (expectedEnd0 != null) {
+                    // removed other assertion
                 } else {
                     Assertions.assertNull(actual0.getEndPoint());
     }
@@ -3533,6 +4749,7 @@ class RegionBSPTree2DTest_OE25Dev {
 
 @Test
     void testPartitionedRegionBuilder_insertPartitionAfterBoundary_1_oe() {
+        // arrange
         final PartitionedRegionBuilder2D builder = RegionBSPTree2D.partitionedRegionBuilder();
         builder.insertBoundary(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION));
 
@@ -3540,11 +4757,17 @@ class RegionBSPTree2DTest_OE25Dev {
 
         final String msg = "Cannot insert partitions after boundaries have been inserted";
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.insertPartition(partition); }, IllegalStateException.class, msg);
+        // act/assert
+        try {
+     builder.insertPartition(partition);
+    fail("Expected IllegalStateException with message: " + msg);
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testPartitionedRegionBuilder_insertPartitionAfterBoundary_2_oe() {
+        // arrange
         final PartitionedRegionBuilder2D builder = RegionBSPTree2D.partitionedRegionBuilder();
         builder.insertBoundary(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION));
 
@@ -3552,12 +4775,19 @@ class RegionBSPTree2DTest_OE25Dev {
 
         final String msg = "Cannot insert partitions after boundaries have been inserted";
 
+        // act/assert
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.insertPartition(partition.span()); }, IllegalStateException.class, msg);
+        try {
+     builder.insertPartition(partition.span());
+    fail("Expected IllegalStateException with message: " + msg);
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testPartitionedRegionBuilder_insertPartitionAfterBoundary_3_oe() {
+        // arrange
         final PartitionedRegionBuilder2D builder = RegionBSPTree2D.partitionedRegionBuilder();
         builder.insertBoundary(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION));
 
@@ -3565,13 +4795,21 @@ class RegionBSPTree2DTest_OE25Dev {
 
         final String msg = "Cannot insert partitions after boundaries have been inserted";
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.insertAxisAlignedPartitions(Vector2D.ZERO, TEST_PRECISION); }, IllegalStateException.class, msg);
+        try {
+     builder.insertAxisAlignedPartitions(Vector2D.ZERO, TEST_PRECISION);
+    fail("Expected IllegalStateException with message: " + msg);
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testPartitionedRegionBuilder_insertPartitionAfterBoundary_4_oe() {
+        // arrange
         final PartitionedRegionBuilder2D builder = RegionBSPTree2D.partitionedRegionBuilder();
         builder.insertBoundary(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION));
 
@@ -3579,10 +4817,18 @@ class RegionBSPTree2DTest_OE25Dev {
 
         final String msg = "Cannot insert partitions after boundaries have been inserted";
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.insertAxisAlignedGrid(Bounds2D.from(Vector2D.ZERO, Vector2D.of(1, 1)), 1, TEST_PRECISION); }, IllegalStateException.class, msg);
+        try {
+     builder.insertAxisAlignedGrid(Bounds2D.from(Vector2D.ZERO, Vector2D.of(1, 1)), 1, TEST_PRECISION);
+    fail("Expected IllegalStateException with message: " + msg);
+} catch (IllegalStateException e) {
+}
     }
 
 }

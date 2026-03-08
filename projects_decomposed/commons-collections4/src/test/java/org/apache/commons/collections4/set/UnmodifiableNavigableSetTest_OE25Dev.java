@@ -93,6 +93,16 @@ public class UnmodifiableNavigableSetTest_OE25Dev<E> extends AbstractNavigableSe
         verifyUnmodifiable(set.subSet((E) Integer.valueOf(1), true, (E) Integer.valueOf(3), true));
     }
 
+    public void testDecorateFactory() {
+        final NavigableSet<E> set = makeFullCollection();
+        assertSame(set, UnmodifiableNavigableSet.unmodifiableNavigableSet(set));
+
+        try {
+            UnmodifiableNavigableSet.unmodifiableNavigableSet(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
     /**
      * Verifies that a set is not modifiable
      */
@@ -136,6 +146,12 @@ public class UnmodifiableNavigableSetTest_OE25Dev<E> extends AbstractNavigableSe
         }
     }
 
+    public void testComparator() {
+        setupSet();
+        final Comparator<? super E> c = set.comparator();
+        assertTrue("natural order, so comparator should be null", c == null);
+    }
+
     //-----------------------------------------------------------------------
 
     @Override
@@ -159,6 +175,13 @@ public class UnmodifiableNavigableSetTest_OE25Dev<E> extends AbstractNavigableSe
         setupSet();
         final Comparator<? super E> c = set.comparator();
         assertTrue("natural order, so comparator should be null", c == null);
+    }
+
+public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableNavigableSet.unmodifiableNavigableSet(null);
+            fail();
+        } catch (final NullPointerException ex) {}
     }
 
 }

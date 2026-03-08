@@ -26,11 +26,14 @@ public class Utf8UrlEncoderTest_OE25Dev {
 
   @Test
   public void testBasics_2_oe() {
+    // removed other assertion
     assertEquals(Utf8UrlEncoder.encodeQueryElement("a&b"), "a%26b");
   }
 
   @Test
   public void testBasics_3_oe() {
+    // removed other assertion
+    // removed other assertion
     assertEquals(Utf8UrlEncoder.encodeQueryElement("a+b"), "a%2Bb");
   }
 
@@ -41,11 +44,14 @@ public class Utf8UrlEncoderTest_OE25Dev {
 
   @Test
   public void testPercentageEncoding_2_oe() {
+    // removed other assertion
     assertEquals(Utf8UrlEncoder.percentEncodeQueryElement("foo*bar"), "foo%2Abar");
   }
 
   @Test
   public void testPercentageEncoding_3_oe() {
+    // removed other assertion
+    // removed other assertion
     assertEquals(Utf8UrlEncoder.percentEncodeQueryElement("foo~b_ar"), "foo~b_ar");
   }
 

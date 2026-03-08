@@ -136,6 +136,8 @@ public class TestTCPLateralUnitTest_OE25Dev
     public void testSimpleSend_1_oe()
         throws Exception
     {
+        // SETUP
+        // force initialization
         JCS.getInstance( "test" );
 
         final TCPLateralCacheAttributes lac = new TCPLateralCacheAttributes();
@@ -145,10 +147,13 @@ public class TestTCPLateralUnitTest_OE25Dev
 
         final ICompositeCacheManager cacheMgr = CompositeCacheManager.getInstance();
 
+        // start the listener
         final LateralTCPListener<String, String> listener = LateralTCPListener.getInstance( lac, cacheMgr );
 
+        // send to the listener
         final LateralTCPSender lur = new LateralTCPSender(lac,  new StandardSerializer());
 
+        // DO WORK
         final int numMes = 10;
         for ( int i = 0; i < numMes; i++ )
         {
@@ -161,16 +166,19 @@ public class TestTCPLateralUnitTest_OE25Dev
 
         SleepUtil.sleepAtLeast( numMes * 3 );
 
+        // VERIFY
         assertEquals( "Should have received " + numMes + " by now.", numMes, listener.getPutCnt() );
     }
 
     public void testReceive_1_oe()
         throws Exception
     {
+        // VERIFY
         createCache(1101);
 
         final LateralTCPService<String, String> service = createService(1102, 1101, 123456);
 
+        // DO WORK
         final int cnt = 100;
         for ( int i = 0; i < cnt; i++ )
         {
@@ -180,16 +188,20 @@ public class TestTCPLateralUnitTest_OE25Dev
 
         SleepUtil.sleepAtLeast( 1000 );
 
+        // VERIFY
         assertEquals( "Didn't get the correct number", cnt, cacheMgr.getCache().getUpdateCount() );
     }
 
     public void testSameKeyDifferentObject_1_oe()
         throws Exception
     {
+        // SETUP
         final CompositeCache<String, String> cache = createCache(1103);
 
+        // setup a service to talk to the listener started above.
         final LateralTCPService<String, String> service = createService(1104, 1103, 123456);
 
+        // DO WORK
         final ICacheElement<String, String> element = new CacheElement<>( "test", "key", "value1" );
         service.update( element );
 
@@ -200,6 +212,7 @@ public class TestTCPLateralUnitTest_OE25Dev
 
         SleepUtil.sleepAtLeast( 1000 );
 
+        // VERIFY
         final ICacheElement<String, String> cacheElement = cache.get( "key" );
         assertEquals( "Didn't get the correct object "+ cacheElement, element2.getVal(), cacheElement.getVal() );
     }
@@ -211,6 +224,7 @@ public class TestTCPLateralUnitTest_OE25Dev
 
         final LateralTCPService<String, String> service = createService(1106, 1105, 123456);
 
+        // DO WORK
         final String key = "key";
         final ICacheElement<String, String> element = new CacheElement<>( "test", key, "value1" );
         service.update( element );
@@ -222,6 +236,7 @@ public class TestTCPLateralUnitTest_OE25Dev
 
         SleepUtil.sleepAtLeast( 1000 );
 
+        // VERIFY
         final ICacheElement<String, String> cacheElement = cache.get( "key" );
         assertEquals( "Didn't get the correct object: " + cacheElement , element2.getVal(), cacheElement.getVal() );
     }
@@ -229,116 +244,153 @@ public class TestTCPLateralUnitTest_OE25Dev
     public void testGet_SendAndReceived_1_oe()
         throws Exception
     {
+        // SETUP
         final CompositeCache<String, String> cache = createCache(1107);
 
+        // add the item to the listeners cache
         final ICacheElement<String, String> element = new CacheElement<>( "test", "key", "value1" );
         cache.update( element );
 
+        // setup a service to talk to the listener started above.
         final LateralTCPService<String, String> service = createService(1108, 1107, 123456);
 
         SleepUtil.sleepAtLeast( 300 );
 
+        // DO WORK
         final ICacheElement<String, String> result = service.get( "test", "key" );
 
+        // VERIFY
         assertNotNull( "Result should not be null.", result );
     }
 
     public void testGet_SendAndReceived_2_oe()
         throws Exception
     {
+        // SETUP
         final CompositeCache<String, String> cache = createCache(1107);
 
+        // add the item to the listeners cache
         final ICacheElement<String, String> element = new CacheElement<>( "test", "key", "value1" );
         cache.update( element );
 
+        // setup a service to talk to the listener started above.
         final LateralTCPService<String, String> service = createService(1108, 1107, 123456);
 
         SleepUtil.sleepAtLeast( 300 );
 
+        // DO WORK
         final ICacheElement<String, String> result = service.get( "test", "key" );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Didn't get the correct object", element.getVal(), result.getVal() );
     }
 
     public void testGetGroupKeys_SendAndReceived_1_oe()  throws Exception
     {
+        // SETUP
         final CompositeCache<GroupAttrName<String>, String> cache = createCache(1150);
 
+        // add the item to the listeners cache
         final GroupAttrName<String> groupKey = new GroupAttrName<>(new GroupId("test", "group"), "key");
         final ICacheElement<GroupAttrName<String>, String> element =
             new CacheElement<>( "test", groupKey, "value1" );
         cache.update( element );
 
+        // setup a service to talk to the listener started above.
         final LateralTCPService<GroupAttrName<String>, String>service = createService(1151, 1150, 123459);
 
         SleepUtil.sleepAtLeast( 500 );
 
+        // DO WORK
         final Set<GroupAttrName<String>> result = service.getKeySet("test");
 
+       // SleepUtil.sleepAtLeast( 5000000 );
 
+        // VERIFY
         assertNotNull( "Result should not be null.", result );
     }
 
     public void testGetGroupKeys_SendAndReceived_2_oe()  throws Exception
     {
+        // SETUP
         final CompositeCache<GroupAttrName<String>, String> cache = createCache(1150);
 
+        // add the item to the listeners cache
         final GroupAttrName<String> groupKey = new GroupAttrName<>(new GroupId("test", "group"), "key");
         final ICacheElement<GroupAttrName<String>, String> element =
             new CacheElement<>( "test", groupKey, "value1" );
         cache.update( element );
 
+        // setup a service to talk to the listener started above.
         final LateralTCPService<GroupAttrName<String>, String>service = createService(1151, 1150, 123459);
 
         SleepUtil.sleepAtLeast( 500 );
 
+        // DO WORK
         final Set<GroupAttrName<String>> result = service.getKeySet("test");
 
+       // SleepUtil.sleepAtLeast( 5000000 );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Didn't get the correct object", "key", result.iterator().next().attrName );
     }
 
     public void testGetMatching_WithData_1_oe()
         throws Exception
     {
+        // SETUP
         final CompositeCache<String, Integer> cache = createCache(1108);
 
         final String keyprefix1 = "MyPrefix1";
         final int numToInsertPrefix1 = 10;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertPrefix1; i++ )
         {
+            // add the item to the listeners cache
             final ICacheElement<String, Integer> element = new CacheElement<>( "test", keyprefix1 + String.valueOf( i ), Integer.valueOf( i ) );
             cache.update( element );
         }
 
+        // setup a service to talk to the listener started above.
         final LateralTCPService<String, Integer> service = createService(1108, 1108, 123456);
 
         SleepUtil.sleepAtLeast( 300 );
 
+        // DO WORK
         final Map<String, ICacheElement<String, Integer>> result = service.getMatching( "test", keyprefix1 + ".+" );
 
+        // VERIFY
         assertNotNull( "Result should not be null.", result );
     }
 
     public void testGetMatching_WithData_2_oe()
         throws Exception
     {
+        // SETUP
         final CompositeCache<String, Integer> cache = createCache(1108);
 
         final String keyprefix1 = "MyPrefix1";
         final int numToInsertPrefix1 = 10;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertPrefix1; i++ )
         {
+            // add the item to the listeners cache
             final ICacheElement<String, Integer> element = new CacheElement<>( "test", keyprefix1 + String.valueOf( i ), Integer.valueOf( i ) );
             cache.update( element );
         }
 
+        // setup a service to talk to the listener started above.
         final LateralTCPService<String, Integer> service = createService(1108, 1108, 123456);
 
         SleepUtil.sleepAtLeast( 300 );
 
+        // DO WORK
         final Map<String, ICacheElement<String, Integer>> result = service.getMatching( "test", keyprefix1 + ".+" );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong number returned 1:", numToInsertPrefix1, result.size() );
     }
 

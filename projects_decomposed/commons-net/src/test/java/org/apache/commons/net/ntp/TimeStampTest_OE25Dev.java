@@ -37,6 +37,7 @@ public class TimeStampTest_OE25Dev extends TestCase {
         final TimeStamp ts3 = new TimeStamp(TIME2); // Tue, Dec 17 2002 14:07:24.810 UTC
         final TimeStamp ts4 = new TimeStamp(TIME3); // Tue, Dec 17 2002 14:07:25.810 UTC
 
+        // do assertion tests on TimeStamp class
         assertEquals("equals(1,2)", ts1, ts2);
     }
 
@@ -47,6 +48,8 @@ public class TimeStampTest_OE25Dev extends TestCase {
         final TimeStamp ts3 = new TimeStamp(TIME2); // Tue, Dec 17 2002 14:07:24.810 UTC
         final TimeStamp ts4 = new TimeStamp(TIME3); // Tue, Dec 17 2002 14:07:25.810 UTC
 
+        // do assertion tests on TimeStamp class
+        // removed other assertion
         assertEquals("compareTo(1,2)", 0, ts1.compareTo(ts2));
     }
 
@@ -57,6 +60,9 @@ public class TimeStampTest_OE25Dev extends TestCase {
         final TimeStamp ts3 = new TimeStamp(TIME2); // Tue, Dec 17 2002 14:07:24.810 UTC
         final TimeStamp ts4 = new TimeStamp(TIME3); // Tue, Dec 17 2002 14:07:25.810 UTC
 
+        // do assertion tests on TimeStamp class
+        // removed other assertion
+        // removed other assertion
         assertEquals("ntpValue(1,2)", ts1.ntpValue(), ts2.ntpValue());
     }
 
@@ -67,6 +73,10 @@ public class TimeStampTest_OE25Dev extends TestCase {
         final TimeStamp ts3 = new TimeStamp(TIME2); // Tue, Dec 17 2002 14:07:24.810 UTC
         final TimeStamp ts4 = new TimeStamp(TIME3); // Tue, Dec 17 2002 14:07:25.810 UTC
 
+        // do assertion tests on TimeStamp class
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("hashCode(1,2)", ts1.hashCode(), ts2.hashCode());
     }
 
@@ -77,6 +87,11 @@ public class TimeStampTest_OE25Dev extends TestCase {
         final TimeStamp ts3 = new TimeStamp(TIME2); // Tue, Dec 17 2002 14:07:24.810 UTC
         final TimeStamp ts4 = new TimeStamp(TIME3); // Tue, Dec 17 2002 14:07:25.810 UTC
 
+        // do assertion tests on TimeStamp class
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("ts1==ts1", ts1, ts1);
     }
 
@@ -87,7 +102,16 @@ public class TimeStampTest_OE25Dev extends TestCase {
         final TimeStamp ts3 = new TimeStamp(TIME2); // Tue, Dec 17 2002 14:07:24.810 UTC
         final TimeStamp ts4 = new TimeStamp(TIME3); // Tue, Dec 17 2002 14:07:25.810 UTC
 
+        // do assertion tests on TimeStamp class
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timestamps in ts1 (TIME1) and ts3 (TIME2) are only off by the smallest
+        // fraction of a second (~200 picoseconds) so the times are not equal but
+        // when converted to Java dates (in milliseconds) they will be equal.
         assertTrue("ts1 != ts3", !ts1.equals(ts3));
     }
 
@@ -98,7 +122,17 @@ public class TimeStampTest_OE25Dev extends TestCase {
         final TimeStamp ts3 = new TimeStamp(TIME2); // Tue, Dec 17 2002 14:07:24.810 UTC
         final TimeStamp ts4 = new TimeStamp(TIME3); // Tue, Dec 17 2002 14:07:25.810 UTC
 
+        // do assertion tests on TimeStamp class
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timestamps in ts1 (TIME1) and ts3 (TIME2) are only off by the smallest
+        // fraction of a second (~200 picoseconds) so the times are not equal but
+        // when converted to Java dates (in milliseconds) they will be equal.
+        // removed other assertion
         assertEquals("compareTo(1,3)", -1, ts1.compareTo(ts3));
     }
 
@@ -109,7 +143,18 @@ public class TimeStampTest_OE25Dev extends TestCase {
         final TimeStamp ts3 = new TimeStamp(TIME2); // Tue, Dec 17 2002 14:07:24.810 UTC
         final TimeStamp ts4 = new TimeStamp(TIME3); // Tue, Dec 17 2002 14:07:25.810 UTC
 
+        // do assertion tests on TimeStamp class
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timestamps in ts1 (TIME1) and ts3 (TIME2) are only off by the smallest
+        // fraction of a second (~200 picoseconds) so the times are not equal but
+        // when converted to Java dates (in milliseconds) they will be equal.
+        // removed other assertion
+        // removed other assertion
         assertEquals("seconds", ts1.getSeconds(), ts3.getSeconds());
     }
 
@@ -120,7 +165,19 @@ public class TimeStampTest_OE25Dev extends TestCase {
         final TimeStamp ts3 = new TimeStamp(TIME2); // Tue, Dec 17 2002 14:07:24.810 UTC
         final TimeStamp ts4 = new TimeStamp(TIME3); // Tue, Dec 17 2002 14:07:25.810 UTC
 
+        // do assertion tests on TimeStamp class
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timestamps in ts1 (TIME1) and ts3 (TIME2) are only off by the smallest
+        // fraction of a second (~200 picoseconds) so the times are not equal but
+        // when converted to Java dates (in milliseconds) they will be equal.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("fraction", ts1.getFraction() != ts3.getFraction());
     }
 
@@ -131,7 +188,20 @@ public class TimeStampTest_OE25Dev extends TestCase {
         final TimeStamp ts3 = new TimeStamp(TIME2); // Tue, Dec 17 2002 14:07:24.810 UTC
         final TimeStamp ts4 = new TimeStamp(TIME3); // Tue, Dec 17 2002 14:07:25.810 UTC
 
+        // do assertion tests on TimeStamp class
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timestamps in ts1 (TIME1) and ts3 (TIME2) are only off by the smallest
+        // fraction of a second (~200 picoseconds) so the times are not equal but
+        // when converted to Java dates (in milliseconds) they will be equal.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("ntpValue(1,3)", ts1.ntpValue() != ts3.ntpValue());
     }
 
@@ -142,7 +212,21 @@ public class TimeStampTest_OE25Dev extends TestCase {
         final TimeStamp ts3 = new TimeStamp(TIME2); // Tue, Dec 17 2002 14:07:24.810 UTC
         final TimeStamp ts4 = new TimeStamp(TIME3); // Tue, Dec 17 2002 14:07:25.810 UTC
 
+        // do assertion tests on TimeStamp class
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timestamps in ts1 (TIME1) and ts3 (TIME2) are only off by the smallest
+        // fraction of a second (~200 picoseconds) so the times are not equal but
+        // when converted to Java dates (in milliseconds) they will be equal.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("hashCode(1,3)", ts1.hashCode() != ts3.hashCode());
     }
 
@@ -153,7 +237,22 @@ public class TimeStampTest_OE25Dev extends TestCase {
         final TimeStamp ts3 = new TimeStamp(TIME2); // Tue, Dec 17 2002 14:07:24.810 UTC
         final TimeStamp ts4 = new TimeStamp(TIME3); // Tue, Dec 17 2002 14:07:25.810 UTC
 
+        // do assertion tests on TimeStamp class
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timestamps in ts1 (TIME1) and ts3 (TIME2) are only off by the smallest
+        // fraction of a second (~200 picoseconds) so the times are not equal but
+        // when converted to Java dates (in milliseconds) they will be equal.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final long time1 = ts1.getTime();
         final long time3 = ts3.getTime();
         assertEquals("equals(time1,3)",time1,time3);// ntpTime1 != ntpTime3 but JavaTime(t1)== JavaTime(t3)... assertTrue("ts3 != ts4",!ts3.equals(ts4));
@@ -166,9 +265,25 @@ public class TimeStampTest_OE25Dev extends TestCase {
         final TimeStamp ts3 = new TimeStamp(TIME2); // Tue, Dec 17 2002 14:07:24.810 UTC
         final TimeStamp ts4 = new TimeStamp(TIME3); // Tue, Dec 17 2002 14:07:25.810 UTC
 
+        // do assertion tests on TimeStamp class
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timestamps in ts1 (TIME1) and ts3 (TIME2) are only off by the smallest
+        // fraction of a second (~200 picoseconds) so the times are not equal but
+        // when converted to Java dates (in milliseconds) they will be equal.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final long time1 = ts1.getTime();
         final long time3 = ts3.getTime();
+        // removed other assertion
         assertTrue("time3 != ts4.time", time3 != ts4.getTime());
     }
 
@@ -179,6 +294,8 @@ public class TimeStampTest_OE25Dev extends TestCase {
     }
 
     public void testDateConversion_1_oe() {
+        // convert current date to NtpTimeStamp then compare Java date
+        // computed from NTP timestamp with original Java date.
         final Calendar refCal = Calendar.getInstance(java.util.TimeZone.getTimeZone("UTC"));
         final Date refDate = refCal.getTime();
         final TimeStamp ts = new TimeStamp(refDate);
@@ -186,9 +303,12 @@ public class TimeStampTest_OE25Dev extends TestCase {
     }
 
     public void testDateConversion_2_oe() {
+        // convert current date to NtpTimeStamp then compare Java date
+        // computed from NTP timestamp with original Java date.
         final Calendar refCal = Calendar.getInstance(java.util.TimeZone.getTimeZone("UTC"));
         final Date refDate = refCal.getTime();
         final TimeStamp ts = new TimeStamp(refDate);
+        // removed other assertion
         final Date tsDate = ts.getDate();
         assertEquals(refDate, tsDate);
     }
@@ -205,6 +325,7 @@ public class TimeStampTest_OE25Dev extends TestCase {
         final TimeStamp time = TimeStamp.getCurrentTime();
         Object other = Integer.valueOf(0);
         if (time.equals(other)) {
+            // removed other assertion
         }
         other = null;
         if (time.equals(other)) {

@@ -34,6 +34,7 @@ public class TiffTagsTest_OE25Dev{
     public void testGetTagWithNegativeAndPositive_2_oe() {
         final TagInfo tagInfo = TiffTags.getTag((-1), 50933);
 
+        // removed other assertion
         assertEquals( "Unknown Tag", tagInfo.name );
     }
 

@@ -381,6 +381,7 @@ public class LexicalTest_OE25Dev {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
+        // ensure errors will throw
         options.setLexical(true);
         JexlScript script;
         Object result;
@@ -388,6 +389,8 @@ public class LexicalTest_OE25Dev {
         script = jexl.createScript("var x = 0; for(var y : [1]) { var x = 42; return x; };");
         try {
         result = script.execute(ctxt);
+        //Assert.assertEquals(42, result);
+            // removed other assertion
         } catch (final JexlException xany) {
             final String ww = xany.toString();
         }
@@ -395,6 +398,7 @@ public class LexicalTest_OE25Dev {
         try {
             script = jexl.createScript("(x)->{ if (x) { var x = 7 * (x + x); x; } }");
             result = script.execute(ctxt, 3);
+            // removed other assertion
         } catch (final JexlException xany) {
             final String ww = xany.toString();
         }
@@ -421,6 +425,7 @@ public class LexicalTest_OE25Dev {
         JexlScript e = jexl.createScript(str);
         final JexlContext jc = new MapContext();
         Object o = e.execute(jc);
+        // removed other assertion
 
         e = jexl.createScript(str);
         o = e.execute(jc);
@@ -454,6 +459,7 @@ public class LexicalTest_OE25Dev {
             script = jexl.createScript("var x = 42; var y = () -> { {var x = debug(-42); }; return x; }; y()");
         try {
             result = script.execute(ctxt);
+            // removed other assertion
         } catch (final JexlException xany) {
             final String ww = xany.toString();
             Assert.fail(ww);
@@ -478,6 +484,7 @@ public class LexicalTest_OE25Dev {
         final JexlContext ctxt = new MapContext();
         try {
             final Object o = e.execute(ctxt);
+            // removed other assertion
         } catch (final JexlException xany) {
             Assert.assertNotNull(xany);
     }
@@ -501,6 +508,7 @@ public class LexicalTest_OE25Dev {
         final JexlContext ctxt = new MapContext();
         try {
             final Object o = e.execute(ctxt);
+            // removed other assertion
         } catch (final JexlException xany) {
             Assert.assertNotNull(xany);
     }
@@ -508,6 +516,7 @@ public class LexicalTest_OE25Dev {
 
     @Test
     public void testPragmaOptions_2_oe() throws Exception {
+        // same as 6d but using a pragma
         final String str = "#pragma jexl.options '+strict +lexical +lexicalShade -safe'\n"
                 + "i = 0; for (var i : [42]) i; i";
         final JexlEngine jexl = new JexlBuilder().strict(false).create();
@@ -515,6 +524,7 @@ public class LexicalTest_OE25Dev {
         final JexlContext ctxt = new MapContext();
         try {
             final Object o = e.execute(ctxt);
+            // removed other assertion
         } catch (final JexlException xany) {
             Assert.assertNotNull(xany);
     }
@@ -522,6 +532,7 @@ public class LexicalTest_OE25Dev {
 
     @Test
     public void testPragmaNoop_1_oe() throws Exception {
+        // unknow pragma
         final String str = "#pragma jexl.options 'no effect'\ni = -42; for (var i : [42]) i; i";
         final JexlEngine jexl = new JexlBuilder().lexical(false).strict(true).create();
         final JexlScript e = jexl.createScript(str);
@@ -542,8 +553,11 @@ public class LexicalTest_OE25Dev {
     public void testScopeFrame_4_oe() throws Exception {
         final LexicalScope scope = new LexicalScope();
         for(int i = 0; i < 128; i += 2) {
+            // removed other assertion
+            // removed other assertion
         }
         for(int i = 0; i < 128; i += 2) {
+            // removed other assertion
             Assert.assertFalse(scope.hasSymbol(i + 1));
     }
     }
@@ -561,6 +575,7 @@ public class LexicalTest_OE25Dev {
         final JexlScript script = jexl.createScript("{var x = 42;} options.lexical = false; options.lexicalShade=false; x");
         try {
         final Object result = script.execute(ctxt);
+        // removed other assertion
         } catch(final JexlException xf) {
             Assert.assertNotNull(xf);
     }
@@ -583,7 +598,9 @@ public class LexicalTest_OE25Dev {
         final JexlScript tested = jexl.createScript("(y)->{ {var x = y;} x }");
         final JexlScript catchFn = jexl.createScript("(xany)-> { xany }");
         Object result;
+        // run it once, old 3.1 semantics, lexical/shade = false
         result = runner.execute(ctxt, false, tested, catchFn);
+        // result 42
         Assert.assertEquals(42, result);
     }
 
@@ -604,8 +621,13 @@ public class LexicalTest_OE25Dev {
         final JexlScript tested = jexl.createScript("(y)->{ {var x = y;} x }");
         final JexlScript catchFn = jexl.createScript("(xany)-> { xany }");
         Object result;
+        // run it once, old 3.1 semantics, lexical/shade = false
         result = runner.execute(ctxt, false, tested, catchFn);
+        // result 42
+        // removed other assertion
+        // run it a second time, new 3.2 semantics, lexical/shade = true
         result = runner.execute(ctxt, true, tested, catchFn);
+        // result is exception!
         Assert.assertTrue(result instanceof JexlException.Variable);
     }
 
@@ -622,6 +644,7 @@ public class LexicalTest_OE25Dev {
         final String str = "function(u) {}";
         final JexlEngine jexl = new JexlBuilder().create();
         JexlScript e = jexl.createScript(str);
+        // removed other assertion
         e = jexl.createScript(new JexlInfo("TestScript", 1, 1), str);
         Assert.assertEquals(1, e.getParameters().length);
     }
@@ -656,7 +679,9 @@ public class LexicalTest_OE25Dev {
         final JexlEngine jexl = new JexlBuilder().strict(true).features(f).create();
         try {
             final JexlScript script = jexl.createScript("for(var x : 1..3) { var c = 0} for(var x : 1..3) { var c = 0}; return x");
+            // removed other assertion
         } catch (final JexlException ex) {
+           // OK
            Assert.assertTrue(ex instanceof JexlException);
     }
     }
@@ -669,7 +694,9 @@ public class LexicalTest_OE25Dev {
         final JexlEngine jexl = new JexlBuilder().strict(true).features(f).create();
         try {
             final JexlScript script = jexl.createScript("{var x = 0}; return x");
+            // removed other assertion
         } catch (final Exception ex) {
+           // OK
            Assert.assertTrue(ex instanceof JexlException);
     }
     }
@@ -696,6 +723,7 @@ public class LexicalTest_OE25Dev {
         final JexlScript e = jexl.createScript(str);
         final VarContext vars = new VarContext();
         final JexlOptions opts = vars.getEngineOptions();
+        // so we can see the effect of features on options
         opts.setSharedInstance(true);
         final Script script = (Script) e;
         final JexlFeatures features = script.getFeatures();
@@ -712,9 +740,11 @@ public class LexicalTest_OE25Dev {
         final JexlScript e = jexl.createScript(str);
         final VarContext vars = new VarContext();
         final JexlOptions opts = vars.getEngineOptions();
+        // so we can see the effect of features on options
         opts.setSharedInstance(true);
         final Script script = (Script) e;
         final JexlFeatures features = script.getFeatures();
+        // removed other assertion
         Assert.assertTrue(features.isLexicalShade());
     }
 
@@ -728,9 +758,12 @@ public class LexicalTest_OE25Dev {
         final JexlScript e = jexl.createScript(str);
         final VarContext vars = new VarContext();
         final JexlOptions opts = vars.getEngineOptions();
+        // so we can see the effect of features on options
         opts.setSharedInstance(true);
         final Script script = (Script) e;
         final JexlFeatures features = script.getFeatures();
+        // removed other assertion
+        // removed other assertion
         final Object result = e.execute(vars);
         Assert.assertEquals(42, result);
     }
@@ -745,10 +778,14 @@ public class LexicalTest_OE25Dev {
         final JexlScript e = jexl.createScript(str);
         final VarContext vars = new VarContext();
         final JexlOptions opts = vars.getEngineOptions();
+        // so we can see the effect of features on options
         opts.setSharedInstance(true);
         final Script script = (Script) e;
         final JexlFeatures features = script.getFeatures();
+        // removed other assertion
+        // removed other assertion
         final Object result = e.execute(vars);
+        // removed other assertion
         Assert.assertTrue(opts.isLexical());
     }
 
@@ -762,10 +799,15 @@ public class LexicalTest_OE25Dev {
         final JexlScript e = jexl.createScript(str);
         final VarContext vars = new VarContext();
         final JexlOptions opts = vars.getEngineOptions();
+        // so we can see the effect of features on options
         opts.setSharedInstance(true);
         final Script script = (Script) e;
         final JexlFeatures features = script.getFeatures();
+        // removed other assertion
+        // removed other assertion
         final Object result = e.execute(vars);
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(opts.isLexicalShade());
     }
 
@@ -793,6 +835,7 @@ public class LexicalTest_OE25Dev {
         final JexlFeatures ff2 = runVarLoop(false, src2);
         final JexlFeatures ft2= runVarLoop(true, src2);
 
+        // and check some features features
         Assert.assertEquals(ff0, ff1);
     }
 
@@ -820,6 +863,8 @@ public class LexicalTest_OE25Dev {
         final JexlFeatures ff2 = runVarLoop(false, src2);
         final JexlFeatures ft2= runVarLoop(true, src2);
 
+        // and check some features features
+        // removed other assertion
         Assert.assertEquals(ft0, ft1);
     }
 
@@ -847,6 +892,9 @@ public class LexicalTest_OE25Dev {
         final JexlFeatures ff2 = runVarLoop(false, src2);
         final JexlFeatures ft2= runVarLoop(true, src2);
 
+        // and check some features features
+        // removed other assertion
+        // removed other assertion
         Assert.assertNotEquals(ff0, ft0);
     }
 
@@ -874,6 +922,10 @@ public class LexicalTest_OE25Dev {
         final JexlFeatures ff2 = runVarLoop(false, src2);
         final JexlFeatures ft2= runVarLoop(true, src2);
 
+        // and check some features features
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final String sff0 = ff0.toString();
         final String sff1 = ff1.toString();
         Assert.assertEquals(sff0, sff1);
@@ -903,8 +955,13 @@ public class LexicalTest_OE25Dev {
         final JexlFeatures ff2 = runVarLoop(false, src2);
         final JexlFeatures ft2= runVarLoop(true, src2);
 
+        // and check some features features
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         final String sff0 = ff0.toString();
         final String sff1 = ff1.toString();
+        // removed other assertion
         final String sft1 = ft1.toString();
         Assert.assertNotEquals(sff0, sft1);
     }

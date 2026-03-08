@@ -67,6 +67,7 @@ public class RedirectTest_OE25Dev {
     @Test
     public void testRedirectGet_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/hi", null);
+        // removed other assertion
         Assert.assertEquals(REDIRECTED, response.body);
     }
 
@@ -79,6 +80,7 @@ public class RedirectTest_OE25Dev {
     @Test
     public void testRedirectPost_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/hi", "");
+        // removed other assertion
         Assert.assertEquals(REDIRECTED, response.body);
     }
 
@@ -91,6 +93,7 @@ public class RedirectTest_OE25Dev {
     @Test
     public void testRedirectPut_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("PUT", "/hi", "");
+        // removed other assertion
         Assert.assertEquals(REDIRECTED, response.body);
     }
 
@@ -103,6 +106,7 @@ public class RedirectTest_OE25Dev {
     @Test
     public void testRedirectDelete_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("DELETE", "/hi", null);
+        // removed other assertion
         Assert.assertEquals(REDIRECTED, response.body);
     }
 
@@ -115,6 +119,7 @@ public class RedirectTest_OE25Dev {
     @Test
     public void testRedirectAnyGet_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/any", null);
+        // removed other assertion
         Assert.assertEquals(REDIRECTED, response.body);
     }
 
@@ -127,6 +132,7 @@ public class RedirectTest_OE25Dev {
     @Test
     public void testRedirectAnyPut_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("PUT", "/any", "");
+        // removed other assertion
         Assert.assertEquals(REDIRECTED, response.body);
     }
 
@@ -139,6 +145,7 @@ public class RedirectTest_OE25Dev {
     @Test
     public void testRedirectAnyPost_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/any", "");
+        // removed other assertion
         Assert.assertEquals(REDIRECTED, response.body);
     }
 
@@ -151,6 +158,7 @@ public class RedirectTest_OE25Dev {
     @Test
     public void testRedirectAnyDelete_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("DELETE", "/any", "");
+        // removed other assertion
         Assert.assertEquals(REDIRECTED, response.body);
     }
 

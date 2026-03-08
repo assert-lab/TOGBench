@@ -21,11 +21,13 @@ bad_files() {
 }
 
 delete_files() {
-  local root="$1"
-  local files="$2"
+  local project="$1"
+  local root="$2"
+  local files="$3"
+
   while read -r f; do
     [ -z "$f" ] && continue
-    echo "  deleting $f"
+    echo "  [$project] deleting $f"
     find "$root" -type f -name "$f" -delete 2>/dev/null || true
   done <<< "$files"
 }
@@ -79,9 +81,9 @@ run_dir() {
     fi
 
     if [ -d "$dir/src/test/java" ]; then
-      delete_files "$dir/src/test/java" "$files"
+      delete_files "$name" "$dir/src/test/java" "$files"
     else
-      delete_files "$dir" "$files"
+      delete_files "$name" "$dir" "$files"
     fi
   done
 }

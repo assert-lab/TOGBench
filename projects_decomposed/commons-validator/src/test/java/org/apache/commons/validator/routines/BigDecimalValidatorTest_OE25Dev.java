@@ -105,6 +105,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal       = "12,345";
         String XXXX             = "XXXX"; 
         BigDecimal expected = new BigDecimal(12345);
+        // removed other assertion
         assertEquals("validate(A) locale ", expected, BigDecimalValidator.getInstance().validate(localeVal, locale));
     }
 
@@ -117,6 +118,8 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal       = "12,345";
         String XXXX             = "XXXX"; 
         BigDecimal expected = new BigDecimal(12345);
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(A) pattern", expected, BigDecimalValidator.getInstance().validate(patternVal, pattern));
     }
 
@@ -129,6 +132,9 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal       = "12,345";
         String XXXX             = "XXXX"; 
         BigDecimal expected = new BigDecimal(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(A) both",    expected, BigDecimalValidator.getInstance().validate(germanPatternVal, pattern, Locale.GERMAN));
     }
 
@@ -141,6 +147,10 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal       = "12,345";
         String XXXX             = "XXXX"; 
         BigDecimal expected = new BigDecimal(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue("isValid(A) default", BigDecimalValidator.getInstance().isValid(defaultVal));
     }
@@ -154,7 +164,12 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal       = "12,345";
         String XXXX             = "XXXX"; 
         BigDecimal expected = new BigDecimal(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue("isValid(A) locale ", BigDecimalValidator.getInstance().isValid(localeVal, locale));
     }
 
@@ -167,7 +182,13 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal       = "12,345";
         String XXXX             = "XXXX"; 
         BigDecimal expected = new BigDecimal(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid(A) pattern", BigDecimalValidator.getInstance().isValid(patternVal, pattern));
     }
 
@@ -180,7 +201,14 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal       = "12,345";
         String XXXX             = "XXXX"; 
         BigDecimal expected = new BigDecimal(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid(A) both",    BigDecimalValidator.getInstance().isValid(germanPatternVal, pattern, Locale.GERMAN));
     }
 
@@ -193,7 +221,15 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal       = "12,345";
         String XXXX             = "XXXX"; 
         BigDecimal expected = new BigDecimal(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertNull("validate(B) default", BigDecimalValidator.getInstance().validate(XXXX));
     }
@@ -207,8 +243,17 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal       = "12,345";
         String XXXX             = "XXXX"; 
         BigDecimal expected = new BigDecimal(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertNull("validate(B) locale ", BigDecimalValidator.getInstance().validate(XXXX, locale));
     }
 
@@ -221,8 +266,18 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal       = "12,345";
         String XXXX             = "XXXX"; 
         BigDecimal expected = new BigDecimal(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertNull("validate(B) pattern", BigDecimalValidator.getInstance().validate(XXXX, pattern));
     }
 
@@ -235,8 +290,19 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal       = "12,345";
         String XXXX             = "XXXX"; 
         BigDecimal expected = new BigDecimal(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("validate(B) both",    BigDecimalValidator.getInstance().validate(patternVal, pattern, Locale.GERMAN));
     }
 
@@ -249,8 +315,20 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal       = "12,345";
         String XXXX             = "XXXX"; 
         BigDecimal expected = new BigDecimal(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("isValid(B) default", BigDecimalValidator.getInstance().isValid(XXXX));
     }
@@ -264,9 +342,22 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal       = "12,345";
         String XXXX             = "XXXX"; 
         BigDecimal expected = new BigDecimal(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("isValid(B) locale ", BigDecimalValidator.getInstance().isValid(XXXX, locale));
     }
 
@@ -279,9 +370,23 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal       = "12,345";
         String XXXX             = "XXXX"; 
         BigDecimal expected = new BigDecimal(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid(B) pattern", BigDecimalValidator.getInstance().isValid(XXXX, pattern));
     }
 
@@ -294,9 +399,24 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         String defaultVal       = "12,345";
         String XXXX             = "XXXX"; 
         BigDecimal expected = new BigDecimal(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid(B) both",    BigDecimalValidator.getInstance().isValid(patternVal, pattern, Locale.GERMAN));
     }
 
@@ -312,6 +432,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         float min = 10;
         float max = 20;
 
+        // Test isInRange()
         assertFalse("isInRange(A) < min",   validator.isInRange(number9,  min, max));
     }
 
@@ -327,6 +448,8 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         float min = 10;
         float max = 20;
 
+        // Test isInRange()
+        // removed other assertion
         assertTrue("isInRange(A) = min",    validator.isInRange(number10, min, max));
     }
 
@@ -342,6 +465,9 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         float min = 10;
         float max = 20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
         assertTrue("isInRange(A) in range", validator.isInRange(number11, min, max));
     }
 
@@ -357,6 +483,10 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         float min = 10;
         float max = 20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isInRange(A) = max",    validator.isInRange(number20, min, max));
     }
 
@@ -372,6 +502,11 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         float min = 10;
         float max = 20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isInRange(A) > max",   validator.isInRange(number21, min, max));
     }
 
@@ -387,7 +522,14 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         float min = 10;
         float max = 20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
         assertFalse("minValue(A) < min",    validator.minValue(number9,  min));
     }
 
@@ -403,7 +545,15 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         float min = 10;
         float max = 20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
         assertTrue("minValue(A) = min",     validator.minValue(number10, min));
     }
 
@@ -419,7 +569,16 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         float min = 10;
         float max = 20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
         assertTrue("minValue(A) > min",     validator.minValue(number11, min));
     }
 
@@ -435,8 +594,19 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         float min = 10;
         float max = 20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
         assertTrue("maxValue(A) < max",     validator.maxValue(number19, max));
     }
 
@@ -452,8 +622,20 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         float min = 10;
         float max = 20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
         assertTrue("maxValue(A) = max",     validator.maxValue(number20, max));
     }
 
@@ -469,8 +651,21 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         float min = 10;
         float max = 20;
 
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
         assertFalse("maxValue(A) > max",    validator.maxValue(number21, max));
     }
 

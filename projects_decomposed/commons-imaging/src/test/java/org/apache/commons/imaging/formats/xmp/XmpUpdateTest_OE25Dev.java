@@ -67,6 +67,7 @@ public class XmpUpdateTest_OE25Dev extends ImagingTest {
             final File tempFile = File.createTempFile(imageFile.getName() + ".", "." + imageFormat.getDefaultExtension());
             final BufferedImage image = Imaging.getBufferedImage(imageFile);
 
+            // ----
 
             ImageParser parser = Util.getImageParser("." + imageFormat.getDefaultExtension());
             ImagingParameters params = parser.getDefaultParameters();
@@ -111,6 +112,7 @@ public class XmpUpdateTest_OE25Dev extends ImagingTest {
             final File tempFile = File.createTempFile(imageFile.getName() + ".", "." + imageFormat.getDefaultExtension());
             final BufferedImage image = Imaging.getBufferedImage(imageFile);
 
+            // ----
 
             ImageParser parser = Util.getImageParser("." + imageFormat.getDefaultExtension());
             ImagingParameters params = parser.getDefaultParameters();
@@ -121,6 +123,7 @@ public class XmpUpdateTest_OE25Dev extends ImagingTest {
 
             final String xmpXmlOut = Imaging.getXmpXml(tempFile);
 
+            // removed other assertion
             assertEquals(xmpXmlOut, xmpXml);
     }
     }

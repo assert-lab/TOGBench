@@ -106,6 +106,7 @@ public class CacheAccessUnitTest_OE25Dev
         throws Exception
     {
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final String key = "mykey";
         final String value = "myvalue";
@@ -120,6 +121,7 @@ public class CacheAccessUnitTest_OE25Dev
         throws Exception
     {
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final String key = "mykey";
         final String value = "myvalue";
@@ -127,10 +129,12 @@ public class CacheAccessUnitTest_OE25Dev
         access.put( key, value );
 
         final String returnedValue1 = access.get( key );
+        // removed other assertion
 
         try
         {
             access.putSafe( key, "someothervalue" );
+            // removed other assertion
         }
         catch ( final CacheException e )
         {
@@ -142,6 +146,7 @@ public class CacheAccessUnitTest_OE25Dev
         throws Exception
     {
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final String key = "mykey";
         final String value = "myvalue";
@@ -149,13 +154,16 @@ public class CacheAccessUnitTest_OE25Dev
         access.put( key, value );
 
         final String returnedValue1 = access.get( key );
+        // removed other assertion
 
         try
         {
             access.putSafe( key, "someothervalue" );
+            // removed other assertion
         }
         catch ( final CacheException e )
         {
+            // removed other assertion
             assertTrue( "Should have the key in the error message.", e.getMessage().indexOf( "[" + key + "]" ) != -1 );
     }
     }
@@ -164,6 +172,7 @@ public class CacheAccessUnitTest_OE25Dev
         throws Exception
     {
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final String key = "mykey";
         final String value = "myvalue";
@@ -171,13 +180,17 @@ public class CacheAccessUnitTest_OE25Dev
         access.put( key, value );
 
         final String returnedValue1 = access.get( key );
+        // removed other assertion
 
         try
         {
             access.putSafe( key, "someothervalue" );
+            // removed other assertion
         }
         catch ( final CacheException e )
         {
+            // removed other assertion
+            // removed other assertion
         }
 
         final String returnedValue2 = access.get( key );
@@ -195,6 +208,7 @@ public class CacheAccessUnitTest_OE25Dev
         throws Exception
     {
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final String key = null;
         final String value = "myvalue";
@@ -202,6 +216,7 @@ public class CacheAccessUnitTest_OE25Dev
         try
         {
             access.put( key, value );
+            // removed other assertion
         }
         catch ( final CacheException e )
         {
@@ -220,6 +235,7 @@ public class CacheAccessUnitTest_OE25Dev
         throws Exception
     {
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final String key = "myKey";
         final String value = null;
@@ -227,6 +243,7 @@ public class CacheAccessUnitTest_OE25Dev
         try
         {
             access.put( key, value );
+            // removed other assertion
         }
         catch ( final CacheException e )
         {
@@ -245,6 +262,7 @@ public class CacheAccessUnitTest_OE25Dev
         throws Exception
     {
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final long maxLife = 9876;
         final IElementAttributes attr = new ElementAttributes();
@@ -259,6 +277,7 @@ public class CacheAccessUnitTest_OE25Dev
         throws Exception
     {
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final long maxLife = 9876;
         final IElementAttributes attr = new ElementAttributes();
@@ -266,6 +285,7 @@ public class CacheAccessUnitTest_OE25Dev
 
         access.setDefaultElementAttributes( attr );
 
+        // removed other assertion
 
         final String key = "mykey";
         final String value = "myvalue";
@@ -280,6 +300,7 @@ public class CacheAccessUnitTest_OE25Dev
     public void testGetCacheElements_1_oe()
         throws Exception
     {
+        //SETUP
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
         assertNotNull( "We should have an access class", access );
     }
@@ -287,7 +308,9 @@ public class CacheAccessUnitTest_OE25Dev
     public void testGetCacheElements_2_oe()
         throws Exception
     {
+        //SETUP
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final String keyOne = "mykeyone";
         final String keyTwo = "mykeytwo";
@@ -306,15 +329,19 @@ public class CacheAccessUnitTest_OE25Dev
         input.add( keyOne );
         input.add( keyTwo );
 
+        //DO WORK
         final Map<String, ICacheElement<String, String>> result = access.getCacheElements( input );
 
+        //VERIFY
         assertEquals( "map size", 2, result.size() );
     }
 
     public void testGetCacheElements_3_oe()
         throws Exception
     {
+        //SETUP
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final String keyOne = "mykeyone";
         final String keyTwo = "mykeytwo";
@@ -333,8 +360,11 @@ public class CacheAccessUnitTest_OE25Dev
         input.add( keyOne );
         input.add( keyTwo );
 
+        //DO WORK
         final Map<String, ICacheElement<String, String>> result = access.getCacheElements( input );
 
+        //VERIFY
+        // removed other assertion
         final ICacheElement<String, String> elementOne = result.get( keyOne );
         assertEquals( "value one", keyOne, elementOne.getKey() );
     }
@@ -342,7 +372,9 @@ public class CacheAccessUnitTest_OE25Dev
     public void testGetCacheElements_4_oe()
         throws Exception
     {
+        //SETUP
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final String keyOne = "mykeyone";
         final String keyTwo = "mykeytwo";
@@ -361,16 +393,22 @@ public class CacheAccessUnitTest_OE25Dev
         input.add( keyOne );
         input.add( keyTwo );
 
+        //DO WORK
         final Map<String, ICacheElement<String, String>> result = access.getCacheElements( input );
 
+        //VERIFY
+        // removed other assertion
         final ICacheElement<String, String> elementOne = result.get( keyOne );
+        // removed other assertion
         assertEquals( "value one", valueOne, elementOne.getVal() );
     }
 
     public void testGetCacheElements_5_oe()
         throws Exception
     {
+        //SETUP
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final String keyOne = "mykeyone";
         final String keyTwo = "mykeytwo";
@@ -389,9 +427,14 @@ public class CacheAccessUnitTest_OE25Dev
         input.add( keyOne );
         input.add( keyTwo );
 
+        //DO WORK
         final Map<String, ICacheElement<String, String>> result = access.getCacheElements( input );
 
+        //VERIFY
+        // removed other assertion
         final ICacheElement<String, String> elementOne = result.get( keyOne );
+        // removed other assertion
+        // removed other assertion
         final ICacheElement<String, String> elementTwo = result.get( keyTwo );
         assertEquals( "value two", keyTwo, elementTwo.getKey() );
     }
@@ -399,7 +442,9 @@ public class CacheAccessUnitTest_OE25Dev
     public void testGetCacheElements_6_oe()
         throws Exception
     {
+        //SETUP
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final String keyOne = "mykeyone";
         final String keyTwo = "mykeytwo";
@@ -418,17 +463,25 @@ public class CacheAccessUnitTest_OE25Dev
         input.add( keyOne );
         input.add( keyTwo );
 
+        //DO WORK
         final Map<String, ICacheElement<String, String>> result = access.getCacheElements( input );
 
+        //VERIFY
+        // removed other assertion
         final ICacheElement<String, String> elementOne = result.get( keyOne );
+        // removed other assertion
+        // removed other assertion
         final ICacheElement<String, String> elementTwo = result.get( keyTwo );
+        // removed other assertion
         assertEquals( "value two", valueTwo, elementTwo.getVal() );
     }
 
     public void testGetCacheElements_7_oe()
         throws Exception
     {
+        //SETUP
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final String keyOne = "mykeyone";
         final String keyTwo = "mykeytwo";
@@ -447,10 +500,17 @@ public class CacheAccessUnitTest_OE25Dev
         input.add( keyOne );
         input.add( keyTwo );
 
+        //DO WORK
         final Map<String, ICacheElement<String, String>> result = access.getCacheElements( input );
 
+        //VERIFY
+        // removed other assertion
         final ICacheElement<String, String> elementOne = result.get( keyOne );
+        // removed other assertion
+        // removed other assertion
         final ICacheElement<String, String> elementTwo = result.get( keyTwo );
+        // removed other assertion
+        // removed other assertion
 
         assertNull(access.get(keyFour));
     }
@@ -458,7 +518,9 @@ public class CacheAccessUnitTest_OE25Dev
     public void testGetCacheElements_8_oe()
         throws Exception
     {
+        //SETUP
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final String keyOne = "mykeyone";
         final String keyTwo = "mykeytwo";
@@ -477,11 +539,19 @@ public class CacheAccessUnitTest_OE25Dev
         input.add( keyOne );
         input.add( keyTwo );
 
+        //DO WORK
         final Map<String, ICacheElement<String, String>> result = access.getCacheElements( input );
 
+        //VERIFY
+        // removed other assertion
         final ICacheElement<String, String> elementOne = result.get( keyOne );
+        // removed other assertion
+        // removed other assertion
         final ICacheElement<String, String> elementTwo = result.get( keyTwo );
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         final String suppliedValue1 = access.get(keyFour, () -> valueFour);
         assertNotNull( "value four", suppliedValue1);
     }
@@ -489,7 +559,9 @@ public class CacheAccessUnitTest_OE25Dev
     public void testGetCacheElements_9_oe()
         throws Exception
     {
+        //SETUP
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final String keyOne = "mykeyone";
         final String keyTwo = "mykeytwo";
@@ -508,19 +580,30 @@ public class CacheAccessUnitTest_OE25Dev
         input.add( keyOne );
         input.add( keyTwo );
 
+        //DO WORK
         final Map<String, ICacheElement<String, String>> result = access.getCacheElements( input );
 
+        //VERIFY
+        // removed other assertion
         final ICacheElement<String, String> elementOne = result.get( keyOne );
+        // removed other assertion
+        // removed other assertion
         final ICacheElement<String, String> elementTwo = result.get( keyTwo );
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         final String suppliedValue1 = access.get(keyFour, () -> valueFour);
+        // removed other assertion
         assertEquals( "value four", valueFour, suppliedValue1);
     }
 
     public void testGetCacheElements_10_oe()
         throws Exception
     {
+        //SETUP
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final String keyOne = "mykeyone";
         final String keyTwo = "mykeytwo";
@@ -539,12 +622,22 @@ public class CacheAccessUnitTest_OE25Dev
         input.add( keyOne );
         input.add( keyTwo );
 
+        //DO WORK
         final Map<String, ICacheElement<String, String>> result = access.getCacheElements( input );
 
+        //VERIFY
+        // removed other assertion
         final ICacheElement<String, String> elementOne = result.get( keyOne );
+        // removed other assertion
+        // removed other assertion
         final ICacheElement<String, String> elementTwo = result.get( keyTwo );
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         final String suppliedValue1 = access.get(keyFour, () -> valueFour);
+        // removed other assertion
+        // removed other assertion
         final String suppliedValue2 = access.get(keyFour);
         assertNotNull( "value four", suppliedValue2);
     }
@@ -552,7 +645,9 @@ public class CacheAccessUnitTest_OE25Dev
     public void testGetCacheElements_11_oe()
         throws Exception
     {
+        //SETUP
         final CacheAccess<String, String> access = JCS.getInstance( "test" );
+        // removed other assertion
 
         final String keyOne = "mykeyone";
         final String keyTwo = "mykeytwo";
@@ -571,13 +666,24 @@ public class CacheAccessUnitTest_OE25Dev
         input.add( keyOne );
         input.add( keyTwo );
 
+        //DO WORK
         final Map<String, ICacheElement<String, String>> result = access.getCacheElements( input );
 
+        //VERIFY
+        // removed other assertion
         final ICacheElement<String, String> elementOne = result.get( keyOne );
+        // removed other assertion
+        // removed other assertion
         final ICacheElement<String, String> elementTwo = result.get( keyTwo );
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         final String suppliedValue1 = access.get(keyFour, () -> valueFour);
+        // removed other assertion
+        // removed other assertion
         final String suppliedValue2 = access.get(keyFour);
+        // removed other assertion
         assertEquals( "value four", suppliedValue1, suppliedValue2);
     }
 
@@ -609,6 +715,7 @@ public class CacheAccessUnitTest_OE25Dev
         ca.setMaxMemoryIdleTimeSeconds( maxIdleTime );
 
         final CacheAccess<String, String> access = JCS.getInstance( "testRegionDefinitonWithAttributes", ca );
+        // removed other assertion
 
         final ICompositeCacheAttributes ca2 = access.getCacheAttributes();
         assertEquals( "Wrong idle time setting.", ca.getMaxMemoryIdleTimeSeconds(), ca2.getMaxMemoryIdleTimeSeconds() );
@@ -643,6 +750,7 @@ public class CacheAccessUnitTest_OE25Dev
         attr.setMaxLife(maxLife);
 
         final CacheAccess<String, String> access = JCS.getInstance( "testRegionDefinitonWithAttributes", ca, attr );
+        // removed other assertion
 
         final ICompositeCacheAttributes ca2 = access.getCacheAttributes();
         assertEquals( "Wrong idle time setting.", ca.getMaxMemoryIdleTimeSeconds(), ca2.getMaxMemoryIdleTimeSeconds() );
@@ -651,6 +759,7 @@ public class CacheAccessUnitTest_OE25Dev
     public void testGetMatching_Normal_1_oe()
         throws Exception
     {
+        // SETUP
         final int maxMemorySize = 1000;
         final String keyprefix1 = "MyPrefix1";
         final String keyprefix2 = "MyPrefix2";
@@ -665,13 +774,16 @@ public class CacheAccessUnitTest_OE25Dev
 
         final CacheAccess<String, Integer> access = JCS.getInstance( "testGetMatching_Normal", cattr, attr );
 
+        // DO WORK
         final int numToInsertPrefix1 = 10;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertPrefix1; i++ )
         {
             access.put( keyprefix1 + String.valueOf( i ), Integer.valueOf( i ) );
         }
 
         final int numToInsertPrefix2 = 50;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertPrefix2; i++ )
         {
             access.put( keyprefix2 + String.valueOf( i ), Integer.valueOf( i ) );
@@ -680,12 +792,14 @@ public class CacheAccessUnitTest_OE25Dev
         final Map<String, Integer> result1 = access.getMatching( keyprefix1 + ".+" );
         final Map<String, Integer> result2 = access.getMatching( keyprefix2 + "\\S+" );
 
+        // VERIFY
         assertEquals( "Wrong number returned 1:", numToInsertPrefix1, result1.size() );
     }
 
     public void testGetMatching_Normal_2_oe()
         throws Exception
     {
+        // SETUP
         final int maxMemorySize = 1000;
         final String keyprefix1 = "MyPrefix1";
         final String keyprefix2 = "MyPrefix2";
@@ -700,13 +814,16 @@ public class CacheAccessUnitTest_OE25Dev
 
         final CacheAccess<String, Integer> access = JCS.getInstance( "testGetMatching_Normal", cattr, attr );
 
+        // DO WORK
         final int numToInsertPrefix1 = 10;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertPrefix1; i++ )
         {
             access.put( keyprefix1 + String.valueOf( i ), Integer.valueOf( i ) );
         }
 
         final int numToInsertPrefix2 = 50;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertPrefix2; i++ )
         {
             access.put( keyprefix2 + String.valueOf( i ), Integer.valueOf( i ) );
@@ -715,12 +832,15 @@ public class CacheAccessUnitTest_OE25Dev
         final Map<String, Integer> result1 = access.getMatching( keyprefix1 + ".+" );
         final Map<String, Integer> result2 = access.getMatching( keyprefix2 + "\\S+" );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong number returned 2:", numToInsertPrefix2, result2.size() );
     }
 
     public void testGetMatching_Normal_3_oe()
         throws Exception
     {
+        // SETUP
         final int maxMemorySize = 1000;
         final String keyprefix1 = "MyPrefix1";
         final String keyprefix2 = "MyPrefix2";
@@ -735,13 +855,16 @@ public class CacheAccessUnitTest_OE25Dev
 
         final CacheAccess<String, Integer> access = JCS.getInstance( "testGetMatching_Normal", cattr, attr );
 
+        // DO WORK
         final int numToInsertPrefix1 = 10;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertPrefix1; i++ )
         {
             access.put( keyprefix1 + String.valueOf( i ), Integer.valueOf( i ) );
         }
 
         final int numToInsertPrefix2 = 50;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertPrefix2; i++ )
         {
             access.put( keyprefix2 + String.valueOf( i ), Integer.valueOf( i ) );
@@ -750,7 +873,12 @@ public class CacheAccessUnitTest_OE25Dev
         final Map<String, Integer> result1 = access.getMatching( keyprefix1 + ".+" );
         final Map<String, Integer> result2 = access.getMatching( keyprefix2 + "\\S+" );
 
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        //System.out.println( result1 );
 
+        // verify that the elements are unwrapped
         for (final Map.Entry<String, Integer> entry : result1.entrySet())
         {
             final Object value = entry.getValue();
@@ -761,6 +889,7 @@ public class CacheAccessUnitTest_OE25Dev
     public void testGetMatchingElements_Normal_1_oe()
         throws Exception
     {
+        // SETUP
         final int maxMemorySize = 1000;
         final String keyprefix1 = "MyPrefix1";
         final String keyprefix2 = "MyPrefix2";
@@ -775,13 +904,16 @@ public class CacheAccessUnitTest_OE25Dev
 
         final CacheAccess<String, Integer> access = JCS.getInstance( "testGetMatching_Normal", cattr, attr );
 
+        // DO WORK
         final int numToInsertPrefix1 = 10;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertPrefix1; i++ )
         {
             access.put( keyprefix1 + String.valueOf( i ), Integer.valueOf( i ) );
         }
 
         final int numToInsertPrefix2 = 50;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertPrefix2; i++ )
         {
             access.put( keyprefix2 + String.valueOf( i ), Integer.valueOf( i ) );
@@ -790,12 +922,14 @@ public class CacheAccessUnitTest_OE25Dev
         final Map<String, ICacheElement<String, Integer>> result1 = access.getMatchingCacheElements( keyprefix1 + "\\S+" );
         final Map<String, ICacheElement<String, Integer>> result2 = access.getMatchingCacheElements( keyprefix2 + ".+" );
 
+        // VERIFY
         assertEquals( "Wrong number returned 1:", numToInsertPrefix1, result1.size() );
     }
 
     public void testGetMatchingElements_Normal_2_oe()
         throws Exception
     {
+        // SETUP
         final int maxMemorySize = 1000;
         final String keyprefix1 = "MyPrefix1";
         final String keyprefix2 = "MyPrefix2";
@@ -810,13 +944,16 @@ public class CacheAccessUnitTest_OE25Dev
 
         final CacheAccess<String, Integer> access = JCS.getInstance( "testGetMatching_Normal", cattr, attr );
 
+        // DO WORK
         final int numToInsertPrefix1 = 10;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertPrefix1; i++ )
         {
             access.put( keyprefix1 + String.valueOf( i ), Integer.valueOf( i ) );
         }
 
         final int numToInsertPrefix2 = 50;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertPrefix2; i++ )
         {
             access.put( keyprefix2 + String.valueOf( i ), Integer.valueOf( i ) );
@@ -825,12 +962,15 @@ public class CacheAccessUnitTest_OE25Dev
         final Map<String, ICacheElement<String, Integer>> result1 = access.getMatchingCacheElements( keyprefix1 + "\\S+" );
         final Map<String, ICacheElement<String, Integer>> result2 = access.getMatchingCacheElements( keyprefix2 + ".+" );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong number returned 2:", numToInsertPrefix2, result2.size() );
     }
 
     public void testGetMatchingElements_Normal_3_oe()
         throws Exception
     {
+        // SETUP
         final int maxMemorySize = 1000;
         final String keyprefix1 = "MyPrefix1";
         final String keyprefix2 = "MyPrefix2";
@@ -845,13 +985,16 @@ public class CacheAccessUnitTest_OE25Dev
 
         final CacheAccess<String, Integer> access = JCS.getInstance( "testGetMatching_Normal", cattr, attr );
 
+        // DO WORK
         final int numToInsertPrefix1 = 10;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertPrefix1; i++ )
         {
             access.put( keyprefix1 + String.valueOf( i ), Integer.valueOf( i ) );
         }
 
         final int numToInsertPrefix2 = 50;
+        // insert with prefix1
         for ( int i = 0; i < numToInsertPrefix2; i++ )
         {
             access.put( keyprefix2 + String.valueOf( i ), Integer.valueOf( i ) );
@@ -860,7 +1003,12 @@ public class CacheAccessUnitTest_OE25Dev
         final Map<String, ICacheElement<String, Integer>> result1 = access.getMatchingCacheElements( keyprefix1 + "\\S+" );
         final Map<String, ICacheElement<String, Integer>> result2 = access.getMatchingCacheElements( keyprefix2 + ".+" );
 
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        //System.out.println( result1 );
 
+        // verify that the elements are wrapped
         for (final Map.Entry<String, ICacheElement<String, Integer>> entry : result1.entrySet())
         {
             final Object value = entry.getValue();

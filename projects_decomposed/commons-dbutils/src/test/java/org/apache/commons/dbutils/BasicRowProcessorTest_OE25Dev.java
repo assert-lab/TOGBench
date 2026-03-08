@@ -60,12 +60,15 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
     public void testToBeanList_2_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        // removed other assertion
         assertEquals(ROWS, list.size());
     }
 
     public void testToBeanList_3_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        // removed other assertion
+        // removed other assertion
 
         TestBean b = list.get(0);
         assertEquals("1", b.getOne());
@@ -74,32 +77,50 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
     public void testToBeanList_4_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        // removed other assertion
+        // removed other assertion
 
         TestBean b = list.get(0);
+        // removed other assertion
         assertEquals("2", b.getTwo());
     }
 
     public void testToBeanList_5_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        // removed other assertion
+        // removed other assertion
 
         TestBean b = list.get(0);
+        // removed other assertion
+        // removed other assertion
         assertEquals(TestBean.Ordinal.THREE, b.getThree());
     }
 
     public void testToBeanList_6_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        // removed other assertion
+        // removed other assertion
 
         TestBean b = list.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("not set", b.getDoNotSet());
     }
 
     public void testToBeanList_7_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        // removed other assertion
+        // removed other assertion
 
         TestBean b = list.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         datef.parse(b.getNotDate());
 
         b = list.get(1);
@@ -109,110 +130,228 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
     public void testToBeanList_8_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        // removed other assertion
+        // removed other assertion
 
         TestBean b = list.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         datef.parse(b.getNotDate());
 
         b = list.get(1);
+        // removed other assertion
         assertEquals("5", b.getTwo());
     }
 
     public void testToBeanList_9_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        // removed other assertion
+        // removed other assertion
 
         TestBean b = list.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         datef.parse(b.getNotDate());
 
         b = list.get(1);
+        // removed other assertion
+        // removed other assertion
         assertEquals(TestBean.Ordinal.SIX, b.getThree());
     }
 
     public void testToBeanList_10_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        // removed other assertion
+        // removed other assertion
 
         TestBean b = list.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         datef.parse(b.getNotDate());
 
         b = list.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("not set", b.getDoNotSet());
     }
 
     public void testToBeanList_11_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        // removed other assertion
+        // removed other assertion
 
         TestBean b = list.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         datef.parse(b.getNotDate());
 
         b = list.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(3, b.getIntTest());
     }
 
     public void testToBeanList_12_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        // removed other assertion
+        // removed other assertion
 
         TestBean b = list.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         datef.parse(b.getNotDate());
 
         b = list.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(Integer.valueOf(4), b.getIntegerTest());
     }
 
     public void testToBeanList_13_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        // removed other assertion
+        // removed other assertion
 
         TestBean b = list.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         datef.parse(b.getNotDate());
 
         b = list.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(null, b.getNullObjectTest());
     }
 
     public void testToBeanList_14_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        // removed other assertion
+        // removed other assertion
 
         TestBean b = list.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         datef.parse(b.getNotDate());
 
         b = list.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0, b.getNullPrimitiveTest());
     }
 
     public void testToBeanList_15_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        // removed other assertion
+        // removed other assertion
 
         TestBean b = list.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         datef.parse(b.getNotDate());
 
         b = list.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test date -> string handling
         assertNotNull(b.getNotDate());
     }
 
     public void testToBeanList_16_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        // removed other assertion
+        // removed other assertion
 
         TestBean b = list.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         datef.parse(b.getNotDate());
 
         b = list.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test date -> string handling
+        // removed other assertion
         assertTrue(!"not a date".equals(b.getNotDate()));
     }
 
     public void testToBeanList_17_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        // removed other assertion
+        // removed other assertion
 
         TestBean b = list.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         datef.parse(b.getNotDate());
 
         b = list.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // test date -> string handling
+        // removed other assertion
+        // removed other assertion
         assertTrue(b.getNotDate().endsWith("789456123"));
     }
 

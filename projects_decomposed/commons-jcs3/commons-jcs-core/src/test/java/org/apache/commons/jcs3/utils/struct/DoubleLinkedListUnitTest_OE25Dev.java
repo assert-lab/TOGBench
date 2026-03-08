@@ -41,18 +41,22 @@ public class DoubleLinkedListUnitTest_OE25Dev
 
     public void testAddLast_Empty_1_oe()
     {
+        // SETUP
         final DoubleLinkedList<DoubleLinkedListNode<String>> list = new DoubleLinkedList<>();
 
         final String payload1 = "payload1";
         final DoubleLinkedListNode<String> node1 = new DoubleLinkedListNode<>( payload1 );
 
+        // WO WORK
         list.addLast( node1 );
 
+        // VERIFY
         assertEquals( "Wrong last", node1, list.getLast() );
     }
 
     public void testAddLast_NotEmpty_1_oe()
     {
+        // SETUP
         final DoubleLinkedList<DoubleLinkedListNode<String>> list = new DoubleLinkedList<>();
 
         final String payload1 = "payload1";
@@ -61,14 +65,17 @@ public class DoubleLinkedListUnitTest_OE25Dev
         final String payload2 = "payload2";
         final DoubleLinkedListNode<String> node2 = new DoubleLinkedListNode<>( payload2 );
 
+        // WO WORK
         list.addLast( node1 );
         list.addLast( node2 );
 
+        // VERIFY
         assertEquals( "Wrong last", node2, list.getLast() );
     }
 
     public void testMakeLast_wasFirst_1_oe()
     {
+        // SETUP
         final DoubleLinkedList<DoubleLinkedListNode<String>> list = new DoubleLinkedList<>();
 
         final String payload1 = "payload1";
@@ -80,13 +87,16 @@ public class DoubleLinkedListUnitTest_OE25Dev
         list.addFirst( node2 );
         list.addFirst(  node1 );
 
+        // DO WORK
         list.makeLast( node1 );
 
+        // VERIFY
         assertEquals( "Wrong size", 2, list.size() );
     }
 
     public void testMakeLast_wasFirst_2_oe()
     {
+        // SETUP
         final DoubleLinkedList<DoubleLinkedListNode<String>> list = new DoubleLinkedList<>();
 
         final String payload1 = "payload1";
@@ -98,13 +108,17 @@ public class DoubleLinkedListUnitTest_OE25Dev
         list.addFirst( node2 );
         list.addFirst(  node1 );
 
+        // DO WORK
         list.makeLast( node1 );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong last", node1, list.getLast() );
     }
 
     public void testMakeLast_wasFirst_3_oe()
     {
+        // SETUP
         final DoubleLinkedList<DoubleLinkedListNode<String>> list = new DoubleLinkedList<>();
 
         final String payload1 = "payload1";
@@ -116,13 +130,18 @@ public class DoubleLinkedListUnitTest_OE25Dev
         list.addFirst( node2 );
         list.addFirst(  node1 );
 
+        // DO WORK
         list.makeLast( node1 );
 
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
         assertEquals( "Wrong first", node2, list.getFirst() );
     }
 
     public void testMakeLast_wasLast_1_oe()
     {
+        // SETUP
         final DoubleLinkedList<DoubleLinkedListNode<String>> list = new DoubleLinkedList<>();
 
         final String payload1 = "payload1";
@@ -134,13 +153,16 @@ public class DoubleLinkedListUnitTest_OE25Dev
         list.addFirst( node1 );
         list.addFirst(  node2 );
 
+        // DO WORK
         list.makeLast( node1 );
 
+        // VERIFY
         assertEquals( "Wrong size", 2, list.size() );
     }
 
     public void testMakeLast_wasLast_2_oe()
     {
+        // SETUP
         final DoubleLinkedList<DoubleLinkedListNode<String>> list = new DoubleLinkedList<>();
 
         final String payload1 = "payload1";
@@ -152,13 +174,17 @@ public class DoubleLinkedListUnitTest_OE25Dev
         list.addFirst( node1 );
         list.addFirst(  node2 );
 
+        // DO WORK
         list.makeLast( node1 );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong last", node1, list.getLast() );
     }
 
     public void testMakeLast_wasLast_3_oe()
     {
+        // SETUP
         final DoubleLinkedList<DoubleLinkedListNode<String>> list = new DoubleLinkedList<>();
 
         final String payload1 = "payload1";
@@ -170,13 +196,18 @@ public class DoubleLinkedListUnitTest_OE25Dev
         list.addFirst( node1 );
         list.addFirst(  node2 );
 
+        // DO WORK
         list.makeLast( node1 );
 
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
         assertEquals( "Wrong first", node2, list.getFirst() );
     }
 
     public void testMakeLast_wasAlone_1_oe()
     {
+        // SETUP
         final DoubleLinkedList<DoubleLinkedListNode<String>> list = new DoubleLinkedList<>();
 
         final String payload1 = "payload1";
@@ -184,13 +215,16 @@ public class DoubleLinkedListUnitTest_OE25Dev
 
         list.addFirst( node1 );
 
+        // DO WORK
         list.makeLast( node1 );
 
+        // VERIFY
         assertEquals( "Wrong size", 1, list.size() );
     }
 
     public void testMakeLast_wasAlone_2_oe()
     {
+        // SETUP
         final DoubleLinkedList<DoubleLinkedListNode<String>> list = new DoubleLinkedList<>();
 
         final String payload1 = "payload1";
@@ -198,13 +232,17 @@ public class DoubleLinkedListUnitTest_OE25Dev
 
         list.addFirst( node1 );
 
+        // DO WORK
         list.makeLast( node1 );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong last", node1, list.getLast() );
     }
 
     public void testMakeLast_wasAlone_3_oe()
     {
+        // SETUP
         final DoubleLinkedList<DoubleLinkedListNode<String>> list = new DoubleLinkedList<>();
 
         final String payload1 = "payload1";
@@ -212,13 +250,18 @@ public class DoubleLinkedListUnitTest_OE25Dev
 
         list.addFirst( node1 );
 
+        // DO WORK
         list.makeLast( node1 );
 
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
         assertEquals( "Wrong first", node1, list.getFirst() );
     }
 
     public void testMakeLast_wasInMiddle_1_oe()
     {
+        // SETUP
         final DoubleLinkedList<DoubleLinkedListNode<String>> list = new DoubleLinkedList<>();
 
         final String payload1 = "payload1";
@@ -234,13 +277,16 @@ public class DoubleLinkedListUnitTest_OE25Dev
         list.addFirst(  node1 );
         list.addFirst(  node3 );
 
+        // DO WORK
         list.makeLast( node1 );
 
+        // VERIFY
         assertEquals( "Wrong size", 3, list.size() );
     }
 
     public void testMakeLast_wasInMiddle_2_oe()
     {
+        // SETUP
         final DoubleLinkedList<DoubleLinkedListNode<String>> list = new DoubleLinkedList<>();
 
         final String payload1 = "payload1";
@@ -256,13 +302,17 @@ public class DoubleLinkedListUnitTest_OE25Dev
         list.addFirst(  node1 );
         list.addFirst(  node3 );
 
+        // DO WORK
         list.makeLast( node1 );
 
+        // VERIFY
+        // removed other assertion
         assertEquals( "Wrong last", node1, list.getLast() );
     }
 
     public void testMakeLast_wasInMiddle_3_oe()
     {
+        // SETUP
         final DoubleLinkedList<DoubleLinkedListNode<String>> list = new DoubleLinkedList<>();
 
         final String payload1 = "payload1";
@@ -278,8 +328,12 @@ public class DoubleLinkedListUnitTest_OE25Dev
         list.addFirst(  node1 );
         list.addFirst(  node3 );
 
+        // DO WORK
         list.makeLast( node1 );
 
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
         assertEquals( "Wrong first", node3, list.getFirst() );
     }
 

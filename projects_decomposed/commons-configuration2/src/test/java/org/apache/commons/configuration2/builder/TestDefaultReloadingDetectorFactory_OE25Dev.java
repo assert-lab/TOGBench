@@ -64,6 +64,7 @@ public class TestDefaultReloadingDetectorFactory_OE25Dev {
         final Long refreshDelay = 10000L;
         params.setReloadingRefreshDelay(refreshDelay);
         final FileHandlerReloadingDetector detector = (FileHandlerReloadingDetector) factory.createReloadingDetector(handler, params);
+        // removed other assertion
         assertEquals("Wrong refresh delay", refreshDelay.longValue(), detector.getRefreshDelay());
     }
 

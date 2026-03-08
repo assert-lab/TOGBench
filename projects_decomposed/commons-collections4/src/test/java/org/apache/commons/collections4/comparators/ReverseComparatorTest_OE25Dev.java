@@ -77,6 +77,21 @@ public class ReverseComparatorTest_OE25Dev extends AbstractComparatorTest<Intege
      * doesn't adhere to the "soft" Comparator contract, and we've
      * already "canonized" the comparator returned by makeComparator.
      */
+    @Override
+    @Test
+    public void testSerializeDeserializeThenCompare() throws Exception {
+        final Comparator<?> comp = new ReverseComparator<>(new ComparableComparator<String>());
+
+        final ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        final ObjectOutputStream out = new ObjectOutputStream(buffer);
+        out.writeObject(comp);
+        out.close();
+
+        final ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(buffer.toByteArray()));
+        final Object dest = in.readObject();
+        in.close();
+        assertEquals("obj != deserialize(serialize(obj))",comp,dest);
+    }
 
     @Test
     public void testSerializeDeserializeThenCompare_1_oe() throws Exception {

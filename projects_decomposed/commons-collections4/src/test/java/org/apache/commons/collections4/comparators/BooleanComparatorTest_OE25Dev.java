@@ -84,6 +84,21 @@ public class BooleanComparatorTest_OE25Dev extends AbstractComparatorTest<Boolea
         allTests(true,BooleanComparator.booleanComparator(true));
     }
 
+    @Test
+    public void testEqualsCompatibleInstance() {
+        assertEquals(new BooleanComparator(),new BooleanComparator(false));
+        assertEquals(new BooleanComparator(false),new BooleanComparator(false));
+        assertEquals(new BooleanComparator(false),BooleanComparator.getFalseFirstComparator());
+        assertSame(BooleanComparator.getFalseFirstComparator(),BooleanComparator.booleanComparator(false));
+
+        assertEquals(new BooleanComparator(true),new BooleanComparator(true));
+        assertEquals(new BooleanComparator(true),BooleanComparator.getTrueFirstComparator());
+        assertSame(BooleanComparator.getTrueFirstComparator(),BooleanComparator.booleanComparator(true));
+
+        assertTrue(!new BooleanComparator().equals(new BooleanComparator(true)));
+        assertTrue(!new BooleanComparator(true).equals(new BooleanComparator(false)));
+    }
+
     // utilities
     // ------------------------------------------------------------------------
 

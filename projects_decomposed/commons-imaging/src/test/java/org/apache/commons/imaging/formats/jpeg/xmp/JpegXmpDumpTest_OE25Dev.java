@@ -42,6 +42,7 @@ public class JpegXmpDumpTest_OE25Dev extends JpegXmpBaseTest {
         final JpegImagingParameters params = new JpegImagingParameters();
         final String xmpXml = new JpegImageParser().getXmpXml(byteSource, params);
 
+        // TODO assert more
         assertNotNull(xmpXml);
     }
 

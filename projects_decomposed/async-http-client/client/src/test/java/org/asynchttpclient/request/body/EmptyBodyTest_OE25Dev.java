@@ -126,6 +126,7 @@ public class EmptyBodyTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       Response response = ahc.preparePut(getTargetUrl()).setBody("String").execute().get();
 
+      // removed other assertion
       assertEquals(response.getStatusCode(), 204);
   }
   }
@@ -135,6 +136,8 @@ public class EmptyBodyTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       Response response = ahc.preparePut(getTargetUrl()).setBody("String").execute().get();
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(response.getResponseBody(), "");
   }
   }
@@ -144,6 +147,9 @@ public class EmptyBodyTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       Response response = ahc.preparePut(getTargetUrl()).setBody("String").execute().get();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertNotNull(response.getResponseBodyAsStream());
   }
   }
@@ -153,6 +159,10 @@ public class EmptyBodyTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       Response response = ahc.preparePut(getTargetUrl()).setBody("String").execute().get();
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(response.getResponseBodyAsStream().read(), -1);
   }
   }

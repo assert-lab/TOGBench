@@ -1,0 +1,205 @@
+id,test_prefix,test_name
+commons-jcs3_22,"public void testPutSafe_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> access = JCS.getInstance( ""test"" );
+        assertNotNull( ""We should have an access class"", access );
+
+        final String key = ""mykey"";
+        final String value = ""myvalue"";
+
+        access.put( key, value );
+
+        final String returnedValue1 = access.get( key );
+        assertEquals( ""Wrong value returned."", value, returnedValue1 );
+
+        try
+        {
+            access.putSafe( key, ""someothervalue"" );
+            fail( ""We should have received an exception since this key is already in the cache."" );
+        }
+        catch ( final CacheException e )
+        {
+            assertTrue( ""Wrong type of exception."", e instanceof ObjectExistsException );
+            assertTrue( ""Should have the key in the error message."", e.getMessage().indexOf( ""["" + key + ""]"" ) != -1 );
+        }
+
+        final String returnedValue2 = access.get( key );
+        assertEquals( ""Wrong value returned.  Should still be the original."", value, returnedValue2 );
+    }",CacheAccessUnitTest::testPutSafe_oe
+commons-jcs3_23,"public void testPutNullKey_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> access = JCS.getInstance( ""test"" );
+        assertNotNull( ""We should have an access class"", access );
+
+        final String key = null;
+        final String value = ""myvalue"";
+
+        try
+        {
+            access.put( key, value );
+            fail( ""Should not have been able to put a null key."" );
+        }
+        catch ( final CacheException e )
+        {
+            assertTrue( ""Should have the word null in the error message."", e.getMessage().indexOf( ""null"" ) != -1 );
+        }
+    }",CacheAccessUnitTest::testPutNullKey_oe
+commons-jcs3_24,"public void testPutNullValue_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> access = JCS.getInstance( ""test"" );
+        assertNotNull( ""We should have an access class"", access );
+
+        final String key = ""myKey"";
+        final String value = null;
+
+        try
+        {
+            access.put( key, value );
+            fail( ""Should not have been able to put a null object."" );
+        }
+        catch ( final CacheException e )
+        {
+            assertTrue( ""Should have the word null in the error message."", e.getMessage().indexOf( ""null"" ) != -1 );
+        }
+    }",CacheAccessUnitTest::testPutNullValue_oe
+commons-jcs3_35,"public void testPutNullKey_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( ""test"" );
+        assertNotNull( ""We should have an access class"", access );
+
+        final String key = null;
+        final String group = ""mygroup"";
+        final String value = ""myvalue"";
+
+        try
+        {
+            access.putInGroup(key, group, value);
+            fail( ""Should not have been able to put a null key."" );
+        }
+        catch ( final CacheException e )
+        {
+            assertTrue( ""Should have the word null in the error message."", e.getMessage().indexOf( ""null"" ) != -1 );
+        }
+    }",GroupCacheAccessUnitTest::testPutNullKey_oe
+commons-jcs3_36,"public void testPutNullValue_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( ""test"" );
+        assertNotNull( ""We should have an access class"", access );
+
+        final String key = ""myKey"";
+        final String group = ""mygroup"";
+        final String value = null;
+
+        try
+        {
+            access.putInGroup(key, group, value);
+            fail( ""Should not have been able to put a null object."" );
+        }
+        catch ( final CacheException e )
+        {
+            assertTrue( ""Should have the word null in the error message."", e.getMessage().indexOf( ""null"" ) != -1 );
+        }
+    }",GroupCacheAccessUnitTest::testPutNullValue_oe
+commons-jcs3_132,"public void testNullSerializerConversion_oe()
+    {
+        // SETUP
+        final String cacheName = ""testName"";
+        final String key = ""key"";
+        final String value = ""value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf"";
+
+        final IElementSerializer elementSerializer = null;// new StandardSerializer();
+
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final ICacheElement<String, String> before = new CacheElement<>( cacheName, key, value );
+        before.setElementAttributes( attr );
+
+        // DO WORK
+        try
+        {
+            SerializationConversionUtil.getSerializedCacheElement( before, elementSerializer );
+
+            // VERIFY
+            fail( ""We should have received an IOException."" );
+        }
+        catch ( final IOException e )
+        {
+            // expected
+        }
+    }",SerializationConversionUtilUnitTest::testNullSerializerConversion_oe
+commons-jcs3_155,"public final void testDecompressByteArray_failure_oe()
+    {
+        try
+        {
+            // DO WORK
+            CompressionUtil.decompressByteArray( null );
+
+            // VERIFY
+            fail( ""excepted an IllegalArgumentException"" );
+        }
+        catch ( final IllegalArgumentException exception )
+        {
+            // expected
+            return;
+        }
+    }",CompressionUtilUnitTest::testDecompressByteArray_failure_oe
+commons-jcs3_289,"public void testGetDatesWithNullInput_oe()
+    {
+        try
+        {
+            ScheduleParser.createDatesForSchedule( null );
+
+            fail( ""Should have thrown an exception"" );
+        }
+        catch ( final ParseException e )
+        {
+            // expected
+        }
+    }",ScheduleParserUtilUnitTest::testGetDatesWithNullInput_oe
+commons-jcs3_290,"public void testGetDateWithNullInput_oe()
+    {
+        try
+        {
+            ScheduleParser.getDateForSchedule( null );
+
+            fail( ""Should have thrown an exception"" );
+        }
+        catch ( final ParseException e )
+        {
+            // expected
+        }
+    }",ScheduleParserUtilUnitTest::testGetDateWithNullInput_oe
+commons-jcs3_293,"public void testGetDatesMalformedNoColon_oe()
+    {
+        try
+        {
+            final String schedule = ""12:34:56,03:51:00,123234"";
+            ScheduleParser.createDatesForSchedule( schedule );
+
+            fail( ""Should have thrown an exception for a malformed date"" );
+        }
+        catch ( final ParseException e )
+        {
+            // expected
+        }
+    }",ScheduleParserUtilUnitTest::testGetDatesMalformedNoColon_oe
+commons-jcs3_294,"public void testGetDatesMalformedNan_oe()
+    {
+        try
+        {
+            final String schedule = ""12:34:56,03:51:00,aa:12:12"";
+            ScheduleParser.createDatesForSchedule( schedule );
+
+            fail( ""Should have thrown an exception for a malformed date"" );
+        }
+        catch ( final ParseException e )
+        {
+            // expected
+        }
+    }",ScheduleParserUtilUnitTest::testGetDatesMalformedNan_oe

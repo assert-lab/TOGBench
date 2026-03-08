@@ -111,6 +111,7 @@ public class MaxTotalConnectionTest_OE25Dev extends AbstractBasicTest {
       }
 
       latch.await();
+      // removed other assertion
       assertNull(failedUrl.get());
   }
   }
@@ -139,6 +140,8 @@ public class MaxTotalConnectionTest_OE25Dev extends AbstractBasicTest {
         try {
           futures.get(i).get();
         } catch (Exception e) {
+          // assert that 2nd request fails, because
+          // maxTotalConnections=1
           caughtError = true;
           break;
         }
@@ -172,11 +175,14 @@ public class MaxTotalConnectionTest_OE25Dev extends AbstractBasicTest {
         try {
           futures.get(i).get();
         } catch (Exception e) {
+          // assert that 2nd request fails, because
+          // maxTotalConnections=1
           caughtError = true;
           break;
         }
       }
 
+      // removed other assertion
       Assert.assertTrue(caughtError);
   }
   }

@@ -81,6 +81,7 @@ public class QueryParametersTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient client = asyncHttpClient()) {
       Future<Response> f = client.prepareGet("http://localhost:" + port1).addQueryParam("a", "1").addQueryParam("b", "2").execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -90,6 +91,8 @@ public class QueryParametersTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient client = asyncHttpClient()) {
       Future<Response> f = client.prepareGet("http://localhost:" + port1).addQueryParam("a", "1").addQueryParam("b", "2").execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getHeader("a"), "1");
   }
   }
@@ -99,6 +102,9 @@ public class QueryParametersTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient client = asyncHttpClient()) {
       Future<Response> f = client.prepareGet("http://localhost:" + port1).addQueryParam("a", "1").addQueryParam("b", "2").execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(resp.getHeader("b"), "2");
   }
   }

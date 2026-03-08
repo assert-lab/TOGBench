@@ -86,6 +86,7 @@ public class PostWithQueryStringTest_OE25Dev extends AbstractBasicTest {
     try (AsyncHttpClient client = asyncHttpClient()) {
       Future<Response> f = client.preparePost("http://localhost:" + port1 + "/?a=b").setBody("abc".getBytes()).execute();
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -124,6 +125,7 @@ public class PostWithQueryStringTest_OE25Dev extends AbstractBasicTest {
 
       });
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }
@@ -162,6 +164,7 @@ public class PostWithQueryStringTest_OE25Dev extends AbstractBasicTest {
 
       });
       Response resp = f.get(3, TimeUnit.SECONDS);
+      // removed other assertion
       assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
   }
   }

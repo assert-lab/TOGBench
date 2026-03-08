@@ -185,6 +185,7 @@ public class ByteSourceImageTest_OE25Dev extends ByteSourceTest {
     @MethodSource("data")
     public void test_2_oe(final File imageFile) throws Exception {
         Debug.debug("imageFile", imageFile);
+        // removed other assertion
 
         final byte[] imageFileBytes = FileUtils.readFileToByteArray(imageFile);
         assertNotNull(imageFileBytes);
@@ -194,8 +195,10 @@ public class ByteSourceImageTest_OE25Dev extends ByteSourceTest {
     @MethodSource("data")
     public void test_3_oe(final File imageFile) throws Exception {
         Debug.debug("imageFile", imageFile);
+        // removed other assertion
 
         final byte[] imageFileBytes = FileUtils.readFileToByteArray(imageFile);
+        // removed other assertion
         assertEquals(imageFileBytes.length, imageFile.length());
     }
 

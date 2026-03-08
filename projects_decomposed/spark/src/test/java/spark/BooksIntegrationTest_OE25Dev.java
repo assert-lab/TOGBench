@@ -120,6 +120,7 @@ public class BooksIntegrationTest_OE25Dev {
     public void canCreateBook_2_oe() {
         UrlResponse response = createBookViaPOST();
 
+        // removed other assertion
         assertNotNull(response.body);
     }
 
@@ -127,6 +128,8 @@ public class BooksIntegrationTest_OE25Dev {
     public void canCreateBook_3_oe() {
         UrlResponse response = createBookViaPOST();
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(Integer.valueOf(response.body) > 0);
     }
 
@@ -134,6 +137,9 @@ public class BooksIntegrationTest_OE25Dev {
     public void canCreateBook_4_oe() {
         UrlResponse response = createBookViaPOST();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(201, response.status);
     }
 
@@ -152,6 +158,7 @@ public class BooksIntegrationTest_OE25Dev {
 
         UrlResponse response = doMethod("GET", "/books", null);
 
+        // removed other assertion
         String body = response.body.trim();
         assertNotNull(body);
     }
@@ -162,7 +169,9 @@ public class BooksIntegrationTest_OE25Dev {
 
         UrlResponse response = doMethod("GET", "/books", null);
 
+        // removed other assertion
         String body = response.body.trim();
+        // removed other assertion
         assertTrue(Integer.valueOf(body) > 0);
     }
 
@@ -172,7 +181,10 @@ public class BooksIntegrationTest_OE25Dev {
 
         UrlResponse response = doMethod("GET", "/books", null);
 
+        // removed other assertion
         String body = response.body.trim();
+        // removed other assertion
+        // removed other assertion
         assertEquals(200, response.status);
     }
 
@@ -182,7 +194,11 @@ public class BooksIntegrationTest_OE25Dev {
 
         UrlResponse response = doMethod("GET", "/books", null);
 
+        // removed other assertion
         String body = response.body.trim();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(response.body.contains(bookId));
     }
 
@@ -203,6 +219,7 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = doMethod("GET", "/books/" + bookId, null);
 
         String result = response.body;
+        // removed other assertion
         assertNotNull(response.body);
     }
 
@@ -213,6 +230,8 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = doMethod("GET", "/books/" + bookId, null);
 
         String result = response.body;
+        // removed other assertion
+        // removed other assertion
         assertEquals(200, response.status);
     }
 
@@ -223,6 +242,9 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = doMethod("GET", "/books/" + bookId, null);
 
         String result = response.body;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(result.contains(AUTHOR));
     }
 
@@ -233,6 +255,10 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = doMethod("GET", "/books/" + bookId, null);
 
         String result = response.body;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(result.contains(TITLE));
     }
 
@@ -243,6 +269,11 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = doMethod("GET", "/books/" + bookId, null);
 
         String result = response.body;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(beforeFilterIsSet(response));
     }
 
@@ -253,6 +284,12 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = doMethod("GET", "/books/" + bookId, null);
 
         String result = response.body;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(afterFilterIsSet(response));
     }
 
@@ -273,6 +310,7 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = updateBook();
 
         String result = response.body;
+        // removed other assertion
         assertNotNull(response.body);
     }
 
@@ -283,6 +321,8 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = updateBook();
 
         String result = response.body;
+        // removed other assertion
+        // removed other assertion
         assertEquals(200, response.status);
     }
 
@@ -293,6 +333,9 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = updateBook();
 
         String result = response.body;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(result.contains(bookId));
     }
 
@@ -303,6 +346,10 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = updateBook();
 
         String result = response.body;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(result.contains("updated"));
     }
 
@@ -325,6 +372,7 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = doMethod("GET", "/books/" + bookId, null);
 
         String result = response.body;
+        // removed other assertion
         assertNotNull(response.body);
     }
 
@@ -336,6 +384,8 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = doMethod("GET", "/books/" + bookId, null);
 
         String result = response.body;
+        // removed other assertion
+        // removed other assertion
         assertEquals(200, response.status);
     }
 
@@ -347,6 +397,9 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = doMethod("GET", "/books/" + bookId, null);
 
         String result = response.body;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(result.contains(AUTHOR));
     }
 
@@ -358,6 +411,10 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = doMethod("GET", "/books/" + bookId, null);
 
         String result = response.body;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(result.contains(NEW_TITLE));
     }
 
@@ -378,6 +435,7 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = doMethod("DELETE", "/books/" + bookId, null);
 
         String result = response.body;
+        // removed other assertion
         assertNotNull(response.body);
     }
 
@@ -388,6 +446,8 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = doMethod("DELETE", "/books/" + bookId, null);
 
         String result = response.body;
+        // removed other assertion
+        // removed other assertion
         assertEquals(200, response.status);
     }
 
@@ -398,6 +458,9 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = doMethod("DELETE", "/books/" + bookId, null);
 
         String result = response.body;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(result.contains(bookId));
     }
 
@@ -408,6 +471,10 @@ public class BooksIntegrationTest_OE25Dev {
         UrlResponse response = doMethod("DELETE", "/books/" + bookId, null);
 
         String result = response.body;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue(result.contains("deleted"));
     }
 

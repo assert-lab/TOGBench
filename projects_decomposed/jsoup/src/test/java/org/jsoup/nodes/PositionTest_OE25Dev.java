@@ -22,13 +22,16 @@ class PositionTest_OE25Dev {
 
     @Test void parserTrackDefaults_2_oe() {
         Parser htmlParser = Parser.htmlParser();
+        // removed other assertion
         htmlParser.setTrackPosition(true);
         assertTrue(htmlParser.isTrackPosition());
         }
 
     @Test void parserTrackDefaults_3_oe() {
         Parser htmlParser = Parser.htmlParser();
+        // removed other assertion
         htmlParser.setTrackPosition(true);
+        // removed other assertion
 
         Parser xmlParser = Parser.htmlParser();
         assertFalse(xmlParser.isTrackPosition());
@@ -36,9 +39,12 @@ class PositionTest_OE25Dev {
 
     @Test void parserTrackDefaults_4_oe() {
         Parser htmlParser = Parser.htmlParser();
+        // removed other assertion
         htmlParser.setTrackPosition(true);
+        // removed other assertion
 
         Parser xmlParser = Parser.htmlParser();
+        // removed other assertion
         xmlParser.setTrackPosition(true);
         assertTrue(xmlParser.isTrackPosition());
         }
@@ -62,6 +68,7 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
         assertNotNull(now);
         }
@@ -74,7 +81,9 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
         assertNotNull(comment);
         }
@@ -87,8 +96,11 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
         assertFalse(body.sourceRange().isTracked());
         }
@@ -101,9 +113,13 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
         assertEquals("1,1:0-2,12:19", pRange.toString());
@@ -117,12 +133,18 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
         assertFalse(pEndRange.isTracked());
         }
@@ -135,13 +157,20 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
         assertTrue(pStart.isTracked());
@@ -155,15 +184,23 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
         assertEquals(0, pStart.pos());
         }
 
@@ -175,15 +212,24 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, pStart.columnNumber());
         }
 
@@ -195,15 +241,25 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, pStart.lineNumber());
         }
 
@@ -215,15 +271,26 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("1,1:0", pStart.toString());
         }
 
@@ -235,15 +302,27 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Range.Position pEnd = pRange.end();
         assertTrue(pStart.isTracked());
@@ -257,17 +336,30 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Range.Position pEnd = pRange.end();
+        // removed other assertion
         assertEquals(19, pEnd.pos());
         }
 
@@ -279,17 +371,31 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Range.Position pEnd = pRange.end();
+        // removed other assertion
+        // removed other assertion
         assertEquals(12, pEnd.columnNumber());
         }
 
@@ -301,17 +407,32 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Range.Position pEnd = pRange.end();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(2, pEnd.lineNumber());
         }
 
@@ -323,17 +444,33 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Range.Position pEnd = pRange.end();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("2,12:19", pEnd.toString());
         }
 
@@ -345,17 +482,34 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Range.Position pEnd = pRange.end();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("3,1:20", span.sourceRange().start().toString());
         }
@@ -368,18 +522,36 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Range.Position pEnd = pRange.end();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("3,7:26", span.sourceRange().end().toString());
         }
 
@@ -391,19 +563,39 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Range.Position pEnd = pRange.end();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // span end tag
         Range spanEnd = span.endSourceRange();
         assertTrue(spanEnd.isTracked());
         }
@@ -416,20 +608,41 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Range.Position pEnd = pRange.end();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // span end tag
         Range spanEnd = span.endSourceRange();
+        // removed other assertion
         assertEquals("5,14:52-5,21:59", spanEnd.toString());
         }
 
@@ -441,20 +654,42 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Range.Position pEnd = pRange.end();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // span end tag
         Range spanEnd = span.endSourceRange();
+        // removed other assertion
+        // removed other assertion
 
         String wholeText = text.getWholeText();
         assertEquals("Hello\n ®\n there ©.", wholeText);
@@ -468,22 +703,45 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Range.Position pEnd = pRange.end();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // span end tag
         Range spanEnd = span.endSourceRange();
+        // removed other assertion
+        // removed other assertion
 
         String wholeText = text.getWholeText();
+        // removed other assertion
         String textOrig = "Hello\n &reg;\n there &copy.";
         Range textRange = text.sourceRange();
         assertEquals(textRange.end().pos() -  textRange.start().pos(), textOrig.length());
@@ -497,24 +755,48 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Range.Position pEnd = pRange.end();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // span end tag
         Range spanEnd = span.endSourceRange();
+        // removed other assertion
+        // removed other assertion
 
         String wholeText = text.getWholeText();
+        // removed other assertion
         String textOrig = "Hello\n &reg;\n there &copy.";
         Range textRange = text.sourceRange();
+        // removed other assertion
         assertEquals("3,7:26", textRange.start().toString());
         }
 
@@ -526,24 +808,49 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Range.Position pEnd = pRange.end();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // span end tag
         Range spanEnd = span.endSourceRange();
+        // removed other assertion
+        // removed other assertion
 
         String wholeText = text.getWholeText();
+        // removed other assertion
         String textOrig = "Hello\n &reg;\n there &copy.";
         Range textRange = text.sourceRange();
+        // removed other assertion
+        // removed other assertion
         assertEquals("5,14:52", textRange.end().toString());
         }
 
@@ -555,24 +862,50 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Range.Position pEnd = pRange.end();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // span end tag
         Range spanEnd = span.endSourceRange();
+        // removed other assertion
+        // removed other assertion
 
         String wholeText = text.getWholeText();
+        // removed other assertion
         String textOrig = "Hello\n &reg;\n there &copy.";
         Range textRange = text.sourceRange();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("6,2:66", comment.sourceRange().start().toString());
         }
@@ -585,25 +918,52 @@ class PositionTest_OE25Dev {
         Element p = doc.expectFirst("p");
         Element span = doc.expectFirst("span");
         TextNode text = (TextNode) span.firstChild();
+        // removed other assertion
         TextNode now = (TextNode) span.nextSibling();
+        // removed other assertion
         Comment comment = (Comment) now.nextSibling();
+        // removed other assertion
 
+        // removed other assertion
 
         Range pRange = p.sourceRange();
+        // removed other assertion
 
+        // no explicit P closer
         Range pEndRange = p.endSourceRange();
+        // removed other assertion
 
         Range.Position pStart = pRange.start();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Range.Position pEnd = pRange.end();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // span end tag
         Range spanEnd = span.endSourceRange();
+        // removed other assertion
+        // removed other assertion
 
         String wholeText = text.getWholeText();
+        // removed other assertion
         String textOrig = "Hello\n &reg;\n there &copy.";
         Range textRange = text.sourceRange();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("6,18:82", comment.sourceRange().end().toString());
         }
 
@@ -620,6 +980,7 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(html, TrackingParser);
 
         DocumentType doctype = doc.documentType();
+        // removed other assertion
         assertEquals("html", doctype.name());
         }
 
@@ -628,6 +989,8 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(html, TrackingParser);
 
         DocumentType doctype = doc.documentType();
+        // removed other assertion
+        // removed other assertion
         assertEquals("1,1:0-2,6:15", doctype.sourceRange().toString());
         }
 
@@ -636,6 +999,9 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(html, TrackingParser);
 
         DocumentType doctype = doc.documentType();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Element title = doc.expectFirst("title");
         TextNode titleText = (TextNode) title.firstChild();
@@ -647,9 +1013,13 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(html, TrackingParser);
 
         DocumentType doctype = doc.documentType();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Element title = doc.expectFirst("title");
         TextNode titleText = (TextNode) title.firstChild();
+        // removed other assertion
         assertEquals("jsoup ©\n2022", title.text());
         }
 
@@ -658,9 +1028,14 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(html, TrackingParser);
 
         DocumentType doctype = doc.documentType();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Element title = doc.expectFirst("title");
         TextNode titleText = (TextNode) title.firstChild();
+        // removed other assertion
+        // removed other assertion
         assertEquals(titleText.getWholeText(), title.text());
         }
 
@@ -669,9 +1044,15 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(html, TrackingParser);
 
         DocumentType doctype = doc.documentType();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Element title = doc.expectFirst("title");
         TextNode titleText = (TextNode) title.firstChild();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("3,1:16-3,8:23", title.sourceRange().toString());
         }
 
@@ -680,9 +1061,16 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(html, TrackingParser);
 
         DocumentType doctype = doc.documentType();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Element title = doc.expectFirst("title");
         TextNode titleText = (TextNode) title.firstChild();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("3,8:23-4,5:40", titleText.sourceRange().toString());
         }
 
@@ -691,9 +1079,17 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(html, TrackingParser);
 
         DocumentType doctype = doc.documentType();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Element title = doc.expectFirst("title");
         TextNode titleText = (TextNode) title.firstChild();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         CDataNode cdata = (CDataNode) doc.body().childNode(1);
         assertEquals("\n<jsoup>\n", cdata.text());
@@ -704,11 +1100,20 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(html, TrackingParser);
 
         DocumentType doctype = doc.documentType();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Element title = doc.expectFirst("title");
         TextNode titleText = (TextNode) title.firstChild();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         CDataNode cdata = (CDataNode) doc.body().childNode(1);
+        // removed other assertion
         assertEquals("5,1:55-7,4:76", cdata.sourceRange().toString());
         }
 
@@ -725,6 +1130,7 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(html, TrackingParser);
 
         Element script = doc.expectFirst("script");
+        // removed other assertion
         assertEquals("2,1:7-2,9:15", script.sourceRange().toString());
         }
 
@@ -733,6 +1139,8 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(html, TrackingParser);
 
         Element script = doc.expectFirst("script");
+        // removed other assertion
+        // removed other assertion
         DataNode data = (DataNode) script.firstChild();
         assertNotNull(data);
         }
@@ -742,7 +1150,10 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(html, TrackingParser);
 
         Element script = doc.expectFirst("script");
+        // removed other assertion
+        // removed other assertion
         DataNode data = (DataNode) script.firstChild();
+        // removed other assertion
         assertEquals("2,9:15-4,8:33", data.sourceRange().toString());
         }
 
@@ -759,6 +1170,7 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(xml, Parser.xmlParser().setTrackPosition(true));
 
         XmlDeclaration decl = (XmlDeclaration) doc.childNode(0);
+        // removed other assertion
 
         DocumentType doctype = (DocumentType) doc.childNode(2);
         assertEquals("2,1:39-2,16:54", doctype.sourceRange().toString());
@@ -769,8 +1181,10 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(xml, Parser.xmlParser().setTrackPosition(true));
 
         XmlDeclaration decl = (XmlDeclaration) doc.childNode(0);
+        // removed other assertion
 
         DocumentType doctype = (DocumentType) doc.childNode(2);
+        // removed other assertion
 
         Element rss = doc.firstElementChild();
         assertNotNull(rss);
@@ -781,10 +1195,13 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(xml, Parser.xmlParser().setTrackPosition(true));
 
         XmlDeclaration decl = (XmlDeclaration) doc.childNode(0);
+        // removed other assertion
 
         DocumentType doctype = (DocumentType) doc.childNode(2);
+        // removed other assertion
 
         Element rss = doc.firstElementChild();
+        // removed other assertion
         assertEquals("3,1:55-3,14:68", rss.sourceRange().toString());
         }
 
@@ -793,10 +1210,14 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(xml, Parser.xmlParser().setTrackPosition(true));
 
         XmlDeclaration decl = (XmlDeclaration) doc.childNode(0);
+        // removed other assertion
 
         DocumentType doctype = (DocumentType) doc.childNode(2);
+        // removed other assertion
 
         Element rss = doc.firstElementChild();
+        // removed other assertion
+        // removed other assertion
         assertEquals("5,1:73-5,7:79", rss.endSourceRange().toString());
         }
 
@@ -805,10 +1226,15 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(xml, Parser.xmlParser().setTrackPosition(true));
 
         XmlDeclaration decl = (XmlDeclaration) doc.childNode(0);
+        // removed other assertion
 
         DocumentType doctype = (DocumentType) doc.childNode(2);
+        // removed other assertion
 
         Element rss = doc.firstElementChild();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         TextNode text = (TextNode) rss.firstChild();
         assertNotNull(text);
@@ -819,12 +1245,18 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(xml, Parser.xmlParser().setTrackPosition(true));
 
         XmlDeclaration decl = (XmlDeclaration) doc.childNode(0);
+        // removed other assertion
 
         DocumentType doctype = (DocumentType) doc.childNode(2);
+        // removed other assertion
 
         Element rss = doc.firstElementChild();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         TextNode text = (TextNode) rss.firstChild();
+        // removed other assertion
         assertEquals("3,14:68-5,1:73", text.sourceRange().toString());
         }
 
@@ -833,12 +1265,19 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.parse(xml, Parser.xmlParser().setTrackPosition(true));
 
         XmlDeclaration decl = (XmlDeclaration) doc.childNode(0);
+        // removed other assertion
 
         DocumentType doctype = (DocumentType) doc.childNode(2);
+        // removed other assertion
 
         Element rss = doc.firstElementChild();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         TextNode text = (TextNode) rss.firstChild();
+        // removed other assertion
+        // removed other assertion
 
         Comment comment = (Comment) rss.nextSibling().nextSibling();
         assertEquals("6,1:80-6,17:96", comment.sourceRange().toString());
@@ -857,6 +1296,7 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.connect(url).parser(TrackingParser).get();
 
         Element firstP = doc.expectFirst("p");
+        // removed other assertion
         assertEquals("4,1:53-4,4:56", firstP.sourceRange().toString());
         }
 
@@ -865,6 +1305,8 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.connect(url).parser(TrackingParser).get();
 
         Element firstP = doc.expectFirst("p");
+        // removed other assertion
+        // removed other assertion
 
         Element p = doc.expectFirst("#xy");
         assertNotNull(p);
@@ -875,8 +1317,11 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.connect(url).parser(TrackingParser).get();
 
         Element firstP = doc.expectFirst("p");
+        // removed other assertion
+        // removed other assertion
 
         Element p = doc.expectFirst("#xy");
+        // removed other assertion
         assertEquals("1000,1:279646-1000,10:279655", p.sourceRange().toString());
         }
 
@@ -885,8 +1330,12 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.connect(url).parser(TrackingParser).get();
 
         Element firstP = doc.expectFirst("p");
+        // removed other assertion
+        // removed other assertion
 
         Element p = doc.expectFirst("#xy");
+        // removed other assertion
+        // removed other assertion
         assertEquals("1000,567:280212-1000,571:280216", p.endSourceRange().toString());
         }
 
@@ -895,8 +1344,13 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.connect(url).parser(TrackingParser).get();
 
         Element firstP = doc.expectFirst("p");
+        // removed other assertion
+        // removed other assertion
 
         Element p = doc.expectFirst("#xy");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         TextNode text = (TextNode) p.firstChild();
         assertNotNull(text);
@@ -907,10 +1361,16 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.connect(url).parser(TrackingParser).get();
 
         Element firstP = doc.expectFirst("p");
+        // removed other assertion
+        // removed other assertion
 
         Element p = doc.expectFirst("#xy");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         TextNode text = (TextNode) p.firstChild();
+        // removed other assertion
         assertEquals("1000,10:279655-1000,357:280002", text.sourceRange().toString());
         }
 
@@ -927,6 +1387,7 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.connect(url).parser(Parser.xmlParser().setTrackPosition(true)).get();
 
         Element item = doc.expectFirst("item + item");
+        // removed other assertion
         assertEquals("13,5:496-13,11:502", item.sourceRange().toString());
         }
 
@@ -935,6 +1396,8 @@ class PositionTest_OE25Dev {
         Document doc = Jsoup.connect(url).parser(Parser.xmlParser().setTrackPosition(true)).get();
 
         Element item = doc.expectFirst("item + item");
+        // removed other assertion
+        // removed other assertion
         assertEquals("17,5:779-17,12:786", item.endSourceRange().toString());
         }
 

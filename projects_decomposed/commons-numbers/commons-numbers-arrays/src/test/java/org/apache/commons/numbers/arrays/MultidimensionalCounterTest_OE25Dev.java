@@ -43,6 +43,7 @@ class MultidimensionalCounterTest_OE25Dev {
 
     @Test
     void testPreconditions_2_oe() {
+        // removed other assertion
         try {
     MultidimensionalCounter.of(2, 0);
     fail("IllegalArgumentException");
@@ -52,6 +53,8 @@ class MultidimensionalCounterTest_OE25Dev {
 
     @Test
     void testPreconditions_3_oe() {
+        // removed other assertion
+        // removed other assertion
         try {
     MultidimensionalCounter.of(-1, 1);
     fail("IllegalArgumentException");
@@ -61,6 +64,9 @@ class MultidimensionalCounterTest_OE25Dev {
 
     @Test
     void testPreconditions_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         try {
     MultidimensionalCounter.of(-1, -1);
     fail("IllegalArgumentException");
@@ -70,6 +76,10 @@ class MultidimensionalCounterTest_OE25Dev {
 
     @Test
     void testPreconditions_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         try {
     MultidimensionalCounter.of(Integer.MAX_VALUE, 2, Integer.MAX_VALUE);
     fail("IllegalArgumentException");
@@ -79,6 +89,11 @@ class MultidimensionalCounterTest_OE25Dev {
 
     @Test
     void testPreconditions_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final MultidimensionalCounter c = MultidimensionalCounter.of(2, 3);
         try {
@@ -90,8 +105,14 @@ class MultidimensionalCounterTest_OE25Dev {
 
     @Test
     void testPreconditions_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final MultidimensionalCounter c = MultidimensionalCounter.of(2, 3);
+        // removed other assertion
         try {
     c.toUni(3, 1);
     fail("IndexOutOfBoundsException");
@@ -101,8 +122,15 @@ class MultidimensionalCounterTest_OE25Dev {
 
     @Test
     void testPreconditions_8_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final MultidimensionalCounter c = MultidimensionalCounter.of(2, 3);
+        // removed other assertion
+        // removed other assertion
         try {
     c.toUni(0, -1);
     fail("IndexOutOfBoundsException");
@@ -112,8 +140,16 @@ class MultidimensionalCounterTest_OE25Dev {
 
     @Test
     void testPreconditions_9_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final MultidimensionalCounter c = MultidimensionalCounter.of(2, 3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         try {
     c.toMulti(-1);
     fail("IndexOutOfBoundsException");
@@ -123,8 +159,17 @@ class MultidimensionalCounterTest_OE25Dev {
 
     @Test
     void testPreconditions_10_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final MultidimensionalCounter c = MultidimensionalCounter.of(2, 3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         try {
     c.toMulti(6);
     fail("IndexOutOfBoundsException");
@@ -141,6 +186,7 @@ class MultidimensionalCounterTest_OE25Dev {
     @Test
     void testMulti2UniConversion_2_oe() {
         final MultidimensionalCounter c = MultidimensionalCounter.of(2, 4, 5);
+        // removed other assertion
 
         for (int i = 0, max = c.getSize(); i < max; i++) {
             Assertions.assertEquals(i, c.toUni(c.toMulti(i)));
@@ -160,6 +206,7 @@ class MultidimensionalCounterTest_OE25Dev {
         final int[] originalSize = new int[] {2, 6, 5};
         final MultidimensionalCounter c = MultidimensionalCounter.of(originalSize);
         final int nDim = c.getDimension();
+        // removed other assertion
 
         final int[] size = c.getSizes();
         for (int i = 0; i < nDim; i++) {
@@ -232,6 +279,7 @@ class MultidimensionalCounterTest_OE25Dev {
         };
 
         final int totalSize = c.getSize();
+        // removed other assertion
 
         final int nDim = c.getDimension();
         for (int i = 0; i < totalSize; i++) {
@@ -270,9 +318,11 @@ class MultidimensionalCounterTest_OE25Dev {
         };
 
         final int totalSize = c.getSize();
+        // removed other assertion
 
         final int nDim = c.getDimension();
         for (int i = 0; i < totalSize; i++) {
+            // removed other assertion
 
             final int[] indices = c.toMulti(i);
             for (int dimIndex = 0; dimIndex < nDim; dimIndex++) {
@@ -307,6 +357,7 @@ class MultidimensionalCounterTest_OE25Dev {
 
         final MultidimensionalCounter counter = MultidimensionalCounter.of(sizes);
 
+        // removed other assertion
         Assertions.assertTrue(counter.getSize() > 0);
     }
 
@@ -318,6 +369,8 @@ class MultidimensionalCounterTest_OE25Dev {
 
         final MultidimensionalCounter counter = MultidimensionalCounter.of(sizes);
 
+        // removed other assertion
+        // removed other assertion
 
         for (int i = 0; i < counter.getSize(); i++) {
             cmIter.next();
@@ -333,9 +386,12 @@ class MultidimensionalCounterTest_OE25Dev {
 
         final MultidimensionalCounter counter = MultidimensionalCounter.of(sizes);
 
+        // removed other assertion
+        // removed other assertion
 
         for (int i = 0; i < counter.getSize(); i++) {
             cmIter.next();
+            // removed other assertion
         }
 
         Assertions.assertFalse(cmIter.hasNext());

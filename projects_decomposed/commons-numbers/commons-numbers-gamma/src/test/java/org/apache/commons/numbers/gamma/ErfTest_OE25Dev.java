@@ -86,6 +86,7 @@ class ErfTest_OE25Dev {
     void testLargeValues_2_oe() {
         for (int i = 1; i < 200; i *= 10) {
             double result = Erf.value(i);
+            // removed other assertion
             Assertions.assertTrue(result > 0 && result <= 1);
     }
     }
@@ -94,6 +95,8 @@ class ErfTest_OE25Dev {
     void testLargeValues_3_oe() {
         for (int i = 1; i < 200; i *= 10) {
             double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
             result = Erf.value(-i);
             Assertions.assertFalse(Double.isNaN(result));
     }
@@ -103,7 +106,10 @@ class ErfTest_OE25Dev {
     void testLargeValues_4_oe() {
         for (int i = 1; i < 200; i *= 10) {
             double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
             result = Erf.value(-i);
+            // removed other assertion
             Assertions.assertTrue(result >= -1 && result < 0);
     }
     }
@@ -112,7 +118,11 @@ class ErfTest_OE25Dev {
     void testLargeValues_5_oe() {
         for (int i = 1; i < 200; i *= 10) {
             double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
             result = Erf.value(-i);
+            // removed other assertion
+            // removed other assertion
             result = Erfc.value(i);
             Assertions.assertFalse(Double.isNaN(result));
     }
@@ -122,8 +132,13 @@ class ErfTest_OE25Dev {
     void testLargeValues_6_oe() {
         for (int i = 1; i < 200; i *= 10) {
             double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
             result = Erf.value(-i);
+            // removed other assertion
+            // removed other assertion
             result = Erfc.value(i);
+            // removed other assertion
             Assertions.assertTrue(result >= 0 && result < 1);
     }
     }
@@ -132,8 +147,14 @@ class ErfTest_OE25Dev {
     void testLargeValues_7_oe() {
         for (int i = 1; i < 200; i *= 10) {
             double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
             result = Erf.value(-i);
+            // removed other assertion
+            // removed other assertion
             result = Erfc.value(i);
+            // removed other assertion
+            // removed other assertion
             result = Erfc.value(-i);
             Assertions.assertFalse(Double.isNaN(result));
     }
@@ -143,9 +164,16 @@ class ErfTest_OE25Dev {
     void testLargeValues_8_oe() {
         for (int i = 1; i < 200; i *= 10) {
             double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
             result = Erf.value(-i);
+            // removed other assertion
+            // removed other assertion
             result = Erfc.value(i);
+            // removed other assertion
+            // removed other assertion
             result = Erfc.value(-i);
+            // removed other assertion
             Assertions.assertTrue(result >= 1 && result <= 2);
     }
     }
@@ -154,9 +182,17 @@ class ErfTest_OE25Dev {
     void testLargeValues_9_oe() {
         for (int i = 1; i < 200; i *= 10) {
             double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
             result = Erf.value(-i);
+            // removed other assertion
+            // removed other assertion
             result = Erfc.value(i);
+            // removed other assertion
+            // removed other assertion
             result = Erfc.value(-i);
+            // removed other assertion
+            // removed other assertion
         }
         Assertions.assertEquals(-1, Erf.value(Double.NEGATIVE_INFINITY));
     }
@@ -165,10 +201,19 @@ class ErfTest_OE25Dev {
     void testLargeValues_10_oe() {
         for (int i = 1; i < 200; i *= 10) {
             double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
             result = Erf.value(-i);
+            // removed other assertion
+            // removed other assertion
             result = Erfc.value(i);
+            // removed other assertion
+            // removed other assertion
             result = Erfc.value(-i);
+            // removed other assertion
+            // removed other assertion
         }
+        // removed other assertion
         Assertions.assertEquals(1, Erf.value(Double.POSITIVE_INFINITY));
     }
 
@@ -176,10 +221,20 @@ class ErfTest_OE25Dev {
     void testLargeValues_11_oe() {
         for (int i = 1; i < 200; i *= 10) {
             double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
             result = Erf.value(-i);
+            // removed other assertion
+            // removed other assertion
             result = Erfc.value(i);
+            // removed other assertion
+            // removed other assertion
             result = Erfc.value(-i);
+            // removed other assertion
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(2, Erfc.value(Double.NEGATIVE_INFINITY));
     }
 
@@ -187,10 +242,21 @@ class ErfTest_OE25Dev {
     void testLargeValues_12_oe() {
         for (int i = 1; i < 200; i *= 10) {
             double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
             result = Erf.value(-i);
+            // removed other assertion
+            // removed other assertion
             result = Erfc.value(i);
+            // removed other assertion
+            // removed other assertion
             result = Erfc.value(-i);
+            // removed other assertion
+            // removed other assertion
         }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0, Erfc.value(Double.POSITIVE_INFINITY));
     }
 
@@ -203,6 +269,7 @@ class ErfTest_OE25Dev {
         "3.291, 0.999",
     })
     void testErf_1_oe(double x, double expected) {
+        // Input must be divided by root(2)
         x /= Math.sqrt(2);
 
         double actual = Erf.value(x);
@@ -218,9 +285,11 @@ class ErfTest_OE25Dev {
         "3.291, 0.999",
     })
     void testErf_2_oe(double x, double expected) {
+        // Input must be divided by root(2)
         x /= Math.sqrt(2);
 
         double actual = Erf.value(x);
+        // removed other assertion
         Assertions.assertEquals(1 - expected, Erfc.value(x), 1e-5);
         }
 
@@ -233,9 +302,12 @@ class ErfTest_OE25Dev {
         "3.291, 0.999",
     })
     void testErf_3_oe(double x, double expected) {
+        // Input must be divided by root(2)
         x /= Math.sqrt(2);
 
         double actual = Erf.value(x);
+        // removed other assertion
+        // removed other assertion
 
         actual = Erf.value(-x);
         expected = -expected;
@@ -251,12 +323,16 @@ class ErfTest_OE25Dev {
         "3.291, 0.999",
     })
     void testErf_4_oe(double x, double expected) {
+        // Input must be divided by root(2)
         x /= Math.sqrt(2);
 
         double actual = Erf.value(x);
+        // removed other assertion
+        // removed other assertion
 
         actual = Erf.value(-x);
         expected = -expected;
+        // removed other assertion
         Assertions.assertEquals(1 - expected, Erfc.value(-x), 1e-5);
         }
 

@@ -33,6 +33,12 @@ public abstract class AbstractPredicateTest_OE25Dev {
         cInteger = Integer.valueOf(6);
     }
 
+    @Test
+    public void predicateSanityTests() throws Exception {
+        final Predicate<?> predicate = generatePredicate();
+        Assert.assertNotNull(predicate);
+    }
+
     /**
      * @return a predicate for general sanity tests.
      */

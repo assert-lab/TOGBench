@@ -346,6 +346,9 @@ public class FTPTimestampParserImplTest_OE25Dev extends TestCase {
         final String fmtTime = sdf.format(anHourFromNow);
         try {
             final Calendar parsed = parser.parseTimestamp(fmtTime);
+            // since the timestamp is ahead of now (by one hour),
+            // this must mean the file's date refers to a year ago.
+            // removed other assertion
         } catch (final ParseException e) {
             fail("Unable to parse");
     }
@@ -364,6 +367,7 @@ public class FTPTimestampParserImplTest_OE25Dev extends TestCase {
 
         final FTPTimestampParserImpl parser = new FTPTimestampParserImpl();
 
+        // set the "slop" factor on
         parser.setLenientFutureDates(true);
 
         final SimpleDateFormat sdf =
@@ -371,9 +375,16 @@ public class FTPTimestampParserImplTest_OE25Dev extends TestCase {
         try {
             String fmtTime = sdf.format(anHourFromNow);
             Calendar parsed = parser.parseTimestamp(fmtTime);
+            // the timestamp is ahead of now (by one hour), but
+            // that's within range of the "slop" factor.
+            // so the date is still considered this year.
+            // removed other assertion
 
+            // add a day to get beyond the range of the slop factor.
+            // this must mean the file's date refers to a year ago.
             fmtTime = sdf.format(anHourFromNowTomorrow);
             parsed = parser.parseTimestamp(fmtTime);
+            // removed other assertion
 
         } catch (final ParseException e) {
             fail("Unable to parse");
@@ -387,6 +398,7 @@ public class FTPTimestampParserImplTest_OE25Dev extends TestCase {
         final GregorianCalendar now = new GregorianCalendar(2012, Calendar.FEBRUARY, 28, 12, 0);
 
         final GregorianCalendar nowplus1 = new GregorianCalendar(2012, Calendar.FEBRUARY, 28, 13, 0);
+        // Create a suitable short date
         final String future1 = sdf.format(nowplus1.getTime());
         final Calendar parsed1 = parser.parseTimestamp(future1, now);
         assertEquals(nowplus1.get(Calendar.YEAR), parsed1.get(Calendar.YEAR));
@@ -399,10 +411,13 @@ public class FTPTimestampParserImplTest_OE25Dev extends TestCase {
         final GregorianCalendar now = new GregorianCalendar(2012, Calendar.FEBRUARY, 28, 12, 0);
 
         final GregorianCalendar nowplus1 = new GregorianCalendar(2012, Calendar.FEBRUARY, 28, 13, 0);
+        // Create a suitable short date
         final String future1 = sdf.format(nowplus1.getTime());
         final Calendar parsed1 = parser.parseTimestamp(future1, now);
+        // removed other assertion
 
         final GregorianCalendar nowplus25 = new GregorianCalendar(2012, Calendar.FEBRUARY, 29, 13, 0);
+        // Create a suitable short date
         final String future25 = sdf.format(nowplus25.getTime());
         final Calendar parsed25 = parser.parseTimestamp(future25, now);
         assertEquals(nowplus25.get(Calendar.YEAR) - 1, parsed25.get(Calendar.YEAR));
@@ -424,10 +439,13 @@ public class FTPTimestampParserImplTest_OE25Dev extends TestCase {
 
         final FTPTimestampParserImpl parser = new FTPTimestampParserImpl();
 
+        // assume we are FTPing a server in Chicago, two hours ahead of
+        // L. A.
         final FTPClientConfig config =
             new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr(FTPTimestampParser.DEFAULT_SDF);
         config.setRecentDateFormatStr(FTPTimestampParser.DEFAULT_RECENT_SDF);
+        // 2 hours difference
         config.setServerTimeZoneId("America/Chicago");
         config.setLenientFutureDates(false); // NET-407
         parser.configure(config);
@@ -435,15 +453,20 @@ public class FTPTimestampParserImplTest_OE25Dev extends TestCase {
         final SimpleDateFormat sdf = (SimpleDateFormat)
             parser.getRecentDateFormat().clone();
 
+        // assume we're in the US Pacific Time Zone
         final TimeZone tzla = TimeZone.getTimeZone("America/Los_Angeles");
         sdf.setTimeZone(tzla);
 
+        // get formatted versions of time in L.A.
         final String fmtTimePlusOneHour = sdf.format(anHourFromNow);
         final String fmtTimePlusThreeHours = sdf.format(threeHoursFromNow);
 
 
         try {
             final Calendar parsed = parser.parseTimestamp(fmtTimePlusOneHour);
+            // the only difference should be the two hours
+            // difference, no rolling back a year should occur.
+            // removed other assertion
         } catch (final ParseException e){
             fail("Unable to parse " + fmtTimePlusOneHour);
     }
@@ -465,10 +488,13 @@ public class FTPTimestampParserImplTest_OE25Dev extends TestCase {
 
         final FTPTimestampParserImpl parser = new FTPTimestampParserImpl();
 
+        // assume we are FTPing a server in Chicago, two hours ahead of
+        // L. A.
         final FTPClientConfig config =
             new FTPClientConfig(FTPClientConfig.SYST_UNIX);
         config.setDefaultDateFormatStr(FTPTimestampParser.DEFAULT_SDF);
         config.setRecentDateFormatStr(FTPTimestampParser.DEFAULT_RECENT_SDF);
+        // 2 hours difference
         config.setServerTimeZoneId("America/Chicago");
         config.setLenientFutureDates(false); // NET-407
         parser.configure(config);
@@ -476,20 +502,32 @@ public class FTPTimestampParserImplTest_OE25Dev extends TestCase {
         final SimpleDateFormat sdf = (SimpleDateFormat)
             parser.getRecentDateFormat().clone();
 
+        // assume we're in the US Pacific Time Zone
         final TimeZone tzla = TimeZone.getTimeZone("America/Los_Angeles");
         sdf.setTimeZone(tzla);
 
+        // get formatted versions of time in L.A.
         final String fmtTimePlusOneHour = sdf.format(anHourFromNow);
         final String fmtTimePlusThreeHours = sdf.format(threeHoursFromNow);
 
 
         try {
             final Calendar parsed = parser.parseTimestamp(fmtTimePlusOneHour);
+            // the only difference should be the two hours
+            // difference, no rolling back a year should occur.
+            // removed other assertion
         } catch (final ParseException e){
+            // removed other assertion
         }
 
+        //but if the file's timestamp is THREE hours ahead of now, that should
+        //cause a rollover even taking the time zone difference into account.
+        //Since that time is still later than ours, it is parsed as occurring
+        //on this date last year.
         try {
             final Calendar parsed = parser.parseTimestamp(fmtTimePlusThreeHours);
+            // rollback should occur here.
+            // removed other assertion
         } catch (final ParseException e){
             fail("Unable to parse" + fmtTimePlusThreeHours);
     }

@@ -53,6 +53,7 @@ public class TiffOutputSetTest_OE25Dev {
 
         final TiffOutputField gpsVersionId = tiffOutputSet.findField(GpsTagConstants.GPS_TAG_GPS_VERSION_ID);
 
+        // removed other assertion
         assertTrue(gpsVersionId.bytesEqual(GpsTagConstants.gpsVersion()));
     }
 

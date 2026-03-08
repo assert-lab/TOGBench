@@ -78,6 +78,7 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
         assertTrue(parser instanceof UnixFTPEntryParser);
@@ -88,8 +89,10 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
         assertFalse(((UnixFTPEntryParser)parser).trimLeadingSpaces);
     }
 
@@ -98,8 +101,11 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
         assertTrue(parser instanceof UnixFTPEntryParser);
@@ -110,10 +116,14 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
         assertTrue(((UnixFTPEntryParser)parser).trimLeadingSpaces);
     }
 
@@ -122,10 +132,15 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("Unix");
         assertTrue(parser instanceof UnixFTPEntryParser);
@@ -136,12 +151,18 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("Unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("EnterpriseUnix");
         assertTrue(parser instanceof UnixFTPEntryParser);
@@ -152,14 +173,21 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("Unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("EnterpriseUnix");
+        // removed other assertion
         assertFalse(parser instanceof EnterpriseUnixFTPEntryParser);
     }
 
@@ -168,15 +196,24 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("Unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("EnterpriseUnix");
+        // removed other assertion
+        // removed other assertion
 
+        // works because contains the expression "Unix"
         parser = factory.createFileEntryParser("UnixFTPEntryParser");
         assertTrue(parser instanceof UnixFTPEntryParser);
     }
@@ -186,19 +223,30 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("Unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("EnterpriseUnix");
+        // removed other assertion
+        // removed other assertion
 
+        // works because contains the expression "Unix"
         parser = factory.createFileEntryParser("UnixFTPEntryParser");
+        // removed other assertion
 
         try {
             parser = factory.createFileEntryParser("NT");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
             assertNull(pie.getCause());
     }
@@ -209,20 +257,32 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("Unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("EnterpriseUnix");
+        // removed other assertion
+        // removed other assertion
 
+        // works because contains the expression "Unix"
         parser = factory.createFileEntryParser("UnixFTPEntryParser");
+        // removed other assertion
 
         try {
             parser = factory.createFileEntryParser("NT");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
+            // removed other assertion
             assertTrue(pie.getMessage()+ "should contain 'Unknown parser type:'",pie.getMessage().contains("Unknown parser type:"));
     }
     }
@@ -232,20 +292,33 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("Unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("EnterpriseUnix");
+        // removed other assertion
+        // removed other assertion
 
+        // works because contains the expression "Unix"
         parser = factory.createFileEntryParser("UnixFTPEntryParser");
+        // removed other assertion
 
         try {
             parser = factory.createFileEntryParser("NT");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
+            // removed other assertion
+            // removed other assertion
         }
 
         parser = factory.createFileEntryParser("WindowsNT");
@@ -257,23 +330,37 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("Unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("EnterpriseUnix");
+        // removed other assertion
+        // removed other assertion
 
+        // works because contains the expression "Unix"
         parser = factory.createFileEntryParser("UnixFTPEntryParser");
+        // removed other assertion
 
         try {
             parser = factory.createFileEntryParser("NT");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
+            // removed other assertion
+            // removed other assertion
         }
 
         parser = factory.createFileEntryParser("WindowsNT");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("ThigaVMSaMaJig");
         assertTrue(parser instanceof VMSFTPEntryParser);
@@ -284,25 +371,40 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("Unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("EnterpriseUnix");
+        // removed other assertion
+        // removed other assertion
 
+        // works because contains the expression "Unix"
         parser = factory.createFileEntryParser("UnixFTPEntryParser");
+        // removed other assertion
 
         try {
             parser = factory.createFileEntryParser("NT");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
+            // removed other assertion
+            // removed other assertion
         }
 
         parser = factory.createFileEntryParser("WindowsNT");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("ThigaVMSaMaJig");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("OS/2");
         assertTrue(parser instanceof OS2FTPEntryParser);
@@ -313,27 +415,43 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("Unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("EnterpriseUnix");
+        // removed other assertion
+        // removed other assertion
 
+        // works because contains the expression "Unix"
         parser = factory.createFileEntryParser("UnixFTPEntryParser");
+        // removed other assertion
 
         try {
             parser = factory.createFileEntryParser("NT");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
+            // removed other assertion
+            // removed other assertion
         }
 
         parser = factory.createFileEntryParser("WindowsNT");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("ThigaVMSaMaJig");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("OS/2");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("OS/400");
         assertTrue(parser instanceof CompositeFileEntryParser);
@@ -344,29 +462,46 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("Unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("EnterpriseUnix");
+        // removed other assertion
+        // removed other assertion
 
+        // works because contains the expression "Unix"
         parser = factory.createFileEntryParser("UnixFTPEntryParser");
+        // removed other assertion
 
         try {
             parser = factory.createFileEntryParser("NT");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
+            // removed other assertion
+            // removed other assertion
         }
 
         parser = factory.createFileEntryParser("WindowsNT");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("ThigaVMSaMaJig");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("OS/2");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("OS/400");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("AS/400");
         assertTrue(parser instanceof CompositeFileEntryParser);
@@ -377,36 +512,58 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("Unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("EnterpriseUnix");
+        // removed other assertion
+        // removed other assertion
 
+        // works because contains the expression "Unix"
         parser = factory.createFileEntryParser("UnixFTPEntryParser");
+        // removed other assertion
 
         try {
             parser = factory.createFileEntryParser("NT");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
+            // removed other assertion
+            // removed other assertion
         }
 
         parser = factory.createFileEntryParser("WindowsNT");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("ThigaVMSaMaJig");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("OS/2");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("OS/400");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("AS/400");
+        // removed other assertion
 
+        // Added test to make sure it handles the Unix systems that were
+        // compiled with OS as "UNKNOWN". This test validates that the
+        // check is case-insensitive.
         parser = factory.createFileEntryParser("UNKNOWN Type: L8");
 
         try {
             parser = factory.createFileEntryParser("OS2FTPFileEntryParser");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
             assertNull(pie.getCause());
     }
@@ -417,37 +574,60 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("Unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("EnterpriseUnix");
+        // removed other assertion
+        // removed other assertion
 
+        // works because contains the expression "Unix"
         parser = factory.createFileEntryParser("UnixFTPEntryParser");
+        // removed other assertion
 
         try {
             parser = factory.createFileEntryParser("NT");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
+            // removed other assertion
+            // removed other assertion
         }
 
         parser = factory.createFileEntryParser("WindowsNT");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("ThigaVMSaMaJig");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("OS/2");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("OS/400");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("AS/400");
+        // removed other assertion
 
+        // Added test to make sure it handles the Unix systems that were
+        // compiled with OS as "UNKNOWN". This test validates that the
+        // check is case-insensitive.
         parser = factory.createFileEntryParser("UNKNOWN Type: L8");
 
         try {
             parser = factory.createFileEntryParser("OS2FTPFileEntryParser");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
+            // removed other assertion
         }
 
         parser = factory.createFileEntryParser(
@@ -460,45 +640,70 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("Unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("EnterpriseUnix");
+        // removed other assertion
+        // removed other assertion
 
+        // works because contains the expression "Unix"
         parser = factory.createFileEntryParser("UnixFTPEntryParser");
+        // removed other assertion
 
         try {
             parser = factory.createFileEntryParser("NT");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
+            // removed other assertion
+            // removed other assertion
         }
 
         parser = factory.createFileEntryParser("WindowsNT");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("ThigaVMSaMaJig");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("OS/2");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("OS/400");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("AS/400");
+        // removed other assertion
 
+        // Added test to make sure it handles the Unix systems that were
+        // compiled with OS as "UNKNOWN". This test validates that the
+        // check is case-insensitive.
         parser = factory.createFileEntryParser("UNKNOWN Type: L8");
 
         try {
             parser = factory.createFileEntryParser("OS2FTPFileEntryParser");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
+            // removed other assertion
         }
 
         parser = factory.createFileEntryParser(
             "org.apache.commons.net.ftp.parser.OS2FTPEntryParser");
+        // removed other assertion
 
         try {
             factory.createFileEntryParser(
                 "org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
             final Throwable root = pie.getCause();
             assertTrue(root instanceof ClassCastException);
@@ -510,51 +715,79 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("Unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("EnterpriseUnix");
+        // removed other assertion
+        // removed other assertion
 
+        // works because contains the expression "Unix"
         parser = factory.createFileEntryParser("UnixFTPEntryParser");
+        // removed other assertion
 
         try {
             parser = factory.createFileEntryParser("NT");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
+            // removed other assertion
+            // removed other assertion
         }
 
         parser = factory.createFileEntryParser("WindowsNT");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("ThigaVMSaMaJig");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("OS/2");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("OS/400");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("AS/400");
+        // removed other assertion
 
+        // Added test to make sure it handles the Unix systems that were
+        // compiled with OS as "UNKNOWN". This test validates that the
+        // check is case-insensitive.
         parser = factory.createFileEntryParser("UNKNOWN Type: L8");
 
         try {
             parser = factory.createFileEntryParser("OS2FTPFileEntryParser");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
+            // removed other assertion
         }
 
         parser = factory.createFileEntryParser(
             "org.apache.commons.net.ftp.parser.OS2FTPEntryParser");
+        // removed other assertion
 
         try {
             factory.createFileEntryParser(
                 "org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
             final Throwable root = pie.getCause();
+            // removed other assertion
         }
 
         try {
+            // Class exists, but is an interface
             factory.createFileEntryParser("org.apache.commons.net.ftp.parser.FTPFileEntryParserFactory");
+            // removed other assertion
         } catch (final ParserInitializationException pie){
             final Throwable root = pie.getCause();
             assertTrue(root instanceof InstantiationException);
@@ -566,56 +799,87 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             new DefaultFTPFileEntryParserFactory();
 
         FTPFileEntryParser parser = factory.createFileEntryParser("unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("UNIX_LTRIM");
+        // removed other assertion
+        // removed other assertion
 
         parser = factory.createFileEntryParser("Unix");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("EnterpriseUnix");
+        // removed other assertion
+        // removed other assertion
 
+        // works because contains the expression "Unix"
         parser = factory.createFileEntryParser("UnixFTPEntryParser");
+        // removed other assertion
 
         try {
             parser = factory.createFileEntryParser("NT");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
+            // removed other assertion
+            // removed other assertion
         }
 
         parser = factory.createFileEntryParser("WindowsNT");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("ThigaVMSaMaJig");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("OS/2");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("OS/400");
+        // removed other assertion
 
         parser = factory.createFileEntryParser("AS/400");
+        // removed other assertion
 
+        // Added test to make sure it handles the Unix systems that were
+        // compiled with OS as "UNKNOWN". This test validates that the
+        // check is case-insensitive.
         parser = factory.createFileEntryParser("UNKNOWN Type: L8");
 
         try {
             parser = factory.createFileEntryParser("OS2FTPFileEntryParser");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
+            // removed other assertion
         }
 
         parser = factory.createFileEntryParser(
             "org.apache.commons.net.ftp.parser.OS2FTPEntryParser");
+        // removed other assertion
 
         try {
             factory.createFileEntryParser(
                 "org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory");
+            // removed other assertion
         } catch (final ParserInitializationException pie) {
             final Throwable root = pie.getCause();
+            // removed other assertion
         }
 
         try {
+            // Class exists, but is an interface
             factory.createFileEntryParser("org.apache.commons.net.ftp.parser.FTPFileEntryParserFactory");
+            // removed other assertion
         } catch (final ParserInitializationException pie){
             final Throwable root = pie.getCause();
+            // removed other assertion
         }
         try {
+            // Class exists, but is abstract
             factory.createFileEntryParser("org.apache.commons.net.ftp.FTPFileEntryParserImpl");
+            // removed other assertion
         } catch (final ParserInitializationException pie){
             final Throwable root = pie.getCause();
             assertTrue(root instanceof InstantiationException);

@@ -29,6 +29,7 @@ public class NetUtilTest_OE25Dev {
 	@Test
 	public void portDetect_2_oe() throws UnknownHostException, IOException {
 		int port = NetUtil.findRandomAvailablePort(20000, 20100);
+		// removed other assertion
 		System.out.println("random port:" + port);
 
 		assertThat(NetUtil.isPortAvailable(port)).isTrue();
@@ -37,8 +38,10 @@ public class NetUtilTest_OE25Dev {
 	@Test
 	public void portDetect_3_oe() throws UnknownHostException, IOException {
 		int port = NetUtil.findRandomAvailablePort(20000, 20100);
+		// removed other assertion
 		System.out.println("random port:" + port);
 
+		// removed other assertion
 
 		int port2 = NetUtil.findAvailablePortFrom(port);
 		assertThat(port2).isEqualTo(port);
@@ -47,10 +50,13 @@ public class NetUtilTest_OE25Dev {
 	@Test
 	public void portDetect_4_oe() throws UnknownHostException, IOException {
 		int port = NetUtil.findRandomAvailablePort(20000, 20100);
+		// removed other assertion
 		System.out.println("random port:" + port);
 
+		// removed other assertion
 
 		int port2 = NetUtil.findAvailablePortFrom(port);
+		// removed other assertion
 
 		int port3 = NetUtil.findRandomAvailablePort();
 

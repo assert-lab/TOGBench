@@ -40,6 +40,7 @@ public class NonStringTestHolder_OE25Dev {
 
     public void testBoolean_2_oe() throws Exception {
         final boolean booleanValue = configuration.getBoolean("test.boolean");
+        // removed other assertion
         Assert.assertEquals(1, configuration.getList("test.boolean").size());
     }
 
@@ -50,6 +51,7 @@ public class NonStringTestHolder_OE25Dev {
 
     public void testBooleanDefaultValue_2_oe() throws Exception {
         final boolean booleanValue = configuration.getBoolean("test.boolean.missing", true);
+        // removed other assertion
 
         final Boolean booleanObject = configuration.getBoolean("test.boolean.missing", Boolean.valueOf(true));
         Assert.assertEquals(Boolean.valueOf(true), booleanObject);
@@ -64,6 +66,7 @@ public class NonStringTestHolder_OE25Dev {
     public void testByte_2_oe() throws Exception {
         final byte testValue = 10;
         final byte byteValue = configuration.getByte("test.byte");
+        // removed other assertion
         Assert.assertEquals(1, configuration.getList("test.byte").size());
     }
 
@@ -76,6 +79,7 @@ public class NonStringTestHolder_OE25Dev {
     public void testDouble_2_oe() throws Exception {
         final double testValue = 10.25;
         final double doubleValue = configuration.getDouble("test.double");
+        // removed other assertion
         Assert.assertEquals(1, configuration.getList("test.double").size());
     }
 
@@ -95,6 +99,7 @@ public class NonStringTestHolder_OE25Dev {
     public void testFloat_2_oe() throws Exception {
         final float testValue = (float) 20.25;
         final float floatValue = configuration.getFloat("test.float");
+        // removed other assertion
         Assert.assertEquals(1, configuration.getList("test.float").size());
     }
 
@@ -111,6 +116,7 @@ public class NonStringTestHolder_OE25Dev {
 
     public void testInteger_2_oe() throws Exception {
         final int intValue = configuration.getInt("test.integer");
+        // removed other assertion
         Assert.assertEquals(1, configuration.getList("test.integer").size());
     }
 
@@ -135,6 +141,7 @@ public class NonStringTestHolder_OE25Dev {
 
     public void testLong_2_oe() throws Exception {
         final long longValue = configuration.getLong("test.long");
+        // removed other assertion
         Assert.assertEquals(1, configuration.getList("test.long").size());
     }
 
@@ -150,6 +157,7 @@ public class NonStringTestHolder_OE25Dev {
 
     public void testShort_2_oe() throws Exception {
         final short shortValue = configuration.getShort("test.short");
+        // removed other assertion
         Assert.assertEquals(1, configuration.getList("test.short").size());
     }
 
@@ -161,6 +169,7 @@ public class NonStringTestHolder_OE25Dev {
     public void testSubset_1_oe() throws Exception {
         final Configuration subset = configuration.subset("test");
 
+        // search the "short" key in the subset using the key iterator
         boolean foundKeyValue = false;
         final Iterator<String> it = subset.getKeys();
         while (it.hasNext() && !foundKeyValue) {

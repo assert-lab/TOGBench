@@ -57,6 +57,7 @@ public class TestManagedReloadingDetector_OE25Dev {
     @Test
     public void testRefresh_2_oe() {
         strategy.refresh();
+        // removed other assertion
         assertTrue("Reloading state not permanent", strategy.isReloadingRequired());
     }
 

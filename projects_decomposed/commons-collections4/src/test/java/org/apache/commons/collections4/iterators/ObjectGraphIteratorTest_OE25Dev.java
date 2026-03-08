@@ -71,6 +71,21 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
     }
 
     //-----------------------------------------------------------------------
+    public void testIteratorConstructor_null1() {
+        final Iterator<Object> it = new ObjectGraphIterator<>(null);
+
+        assertEquals(false, it.hasNext());
+        try {
+            it.next();
+            fail();
+        } catch (final NoSuchElementException ex) {
+        }
+        try {
+            it.remove();
+            fail();
+        } catch (final IllegalStateException ex) {
+        }
+    }
 
     public void testIteratorConstructor_null_next() {
         final Iterator<Object> it = new ObjectGraphIterator<>(null);
@@ -91,10 +106,249 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
     }
 
     //-----------------------------------------------------------------------
+    public void testIteratorConstructorIteration_Empty() {
+        final List<Iterator<Object>> iteratorList = new ArrayList<>();
+        final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator());
+
+        assertEquals(false, it.hasNext());
+        try {
+            it.next();
+            fail();
+        } catch (final NoSuchElementException ex) {
+        }
+        try {
+            it.remove();
+            fail();
+        } catch (final IllegalStateException ex) {
+        }
+    }
+
+    public void testIteratorConstructorIteration_Simple() {
+        final List<Iterator<String>> iteratorList = new ArrayList<>();
+        iteratorList.add(list1.iterator());
+        iteratorList.add(list2.iterator());
+        iteratorList.add(list3.iterator());
+        final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator());
+
+        for (int i = 0; i < 6; i++) {
+            assertEquals(true, it.hasNext());
+            assertEquals(testArray[i], it.next());
+        }
+        assertEquals(false, it.hasNext());
+        try {
+            it.next();
+            fail();
+        } catch (final NoSuchElementException ex) {
+        }
+    }
+
+    public void testIteratorConstructorIteration_SimpleNoHasNext() {
+        final List<Iterator<String>> iteratorList = new ArrayList<>();
+        iteratorList.add(list1.iterator());
+        iteratorList.add(list2.iterator());
+        iteratorList.add(list3.iterator());
+        final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator());
+
+        for (int i = 0; i < 6; i++) {
+            assertEquals(testArray[i], it.next());
+        }
+        try {
+            it.next();
+            fail();
+        } catch (final NoSuchElementException ex) {
+        }
+    }
+
+    public void testIteratorConstructorIteration_WithEmptyIterators() {
+        final List<Iterator<String>> iteratorList = new ArrayList<>();
+        iteratorList.add(IteratorUtils.<String>emptyIterator());
+        iteratorList.add(list1.iterator());
+        iteratorList.add(IteratorUtils.<String>emptyIterator());
+        iteratorList.add(list2.iterator());
+        iteratorList.add(IteratorUtils.<String>emptyIterator());
+        iteratorList.add(list3.iterator());
+        iteratorList.add(IteratorUtils.<String>emptyIterator());
+        final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator());
+
+        for (int i = 0; i < 6; i++) {
+            assertEquals(true, it.hasNext());
+            assertEquals(testArray[i], it.next());
+        }
+        assertEquals(false, it.hasNext());
+        try {
+            it.next();
+            fail();
+        } catch (final NoSuchElementException ex) {
+        }
+    }
+
+    public void testIteratorConstructorRemove() {
+        final List<Iterator<String>> iteratorList = new ArrayList<>();
+        iteratorList.add(list1.iterator());
+        iteratorList.add(list2.iterator());
+        iteratorList.add(list3.iterator());
+        final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator());
+
+        for (int i = 0; i < 6; i++) {
+            assertEquals(testArray[i], it.next());
+            it.remove();
+        }
+        assertEquals(false, it.hasNext());
+        assertEquals(0, list1.size());
+        assertEquals(0, list2.size());
+        assertEquals(0, list3.size());
+    }
 
     //-----------------------------------------------------------------------
+    public void testIteration_IteratorOfIterators() {
+        final List<Iterator<String>> iteratorList = new ArrayList<>();
+        iteratorList.add(list1.iterator());
+        iteratorList.add(list2.iterator());
+        iteratorList.add(list3.iterator());
+        final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator(), null);
+
+        for (int i = 0; i < 6; i++) {
+            assertEquals(true, it.hasNext());
+            assertEquals(testArray[i], it.next());
+        }
+        assertEquals(false, it.hasNext());
+    }
+
+    public void testIteration_IteratorOfIteratorsWithEmptyIterators() {
+        final List<Iterator<String>> iteratorList = new ArrayList<>();
+        iteratorList.add(IteratorUtils.<String>emptyIterator());
+        iteratorList.add(list1.iterator());
+        iteratorList.add(IteratorUtils.<String>emptyIterator());
+        iteratorList.add(list2.iterator());
+        iteratorList.add(IteratorUtils.<String>emptyIterator());
+        iteratorList.add(list3.iterator());
+        iteratorList.add(IteratorUtils.<String>emptyIterator());
+        final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator(), null);
+
+        for (int i = 0; i < 6; i++) {
+            assertEquals(true, it.hasNext());
+            assertEquals(testArray[i], it.next());
+        }
+        assertEquals(false, it.hasNext());
+    }
 
     //-----------------------------------------------------------------------
+    public void testIteration_RootNull() {
+        final Iterator<Object> it = new ObjectGraphIterator<>(null, null);
+
+        assertEquals(false, it.hasNext());
+        try {
+            it.next();
+            fail();
+        } catch (final NoSuchElementException ex) {
+        }
+        try {
+            it.remove();
+            fail();
+        } catch (final IllegalStateException ex) {
+        }
+    }
+
+    public void testIteration_RootNoTransformer() {
+        final Forest forest = new Forest();
+        final Iterator<Object> it = new ObjectGraphIterator<>(forest, null);
+
+        assertEquals(true, it.hasNext());
+        assertSame(forest, it.next());
+        assertEquals(false, it.hasNext());
+        try {
+            it.next();
+            fail();
+        } catch (final NoSuchElementException ex) {
+        }
+    }
+
+    public void testIteration_Transformed1() {
+        final Forest forest = new Forest();
+        final Leaf l1 = forest.addTree().addBranch().addLeaf();
+        final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
+
+        assertEquals(true, it.hasNext());
+        assertSame(l1, it.next());
+        assertEquals(false, it.hasNext());
+        try {
+            it.next();
+            fail();
+        } catch (final NoSuchElementException ex) {
+        }
+    }
+
+    public void testIteration_Transformed2() {
+        final Forest forest = new Forest();
+        forest.addTree();
+        forest.addTree();
+        forest.addTree();
+        final Branch b1 = forest.getTree(0).addBranch();
+        final Branch b2 = forest.getTree(0).addBranch();
+        final Branch b3 = forest.getTree(2).addBranch();
+        /* Branch b4 = */ forest.getTree(2).addBranch();
+        final Branch b5 = forest.getTree(2).addBranch();
+        final Leaf l1 = b1.addLeaf();
+        final Leaf l2 = b1.addLeaf();
+        final Leaf l3 = b2.addLeaf();
+        final Leaf l4 = b3.addLeaf();
+        final Leaf l5 = b5.addLeaf();
+
+        final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
+
+        assertEquals(true, it.hasNext());
+        assertSame(l1, it.next());
+        assertEquals(true, it.hasNext());
+        assertSame(l2, it.next());
+        assertEquals(true, it.hasNext());
+        assertSame(l3, it.next());
+        assertEquals(true, it.hasNext());
+        assertSame(l4, it.next());
+        assertEquals(true, it.hasNext());
+        assertSame(l5, it.next());
+        assertEquals(false, it.hasNext());
+        try {
+            it.next();
+            fail();
+        } catch (final NoSuchElementException ex) {
+        }
+    }
+
+    public void testIteration_Transformed3() {
+        final Forest forest = new Forest();
+        forest.addTree();
+        forest.addTree();
+        forest.addTree();
+        final Branch b1 = forest.getTree(1).addBranch();
+        final Branch b2 = forest.getTree(1).addBranch();
+        final Branch b3 = forest.getTree(2).addBranch();
+        final Branch b4 = forest.getTree(2).addBranch();
+        /* Branch b5 = */ forest.getTree(2).addBranch();
+        final Leaf l1 = b1.addLeaf();
+        final Leaf l2 = b1.addLeaf();
+        final Leaf l3 = b2.addLeaf();
+        final Leaf l4 = b3.addLeaf();
+        final Leaf l5 = b4.addLeaf();
+
+        final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
+
+        assertEquals(true, it.hasNext());
+        assertSame(l1, it.next());
+        assertEquals(true, it.hasNext());
+        assertSame(l2, it.next());
+        assertEquals(true, it.hasNext());
+        assertSame(l3, it.next());
+        assertEquals(true, it.hasNext());
+        assertSame(l4, it.next());
+        assertEquals(true, it.hasNext());
+        assertSame(l5, it.next());
+        assertEquals(false, it.hasNext());
+        try {
+            it.next();
+            fail();
+        } catch (final NoSuchElementException ex) {
+        }
+    }
 
     //-----------------------------------------------------------------------
     static class LeafFinder implements Transformer<Object, Object> {

@@ -196,6 +196,7 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
 
         script = JEXL.createScript("x.y.z");
         result = script.execute(ctxt);
+        // removed other assertion
         Assert.assertEquals(42, ctxt.get("x.y.z"));
     }
 
@@ -209,10 +210,13 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
 
         script = JEXL.createScript("x.y.z");
         result = script.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
 
         options.setAntish(false);
         try {
             result = script.execute(ctxt);
+            // removed other assertion
         } catch(final JexlException.Variable xvar) {
             Assert.assertEquals("x", xvar.getVariable());
     }
@@ -228,11 +232,15 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
 
         script = JEXL.createScript("x.y.z");
         result = script.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
 
         options.setAntish(false);
         try {
             result = script.execute(ctxt);
+            // removed other assertion
         } catch(final JexlException.Variable xvar) {
+            // removed other assertion
         } catch(final JexlException xother) {
             Assert.assertNotNull(xother);
     }
@@ -248,12 +256,17 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
 
         script = JEXL.createScript("x.y.z");
         result = script.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
 
         options.setAntish(false);
         try {
             result = script.execute(ctxt);
+            // removed other assertion
         } catch(final JexlException.Variable xvar) {
+            // removed other assertion
         } catch(final JexlException xother) {
+            // removed other assertion
         } finally {
             options.setAntish(true);
         }
@@ -274,12 +287,17 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
 
         script = JEXL.createScript("x.y.z");
         result = script.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
 
         options.setAntish(false);
         try {
             result = script.execute(ctxt);
+            // removed other assertion
         } catch(final JexlException.Variable xvar) {
+            // removed other assertion
         } catch(final JexlException xother) {
+            // removed other assertion
         } finally {
             options.setAntish(true);
         }
@@ -287,9 +305,11 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
         result = null;
         script = JEXL.createScript("x?.y?.z");
         result = script.execute(ctxt);
+        // removed other assertion
         script = JEXL.createScript("x?.y?.z = 3");
         try {
              result = script.execute(ctxt);
+             // removed other assertion
         } catch(final JexlException xjexl) {
             Assert.assertNull(result);
     }
@@ -305,12 +325,17 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
 
         script = JEXL.createScript("x.y.z");
         result = script.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
 
         options.setAntish(false);
         try {
             result = script.execute(ctxt);
+            // removed other assertion
         } catch(final JexlException.Variable xvar) {
+            // removed other assertion
         } catch(final JexlException xother) {
+            // removed other assertion
         } finally {
             options.setAntish(true);
         }
@@ -318,16 +343,20 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
         result = null;
         script = JEXL.createScript("x?.y?.z");
         result = script.execute(ctxt);
+        // removed other assertion
         script = JEXL.createScript("x?.y?.z = 3");
         try {
              result = script.execute(ctxt);
+             // removed other assertion
         } catch(final JexlException xjexl) {
+            // removed other assertion
         }
 
         result = null;
         script = JEXL.createScript("x.y?.z");
         try {
              result = script.execute(ctxt);
+             // removed other assertion
         } catch(final JexlException xjexl) {
             Assert.assertNull(result);
     }
@@ -343,12 +372,17 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
 
         script = JEXL.createScript("x.y.z");
         result = script.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
 
         options.setAntish(false);
         try {
             result = script.execute(ctxt);
+            // removed other assertion
         } catch(final JexlException.Variable xvar) {
+            // removed other assertion
         } catch(final JexlException xother) {
+            // removed other assertion
         } finally {
             options.setAntish(true);
         }
@@ -356,23 +390,29 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
         result = null;
         script = JEXL.createScript("x?.y?.z");
         result = script.execute(ctxt);
+        // removed other assertion
         script = JEXL.createScript("x?.y?.z = 3");
         try {
              result = script.execute(ctxt);
+             // removed other assertion
         } catch(final JexlException xjexl) {
+            // removed other assertion
         }
 
         result = null;
         script = JEXL.createScript("x.y?.z");
         try {
              result = script.execute(ctxt);
+             // removed other assertion
         } catch(final JexlException xjexl) {
+            // removed other assertion
         }
 
         result = null;
         script = JEXL.createScript("x.y?.z = 3");
         try {
              result = script.execute(ctxt);
+             // removed other assertion
         } catch(final JexlException xjexl) {
             Assert.assertNull(result);
     }
@@ -388,12 +428,17 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
 
         script = JEXL.createScript("x.y.z");
         result = script.execute(ctxt);
+        // removed other assertion
+        // removed other assertion
 
         options.setAntish(false);
         try {
             result = script.execute(ctxt);
+            // removed other assertion
         } catch(final JexlException.Variable xvar) {
+            // removed other assertion
         } catch(final JexlException xother) {
+            // removed other assertion
         } finally {
             options.setAntish(true);
         }
@@ -401,30 +446,38 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
         result = null;
         script = JEXL.createScript("x?.y?.z");
         result = script.execute(ctxt);
+        // removed other assertion
         script = JEXL.createScript("x?.y?.z = 3");
         try {
              result = script.execute(ctxt);
+             // removed other assertion
         } catch(final JexlException xjexl) {
+            // removed other assertion
         }
 
         result = null;
         script = JEXL.createScript("x.y?.z");
         try {
              result = script.execute(ctxt);
+             // removed other assertion
         } catch(final JexlException xjexl) {
+            // removed other assertion
         }
 
         result = null;
         script = JEXL.createScript("x.y?.z = 3");
         try {
              result = script.execute(ctxt);
+             // removed other assertion
         } catch(final JexlException xjexl) {
+            // removed other assertion
         }
 
         result = null;
         script = JEXL.createScript("x.`'y'`.z = 3");
         try {
              result = script.execute(ctxt);
+             // removed other assertion
         } catch(final JexlException xjexl) {
             Assert.assertNull(result);
     }

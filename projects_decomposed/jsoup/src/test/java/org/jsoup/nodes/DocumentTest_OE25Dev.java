@@ -68,12 +68,15 @@ public class DocumentTest_OE25Dev {
     @Test public void setTextPreservesDocumentStructure_2_oe() {
         Document doc = Jsoup.parse("<p>Hello</p>");
         doc.text("Replaced");
+        // removed other assertion
         assertEquals("Replaced", doc.body().text());
         }
 
     @Test public void setTextPreservesDocumentStructure_3_oe() {
         Document doc = Jsoup.parse("<p>Hello</p>");
         doc.text("Replaced");
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, doc.select("head").size());
         }
 
@@ -88,6 +91,7 @@ public class DocumentTest_OE25Dev {
         Document noTitle = Jsoup.parse("<p>Hello</p>");
         Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
 
+        // removed other assertion
         noTitle.title("Hello");
         assertEquals("Hello", noTitle.title());
         }
@@ -96,7 +100,9 @@ public class DocumentTest_OE25Dev {
         Document noTitle = Jsoup.parse("<p>Hello</p>");
         Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
 
+        // removed other assertion
         noTitle.title("Hello");
+        // removed other assertion
         assertEquals("Hello", noTitle.select("title").first().text());
         }
 
@@ -104,7 +110,10 @@ public class DocumentTest_OE25Dev {
         Document noTitle = Jsoup.parse("<p>Hello</p>");
         Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
 
+        // removed other assertion
         noTitle.title("Hello");
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("First", withTitle.title());
         }
@@ -113,8 +122,12 @@ public class DocumentTest_OE25Dev {
         Document noTitle = Jsoup.parse("<p>Hello</p>");
         Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
 
+        // removed other assertion
         noTitle.title("Hello");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         withTitle.title("Hello");
         assertEquals("Hello", withTitle.title());
         }
@@ -123,9 +136,14 @@ public class DocumentTest_OE25Dev {
         Document noTitle = Jsoup.parse("<p>Hello</p>");
         Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
 
+        // removed other assertion
         noTitle.title("Hello");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         withTitle.title("Hello");
+        // removed other assertion
         assertEquals("Hello", withTitle.select("title").first().text());
         }
 
@@ -133,9 +151,15 @@ public class DocumentTest_OE25Dev {
         Document noTitle = Jsoup.parse("<p>Hello</p>");
         Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
 
+        // removed other assertion
         noTitle.title("Hello");
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         withTitle.title("Hello");
+        // removed other assertion
+        // removed other assertion
 
         Document normaliseTitle = Jsoup.parse("<title>   Hello\nthere   \n   now   \n");
         assertEquals("Hello there now", normaliseTitle.title());
@@ -143,16 +167,22 @@ public class DocumentTest_OE25Dev {
 
     @Test public void testOutputEncoding_1_oe() {
         Document doc = Jsoup.parse("<p title=π>π & < > </p>");
+        // default is utf-8
         assertEquals("<p title=\"π\">π &amp; &lt; &gt;</p>", doc.body().html());
         }
 
     @Test public void testOutputEncoding_2_oe() {
         Document doc = Jsoup.parse("<p title=π>π & < > </p>");
+        // default is utf-8
+        // removed other assertion
         assertEquals("UTF-8", doc.outputSettings().charset().name());
         }
 
     @Test public void testOutputEncoding_3_oe() {
         Document doc = Jsoup.parse("<p title=π>π & < > </p>");
+        // default is utf-8
+        // removed other assertion
+        // removed other assertion
 
         doc.outputSettings().charset("ascii");
         assertEquals(Entities.EscapeMode.base, doc.outputSettings().escapeMode());
@@ -160,15 +190,24 @@ public class DocumentTest_OE25Dev {
 
     @Test public void testOutputEncoding_4_oe() {
         Document doc = Jsoup.parse("<p title=π>π & < > </p>");
+        // default is utf-8
+        // removed other assertion
+        // removed other assertion
 
         doc.outputSettings().charset("ascii");
+        // removed other assertion
         assertEquals("<p title=\"&#x3c0;\">&#x3c0; &amp; &lt; &gt;</p>", doc.body().html());
         }
 
     @Test public void testOutputEncoding_5_oe() {
         Document doc = Jsoup.parse("<p title=π>π & < > </p>");
+        // default is utf-8
+        // removed other assertion
+        // removed other assertion
 
         doc.outputSettings().charset("ascii");
+        // removed other assertion
+        // removed other assertion
 
         doc.outputSettings().escapeMode(Entities.EscapeMode.extended);
         assertEquals("<p title=\"&pi;\">&pi; &amp; &lt; &gt;</p>", doc.body().html());
@@ -192,6 +231,7 @@ public class DocumentTest_OE25Dev {
 
     @Test public void accessorsWillNormalizeStructure_2_oe() {
         Document doc = new Document("");
+        // removed other assertion
 
         Element body = doc.body();
         assertEquals("body", body.tagName());
@@ -199,17 +239,22 @@ public class DocumentTest_OE25Dev {
 
     @Test public void accessorsWillNormalizeStructure_3_oe() {
         Document doc = new Document("");
+        // removed other assertion
 
         Element body = doc.body();
+        // removed other assertion
         Element head = doc.head();
         assertEquals("head", head.tagName());
         }
 
     @Test public void accessorsWillNormalizeStructure_4_oe() {
         Document doc = new Document("");
+        // removed other assertion
 
         Element body = doc.body();
+        // removed other assertion
         Element head = doc.head();
+        // removed other assertion
         assertEquals("<html><head></head><body></body></html>", TextUtil.stripNewlines(doc.html()));
         }
 
@@ -226,6 +271,7 @@ public class DocumentTest_OE25Dev {
         Document doc = parser.parseInput("<!DOCTYPE html><HTML><HEAD><TITLE>SHOUTY</TITLE></HEAD><BODY>HELLO</BODY></HTML>", "");
 
         Element body = doc.body();
+        // removed other assertion
         assertEquals("body", body.normalName());
         }
 
@@ -234,6 +280,8 @@ public class DocumentTest_OE25Dev {
         Document doc = parser.parseInput("<!DOCTYPE html><HTML><HEAD><TITLE>SHOUTY</TITLE></HEAD><BODY>HELLO</BODY></HTML>", "");
 
         Element body = doc.body();
+        // removed other assertion
+        // removed other assertion
         Element head = doc.head();
         assertEquals("HEAD", head.tagName());
         }
@@ -243,7 +291,10 @@ public class DocumentTest_OE25Dev {
         Document doc = parser.parseInput("<!DOCTYPE html><HTML><HEAD><TITLE>SHOUTY</TITLE></HEAD><BODY>HELLO</BODY></HTML>", "");
 
         Element body = doc.body();
+        // removed other assertion
+        // removed other assertion
         Element head = doc.head();
+        // removed other assertion
         assertEquals("body", body.normalName());
         }
 
@@ -252,7 +303,11 @@ public class DocumentTest_OE25Dev {
         Document doc = parser.parseInput("<!DOCTYPE html><HTML><HEAD><TITLE>SHOUTY</TITLE></HEAD><BODY>HELLO</BODY></HTML>", "");
 
         Element body = doc.body();
+        // removed other assertion
+        // removed other assertion
         Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
 
         Element root = doc.selectFirst("html");
         assertEquals("HTML", root.tagName());
@@ -263,9 +318,14 @@ public class DocumentTest_OE25Dev {
         Document doc = parser.parseInput("<!DOCTYPE html><HTML><HEAD><TITLE>SHOUTY</TITLE></HEAD><BODY>HELLO</BODY></HTML>", "");
 
         Element body = doc.body();
+        // removed other assertion
+        // removed other assertion
         Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
 
         Element root = doc.selectFirst("html");
+        // removed other assertion
         assertEquals("html", root.normalName());
         }
 
@@ -274,9 +334,15 @@ public class DocumentTest_OE25Dev {
         Document doc = parser.parseInput("<!DOCTYPE html><HTML><HEAD><TITLE>SHOUTY</TITLE></HEAD><BODY>HELLO</BODY></HTML>", "");
 
         Element body = doc.body();
+        // removed other assertion
+        // removed other assertion
         Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
 
         Element root = doc.selectFirst("html");
+        // removed other assertion
+        // removed other assertion
         assertEquals("SHOUTY", doc.title());
         }
 
@@ -291,6 +357,7 @@ public class DocumentTest_OE25Dev {
         Document doc = Jsoup.parse("<title>Hello</title> <p>One<p>Two");
         Document clone = doc.clone();
 
+        // removed other assertion
         clone.title("Hello there");
         clone.expectFirst("p").text("One more").attr("id", "1");
         assertEquals("<html><head><title>Hello there</title></head><body><p id=\"1\">One more</p><p>Two</p></body></html>", TextUtil.stripNewlines(clone.html()));
@@ -300,8 +367,10 @@ public class DocumentTest_OE25Dev {
         Document doc = Jsoup.parse("<title>Hello</title> <p>One<p>Two");
         Document clone = doc.clone();
 
+        // removed other assertion
         clone.title("Hello there");
         clone.expectFirst("p").text("One more").attr("id", "1");
+        // removed other assertion
         assertEquals("<html><head><title>Hello</title></head><body><p>One</p><p>Two</p></body></html>", TextUtil.stripNewlines(doc.html()));
         }
 
@@ -322,6 +391,7 @@ public class DocumentTest_OE25Dev {
         Document doc = Jsoup.parse("<!DOCTYPE html><html><head><title>Doctype test");
         Document clone = doc.clone();
 
+        // removed other assertion
         assertEquals("<!doctype html><html><head><title>Doctype test</title></head><body></body></html>",TextUtil.stripNewlines(clone.html()));
         }
 
@@ -338,6 +408,7 @@ public class DocumentTest_OE25Dev {
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/index.html");
         String location = doc.location();
         String baseUri = doc.baseUri();
+        // removed other assertion
         assertEquals("http://www.yahoo.co.jp/_ylh=X3oDMTB0NWxnaGxsBF9TAzIwNzcyOTYyNjUEdGlkAzEyBHRtcGwDZ2Ex/",baseUri);
     	}
 
@@ -346,6 +417,8 @@ public class DocumentTest_OE25Dev {
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/index.html");
         String location = doc.location();
         String baseUri = doc.baseUri();
+        // removed other assertion
+        // removed other assertion
         in = ParseTest.getFile("/htmltests/nyt-article-1.html.gz");
         doc = Jsoup.parse(in, null, "http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp");
         location = doc.location();
@@ -358,10 +431,13 @@ public class DocumentTest_OE25Dev {
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/index.html");
         String location = doc.location();
         String baseUri = doc.baseUri();
+        // removed other assertion
+        // removed other assertion
         in = ParseTest.getFile("/htmltests/nyt-article-1.html.gz");
         doc = Jsoup.parse(in, null, "http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp");
         location = doc.location();
         baseUri = doc.baseUri();
+        // removed other assertion
         assertEquals("http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp",baseUri);
     	}
 
@@ -410,6 +486,7 @@ public class DocumentTest_OE25Dev {
         Document doc = Jsoup.parse(sb.toString());
 
         String expectedLink = "https://jsoup.org/example.html";
+        // removed other assertion
         Document clone = doc.clone();
         doc.hasSameValue(clone);
         assertEquals(expectedLink, clone.selectFirst("a").attr("abs:href"));
@@ -428,6 +505,7 @@ public class DocumentTest_OE25Dev {
         Document docB = Jsoup.parse("<div/>One");
         Document docC = Jsoup.parse("<div/>Two");
 
+        // removed other assertion
         assertEquals(docA, docA);
         }
 
@@ -436,6 +514,8 @@ public class DocumentTest_OE25Dev {
         Document docB = Jsoup.parse("<div/>One");
         Document docC = Jsoup.parse("<div/>Two");
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(docA.hashCode(), docA.hashCode());
         }
 
@@ -444,6 +524,9 @@ public class DocumentTest_OE25Dev {
         Document docB = Jsoup.parse("<div/>One");
         Document docC = Jsoup.parse("<div/>Two");
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNotEquals(docA.hashCode(), docC.hashCode());
         }
 
@@ -460,6 +543,7 @@ public class DocumentTest_OE25Dev {
         Document docB = Jsoup.parse("<div/>One");
         Document docC = Jsoup.parse("<div/>Two");
 
+        // removed other assertion
         assertFalse(docA.hasSameValue(docC));
         }
 
@@ -490,6 +574,7 @@ public class DocumentTest_OE25Dev {
                                         " </head>\n" +
                                         " <body></body>\n" +
                                         "</html>";
+        // removed other assertion
 
         Element selectedElement = doc.select("meta[charset]").first();
         assertEquals(charsetUtf8, doc.charset().name());
@@ -507,8 +592,10 @@ public class DocumentTest_OE25Dev {
                                         " </head>\n" +
                                         " <body></body>\n" +
                                         "</html>";
+        // removed other assertion
 
         Element selectedElement = doc.select("meta[charset]").first();
+        // removed other assertion
         assertEquals(charsetUtf8, selectedElement.attr("charset"));
     }
 
@@ -524,8 +611,11 @@ public class DocumentTest_OE25Dev {
                                         " </head>\n" +
                                         " <body></body>\n" +
                                         "</html>";
+        // removed other assertion
 
         Element selectedElement = doc.select("meta[charset]").first();
+        // removed other assertion
+        // removed other assertion
         assertEquals(doc.charset(), doc.outputSettings().charset());
     }
 
@@ -556,6 +646,7 @@ public class DocumentTest_OE25Dev {
                                         " </head>\n" +
                                         " <body></body>\n" +
                                         "</html>";
+        // removed other assertion
 
         Element selectedElement = doc.select("meta[charset]").first();
         assertEquals(charsetIso8859, doc.charset().name());
@@ -573,8 +664,10 @@ public class DocumentTest_OE25Dev {
                                         " </head>\n" +
                                         " <body></body>\n" +
                                         "</html>";
+        // removed other assertion
 
         Element selectedElement = doc.select("meta[charset]").first();
+        // removed other assertion
         assertEquals(charsetIso8859, selectedElement.attr("charset"));
     }
 
@@ -590,8 +683,11 @@ public class DocumentTest_OE25Dev {
                                         " </head>\n" +
                                         " <body></body>\n" +
                                         "</html>";
+        // removed other assertion
 
         Element selectedElement = doc.select("meta[charset]").first();
+        // removed other assertion
+        // removed other assertion
         assertEquals(doc.charset(), doc.outputSettings().charset());
     }
 
@@ -610,6 +706,7 @@ public class DocumentTest_OE25Dev {
         docNoCharset.updateMetaCharsetElement(true);
         docNoCharset.charset(Charset.forName(charsetUtf8));
 
+        // removed other assertion
 
         final String htmlCharsetUTF8 = "<html>\n" +
                                         " <head>\n" +
@@ -639,6 +736,7 @@ public class DocumentTest_OE25Dev {
                                         " <head></head>\n" +
                                         " <body></body>\n" +
                                         "</html>";
+        // removed other assertion
         assertNull(docDisabled.select("meta[charset]").first());
     }
 
@@ -667,6 +765,7 @@ public class DocumentTest_OE25Dev {
                                     " </head>\n" +
                                     " <body></body>\n" +
                                     "</html>";
+        // removed other assertion
 
         Element selectedElement = doc.select("meta[charset]").first();
         assertNotNull(selectedElement);
@@ -683,8 +782,10 @@ public class DocumentTest_OE25Dev {
                                     " </head>\n" +
                                     " <body></body>\n" +
                                     "</html>";
+        // removed other assertion
 
         Element selectedElement = doc.select("meta[charset]").first();
+        // removed other assertion
         assertEquals("dontTouch", selectedElement.attr("charset"));
     }
 
@@ -699,8 +800,11 @@ public class DocumentTest_OE25Dev {
                                     " </head>\n" +
                                     " <body></body>\n" +
                                     "</html>";
+        // removed other assertion
 
         Element selectedElement = doc.select("meta[charset]").first();
+        // removed other assertion
+        // removed other assertion
 
         selectedElement = doc.select("meta[name=charset]").first();
         assertNotNull(selectedElement);
@@ -717,10 +821,14 @@ public class DocumentTest_OE25Dev {
                                     " </head>\n" +
                                     " <body></body>\n" +
                                     "</html>";
+        // removed other assertion
 
         Element selectedElement = doc.select("meta[charset]").first();
+        // removed other assertion
+        // removed other assertion
 
         selectedElement = doc.select("meta[name=charset]").first();
+        // removed other assertion
         assertEquals("dontTouch", selectedElement.attr("content"));
     }
 
@@ -739,6 +847,7 @@ public class DocumentTest_OE25Dev {
         doc.charset(Charset.forName(charsetUtf8));
 
         Element selectedElement = doc.select("meta[charset]").first();
+        // removed other assertion
         assertTrue(doc.select("meta[name=charset]").isEmpty());
     }
 
@@ -781,6 +890,7 @@ public class DocumentTest_OE25Dev {
                                         "<root>\n" +
                                         " node\n" +
                                         "</root>";
+        // removed other assertion
 
         XmlDeclaration selectedNode = (XmlDeclaration) doc.childNode(0);
         assertEquals(charsetUtf8, doc.charset().name());
@@ -796,8 +906,10 @@ public class DocumentTest_OE25Dev {
                                         "<root>\n" +
                                         " node\n" +
                                         "</root>";
+        // removed other assertion
 
         XmlDeclaration selectedNode = (XmlDeclaration) doc.childNode(0);
+        // removed other assertion
         assertEquals(charsetUtf8, selectedNode.attr("encoding"));
     }
 
@@ -811,8 +923,11 @@ public class DocumentTest_OE25Dev {
                                         "<root>\n" +
                                         " node\n" +
                                         "</root>";
+        // removed other assertion
 
         XmlDeclaration selectedNode = (XmlDeclaration) doc.childNode(0);
+        // removed other assertion
+        // removed other assertion
         assertEquals(doc.charset(), doc.outputSettings().charset());
     }
 
@@ -839,6 +954,7 @@ public class DocumentTest_OE25Dev {
                                         "<root>\n" +
                                         " node\n" +
                                         "</root>";
+        // removed other assertion
 
         XmlDeclaration selectedNode = (XmlDeclaration) doc.childNode(0);
         assertEquals(charsetIso8859, doc.charset().name());
@@ -854,8 +970,10 @@ public class DocumentTest_OE25Dev {
                                         "<root>\n" +
                                         " node\n" +
                                         "</root>";
+        // removed other assertion
 
         XmlDeclaration selectedNode = (XmlDeclaration) doc.childNode(0);
+        // removed other assertion
         assertEquals(charsetIso8859, selectedNode.attr("encoding"));
     }
 
@@ -869,8 +987,11 @@ public class DocumentTest_OE25Dev {
                                         "<root>\n" +
                                         " node\n" +
                                         "</root>";
+        // removed other assertion
 
         XmlDeclaration selectedNode = (XmlDeclaration) doc.childNode(0);
+        // removed other assertion
+        // removed other assertion
         assertEquals(doc.charset(), doc.outputSettings().charset());
     }
 
@@ -897,6 +1018,7 @@ public class DocumentTest_OE25Dev {
                                         "<root>\n" +
                                         " node\n" +
                                         "</root>";
+        // removed other assertion
 
         XmlDeclaration selectedNode = (XmlDeclaration) doc.childNode(0);
         assertEquals(charsetUtf8, selectedNode.attr("encoding"));
@@ -931,6 +1053,7 @@ public class DocumentTest_OE25Dev {
                                     "<root>\n" +
                                     " node\n" +
                                     "</root>";
+        // removed other assertion
 
         XmlDeclaration selectedNode = (XmlDeclaration) doc.childNode(0);
         assertEquals("dontTouch", selectedNode.attr("encoding"));
@@ -944,8 +1067,10 @@ public class DocumentTest_OE25Dev {
                                     "<root>\n" +
                                     " node\n" +
                                     "</root>";
+        // removed other assertion
 
         XmlDeclaration selectedNode = (XmlDeclaration) doc.childNode(0);
+        // removed other assertion
         assertEquals("dontTouch", selectedNode.attr("version"));
     }
 
@@ -994,6 +1119,7 @@ public class DocumentTest_OE25Dev {
 
         String output = new String(doc.html().getBytes(doc.outputSettings().charset()), doc.outputSettings().charset());
 
+        // removed other assertion
         assertTrue(output.contains("&#xa0;")|| output.contains("&nbsp;"),"Should have contained a '&#xa0;' or a '&nbsp;'.");
     }
 
@@ -1014,6 +1140,7 @@ public class DocumentTest_OE25Dev {
         final Document doc = Jsoup.parse(html);
         final String[] out = new String[1];
         final Elements p = doc.select("p");
+        // removed other assertion
 
         Thread thread = new Thread(() -> {
             out[0] = p.outerHtml();
@@ -1032,6 +1159,7 @@ public class DocumentTest_OE25Dev {
         final Document doc = Jsoup.parse(html);
         final String[] out = new String[1];
         final Elements p = doc.select("p");
+        // removed other assertion
 
         Thread thread = new Thread(() -> {
             out[0] = p.outerHtml();
@@ -1040,6 +1168,7 @@ public class DocumentTest_OE25Dev {
         thread.start();
         thread.join();
 
+        // removed other assertion
         assertEquals(StandardCharsets.US_ASCII, doc.outputSettings().charset());
         }
 
@@ -1050,6 +1179,7 @@ public class DocumentTest_OE25Dev {
         final Document doc = Jsoup.parse(html);
         final String[] out = new String[1];
         final Elements p = doc.select("p");
+        // removed other assertion
 
         Thread thread = new Thread(() -> {
             out[0] = p.outerHtml();
@@ -1058,6 +1188,8 @@ public class DocumentTest_OE25Dev {
         thread.start();
         thread.join();
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(asci, p.outerHtml());
         }
 
@@ -1072,6 +1204,7 @@ public class DocumentTest_OE25Dev {
         String html = "\n\n<!-- comment -->  <!doctype html><p>One</p>";
         Document doc = Jsoup.parse(html);
         DocumentType documentType = doc.documentType();
+        // removed other assertion
         assertEquals("html", documentType.name());
         }
 
@@ -1086,6 +1219,7 @@ public class DocumentTest_OE25Dev {
         String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
         Document doc = Jsoup.parse(html);
         Element head = doc.head();
+        // removed other assertion
         assertEquals("Frame Test", doc.title());
         }
 
@@ -1093,7 +1227,10 @@ public class DocumentTest_OE25Dev {
         String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
         Document doc = Jsoup.parse(html);
         Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
 
+        // Frameset docs per html5 spec have no body element - but instead a frameset elelemt
         assertNull(doc.selectFirst("body"));
         }
 
@@ -1101,7 +1238,11 @@ public class DocumentTest_OE25Dev {
         String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
         Document doc = Jsoup.parse(html);
         Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
 
+        // Frameset docs per html5 spec have no body element - but instead a frameset elelemt
+        // removed other assertion
         Element frameset = doc.selectFirst("frameset");
         assertNotNull(frameset);
         }
@@ -1110,9 +1251,16 @@ public class DocumentTest_OE25Dev {
         String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
         Document doc = Jsoup.parse(html);
         Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
 
+        // Frameset docs per html5 spec have no body element - but instead a frameset elelemt
+        // removed other assertion
         Element frameset = doc.selectFirst("frameset");
+        // removed other assertion
 
+        // the body() method returns body or frameset and does not otherwise modify the document
+        // doing it in body() vs parse keeps the html close to original for round-trip option
         Element body = doc.body();
         assertNotNull(body);
         }
@@ -1121,10 +1269,18 @@ public class DocumentTest_OE25Dev {
         String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
         Document doc = Jsoup.parse(html);
         Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
 
+        // Frameset docs per html5 spec have no body element - but instead a frameset elelemt
+        // removed other assertion
         Element frameset = doc.selectFirst("frameset");
+        // removed other assertion
 
+        // the body() method returns body or frameset and does not otherwise modify the document
+        // doing it in body() vs parse keeps the html close to original for round-trip option
         Element body = doc.body();
+        // removed other assertion
         assertSame(frameset, body);
         }
 
@@ -1132,10 +1288,19 @@ public class DocumentTest_OE25Dev {
         String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
         Document doc = Jsoup.parse(html);
         Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
 
+        // Frameset docs per html5 spec have no body element - but instead a frameset elelemt
+        // removed other assertion
         Element frameset = doc.selectFirst("frameset");
+        // removed other assertion
 
+        // the body() method returns body or frameset and does not otherwise modify the document
+        // doing it in body() vs parse keeps the html close to original for round-trip option
         Element body = doc.body();
+        // removed other assertion
+        // removed other assertion
         assertEquals("frame", body.child(0).tagName());
         }
 
@@ -1143,10 +1308,20 @@ public class DocumentTest_OE25Dev {
         String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
         Document doc = Jsoup.parse(html);
         Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
 
+        // Frameset docs per html5 spec have no body element - but instead a frameset elelemt
+        // removed other assertion
         Element frameset = doc.selectFirst("frameset");
+        // removed other assertion
 
+        // the body() method returns body or frameset and does not otherwise modify the document
+        // doing it in body() vs parse keeps the html close to original for round-trip option
         Element body = doc.body();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertNull(doc.selectFirst("body"));// did not vivify a body element;
         }

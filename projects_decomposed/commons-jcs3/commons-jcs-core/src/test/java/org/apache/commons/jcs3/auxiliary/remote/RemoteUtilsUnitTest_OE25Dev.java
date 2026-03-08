@@ -49,11 +49,14 @@ public class RemoteUtilsUnitTest_OE25Dev
 
     public void testGetNamingURL_2_oe()
     {
+        // removed other assertion
         assertEquals("//127.0.0.1:2/servicename", RemoteUtils.getNamingURL("127.0.0.1",2,"servicename"));
     }
 
     public void testGetNamingURL_3_oe()
     {
+        // removed other assertion
+        // removed other assertion
         assertEquals("//[0:0:0:0:0:0:0:1%251]:3/servicename", RemoteUtils.getNamingURL("0:0:0:0:0:0:0:1%1",3,"servicename"));
     }
 
@@ -66,12 +69,15 @@ public class RemoteUtilsUnitTest_OE25Dev
     public void testParseServerAndPort_2_oe()
     {
         RemoteLocation loc = RemoteLocation.parseServerAndPort("server1:1234");
+        // removed other assertion
         assertEquals(1234, loc.getPort());
     }
 
     public void testParseServerAndPort_3_oe()
     {
         RemoteLocation loc = RemoteLocation.parseServerAndPort("server1:1234");
+        // removed other assertion
+        // removed other assertion
 
         loc = RemoteLocation.parseServerAndPort("  server2  :  4567  ");
         assertEquals("server2", loc.getHost());
@@ -80,8 +86,11 @@ public class RemoteUtilsUnitTest_OE25Dev
     public void testParseServerAndPort_4_oe()
     {
         RemoteLocation loc = RemoteLocation.parseServerAndPort("server1:1234");
+        // removed other assertion
+        // removed other assertion
 
         loc = RemoteLocation.parseServerAndPort("  server2  :  4567  ");
+        // removed other assertion
         assertEquals(4567, loc.getPort());
     }
 

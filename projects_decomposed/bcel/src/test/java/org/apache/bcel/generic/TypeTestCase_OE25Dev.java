@@ -22,6 +22,10 @@ import junit.framework.TestCase;
 public class TypeTestCase_OE25Dev extends TestCase {
 
     public void testBCEL243_1_oe() {
+        // expectedValue = "Ljava/util/Map<TX;Ljava/util/List<TY;>;>;";
+        // The line commented out above is the correct expected value; however,
+        // the constructor for ObjectType is yet another place where BCEL does
+        // not understand generics so we need to substitute the modified value below.
         final String expectedValue = "Ljava/util/Map<X, java/util/List<Y>>;";
         final String actualValue = (Type.getType("Ljava/util/Map<TX;Ljava/util/List<TY;>;>;")).getSignature();
         assertEquals("Type.getType", expectedValue, actualValue);

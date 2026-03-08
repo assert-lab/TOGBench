@@ -43,8 +43,105 @@ public abstract class AbstractOrderedBidiMapTest_OE25Dev<K, V> extends AbstractB
     }
 
     //-----------------------------------------------------------------------
+    public void testFirstKey() {
+        resetEmpty();
+        OrderedBidiMap<K, V> bidi = getMap();
+        try {
+            bidi.firstKey();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+
+        resetFull();
+        bidi = getMap();
+        final K confirmedFirst = confirmed.keySet().iterator().next();
+        assertEquals(confirmedFirst, bidi.firstKey());
+    }
+
+    public void testLastKey() {
+        resetEmpty();
+        OrderedBidiMap<K, V> bidi = getMap();
+        try {
+            bidi.lastKey();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+
+        resetFull();
+        bidi = getMap();
+        K confirmedLast = null;
+        for (final Iterator<K> it = confirmed.keySet().iterator(); it.hasNext();) {
+            confirmedLast = it.next();
+        }
+        assertEquals(confirmedLast, bidi.lastKey());
+    }
 
     //-----------------------------------------------------------------------
+    public void testNextKey() {
+        resetEmpty();
+        OrderedBidiMap<K, V> bidi = (OrderedBidiMap<K, V>) map;
+        assertEquals(null, bidi.nextKey(getOtherKeys()[0]));
+        if (!isAllowNullKey()) {
+            try {
+                assertEquals(null, bidi.nextKey(null)); // this is allowed too
+            } catch (final NullPointerException ex) {}
+        } else {
+            assertEquals(null, bidi.nextKey(null));
+        }
+
+        resetFull();
+        bidi = (OrderedBidiMap<K, V>) map;
+        final Iterator<K> it = confirmed.keySet().iterator();
+        K confirmedLast = it.next();
+        while (it.hasNext()) {
+            final K confirmedObject = it.next();
+            assertEquals(confirmedObject, bidi.nextKey(confirmedLast));
+            confirmedLast = confirmedObject;
+        }
+        assertEquals(null, bidi.nextKey(confirmedLast));
+
+        if (!isAllowNullKey()) {
+            try {
+                bidi.nextKey(null);
+                fail();
+            } catch (final NullPointerException ex) {}
+        } else {
+            assertEquals(null, bidi.nextKey(null));
+        }
+    }
+
+    public void testPreviousKey() {
+        resetEmpty();
+        OrderedBidiMap<K, V> bidi = getMap();
+        assertEquals(null, bidi.previousKey(getOtherKeys()[0]));
+        if (!isAllowNullKey()) {
+            try {
+                assertEquals(null, bidi.previousKey(null)); // this is allowed too
+            } catch (final NullPointerException ex) {}
+        } else {
+            assertEquals(null, bidi.previousKey(null));
+        }
+
+        resetFull();
+        bidi = getMap();
+        final List<K> list = new ArrayList<>(confirmed.keySet());
+        Collections.reverse(list);
+        final Iterator<K> it = list.iterator();
+        K confirmedLast = it.next();
+        while (it.hasNext()) {
+            final K confirmedObject = it.next();
+            assertEquals(confirmedObject, bidi.previousKey(confirmedLast));
+            confirmedLast = confirmedObject;
+        }
+        assertEquals(null, bidi.previousKey(confirmedLast));
+
+        if (!isAllowNullKey()) {
+            try {
+                bidi.previousKey(null);
+                fail();
+            } catch (final NullPointerException ex) {}
+        } else {
+            assertEquals(null, bidi.previousKey(null));
+        }
+    }
 
     //-----------------------------------------------------------------------
     public BulkTest bulkTestOrderedMapIterator() {

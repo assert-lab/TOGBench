@@ -144,6 +144,7 @@ public class OpenJPAJCacheDataCacheTest_OE25Dev
         em.getTransaction().begin();
         em.persist(entity);
         em.getTransaction().commit();
+        // removed other assertion
 
         assertThat(conf.getDataCacheManagerInstance(), instanceOf(OpenJPAJCacheDataCacheManager.class));
     }
@@ -161,7 +162,9 @@ public class OpenJPAJCacheDataCacheTest_OE25Dev
         em.getTransaction().begin();
         em.persist(entity);
         em.getTransaction().commit();
+        // removed other assertion
 
+        // removed other assertion
         assertThat(conf.getDataCacheManagerInstance().getDataCache("default"), instanceOf(OpenJPAJCacheDataCache.class));
     }
 
@@ -178,7 +181,10 @@ public class OpenJPAJCacheDataCacheTest_OE25Dev
         em.getTransaction().begin();
         em.persist(entity);
         em.getTransaction().commit();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(conf.getDataCacheManagerInstance().getDataCache("default").contains(JPAFacadeHelper.toOpenJPAObjectId(conf.getMetaDataRepositoryInstance().getCachedMetaData(MyEntity.class), entity.getId())));
     }
 

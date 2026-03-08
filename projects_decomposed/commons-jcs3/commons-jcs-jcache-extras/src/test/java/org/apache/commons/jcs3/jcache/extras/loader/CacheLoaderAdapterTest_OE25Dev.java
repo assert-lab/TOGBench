@@ -59,12 +59,15 @@ public class CacheLoaderAdapterTest_OE25Dev
     @Test
     public void checkLoadAll_2_oe()
     {
+        // removed other assertion
         assertEquals("foo", cache.get("foo"));
     }
 
     @Test
     public void checkLoadAll_4_oe()
     {
+        // removed other assertion
+        // removed other assertion
 
         count.decrementAndGet();
         cache.loadAll(new HashSet<>(asList("a", "b")), true, null);
@@ -80,12 +83,15 @@ public class CacheLoaderAdapterTest_OE25Dev
                 Thread.interrupted();
             }
         }
+        // removed other assertion
         assertEquals("a", cache.get("a"));
     }
 
     @Test
     public void checkLoadAll_5_oe()
     {
+        // removed other assertion
+        // removed other assertion
 
         count.decrementAndGet();
         cache.loadAll(new HashSet<>(asList("a", "b")), true, null);
@@ -101,6 +107,8 @@ public class CacheLoaderAdapterTest_OE25Dev
                 Thread.interrupted();
             }
         }
+        // removed other assertion
+        // removed other assertion
         assertEquals("b", cache.get("b"));
     }
 

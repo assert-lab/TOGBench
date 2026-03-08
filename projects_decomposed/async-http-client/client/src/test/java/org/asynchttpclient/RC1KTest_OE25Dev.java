@@ -147,6 +147,7 @@ public class RC1KTest_OE25Dev extends AbstractBasicTest {
       i = 0;
       for (Future<Integer> fResp : resps) {
         Integer resp = fResp.get();
+        // removed other assertion
         assertEquals(resp.intValue(), i++);
   }
   }

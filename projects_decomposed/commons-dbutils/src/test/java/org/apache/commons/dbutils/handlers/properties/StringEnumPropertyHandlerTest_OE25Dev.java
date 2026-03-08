@@ -42,6 +42,7 @@ public class StringEnumPropertyHandlerTest_OE25Dev {
 
     @Test
     public void testMatchNegative_2_oe() {
+        // removed other assertion
 
         assertFalse(handler.match(Integer.class, ""));
     }

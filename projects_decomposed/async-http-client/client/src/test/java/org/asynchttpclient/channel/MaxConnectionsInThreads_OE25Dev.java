@@ -187,6 +187,7 @@ public class MaxConnectionsInThreads_OE25Dev extends AbstractBasicTest {
 
       inThreadsLatch.await();
 
+      // removed other assertion
 
       final CountDownLatch notInThreadsLatch = new CountDownLatch(2);
       failedCount.set(0);

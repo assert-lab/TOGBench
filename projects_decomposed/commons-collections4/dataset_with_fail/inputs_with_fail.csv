@@ -1,0 +1,679 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+coll_48_1,"    @Test
+    public void testDebugAndVerbosePrintCasting_1_oe() {
+        final Map<Integer, String> inner = new HashMap<>(2, 1);
+        inner.put(2, ""B"");
+        inner.put(3, ""C"");
+
+        final Map<Integer, Object> outer = new HashMap<>(2, 1);
+        outer.put(0, inner);
+        outer.put(1, ""A"");
+
+        final ByteArrayOutputStream out = new ByteArrayOutputStream();
+        final PrintStream outPrint = new PrintStream(out);
+
+        try {
+            MapUtils.debugPrint(outPrint, ""Print Map"", outer);
+        } catch (final ClassCastException e) {
+            fail(""No Casting should be occurring!"");
+    }
+    }",MapUtilsTest::testDebugAndVerbosePrintCasting_1_oe,org.apache.commons.collections4.MapUtils,"void debugPrint(final PrintStream out, final Object label, final Map<?, ?> map)","/**
+     * Prints the given map with nice line breaks.
+     * <p>
+     * This method prints a nicely formatted String describing the Map.
+     * Each map entry will be printed with key, value and value classname.
+     * When the value is a Map, recursive behaviour occurs.
+     * <p>
+     * This method is NOT thread-safe in any special way. You must manually
+     * synchronize on either this class or the stream as required.
+     *
+     * @param out  the stream to print to, must not be null
+     * @param label  The label to be used, may be <code>null</code>.
+     *   If <code>null</code>, the label is not output.
+     *   It typically represents the name of the property in a bean or similar.
+     * @param map  The map to print, may be <code>null</code>.
+     *   If <code>null</code>, the text 'null' is output.
+     * @throws NullPointerException if the stream is <code>null</code>
+     */","public static void debugPrint(final PrintStream out, final Object label, final Map<?, ?> map) {
+        verbosePrintInternal(out, label, map, new ArrayDeque<Map<?, ?>>(), true);
+    }"
+coll_105_3,"    @Test
+    public void testExceptionTransformer_3_oe() {
+        try {
+            TransformerUtils.exceptionTransformer().transform(null);
+        } catch (final FunctorException ex) {
+            try {
+                TransformerUtils.exceptionTransformer().transform(cString);
+            } catch (final FunctorException ex2) {
+                return;
+            }
+        }
+        fail();
+    }",TransformerUtilsTest::testExceptionTransformer_3_oe,org.apache.commons.collections4.Transformer,transform(I input),"/**
+     * Transforms the input object (leaving it unchanged) into some output object.
+     *
+     * @param input  the object to be transformed, should be left unchanged
+     * @return a transformed object
+     * @throws ClassCastException (runtime) if the input is the wrong class
+     * @throws IllegalArgumentException (runtime) if the input is invalid
+     * @throws FunctorException (runtime) if the transform cannot be completed
+     */",O transform(I input);
+coll_111_5,"    @Test
+    public void testExecutorTransformer_5_oe() {
+        try {
+            TransformerUtils.asTransformer((Closure<Object>) null);
+        } catch (final NullPointerException ex) {
+            return;
+        }
+        fail();
+    }",TransformerUtilsTest::testExecutorTransformer_5_oe,org.apache.commons.collections4.TransformerUtils,asTransformer(final Closure<? super T> closure),"/**
+     * Creates a Transformer that calls a Closure each time the transformer is used.
+     * The transformer returns the input object.
+     *
+     * @param <T>  the input/output type
+     * @param closure  the closure to run each time in the transformer, not null
+     * @return the transformer
+     * @throws NullPointerException if the closure is null
+     * @see ClosureTransformer
+     */","public static <T> Transformer<T, T> asTransformer(final Closure<? super T> closure) {
+        return ClosureTransformer.closureTransformer(closure);
+    }"
+coll_112_5,"    @Test
+    public void testPredicateTransformer_5_oe() {
+        try {
+            TransformerUtils.asTransformer((Predicate<Object>) null);
+        } catch (final IllegalArgumentException ex) {
+            return;
+        }
+        fail();
+    }",TransformerUtilsTest::testPredicateTransformer_5_oe,org.apache.commons.collections4.TransformerUtils,asTransformer(final Closure<? super T> closure),"/**
+     * Creates a Transformer that calls a Closure each time the transformer is used.
+     * The transformer returns the input object.
+     *
+     * @param <T>  the input/output type
+     * @param closure  the closure to run each time in the transformer, not null
+     * @return the transformer
+     * @throws NullPointerException if the closure is null
+     * @see ClosureTransformer
+     */","public static <T> Transformer<T, T> asTransformer(final Closure<? super T> closure) {
+        return ClosureTransformer.closureTransformer(closure);
+    }"
+coll_113_5,"    @Test
+    public void testFactoryTransformer_5_oe() {
+        try {
+            TransformerUtils.asTransformer((Factory<Object>) null);
+        } catch (final NullPointerException ex) {
+            return;
+        }
+        fail();
+    }",TransformerUtilsTest::testFactoryTransformer_5_oe,org.apache.commons.collections4.TransformerUtils,asTransformer(final Closure<? super T> closure),"/**
+     * Creates a Transformer that calls a Closure each time the transformer is used.
+     * The transformer returns the input object.
+     *
+     * @param <T>  the input/output type
+     * @param closure  the closure to run each time in the transformer, not null
+     * @return the transformer
+     * @throws NullPointerException if the closure is null
+     * @see ClosureTransformer
+     */","public static <T> Transformer<T, T> asTransformer(final Closure<? super T> closure) {
+        return ClosureTransformer.closureTransformer(closure);
+    }"
+coll_196_3,"    @Test
+    public void testExceptionClosure_3_oe() {
+        try {
+            ClosureUtils.exceptionClosure().execute(null);
+        } catch (final FunctorException ex) {
+            try {
+                ClosureUtils.exceptionClosure().execute(cString);
+            } catch (final FunctorException ex2) {
+                return;
+            }
+        }
+        fail();
+    }",ClosureUtilsTest::testExceptionClosure_3_oe,org.apache.commons.collections4.Closure,void execute(T input),"/**
+     * Performs an action on the specified input object.
+     *
+     * @param input  the input to execute on
+     * @throws ClassCastException (runtime) if the input is the wrong class
+     * @throws IllegalArgumentException (runtime) if the input is invalid
+     * @throws FunctorException (runtime) if any other error occurs
+     */",void execute(T input);
+coll_208_3,"    @Test
+    public void testExceptionFactory_3_oe() {
+        try {
+            FactoryUtils.exceptionFactory().create();
+        } catch (final FunctorException ex) {
+            try {
+                FactoryUtils.exceptionFactory().create();
+            } catch (final FunctorException ex2) {
+                return;
+            }
+        }
+        fail();
+    }",FactoryUtilsTest::testExceptionFactory_3_oe,org.apache.commons.collections4.Factory,create(),"/**
+     * Create a new object.
+     *
+     * @return a new object
+     * @throws FunctorException (runtime) if the factory cannot create an object
+     */",T create();
+coll_216_3,"    @Test
+    public void testPrototypeFactoryPublicSerializationError_3_oe() {
+        final Mock2 proto = new Mock2(new Object());
+        final Factory<Object> factory = FactoryUtils.<Object>prototypeFactory(proto);
+        try {
+            factory.create();
+        } catch (final FunctorException ex) {
+            return;
+        }
+        fail();
+    }",FactoryUtilsTest::testPrototypeFactoryPublicSerializationError_3_oe,org.apache.commons.collections4.Factory,create(),"/**
+     * Create a new object.
+     *
+     * @return a new object
+     * @throws FunctorException (runtime) if the factory cannot create an object
+     */",T create();
+coll_217_1,"    @Test
+    public void testPrototypeFactoryPublicBad_1_oe() {
+        final Object proto = new Object();
+        try {
+            FactoryUtils.prototypeFactory(proto);
+        } catch (final IllegalArgumentException ex) {
+            return;
+        }
+        fail();
+    }",FactoryUtilsTest::testPrototypeFactoryPublicBad_1_oe,org.apache.commons.collections4.FactoryUtils,prototypeFactory(final T prototype),"/**
+     * Creates a Factory that will return a clone of the same prototype object
+     * each time the factory is used. The prototype will be cloned using one of these
+     * techniques (in order):
+     *
+     * <ul>
+     * <li>public clone method</li>
+     * <li>public copy constructor</li>
+     * <li>serialization clone</li>
+     * </ul>
+     *
+     * @see org.apache.commons.collections4.functors.PrototypeFactory
+     *
+     * @param <T> the type that the factory creates
+     * @param prototype  the object to clone each time in the factory
+     * @return the <code>prototype</code> factory, or a {@link ConstantFactory#NULL_INSTANCE} if
+     * the {@code prototype} is {@code null}
+     * @throws IllegalArgumentException if the prototype cannot be cloned
+     */","public static <T> Factory<T> prototypeFactory(final T prototype) {
+        return PrototypeFactory.<T>prototypeFactory(prototype);
+    }"
+coll_228_3,"    @Test
+    public void testExceptionPredicate_3_oe() {
+        try {
+            PredicateUtils.exceptionPredicate().evaluate(null);
+        } catch (final FunctorException ex) {
+            try {
+                PredicateUtils.exceptionPredicate().evaluate(cString);
+            } catch (final FunctorException ex2) {
+                return;
+            }
+        }
+        fail();
+    }",PredicateUtilsTest::testExceptionPredicate_3_oe,org.apache.commons.collections4.Predicate,evaluate(T object),"/**
+     * Use the specified parameter to perform a test that returns true or false.
+     *
+     * @param object  the object to evaluate, should not be changed
+     * @return true or false
+     * @throws ClassCastException (runtime) if the input is the wrong class
+     * @throws IllegalArgumentException (runtime) if the input is invalid
+     * @throws FunctorException (runtime) if the predicate encounters a problem
+     */",boolean evaluate(T object);
+coll_381_2,"    public void testFullIterator_2_oe() {
+        if (!supportsFullIterator()) {
+            return;
+        }
+
+        final Iterator<E> it = makeObject();
+
+
+        try {
+            it.next();
+        } catch (final NoSuchElementException e) {
+            fail(""Full iterators must have at least one element"");
+    }
+    }",AbstractIteratorTest::testFullIterator_2_oe,org.apache.commons.collections4.MapIterator,next(),"/**
+     * Gets the next <em>key</em> from the <code>Map</code>.
+     *
+     * @return the next key in the iteration
+     * @throws java.util.NoSuchElementException if the iteration is finished
+     */","@Override
+    K next();"
+coll_385_1,"    public void testIterator_1_oe() {
+        final Iterator<Integer> iter = createIterator();
+        final Iterable<Number> iterable = new IteratorIterable<>(iter);
+
+        verifyIteration(iterable);
+
+        for (final Number actual : iterable) {
+            fail(""should not be able to iterate twice"");
+    }
+    }",IteratorIterableTest::testIterator_1_oe,org.apache.commons.collections4.SetUtils.SetView,createIterator(),"/**
+         * Return an iterator for this view; the returned iterator is
+         * not required to be unmodifiable.
+         * @return a new iterator for this view
+         */",protected abstract Iterator<E> createIterator();
+coll_387_7,"    public void testIndexedArray_7_oe() {
+        Iterator<E> iter = makeArrayIterator(testArray, 2);
+        int count = 0;
+        while (iter.hasNext()) {
+            ++count;
+            iter.next();
+        }
+
+
+        iter = makeArrayIterator(testArray, 1, testArray.length - 1);
+        count = 0;
+        while (iter.hasNext()) {
+            ++count;
+            iter.next();
+        }
+
+
+        try {
+            iter = makeArrayIterator(testArray, -1);
+        } catch (final ArrayIndexOutOfBoundsException aioobe) {
+        }
+
+        try {
+            iter = makeArrayIterator(testArray, testArray.length + 1);
+        } catch (final ArrayIndexOutOfBoundsException aioobe) {
+        }
+
+        try {
+            iter = makeArrayIterator(testArray, 0, -1);
+        } catch (final ArrayIndexOutOfBoundsException aioobe) {
+        }
+
+        try {
+            iter = makeArrayIterator(testArray, 0, testArray.length + 1);
+        } catch (final ArrayIndexOutOfBoundsException aioobe) {
+        }
+
+        try {
+            iter = makeArrayIterator(testArray, 1, 1);
+        } catch (final IllegalArgumentException iae) {
+            fail(""new ArrayIterator(Object,1,1) should NOT throw an IllegalArgumentException"");
+    }
+    }",ArrayIterator2Test::testIndexedArray_7_oe,org.apache.commons.collections4.MapIterator,next(),"/**
+     * Gets the next <em>key</em> from the <code>Map</code>.
+     *
+     * @return the next key in the iteration
+     * @throws java.util.NoSuchElementException if the iteration is finished
+     */","@Override
+    K next();"
+coll_432_3,"    public void testListIteratorSet_3_oe() {
+        final String[] testData = new String[] { ""a"", ""b"", ""c"" };
+
+        final String[] result = new String[] { ""0"", ""1"", ""2"" };
+
+        ListIterator<E> iter = makeArrayListIterator(testData);
+        int x = 0;
+
+        while (iter.hasNext()) {
+            iter.next();
+            iter.set((E) Integer.toString(x));
+            x++;
+        }
+
+
+        iter = makeArrayListIterator(testArray);
+
+        try {
+            iter.set((E) ""should fail"");
+        } catch (final IllegalStateException e) {
+        } catch (final Throwable t) { // should never happen
+            fail(t.toString());
+    }
+    }",ArrayListIteratorTest::testListIteratorSet_3_oe,org.apache.commons.collections4.iterators.ListIteratorWrapper,void set(final E obj),"/**
+     * Throws {@link UnsupportedOperationException}
+     * unless the underlying <code>Iterator</code> is a <code>ListIterator</code>.
+     *
+     * @param obj  the object to set
+     * @throws UnsupportedOperationException if the underlying iterator is not of
+     * type {@link ListIterator}
+     */","@Override
+    public void set(final E obj) throws UnsupportedOperationException {
+        if (iterator instanceof ListIterator) {
+            @SuppressWarnings(""unchecked"")
+            final ListIterator<E> li = (ListIterator<E>) iterator;
+            li.set(obj);
+            return;
+        }
+        throw new UnsupportedOperationException(UNSUPPORTED_OPERATION_MESSAGE);
+    }"
+coll_439_3,"    public void testListIteratorSet_3_oe() {
+        final String[] testData = new String[] { ""a"", ""b"", ""c"" };
+
+        final String[] result = new String[] { ""0"", ""1"", ""2"" };
+
+        ListIterator<E> iter = makeArrayListIterator((E[]) testData);
+        int x = 0;
+
+        while (iter.hasNext()) {
+            iter.next();
+            iter.set((E) Integer.toString(x));
+            x++;
+        }
+
+
+        iter = makeArrayListIterator((E[]) testArray);
+
+        try {
+            iter.set((E) ""should fail"");
+        } catch (final IllegalStateException e) {
+        } catch (final Throwable t) { // should never happen
+            fail(t.toString());
+    }
+    }",ObjectArrayListIteratorTest::testListIteratorSet_3_oe,org.apache.commons.collections4.iterators.ListIteratorWrapper,void set(final E obj),"/**
+     * Throws {@link UnsupportedOperationException}
+     * unless the underlying <code>Iterator</code> is a <code>ListIterator</code>.
+     *
+     * @param obj  the object to set
+     * @throws UnsupportedOperationException if the underlying iterator is not of
+     * type {@link ListIterator}
+     */","@Override
+    public void set(final E obj) throws UnsupportedOperationException {
+        if (iterator instanceof ListIterator) {
+            @SuppressWarnings(""unchecked"")
+            final ListIterator<E> li = (ListIterator<E>) iterator;
+            li.set(obj);
+            return;
+        }
+        throw new UnsupportedOperationException(UNSUPPORTED_OPERATION_MESSAGE);
+    }"
+coll_547_1,"    @Test
+    public void testThrowingClosure_1_oe() {
+        Closure<Integer> closure = generateNoExceptionClosure();
+        try {
+            closure.execute(Integer.valueOf(0));
+        } catch (final FunctorException ex) {
+            Assert.fail();
+    }
+    }",CatchAndRethrowClosureTest::testThrowingClosure_1_oe,org.apache.commons.collections4.Closure,void execute(T input),"/**
+     * Performs an action on the specified input object.
+     *
+     * @param input  the input to execute on
+     * @throws ClassCastException (runtime) if the input is the wrong class
+     * @throws IllegalArgumentException (runtime) if the input is invalid
+     * @throws FunctorException (runtime) if any other error occurs
+     */",void execute(T input);
+coll_547_2,"    @Test
+    public void testThrowingClosure_2_oe() {
+        Closure<Integer> closure = generateNoExceptionClosure();
+        try {
+            closure.execute(Integer.valueOf(0));
+        } catch (final FunctorException ex) {
+        } catch (final RuntimeException ex) {
+            Assert.fail();
+    }
+    }",CatchAndRethrowClosureTest::testThrowingClosure_2_oe,org.apache.commons.collections4.Closure,void execute(T input),"/**
+     * Performs an action on the specified input object.
+     *
+     * @param input  the input to execute on
+     * @throws ClassCastException (runtime) if the input is the wrong class
+     * @throws IllegalArgumentException (runtime) if the input is invalid
+     * @throws FunctorException (runtime) if any other error occurs
+     */",void execute(T input);
+coll_547_5,"    @Test
+    public void testThrowingClosure_5_oe() {
+        Closure<Integer> closure = generateNoExceptionClosure();
+        try {
+            closure.execute(Integer.valueOf(0));
+        } catch (final FunctorException ex) {
+        } catch (final RuntimeException ex) {
+        }
+
+        closure = generateIOExceptionClosure();
+        try {
+            closure.execute(Integer.valueOf(0));
+        } catch (final FunctorException ex) {
+        } catch (final RuntimeException ex) {
+            Assert.fail();
+    }
+    }",CatchAndRethrowClosureTest::testThrowingClosure_5_oe,org.apache.commons.collections4.Closure,void execute(T input),"/**
+     * Performs an action on the specified input object.
+     *
+     * @param input  the input to execute on
+     * @throws ClassCastException (runtime) if the input is the wrong class
+     * @throws IllegalArgumentException (runtime) if the input is invalid
+     * @throws FunctorException (runtime) if any other error occurs
+     */",void execute(T input);
+coll_590_5,"    public void testCollectionToArray_5_oe() {
+        resetEmpty();
+
+        resetFull();
+        final Object[] array = getCollection().toArray();
+        final Object[] confirmedArray = getConfirmed().toArray();
+        final boolean[] matched = new boolean[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+
+            boolean match = false;
+            for (int j = 0; j < array.length; j++) {
+                if (matched[j]) {
+                    continue;
+                }
+                if (array[i] == confirmedArray[j]
+                        || array[i] != null && array[i].equals(confirmedArray[j])) {
+                    matched[j] = true;
+                    match = true;
+                    break;
+                }
+            }
+            if (!match) {
+                fail(""element "" + i + "" in returned array should be found "" + ""in the confirmed collection's array"");
+    }
+    }
+    }",AbstractCollectionTest::testCollectionToArray_5_oe,org.apache.commons.collections4.IteratorUtils,toArray(final Iterator<?> iterator),"/**
+     * Gets an array based on an iterator.
+     * <p>
+     * As the wrapped Iterator is traversed, an ArrayList of its values is
+     * created. At the end, this is converted to an array.
+     *
+     * @param iterator  the iterator to use, not null
+     * @return an array of the iterator contents
+     * @throws NullPointerException if iterator parameter is null
+     */","public static Object[] toArray(final Iterator<?> iterator) {
+        if (iterator == null) {
+            throw new NullPointerException(""Iterator must not be null"");
+        }
+        final List<?> list = toList(iterator, 100);
+        return list.toArray();
+    }"
+coll_704_1,"    public void testConstructorException1_1_oe() {
+        try {
+            new CircularFifoQueue<E>(0);
+        } catch (final IllegalArgumentException ex) {
+            return;
+        }
+        fail();
+    }",CircularFifoQueueTest::testConstructorException1_1_oe,,,,
+coll_705_1,"    public void testConstructorException2_1_oe() {
+        try {
+            new CircularFifoQueue<E>(-20);
+        } catch (final IllegalArgumentException ex) {
+            return;
+        }
+        fail();
+    }",CircularFifoQueueTest::testConstructorException2_1_oe,,,,
+coll_706_1,"    public void testConstructorException3_1_oe() {
+        try {
+            new CircularFifoQueue<E>(null);
+        } catch (final NullPointerException ex) {
+            return;
+        }
+        fail();
+    }",CircularFifoQueueTest::testConstructorException3_1_oe,,,,
+coll_842_1,"    @Test
+    public void testComparatorCompatibility_1_oe() throws IOException, ClassNotFoundException {
+        if (!skipSerializedCanonicalTests()) {
+            Comparator<T> comparator = null;
+
+            try {
+                comparator = (Comparator<T>) readExternalFormFromDisk(getCanonicalComparatorName(makeObject()));
+            } catch (final FileNotFoundException exception) {
+
+                final boolean autoCreateSerialized = false;
+
+                if (autoCreateSerialized) {
+                    comparator = makeObject();
+                    final String fileName = getCanonicalComparatorName(comparator);
+                    writeExternalFormToDisk((Serializable) comparator, fileName);
+                    fail(""Serialized form could not be found. A serialized version "" + ""has now been written(and should be added to CVS): "" + fileName);
+    }
+    }
+    }
+    }",AbstractComparatorTest::testComparatorCompatibility_1_oe,,,,
+coll_842_2,"    @Test
+    public void testComparatorCompatibility_2_oe() throws IOException, ClassNotFoundException {
+        if (!skipSerializedCanonicalTests()) {
+            Comparator<T> comparator = null;
+
+            try {
+                comparator = (Comparator<T>) readExternalFormFromDisk(getCanonicalComparatorName(makeObject()));
+            } catch (final FileNotFoundException exception) {
+
+                final boolean autoCreateSerialized = false;
+
+                if (autoCreateSerialized) {
+                    comparator = makeObject();
+                    final String fileName = getCanonicalComparatorName(comparator);
+                    writeExternalFormToDisk((Serializable) comparator, fileName);
+                } else {
+                    fail(""The Serialized form could be located to test serialization "" + ""compatibility: "" + exception.getMessage());
+    }
+    }
+    }
+    }",AbstractComparatorTest::testComparatorCompatibility_2_oe,,,,
+coll_1300_29,"    public void testMultiKeyGet_29_oe() {
+        resetFull();
+        final MultiKeyMap<K, V> multimap = getMap();
+        final MultiKey<K>[] keys = getMultiKeyKeys();
+        final V[] values = getSampleValues();
+
+        for (int i = 0; i < keys.length; i++) {
+            final MultiKey<K> key = keys[i];
+            final V value = values[i];
+
+            switch (key.size()) {
+                case 2:
+                break;
+                case 3:
+                break;
+                case 4:
+                break;
+                case 5:
+                break;
+                default:
+                fail(""Invalid key size"");
+    }
+    }
+    }",MultiKeyMapTest::testMultiKeyGet_29_oe,org.apache.commons.collections4.keyvalue.MultiKey,size(),"/**
+     * Gets the size of the list of keys.
+     *
+     * @return the size of the list of keys
+     * @since 3.1
+     */","public int size() {
+        return keys.length;
+    }"
+coll_1301_29,"    public void testMultiKeyContainsKey_29_oe() {
+        resetFull();
+        final MultiKeyMap<K, V> multimap = getMap();
+        final MultiKey<K>[] keys = getMultiKeyKeys();
+
+        for (final MultiKey<K> key : keys) {
+            switch (key.size()) {
+                case 2:
+                break;
+                case 3:
+                break;
+                case 4:
+                break;
+                case 5:
+                break;
+                default:
+                fail(""Invalid key size"");
+    }
+    }
+    }",MultiKeyMapTest::testMultiKeyContainsKey_29_oe,org.apache.commons.collections4.IterableUtils,size(final Iterable<?> iterable),"/**
+     * Returns the number of elements contained in the given iterator.
+     * <p>
+     * A <code>null</code> or empty iterator returns {@code 0}.
+     *
+     * @param iterable  the iterable to check, may be null
+     * @return the number of elements contained in the iterable
+     */","public static int size(final Iterable<?> iterable) {
+        if (iterable instanceof Collection<?>) {
+            return ((Collection<?>) iterable).size();
+        }
+        return IteratorUtils.size(emptyIteratorIfNull(iterable));
+    }"
+coll_1302_37,"    public void testMultiKeyPut_37_oe() {
+        final MultiKey<K>[] keys = getMultiKeyKeys();
+        final V[] values = getSampleValues();
+
+        for (int i = 0; i < keys.length; i++) {
+            final MultiKeyMap<K, V> multimap = new MultiKeyMap<>();
+
+            final MultiKey<K> key = keys[i];
+            final V value = values[i];
+
+            switch (key.size()) {
+                case 2:
+                break;
+                case 3:
+                break;
+                case 4:
+                break;
+                case 5:
+                break;
+                default:
+                fail(""Invalid key size"");
+    }
+    }
+    }",MultiKeyMapTest::testMultiKeyPut_37_oe,org.apache.commons.collections4.keyvalue.MultiKey,size(),"/**
+     * Gets the size of the list of keys.
+     *
+     * @return the size of the list of keys
+     * @since 3.1
+     */","public int size() {
+        return keys.length;
+    }"
+coll_1304_25,"    public void testMultiKeyRemove_25_oe() {
+        final MultiKey<K>[] keys = getMultiKeyKeys();
+        final V[] values = getSampleValues();
+
+        for (int i = 0; i < keys.length; i++) {
+            resetFull();
+            final MultiKeyMap<K, V> multimap = getMap();
+            final int size = multimap.size();
+
+            final MultiKey<K> key = keys[i];
+            final V value = values[i];
+
+            switch (key.size()) {
+                case 2:
+                break;
+                case 3:
+                break;
+                case 4:
+                break;
+                case 5:
+                break;
+                default:
+                fail(""Invalid key size"");
+    }
+    }
+    }",MultiKeyMapTest::testMultiKeyRemove_25_oe,org.apache.commons.collections4.keyvalue.MultiKey,size(),"/**
+     * Gets the size of the list of keys.
+     *
+     * @return the size of the list of keys
+     * @since 3.1
+     */","public int size() {
+        return keys.length;
+    }"

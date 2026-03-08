@@ -40,6 +40,7 @@ public class ThreadDumpperTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger(ThreadDumpper.class);
 
+		// disable,不输出
 		dumpper.setEnable(false);
 		dumpper.threadDumpIfNeed();
 		assertThat(appender.getAllLogs()).hasSize(0);
@@ -60,9 +61,12 @@ public class ThreadDumpperTest_OE25Dev {
 		LogbackListAppender appender = new LogbackListAppender();
 		appender.addToLogger(ThreadDumpper.class);
 
+		// disable,不输出
 		dumpper.setEnable(false);
 		dumpper.threadDumpIfNeed();
+		// removed other assertion
 
+		// 设置最少间隔,不输出
 		dumpper.setEnable(true);
 		dumpper.setLeastInterval(1800);
 		dumpper.threadDumpIfNeed();

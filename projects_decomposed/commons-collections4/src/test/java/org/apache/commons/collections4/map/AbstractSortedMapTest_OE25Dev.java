@@ -82,6 +82,20 @@ public abstract class AbstractSortedMapTest_OE25Dev<K, V> extends AbstractMapTes
         return (SortedMap<K, V>) super.makeFullMap();
     }
 
+    public void testFirstKey() {
+        final SortedMap<K, V> sm = makeFullMap();
+        assertSame(sm.keySet().iterator().next(), sm.firstKey());
+    }
+
+    public void testLastKey() {
+        final SortedMap<K, V> sm = makeFullMap();
+        K obj = null;
+        for (final K k : sm.keySet()) {
+            obj = k;
+        }
+        assertSame(obj, sm.lastKey());
+    }
+
     //-----------------------------------------------------------------------
     public BulkTest bulkTestHeadMap() {
         return new TestHeadMap<>(this);

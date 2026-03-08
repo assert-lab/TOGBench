@@ -96,6 +96,7 @@ public class ColorConversionsTest_OE25Dev {
             Debug.debug("xyz: " + xyz);
             Debug.debug("xyz_rgb: " + xyz_rgb + " (" + Integer.toHexString(xyz_rgb) + ")");
 
+            // removed other assertion
 
             final ColorCieLab cielab = ColorConversions.convertXYZtoCIELab(xyz);
             final ColorXyz cielab_xyz = ColorConversions.convertCIELabtoXYZ(cielab);
@@ -120,6 +121,7 @@ public class ColorConversionsTest_OE25Dev {
             Debug.debug("xyz: " + xyz);
             Debug.debug("xyz_rgb: " + xyz_rgb + " (" + Integer.toHexString(xyz_rgb) + ")");
 
+            // removed other assertion
 
             final ColorCieLab cielab = ColorConversions.convertXYZtoCIELab(xyz);
             final ColorXyz cielab_xyz = ColorConversions.convertCIELabtoXYZ(cielab);
@@ -129,6 +131,7 @@ public class ColorConversionsTest_OE25Dev {
             Debug.debug("cielab_xyz: " + cielab_xyz);
             Debug.debug("cielab_xyz_rgb: " + cielab_xyz_rgb + " (" + Integer.toHexString(cielab_xyz_rgb) + ")");
 
+            // removed other assertion
 
             final ColorHunterLab hunterlab = ColorConversions.convertXYZtoHunterLab(xyz);
             final ColorXyz hunterlab_xyz = ColorConversions.convertHunterLabtoXYZ(hunterlab);

@@ -43,6 +43,7 @@ public class TraversorTest_OE25Dev {
             @Override
             public FilterResult head(Node node, int depth) {
                 accum.append("<").append(node.nodeName()).append(">");
+                // OMIT contents of p:
                 return ("p".equals(node.nodeName())) ? FilterResult.SKIP_CHILDREN : FilterResult.CONTINUE;
             }
 
@@ -62,6 +63,7 @@ public class TraversorTest_OE25Dev {
         NodeTraversor.filter(new NodeFilter() {
             @Override
             public FilterResult head(Node node, int depth) {
+                // OMIT p:
                 if ("p".equals(node.nodeName()))
                     return FilterResult.SKIP_ENTIRELY;
                 accum.append("<").append(node.nodeName()).append(">");
@@ -83,11 +85,13 @@ public class TraversorTest_OE25Dev {
         NodeTraversor.filter(new NodeFilter() {
             @Override
             public FilterResult head(Node node, int depth) {
+                // Delete "p" in head:
                 return ("p".equals(node.nodeName())) ? FilterResult.REMOVE : FilterResult.CONTINUE;
             }
 
             @Override
             public FilterResult tail(Node node, int depth) {
+                // Delete "b" in tail:
                 return ("b".equals(node.nodeName())) ? FilterResult.REMOVE : FilterResult.CONTINUE;
             }
         }, doc.select("div"));
@@ -108,6 +112,7 @@ public class TraversorTest_OE25Dev {
             @Override
             public FilterResult tail(Node node, int depth) {
                 accum.append("</").append(node.nodeName()).append(">");
+                // Stop after p.
                 return ("p".equals(node.nodeName())) ? FilterResult.STOP : FilterResult.CONTINUE;
             }
         }, doc.select("div"));
@@ -115,6 +120,8 @@ public class TraversorTest_OE25Dev {
     }
 
     @Test public void replaceElement_1_oe() {
+        // https://github.com/jhy/jsoup/issues/1289
+        // test we can replace an element during traversal
         String html = "<div><p>One <i>two</i> <i>three</i> four.</p></div>";
         Document doc = Jsoup.parse(html);
 
@@ -139,6 +146,8 @@ public class TraversorTest_OE25Dev {
         }
 
     @Test public void replaceElement_2_oe() {
+        // https://github.com/jhy/jsoup/issues/1289
+        // test we can replace an element during traversal
         String html = "<div><p>One <i>two</i> <i>three</i> four.</p></div>";
         Document doc = Jsoup.parse(html);
 
@@ -159,6 +168,7 @@ public class TraversorTest_OE25Dev {
         }, doc);
 
         Element p = doc.selectFirst("p");
+        // removed other assertion
         assertEquals("<p>One <u>two</u> <u>three</u> four.</p>", p.outerHtml());
         }
 
@@ -188,6 +198,7 @@ public class TraversorTest_OE25Dev {
         }
 
     @Test public void canSpecifyOnlyHead_1_oe() {
+        // really, a compilation test - works as a lambda if just head
         Document doc = Jsoup.parse("<div><p>One</p></div>");
         final int[] count = {0};
         NodeTraversor.traverse((node, depth) -> count[0]++, doc);

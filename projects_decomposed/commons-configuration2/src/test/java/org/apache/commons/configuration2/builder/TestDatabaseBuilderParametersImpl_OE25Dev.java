@@ -86,6 +86,7 @@ public class TestDatabaseBuilderParametersImpl_OE25Dev {
         BeanHelper.setProperty(params, "table", "testTable");
         BeanHelper.setProperty(params, "autoCommit", Boolean.FALSE);
         final Map<String, Object> map = params.getParameters();
+        // removed other assertion
         assertEquals("Wrong auto commit", Boolean.FALSE, map.get("autoCommit"));
     }
 

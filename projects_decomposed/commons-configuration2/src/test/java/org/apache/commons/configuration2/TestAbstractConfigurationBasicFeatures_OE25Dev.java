@@ -659,6 +659,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
             final String key = KEY_PREFIX + i;
             if (srcConfig.containsKey(key)) {
                 final List<Object> values = config.getList(key);
+                // removed other assertion
                 assertEquals("Wrong value 1 for " + key, "value" + i, values.get(0));
     }
     }
@@ -673,6 +674,8 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
             final String key = KEY_PREFIX + i;
             if (srcConfig.containsKey(key)) {
                 final List<Object> values = config.getList(key);
+                // removed other assertion
+                // removed other assertion
                 assertEquals("Wrong value 2 for " + key, "src" + i, values.get(1));
     }
     }
@@ -687,6 +690,9 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
             final String key = KEY_PREFIX + i;
             if (srcConfig.containsKey(key)) {
                 final List<Object> values = config.getList(key);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
             } else {
                 assertEquals("Value modified: " + key, "value" + i, config.getProperty(key));
     }
@@ -706,6 +712,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
     @Test
     public void testClearIteratorNoRemove_1_oe() {
         final AbstractConfiguration config = new TestConfigurationImpl(new BaseConfiguration()) {
+            // return an iterator that does not support remove operations
             @Override
             protected Iterator<String> getKeysInternal() {
                 final Collection<String> keyCol = new ArrayList<>();
@@ -742,6 +749,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         for (int i = 0; i < PROP_COUNT; i++) {
             final String key = KEY_PREFIX + i;
             if (srcConfig.containsKey(key)) {
+                // removed other assertion
             } else {
                 assertEquals("Value modified: " + key, "value" + i, config.getProperty(key));
     }
@@ -853,6 +861,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         config.addProperty(KEY_PREFIX, "1");
         final List<Integer> result = new ArrayList<>(1);
         config.getCollection(Integer.class, KEY_PREFIX, result);
+        // removed other assertion
         assertEquals("Wrong element", Integer.valueOf(1), result.get(0));
     }
 
@@ -867,6 +876,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
     public void testGetCollectionUnknownNoDefault_2_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final List<Integer> result = new ArrayList<>();
+        // removed other assertion
         assertTrue("Got elements", result.isEmpty());
     }
 
@@ -973,6 +983,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
     public void testInstallInterpolatorNull_2_oe() {
         final AbstractConfiguration config = new TestConfigurationImpl(new PropertiesConfiguration());
         config.installInterpolator(null, null);
+        // removed other assertion
         final List<Lookup> defLookups = config.getInterpolator().getDefaultLookups();
         assertEquals("Wrong number of default lookups", 1, defLookups.size());
     }
@@ -981,7 +992,9 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
     public void testInstallInterpolatorNull_3_oe() {
         final AbstractConfiguration config = new TestConfigurationImpl(new PropertiesConfiguration());
         config.installInterpolator(null, null);
+        // removed other assertion
         final List<Lookup> defLookups = config.getInterpolator().getDefaultLookups();
+        // removed other assertion
         assertTrue("Wrong default lookup", defLookups.get(0) instanceof ConfigurationLookup);
     }
 
@@ -1101,6 +1114,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         config.getInterpolator().addDefaultLookup(new ConfigurationLookup(new PropertiesConfiguration()));
         config.setDefaultLookups(Collections.singleton(look));
         final List<Lookup> lookups = config.getInterpolator().getDefaultLookups();
+        // removed other assertion
         assertSame("Wrong lookup at 1", look, lookups.get(1));
     }
 
@@ -1112,6 +1126,8 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         config.getInterpolator().addDefaultLookup(new ConfigurationLookup(new PropertiesConfiguration()));
         config.setDefaultLookups(Collections.singleton(look));
         final List<Lookup> lookups = config.getInterpolator().getDefaultLookups();
+        // removed other assertion
+        // removed other assertion
         assertTrue("Wrong lookup at 2: " + lookups, lookups.get(2) instanceof ConfigurationLookup);
     }
 
@@ -1134,6 +1150,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         config.setInterpolator(null);
         config.setDefaultLookups(Collections.singleton(look));
         final List<Lookup> lookups = config.getInterpolator().getDefaultLookups();
+        // removed other assertion
         assertSame("Wrong lookup at 0", look, lookups.get(0));
     }
 
@@ -1145,6 +1162,8 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         config.setInterpolator(null);
         config.setDefaultLookups(Collections.singleton(look));
         final List<Lookup> lookups = config.getInterpolator().getDefaultLookups();
+        // removed other assertion
+        // removed other assertion
         assertTrue("Wrong lookup at 1", lookups.get(1) instanceof ConfigurationLookup);
     }
 
@@ -1165,6 +1184,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         final AbstractConfiguration config = new TestConfigurationImpl(new PropertiesConfiguration());
         final ConfigurationInterpolator ci = config.getInterpolator();
         config.setParentInterpolator(parent);
+        // removed other assertion
         assertSame("Interpolator was changed", ci, config.getInterpolator());
     }
 
@@ -1201,6 +1221,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         lookups.put("test", look);
         config.setPrefixLookups(lookups);
         final Map<String, Lookup> lookups2 = config.getInterpolator().getLookups();
+        // removed other assertion
         assertSame("Not found", look, lookups2.get("test"));
     }
 
@@ -1223,6 +1244,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         config.setInterpolator(null);
         config.setPrefixLookups(Collections.singletonMap("test", look));
         final Map<String, Lookup> lookups = config.getInterpolator().getLookups();
+        // removed other assertion
         assertSame("Not found", look, lookups.get("test"));
     }
 

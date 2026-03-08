@@ -1,0 +1,405 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-jcs3-core:jar:3.1
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.13 vs (?) @ line 96, column 17
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-jcs3-jcache:jar:3.1
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.13 vs (?) @ line 85, column 17
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-jcs3-jcache-tck:jar:3.1
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.12 vs (?) @ line 83, column 17
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-jcs3-jcache-extras:jar:3.1
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version (?) vs 4.12 @ line 112, column 17
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-jcs3-jcache-openjpa:jar:3.1
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.13 vs (?) @ line 67, column 17
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Apache Commons JCS                                                 [pom]
+[INFO] Apache Commons JCS :: Core                                         [jar]
+[INFO] Apache Commons JCS :: JCache                                       [jar]
+[INFO] Apache Commons JCS :: JCache TCK                                   [jar]
+[INFO] Apache Commons JCS :: JCache Extras                                [jar]
+[INFO] Apache Commons JCS :: JCache OpenJPA                               [jar]
+[INFO] Apache Commons JCS :: Distribution                                 [pom]
+[INFO] 
+[INFO] ------------------< org.apache.commons:commons-jcs3 >-------------------
+[INFO] Building Apache Commons JCS 3.1                                    [1/7]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-jcs3 ---
+[INFO] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-jcs3 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-jcs3 ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-jcs3 ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-jcs3 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-jcs3 ---
+[INFO] Skipping Antrun execution
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-jcs3 ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3 ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3
+[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772595146149
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-jcs3 ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-jcs3 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] ----------------< org.apache.commons:commons-jcs3-core >----------------
+[INFO] Building Apache Commons JCS :: Core 3.1                            [2/7]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-jcs3-core ---
+[INFO] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-jcs3-core ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-jcs3-core ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-jcs3-core ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-jcs3-core ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-jcs3-core ---
+[INFO] Skipping Antrun execution
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-jcs3-core ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-core ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core
+[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772595146528
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-jcs3-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-jcs3-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 233 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/src/main/java/org/apache/commons/jcs3/utils/config/PropertySetter.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/src/main/java/org/apache/commons/jcs3/utils/config/PropertySetter.java uses unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/src/main/java/org/apache/commons/jcs3/utils/config/PropertySetter.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-jcs3-core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-jcs3-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 49 resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-jcs3-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 207 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/src/test/java/org/apache/commons/jcs3/auxiliary/remote/RemoteCacheClientTester.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/src/test/java/org/apache/commons/jcs3/auxiliary/remote/RemoteCacheClientTester.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-jcs3-core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.jcs3.engine.logging.CacheEventLoggerDebugLoggerUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.jcs3.engine.logging.CacheEventLoggerDebugLoggerUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.memory.fifo.FIFOMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.memory.fifo.FIFOMemoryCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.match.KeyMatcherPatternImpllUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.engine.match.KeyMatcherPatternImpllUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocalUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocalUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.CacheEventQueueFactoryUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.CacheEventQueueFactoryUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.control.CacheManagerStatsUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.control.CacheManagerStatsUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.control.CompositeCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.serialization.StandardSerializerUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.utils.serialization.StandardSerializerUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.serialization.EncryptingSerializerUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.serialization.EncryptingSerializerUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.net.HostNameUtilUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.net.HostNameUtilUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.struct.DoubleLinkedListDumpUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.DoubleLinkedListDumpUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.struct.JCSvsCommonsLRUMapPerformanceTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.JCSvsCommonsLRUMapPerformanceTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.struct.LRUMapUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.LRUMapUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.struct.DoubleLinkedListUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.DoubleLinkedListUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.zip.CompressionUtilUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.zip.CompressionUtilUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.discovery.UDPDiscoveryServiceUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.discovery.UDPDiscoveryServiceUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.access.CacheAccessUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.access.CacheAccessUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.access.GroupCacheAccessUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.access.GroupCacheAccessUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.JCSUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.JCSUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.TestTCPLateralUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.TestTCPLateralUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPDiscoveryListenerUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPDiscoveryListenerUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.lateral.LateralCacheNoWaitFacadeUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.lateral.LateralCacheNoWaitFacadeUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.util.ScheduleParserUtilUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.util.ScheduleParserUtilUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.MySQLDiskCacheUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.MySQLDiskCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheRemovalUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheRemovalUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheShrinkUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheShrinkUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDataSourceFactoryUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDataSourceFactoryUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.AbstractDiskCacheUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.disk.AbstractDiskCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.indexed.IndexDiskCacheSizeUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.disk.indexed.IndexDiskCacheSizeUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.indexed.IndexDiskCacheCountUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.disk.indexed.IndexDiskCacheCountUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCacheKeyStoreUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCacheKeyStoreUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.PurgatoryElementUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.disk.PurgatoryElementUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.RemoteUtilsUnitTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.jcs3.auxiliary.remote.RemoteUtilsUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.server.BasicRemoteCacheClientServerUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.jcs3.auxiliary.remote.server.BasicRemoteCacheClientServerUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerAttributesUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerAttributesUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerFactoryUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerFactoryUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.admin.CountingStreamUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.admin.CountingStreamUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.JCSLightLoadUnitTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.JCSLightLoadUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.JCSThrashTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.JCSThrashTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.JCSvsHashtablePerformanceTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.JCSvsHashtablePerformanceTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ---------------< org.apache.commons:commons-jcs3-jcache >---------------
+[INFO] Building Apache Commons JCS :: JCache 3.1                          [3/7]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-jcs3-jcache ---
+[INFO] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-jcs3-jcache ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-jcs3-jcache ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-jcs3-jcache ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-jcs3-jcache ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-jcs3-jcache ---
+[INFO] Skipping Antrun execution
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-jcs3-jcache ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-jcache ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache
+[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772595148680
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-jcs3-jcache ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-jcs3-jcache ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 44 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/main/java/org/apache/commons/jcs3/jcache/cdi/MakeJCacheCDIInterceptorFriendly.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/main/java/org/apache/commons/jcs3/jcache/cdi/MakeJCacheCDIInterceptorFriendly.java uses or overrides a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/main/java/org/apache/commons/jcs3/jcache/cdi/MakeJCacheCDIInterceptorFriendly.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/main/java/org/apache/commons/jcs3/jcache/JCSConfiguration.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/main/java/org/apache/commons/jcs3/jcache/JCSConfiguration.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-jcs3-jcache ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-jcs3-jcache ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-jcs3-jcache ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/target/test-classes
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-jcs3-jcache ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ commons-jcs3-jcache ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.jcs3.jcache.CachingProviderTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.jcs3.jcache.CachingProviderTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -------------< org.apache.commons:commons-jcs3-jcache-tck >-------------
+[INFO] Building Apache Commons JCS :: JCache TCK 3.1                      [4/7]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-jcs3-jcache-tck ---
+[INFO] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-tck-tests/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-jcs3-jcache-tck ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-jcs3-jcache-tck ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-jcs3-jcache-tck ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-jcs3-jcache-tck ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-jcs3-jcache-tck ---
+[INFO] Skipping Antrun execution
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-jcs3-jcache-tck ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-jcache-tck ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-tck-tests' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-tck-tests
+[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772595149579
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-jcs3-jcache-tck ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-tck-tests/src/main/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-jcs3-jcache-tck ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-jcs3-jcache-tck ---
+[WARNING] Manifest org.apache.commons:commons-jcs3-jcache-tck:jar:3.1 : Unused Export-Package instructions: [org.apache.commons.*] 
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-jcs3-jcache-tck ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-jcs3-jcache-tck ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-tck-tests/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-tck-tests/src/test/java/org/apache/commons/jcs3/jcache/EnsureCDIIsTestedWhenTCKsRunTest.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-tck-tests/src/test/java/org/apache/commons/jcs3/jcache/EnsureCDIIsTestedWhenTCKsRunTest.java uses or overrides a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-tck-tests/src/test/java/org/apache/commons/jcs3/jcache/EnsureCDIIsTestedWhenTCKsRunTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-tck-tests/src/test/java/org/apache/commons/jcs3/jcache/OWBBeanProvider.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-tck-tests/src/test/java/org/apache/commons/jcs3/jcache/OWBBeanProvider.java uses unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-tck-tests/src/test/java/org/apache/commons/jcs3/jcache/OWBBeanProvider.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-jcs3-jcache-tck ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-jcs3-jcache-tck ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Apache Commons JCS 3.1:
+[INFO] 
+[INFO] Apache Commons JCS ................................. SUCCESS [  0.780 s]
+[INFO] Apache Commons JCS :: Core ......................... SUCCESS [  2.195 s]
+[INFO] Apache Commons JCS :: JCache ....................... SUCCESS [  0.903 s]
+[INFO] Apache Commons JCS :: JCache TCK ................... FAILURE [  0.228 s]
+[INFO] Apache Commons JCS :: JCache Extras ................ SKIPPED
+[INFO] Apache Commons JCS :: JCache OpenJPA ............... SKIPPED
+[INFO] Apache Commons JCS :: Distribution ................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.173 s
+[INFO] Finished at: 2026-03-03T21:32:29-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-jcs3-jcache-tck: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :commons-jcs3-jcache-tck

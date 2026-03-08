@@ -279,6 +279,7 @@ public class GenericIntegrationTest_OE25Dev {
     public void testPatch_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("PATCH", "/patcher", "Fo shizzy");
         LOGGER.info(response.body);
+        // removed other assertion
         Assert.assertTrue(response.body.contains("Fo shizzy"));
     }
 
@@ -291,6 +292,7 @@ public class GenericIntegrationTest_OE25Dev {
     @Test
     public void testSessionReset_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/session_reset", null);
+        // removed other assertion
         Assert.assertEquals("22222", response.body);
     }
 
@@ -303,6 +305,7 @@ public class GenericIntegrationTest_OE25Dev {
     @Test
     public void testStaticFile_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/css/style.css", null);
+        // removed other assertion
         Assert.assertEquals("Content of css file", response.body);
     }
 
@@ -315,6 +318,7 @@ public class GenericIntegrationTest_OE25Dev {
     @Test
     public void testExternalStaticFile_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/externalFile.html", null);
+        // removed other assertion
         Assert.assertEquals("Content of external file", response.body);
     }
 
@@ -332,13 +336,16 @@ public class GenericIntegrationTest_OE25Dev {
 
     @Test
     public void testNotFoundExceptionMapper_1_oe() throws Exception {
+        //        thrownotfound
         UrlResponse response = testUtil.doMethod("GET", "/thrownotfound", null);
         Assert.assertEquals(NOT_FOUND_BRO, response.body);
     }
 
     @Test
     public void testNotFoundExceptionMapper_2_oe() throws Exception {
+        //        thrownotfound
         UrlResponse response = testUtil.doMethod("GET", "/thrownotfound", null);
+        // removed other assertion
         Assert.assertEquals(404, response.status);
     }
 
@@ -381,6 +388,7 @@ public class GenericIntegrationTest_OE25Dev {
         }
 
         List<String> events = WebSocketTestHandler.events;
+        // removed other assertion
         Assert.assertEquals("onConnect", events.get(0));
     }
 
@@ -399,6 +407,8 @@ public class GenericIntegrationTest_OE25Dev {
         }
 
         List<String> events = WebSocketTestHandler.events;
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("onMessage: Hi Spark!", events.get(1));
     }
 
@@ -417,6 +427,9 @@ public class GenericIntegrationTest_OE25Dev {
         }
 
         List<String> events = WebSocketTestHandler.events;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("onClose: 1000 Bye!", events.get(2));
     }
 
@@ -429,12 +442,15 @@ public class GenericIntegrationTest_OE25Dev {
     @Test
     public void path_should_prefix_routes_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/firstPath/test", null, "application/json");
+        // removed other assertion
         Assert.assertEquals("Single path-prefix works", response.body);
     }
 
     @Test
     public void path_should_prefix_routes_3_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/firstPath/test", null, "application/json");
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("true", response.headers.get("before-filter-ran"));
     }
 
@@ -447,12 +463,15 @@ public class GenericIntegrationTest_OE25Dev {
     @Test
     public void paths_should_be_nestable_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/firstPath/secondPath/test", null, "application/json");
+        // removed other assertion
         Assert.assertEquals("Nested path-prefix works", response.body);
     }
 
     @Test
     public void paths_should_be_nestable_3_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/firstPath/secondPath/test", null, "application/json");
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("true", response.headers.get("before-filter-ran"));
     }
 
@@ -465,12 +484,15 @@ public class GenericIntegrationTest_OE25Dev {
     @Test
     public void paths_should_be_very_nestable_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/firstPath/secondPath/thirdPath/test", null, "application/json");
+        // removed other assertion
         Assert.assertEquals("Very nested path-prefix works", response.body);
     }
 
     @Test
     public void paths_should_be_very_nestable_3_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/firstPath/secondPath/thirdPath/test", null, "application/json");
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals("true", response.headers.get("before-filter-ran"));
     }
 
@@ -483,6 +505,7 @@ public class GenericIntegrationTest_OE25Dev {
     @Test
     public void testRuntimeExceptionForDone_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/exception", null);
+        // removed other assertion
         Assert.assertEquals(500, response.status);
     }
 
@@ -495,12 +518,15 @@ public class GenericIntegrationTest_OE25Dev {
     @Test
     public void testRuntimeExceptionForAllRoutesFinally_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/hi", null);
+        // removed other assertion
         Assert.assertEquals("nice done response after all", response.headers.get("post-process-all"));
     }
 
     @Test
     public void testRuntimeExceptionForAllRoutesFinally_3_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/hi", null);
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(200, response.status);
     }
 
@@ -513,12 +539,15 @@ public class GenericIntegrationTest_OE25Dev {
     @Test
     public void testPostProcessBodyForFinally_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("POST", "/nice", "");
+        // removed other assertion
         Assert.assertEquals("nice done response", response.headers.get("post-process"));
     }
 
     @Test
     public void testPostProcessBodyForFinally_3_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("POST", "/nice", "");
+        // removed other assertion
+        // removed other assertion
         Assert.assertEquals(200, response.status);
     }
 
@@ -531,6 +560,7 @@ public class GenericIntegrationTest_OE25Dev {
 @Test
     public void filters_should_be_accept_type_aware_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/protected/resource", null, "application/json");
+        // removed other assertion
         Assert.assertEquals("{\"message\": \"Go Away!\"}", response.body);
     }
 
@@ -543,6 +573,7 @@ public class GenericIntegrationTest_OE25Dev {
 @Test
     public void routes_should_be_accept_type_aware_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/hi", null, "application/json");
+        // removed other assertion
         Assert.assertEquals("{\"message\": \"Hello World\"}", response.body);
     }
 
@@ -555,6 +586,7 @@ public class GenericIntegrationTest_OE25Dev {
 @Test
     public void template_view_should_be_rendered_with_given_model_view_object_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/templateView", null);
+        // removed other assertion
         Assert.assertEquals("Hello from my view", response.body);
     }
 
@@ -567,6 +599,7 @@ public class GenericIntegrationTest_OE25Dev {
 @Test
     public void testGetHi_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/hi", null);
+        // removed other assertion
         Assert.assertEquals("Hello World!", response.body);
     }
 
@@ -579,6 +612,7 @@ public class GenericIntegrationTest_OE25Dev {
 @Test
     public void testHiHead_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("HEAD", "/hi", null);
+        // removed other assertion
         Assert.assertEquals("", response.body);
     }
 
@@ -605,6 +639,7 @@ public class GenericIntegrationTest_OE25Dev {
         headers.put("X-Forwarded-For", xForwardedFor);
 
         UrlResponse response = testUtil.doMethod("GET", "/ip", null, false, "text/html", headers);
+        // removed other assertion
 
         response = testUtil.doMethod("GET", "/ip", null, false, "text/html", null);
         Assert.assertNotEquals(xForwardedFor, response.body);
@@ -619,6 +654,7 @@ public class GenericIntegrationTest_OE25Dev {
 @Test
     public void testGetRoot_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/", null);
+        // removed other assertion
         Assert.assertEquals("Hello Root!", response.body);
     }
 
@@ -631,6 +667,7 @@ public class GenericIntegrationTest_OE25Dev {
 @Test
     public void testParamAndWild_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/paramandwild/thedude/stuff/andits", null);
+        // removed other assertion
         Assert.assertEquals("paramandwild: thedudeandits", response.body);
     }
 
@@ -643,6 +680,7 @@ public class GenericIntegrationTest_OE25Dev {
 @Test
     public void testEchoParam1_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/param/shizzy", null);
+        // removed other assertion
         Assert.assertEquals("echo: shizzy", response.body);
     }
 
@@ -655,6 +693,7 @@ public class GenericIntegrationTest_OE25Dev {
 @Test
     public void testEchoParam2_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/param/gunit", null);
+        // removed other assertion
         Assert.assertEquals("echo: gunit", response.body);
     }
 
@@ -671,6 +710,7 @@ public class GenericIntegrationTest_OE25Dev {
         String polyglot = "жξ Ä 聊";
         String encoded = URIUtil.encodePath(polyglot);
         UrlResponse response = testUtil.doMethod("GET", "/param/" + encoded, null);
+        // removed other assertion
         Assert.assertEquals("echo: " + polyglot, response.body);
     }
 
@@ -685,6 +725,7 @@ public class GenericIntegrationTest_OE25Dev {
     public void testPathParamsWithPlusSign_2_oe() throws Exception {
         String pathParamWithPlusSign = "not+broken+path+param";
         UrlResponse response = testUtil.doMethod("GET", "/param/" + pathParamWithPlusSign, null);
+        // removed other assertion
         Assert.assertEquals("echo: " + pathParamWithPlusSign, response.body);
     }
 
@@ -701,6 +742,7 @@ public class GenericIntegrationTest_OE25Dev {
         String polyglot = "te/st";
         String encoded = URLEncoder.encode(polyglot, "UTF-8");
         UrlResponse response = testUtil.doMethod("GET", "/param/" + encoded, null);
+        // removed other assertion
         Assert.assertEquals("echo: " + polyglot, response.body);
     }
 
@@ -723,6 +765,7 @@ public class GenericIntegrationTest_OE25Dev {
         String encodedSplat = URLEncoder.encode(splat, "UTF-8");
         UrlResponse response = testUtil.doMethod("GET",
                                                  "/paramandwild/" + encodedParam + "/stuff/" + encodedSplat, null);
+        // removed other assertion
         Assert.assertEquals("paramandwild: " + param + splat, response.body);
     }
 
@@ -737,6 +780,7 @@ public class GenericIntegrationTest_OE25Dev {
     public void testEchoParamWithUpperCaseInValue_2_oe() throws Exception {
         final String camelCased = "ThisIsAValueAndSparkShouldRetainItsUpperCasedCharacters";
         UrlResponse response = testUtil.doMethod("GET", "/param/" + camelCased, null);
+        // removed other assertion
         Assert.assertEquals("echo: " + camelCased, response.body);
     }
 
@@ -757,6 +801,7 @@ public class GenericIntegrationTest_OE25Dev {
 
         registerEchoRoute(lowerCasedRoutePart);
         registerEchoRoute(upperCasedRoutePart);
+        // removed other assertion
         assertEchoRoute(upperCasedRoutePart);
     }
 
@@ -769,6 +814,7 @@ public class GenericIntegrationTest_OE25Dev {
 @Test
     public void testEchoParamWithMaj_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/paramwithmaj/plop", null);
+        // removed other assertion
         Assert.assertEquals("echo: plop", response.body);
     }
 
@@ -795,6 +841,7 @@ public class GenericIntegrationTest_OE25Dev {
     public void testPost_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("POST", "/poster", "Fo shizzy");
         LOGGER.info(response.body);
+        // removed other assertion
         Assert.assertTrue(response.body.contains("Fo shizzy"));
     }
 

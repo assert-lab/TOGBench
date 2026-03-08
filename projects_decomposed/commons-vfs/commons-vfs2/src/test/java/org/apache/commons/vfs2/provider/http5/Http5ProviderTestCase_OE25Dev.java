@@ -127,6 +127,11 @@ public class Http5ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
     }
 
     // Test no longer passing 2016/04/28
+    public void ignoreTestHttp405() throws FileSystemException {
+        final FileObject fileObject = VFS.getManager()
+                .resolveFile("http5://www.w3schools.com/webservices/tempconvert.asmx?action=WSDL");
+        assert !fileObject.getContent().isEmpty();
+    }
 
     /**
      * Prepares the file system manager.
@@ -172,6 +177,7 @@ public class Http5ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http5FileSystemConfigBuilder builder = Http5FileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
         assertEquals(0, builder.getConnectionTimeout(opts));
     }
 
@@ -179,6 +185,8 @@ public class Http5ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http5FileSystemConfigBuilder builder = Http5FileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
         assertEquals(Duration.ZERO, builder.getConnectionTimeoutDuration(opts));
     }
 
@@ -186,6 +194,9 @@ public class Http5ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http5FileSystemConfigBuilder builder = Http5FileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
         assertEquals(0, builder.getSoTimeout(opts));
     }
 
@@ -193,6 +204,10 @@ public class Http5ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http5FileSystemConfigBuilder builder = Http5FileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(Duration.ZERO, builder.getSoTimeoutDuration(opts));
     }
 
@@ -200,6 +215,11 @@ public class Http5ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http5FileSystemConfigBuilder builder = Http5FileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Jakarta-Commons-VFS", builder.getUserAgent(opts));
     }
 
@@ -207,11 +227,19 @@ public class Http5ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http5FileSystemConfigBuilder builder = Http5FileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timeout as int
         builder.setConnectionTimeout(opts, 60000);
         builder.setSoTimeout(opts, 60000);
         builder.setUserAgent(opts, "foo/bar");
 
+        // ensure changes are visible
         assertEquals(60000, builder.getConnectionTimeout(opts));
     }
 
@@ -219,11 +247,20 @@ public class Http5ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http5FileSystemConfigBuilder builder = Http5FileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timeout as int
         builder.setConnectionTimeout(opts, 60000);
         builder.setSoTimeout(opts, 60000);
         builder.setUserAgent(opts, "foo/bar");
 
+        // ensure changes are visible
+        // removed other assertion
         assertEquals(60000, builder.getSoTimeout(opts));
     }
 
@@ -231,11 +268,21 @@ public class Http5ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http5FileSystemConfigBuilder builder = Http5FileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timeout as int
         builder.setConnectionTimeout(opts, 60000);
         builder.setSoTimeout(opts, 60000);
         builder.setUserAgent(opts, "foo/bar");
 
+        // ensure changes are visible
+        // removed other assertion
+        // removed other assertion
         assertEquals("foo/bar", builder.getUserAgent(opts));
     }
 
@@ -243,16 +290,29 @@ public class Http5ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http5FileSystemConfigBuilder builder = Http5FileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timeout as int
         builder.setConnectionTimeout(opts, 60000);
         builder.setSoTimeout(opts, 60000);
         builder.setUserAgent(opts, "foo/bar");
 
+        // ensure changes are visible
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timeout as Duration
         builder.setConnectionTimeout(opts, Duration.ofMinutes(1));
         builder.setSoTimeout(opts, Duration.ofMinutes(1));
         builder.setUserAgent(opts, "foo/bar");
 
+        // ensure changes are visible
         assertEquals(60000, builder.getConnectionTimeoutDuration(opts).toMillis());
     }
 
@@ -260,16 +320,30 @@ public class Http5ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http5FileSystemConfigBuilder builder = Http5FileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timeout as int
         builder.setConnectionTimeout(opts, 60000);
         builder.setSoTimeout(opts, 60000);
         builder.setUserAgent(opts, "foo/bar");
 
+        // ensure changes are visible
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timeout as Duration
         builder.setConnectionTimeout(opts, Duration.ofMinutes(1));
         builder.setSoTimeout(opts, Duration.ofMinutes(1));
         builder.setUserAgent(opts, "foo/bar");
 
+        // ensure changes are visible
+        // removed other assertion
         assertEquals(60000, builder.getSoTimeoutDuration(opts).toMillis());
     }
 
@@ -277,23 +351,32 @@ public class Http5ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http5FileSystemConfigBuilder builder = Http5FileSystemConfigBuilder.getInstance();
 
+        // ensure defaults are 0
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timeout as int
         builder.setConnectionTimeout(opts, 60000);
         builder.setSoTimeout(opts, 60000);
         builder.setUserAgent(opts, "foo/bar");
 
+        // ensure changes are visible
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // timeout as Duration
         builder.setConnectionTimeout(opts, Duration.ofMinutes(1));
         builder.setSoTimeout(opts, Duration.ofMinutes(1));
         builder.setUserAgent(opts, "foo/bar");
 
+        // ensure changes are visible
+        // removed other assertion
+        // removed other assertion
         assertEquals("foo/bar", builder.getUserAgent(opts));
     }
-
-public void ignoreTestHttp405_1_oe() throws FileSystemException {
-        final FileObject fileObject = VFS.getManager()
-                .resolveFile("http5://www.w3schools.com/webservices/tempconvert.asmx?action=WSDL");
-        assert !fileObject.getContent().isEmpty();
-}
 
 }

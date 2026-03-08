@@ -51,6 +51,17 @@ public class ComparatorChainTest_OE25Dev extends AbstractComparatorTest<Comparat
 //    }
 
     @Test
+    public void testNoopComparatorChain() {
+        final ComparatorChain<Integer> chain = new ComparatorChain<>();
+        final Integer i1 = Integer.valueOf(4);
+        final Integer i2 = Integer.valueOf(6);
+        chain.addComparator(new ComparableComparator<Integer>());
+
+        final int correctValue = i1.compareTo(i2);
+        assertTrue("Comparison returns the right order", chain.compare(i1, i2) == correctValue);
+    }
+
+    @Test
     public void testBadNoopComparatorChain() {
         final ComparatorChain<Integer> chain = new ComparatorChain<>();
         final Integer i1 = Integer.valueOf(4);
@@ -60,6 +71,18 @@ public class ComparatorChainTest_OE25Dev extends AbstractComparatorTest<Comparat
             fail("An exception should be thrown when a chain contains zero comparators.");
         } catch (final UnsupportedOperationException e) {
         }
+    }
+
+    @Test
+    public void testListComparatorChain() {
+        final List<Comparator<Integer>> list = new LinkedList<>();
+        list.add(new ComparableComparator<Integer>());
+        final ComparatorChain<Integer> chain = new ComparatorChain<>(list);
+        final Integer i1 = Integer.valueOf(4);
+        final Integer i2 = Integer.valueOf(6);
+
+        final int correctValue = i1.compareTo(i2);
+        assertTrue("Comparison returns the right order", chain.compare(i1, i2) == correctValue);
     }
 
     @Test
@@ -73,6 +96,30 @@ public class ComparatorChainTest_OE25Dev extends AbstractComparatorTest<Comparat
             fail("An exception should be thrown when a chain contains zero comparators.");
         } catch (final UnsupportedOperationException e) {
         }
+    }
+
+    @Test
+    public void testComparatorChainOnMinvaluedCompatator() {
+        // -1 * Integer.MIN_VALUE is less than 0,
+        // test that ComparatorChain handles this edge case correctly
+        final ComparatorChain<Integer> chain = new ComparatorChain<>();
+        chain.addComparator(new Comparator<Integer>() {
+            @Override
+            public int compare(final Integer a, final Integer b) {
+                final int result = a.compareTo(b);
+                if (result < 0) {
+                    return Integer.MIN_VALUE;
+                }
+                if (result > 0) {
+                    return Integer.MAX_VALUE;
+                }
+                return 0;
+            }
+        }, true);
+
+        assertTrue(chain.compare(Integer.valueOf(4), Integer.valueOf(5)) > 0);
+        assertTrue(chain.compare(Integer.valueOf(5), Integer.valueOf(4)) < 0);
+        assertTrue(chain.compare(Integer.valueOf(4), Integer.valueOf(4)) == 0);
     }
 
     @Override

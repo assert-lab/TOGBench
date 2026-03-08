@@ -303,6 +303,7 @@ public class FinderTest_OE25Dev extends WeaverTestBase {
         for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(TestBeanInterface.class)) {
             implementors.add(annotated.get());
         }
+        // removed other assertion
         assertTrue(implementors.contains(TestBeanWithClassAnnotation.class));
     }
 
@@ -317,6 +318,8 @@ public class FinderTest_OE25Dev extends WeaverTestBase {
         for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(TestBeanInterface.class)) {
             implementors.add(annotated.get());
         }
+        // removed other assertion
+        // removed other assertion
 
         final Set<Class<?>> subclasses = new HashSet<Class<?>>();
         for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(AbstractTestBean.class)) {
@@ -336,11 +339,14 @@ public class FinderTest_OE25Dev extends WeaverTestBase {
         for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(TestBeanInterface.class)) {
             implementors.add(annotated.get());
         }
+        // removed other assertion
+        // removed other assertion
 
         final Set<Class<?>> subclasses = new HashSet<Class<?>>();
         for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(AbstractTestBean.class)) {
             subclasses.add(annotated.get());
         }
+        // removed other assertion
         assertTrue(subclasses.contains(TestBeanWithClassAnnotation.class));
     }
 
@@ -355,11 +361,15 @@ public class FinderTest_OE25Dev extends WeaverTestBase {
         for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(TestBeanInterface.class)) {
             implementors.add(annotated.get());
         }
+        // removed other assertion
+        // removed other assertion
 
         final Set<Class<?>> subclasses = new HashSet<Class<?>>();
         for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(AbstractTestBean.class)) {
             subclasses.add(annotated.get());
         }
+        // removed other assertion
+        // removed other assertion
         assertTrue(subclasses.contains(TestBeanWithMethodAnnotation.class));
     }
 

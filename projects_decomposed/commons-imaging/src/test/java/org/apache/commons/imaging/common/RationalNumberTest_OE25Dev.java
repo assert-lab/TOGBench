@@ -135,24 +135,34 @@ public class RationalNumberTest_OE25Dev extends ImagingTest {
     @Test
     public void testSpecialRationalNumber_2_oe(){
         RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
+        // removed other assertion
         assertEquals(58.858334f, test.floatValue(), 1.0e-6f, "Float conversion failed");
     }
 
     @Test
     public void testSpecialRationalNumber_3_oe(){
         RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
+        // removed other assertion
+        // removed other assertion
         assertEquals(58L, test.longValue(), "Long value conversion failed");
     }
 
     @Test
     public void testSpecialRationalNumber_4_oe(){
         RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(58, test.intValue(), "Int value conversion failed");
     }
 
     @Test
     public void testSpecialRationalNumber_5_oe() throws Exception{
         RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         try {
     test.negate();
     fail("NumberFormatException: Failed to detect negation of large unsigned value");

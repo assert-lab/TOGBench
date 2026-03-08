@@ -106,6 +106,7 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
         for ( int i = 0; i < cnt; i++ )
         {
             final ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            // removed other assertion
             assertEquals( "presave, element is wrong.", "data:" + i, element.getVal() );
     }
     }
@@ -134,6 +135,8 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
         for ( int i = 0; i < cnt; i++ )
         {
             final ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            // removed other assertion
+            // removed other assertion
         }
 
         disk.saveKeys();
@@ -167,12 +170,15 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
         for ( int i = 0; i < cnt; i++ )
         {
             final ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            // removed other assertion
+            // removed other assertion
         }
 
         disk.saveKeys();
 
         disk.loadKeys();
 
+        // removed other assertion
 
         for ( int i = 0; i < cnt; i++ )
         {
@@ -205,16 +211,20 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
         for ( int i = 0; i < cnt; i++ )
         {
             final ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            // removed other assertion
+            // removed other assertion
         }
 
         disk.saveKeys();
 
         disk.loadKeys();
 
+        // removed other assertion
 
         for ( int i = 0; i < cnt; i++ )
         {
             final ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            // removed other assertion
             assertEquals( "postsave, element is wrong.", "data:" + i, element.getVal() );
     }
     }
@@ -282,6 +292,7 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
         disk.processUpdate( elementSetup );
 
         final ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
+        // removed other assertion
         assertEquals( "postsave, element is wrong.", "data:" + "A", elementRet.getVal() );
     }
 
@@ -315,10 +326,13 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
         disk.processUpdate( elementSetup );
 
         final ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
+        // removed other assertion
+        // removed other assertion
 
         disk.remove( "key:" + "A" );
 
         final long preSize = disk.getDataFileSize();
+        // synchronous versoin
         disk.optimizeFile(); //deoptimizeRealTime();
         final long postSize = disk.getDataFileSize();
 
@@ -355,13 +369,17 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
         disk.processUpdate( elementSetup );
 
         final ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
+        // removed other assertion
+        // removed other assertion
 
         disk.remove( "key:" + "A" );
 
         final long preSize = disk.getDataFileSize();
+        // synchronous versoin
         disk.optimizeFile(); //deoptimizeRealTime();
         final long postSize = disk.getDataFileSize();
 
+        // removed other assertion
         assertEquals( "Should be the same size after optimization as before add and remove.", preAddRemoveSize, postSize );
     }
 
@@ -395,13 +413,18 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
         disk.processUpdate( elementSetup );
 
         final ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
+        // removed other assertion
+        // removed other assertion
 
         disk.remove( "key:" + "A" );
 
         final long preSize = disk.getDataFileSize();
+        // synchronous versoin
         disk.optimizeFile(); //deoptimizeRealTime();
         final long postSize = disk.getDataFileSize();
 
+        // removed other assertion
+        // removed other assertion
 
         for ( int i = 0; i < cnt; i++ )
         {
@@ -440,17 +463,23 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
         disk.processUpdate( elementSetup );
 
         final ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
+        // removed other assertion
+        // removed other assertion
 
         disk.remove( "key:" + "A" );
 
         final long preSize = disk.getDataFileSize();
+        // synchronous versoin
         disk.optimizeFile(); //deoptimizeRealTime();
         final long postSize = disk.getDataFileSize();
 
+        // removed other assertion
+        // removed other assertion
 
         for ( int i = 0; i < cnt; i++ )
         {
             final ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            // removed other assertion
             assertEquals( "postsave, element is wrong.", "data:" + i, element.getVal() );
     }
     }

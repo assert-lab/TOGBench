@@ -43,6 +43,7 @@ public class OAuthRequestTest_OE25Dev {
 
     @Test
     public void shouldNotSentHeaderTwice_2_oe() {
+        // removed other assertion
         request.addHeader("HEADER-NAME", "first");
         request.addHeader("header-name", "middle");
         request.addHeader("Header-Name", "last");
@@ -52,64 +53,91 @@ public class OAuthRequestTest_OE25Dev {
 
     @Test
     public void shouldNotSentHeaderTwice_3_oe() {
+        // removed other assertion
         request.addHeader("HEADER-NAME", "first");
         request.addHeader("header-name", "middle");
         request.addHeader("Header-Name", "last");
 
+        // removed other assertion
 
         assertTrue(request.getHeaders().containsKey("HEADER-NAME"));
     }
 
     @Test
     public void shouldNotSentHeaderTwice_4_oe() {
+        // removed other assertion
         request.addHeader("HEADER-NAME", "first");
         request.addHeader("header-name", "middle");
         request.addHeader("Header-Name", "last");
 
+        // removed other assertion
 
+        // removed other assertion
         assertTrue(request.getHeaders().containsKey("header-name"));
     }
 
     @Test
     public void shouldNotSentHeaderTwice_5_oe() {
+        // removed other assertion
         request.addHeader("HEADER-NAME", "first");
         request.addHeader("header-name", "middle");
         request.addHeader("Header-Name", "last");
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue(request.getHeaders().containsKey("Header-Name"));
     }
 
     @Test
     public void shouldNotSentHeaderTwice_6_oe() {
+        // removed other assertion
         request.addHeader("HEADER-NAME", "first");
         request.addHeader("header-name", "middle");
         request.addHeader("Header-Name", "last");
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("last", request.getHeaders().get("HEADER-NAME"));
     }
 
     @Test
     public void shouldNotSentHeaderTwice_7_oe() {
+        // removed other assertion
         request.addHeader("HEADER-NAME", "first");
         request.addHeader("header-name", "middle");
         request.addHeader("Header-Name", "last");
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("last", request.getHeaders().get("header-name"));
     }
 
     @Test
     public void shouldNotSentHeaderTwice_8_oe() {
+        // removed other assertion
         request.addHeader("HEADER-NAME", "first");
         request.addHeader("header-name", "middle");
         request.addHeader("Header-Name", "last");
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("last", request.getHeaders().get("Header-Name"));
     }
 

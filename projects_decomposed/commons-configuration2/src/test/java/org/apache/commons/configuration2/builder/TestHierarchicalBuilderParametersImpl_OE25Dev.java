@@ -67,6 +67,7 @@ public class TestHierarchicalBuilderParametersImpl_OE25Dev {
         BeanHelper.setProperty(params, "expressionEngine", engine);
         BeanHelper.setProperty(params, "throwExceptionOnMissing", Boolean.TRUE);
         final Map<String, Object> map = params.getParameters();
+        // removed other assertion
         assertEquals("Wrong exception flag", Boolean.TRUE, map.get("throwExceptionOnMissing"));
     }
 
@@ -93,6 +94,7 @@ public class TestHierarchicalBuilderParametersImpl_OE25Dev {
 
         params2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = params2.getParameters();
+        // removed other assertion
         assertEquals("Expression engine not set", engine, parameters.get("expressionEngine"));
     }
 

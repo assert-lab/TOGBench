@@ -1,0 +1,89 @@
+id,test_prefix,test_name
+JSON-java_284_101,"@Test
+    public void exceedNestDepthException_oe_101_oe() {
+        try {
+            JSONStringer s = new JSONStringer();
+            s.object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object();
+            s.key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object();
+            fail(""Expected an exception message"");
+        } catch (JSONException e) {
+        }
+    }
+",JSONStringerTest::exceedNestDepthException_oe_101_oe

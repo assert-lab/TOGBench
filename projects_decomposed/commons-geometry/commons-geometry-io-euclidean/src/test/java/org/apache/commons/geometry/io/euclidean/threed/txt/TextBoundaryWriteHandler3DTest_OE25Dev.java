@@ -58,75 +58,117 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
 
     @Test
     void testProperties_1_oe() {
+        // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
 
+        // act/assert
         Assertions.assertEquals(GeometryFormat3D.TXT, handler.getFormat());
     }
 
     @Test
     void testProperties_2_oe() {
+        // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(StandardCharsets.UTF_8, handler.getDefaultCharset());
     }
 
     @Test
     void testProperties_3_oe() {
+        // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("\n", handler.getLineSeparator());
     }
 
     @Test
     void testProperties_4_oe() {
+        // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(" ", handler.getVertexComponentSeparator());
     }
 
     @Test
     void testProperties_5_oe() {
+        // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals("; ", handler.getVertexSeparator());
     }
 
     @Test
     void testProperties_6_oe() {
+        // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotNull(handler.getDoubleFormat());
     }
 
     @Test
     void testProperties_7_oe() {
+        // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1, handler.getFacetVertexCount());
     }
 
     @Test
     void testWriteFacets_1_oe() {
+        // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
         final CloseCountOutputStream closeOut = new CloseCountOutputStream(out);
 
+        // act
         handler.writeFacets(TRI_FACETS, new StreamGeometryOutput(closeOut));
 
+        // assert
         Assertions.assertEquals(1, closeOut.getCloseCount());
     }
 
     @Test
     void testWriteFacets_usesOutputCharset_1_oe() {
+        // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
         final CloseCountOutputStream closeOut = new CloseCountOutputStream(out);
 
+        // act
         handler.writeFacets(TRI_FACETS, new StreamGeometryOutput(closeOut, null, StandardCharsets.UTF_16));
 
+        // assert
         Assertions.assertEquals(1, closeOut.getCloseCount());
     }
 
     @Test
     void testWriteFacets_customConfiguration_1_oe() {
+        // arrange
         final DecimalFormat fmt =
                 new DecimalFormat("0.0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
 
@@ -140,13 +182,16 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
 
         final CloseCountOutputStream closeOut = new CloseCountOutputStream(out);
 
+        // act
         handler.writeFacets(QUAD_FACETS, new StreamGeometryOutput(closeOut));
 
+        // assert
         Assertions.assertEquals(1, closeOut.getCloseCount());
     }
 
     @Test
     void testWriteFacets_customConfiguration_2_oe() {
+        // arrange
         final DecimalFormat fmt =
                 new DecimalFormat("0.0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
 
@@ -160,23 +205,31 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
 
         final CloseCountOutputStream closeOut = new CloseCountOutputStream(out);
 
+        // act
         handler.writeFacets(QUAD_FACETS, new StreamGeometryOutput(closeOut));
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals("0.0|0.0|0.0 | 0.3|0.0|0.0 | 1.0|1.0|0.0 | 0.0|1.0|0.0\r\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
     }
 
     @Test
     void testWriteBoundarySource_1_oe() {
+        // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
         final CloseCountOutputStream closeOut = new CloseCountOutputStream(out);
 
+        // act
         handler.write(QUAD_SRC, new StreamGeometryOutput(closeOut));
 
+        // assert
         Assertions.assertEquals(1, closeOut.getCloseCount());
     }
 
     @Test
     void testWriteBoundarySource_customConfiguration_1_oe() {
+        // arrange
+        // arrange
         final DecimalFormat fmt =
                 new DecimalFormat("0.0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
 
@@ -190,13 +243,17 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
 
         final CloseCountOutputStream closeOut = new CloseCountOutputStream(out);
 
+        // act
         handler.write(QUAD_SRC, new StreamGeometryOutput(closeOut));
 
+        // assert
         Assertions.assertEquals(1, closeOut.getCloseCount());
     }
 
     @Test
     void testWriteBoundarySource_customConfiguration_2_oe() {
+        // arrange
+        // arrange
         final DecimalFormat fmt =
                 new DecimalFormat("0.0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
 
@@ -210,8 +267,11 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
 
         final CloseCountOutputStream closeOut = new CloseCountOutputStream(out);
 
+        // act
         handler.write(QUAD_SRC, new StreamGeometryOutput(closeOut));
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals("0.0|0.0|0.0 | 0.3|0.0|0.0 | 1.0|1.0|0.0 | 0.0|1.0|0.0\r\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
     }
 

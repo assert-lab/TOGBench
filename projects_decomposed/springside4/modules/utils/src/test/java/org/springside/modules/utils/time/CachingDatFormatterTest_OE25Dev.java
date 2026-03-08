@@ -21,6 +21,7 @@ public class CachingDatFormatterTest_OE25Dev {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 
 		CachingDateFormatter formatter = new CachingDateFormatter(DateFormatUtil.PATTERN_DEFAULT);
+		// removed other assertion
 		assertThat(formatter.format(date.getTime())).isEqualTo("2016-11-01 12:23:44.000");
 	}
 
@@ -29,6 +30,8 @@ public class CachingDatFormatterTest_OE25Dev {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 
 		CachingDateFormatter formatter = new CachingDateFormatter(DateFormatUtil.PATTERN_DEFAULT);
+		// removed other assertion
+		// removed other assertion
 		assertThat(formatter.format(date.getTime() + 2)).isEqualTo("2016-11-01 12:23:44.002");
 	}
 
@@ -37,6 +40,9 @@ public class CachingDatFormatterTest_OE25Dev {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 
 		CachingDateFormatter formatter = new CachingDateFormatter(DateFormatUtil.PATTERN_DEFAULT);
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		CachingDateFormatter formatterOnSecond = new CachingDateFormatter(DateFormatUtil.PATTERN_DEFAULT_ON_SECOND);
 		assertThat(formatterOnSecond.format(date.getTime())).isEqualTo("2016-11-01 12:23:44");
@@ -47,8 +53,12 @@ public class CachingDatFormatterTest_OE25Dev {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 
 		CachingDateFormatter formatter = new CachingDateFormatter(DateFormatUtil.PATTERN_DEFAULT);
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		CachingDateFormatter formatterOnSecond = new CachingDateFormatter(DateFormatUtil.PATTERN_DEFAULT_ON_SECOND);
+		// removed other assertion
 		assertThat(formatterOnSecond.format(date.getTime())).isEqualTo("2016-11-01 12:23:44");
 	}
 
@@ -57,8 +67,13 @@ public class CachingDatFormatterTest_OE25Dev {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 
 		CachingDateFormatter formatter = new CachingDateFormatter(DateFormatUtil.PATTERN_DEFAULT);
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		CachingDateFormatter formatterOnSecond = new CachingDateFormatter(DateFormatUtil.PATTERN_DEFAULT_ON_SECOND);
+		// removed other assertion
+		// removed other assertion
 		assertThat(formatterOnSecond.format(date.getTime() + 2)).isEqualTo("2016-11-01 12:23:44");
 	}
 
@@ -67,8 +82,14 @@ public class CachingDatFormatterTest_OE25Dev {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 
 		CachingDateFormatter formatter = new CachingDateFormatter(DateFormatUtil.PATTERN_DEFAULT);
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		CachingDateFormatter formatterOnSecond = new CachingDateFormatter(DateFormatUtil.PATTERN_DEFAULT_ON_SECOND);
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(formatterOnSecond.format(date.getTime() + 1000)).isEqualTo("2016-11-01 12:23:45");
 	}
 

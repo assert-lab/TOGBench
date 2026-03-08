@@ -92,6 +92,7 @@ class RegularizedBetaTest_OE25Dev {
     @Test
     void testRegularizedBetaTinyArgument_1_oe() {
         double actual = RegularizedBeta.value(1e-17, 1.0, 1e12);
+        // This value is from R: pbeta(1e-17,1,1e12)
         Assertions.assertEquals(9.999950000166648e-6, actual, 1e-16);
     }
 

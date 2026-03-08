@@ -230,6 +230,7 @@ class KempSmallMeanPoissonSamplerTest_OE25Dev {
             x = x + 1;
             p = p * mean / x;
         }
+        // removed other assertion
         Assertions.assertTrue(u > 0, "Summation is not greater than zero");
     }
 
@@ -258,6 +259,7 @@ class KempSmallMeanPoissonSamplerTest_OE25Dev {
             x = x + 1;
             p = p * mean / x;
         }
+        // removed other assertion
         Assertions.assertTrue(u < 1, "Summation is not less than one");
     }
 

@@ -28,6 +28,8 @@ import org.apache.commons.geometry.io.euclidean.threed.FacetDefinition;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class TextFacetDefinitionReaderTest_OE25Dev {
 
     private static final double TEST_EPS = 1e-10;
@@ -38,44 +40,56 @@ class TextFacetDefinitionReaderTest_OE25Dev {
 
     @Test
     void testPropertyDefaults_1_oe() {
+        // arrange
         TextFacetDefinitionReader reader = facetReader("");
 
+        // act/assert
         Assertions.assertEquals("#", reader.getCommentToken());
     }
 
     @Test
     void testReadFacet_empty_1_oe() {
+        // arrange
         TextFacetDefinitionReader reader = facetReader("");
 
+        // act
         List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
         Assertions.assertEquals(0, facets.size());
     }
 
     @Test
     void testReadFacet_singleFacet_1_oe() {
+        // arrange
         TextFacetDefinitionReader reader = facetReader(
                 "1.0 2.0 3.0 40 50 60 7.0e-2 8e-2 9E-02 1.01e+1 -11.02 +12");
 
+        // act
         List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
         Assertions.assertEquals(1, facets.size());
     }
 
     @Test
     void testReadFacet_multipleFacets_1_oe() {
+        // arrange
         TextFacetDefinitionReader reader = facetReader(
                 "1,2,3    4,5,6 7,8,9    10,11,12\r" +
                 "1 1 1;2 2 2;3 3 3;4 4 4;5 5 5\r\n" +
                 "6 6 6 6 6 6 6 6 6");
 
+        // act
         List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
         Assertions.assertEquals(3, facets.size());
     }
 
     @Test
     void testReadFacet_blankLinesAndComments_1_oe() {
+        // arrange
         TextFacetDefinitionReader reader = facetReader(
                 "# some ignored numbers: 1 2 3 4 5 6\n" +
                 "\n" +
@@ -86,13 +100,16 @@ class TextFacetDefinitionReaderTest_OE25Dev {
                 "#line comment\n" +
                 "5 5 5 5 5 5 5 5 5\n\n  \n");
 
+        // act
         List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
         Assertions.assertEquals(3, facets.size());
     }
 
     @Test
     void testReadFacet_nonDefaultCommentToken_1_oe() {
+        // arrange
         TextFacetDefinitionReader reader = facetReader(
                 "5$ some ignored numbers: 1 2 3 4 5 6\n" +
                 "\n" +
@@ -105,13 +122,16 @@ class TextFacetDefinitionReaderTest_OE25Dev {
 
         reader.setCommentToken("5$");
 
+        // act
         List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
         Assertions.assertEquals(3, facets.size());
     }
 
     @Test
     void testReadFacet_longCommentToken_1_oe() {
+        // arrange
         TextFacetDefinitionReader reader = facetReader(
                 "this_is-a-comment some ignored numbers: 1 2 3 4 5 6\n" +
                 "\n" +
@@ -124,70 +144,112 @@ class TextFacetDefinitionReaderTest_OE25Dev {
 
         reader.setCommentToken("this_is-a-comment");
 
+        // act
         List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
 
+        // assert
         Assertions.assertEquals(3, facets.size());
     }
 
     @Test
     void testClose_1_oe() {
+        // arrange
         final CloseCountReader countReader = new CloseCountReader(new StringReader(""));
         final TextFacetDefinitionReader reader = new TextFacetDefinitionReader(countReader);
 
+        // act
         reader.close();
 
+        // assert
         Assertions.assertEquals(1, countReader.getCloseCount());
     }
 
 @Test
     void testSetCommentToken_invalidArgs_1_oe() {
+        // arrange
         TextFacetDefinitionReader reader = facetReader("");
         String baseMsg = "Comment token cannot contain whitespace; was [";
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { reader.setCommentToken(" "); }, IllegalArgumentException.class, baseMsg + " ]");
+        // act/assert
+        try {
+     reader.setCommentToken(" ");
+    fail("Expected IllegalArgumentException with message: " + baseMsg + " ]");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testSetCommentToken_invalidArgs_2_oe() {
+        // arrange
         TextFacetDefinitionReader reader = facetReader("");
         String baseMsg = "Comment token cannot contain whitespace; was [";
 
+        // act/assert
+        // removed other assertion
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { reader.setCommentToken("a\tb"); }, IllegalArgumentException.class, baseMsg + "a\tb]");
+        try {
+     reader.setCommentToken("a\tb");
+    fail("Expected IllegalArgumentException with message: " + baseMsg + "a\tb]");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testReadFacet_emptyCommentToken_1_oe() {
+        // arrange
         TextFacetDefinitionReader reader = facetReader("# line comment\n");
         reader.setCommentToken("");
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { reader.readFacet(); }, IllegalStateException.class, "Parsing failed at line 1, column 1: expected double but found empty token followed by [#]");
+        // act
+        try {
+     reader.readFacet();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 1, column 1: expected double but found empty token followed by [#]");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadFacet_nullCommentToken_1_oe() {
+        // arrange
         TextFacetDefinitionReader reader = facetReader("# line comment\n");
         reader.setCommentToken(null);
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { reader.readFacet(); }, IllegalStateException.class, "Parsing failed at line 1, column 1: expected double but found empty token followed by [#]");
+        // act/assert
+        try {
+     reader.readFacet();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 1, column 1: expected double but found empty token followed by [#]");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadFacet_invalidTokens_1_oe() {
+        // arrange
         TextFacetDefinitionReader reader = facetReader("1 abc 3 ; 4 5 6 ; 7 8 9");
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { reader.readFacet(); }, IllegalStateException.class, "Parsing failed at line 1, column 3: expected double but found [abc]");
+        // act/assert
+        try {
+     reader.readFacet();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 1, column 3: expected double but found [abc]");
+} catch (IllegalStateException e) {
+}
     }
 
 @Test
     void testReadFacet_notEnoughVectors_1_oe() {
+        // arrange
         TextFacetDefinitionReader reader = facetReader(
                 "1\n" +
                 "1 2\n" +
                 "1 2 3\n" +
                 "1 2 3 ; 4 5 6;\n");
 
-        GeometryTestUtils.assertThrowsWithMessage(() -> { reader.readFacet(); }, IllegalStateException.class, "Parsing failed at line 1, column 2: expected double but found end of line");
+        // act/assert
+        try {
+     reader.readFacet();
+    fail("Expected IllegalStateException with message: " + "Parsing failed at line 1, column 2: expected double but found end of line");
+} catch (IllegalStateException e) {
+}
     }
 
 }

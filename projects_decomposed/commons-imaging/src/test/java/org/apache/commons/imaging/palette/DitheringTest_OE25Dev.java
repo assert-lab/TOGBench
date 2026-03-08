@@ -55,6 +55,7 @@ public class DitheringTest_OE25Dev {
       final QuantizedPalette quantizedPalette = new QuantizedPalette(linkedList, 8);
       Dithering.applyFloydSteinbergDithering(bufferedImage, quantizedPalette);
 
+      // removed other assertion
       assertEquals(-16777208, bufferedImage.getRGB(1,1) );
   }
 
@@ -69,6 +70,8 @@ public class DitheringTest_OE25Dev {
       final QuantizedPalette quantizedPalette = new QuantizedPalette(linkedList, 8);
       Dithering.applyFloydSteinbergDithering(bufferedImage, quantizedPalette);
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(-16777208, bufferedImage.getRGB(2,1) );
   }
 
@@ -83,6 +86,9 @@ public class DitheringTest_OE25Dev {
       final QuantizedPalette quantizedPalette = new QuantizedPalette(linkedList, 8);
       Dithering.applyFloydSteinbergDithering(bufferedImage, quantizedPalette);
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(-16777208, bufferedImage.getRGB(2,2) );
   }
 
@@ -109,6 +115,7 @@ public class DitheringTest_OE25Dev {
       final QuantizedPalette quantizedPalette = new QuantizedPalette(linkedList, 3);
       Dithering.applyFloydSteinbergDithering(bufferedImage, quantizedPalette);
 
+      // removed other assertion
       assertEquals(-1, bufferedImage.getRGB(1,1) );
   }
 
@@ -122,6 +129,8 @@ public class DitheringTest_OE25Dev {
       final QuantizedPalette quantizedPalette = new QuantizedPalette(linkedList, 3);
       Dithering.applyFloydSteinbergDithering(bufferedImage, quantizedPalette);
 
+      // removed other assertion
+      // removed other assertion
       assertEquals(-1, bufferedImage.getRGB(2,1) );
   }
 
@@ -135,6 +144,9 @@ public class DitheringTest_OE25Dev {
       final QuantizedPalette quantizedPalette = new QuantizedPalette(linkedList, 3);
       Dithering.applyFloydSteinbergDithering(bufferedImage, quantizedPalette);
 
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
       assertEquals(-1, bufferedImage.getRGB(2,2) );
   }
 

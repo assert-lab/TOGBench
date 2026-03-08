@@ -120,198 +120,322 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
     @Test
     void testCtor_default_1_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE);
 
+        // assert
         Assertions.assertSame(XY_CIRCLE, sub.getHyperplane());
     }
 
     @Test
     void testCtor_default_2_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE);
 
+        // assert
+        // removed other assertion
         Assertions.assertSame(TEST_PRECISION, sub.getPrecision());
     }
 
     @Test
     void testCtor_default_3_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(sub.isFull());
     }
 
     @Test
     void testCtor_default_4_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(sub.isEmpty());
     }
 
     @Test
     void testCtor_default_5_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(sub.isFinite());
     }
 
     @Test
     void testCtor_default_6_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(sub.isInfinite());
     }
 
     @Test
     void testCtor_default_7_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0, sub.getSize(), TEST_EPS);
     }
 
     @Test
     void testCtor_default_8_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(sub.getCentroid());
     }
 
     @Test
     void testCtor_boolean_true_1_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, true);
 
+        // assert
         Assertions.assertTrue(sub.isFull());
     }
 
     @Test
     void testCtor_boolean_true_2_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, true);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(sub.isEmpty());
     }
 
     @Test
     void testCtor_boolean_true_3_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, true);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(sub.isFinite());
     }
 
     @Test
     void testCtor_boolean_true_4_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, true);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(sub.isInfinite());
     }
 
     @Test
     void testCtor_boolean_true_5_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, true);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Angle.TWO_PI, sub.getSize(), TEST_EPS);
     }
 
     @Test
     void testCtor_boolean_true_6_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, true);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(sub.getCentroid());
     }
 
     @Test
     void testCtor_boolean_false_1_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, false);
 
+        // assert
         Assertions.assertFalse(sub.isFull());
     }
 
     @Test
     void testCtor_boolean_false_2_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, false);
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(sub.isEmpty());
     }
 
     @Test
     void testCtor_boolean_false_3_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, false);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(sub.isFinite());
     }
 
     @Test
     void testCtor_boolean_false_4_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, false);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(sub.isInfinite());
     }
 
     @Test
     void testCtor_boolean_false_5_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, false);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0, sub.getSize(), TEST_EPS);
     }
 
     @Test
     void testCtor_boolean_false_6_oe() {
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, false);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNull(sub.getCentroid());
     }
 
     @Test
     void testCtor_tree_1_oe() {
+        // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.fromInterval(AngularInterval.of(1, 2, TEST_PRECISION));
 
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, tree);
 
+        // assert
         Assertions.assertFalse(sub.isFull());
     }
 
     @Test
     void testCtor_tree_2_oe() {
+        // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.fromInterval(AngularInterval.of(1, 2, TEST_PRECISION));
 
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, tree);
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(sub.isEmpty());
     }
 
     @Test
     void testCtor_tree_3_oe() {
+        // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.fromInterval(AngularInterval.of(1, 2, TEST_PRECISION));
 
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, tree);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(sub.isFinite());
     }
 
     @Test
     void testCtor_tree_4_oe() {
+        // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.fromInterval(AngularInterval.of(1, 2, TEST_PRECISION));
 
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, tree);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(sub.isInfinite());
     }
 
     @Test
     void testCtor_tree_5_oe() {
+        // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.fromInterval(AngularInterval.of(1, 2, TEST_PRECISION));
 
+        // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, tree);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1, sub.getSize(), TEST_EPS);
     }
 
     @Test
     void testTransform_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.MINUS_I, TEST_PRECISION);
         final RegionBSPTree1S region = RegionBSPTree1S.empty();
         region.add(AngularInterval.of(Math.PI, -Angle.PI_OVER_TWO, TEST_PRECISION));
@@ -322,33 +446,42 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle, region);
 
+        // act
         final EmbeddedTreeGreatCircleSubset result = sub.transform(t);
 
+        // assert
         final List<GreatArc> arcs = result.toConvex();
         Assertions.assertEquals(2, arcs.size());
     }
 
     @Test
     void testSplit_full_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle, true);
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(-1, 0, 1), TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
     @Test
     void testSplit_full_2_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle, true);
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(-1, 0, 1), TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset minus = split.getMinus();
         Assertions.assertSame(sub.getCircle(), minus.getCircle());
@@ -356,15 +489,20 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
     @Test
     void testSplit_full_3_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle, true);
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(-1, 0, 1), TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset minus = split.getMinus();
+        // removed other assertion
 
         final List<GreatArc> minusArcs = minus.toConvex();
         Assertions.assertEquals(1, minusArcs.size());
@@ -372,17 +510,23 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
     @Test
     void testSplit_full_4_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle, true);
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(-1, 0, 1), TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset minus = split.getMinus();
+        // removed other assertion
 
         final List<GreatArc> minusArcs = minus.toConvex();
+        // removed other assertion
         checkArc(minusArcs.get(0), Point2S.MINUS_J, Point2S.PLUS_J);
 
         checkClassify(minus, RegionLocation.OUTSIDE, Point2S.MINUS_I);
@@ -394,23 +538,30 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
     @Test
     void testSplit_full_5_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle, true);
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(-1, 0, 1), TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset minus = split.getMinus();
+        // removed other assertion
 
         final List<GreatArc> minusArcs = minus.toConvex();
+        // removed other assertion
         checkArc(minusArcs.get(0), Point2S.MINUS_J, Point2S.PLUS_J);
 
         checkClassify(minus, RegionLocation.OUTSIDE, Point2S.MINUS_I);
         checkClassify(minus, RegionLocation.INSIDE, Point2S.PLUS_I);
 
         final EmbeddedTreeGreatCircleSubset plus = split.getPlus();
+        // removed other assertion
 
         final List<GreatArc> plusArcs = plus.toConvex();
         Assertions.assertEquals(1, plusArcs.size());
@@ -418,25 +569,32 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
     @Test
     void testSplit_empty_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle, false);
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(-1, 0, 1), TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
     @Test
     void testSplit_empty_2_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle, false);
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(-1, 0, 1), TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset minus = split.getMinus();
         Assertions.assertNull(minus);
@@ -444,15 +602,20 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
     @Test
     void testSplit_empty_3_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle, false);
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(-1, 0, 1), TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset minus = split.getMinus();
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset plus = split.getPlus();
         Assertions.assertNull(plus);
@@ -460,6 +623,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
     @Test
     void testSplit_both_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
 
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -471,13 +635,16 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(0, 1, 1), TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
     @Test
     void testSplit_both_2_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
 
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -489,8 +656,11 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(0, 1, 1), TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset minus = split.getMinus();
         Assertions.assertSame(sub.getCircle(), minus.getCircle());
@@ -498,6 +668,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
     @Test
     void testSplit_both_3_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
 
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -509,16 +680,21 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(0, 1, 1), TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset minus = split.getMinus();
+        // removed other assertion
         final List<GreatArc> minusArcs = minus.toConvex();
         Assertions.assertEquals(2, minusArcs.size());
     }
 
     @Test
     void testSplit_both_4_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
 
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -530,11 +706,16 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(0, 1, 1), TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset minus = split.getMinus();
+        // removed other assertion
         final List<GreatArc> minusArcs = minus.toConvex();
+        // removed other assertion
         checkArc(minusArcs.get(0), Point2S.of(1.5 * Math.PI, 0.25 * Math.PI), Point2S.MINUS_J);
         checkArc(minusArcs.get(1), Point2S.of(1.5 * Math.PI, Angle.PI_OVER_TWO + 1),
                 Point2S.of(0.5 * Math.PI, (1.5 * Math.PI) - 2));
@@ -545,6 +726,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
     @Test
     void testSplit_both_5_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
 
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -556,22 +738,29 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(0, 1, 1), TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset minus = split.getMinus();
+        // removed other assertion
         final List<GreatArc> minusArcs = minus.toConvex();
+        // removed other assertion
         checkArc(minusArcs.get(0), Point2S.of(1.5 * Math.PI, 0.25 * Math.PI), Point2S.MINUS_J);
         checkArc(minusArcs.get(1), Point2S.of(1.5 * Math.PI, Angle.PI_OVER_TWO + 1),
                 Point2S.of(0.5 * Math.PI, (1.5 * Math.PI) - 2));
 
         final EmbeddedTreeGreatCircleSubset plus = split.getPlus();
+        // removed other assertion
         final List<GreatArc> plusArcs = plus.toConvex();
         Assertions.assertEquals(2, plusArcs.size());
     }
 
     @Test
     void testSplit_minus_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
         final RegionBSPTree1S tree = AngularInterval.of(Angle.PI_OVER_TWO, Math.PI, TEST_PRECISION).toTree();
 
@@ -579,13 +768,16 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.Unit.from(-1, 0, -1), TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
     @Test
     void testSplit_minus_2_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
         final RegionBSPTree1S tree = AngularInterval.of(Angle.PI_OVER_TWO, Math.PI, TEST_PRECISION).toTree();
 
@@ -593,8 +785,11 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.Unit.from(-1, 0, -1), TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset minus = split.getMinus();
         Assertions.assertSame(sub, minus);
@@ -602,6 +797,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
     @Test
     void testSplit_minus_3_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
         final RegionBSPTree1S tree = AngularInterval.of(Angle.PI_OVER_TWO, Math.PI, TEST_PRECISION).toTree();
 
@@ -609,10 +805,14 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.Unit.from(-1, 0, -1), TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset minus = split.getMinus();
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset plus = split.getPlus();
         Assertions.assertNull(plus);
@@ -620,6 +820,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
     @Test
     void testSplit_plus_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
         final RegionBSPTree1S tree = AngularInterval.of(Angle.PI_OVER_TWO, Math.PI, TEST_PRECISION).toTree();
 
@@ -627,13 +828,16 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
     @Test
     void testSplit_plus_2_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
         final RegionBSPTree1S tree = AngularInterval.of(Angle.PI_OVER_TWO, Math.PI, TEST_PRECISION).toTree();
 
@@ -641,8 +845,11 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset minus = split.getMinus();
         Assertions.assertNull(minus);
@@ -650,6 +857,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
     @Test
     void testSplit_plus_3_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
         final RegionBSPTree1S tree = AngularInterval.of(Angle.PI_OVER_TWO, Math.PI, TEST_PRECISION).toTree();
 
@@ -657,10 +865,14 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
         final GreatCircle splitter = GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
+        // act
         final Split<EmbeddedTreeGreatCircleSubset> split = sub.split(splitter);
 
+        // assert
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset minus = split.getMinus();
+        // removed other assertion
 
         final EmbeddedTreeGreatCircleSubset plus = split.getPlus();
         Assertions.assertSame(sub, plus);
@@ -668,35 +880,43 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
     @Test
     void testSplit_parallelAndAntiparallel_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final RegionBSPTree1S tree = AngularInterval.of(Angle.PI_OVER_TWO, Math.PI, TEST_PRECISION).toTree();
 
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle, tree);
 
+        // act/assert
         Assertions.assertEquals(SplitLocation.NEITHER,sub.split(GreatCircles.fromPole(Vector3D.Unit.PLUS_Z,TEST_PRECISION)).getLocation());
     }
 
     @Test
     void testSplit_parallelAndAntiparallel_2_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final RegionBSPTree1S tree = AngularInterval.of(Angle.PI_OVER_TWO, Math.PI, TEST_PRECISION).toTree();
 
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle, tree);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(SplitLocation.NEITHER,sub.split(GreatCircles.fromPole(Vector3D.Unit.MINUS_Z,TEST_PRECISION)).getLocation());
     }
 
     @Test
     void testAdd_arc_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.MINUS_K, Point2S.MINUS_J, TEST_PRECISION);
         final GreatCircle closeCircle = GreatCircles.fromPoints(Point2S.MINUS_K,
                 Point2S.of((1.5 * Math.PI) - 1e-11, Angle.PI_OVER_TWO), TEST_PRECISION);
 
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle);
 
+        // act
         sub.add(circle.arc(Point2S.of(1.5 * Math.PI, 0.75 * Math.PI), Point2S.MINUS_J));
         sub.add(closeCircle.arc(Point2S.PLUS_J, Point2S.of(1.5 * Math.PI, 0.75 * Math.PI)));
 
+        // assert
         final List<GreatArc> arcs = sub.toConvex();
 
         Assertions.assertEquals(1, arcs.size());
@@ -704,11 +924,13 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
     @Test
     void testAdd_arc_differentCircle_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.MINUS_K, Point2S.MINUS_J, TEST_PRECISION);
         final GreatCircle otherCircle = GreatCircles.fromPoints(Point2S.MINUS_K,
                 Point2S.of((1.5 * Math.PI) - 1e-2, Angle.PI_OVER_TWO), TEST_PRECISION);
 
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle);
+        // act/assert
         try {
     sub.add(otherCircle.arc(Point2S.PLUS_J, Point2S.of(1.5 * Math.PI, 0.75 * Math.PI)));
     fail("IllegalArgumentException");
@@ -718,6 +940,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
     @Test
     void testAdd_subGreatCircle_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.MINUS_K, Point2S.MINUS_J, TEST_PRECISION);
         final GreatCircle closeCircle = GreatCircles.fromPoints(Point2S.MINUS_K,
                 Point2S.of((1.5 * Math.PI) - 1e-11, Angle.PI_OVER_TWO), TEST_PRECISION);
@@ -731,9 +954,11 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         final RegionBSPTree1S regionB = RegionBSPTree1S.empty();
         regionB.add(AngularInterval.of(1.5 * Math.PI, 0.25 * Math.PI, TEST_PRECISION));
 
+        // act
         sub.add(new EmbeddedTreeGreatCircleSubset(circle, regionA));
         sub.add(new EmbeddedTreeGreatCircleSubset(closeCircle, regionB));
 
+        // assert
         final List<GreatArc> arcs = sub.toConvex();
 
         Assertions.assertEquals(2, arcs.size());
@@ -741,11 +966,13 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
 
     @Test
     void testAdd_subGreatCircle_otherCircle_1_oe() {
+        // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.MINUS_K, Point2S.MINUS_J, TEST_PRECISION);
         final GreatCircle otherCircle = GreatCircles.fromPoints(Point2S.MINUS_K, Point2S.of((1.5 * Math.PI) - 1e-5, Angle.PI_OVER_TWO), TEST_PRECISION);
 
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle);
 
+        // act/assert
         try {
     sub.add(new EmbeddedTreeGreatCircleSubset(otherCircle, RegionBSPTree1S.full()));
     fail("IllegalArgumentException");

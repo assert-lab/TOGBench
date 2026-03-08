@@ -29,6 +29,8 @@ import org.apache.commons.numbers.core.Precision;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class ObjTriangleMeshReaderTest_OE25Dev {
 
     private static final double TEST_EPS = 1e-10;
@@ -42,13 +44,16 @@ class ObjTriangleMeshReaderTest_OE25Dev {
 
     @Test
     void testDefaults_1_oe() {
+        // arrange
         final ObjTriangleMeshReader reader = reader("");
 
+        // act/assert
         Assertions.assertFalse(reader.isFailOnNonPolygonKeywords());
     }
 
     @Test
     void testReadTriangleMesh_withNormal_1_oe() {
+        // arrange
         final ObjTriangleMeshReader reader = reader(
                 "o test\n\n" +
                 "v 0 0 0\r\n" +
@@ -59,13 +64,16 @@ class ObjTriangleMeshReaderTest_OE25Dev {
                 "f 1//1 2//1 3//1 4//1\n" +
                 "curv non-polygon data\n");
 
+        // act
         final TriangleMesh mesh = reader.readTriangleMesh();
 
+        // assert
         Assertions.assertEquals(4, mesh.getVertexCount());
     }
 
     @Test
     void testReadTriangleMesh_withNormal_2_oe() {
+        // arrange
         final ObjTriangleMeshReader reader = reader(
                 "o test\n\n" +
                 "v 0 0 0\r\n" +
@@ -76,13 +84,17 @@ class ObjTriangleMeshReaderTest_OE25Dev {
                 "f 1//1 2//1 3//1 4//1\n" +
                 "curv non-polygon data\n");
 
+        // act
         final TriangleMesh mesh = reader.readTriangleMesh();
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(2, mesh.getFaceCount());
     }
 
     @Test
     void testReadTriangleMesh_withoutNormal_1_oe() {
+        // arrange
         final ObjTriangleMeshReader reader = reader(
                 "o test\n\n" +
                 "v -1 0 0\n" +
@@ -92,13 +104,16 @@ class ObjTriangleMeshReaderTest_OE25Dev {
                 "v -2 0 0\n" +
                 "f 2 3 4\n");
 
+        // act
         final TriangleMesh mesh = reader.readTriangleMesh();
 
+        // assert
         Assertions.assertEquals(5, mesh.getVertexCount());
     }
 
     @Test
     void testReadTriangleMesh_withoutNormal_2_oe() {
+        // arrange
         final ObjTriangleMeshReader reader = reader(
                 "o test\n\n" +
                 "v -1 0 0\n" +
@@ -108,15 +123,20 @@ class ObjTriangleMeshReaderTest_OE25Dev {
                 "v -2 0 0\n" +
                 "f 2 3 4\n");
 
+        // act
         final TriangleMesh mesh = reader.readTriangleMesh();
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals(1, mesh.getFaceCount());
     }
 
     @Test
     void testClose_1_oe() {
+        // arrange
         final CloseCountReader closeReader = new CloseCountReader(new StringReader(""));
 
+        // act/assert
         try (ObjTriangleMeshReader reader = new ObjTriangleMeshReader(closeReader, TEST_PRECISION)) {
             Assertions.assertEquals(0, closeReader.getCloseCount());
     }
@@ -124,9 +144,12 @@ class ObjTriangleMeshReaderTest_OE25Dev {
 
     @Test
     void testClose_2_oe() {
+        // arrange
         final CloseCountReader closeReader = new CloseCountReader(new StringReader(""));
 
+        // act/assert
         try (ObjTriangleMeshReader reader = new ObjTriangleMeshReader(closeReader, TEST_PRECISION)) {
+            // removed other assertion
         }
 
         Assertions.assertEquals(1, closeReader.getCloseCount());
@@ -134,6 +157,7 @@ class ObjTriangleMeshReaderTest_OE25Dev {
 
 @Test
     void testReadTriangleMesh_failOnNonPolygon_1_oe() {
+        // arrange
         final ObjTriangleMeshReader reader = reader(
                 "o test\n\n" +
                 "v 0 0 0\r\n" +
@@ -146,7 +170,12 @@ class ObjTriangleMeshReaderTest_OE25Dev {
 
         reader.setFailOnNonPolygonKeywords(true);
 
-        GeometryTestUtils.assertThrowsWithMessage( () -> reader.readTriangleMesh(), IllegalStateException.class, Pattern.compile("^Parsing failed.*"));
+        // act/assert
+        try {
+    reader.readTriangleMesh();
+    fail("Expected IllegalStateException with message: " + Pattern.compile("^Parsing failed.*"));
+} catch (IllegalStateException e) {
+}
     }
 
 }

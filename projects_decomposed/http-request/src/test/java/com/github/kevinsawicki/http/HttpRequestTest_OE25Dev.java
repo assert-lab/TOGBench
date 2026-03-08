@@ -1160,6 +1160,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
   public void malformedStringUrlCause_2_oe() {
     try {
       delete("\\m/");
+      // removed other assertion
     } catch (HttpRequestException e) {
       assertNotNull(e.getCause());
   }
@@ -1192,6 +1193,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertEquals(30000,request.readTimeout(30000).getConnection().getReadTimeout());
   }
 
@@ -1207,6 +1209,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
     assertEquals(50000,request.connectTimeout(50000).getConnection().getConnectTimeout());
   }
 
@@ -1222,6 +1226,9 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals(2500, request.bufferSize(2500).bufferSize());
   }
 
@@ -1237,6 +1244,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.ignoreCloseExceptions(false).ignoreCloseExceptions());
   }
 
@@ -1252,6 +1263,11 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.useCaches(false).getConnection().getUseCaches());
   }
 
@@ -1267,6 +1283,12 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     int code = request.code();
     assertTrue(request.ok());
   }
@@ -1283,7 +1305,14 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
     assertFalse(request.created());
   }
 
@@ -1299,7 +1328,15 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.badRequest());
   }
 
@@ -1315,7 +1352,16 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.serverError());
   }
 
@@ -1331,7 +1377,17 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.notFound());
   }
 
@@ -1347,7 +1403,18 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.notModified());
   }
 
@@ -1363,7 +1430,19 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("GET", method.get());
   }
 
@@ -1379,7 +1458,20 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("OK", request.message());
   }
 
@@ -1395,7 +1487,21 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals(HTTP_OK, code);
   }
 
@@ -1411,7 +1517,22 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("", request.body());
   }
 
@@ -1427,7 +1548,23 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertNotNull(request.toString());
   }
 
@@ -1443,7 +1580,24 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.toString().length() == 0);
   }
 
@@ -1459,7 +1613,25 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals(request, request.disconnect());
   }
 
@@ -1475,7 +1647,26 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertTrue(request.isBodyEmpty());
   }
 
@@ -1491,7 +1682,27 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals(request.url().toString(), url);
   }
 
@@ -1507,7 +1718,28 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("GET", request.method());
   }
 
@@ -1538,6 +1770,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
     assertTrue(request.ok());
   }
@@ -1554,7 +1787,9 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
     assertFalse(request.created());
   }
 
@@ -1570,7 +1805,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.noContent());
   }
 
@@ -1586,7 +1824,11 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.badRequest());
   }
 
@@ -1602,7 +1844,12 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.serverError());
   }
 
@@ -1618,7 +1865,13 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.notFound());
   }
 
@@ -1634,7 +1887,14 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("GET", method.get());
   }
 
@@ -1650,7 +1910,15 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("OK", request.message());
   }
 
@@ -1666,7 +1934,16 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals(HTTP_OK, code);
   }
 
@@ -1682,7 +1959,17 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("", request.body());
   }
 
@@ -1713,6 +2000,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
     assertFalse(request.ok());
   }
@@ -1729,7 +2017,9 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
     assertFalse(request.created());
   }
 
@@ -1745,7 +2035,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
     assertTrue(request.noContent());
   }
 
@@ -1761,7 +2054,11 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.badRequest());
   }
 
@@ -1777,7 +2074,12 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.serverError());
   }
 
@@ -1793,7 +2095,13 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.notFound());
   }
 
@@ -1809,7 +2117,14 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("GET", method.get());
   }
 
@@ -1825,7 +2140,15 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("No Content", request.message());
   }
 
@@ -1841,7 +2164,16 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals(HTTP_NO_CONTENT, code);
   }
 
@@ -1857,7 +2189,17 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(new URL(url));
+    // removed other assertion
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("", request.body());
   }
 
@@ -1936,6 +2278,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = delete(url);
+    // removed other assertion
     assertTrue(request.ok());
   }
 
@@ -1951,6 +2294,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = delete(url);
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.notFound());
   }
 
@@ -1966,6 +2311,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = delete(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("", request.body());
   }
 
@@ -1981,6 +2330,11 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = delete(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("DELETE", request.method());
   }
 
@@ -2011,6 +2365,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = delete(new URL(url));
+    // removed other assertion
     assertTrue(request.ok());
   }
 
@@ -2026,6 +2381,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = delete(new URL(url));
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.notFound());
   }
 
@@ -2041,6 +2398,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = delete(new URL(url));
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("", request.body());
   }
 
@@ -2071,6 +2432,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = options(url);
+    // removed other assertion
     assertTrue(request.ok());
   }
 
@@ -2086,6 +2448,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = options(url);
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.notFound());
   }
 
@@ -2101,6 +2465,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = options(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("", request.body());
   }
 
@@ -2131,6 +2499,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = options(new URL(url));
+    // removed other assertion
     assertTrue(request.ok());
   }
 
@@ -2146,6 +2515,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = options(new URL(url));
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.notFound());
   }
 
@@ -2161,6 +2532,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = options(new URL(url));
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("", request.body());
   }
 
@@ -2191,6 +2566,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = head(url);
+    // removed other assertion
     assertTrue(request.ok());
   }
 
@@ -2206,6 +2582,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = head(url);
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.notFound());
   }
 
@@ -2221,6 +2599,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = head(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("", request.body());
   }
 
@@ -2251,6 +2633,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = head(new URL(url));
+    // removed other assertion
     assertTrue(request.ok());
   }
 
@@ -2266,6 +2649,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = head(new URL(url));
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.notFound());
   }
 
@@ -2281,6 +2666,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = head(new URL(url));
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("", request.body());
   }
 
@@ -2311,6 +2700,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = put(url);
+    // removed other assertion
     assertTrue(request.ok());
   }
 
@@ -2326,6 +2716,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = put(url);
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.notFound());
   }
 
@@ -2341,6 +2733,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = put(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("", request.body());
   }
 
@@ -2371,6 +2767,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = put(new URL(url));
+    // removed other assertion
     assertTrue(request.ok());
   }
 
@@ -2386,6 +2783,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = put(new URL(url));
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.notFound());
   }
 
@@ -2401,6 +2800,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = put(new URL(url));
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("", request.body());
   }
 
@@ -2431,6 +2834,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = trace(url);
+    // removed other assertion
     assertTrue(request.ok());
   }
 
@@ -2446,6 +2850,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = trace(url);
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.notFound());
   }
 
@@ -2461,6 +2867,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = trace(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("", request.body());
   }
 
@@ -2491,6 +2901,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = trace(new URL(url));
+    // removed other assertion
     assertTrue(request.ok());
   }
 
@@ -2506,6 +2917,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = trace(new URL(url));
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.notFound());
   }
 
@@ -2521,6 +2934,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = trace(new URL(url));
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("", request.body());
   }
 
@@ -2553,6 +2970,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     };
     HttpRequest request = post(url);
     int code = request.code();
+    // removed other assertion
     assertFalse(request.ok());
   }
 
@@ -2569,6 +2987,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     };
     HttpRequest request = post(url);
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
     assertTrue(request.created());
   }
 
@@ -2585,6 +3005,9 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     };
     HttpRequest request = post(url);
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals(HTTP_CREATED, code);
   }
 
@@ -2617,6 +3040,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     };
     HttpRequest request = post(new URL(url));
     int code = request.code();
+    // removed other assertion
     assertFalse(request.ok());
   }
 
@@ -2633,6 +3057,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     };
     HttpRequest request = post(new URL(url));
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
     assertTrue(request.created());
   }
 
@@ -2649,6 +3075,9 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     };
     HttpRequest request = post(new URL(url));
     int code = request.code();
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals(HTTP_CREATED, code);
   }
 
@@ -2679,6 +3108,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     int code = post(url).send("hello").code();
+    // removed other assertion
     assertEquals("hello", body.get());
   }
 
@@ -2713,6 +3143,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     File file = File.createTempFile("post", ".txt");
     new FileWriter(file).append("hello").close();
     int code = post(url).send(file).code();
+    // removed other assertion
     assertEquals("hello", body.get());
   }
 
@@ -2757,6 +3188,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     new FileWriter(file2).append(" world").close();
 
     int code = post(url).send(file1).send(file2).code();
+    // removed other assertion
     assertEquals("hello world", body.get());
   }
 
@@ -2791,6 +3223,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     File file = File.createTempFile("post", ".txt");
     new FileWriter(file).append("hello").close();
     int code = post(url).send(new FileReader(file)).code();
+    // removed other assertion
     assertEquals("hello", body.get());
   }
 
@@ -2825,6 +3258,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     byte[] bytes = "hello".getBytes(CHARSET_UTF8);
     int code = post(url).contentLength(Integer.toString(bytes.length))
         .send(bytes).code();
+    // removed other assertion
     assertEquals("hello", body.get());
   }
 
@@ -2863,6 +3297,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     String data = "hello";
     int sent = data.getBytes().length;
     int code = post(url).contentLength(sent).send(data).code();
+    // removed other assertion
     assertEquals(sent, length.get().intValue());
   }
 
@@ -2882,6 +3317,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     String data = "hello";
     int sent = data.getBytes().length;
     int code = post(url).contentLength(sent).send(data).code();
+    // removed other assertion
+    // removed other assertion
     assertEquals(data, body.get());
   }
 
@@ -2922,6 +3359,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     data.put("name", "user");
     data.put("number", "100");
     int code = post(url).form(data).form("zip", "12345").code();
+    // removed other assertion
     assertEquals("name=user&number=100&zip=12345", body.get());
   }
 
@@ -2962,6 +3400,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     data.put("name", "user");
     data.put("number", "100");
     int code = post(url).form(data, null).form("zip", "12345").code();
+    // removed other assertion
     assertEquals("name=user&number=100&zip=12345", body.get());
   }
 
@@ -2982,6 +3421,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     data.put("name", "user");
     data.put("number", "100");
     int code = post(url).form(data, null).form("zip", "12345").code();
+    // removed other assertion
+    // removed other assertion
     assertEquals("application/x-www-form-urlencoded", contentType.get());
   }
 
@@ -3012,6 +3453,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     int code = post(url).form(new HashMap<String, String>()).code();
+    // removed other assertion
     assertEquals("", body.get());
   }
 
@@ -3048,6 +3490,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     };
     String data = "hello";
     int code = post(url).chunk(2).send(data).code();
+    // removed other assertion
     assertEquals(data, body.get());
   }
 
@@ -3066,6 +3509,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     };
     String data = "hello";
     int code = post(url).chunk(2).send(data).code();
+    // removed other assertion
+    // removed other assertion
     assertEquals("chunked", encoding.get());
   }
 
@@ -3094,6 +3539,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertEquals("hello", request.body());
   }
 
@@ -3108,6 +3554,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
     assertEquals("hello".getBytes().length, request.contentLength());
   }
 
@@ -3122,6 +3570,9 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertFalse(request.isBodyEmpty());
   }
 
@@ -3150,6 +3601,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertEquals(CHARSET_UTF8, request.charset());
   }
 
@@ -3178,6 +3630,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertEquals(CHARSET_UTF8, request.charset());
   }
 
@@ -3230,6 +3683,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
         response.setStatus(HTTP_OK);
       }
     };
+    // removed other assertion
     assertEquals("user", proxyUser.get());
   }
 
@@ -3244,6 +3698,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
         response.setStatus(HTTP_OK);
       }
     };
+    // removed other assertion
+    // removed other assertion
     assertEquals("p4ssw0rd", proxyPassword.get());
   }
 
@@ -3272,6 +3728,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     BufferedReader reader = new BufferedReader(request.reader());
     assertEquals("hello", reader.readLine());
   }
@@ -3318,6 +3775,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     BufferedReader reader = request.bufferedReader();
     assertEquals("hello", reader.readLine());
   }
@@ -3347,6 +3805,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     BufferedReader reader = new BufferedReader(request.reader(CHARSET_UTF8));
     assertEquals("hello", reader.readLine());
   }
@@ -3376,6 +3835,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertTrue(Arrays.equals("hello".getBytes(), request.bytes()));
   }
 
@@ -3404,6 +3864,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertEquals("error", request.body());
   }
 
@@ -3430,6 +3891,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertEquals("", request.body());
   }
 
@@ -3652,6 +4114,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     Map<String, List<String>> headers = get(url).headers();
+    // removed other assertion
     assertEquals(headers.get("a").size(), 2);
   }
 
@@ -3668,6 +4131,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     Map<String, List<String>> headers = get(url).headers();
+    // removed other assertion
+    // removed other assertion
     assertTrue(headers.get("b").get(0).equals("b"));
   }
 
@@ -3813,6 +4278,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
           while ((read = request.getReader().read(buffer)) != -1)
             body.append(buffer, 0, read);
         } catch (IOException e) {
+          // removed other assertion
         }
       }
     };
@@ -3856,6 +4322,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
         try {
           response.getWriter().print("content");
         } catch (IOException e) {
+          // removed other assertion
         }
       }
     };
@@ -3872,6 +4339,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
         try {
           response.getWriter().print("content");
         } catch (IOException e) {
+          // removed other assertion
         }
       }
     };
@@ -3889,6 +4357,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
         try {
           response.getWriter().print("content");
         } catch (IOException e) {
+          // removed other assertion
         }
       }
     };
@@ -3907,6 +4376,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
         try {
           response.getWriter().print("content");
         } catch (IOException e) {
+          // removed other assertion
         }
       }
     };
@@ -3935,6 +4405,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
   public void singleVerifier_2_oe() {
     HttpRequest request1 = get("https://localhost").trustAllHosts();
     HttpRequest request2 = get("https://localhost").trustAllHosts();
+    // removed other assertion
     assertNotNull(((HttpsURLConnection)request2.getConnection()).getHostnameVerifier());
   }
 
@@ -3942,6 +4413,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
   public void singleVerifier_3_oe() {
     HttpRequest request1 = get("https://localhost").trustAllHosts();
     HttpRequest request2 = get("https://localhost").trustAllHosts();
+    // removed other assertion
+    // removed other assertion
     assertEquals(((HttpsURLConnection)request1.getConnection()).getHostnameVerifier(),((HttpsURLConnection)request2.getConnection()).getHostnameVerifier());
   }
 
@@ -3956,6 +4429,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
   public void singleSslSocketFactory_2_oe() {
     HttpRequest request1 = get("https://localhost").trustAllCerts();
     HttpRequest request2 = get("https://localhost").trustAllCerts();
+    // removed other assertion
     assertNotNull(((HttpsURLConnection)request2.getConnection()).getSSLSocketFactory());
   }
 
@@ -3963,6 +4437,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
   public void singleSslSocketFactory_3_oe() {
     HttpRequest request1 = get("https://localhost").trustAllCerts();
     HttpRequest request2 = get("https://localhost").trustAllCerts();
+    // removed other assertion
+    // removed other assertion
     assertEquals(((HttpsURLConnection)request1.getConnection()).getSSLSocketFactory(),((HttpsURLConnection)request2.getConnection()).getSSLSocketFactory());
   }
 
@@ -3976,6 +4452,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
         try {
           response.getWriter().print("content");
         } catch (IOException e) {
+          // removed other assertion
         }
       }
     };
@@ -3992,6 +4469,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     };
     try {
       post(url).ignoreCloseExceptions(false).send(stream);
+      // removed other assertion
     } catch (HttpRequestException e) {
       assertEquals(closeCause, e.getCause());
   }
@@ -4021,6 +4499,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
         try {
           response.getWriter().print("hello world");
         } catch (IOException e) {
+          // removed other assertion
         }
       }
     };
@@ -4039,6 +4518,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
         try {
           response.getWriter().print("hello world");
         } catch (IOException e) {
+          // removed other assertion
         }
       }
     };
@@ -4072,6 +4552,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
           try {
             output.close();
           } catch (IOException ignored) {
+            // Ignored
           }
         }
       }
@@ -4105,11 +4586,13 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
           try {
             output.close();
           } catch (IOException ignored) {
+            // Ignored
           }
         }
       }
     };
     HttpRequest request = get(url).acceptGzipEncoding().uncompress(true);
+    // removed other assertion
     assertEquals("hello compressed", request.body(CHARSET_UTF8));
   }
 
@@ -4144,6 +4627,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url).acceptGzipEncoding().uncompress(true);
+    // removed other assertion
     assertEquals("hello not compressed", request.body(CHARSET_UTF8));
   }
 
@@ -4174,6 +4658,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     String[] values = request.headers("a");
     assertNotNull(values);
   }
@@ -4190,7 +4675,9 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     String[] values = request.headers("a");
+    // removed other assertion
     assertEquals(2, values.length);
   }
 
@@ -4206,7 +4693,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     String[] values = request.headers("a");
+    // removed other assertion
+    // removed other assertion
     assertTrue(Arrays.asList(values).contains("1"));
   }
 
@@ -4222,7 +4712,11 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     String[] values = request.headers("a");
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertTrue(Arrays.asList(values).contains("2"));
   }
 
@@ -4249,6 +4743,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     String[] values = request.headers("a");
     assertNotNull(values);
   }
@@ -4263,7 +4758,9 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     String[] values = request.headers("a");
+    // removed other assertion
     assertEquals(0, values.length);
   }
 
@@ -4292,6 +4789,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertEquals("d", request.parameter("a", "c"));
   }
 
@@ -4320,6 +4818,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertEquals("d", request.parameter("a", "c"));
   }
 
@@ -4334,6 +4833,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
     assertEquals("f", request.parameter("a", "e"));
   }
 
@@ -4362,6 +4863,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertEquals("d", request.parameter("a", "c"));
   }
 
@@ -4390,6 +4892,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertEquals("d", request.parameter("a", "c"));
   }
 
@@ -4404,6 +4907,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
     assertEquals("f", request.parameter("a", "e"));
   }
 
@@ -4432,6 +4937,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertNull(request.parameter("a", "e"));
   }
 
@@ -4460,6 +4966,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertNull(request.parameter("b", "c"));
   }
 
@@ -4474,6 +4981,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
     assertTrue(request.parameters("b").isEmpty());
   }
 
@@ -4502,6 +5011,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertNull(request.parameter("a", "c"));
   }
 
@@ -4516,6 +5026,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
     assertTrue(request.parameters("a").isEmpty());
   }
 
@@ -4544,6 +5056,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertNull(request.parameter("a", "c"));
   }
 
@@ -4558,6 +5071,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
+    // removed other assertion
     assertTrue(request.parameters("a").isEmpty());
   }
 
@@ -4586,6 +5101,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     Map<String, String> params = request.parameters("a");
     assertNotNull(params);
   }
@@ -4601,7 +5117,9 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     Map<String, String> params = request.parameters("a");
+    // removed other assertion
     assertEquals(2, params.size());
   }
 
@@ -4616,7 +5134,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     Map<String, String> params = request.parameters("a");
+    // removed other assertion
+    // removed other assertion
     assertEquals("c", params.get("b"));
   }
 
@@ -4631,7 +5152,11 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     Map<String, String> params = request.parameters("a");
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("e", params.get("d"));
   }
 
@@ -4660,6 +5185,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     Map<String, String> params = request.parameters("a");
     assertNotNull(params);
   }
@@ -4675,7 +5201,9 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     Map<String, String> params = request.parameters("a");
+    // removed other assertion
     assertEquals(2, params.size());
   }
 
@@ -4690,7 +5218,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     Map<String, String> params = request.parameters("a");
+    // removed other assertion
+    // removed other assertion
     assertEquals("c", params.get("b"));
   }
 
@@ -4705,7 +5236,11 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     Map<String, String> params = request.parameters("a");
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("e", params.get("d"));
   }
 
@@ -4734,6 +5269,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     Map<String, String> params = request.parameters("a");
     assertNotNull(params);
   }
@@ -4749,7 +5285,9 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     Map<String, String> params = request.parameters("a");
+    // removed other assertion
     assertEquals(2, params.size());
   }
 
@@ -4764,7 +5302,10 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     Map<String, String> params = request.parameters("a");
+    // removed other assertion
+    // removed other assertion
     assertEquals("c", params.get("b"));
   }
 
@@ -4779,7 +5320,11 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     Map<String, String> params = request.parameters("a");
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals("e", params.get("d"));
   }
 
@@ -4872,6 +5417,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     for (Entry<String, String> entry : data.entrySet())
       request.form(entry);
     int code = request.code();
+    // removed other assertion
     assertEquals("name=user&number=100", body.get());
   }
 
@@ -4912,6 +5458,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     for (Entry<String, String> entry : data.entrySet())
       request.form(entry);
     int code = request.code();
+    // removed other assertion
     assertEquals("name=", body.get());
   }
 
@@ -5265,6 +5812,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
 
   @Test
   public void appendMappedQueryParamsWithPath_2_oe() throws Exception {
+    // removed other assertion
     assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com/",Collections.singletonMap("a","b")));
   }
 
@@ -5275,6 +5823,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
 
   @Test
   public void appendVarargsQueryParamsWithPath_2_oe() throws Exception {
+    // removed other assertion
     assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com/","a","b"));
   }
 
@@ -5341,6 +5890,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
 
   @Test
   public void appendMappedQueryParamsWithExistingParams_2_oe() {
+    // removed other assertion
     assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b&",Collections.singletonMap("c","d")));
   }
 
@@ -5351,6 +5901,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
 
   @Test
   public void appendWithVarargsQueryParamsWithExistingParams_2_oe() {
+    // removed other assertion
     assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b&","c","d"));
   }
 
@@ -5361,21 +5912,31 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
 
   @Test
   public void appendArrayQueryParams_2_oe() throws Exception {
+    // removed other assertion
     assertEquals( "http://test.com/?a[]=1&a[]=2", HttpRequest.append("http://test.com", Collections.singletonMap("a", new int[] { 1, 2 })));
   }
 
   @Test
   public void appendArrayQueryParams_3_oe() throws Exception {
+    // removed other assertion
+    // removed other assertion
     assertEquals( "http://test.com/?a[]=1", HttpRequest.append("http://test.com", Collections.singletonMap("a", new int[] { 1 })));
   }
 
   @Test
   public void appendArrayQueryParams_4_oe() throws Exception {
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals( "http://test.com/?", HttpRequest.append("http://test.com", Collections.singletonMap("a", new int[] { })));
   }
 
   @Test
   public void appendArrayQueryParams_5_oe() throws Exception {
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals( "http://test.com/?foo[]=bar&foo[]=baz&a[]=1&a[]=2", HttpRequest.append("http://test.com", "foo", new String[] { "bar", "baz" }, "a", new int[] { 1, 2 }));
   }
 
@@ -5386,21 +5947,31 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
 
   @Test
   public void appendListQueryParams_2_oe() throws Exception {
+    // removed other assertion
     assertEquals( "http://test.com/?a[]=1&a[]=2", HttpRequest.append("http://test.com", Collections.singletonMap("a", Arrays.asList(new Integer[] { 1, 2 }))));
   }
 
   @Test
   public void appendListQueryParams_3_oe() throws Exception {
+    // removed other assertion
+    // removed other assertion
     assertEquals( "http://test.com/?a[]=1", HttpRequest.append("http://test.com", Collections.singletonMap("a", Arrays.asList(new Integer[] { 1 }))));
   }
 
   @Test
   public void appendListQueryParams_4_oe() throws Exception {
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals( "http://test.com/?", HttpRequest.append("http://test.com", Collections.singletonMap("a", Arrays.asList(new Integer[] { }))));
   }
 
   @Test
   public void appendListQueryParams_5_oe() throws Exception {
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
     assertEquals( "http://test.com/?foo[]=bar&foo[]=baz&a[]=1&a[]=2", HttpRequest.append("http://test.com", "foo", Arrays.asList(new String[] { "bar", "baz" }), "a", Arrays.asList(new Integer[] { 1, 2 })));
   }
 
@@ -5427,6 +5998,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertTrue(request.serverError());
   }
 
@@ -5453,6 +6025,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertTrue(request.badRequest());
   }
 
@@ -5479,6 +6052,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     HttpRequest request = get(url);
+    // removed other assertion
     assertTrue(request.notModified());
   }
 
@@ -5493,6 +6067,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
         try {
           response.getWriter().write("world");
         } catch (IOException ignored) {
+          // Ignored
         }
         response.setStatus(HTTP_OK);
       }
@@ -5537,6 +6112,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
 
     HttpRequest request = post(url).ignoreCloseExceptions(false);
     Map<String, List<String>> headers = request.send("hello").headers();
+    // removed other assertion
     assertEquals("v2", headers.get("h2").get(0));
   }
 
@@ -5556,6 +6132,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
 
     HttpRequest request = post(url).ignoreCloseExceptions(false);
     Map<String, List<String>> headers = request.send("hello").headers();
+    // removed other assertion
+    // removed other assertion
     assertEquals("hello", body.get());
   }
 
@@ -5668,6 +6246,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
         try {
           response.getWriter().write("error");
         } catch (IOException ignored) {
+          // Ignored
         }
       }
     };
@@ -5705,6 +6284,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     File file = File.createTempFile("post", ".txt");
     new FileWriter(file).append("hello").close();
     int code = post(url).progress(null).send(file).code();
+    // removed other assertion
     assertEquals("hello", body.get());
   }
 
@@ -5718,6 +6298,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
         try {
           response.getWriter().print("content");
         } catch (IOException e) {
+          // removed other assertion
         }
       }
     };
@@ -5735,6 +6316,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     };
     try {
       post(url).send(stream);
+      // removed other assertion
     } catch (HttpRequestException e) {
       assertEquals(readCause, e.getCause());
   }

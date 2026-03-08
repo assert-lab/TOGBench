@@ -128,6 +128,7 @@ public class TestServletRequestConfiguration_OE25Dev extends TestAbstractConfigu
         final BaseConfiguration config = new BaseConfiguration();
         config.addProperty(listKey, values);
 
+        // removed other assertion
 
         final Configuration c = createConfiguration(config);
         final List<?> v = c.getList(listKey);
@@ -143,10 +144,12 @@ public class TestServletRequestConfiguration_OE25Dev extends TestAbstractConfigu
         final BaseConfiguration config = new BaseConfiguration();
         config.addProperty(listKey, values);
 
+        // removed other assertion
 
         final Configuration c = createConfiguration(config);
         final List<?> v = c.getList(listKey);
 
+        // removed other assertion
 
         for (int i = 0; i < values.length; i++) {
             assertEquals("Wrong value at index " + i, values[i].replace("\\", ""), v.get(i));

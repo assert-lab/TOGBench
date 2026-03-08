@@ -33,6 +33,25 @@ public class EqualPredicateTest_OE25Dev extends AbstractPredicateTest {
        return equalPredicate(null);
     }
 
+    @Test
+    public void testNullArgumentEqualsNullPredicate() throws Exception {
+        assertSame(nullPredicate(), equalPredicate(null));
+    }
+
+    @Test
+    public void objectFactoryUsesEqualsForTest() throws Exception {
+        final Predicate<EqualsTestObject> predicate = equalPredicate(FALSE_OBJECT);
+        assertFalse(predicate, FALSE_OBJECT);
+        assertTrue(equalPredicate(TRUE_OBJECT), TRUE_OBJECT);
+    }
+
+    @SuppressWarnings("boxing")
+    @Test
+    public void testPredicateTypeCanBeSuperClassOfObject() throws Exception {
+        final Predicate<Number> predicate = equalPredicate((Number) 4);
+        assertTrue(predicate, 4);
+    }
+
     public static class EqualsTestObject {
         private final boolean b;
 

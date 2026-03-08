@@ -109,6 +109,7 @@ public class FieldAnnotationsTestCase_OE25Dev extends AbstractTestCase
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedFields");
         checkAnnotatedField(clazz, "i", "L"+PACKAGE_BASE_SIG+"/data/SimpleAnnotation;", "id", "1");
         checkAnnotatedField(clazz, "s", "L"+PACKAGE_BASE_SIG+"/data/SimpleAnnotation;", "id", "2");
+        // Write it out
         final File tfile = createTestdataFile("AnnotatedFields.class");
         clazz.dump(tfile);
         final SyntheticRepository repos2 = createRepos(".");
@@ -153,6 +154,8 @@ public class FieldAnnotationsTestCase_OE25Dev extends AbstractTestCase
         clg.removeField(f);
         clg.addField(fg.getField());
         f = clg.getFields()[1]; // there are two fields in the class, removing
+                                // and readding has changed the order
+        // so this time index [1] is the 'int i' field
         if (dbg) {
             System.err.println("Field now looks like this: " + f);
         }

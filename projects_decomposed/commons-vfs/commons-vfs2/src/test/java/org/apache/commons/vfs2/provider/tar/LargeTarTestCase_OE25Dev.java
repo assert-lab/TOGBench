@@ -190,6 +190,7 @@ public class LargeTarTestCase_OE25Dev {
 
         final FileObject file = manager.resolveFile("tgz:file://" + realFile.getCanonicalPath() + "!/");
 
+        // removed other assertion
         final List<FileObject> files = Arrays.asList(file.getChildren());
 
         assertNotNull(files);
@@ -201,8 +202,10 @@ public class LargeTarTestCase_OE25Dev {
 
         final FileObject file = manager.resolveFile("tgz:file://" + realFile.getCanonicalPath() + "!/");
 
+        // removed other assertion
         final List<FileObject> files = Arrays.asList(file.getChildren());
 
+        // removed other assertion
         assertEquals(1, files.size());
     }
 
@@ -212,8 +215,11 @@ public class LargeTarTestCase_OE25Dev {
 
         final FileObject file = manager.resolveFile("tgz:file://" + realFile.getCanonicalPath() + "!/");
 
+        // removed other assertion
         final List<FileObject> files = Arrays.asList(file.getChildren());
 
+        // removed other assertion
+        // removed other assertion
         final FileObject f = files.get(0);
 
         assertEquals("Expected file not found: " + largeFileName + ".txt", f.getName().getBaseName(), largeFileName + ".txt");

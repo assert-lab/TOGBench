@@ -63,6 +63,7 @@ public class FilterTest_OE25Dev extends AbstractBasicTest {
   public void maxConnectionsText_2_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().addRequestFilter(new ThrottleRequestFilter(0, 1000)))) {
       c.preparePost(getTargetUrl()).execute().get();
+      // removed other assertion
     } catch (ExecutionException ex) {
       assertTrue(ex.getCause() instanceof FilterException);
   }
@@ -80,6 +81,7 @@ public class FilterTest_OE25Dev extends AbstractBasicTest {
   public void basicTest_2_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().addRequestFilter(new ThrottleRequestFilter(100)))) {
       Response response = c.preparePost(getTargetUrl()).execute().get();
+      // removed other assertion
       assertEquals(response.getStatusCode(), 200);
   }
   }
@@ -109,6 +111,7 @@ public class FilterTest_OE25Dev extends AbstractBasicTest {
 
       for (Future<Response> f : futures) {
         Response r = f.get();
+        // removed other assertion
         assertEquals(r.getStatusCode(), 200);
   }
   }
@@ -142,6 +145,7 @@ public class FilterTest_OE25Dev extends AbstractBasicTest {
 
     try (AsyncHttpClient c = asyncHttpClient(config().addResponseFilter(responseFilter))) {
       Response response = c.preparePost(getTargetUrl()).execute().get();
+      // removed other assertion
       assertEquals(response.getStatusCode(), 200);
   }
   }
@@ -182,6 +186,7 @@ public class FilterTest_OE25Dev extends AbstractBasicTest {
 
     try (AsyncHttpClient c = asyncHttpClient(config().addResponseFilter(responseFilter))) {
       Response response = c.preparePost(getTargetUrl()).execute().get();
+      // removed other assertion
       assertEquals(response.getStatusCode(), 200);
   }
   }
@@ -202,6 +207,8 @@ public class FilterTest_OE25Dev extends AbstractBasicTest {
 
     try (AsyncHttpClient c = asyncHttpClient(config().addResponseFilter(responseFilter))) {
       Response response = c.preparePost(getTargetUrl()).execute().get();
+      // removed other assertion
+      // removed other assertion
       assertEquals(response.getHeader("X-Replay"), "true");
   }
   }
@@ -242,6 +249,7 @@ public class FilterTest_OE25Dev extends AbstractBasicTest {
 
     try (AsyncHttpClient c = asyncHttpClient(config().addResponseFilter(responseFilter))) {
       Response response = c.preparePost(getTargetUrl()).execute().get();
+      // removed other assertion
       assertEquals(response.getStatusCode(), 200);
   }
   }
@@ -262,6 +270,8 @@ public class FilterTest_OE25Dev extends AbstractBasicTest {
 
     try (AsyncHttpClient c = asyncHttpClient(config().addResponseFilter(responseFilter))) {
       Response response = c.preparePost(getTargetUrl()).execute().get();
+      // removed other assertion
+      // removed other assertion
       assertEquals(response.getHeader("X-Replay"), "true");
   }
   }
@@ -302,6 +312,7 @@ public class FilterTest_OE25Dev extends AbstractBasicTest {
 
     try (AsyncHttpClient c = asyncHttpClient(config().addResponseFilter(responseFilter))) {
       Response response = c.preparePost(getTargetUrl()).addHeader("Ping", "Pong").execute().get();
+      // removed other assertion
       assertEquals(response.getStatusCode(), 200);
   }
   }
@@ -322,6 +333,8 @@ public class FilterTest_OE25Dev extends AbstractBasicTest {
 
     try (AsyncHttpClient c = asyncHttpClient(config().addResponseFilter(responseFilter))) {
       Response response = c.preparePost(getTargetUrl()).addHeader("Ping", "Pong").execute().get();
+      // removed other assertion
+      // removed other assertion
       assertEquals(response.getHeader("Ping"), "Pong");
   }
   }

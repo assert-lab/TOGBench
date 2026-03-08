@@ -91,6 +91,21 @@ public class UnmodifiableOrderedBidiMapTest_OE25Dev<K extends Comparable<K>, V e
 
     //-----------------------------------------------------------------------
 
+    public void testUnmodifiable() {
+        assertTrue(makeObject() instanceof Unmodifiable);
+        assertTrue(makeFullMap() instanceof Unmodifiable);
+    }
+
+    public void testDecorateFactory() {
+        final OrderedBidiMap<K, V> map = makeFullMap();
+        assertSame(map, UnmodifiableOrderedBidiMap.unmodifiableOrderedBidiMap(map));
+
+        try {
+            UnmodifiableOrderedBidiMap.unmodifiableOrderedBidiMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
     public void testUnmodifiable_1_oe() {
         assertTrue(makeObject() instanceof Unmodifiable);
     }
@@ -102,6 +117,13 @@ public class UnmodifiableOrderedBidiMapTest_OE25Dev<K extends Comparable<K>, V e
     public void testDecorateFactory_1_oe() {
         final OrderedBidiMap<K, V> map = makeFullMap();
         assertSame(map, UnmodifiableOrderedBidiMap.unmodifiableOrderedBidiMap(map));
+    }
+
+public void testDecorateFactory_oe_101_oe() {
+        try {
+            UnmodifiableOrderedBidiMap.unmodifiableOrderedBidiMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
     }
 
 }

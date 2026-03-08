@@ -59,54 +59,68 @@ class BoundarySourceBoundsBuilder2DTest_OE25Dev {
 
     @Test
     void testGetBounds_noBoundaries_1_oe() {
+        // arrange
         final BoundarySource2D src = BoundarySource2D.of(new ArrayList<>());
         final BoundarySourceBoundsBuilder2D builder = new BoundarySourceBoundsBuilder2D();
 
+        // act
         final Bounds2D b = builder.getBounds(src);
 
+        // assert
         Assertions.assertNull(b);
     }
 
     @Test
     void testGetBounds_singleFiniteBoundary_1_oe() {
+        // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.of(1, -2), Vector2D.of(-3, 4), TEST_PRECISION);
 
         final BoundarySource2D src = BoundarySource2D.of(seg);
         final BoundarySourceBoundsBuilder2D builder = new BoundarySourceBoundsBuilder2D();
 
+        // act
         final Bounds2D b = builder.getBounds(src);
 
+        // assert
         checkBounds(b, Vector2D.of(-3, -2), Vector2D.of(1, 4));
         Assertions.assertTrue(b.contains(seg.getStartPoint()));
     }
 
     @Test
     void testGetBounds_singleFiniteBoundary_2_oe() {
+        // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.of(1, -2), Vector2D.of(-3, 4), TEST_PRECISION);
 
         final BoundarySource2D src = BoundarySource2D.of(seg);
         final BoundarySourceBoundsBuilder2D builder = new BoundarySourceBoundsBuilder2D();
 
+        // act
         final Bounds2D b = builder.getBounds(src);
 
+        // assert
         checkBounds(b, Vector2D.of(-3, -2), Vector2D.of(1, 4));
+        // removed other assertion
         Assertions.assertTrue(b.contains(seg.getEndPoint()));
     }
 
     @Test
     void testGetBounds_singleInfiniteBoundary_1_oe() {
+        // arrange
         final LineConvexSubset boundary = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION)
                 .span();
         final BoundarySource2D src = BoundarySource2D.of(boundary);
         final BoundarySourceBoundsBuilder2D builder = new BoundarySourceBoundsBuilder2D();
 
+        // act
         final Bounds2D b = builder.getBounds(src);
 
+        // assert
         Assertions.assertNull(b);
     }
 
     @Test
     void testGetBounds_mixedFiniteAndInfiniteBoundaries_1_oe() {
+        // arrange
         final LineConvexSubset inf = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION)
                 .span()
                 .split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION))
@@ -119,8 +133,10 @@ class BoundarySourceBoundsBuilder2DTest_OE25Dev {
         final BoundarySource2D src = BoundarySource2D.of(seg1, seg2, inf, seg3);
         final BoundarySourceBoundsBuilder2D builder = new BoundarySourceBoundsBuilder2D();
 
+        // act
         final Bounds2D b = builder.getBounds(src);
 
+        // assert
         Assertions.assertNull(b);
     }
 

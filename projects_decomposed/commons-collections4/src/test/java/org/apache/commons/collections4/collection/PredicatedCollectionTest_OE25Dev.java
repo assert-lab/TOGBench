@@ -87,6 +87,39 @@ public class PredicatedCollectionTest_OE25Dev<E> extends AbstractCollectionTest<
         return decorateCollection(new ArrayList<E>(), testPredicate);
     }
 
+    @SuppressWarnings("unchecked")
+    public void testIllegalAdd() {
+        final Collection<E> c = makeTestCollection();
+        final Integer i = Integer.valueOf(3);
+        try {
+            c.add((E) i);
+            fail("Integer should fail string predicate.");
+        } catch (final IllegalArgumentException e) {
+            // expected
+        }
+        assertTrue("Collection shouldn't contain illegal element",!c.contains(i));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testIllegalAddAll() {
+        final Collection<E> c = makeTestCollection();
+        final List<E> elements = new ArrayList<>();
+        elements.add((E) "one");
+        elements.add((E) "two");
+        elements.add((E) Integer.valueOf(3));
+        elements.add((E) "four");
+        try {
+            c.addAll(elements);
+            fail("Integer should fail string predicate.");
+        } catch (final IllegalArgumentException e) {
+            // expected
+        }
+        assertTrue("Collection shouldn't contain illegal element", !c.contains("one"));
+        assertTrue("Collection shouldn't contain illegal element", !c.contains("two"));
+        assertTrue("Collection shouldn't contain illegal element", !c.contains(Integer.valueOf(3)));
+        assertTrue("Collection shouldn't contain illegal element", !c.contains("four"));
+    }
+
     @Override
     public String getCompatibilityVersion() {
         return "4";

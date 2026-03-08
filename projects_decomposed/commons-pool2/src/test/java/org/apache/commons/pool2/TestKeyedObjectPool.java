@@ -380,6 +380,7 @@ public abstract class TestKeyedObjectPool {
         pool.close();
     }
 
+
     @Test
     public void testBaseNumActiveNumIdle() throws Exception {
         try {

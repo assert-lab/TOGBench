@@ -202,6 +202,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         for (int i = 0; i < patternValid.length; i++) {
             String text = i + " value=[" +patternValid[i]+"] failed ";
             Calendar calendar = validator.validate(patternValid[i], "HH-mm-ss");
+            // removed other assertion
             Date date = calendar.getTime();
             assertTrue("isValid() " + text,  validator.isValid(patternValid[i], "HH-mm-ss"));
     }
@@ -211,7 +212,9 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         for (int i = 0; i < patternValid.length; i++) {
             String text = i + " value=[" +patternValid[i]+"] failed ";
             Calendar calendar = validator.validate(patternValid[i], "HH-mm-ss");
+            // removed other assertion
             Date date = calendar.getTime();
+            // removed other assertion
             assertEquals("compare " + text, patternExpect[i], date);
     }
     }
@@ -228,6 +231,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         for (int i = 0; i < patternInvalid.length; i++) {
             String text = i + " value=[" +patternInvalid[i]+"] passed ";
             Object date = validator.validate(patternInvalid[i], "HH-mm-ss");
+            // removed other assertion
             assertFalse("isValid() " + text,  validator.isValid(patternInvalid[i], "HH-mm-ss"));
     }
     }
@@ -244,6 +248,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         for (int i = 0; i < localeValid.length; i++) {
             String text = i + " value=[" +localeValid[i]+"] failed ";
             Calendar calendar = validator.validate(localeValid[i], Locale.UK);
+            // removed other assertion
             Date date = calendar.getTime();
             assertTrue("isValid() " + text,  validator.isValid(localeValid[i], Locale.UK));
     }
@@ -253,7 +258,9 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         for (int i = 0; i < localeValid.length; i++) {
             String text = i + " value=[" +localeValid[i]+"] failed ";
             Calendar calendar = validator.validate(localeValid[i], Locale.UK);
+            // removed other assertion
             Date date = calendar.getTime();
+            // removed other assertion
             assertEquals("compare " + text, localeExpect[i], date);
     }
     }
@@ -270,525 +277,1039 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         for (int i = 0; i < localeInvalid.length; i++) {
             String text = i + " value=[" +localeInvalid[i]+"] passed ";
             Object date = validator.validate(localeInvalid[i], Locale.US);
+            // removed other assertion
             assertFalse("isValid() " + text,  validator.isValid(localeInvalid[i], Locale.UK));
     }
     }
 
     public void testTimeZone_1_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
         assertNotNull("default result", result);
     }
 
     public void testTimeZone_2_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
         assertEquals("default zone",  GMT, result.getTimeZone());
     }
 
     public void testTimeZone_3_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
         assertEquals("default hour",   18, result.get(Calendar.HOUR_OF_DAY));
     }
 
     public void testTimeZone_4_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("default minute", 01, result.get(Calendar.MINUTE));
     }
 
     public void testTimeZone_5_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
         assertNotNull("zone result", result);
     }
 
     public void testTimeZone_6_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
         assertEquals("zone zone",  EST, result.getTimeZone());
     }
 
     public void testTimeZone_7_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
         assertEquals("zone hour",   16, result.get(Calendar.HOUR_OF_DAY));
     }
 
     public void testTimeZone_8_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("zone minute", 49, result.get(Calendar.MINUTE));
     }
 
     public void testTimeZone_9_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
         assertNotNull("pattern result", result);
     }
 
     public void testTimeZone_10_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
         assertEquals("pattern zone",  EST, result.getTimeZone());
     }
 
     public void testTimeZone_11_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
         assertEquals("pattern hour",   14, result.get(Calendar.HOUR_OF_DAY));
     }
 
     public void testTimeZone_12_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("pattern minute", 34, result.get(Calendar.MINUTE));
     }
 
     public void testTimeZone_13_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale, diff TimeZone
         result = validator.validate("7:18 PM", Locale.US, EST);
         assertNotNull("locale result", result);
     }
 
     public void testTimeZone_14_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale, diff TimeZone
         result = validator.validate("7:18 PM", Locale.US, EST);
+        // removed other assertion
         assertEquals("locale zone",  EST, result.getTimeZone());
     }
 
     public void testTimeZone_15_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale, diff TimeZone
         result = validator.validate("7:18 PM", Locale.US, EST);
+        // removed other assertion
+        // removed other assertion
         assertEquals("locale hour",   19, result.get(Calendar.HOUR_OF_DAY));
     }
 
     public void testTimeZone_16_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale, diff TimeZone
         result = validator.validate("7:18 PM", Locale.US, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("locale minute", 18, result.get(Calendar.MINUTE));
     }
 
     public void testTimeZone_17_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale, diff TimeZone
         result = validator.validate("7:18 PM", Locale.US, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, diff TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN, EST);
         assertNotNull("pattern result", result);
     }
 
     public void testTimeZone_18_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale, diff TimeZone
         result = validator.validate("7:18 PM", Locale.US, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, diff TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN, EST);
+        // removed other assertion
         assertEquals("pattern zone",  EST, result.getTimeZone());
     }
 
     public void testTimeZone_19_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale, diff TimeZone
         result = validator.validate("7:18 PM", Locale.US, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, diff TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN, EST);
+        // removed other assertion
+        // removed other assertion
         assertEquals("pattern day",  2005, result.get(Calendar.YEAR));
     }
 
     public void testTimeZone_20_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale, diff TimeZone
         result = validator.validate("7:18 PM", Locale.US, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, diff TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("pattern day",11,result.get(Calendar.MONTH));// months are 0-11 assertEquals("pattern day",31,result.get(Calendar.DATE));
     }
 
     public void testTimeZone_21_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale, diff TimeZone
         result = validator.validate("7:18 PM", Locale.US, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, diff TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("pattern hour",   21, result.get(Calendar.HOUR_OF_DAY));
     }
 
     public void testTimeZone_22_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale, diff TimeZone
         result = validator.validate("7:18 PM", Locale.US, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, diff TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("pattern minute", 05, result.get(Calendar.MINUTE));
     }
 
     public void testTimeZone_23_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale, diff TimeZone
         result = validator.validate("7:18 PM", Locale.US, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, diff TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, default TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN);
         assertNotNull("pattern result", result);
     }
 
     public void testTimeZone_24_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale, diff TimeZone
         result = validator.validate("7:18 PM", Locale.US, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, diff TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, default TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN);
+        // removed other assertion
         assertEquals("pattern zone",  GMT, result.getTimeZone());
     }
 
     public void testTimeZone_25_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale, diff TimeZone
         result = validator.validate("7:18 PM", Locale.US, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, diff TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, default TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN);
+        // removed other assertion
+        // removed other assertion
         assertEquals("pattern day",  2005, result.get(Calendar.YEAR));
     }
 
     public void testTimeZone_26_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale, diff TimeZone
         result = validator.validate("7:18 PM", Locale.US, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, diff TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, default TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("pattern day",11,result.get(Calendar.MONTH));// months are 0-11 assertEquals("pattern day",31,result.get(Calendar.DATE));
     }
 
     public void testTimeZone_27_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale, diff TimeZone
         result = validator.validate("7:18 PM", Locale.US, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, diff TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, default TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("pattern hour",   21, result.get(Calendar.HOUR_OF_DAY));
     }
 
     public void testTimeZone_28_oe() {
+        // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
 
         Calendar result = null;
 
+        // Default Locale, Default TimeZone
         result = validator.validate("18:01");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Default Locale, diff TimeZone
         result = validator.validate("16:49", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Pattern, diff TimeZone
         result = validator.validate("14-34", "HH-mm", EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale, diff TimeZone
         result = validator.validate("7:18 PM", Locale.US, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, diff TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN, EST);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         result = null;
 
+        // Locale & Pattern, default TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("pattern minute", 05, result.get(Calendar.MINUTE));
     }
 
     public void testFormat_1_oe() {
+        // Set the default Locale
         Locale.setDefault(Locale.UK);
 
         Object test = TimeValidator.getInstance().validate("16:49:23", "HH:mm:ss");
@@ -796,23 +1317,32 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
     }
 
     public void testFormat_2_oe() {
+        // Set the default Locale
         Locale.setDefault(Locale.UK);
 
         Object test = TimeValidator.getInstance().validate("16:49:23", "HH:mm:ss");
+        // removed other assertion
         assertEquals("Format pattern", "16-49-23", validator.format(test, "HH-mm-ss"));
     }
 
     public void testFormat_3_oe() {
+        // Set the default Locale
         Locale.setDefault(Locale.UK);
 
         Object test = TimeValidator.getInstance().validate("16:49:23", "HH:mm:ss");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Format locale",  "4:49 PM",  validator.format(test, Locale.US));
     }
 
     public void testFormat_4_oe() {
+        // Set the default Locale
         Locale.setDefault(Locale.UK);
 
         Object test = TimeValidator.getInstance().validate("16:49:23", "HH:mm:ss");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Format default", "16:49",  validator.format(test));
     }
 
@@ -855,6 +1385,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
         assertEquals("mili EQ", 0,  validator.compareTime(value, value));        // same time;
     }
 
@@ -876,6 +1407,8 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("mili GT", 1,  validator.compareTime(value, milliLess));    // < milli;
     }
 
@@ -897,6 +1430,9 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("secs LT", -1, validator.compareSeconds(value, secGreater));   // +1 sec;
     }
@@ -919,7 +1455,11 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("secs =1", 0,  validator.compareSeconds(value, milliGreater)); // > milli;
     }
 
@@ -941,7 +1481,12 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("secs =2", 0,  validator.compareSeconds(value, value));        // same time;
     }
 
@@ -963,7 +1508,13 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("secs =3", 0,  validator.compareSeconds(value, milliLess));    // < milli;
     }
 
@@ -985,7 +1536,14 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("secs GT", 1,  validator.compareSeconds(value, secLess));      // -1 sec;
     }
 
@@ -1007,7 +1565,15 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("mins LT", -1, validator.compareMinutes(value, minGreater));   // +1 min;
     }
@@ -1030,8 +1596,17 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("mins =1", 0,  validator.compareMinutes(value, secGreater));   // +1 sec;
     }
 
@@ -1053,8 +1628,18 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("mins =2", 0,  validator.compareMinutes(value, value));        // same time;
     }
 
@@ -1076,8 +1661,19 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("mins =3", 0,  validator.compareMinutes(value, secLess));      // -1 sec;
     }
 
@@ -1099,8 +1695,20 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("mins GT", 1,  validator.compareMinutes(value, minLess));      // -1 min;
     }
 
@@ -1122,8 +1730,21 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("hour LT", -1, validator.compareHours(value, hourGreater));   // +1 hour;
     }
@@ -1146,9 +1767,23 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("hour =1", 0,  validator.compareHours(value, minGreater));   // +1 min;
     }
 
@@ -1170,9 +1805,24 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("hour =2", 0,  validator.compareHours(value, value));        // same time;
     }
 
@@ -1194,9 +1844,25 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("hour =3", 0,  validator.compareHours(value, minLess));      // -1 min;
     }
 
@@ -1218,9 +1884,26 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         Calendar hourGreater  = createTime(GMT, testTime + hour, 100);   // +1 hour
         Calendar hourLess     = createTime(GMT, testTime - hour, 100);   // -1 hour
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("hour GT", 1,  validator.compareHours(value, hourLess));      // -1 hour;
     }
 

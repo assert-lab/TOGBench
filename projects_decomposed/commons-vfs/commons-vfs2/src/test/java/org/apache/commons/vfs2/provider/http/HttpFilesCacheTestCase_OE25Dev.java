@@ -59,6 +59,7 @@ public class HttpFilesCacheTestCase_OE25Dev extends TestCase {
         final FileSystemManager fileSystemManager = VFS.getManager();
 
         try (final FileObject noQueryFile = fileSystemManager.resolveFile(noQueryStringUrl)) {
+            // removed other assertion
         }
 
         try (final FileObject queryFile = fileSystemManager.resolveFile(queryStringUrl)) {
@@ -75,9 +76,11 @@ public class HttpFilesCacheTestCase_OE25Dev extends TestCase {
         final FileSystemManager fileSystemManager = VFS.getManager();
 
         try (final FileObject noQueryFile = fileSystemManager.resolveFile(noQueryStringUrl)) {
+            // removed other assertion
         }
 
         try (final FileObject queryFile = fileSystemManager.resolveFile(queryStringUrl)) {
+            // removed other assertion
         }
 
         try (final FileObject queryFile2 = fileSystemManager.resolveFile(queryStringUrl2)) {

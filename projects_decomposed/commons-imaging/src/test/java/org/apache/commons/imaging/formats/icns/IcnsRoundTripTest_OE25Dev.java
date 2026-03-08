@@ -401,6 +401,7 @@ public class IcnsRoundTripTest_OE25Dev extends IcnsBaseTest {
             bos.write4Bytes(4 + 4 + 4 * 16 * 16);
             for (int y = 0; y < 16; y++) {
                 for (int x = 0; x < 16; x++) {
+                    // argb, a ignored
                     bos.write(0);
                     final int pixel;
                     if (IMAGE[y][x] != 0) {
@@ -415,6 +416,7 @@ public class IcnsRoundTripTest_OE25Dev extends IcnsBaseTest {
             }
             bos.write4Bytes(IcnsType.ICNS_16x16_1BIT_IMAGE_AND_MASK.getType());
             bos.write4Bytes(4 + 4 + 16 * 16 / 8);
+            // 1 bit image
             for (int y = 0; y < 16; y++) {
                 for (int x = 0; x < 16; x += 8) {
                     int eightBits = 0;
@@ -426,6 +428,7 @@ public class IcnsRoundTripTest_OE25Dev extends IcnsBaseTest {
                     bos.write(eightBits);
                 }
             }
+            // Missing 1 bit mask!!!
             bos.flush();
 
             boolean threw = false;

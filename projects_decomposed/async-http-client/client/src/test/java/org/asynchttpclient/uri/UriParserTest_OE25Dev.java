@@ -129,6 +129,7 @@ public class UriParserTest_OE25Dev {
     parser.parse(null, url);
         final UriParser parser0 = parser;
     final URI uri0 = URI.create(url.trim());
+    // removed other assertion
         assertEquals(parser0.userInfo, uri0.getUserInfo());
   }
 
@@ -139,6 +140,8 @@ public class UriParserTest_OE25Dev {
     parser.parse(null, url);
         final UriParser parser0 = parser;
     final URI uri0 = URI.create(url.trim());
+    // removed other assertion
+        // removed other assertion
         assertEquals(parser0.host, uri0.getHost());
   }
 
@@ -149,6 +152,9 @@ public class UriParserTest_OE25Dev {
     parser.parse(null, url);
         final UriParser parser0 = parser;
     final URI uri0 = URI.create(url.trim());
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(parser0.port, uri0.getPort());
   }
 
@@ -159,6 +165,10 @@ public class UriParserTest_OE25Dev {
     parser.parse(null, url);
         final UriParser parser0 = parser;
     final URI uri0 = URI.create(url.trim());
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(parser0.path, uri0.getPath());
   }
 
@@ -169,6 +179,11 @@ public class UriParserTest_OE25Dev {
     parser.parse(null, url);
         final UriParser parser0 = parser;
     final URI uri0 = URI.create(url.trim());
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(parser0.query, uri0.getQuery());
   }
 

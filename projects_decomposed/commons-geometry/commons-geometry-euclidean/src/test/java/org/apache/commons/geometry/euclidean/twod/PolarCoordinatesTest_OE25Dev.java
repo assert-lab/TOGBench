@@ -204,185 +204,324 @@ class PolarCoordinatesTest_OE25Dev {
 
     @Test
     void testDimension_1_oe() {
+        // arrange
         final PolarCoordinates p = PolarCoordinates.of(1, 0);
 
+        // act/assert
         Assertions.assertEquals(2, p.getDimension());
     }
 
     @Test
     void testIsNaN_1_oe() {
+        // act/assert
         Assertions.assertFalse(PolarCoordinates.of(1, 0).isNaN());
     }
 
     @Test
     void testIsNaN_2_oe() {
+        // act/assert
+        // removed other assertion
         Assertions.assertFalse(PolarCoordinates.of(Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY).isNaN());
     }
 
     @Test
     void testIsNaN_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(PolarCoordinates.of(Double.NaN, 0).isNaN());
     }
 
     @Test
     void testIsNaN_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(PolarCoordinates.of(1, Double.NaN).isNaN());
     }
 
     @Test
     void testIsNaN_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(PolarCoordinates.of(Double.NaN, Double.NaN).isNaN());
     }
 
     @Test
     void testIsInfinite_1_oe() {
+        // act/assert
         Assertions.assertFalse(PolarCoordinates.of(1, 0).isInfinite());
     }
 
     @Test
     void testIsInfinite_2_oe() {
+        // act/assert
+        // removed other assertion
         Assertions.assertFalse(PolarCoordinates.of(Double.NaN, Double.NaN).isInfinite());
     }
 
     @Test
     void testIsInfinite_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(PolarCoordinates.of(Double.POSITIVE_INFINITY, 0).isInfinite());
     }
 
     @Test
     void testIsInfinite_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(PolarCoordinates.of(Double.NEGATIVE_INFINITY, 0).isInfinite());
     }
 
     @Test
     void testIsInfinite_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(PolarCoordinates.of(Double.NEGATIVE_INFINITY, Double.NaN).isInfinite());
     }
 
     @Test
     void testIsInfinite_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(PolarCoordinates.of(0, Double.POSITIVE_INFINITY).isInfinite());
     }
 
     @Test
     void testIsInfinite_7_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(PolarCoordinates.of(0, Double.NEGATIVE_INFINITY).isInfinite());
     }
 
     @Test
     void testIsInfinite_8_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(PolarCoordinates.of(Double.NaN, Double.NEGATIVE_INFINITY).isInfinite());
     }
 
     @Test
     void testIsInfinite_9_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(PolarCoordinates.of(Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY).isInfinite());
     }
 
     @Test
     void testIsInfinite_10_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(PolarCoordinates.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY).isInfinite());
     }
 
     @Test
     void testIsFinite_1_oe() {
+        // act/assert
         Assertions.assertTrue(PolarCoordinates.of(1, 0).isFinite());
     }
 
     @Test
     void testIsFinite_2_oe() {
+        // act/assert
+        // removed other assertion
         Assertions.assertTrue(PolarCoordinates.of(1, Math.PI).isFinite());
     }
 
     @Test
     void testIsFinite_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(PolarCoordinates.of(Double.NaN, Double.NaN).isFinite());
     }
 
     @Test
     void testIsFinite_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
         Assertions.assertFalse(PolarCoordinates.of(Double.POSITIVE_INFINITY, 0).isFinite());
     }
 
     @Test
     void testIsFinite_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(PolarCoordinates.of(Double.NEGATIVE_INFINITY, 0).isFinite());
     }
 
     @Test
     void testIsFinite_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(PolarCoordinates.of(Double.NEGATIVE_INFINITY, Double.NaN).isFinite());
     }
 
     @Test
     void testIsFinite_7_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(PolarCoordinates.of(0, Double.POSITIVE_INFINITY).isFinite());
     }
 
     @Test
     void testIsFinite_8_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(PolarCoordinates.of(0, Double.NEGATIVE_INFINITY).isFinite());
     }
 
     @Test
     void testIsFinite_9_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(PolarCoordinates.of(Double.NaN, Double.NEGATIVE_INFINITY).isFinite());
     }
 
     @Test
     void testIsFinite_10_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(PolarCoordinates.of(Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY).isFinite());
     }
 
     @Test
     void testIsFinite_11_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(PolarCoordinates.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY).isFinite());
     }
 
     @Test
     void testHashCode_1_oe() {
+        // arrange
         final PolarCoordinates a = PolarCoordinates.of(1, 2);
         final PolarCoordinates b = PolarCoordinates.of(10, 2);
         final PolarCoordinates c = PolarCoordinates.of(10, 20);
@@ -390,11 +529,13 @@ class PolarCoordinatesTest_OE25Dev {
 
         final PolarCoordinates e = PolarCoordinates.of(1, 2);
 
+        // act/assert
         Assertions.assertEquals(a.hashCode(), a.hashCode());
     }
 
     @Test
     void testHashCode_2_oe() {
+        // arrange
         final PolarCoordinates a = PolarCoordinates.of(1, 2);
         final PolarCoordinates b = PolarCoordinates.of(10, 2);
         final PolarCoordinates c = PolarCoordinates.of(10, 20);
@@ -402,11 +543,14 @@ class PolarCoordinatesTest_OE25Dev {
 
         final PolarCoordinates e = PolarCoordinates.of(1, 2);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(a.hashCode(), e.hashCode());
     }
 
     @Test
     void testHashCode_3_oe() {
+        // arrange
         final PolarCoordinates a = PolarCoordinates.of(1, 2);
         final PolarCoordinates b = PolarCoordinates.of(10, 2);
         final PolarCoordinates c = PolarCoordinates.of(10, 20);
@@ -414,12 +558,16 @@ class PolarCoordinatesTest_OE25Dev {
 
         final PolarCoordinates e = PolarCoordinates.of(1, 2);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertNotEquals(a.hashCode(), b.hashCode());
     }
 
     @Test
     void testHashCode_4_oe() {
+        // arrange
         final PolarCoordinates a = PolarCoordinates.of(1, 2);
         final PolarCoordinates b = PolarCoordinates.of(10, 2);
         final PolarCoordinates c = PolarCoordinates.of(10, 20);
@@ -427,12 +575,17 @@ class PolarCoordinatesTest_OE25Dev {
 
         final PolarCoordinates e = PolarCoordinates.of(1, 2);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(a.hashCode(), c.hashCode());
     }
 
     @Test
     void testHashCode_5_oe() {
+        // arrange
         final PolarCoordinates a = PolarCoordinates.of(1, 2);
         final PolarCoordinates b = PolarCoordinates.of(10, 2);
         final PolarCoordinates c = PolarCoordinates.of(10, 20);
@@ -440,20 +593,28 @@ class PolarCoordinatesTest_OE25Dev {
 
         final PolarCoordinates e = PolarCoordinates.of(1, 2);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(a.hashCode(), d.hashCode());
     }
 
     @Test
     void testHashCode_NaNInstancesHaveSameHashCode_1_oe() {
+        // arrange
         final PolarCoordinates a = PolarCoordinates.of(1, Double.NaN);
         final PolarCoordinates b = PolarCoordinates.of(Double.NaN, 1);
 
+        // act/assert
         Assertions.assertEquals(a.hashCode(), b.hashCode());
     }
 
     @Test
     void testEquals_2_oe() {
+        // arrange
         final PolarCoordinates a = PolarCoordinates.of(1, 2);
         final PolarCoordinates b = PolarCoordinates.of(10, 2);
         final PolarCoordinates c = PolarCoordinates.of(10, 20);
@@ -461,11 +622,14 @@ class PolarCoordinatesTest_OE25Dev {
 
         final PolarCoordinates e = PolarCoordinates.of(1, 2);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(a, e);
     }
 
     @Test
     void testEquals_3_oe() {
+        // arrange
         final PolarCoordinates a = PolarCoordinates.of(1, 2);
         final PolarCoordinates b = PolarCoordinates.of(10, 2);
         final PolarCoordinates c = PolarCoordinates.of(10, 20);
@@ -473,12 +637,16 @@ class PolarCoordinatesTest_OE25Dev {
 
         final PolarCoordinates e = PolarCoordinates.of(1, 2);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertNotEquals(a, b);
     }
 
     @Test
     void testEquals_4_oe() {
+        // arrange
         final PolarCoordinates a = PolarCoordinates.of(1, 2);
         final PolarCoordinates b = PolarCoordinates.of(10, 2);
         final PolarCoordinates c = PolarCoordinates.of(10, 20);
@@ -486,12 +654,17 @@ class PolarCoordinatesTest_OE25Dev {
 
         final PolarCoordinates e = PolarCoordinates.of(1, 2);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(a, c);
     }
 
     @Test
     void testEquals_5_oe() {
+        // arrange
         final PolarCoordinates a = PolarCoordinates.of(1, 2);
         final PolarCoordinates b = PolarCoordinates.of(10, 2);
         final PolarCoordinates c = PolarCoordinates.of(10, 20);
@@ -499,135 +672,202 @@ class PolarCoordinatesTest_OE25Dev {
 
         final PolarCoordinates e = PolarCoordinates.of(1, 2);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(a, d);
     }
 
     @Test
     void testEquals_NaNInstancesEqual_1_oe() {
+        // arrange
         final PolarCoordinates a = PolarCoordinates.of(1, Double.NaN);
         final PolarCoordinates b = PolarCoordinates.of(Double.NaN, 1);
 
+        // act/assert
         Assertions.assertEquals(a, b);
     }
 
     @Test
     void testEqualsAndHashCode_signedZeroConsistency_1_oe() {
+        // arrange
         final PolarCoordinates a = PolarCoordinates.of(0.0, -0.0);
         final PolarCoordinates b = PolarCoordinates.of(-0.0, 0.0);
         final PolarCoordinates c = PolarCoordinates.of(0.0, -0.0);
         final PolarCoordinates d = PolarCoordinates.of(-0.0, 0.0);
 
+        // act/assert
         Assertions.assertFalse(a.equals(b));
     }
 
     @Test
     void testEqualsAndHashCode_signedZeroConsistency_2_oe() {
+        // arrange
         final PolarCoordinates a = PolarCoordinates.of(0.0, -0.0);
         final PolarCoordinates b = PolarCoordinates.of(-0.0, 0.0);
         final PolarCoordinates c = PolarCoordinates.of(0.0, -0.0);
         final PolarCoordinates d = PolarCoordinates.of(-0.0, 0.0);
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertTrue(a.equals(c));
     }
 
     @Test
     void testEqualsAndHashCode_signedZeroConsistency_3_oe() {
+        // arrange
         final PolarCoordinates a = PolarCoordinates.of(0.0, -0.0);
         final PolarCoordinates b = PolarCoordinates.of(-0.0, 0.0);
         final PolarCoordinates c = PolarCoordinates.of(0.0, -0.0);
         final PolarCoordinates d = PolarCoordinates.of(-0.0, 0.0);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(a.hashCode(), c.hashCode());
     }
 
     @Test
     void testEqualsAndHashCode_signedZeroConsistency_4_oe() {
+        // arrange
         final PolarCoordinates a = PolarCoordinates.of(0.0, -0.0);
         final PolarCoordinates b = PolarCoordinates.of(-0.0, 0.0);
         final PolarCoordinates c = PolarCoordinates.of(0.0, -0.0);
         final PolarCoordinates d = PolarCoordinates.of(-0.0, 0.0);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(b.equals(d));
     }
 
     @Test
     void testEqualsAndHashCode_signedZeroConsistency_5_oe() {
+        // arrange
         final PolarCoordinates a = PolarCoordinates.of(0.0, -0.0);
         final PolarCoordinates b = PolarCoordinates.of(-0.0, 0.0);
         final PolarCoordinates c = PolarCoordinates.of(0.0, -0.0);
         final PolarCoordinates d = PolarCoordinates.of(-0.0, 0.0);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(b.hashCode(), d.hashCode());
     }
 
     @Test
     void testToCartesian_static_NaNAndInfinite_1_oe() {
+        // act/assert
         Assertions.assertTrue(PolarCoordinates.toCartesian(Double.NaN, 0).isNaN());
     }
 
     @Test
     void testToCartesian_static_NaNAndInfinite_2_oe() {
+        // act/assert
+        // removed other assertion
         Assertions.assertTrue(PolarCoordinates.toCartesian(0, Double.NaN).isNaN());
     }
 
     @Test
     void testToCartesian_static_NaNAndInfinite_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(PolarCoordinates.toCartesian(Double.POSITIVE_INFINITY, 0).isNaN());
     }
 
     @Test
     void testToCartesian_static_NaNAndInfinite_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(PolarCoordinates.toCartesian(0, Double.POSITIVE_INFINITY).isNaN());
     }
 
     @Test
     void testToCartesian_static_NaNAndInfinite_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(PolarCoordinates.toCartesian(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY).isNaN());
     }
 
     @Test
     void testToCartesian_static_NaNAndInfinite_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(PolarCoordinates.toCartesian(Double.NEGATIVE_INFINITY, 0).isNaN());
     }
 
     @Test
     void testToCartesian_static_NaNAndInfinite_7_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(PolarCoordinates.toCartesian(0, Double.NEGATIVE_INFINITY).isNaN());
     }
 
     @Test
     void testToCartesian_static_NaNAndInfinite_8_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(PolarCoordinates.toCartesian(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY).isNaN());
     }
 
     @Test
     void testToString_1_oe() {
+        // arrange
         final PolarCoordinates polar = PolarCoordinates.of(1, 2);
         final Pattern pattern = Pattern.compile("\\(1.{0,2}, 2.{0,2}\\)");
 
+        // act
         final String str = polar.toString();
 
+        // assert
         Assertions.assertTrue(pattern.matcher(str).matches(),"Expected string " + str + " to match regex " + pattern);
     }
 
     @Test
     void testParse_failure_1_oe() {
+        // act/assert
         try {
     PolarCoordinates.parse("abc");
     fail("IllegalArgumentException");
@@ -637,73 +877,124 @@ class PolarCoordinatesTest_OE25Dev {
 
     @Test
     void testNormalizeAzimuth_1_oe() {
+        // act/assert
         Assertions.assertEquals(0.0, PolarCoordinates.normalizeAzimuth(0), EPS);
     }
 
     @Test
     void testNormalizeAzimuth_2_oe() {
+        // act/assert
+        // removed other assertion
 
         Assertions.assertEquals(Angle.PI_OVER_TWO, PolarCoordinates.normalizeAzimuth(Angle.PI_OVER_TWO), EPS);
     }
 
     @Test
     void testNormalizeAzimuth_3_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Math.PI, PolarCoordinates.normalizeAzimuth(Math.PI), EPS);
     }
 
     @Test
     void testNormalizeAzimuth_4_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(THREE_PI_OVER_TWO, PolarCoordinates.normalizeAzimuth(THREE_PI_OVER_TWO), EPS);
     }
 
     @Test
     void testNormalizeAzimuth_5_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0.0, PolarCoordinates.normalizeAzimuth(Angle.TWO_PI), EPS);
     }
 
     @Test
     void testNormalizeAzimuth_6_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(THREE_PI_OVER_TWO, PolarCoordinates.normalizeAzimuth(-Angle.PI_OVER_TWO), EPS);
     }
 
     @Test
     void testNormalizeAzimuth_7_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(Math.PI, PolarCoordinates.normalizeAzimuth(-Math.PI), EPS);
     }
 
     @Test
     void testNormalizeAzimuth_8_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, PolarCoordinates.normalizeAzimuth(-Math.PI - Angle.PI_OVER_TWO), EPS);
     }
 
     @Test
     void testNormalizeAzimuth_9_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0.0, PolarCoordinates.normalizeAzimuth(-Angle.TWO_PI), EPS);
     }
 
     @Test
     void testNormalizeAzimuth_NaNAndInfinite_1_oe() {
+        // act/assert
         Assertions.assertEquals(Double.NaN, PolarCoordinates.normalizeAzimuth(Double.NaN), EPS);
     }
 
     @Test
     void testNormalizeAzimuth_NaNAndInfinite_2_oe() {
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(Double.NEGATIVE_INFINITY, PolarCoordinates.normalizeAzimuth(Double.NEGATIVE_INFINITY), EPS);
     }
 
     @Test
     void testNormalizeAzimuth_NaNAndInfinite_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Double.POSITIVE_INFINITY, PolarCoordinates.normalizeAzimuth(Double.POSITIVE_INFINITY), EPS);
     }
 

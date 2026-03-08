@@ -51,6 +51,7 @@ class ReduceTest_OE25Dev {
         double expected = delta;
 
         final Reduce r = new Reduce(offset, period);
+        // removed other assertion
 
         orig = offset - 123356789 * period - delta;
         expected = Math.abs(period) - delta;
@@ -68,9 +69,11 @@ class ReduceTest_OE25Dev {
         double expected = delta;
 
         final Reduce r = new Reduce(offset, period);
+        // removed other assertion
 
         orig = offset - 123356789 * period - delta;
         expected = Math.abs(period) - delta;
+        // removed other assertion
 
         orig = offset - 123446789 * period + delta;
         expected = delta;
@@ -114,6 +117,7 @@ class ReduceTest_OE25Dev {
 
                     final double v = new Reduce(offset, period).applyAsDouble(x);
                     if (expectedNaN) {
+                        // removed other assertion
                     } else {
                         Assertions.assertFalse(Double.isNaN(v));
     }
@@ -145,6 +149,7 @@ class ReduceTest_OE25Dev {
 
         final Reduce r1 = new Reduce(offset, period);
         final Reduce r2 = new Reduce(offset, -period);
+        // removed other assertion
         Assertions.assertEquals(r1.applyAsDouble(orig),r2.applyAsDouble(orig),0d);
     }
 

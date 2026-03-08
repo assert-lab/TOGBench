@@ -85,6 +85,7 @@ public class TestEnvironmentConfiguration_OE25Dev {
     @Test
     public void testInit_2_oe() {
         boolean found = false;
+        // removed other assertion
         for (final Iterator<String> it = config.getKeys(); it.hasNext();) {
             final String key = it.next();
             assertTrue("Key not found: " + key, config.containsKey(key));
@@ -94,8 +95,10 @@ public class TestEnvironmentConfiguration_OE25Dev {
     @Test
     public void testInit_3_oe() {
         boolean found = false;
+        // removed other assertion
         for (final Iterator<String> it = config.getKeys(); it.hasNext();) {
             final String key = it.next();
+            // removed other assertion
             assertNotNull("No value for property " + key, config.getString(key));
     }
     }
@@ -103,8 +106,11 @@ public class TestEnvironmentConfiguration_OE25Dev {
     @Test
     public void testInit_4_oe() {
         boolean found = false;
+        // removed other assertion
         for (final Iterator<String> it = config.getKeys(); it.hasNext();) {
             final String key = it.next();
+            // removed other assertion
+            // removed other assertion
             found = true;
         }
         assertTrue("No property keys returned", found);

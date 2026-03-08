@@ -1,0 +1,55 @@
+id,test_prefix,test_name
+commons-net_7_101,"public void testInvalidMasks_oe_101_oe() {
+        try {
+            new SubnetUtils(""192.168.0.1/33"");
+            fail(""Should have thrown IllegalArgumentException"");
+        } catch (final IllegalArgumentException expected) {
+            // Ignored
+        }
+    }
+",SubnetUtilsTest::testInvalidMasks_oe_101_oe
+commons-net_15_101,"public void testNET624_oe_101_oe() {
+        try {
+            new SubnetUtils(""0.0.0.0"",""64.0.0.0"");
+            fail(""Should have thrown IllegalArgumentException"");
+        } catch (final IllegalArgumentException expected) {
+            // Ignored
+        }
+    }
+",SubnetUtilsTest::testNET624_oe_101_oe
+commons-net_15_102,"public void testNET624_oe_102_oe() {
+        try {
+            new SubnetUtils(""0.0.0.0"",""0.0.0.1"");
+            fail(""Should have thrown IllegalArgumentException"");
+        } catch (final IllegalArgumentException expected) {
+            // Ignored
+        }
+    }
+",SubnetUtilsTest::testNET624_oe_102_oe
+commons-net_86_101,"public void testGetDateFormatSymbols_oe_101_oe() {
+        try {
+            FTPClientConfig.getDateFormatSymbols(badDelim);
+            fail(""bad delimiter"");
+        } catch (final IllegalArgumentException e){
+            // should have failed
+        }
+    }
+",FTPClientConfigTest::testGetDateFormatSymbols_oe_101_oe
+commons-net_86_102,"public void testGetDateFormatSymbols_oe_102_oe() {
+        try {
+            FTPClientConfig.getDateFormatSymbols(tooLong);
+            fail(""more than 12 months"");
+        } catch (final IllegalArgumentException e){
+            // should have failed
+        }
+    }
+",FTPClientConfigTest::testGetDateFormatSymbols_oe_102_oe
+commons-net_86_103,"public void testGetDateFormatSymbols_oe_103_oe() {
+        try {
+            FTPClientConfig.getDateFormatSymbols(tooShort);
+            fail(""fewer than 12 months"");
+        } catch (final IllegalArgumentException e){
+            // should have failed
+        }
+    }
+",FTPClientConfigTest::testGetDateFormatSymbols_oe_103_oe

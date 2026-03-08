@@ -19,6 +19,7 @@ public class MoreStringUtilTest_OE25Dev {
 	public void split_2_oe() {
 
 		List<String> result = MoreStringUtil.split("192.168.0.1", '.', 4);
+		// removed other assertion
 
 		result = MoreStringUtil.split("192.168..1", '.', 4);
 		assertThat(result).hasSize(3).containsSequence("192", "168", "1");
@@ -28,8 +29,10 @@ public class MoreStringUtilTest_OE25Dev {
 	public void split_3_oe() {
 
 		List<String> result = MoreStringUtil.split("192.168.0.1", '.', 4);
+		// removed other assertion
 
 		result = MoreStringUtil.split("192.168..1", '.', 4);
+		// removed other assertion
 
 		result = MoreStringUtil.split("192.168.0.", '.', 4);
 		assertThat(result).hasSize(3).containsSequence("192", "168", "0");
@@ -39,10 +42,13 @@ public class MoreStringUtilTest_OE25Dev {
 	public void split_4_oe() {
 
 		List<String> result = MoreStringUtil.split("192.168.0.1", '.', 4);
+		// removed other assertion
 
 		result = MoreStringUtil.split("192.168..1", '.', 4);
+		// removed other assertion
 
 		result = MoreStringUtil.split("192.168.0.", '.', 4);
+		// removed other assertion
 
 		assertThat(MoreStringUtil.split(null, '.', 4)).isNull();
 	}
@@ -51,11 +57,15 @@ public class MoreStringUtilTest_OE25Dev {
 	public void split_5_oe() {
 
 		List<String> result = MoreStringUtil.split("192.168.0.1", '.', 4);
+		// removed other assertion
 
 		result = MoreStringUtil.split("192.168..1", '.', 4);
+		// removed other assertion
 
 		result = MoreStringUtil.split("192.168.0.", '.', 4);
+		// removed other assertion
 
+		// removed other assertion
 
 		assertThat(MoreStringUtil.split("", '.', 4)).hasSize(0);
 	}
@@ -69,24 +79,34 @@ public class MoreStringUtilTest_OE25Dev {
 	@Test
 	public void charMatch_2_oe() {
 		String str = "abc";
+		// removed other assertion
 		assertThat(MoreStringUtil.startWith(str, 'b')).isFalse();
 	}
 
 	@Test
 	public void charMatch_3_oe() {
 		String str = "abc";
+		// removed other assertion
+		// removed other assertion
 		assertThat(MoreStringUtil.startWith(null, 'b')).isFalse();
 	}
 
 	@Test
 	public void charMatch_4_oe() {
 		String str = "abc";
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(MoreStringUtil.startWith("", 'b')).isFalse();
 	}
 
 	@Test
 	public void charMatch_5_oe() {
 		String str = "abc";
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		
 		assertThat(MoreStringUtil.endWith(str, 'c')).isTrue();
 	}
@@ -94,28 +114,54 @@ public class MoreStringUtilTest_OE25Dev {
 	@Test
 	public void charMatch_6_oe() {
 		String str = "abc";
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		
+		// removed other assertion
 		assertThat(MoreStringUtil.endWith(str, 'b')).isFalse();
 	}
 
 	@Test
 	public void charMatch_7_oe() {
 		String str = "abc";
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		
+		// removed other assertion
+		// removed other assertion
 		assertThat(MoreStringUtil.endWith(null, 'b')).isFalse();
 	}
 
 	@Test
 	public void charMatch_8_oe() {
 		String str = "abc";
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(MoreStringUtil.endWith("", 'b')).isFalse();
 	}
 
 	@Test
 	public void charMatch_9_oe() {
 		String str = "abc";
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
 		assertThat(MoreStringUtil.replaceFirst("abbc", 'b', 'c')).isEqualTo("acbc");
 	}
@@ -123,32 +169,74 @@ public class MoreStringUtilTest_OE25Dev {
 	@Test
 	public void charMatch_10_oe() {
 		String str = "abc";
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
 		assertThat(MoreStringUtil.replaceFirst("abcc", 'c', 'c')).isEqualTo("abcc");
 	}
 
 	@Test
 	public void charMatch_11_oe() {
 		String str = "abc";
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
 		assertThat(MoreStringUtil.replaceFirst("", 'c', 'c')).isEqualTo("");
 	}
 
 	@Test
 	public void charMatch_12_oe() {
 		String str = "abc";
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(MoreStringUtil.replaceFirst(null, 'c', 'c')).isNull();
 	}
 
 	@Test
 	public void charMatch_13_oe() {
 		String str = "abc";
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		
 		assertThat(MoreStringUtil.replaceLast("abbc", 'b', 'c')).isEqualTo("abcc");
 	}
@@ -156,27 +244,69 @@ public class MoreStringUtilTest_OE25Dev {
 	@Test
 	public void charMatch_14_oe() {
 		String str = "abc";
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		
+		// removed other assertion
 		assertThat(MoreStringUtil.replaceLast("abcc", 'c', 'c')).isEqualTo("abcc");
 	}
 
 	@Test
 	public void charMatch_15_oe() {
 		String str = "abc";
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		
+		// removed other assertion
+		// removed other assertion
 		assertThat(MoreStringUtil.replaceLast("", 'c', 'c')).isEqualTo("");
 	}
 
 	@Test
 	public void charMatch_16_oe() {
 		String str = "abc";
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
 		assertThat(MoreStringUtil.replaceLast(null, 'c', 'c')).isNull();
 	}
 
@@ -187,6 +317,7 @@ public class MoreStringUtilTest_OE25Dev {
 
 	@Test
 	public void utf8EncodedLength_2_oe() {
+		// removed other assertion
 		assertThat(MoreStringUtil.utf8EncodedLength("中文")).isEqualTo(6);
 	}
 

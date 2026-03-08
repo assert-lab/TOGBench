@@ -1,0 +1,188 @@
+id,test_prefix,test_name,focal_method,docstring
+commons-validator_65_101,"public void testNullInputStream_oe_101_oe() throws Exception {
+        try {
+            new ValidatorResources((InputStream)null);
+            fail(""Expected IllegalArgumentException"");
+        } catch(IllegalArgumentException e) {
+            // expected result
+            // System.out.println(""Exception: "" + e);
+        }
+    }
+",ValidatorResourcesTest::testNullInputStream_oe_101_oe,,
+commons-validator_194_101,"public void testArrayConstructor_oe_101_oe() {
+        try {
+            new CreditCardValidator((CodeValidator[]) null);
+            fail(""Expected IllegalArgumentException"");
+        } catch(IllegalArgumentException iae) {
+            // expected result
+        }
+    }
+",CreditCardValidatorTest::testArrayConstructor_oe_101_oe,,
+commons-validator_216_101,"public void testMissingRegex_oe_101_oe() {
+        try {
+            new RegexValidator((String)null);
+            fail(""Single Null - expected IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+        }
+    }
+",RegexValidatorTest::testMissingRegex_oe_101_oe,,
+commons-validator_216_102,"public void testMissingRegex_oe_102_oe() {
+        try {
+            new RegexValidator("""");
+            fail(""Single Zero Length - expected IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+        }
+    }
+",RegexValidatorTest::testMissingRegex_oe_102_oe,,
+commons-validator_216_103,"public void testMissingRegex_oe_103_oe() {
+        try {
+            new RegexValidator((String[])null);
+            fail(""Null Array - expected IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+        }
+    }
+",RegexValidatorTest::testMissingRegex_oe_103_oe,,
+commons-validator_216_104,"public void testMissingRegex_oe_104_oe() {
+        try {
+            new RegexValidator(new String[0]);
+            fail(""Zero Length Array - expected IllegalArgumentException"");
+        } catch (IllegalArgumentException e) {
+        }
+    }
+",RegexValidatorTest::testMissingRegex_oe_104_oe,,
+commons-validator_300_101,"public void testInvalidLength_oe_101_oe() {
+        try {
+            routine.calculate(""12345678"");
+            fail(""calculate() Lth 8 - expected exception"");
+        } catch (Exception e) {
+        }
+    }
+",ISBNCheckDigitTest::testInvalidLength_oe_101_oe,"@Override
+    public String calculate(String code) throws CheckDigitException {
+        if (code == null || code.length() == 0) {
+            throw new CheckDigitException(""ISBN Code is missing"");
+        } else if (code.length() == 9) { // CHECKSTYLE IGNORE MagicNumber
+            return ISBN10_CHECK_DIGIT.calculate(code);
+        } else if (code.length() == 12) { // CHECKSTYLE IGNORE MagicNumber
+            return ISBN13_CHECK_DIGIT.calculate(code);
+        } else {
+            throw new CheckDigitException(""Invalid ISBN Length = "" + code.length());
+        }
+    }","/**
+     * Calculate an ISBN-10 or ISBN-13 check digit, depending
+     * on the length of the code.
+     * <p>
+     * If the length of the code is 9, it is treated as an ISBN-10
+     * code or if the length of the code is 12, it is treated as an ISBN-13
+     * code.
+     *
+     * @param code The ISBN code to validate (should have a length of
+     * 9 or 12)
+     * @return The ISBN-10 check digit if the length is 9 or an ISBN-13
+     * check digit if the length is 12.
+     * @throws CheckDigitException if the code is missing, or an invalid
+     * length (i.e. not 9 or 12) or if there is an error calculating the
+     * check digit.
+     */"
+commons-validator_300_102,"public void testInvalidLength_oe_102_oe() {
+        try {
+            routine.calculate(""1234567890"");
+            fail(""calculate() Lth 10 - expected exception"");
+        } catch (Exception e) {
+        }
+    }
+",ISBNCheckDigitTest::testInvalidLength_oe_102_oe,"@Override
+    public String calculate(String code) throws CheckDigitException {
+        if (code == null || code.length() == 0) {
+            throw new CheckDigitException(""ISBN Code is missing"");
+        } else if (code.length() == 9) { // CHECKSTYLE IGNORE MagicNumber
+            return ISBN10_CHECK_DIGIT.calculate(code);
+        } else if (code.length() == 12) { // CHECKSTYLE IGNORE MagicNumber
+            return ISBN13_CHECK_DIGIT.calculate(code);
+        } else {
+            throw new CheckDigitException(""Invalid ISBN Length = "" + code.length());
+        }
+    }","/**
+     * Calculate an ISBN-10 or ISBN-13 check digit, depending
+     * on the length of the code.
+     * <p>
+     * If the length of the code is 9, it is treated as an ISBN-10
+     * code or if the length of the code is 12, it is treated as an ISBN-13
+     * code.
+     *
+     * @param code The ISBN code to validate (should have a length of
+     * 9 or 12)
+     * @return The ISBN-10 check digit if the length is 9 or an ISBN-13
+     * check digit if the length is 12.
+     * @throws CheckDigitException if the code is missing, or an invalid
+     * length (i.e. not 9 or 12) or if there is an error calculating the
+     * check digit.
+     */"
+commons-validator_300_103,"public void testInvalidLength_oe_103_oe() {
+        try {
+            routine.calculate(""12345678901"");
+            fail(""calculate() Lth 11 - expected exception"");
+        } catch (Exception e) {
+        }
+    }
+",ISBNCheckDigitTest::testInvalidLength_oe_103_oe,"@Override
+    public String calculate(String code) throws CheckDigitException {
+        if (code == null || code.length() == 0) {
+            throw new CheckDigitException(""ISBN Code is missing"");
+        } else if (code.length() == 9) { // CHECKSTYLE IGNORE MagicNumber
+            return ISBN10_CHECK_DIGIT.calculate(code);
+        } else if (code.length() == 12) { // CHECKSTYLE IGNORE MagicNumber
+            return ISBN13_CHECK_DIGIT.calculate(code);
+        } else {
+            throw new CheckDigitException(""Invalid ISBN Length = "" + code.length());
+        }
+    }","/**
+     * Calculate an ISBN-10 or ISBN-13 check digit, depending
+     * on the length of the code.
+     * <p>
+     * If the length of the code is 9, it is treated as an ISBN-10
+     * code or if the length of the code is 12, it is treated as an ISBN-13
+     * code.
+     *
+     * @param code The ISBN code to validate (should have a length of
+     * 9 or 12)
+     * @return The ISBN-10 check digit if the length is 9 or an ISBN-13
+     * check digit if the length is 12.
+     * @throws CheckDigitException if the code is missing, or an invalid
+     * length (i.e. not 9 or 12) or if there is an error calculating the
+     * check digit.
+     */"
+commons-validator_300_104,"public void testInvalidLength_oe_104_oe() {
+        try {
+            routine.calculate(""1234567890123"");
+            fail(""calculate() Lth 13 - expected exception"");
+        } catch (Exception e) {
+        }
+    }
+",ISBNCheckDigitTest::testInvalidLength_oe_104_oe,"@Override
+    public String calculate(String code) throws CheckDigitException {
+        if (code == null || code.length() == 0) {
+            throw new CheckDigitException(""ISBN Code is missing"");
+        } else if (code.length() == 9) { // CHECKSTYLE IGNORE MagicNumber
+            return ISBN10_CHECK_DIGIT.calculate(code);
+        } else if (code.length() == 12) { // CHECKSTYLE IGNORE MagicNumber
+            return ISBN13_CHECK_DIGIT.calculate(code);
+        } else {
+            throw new CheckDigitException(""Invalid ISBN Length = "" + code.length());
+        }
+    }","/**
+     * Calculate an ISBN-10 or ISBN-13 check digit, depending
+     * on the length of the code.
+     * <p>
+     * If the length of the code is 9, it is treated as an ISBN-10
+     * code or if the length of the code is 12, it is treated as an ISBN-13
+     * code.
+     *
+     * @param code The ISBN code to validate (should have a length of
+     * 9 or 12)
+     * @return The ISBN-10 check digit if the length is 9 or an ISBN-13
+     * check digit if the length is 12.
+     * @throws CheckDigitException if the code is missing, or an invalid
+     * length (i.e. not 9 or 12) or if there is an error calculating the
+     * check digit.
+     */"

@@ -41,6 +41,8 @@ public class JexlScriptEngineOptionalTest_OE25Dev {
     @Test
     public void testOutput_2_oe() throws Exception {
         final String output = factory.getOutputStatement("foo\u00a9bar");
+        // removed other assertion
+        // redirect output to capture evaluation result
         final StringWriter outContent = new StringWriter();
         engine.getContext().setWriter(outContent);
         engine.eval(output);
@@ -50,6 +52,7 @@ public class JexlScriptEngineOptionalTest_OE25Dev {
     @Test
     public void testError_1_oe() throws Exception {
         final String error = "JEXL.err.print('ERROR')";
+        // redirect error to capture evaluation result
         final StringWriter outContent = new StringWriter();
         engine.getContext().setErrorWriter(outContent);
         engine.eval(error);
@@ -63,6 +66,7 @@ public class JexlScriptEngineOptionalTest_OE25Dev {
 
     @Test
     public void testCompilable_2_oe() throws Exception {
+        // removed other assertion
         final Compilable cengine = (Compilable) engine;
         final CompiledScript script = cengine.compile("40 + 2");
         Assert.assertEquals(42, script.eval());
@@ -70,8 +74,10 @@ public class JexlScriptEngineOptionalTest_OE25Dev {
 
     @Test
     public void testCompilable_3_oe() throws Exception {
+        // removed other assertion
         final Compilable cengine = (Compilable) engine;
         final CompiledScript script = cengine.compile("40 + 2");
+        // removed other assertion
         Assert.assertEquals(42, script.eval());
     }
 

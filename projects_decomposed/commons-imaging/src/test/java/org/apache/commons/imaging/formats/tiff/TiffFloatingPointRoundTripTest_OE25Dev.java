@@ -312,6 +312,11 @@ public class TiffFloatingPointRoundTripTest_OE25Dev extends TiffBaseTest {
 
     @Test
     public void test_1_oe() throws Exception {
+        // we set up the 32 and 64 bit test cases.  At this time,
+        // the Tile format is not supported for floating-point samples by the
+        // TIFF datareaders classes.  So that format is not yet exercised.
+        // Note also that the compressed floating-point with predictor=3
+        // is processed in other tests, but not here.
         final File[] testFile = new File[8];
         testFile[0] = writeFile(32, ByteOrder.LITTLE_ENDIAN, false);
         testFile[1] = writeFile(64, ByteOrder.LITTLE_ENDIAN, false);
@@ -341,6 +346,11 @@ public class TiffFloatingPointRoundTripTest_OE25Dev extends TiffBaseTest {
 
     @Test
     public void test_2_oe() throws Exception {
+        // we set up the 32 and 64 bit test cases.  At this time,
+        // the Tile format is not supported for floating-point samples by the
+        // TIFF datareaders classes.  So that format is not yet exercised.
+        // Note also that the compressed floating-point with predictor=3
+        // is processed in other tests, but not here.
         final File[] testFile = new File[8];
         testFile[0] = writeFile(32, ByteOrder.LITTLE_ENDIAN, false);
         testFile[1] = writeFile(64, ByteOrder.LITTLE_ENDIAN, false);
@@ -364,6 +374,7 @@ public class TiffFloatingPointRoundTripTest_OE25Dev extends TiffBaseTest {
             params.setCustomPhotometricInterpreter(pi);
             final ByteOrder byteOrder = tiffReader.getByteOrder();
             final BufferedImage bImage = directory.getTiffImage(byteOrder, params);
+            // removed other assertion
             final int[] pixel = new int[width * height];
             bImage.getRGB(0, 0, width, height, pixel, 0, width);
             for (int k = 0; k < pixel.length; k++) {
@@ -374,6 +385,11 @@ public class TiffFloatingPointRoundTripTest_OE25Dev extends TiffBaseTest {
 
     @Test
     public void test_3_oe() throws Exception {
+        // we set up the 32 and 64 bit test cases.  At this time,
+        // the Tile format is not supported for floating-point samples by the
+        // TIFF datareaders classes.  So that format is not yet exercised.
+        // Note also that the compressed floating-point with predictor=3
+        // is processed in other tests, but not here.
         final File[] testFile = new File[8];
         testFile[0] = writeFile(32, ByteOrder.LITTLE_ENDIAN, false);
         testFile[1] = writeFile(64, ByteOrder.LITTLE_ENDIAN, false);
@@ -397,9 +413,11 @@ public class TiffFloatingPointRoundTripTest_OE25Dev extends TiffBaseTest {
             params.setCustomPhotometricInterpreter(pi);
             final ByteOrder byteOrder = tiffReader.getByteOrder();
             final BufferedImage bImage = directory.getTiffImage(byteOrder, params);
+            // removed other assertion
             final int[] pixel = new int[width * height];
             bImage.getRGB(0, 0, width, height, pixel, 0, width);
             for (int k = 0; k < pixel.length; k++) {
+                // removed other assertion
             }
             final float meanValue = pi.getMeanFound();
             assertEquals(0.5, meanValue, 1.0e-5, "Invalid numeric values in " + name);

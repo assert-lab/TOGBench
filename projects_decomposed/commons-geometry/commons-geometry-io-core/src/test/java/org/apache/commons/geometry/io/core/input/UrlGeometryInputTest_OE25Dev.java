@@ -37,78 +37,107 @@ class UrlGeometryInputTest_OE25Dev {
 
     @Test
     void testCtor_fileOnly_1_oe() throws IOException {
+        // arrange
         final URL url = Paths.get("some/path/test.txt").toUri().toURL();
 
+        // act
         final UrlGeometryInput in = new UrlGeometryInput(url);
 
+        // assert
         Assertions.assertEquals(url, in.getUrl());
     }
 
     @Test
     void testCtor_fileOnly_2_oe() throws IOException {
+        // arrange
         final URL url = Paths.get("some/path/test.txt").toUri().toURL();
 
+        // act
         final UrlGeometryInput in = new UrlGeometryInput(url);
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals("test.txt", in.getFileName());
     }
 
     @Test
     void testCtor_fileOnly_3_oe() throws IOException {
+        // arrange
         final URL url = Paths.get("some/path/test.txt").toUri().toURL();
 
+        // act
         final UrlGeometryInput in = new UrlGeometryInput(url);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(in.getCharset());
     }
 
     @Test
     void testCtor_fileAndCharset_1_oe() {
+        // arrange
         final URL url = getClass().getResource("/java/lang/String.class");
         final Charset charset = StandardCharsets.UTF_8;
 
+        // act
         final UrlGeometryInput in = new UrlGeometryInput(url, charset);
 
+        // assert
         Assertions.assertEquals(url, in.getUrl());
     }
 
     @Test
     void testCtor_fileAndCharset_2_oe() {
+        // arrange
         final URL url = getClass().getResource("/java/lang/String.class");
         final Charset charset = StandardCharsets.UTF_8;
 
+        // act
         final UrlGeometryInput in = new UrlGeometryInput(url, charset);
 
+        // assert
+        // removed other assertion
         Assertions.assertEquals("String.class", in.getFileName());
     }
 
     @Test
     void testCtor_fileAndCharset_3_oe() {
+        // arrange
         final URL url = getClass().getResource("/java/lang/String.class");
         final Charset charset = StandardCharsets.UTF_8;
 
+        // act
         final UrlGeometryInput in = new UrlGeometryInput(url, charset);
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(charset, in.getCharset());
     }
 
     @Test
     void testToString_1_oe() throws IOException {
+        // arrange
         final UrlGeometryInput in = new UrlGeometryInput(Paths.get("some/path/test.txt").toUri().toURL());
 
+        // act
         final String result = in.toString();
 
+        // assert
         Assertions.assertTrue(result.startsWith("UrlGeometryInput[url= file:"));
     }
 
     @Test
     void testGetInputStream_1_oe() throws IOException {
+        // arrange
         final Path file = tempDir.resolve("test");
         final byte[] bytes = "abc".getBytes(StandardCharsets.UTF_8);
         Files.write(file, bytes);
 
         final UrlGeometryInput input = new UrlGeometryInput(file.toUri().toURL());
 
+        // act/assert
         try (InputStream in = input.getInputStream()) {
             Assertions.assertEquals(BufferedInputStream.class, in.getClass());
     }
@@ -116,13 +145,16 @@ class UrlGeometryInputTest_OE25Dev {
 
     @Test
     void testGetInputStream_2_oe() throws IOException {
+        // arrange
         final Path file = tempDir.resolve("test");
         final byte[] bytes = "abc".getBytes(StandardCharsets.UTF_8);
         Files.write(file, bytes);
 
         final UrlGeometryInput input = new UrlGeometryInput(file.toUri().toURL());
 
+        // act/assert
         try (InputStream in = input.getInputStream()) {
+            // removed other assertion
 
             final byte[] readBytes = new byte[3];
             in.read(readBytes);

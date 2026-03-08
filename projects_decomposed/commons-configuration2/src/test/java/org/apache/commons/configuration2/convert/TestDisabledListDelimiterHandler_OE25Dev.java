@@ -166,6 +166,7 @@ public class TestDisabledListDelimiterHandler_OE25Dev {
     @Test
     public void testFlattenArrayWithLimit_2_oe() {
         final Collection<?> res = handler.flatten(VALUES, 1);
+        // removed other assertion
         assertEquals("Wrong element", VALUES[0], res.iterator().next());
     }
 
@@ -184,6 +185,7 @@ public class TestDisabledListDelimiterHandler_OE25Dev {
         src.add(STR_VALUE);
         src.add(VALUES);
         final Collection<?> res = handler.flatten(src, 2);
+        // removed other assertion
         final Iterator<?> it = res.iterator();
         assertEquals("Wrong element (1)", STR_VALUE, it.next());
     }
@@ -199,6 +201,7 @@ public class TestDisabledListDelimiterHandler_OE25Dev {
     public void testFlattenCollectionWithLimit_2_oe() {
         final Collection<Object> src = Arrays.asList(VALUES);
         final Collection<?> res = handler.flatten(src, 1);
+        // removed other assertion
         assertEquals("Wrong element", VALUES[0], res.iterator().next());
     }
 

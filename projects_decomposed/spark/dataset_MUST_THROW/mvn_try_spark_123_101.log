@@ -1,0 +1,21 @@
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.066 s <<< FAILURE! - in spark.SessionTest_OE25Dev
+[ERROR] testSession_whenRequestIsNull_thenThrowException_oe_101_oe(spark.SessionTest_OE25Dev)  Time elapsed: 0.035 s  <<< ERROR!
+java.lang.ExceptionInInitializerError
+	at spark.SessionTest_OE25Dev.setup(SessionTest_OE25Dev.java:26)
+Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @20abdeca
+	at spark.SessionTest_OE25Dev.setup(SessionTest_OE25Dev.java:26)
+
+[ERROR] Errors: 
+[ERROR]   SessionTest_OE25Dev.setup:26 » ExceptionInInitializer
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project spark-core: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

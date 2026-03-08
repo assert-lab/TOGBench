@@ -220,6 +220,7 @@ public class TestConfigurationLogger_OE25Dev {
         final ConfigurationLogger logger1 = new ConfigurationLogger(getClass().getName());
         final ConfigurationLogger logger2 = new ConfigurationLogger(getClass());
 
+        // removed other assertion
         if (logger1.getLog() instanceof Log4JLogger) {
             assertEquals("Different internal Log4JLoggers", logger1.getLog(), logger2.getLog());
     }
@@ -268,6 +269,7 @@ public class TestConfigurationLogger_OE25Dev {
             }
         };
 
+        // removed other assertion
         logger.info(MSG);
         assertEquals("Message not logged", MSG, buf.toString());
     }

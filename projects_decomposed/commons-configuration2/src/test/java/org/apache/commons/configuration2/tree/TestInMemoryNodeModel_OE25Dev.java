@@ -393,6 +393,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         model.addNodes(KEY, Arrays.asList(newWork1, newWork2), resolver);
         final ImmutableNode node = nodeForKey(model, key);
         final int size = node.getChildren().size();
+        // removed other assertion
         assertSame("New child 2 not added", newWork2, node.getChildren().get(size - 1));
     }
 
@@ -478,6 +479,7 @@ public class TestInMemoryNodeModel_OE25Dev {
 
         model.addProperty(KEY, Collections.singleton("Odyssee"), resolver);
         final ImmutableNode node = nodeForKey(model, "Homer/work");
+        // removed other assertion
         assertNotNull("Could not find other nodes", nodeForKey(model, "Homer/Ilias/Hektor"));
     }
 
@@ -518,6 +520,7 @@ public class TestInMemoryNodeModel_OE25Dev {
 
         model.addProperty(KEY, Arrays.asList(locations), resolver);
         final ImmutableNode nodeLocs = nodeForKey(model, "Homer/Ilias/locations");
+        // removed other assertion
         int idx = 0;
         for (final ImmutableNode c : nodeLocs) {
             assertEquals("Wrong node name", "location", c.getNodeName());
@@ -536,8 +539,11 @@ public class TestInMemoryNodeModel_OE25Dev {
 
         model.addProperty(KEY, Arrays.asList(locations), resolver);
         final ImmutableNode nodeLocs = nodeForKey(model, "Homer/Ilias/locations");
+        // removed other assertion
         int idx = 0;
         for (final ImmutableNode c : nodeLocs) {
+            // removed other assertion
+            // removed other assertion
             assertTrue("Got children", c.getChildren().isEmpty());
     }
     }
@@ -554,8 +560,12 @@ public class TestInMemoryNodeModel_OE25Dev {
 
         model.addProperty(KEY, Arrays.asList(locations), resolver);
         final ImmutableNode nodeLocs = nodeForKey(model, "Homer/Ilias/locations");
+        // removed other assertion
         int idx = 0;
         for (final ImmutableNode c : nodeLocs) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             assertTrue("Got attributes", c.getAttributes().isEmpty());
     }
     }
@@ -572,8 +582,13 @@ public class TestInMemoryNodeModel_OE25Dev {
 
         model.addProperty(KEY, Arrays.asList(locations), resolver);
         final ImmutableNode nodeLocs = nodeForKey(model, "Homer/Ilias/locations");
+        // removed other assertion
         int idx = 0;
         for (final ImmutableNode c : nodeLocs) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
             idx++;
         }
         assertNotNull("Could not find other nodes", nodeForKey(model, "Homer/Ilias/Hektor"));
@@ -590,6 +605,7 @@ public class TestInMemoryNodeModel_OE25Dev {
     public void testClear_2_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_AUTHORS_TREE);
         model.clear(createResolver());
+        // removed other assertion
         assertEquals("Root name was changed", ROOT_AUTHORS_TREE.getNodeName(), model.getRootNode().getNodeName());
     }
 
@@ -642,6 +658,7 @@ public class TestInMemoryNodeModel_OE25Dev {
 
         final TreeData treeDataOld = model.getTreeData();
         model.clearProperty(KEY, resolver);
+        // removed other assertion
         assertSame("Data was changed", treeDataOld, model.getTreeData());
     }
 
@@ -670,6 +687,7 @@ public class TestInMemoryNodeModel_OE25Dev {
 
         final List<QueryResult<ImmutableNode>> removed = model.clearTree(KEY, resolver);
         final ImmutableNode node = nodeForKey(model, nodeName);
+        // removed other assertion
         assertEquals("Wrong number of removed elements", 1, removed.size());
     }
 
@@ -684,6 +702,8 @@ public class TestInMemoryNodeModel_OE25Dev {
 
         final List<QueryResult<ImmutableNode>> removed = model.clearTree(KEY, resolver);
         final ImmutableNode node = nodeForKey(model, nodeName);
+        // removed other assertion
+        // removed other assertion
         assertTrue("Wrong removed element", removed.contains(result));
     }
 
@@ -710,6 +730,7 @@ public class TestInMemoryNodeModel_OE25Dev {
 
         final List<QueryResult<ImmutableNode>> removed = model.clearTree(KEY, resolver);
         final ImmutableNode node = nodeForKey(model, "Homer/Ilias");
+        // removed other assertion
         for (final ImmutableNode c : node) {
             assertNotEquals("Node still found", result.getNode().getNodeName(), c.getNodeName());
     }
@@ -725,7 +746,9 @@ public class TestInMemoryNodeModel_OE25Dev {
 
         final List<QueryResult<ImmutableNode>> removed = model.clearTree(KEY, resolver);
         final ImmutableNode node = nodeForKey(model, "Homer/Ilias");
+        // removed other assertion
         for (final ImmutableNode c : node) {
+            // removed other assertion
         }
         assertEquals("Wrong number of removed elements", 1, removed.size());
     }
@@ -740,8 +763,11 @@ public class TestInMemoryNodeModel_OE25Dev {
 
         final List<QueryResult<ImmutableNode>> removed = model.clearTree(KEY, resolver);
         final ImmutableNode node = nodeForKey(model, "Homer/Ilias");
+        // removed other assertion
         for (final ImmutableNode c : node) {
+            // removed other assertion
         }
+        // removed other assertion
         assertTrue("Wrong removed element", removed.contains(result));
     }
 
@@ -764,6 +790,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         EasyMock.replay(resolver);
 
         final TreeData treeDataOld = model.getTreeData();
+        // removed other assertion
         assertNotNull("No root node", model.getNodeHandler().getRootNode());
     }
 
@@ -775,6 +802,8 @@ public class TestInMemoryNodeModel_OE25Dev {
         EasyMock.replay(resolver);
 
         final TreeData treeDataOld = model.getTreeData();
+        // removed other assertion
+        // removed other assertion
         assertSame("Data was changed", treeDataOld, model.getTreeData());
     }
 
@@ -807,6 +836,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         EasyMock.replay(resolver);
 
         model.clearTree(KEY, resolver);
+        // removed other assertion
         for (final ImmutableNode child : model.getRootNode()) {
             assertNotEquals("Child still found", "Homer", child.getNodeName());
     }
@@ -849,6 +879,7 @@ public class TestInMemoryNodeModel_OE25Dev {
             final int index = i;
             EasyMock.expect(resolver.resolveAddKey(EasyMock.anyObject(ImmutableNode.class), EasyMock.eq(KEY), EasyMock.anyObject(TreeData.class)))
                 .andAnswer(() -> {
+                    // removed other assertion
                     final ImmutableNode addParent = nodeForKey(model, key);
                     return new NodeAddData<>(addParent, "Warrior" + index, false, null);
                 });
@@ -873,6 +904,7 @@ public class TestInMemoryNodeModel_OE25Dev {
             final int index = i;
             EasyMock.expect(resolver.resolveAddKey(EasyMock.anyObject(ImmutableNode.class), EasyMock.eq(KEY), EasyMock.anyObject(TreeData.class)))
                 .andAnswer(() -> {
+                    // removed other assertion
                     final ImmutableNode addParent = nodeForKey(model, key);
                     return new NodeAddData<>(addParent, "Warrior" + index, false, null);
                 });
@@ -884,6 +916,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         }
         final ImmutableNode orgNode = nodeForKey(ROOT_AUTHORS_TREE, key);
         final ImmutableNode changedNode = nodeForKey(model, key);
+        // removed other assertion
         final Map<ImmutableNode, ImmutableNode> replacementMapping = model.getTreeData().copyReplacementMapping();
         assertTrue("Replacement mapping too big: " + replacementMapping.size(), replacementMapping.size() < numberOfOperations);
     }
@@ -909,6 +942,7 @@ public class TestInMemoryNodeModel_OE25Dev {
                     latch.await();
                     model.addProperty(KEY, Collections.singleton(authorName), resolver);
                 } catch (final InterruptedException iex) {
+                    // ignore
                 }
             });
             threads[i].start();
@@ -956,6 +990,7 @@ public class TestInMemoryNodeModel_OE25Dev {
     public void testInitDefaultRoot_2_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel();
         final ImmutableNode root = model.getRootNode();
+        // removed other assertion
         assertNull("Got a value", root.getValue());
     }
 
@@ -963,6 +998,8 @@ public class TestInMemoryNodeModel_OE25Dev {
     public void testInitDefaultRoot_3_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel();
         final ImmutableNode root = model.getRootNode();
+        // removed other assertion
+        // removed other assertion
         assertTrue("Got children", root.getChildren().isEmpty());
     }
 
@@ -970,6 +1007,9 @@ public class TestInMemoryNodeModel_OE25Dev {
     public void testInitDefaultRoot_4_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel();
         final ImmutableNode root = model.getRootNode();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("Got attributes", root.getAttributes().isEmpty());
     }
 
@@ -1008,6 +1048,7 @@ public class TestInMemoryNodeModel_OE25Dev {
 
         model.setProperty(KEY, this, resolver);
         final ImmutableNode node = nodeForKey(model, nodeKey);
+        // removed other assertion
         assertEquals("Node value not changed", newValue, node.getValue());
     }
 
@@ -1053,6 +1094,7 @@ public class TestInMemoryNodeModel_OE25Dev {
 
         model.setProperty(KEY, this, resolver);
         final ImmutableNode node = nodeForKey(model, "Homer/work");
+        // removed other assertion
         assertNotNull("Could not find other nodes", nodeForKey(model, "Homer/Ilias/Hektor"));
     }
 
@@ -1079,6 +1121,7 @@ public class TestInMemoryNodeModel_OE25Dev {
     public void testSetRoot_2_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_PERSONAE_TREE);
         model.setRootNode(NodeStructureHelper.ROOT_AUTHORS_TREE);
+        // removed other assertion
         final ImmutableNode node = nodeForKey(model, "Homer/Ilias");
         assertEquals("Wrong parent mapping", nodeForKey(model, "Homer"), model.getNodeHandler().getParent(node));
     }

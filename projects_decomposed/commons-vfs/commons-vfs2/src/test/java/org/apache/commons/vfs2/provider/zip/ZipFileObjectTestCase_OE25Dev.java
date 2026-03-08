@@ -118,7 +118,9 @@ public class ZipFileObjectTestCase_OE25Dev {
         final FileSystemManager manager = VFS.getManager();
         final String baseUrl = "zip:file:"+testFile.getAbsolutePath();
 
+        // test
         try (final FileObject fileObject = manager.resolveFile(baseUrl)) {
+            // test getChildren() number equal
             Assert.assertEquals(fileObject.getChildren().length, fileNames.length);
     }
     }
@@ -132,8 +134,12 @@ public class ZipFileObjectTestCase_OE25Dev {
         final FileSystemManager manager = VFS.getManager();
         final String baseUrl = "zip:file:"+testFile.getAbsolutePath();
 
+        // test
         try (final FileObject fileObject = manager.resolveFile(baseUrl)) {
+            // test getChildren() number equal
+            // removed other assertion
 
+            // test getChild(String)
             for (final String fileName : fileNames) {
                 Assert.assertNotNull("can't read file " + fileName, fileObject.getChild(fileName));
     }
@@ -177,10 +183,13 @@ public class ZipFileObjectTestCase_OE25Dev {
         final FileObject zipFileObject1;
         final InputStream inputStream1;
         try (final FileObject zipFileObject = manager.resolveFile("zip:file:" + newZipFile.getAbsolutePath())) {
+            // leave resources open
             zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1);
             inputStream1 = zipFileObject1.getContent().getInputStream();
         }
+        // The zip file is "closed", but we read from the stream now.
         readAndAssert(zipFileObject1, inputStream1, "1");
+        // clean up
         zipFileObject1.close();
                 final File fileObject0 = newZipFile;
         Assert.assertTrue("Could not delete file", fileObject0.delete());
@@ -193,11 +202,15 @@ public class ZipFileObjectTestCase_OE25Dev {
         final FileObject zipFileObject1;
         final InputStream inputStream1;
         try (final FileObject zipFileObject = manager.resolveFile("zip:file:" + newZipFile.getAbsolutePath())) {
+            // leave resources open (note that internal counters are updated)
             zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1);
             inputStream1 = zipFileObject1.getContent().getInputStream();
             resolveReadAssert(zipFileObject, NESTED_FILE_2);
         }
+        // The Zip file is "closed", but we read from the stream now, which currently fails.
+        // Why aren't internal counters preventing the stream from closing?
         readAndAssert(zipFileObject1, inputStream1, "1");
+        // clean up
         zipFileObject1.close();
                 final File fileObject0 = newZipFile;
         Assert.assertTrue("Could not delete file", fileObject0.delete());
@@ -209,6 +222,7 @@ public class ZipFileObjectTestCase_OE25Dev {
         final FileSystemManager manager = VFS.getManager();
         try (final FileObject zipFileObject = manager.resolveFile("zip:file:" + newZipFile.getAbsolutePath())) {
             @SuppressWarnings({ "unused", "resource" })
+            // We resolve a nested file and do nothing else.
             final FileObject zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1);
         }
                 final File fileObject0 = newZipFile;
@@ -250,10 +264,13 @@ public class ZipFileObjectTestCase_OE25Dev {
         final FileObject zipFileObject1;
         final InputStream inputStream1;
         try (final FileObject zipFileObject = manager.resolveFile("zip:file:" + newZipFile.getAbsolutePath())) {
+            // leave resources open
             zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1);
             inputStream1 = zipFileObject1.getContent().getInputStream();
         }
+        // The zip file is "closed", but we read from the stream now.
         readAndAssert(zipFileObject1, inputStream1, "1");
+        // clean up
         zipFileObject1.close();
         assertDelete(newZipFile);
     }
@@ -265,11 +282,15 @@ public class ZipFileObjectTestCase_OE25Dev {
         final FileObject zipFileObject1;
         final InputStream inputStream1;
         try (final FileObject zipFileObject = manager.resolveFile("zip:file:" + newZipFile.getAbsolutePath())) {
+            // leave resources open (note that internal counters are updated)
             zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1);
             inputStream1 = zipFileObject1.getContent().getInputStream();
             resolveReadAssert(zipFileObject, NESTED_FILE_2);
         }
+        // The Zip file is "closed", but we read from the stream now, which currently fails.
+        // Why aren't internal counters preventing the stream from closing?
         readAndAssert(zipFileObject1, inputStream1, "1");
+        // clean up
         zipFileObject1.close();
         assertDelete(newZipFile);
     }
@@ -280,6 +301,7 @@ public class ZipFileObjectTestCase_OE25Dev {
         final FileSystemManager manager = VFS.getManager();
         try (final FileObject zipFileObject = manager.resolveFile("zip:file:" + newZipFile.getAbsolutePath())) {
             @SuppressWarnings({ "unused", "resource" })
+            // We resolve a nested file and do nothing else.
             final FileObject zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1);
         }
         assertDelete(newZipFile);

@@ -128,6 +128,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
 
         String[] values = cc.getStringArray("test.short");
 
+        // removed other assertion
         assertEquals("First Value before add is wrong", "1", values[0]);
     }
 
@@ -138,6 +139,8 @@ public class TestNullCompositeConfiguration_OE25Dev {
 
         String[] values = cc.getStringArray("test.short");
 
+        // removed other assertion
+        // removed other assertion
 
         cc.addProperty("test.short", "88");
 
@@ -153,11 +156,14 @@ public class TestNullCompositeConfiguration_OE25Dev {
 
         String[] values = cc.getStringArray("test.short");
 
+        // removed other assertion
+        // removed other assertion
 
         cc.addProperty("test.short", "88");
 
         values = cc.getStringArray("test.short");
 
+        // removed other assertion
         assertEquals("First Value is wrong", "1", values[0]);
     }
 
@@ -168,11 +174,15 @@ public class TestNullCompositeConfiguration_OE25Dev {
 
         String[] values = cc.getStringArray("test.short");
 
+        // removed other assertion
+        // removed other assertion
 
         cc.addProperty("test.short", "88");
 
         values = cc.getStringArray("test.short");
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("Third Value is wrong", "88", values[1]);
     }
 
@@ -185,6 +195,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
     @Test
     public void testAddRemoveConfigurations_2_oe() throws Exception {
         cc.addConfiguration(conf1);
+        // removed other assertion
         cc.addConfiguration(conf1);
         assertEquals(2, cc.getNumberOfConfigurations());
     }
@@ -192,7 +203,9 @@ public class TestNullCompositeConfiguration_OE25Dev {
     @Test
     public void testAddRemoveConfigurations_3_oe() throws Exception {
         cc.addConfiguration(conf1);
+        // removed other assertion
         cc.addConfiguration(conf1);
+        // removed other assertion
         cc.addConfiguration(conf2);
         assertEquals(3, cc.getNumberOfConfigurations());
     }
@@ -200,8 +213,11 @@ public class TestNullCompositeConfiguration_OE25Dev {
     @Test
     public void testAddRemoveConfigurations_4_oe() throws Exception {
         cc.addConfiguration(conf1);
+        // removed other assertion
         cc.addConfiguration(conf1);
+        // removed other assertion
         cc.addConfiguration(conf2);
+        // removed other assertion
         cc.removeConfiguration(conf1);
         assertEquals(2, cc.getNumberOfConfigurations());
     }
@@ -209,9 +225,13 @@ public class TestNullCompositeConfiguration_OE25Dev {
     @Test
     public void testAddRemoveConfigurations_5_oe() throws Exception {
         cc.addConfiguration(conf1);
+        // removed other assertion
         cc.addConfiguration(conf1);
+        // removed other assertion
         cc.addConfiguration(conf2);
+        // removed other assertion
         cc.removeConfiguration(conf1);
+        // removed other assertion
         cc.clear();
         assertEquals(1, cc.getNumberOfConfigurations());
     }
@@ -225,6 +245,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
     @Test
     public void testCantRemoveMemoryConfig_2_oe() throws Exception {
         cc.clear();
+        // removed other assertion
 
         final Configuration internal = cc.getConfiguration(0);
         cc.removeConfiguration(internal);
@@ -247,6 +268,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         final Configuration defaults = new PropertiesConfiguration();
         defaults.setProperty(TEST_KEY, "testValue");
         final Configuration testConfiguration = new CompositeConfiguration(defaults);
+        // removed other assertion
         assertFalse(testConfiguration.isEmpty());
     }
 
@@ -256,6 +278,8 @@ public class TestNullCompositeConfiguration_OE25Dev {
         final Configuration defaults = new PropertiesConfiguration();
         defaults.setProperty(TEST_KEY, "testValue");
         final Configuration testConfiguration = new CompositeConfiguration(defaults);
+        // removed other assertion
+        // removed other assertion
         boolean foundTestKey = false;
         final Iterator<String> i = testConfiguration.getKeys();
         for (; i.hasNext();) {
@@ -273,6 +297,8 @@ public class TestNullCompositeConfiguration_OE25Dev {
         final Configuration defaults = new PropertiesConfiguration();
         defaults.setProperty(TEST_KEY, "testValue");
         final Configuration testConfiguration = new CompositeConfiguration(defaults);
+        // removed other assertion
+        // removed other assertion
         boolean foundTestKey = false;
         final Iterator<String> i = testConfiguration.getKeys();
         for (; i.hasNext();) {
@@ -281,6 +307,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
                 foundTestKey = true;
             }
         }
+        // removed other assertion
         testConfiguration.clearProperty(TEST_KEY);
         assertFalse(testConfiguration.containsKey(TEST_KEY));
     }
@@ -304,6 +331,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
     public void testDefaultValueWhenKeyMissing_2_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
+        // removed other assertion
         assertEquals(1.4, cc.getDouble("bogus", 1.4), 0.0);
     }
 
@@ -311,6 +339,8 @@ public class TestNullCompositeConfiguration_OE25Dev {
     public void testDefaultValueWhenKeyMissing_3_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
+        // removed other assertion
+        // removed other assertion
         assertEquals(1.4, cc.getDouble("bogus", 1.4), 0.0);
     }
 
@@ -339,6 +369,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         for (final Iterator<String> keys = cc.getKeys("test"); keys.hasNext();) {
             iteratedList.add(keys.next());
         }
+        // removed other assertion
         for (int i = 0; i < orderedList.size(); i++) {
             assertEquals(orderedList.get(i), iteratedList.get(i));
     }
@@ -369,6 +400,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         for (final Iterator<String> keys = cc.getKeys(); keys.hasNext();) {
             iteratedList.add(keys.next());
         }
+        // removed other assertion
         for (int i = 0; i < orderedList.size(); i++) {
             assertEquals(orderedList.get(i), iteratedList.get(i));
     }
@@ -387,6 +419,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
 
+        // check the composite 'array' property
         List<Object> list = cc.getList("array");
         assertNotNull("null list", list);
     }
@@ -404,7 +437,9 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
 
+        // check the composite 'array' property
         List<Object> list = cc.getList("array");
+        // removed other assertion
         assertEquals("list size", 2, list.size());
     }
 
@@ -421,7 +456,10 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
 
+        // check the composite 'array' property
         List<Object> list = cc.getList("array");
+        // removed other assertion
+        // removed other assertion
         assertTrue("'value1' not found in the list", list.contains("value1"));
     }
 
@@ -438,7 +476,11 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
 
+        // check the composite 'array' property
         List<Object> list = cc.getList("array");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("'value2' not found in the list", list.contains("value2"));
     }
 
@@ -455,10 +497,17 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
 
+        // check the composite 'array' property
         List<Object> list = cc.getList("array");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // add an element to the list in the composite configuration
         cc.addProperty("array", "value5");
 
+        // test the new list
         list = cc.getList("array");
         assertNotNull("null list", list);
     }
@@ -476,11 +525,19 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
 
+        // check the composite 'array' property
         List<Object> list = cc.getList("array");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // add an element to the list in the composite configuration
         cc.addProperty("array", "value5");
 
+        // test the new list
         list = cc.getList("array");
+        // removed other assertion
         assertEquals("list size", 3, list.size());
     }
 
@@ -497,11 +554,20 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
 
+        // check the composite 'array' property
         List<Object> list = cc.getList("array");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // add an element to the list in the composite configuration
         cc.addProperty("array", "value5");
 
+        // test the new list
         list = cc.getList("array");
+        // removed other assertion
+        // removed other assertion
         assertTrue("'value1' not found in the list", list.contains("value1"));
     }
 
@@ -518,11 +584,21 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
 
+        // check the composite 'array' property
         List<Object> list = cc.getList("array");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // add an element to the list in the composite configuration
         cc.addProperty("array", "value5");
 
+        // test the new list
         list = cc.getList("array");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("'value2' not found in the list", list.contains("value2"));
     }
 
@@ -539,11 +615,22 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
 
+        // check the composite 'array' property
         List<Object> list = cc.getList("array");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // add an element to the list in the composite configuration
         cc.addProperty("array", "value5");
 
+        // test the new list
         list = cc.getList("array");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("'value5' not found in the list", list.contains("value5"));
     }
 
@@ -558,6 +645,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
     public void testGetProperty_2_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
+        // removed other assertion
         cc.clear();
 
         cc.addConfiguration(conf2);
@@ -578,6 +666,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
 
+        // removed other assertion
 
         assertFalse("Should be false", cc.getBoolean("test.missing.boolean", false));
     }
@@ -587,7 +676,9 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
 
+        // removed other assertion
 
+        // removed other assertion
         assertTrue("Should be true", cc.getBoolean("test.missing.boolean.true", true));
     }
 
@@ -620,6 +711,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
 
         c.addProperty("string", "test string");
 
+        // removed other assertion
 
         assertNull("XXX should have been null!", c.getString("XXX"));
     }
@@ -633,8 +725,11 @@ public class TestNullCompositeConfiguration_OE25Dev {
 
         c.addProperty("string", "test string");
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // test defaults
         assertEquals("test string", c.getString("string", "some default value"));
     }
 
@@ -647,8 +742,12 @@ public class TestNullCompositeConfiguration_OE25Dev {
 
         c.addProperty("string", "test string");
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // test defaults
+        // removed other assertion
         assertEquals("default string", c.getString("default"));
     }
 
@@ -661,8 +760,13 @@ public class TestNullCompositeConfiguration_OE25Dev {
 
         c.addProperty("string", "test string");
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // test defaults
+        // removed other assertion
+        // removed other assertion
         assertEquals("default string", c.getString("default", "some default value"));
     }
 
@@ -675,8 +779,14 @@ public class TestNullCompositeConfiguration_OE25Dev {
 
         c.addProperty("string", "test string");
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // test defaults
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("some default value", c.getString("XXX", "some default value"));
     }
 
@@ -691,6 +801,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
     public void testGettingConfiguration_2_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
+        // removed other assertion
         assertEquals(XMLConfiguration.class, cc.getConfiguration(1).getClass());
     }
 
@@ -709,6 +820,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(xmlConf);
 
         Configuration subset = cc.subset("test");
+        // removed other assertion
         assertFalse("Shouldn't be empty", subset.isEmpty());
     }
 
@@ -718,6 +830,8 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(xmlConf);
 
         Configuration subset = cc.subset("test");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Make sure the initial loaded configs subset overrides any later add configs subset", "1", subset.getString("short"));
     }
 
@@ -727,6 +841,9 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(xmlConf);
 
         Configuration subset = cc.subset("test");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         cc.setProperty("test.short", "43");
         subset = cc.subset("test");
@@ -746,6 +863,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
 
+        // add an element to the vector in the composite configuration
         cc.addProperty("array", "value5");
 
         final List<Object> list = cc.getList("array");
@@ -765,9 +883,11 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
 
+        // add an element to the vector in the composite configuration
         cc.addProperty("array", "value5");
 
         final List<Object> list = cc.getList("array");
+        // removed other assertion
         assertEquals("Wrong element 1", "value1", list.get(0));
     }
 
@@ -784,9 +904,12 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
 
+        // add an element to the vector in the composite configuration
         cc.addProperty("array", "value5");
 
         final List<Object> list = cc.getList("array");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong element 2", "value2", list.get(1));
     }
 
@@ -803,9 +926,13 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
 
+        // add an element to the vector in the composite configuration
         cc.addProperty("array", "value5");
 
         final List<Object> list = cc.getList("array");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong element 3", "value5", list.get(2));
     }
 
@@ -815,6 +942,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(xmlConf);
 
         List<Object> packages = cc.getList("packages");
+        // we should get 3 packages here
         assertEquals(3, packages.size());
     }
 
@@ -824,12 +952,15 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(xmlConf);
 
         List<Object> packages = cc.getList("packages");
+        // we should get 3 packages here
+        // removed other assertion
 
         final List<Object> defaultList = new ArrayList<>();
         defaultList.add("1");
         defaultList.add("2");
 
         packages = cc.getList("packages.which.dont.exist", defaultList);
+        // we should get 2 packages here
         assertEquals(2, packages.size());
     }
 
@@ -844,6 +975,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
     public void testMultipleTypesOfConfigs_2_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
+        // removed other assertion
         cc.clear();
 
         cc.addConfiguration(xmlConf);
@@ -872,6 +1004,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(xmlConf);
 
         String[] packages = cc.getStringArray("packages");
+        // we should get 3 packages here
         assertEquals(3, packages.length);
     }
 
@@ -881,8 +1014,11 @@ public class TestNullCompositeConfiguration_OE25Dev {
         cc.addConfiguration(xmlConf);
 
         String[] packages = cc.getStringArray("packages");
+        // we should get 3 packages here
+        // removed other assertion
 
         packages = cc.getStringArray("packages.which.dont.exist");
+        // we should get 0 packages here
         assertEquals(0, packages.length);
     }
 

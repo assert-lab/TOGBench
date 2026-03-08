@@ -1,0 +1,199 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition,focal_method,docstring
+jcs3_265_1,"    public void testGetNamingURL_1_oe()
+    {
+        assertEquals(""//host:1/servicename"", RemoteUtils.getNamingURL(""host"",1,""servicename""));
+    }
+",RemoteUtilsUnitTest::testGetNamingURL_1_oe,org.apache.commons.jcs3.auxiliary.remote.RemoteUtils,"getNamingURL(final RemoteLocation location, final String serviceName)","/**
+     * Get the naming url used for RMI registration
+     *
+     * @param location
+     *            the remote location
+     * @param serviceName
+     *            the remote service name
+     * @return the URL for RMI lookup
+     */","public static String getNamingURL(final RemoteLocation location, final String serviceName)
+    {
+        return getNamingURL(location.getHost(), location.getPort(), serviceName);
+    }","public static String getNamingURL(final RemoteLocation location, final String serviceName)
+    {
+        return getNamingURL(location.getHost(), location.getPort(), serviceName);
+    }","/**
+     * Get the naming url used for RMI registration
+     *
+     * @param location
+     *            the remote location
+     * @param serviceName
+     *            the remote service name
+     * @return the URL for RMI lookup
+     */"
+jcs3_265_2,"    public void testGetNamingURL_2_oe()
+    {
+        // removed other assertion
+        assertEquals(""//127.0.0.1:2/servicename"", RemoteUtils.getNamingURL(""127.0.0.1"",2,""servicename""));
+    }
+",RemoteUtilsUnitTest::testGetNamingURL_2_oe,org.apache.commons.jcs3.auxiliary.remote.RemoteUtils,"getNamingURL(final RemoteLocation location, final String serviceName)","/**
+     * Get the naming url used for RMI registration
+     *
+     * @param location
+     *            the remote location
+     * @param serviceName
+     *            the remote service name
+     * @return the URL for RMI lookup
+     */","public static String getNamingURL(final RemoteLocation location, final String serviceName)
+    {
+        return getNamingURL(location.getHost(), location.getPort(), serviceName);
+    }","public static String getNamingURL(final RemoteLocation location, final String serviceName)
+    {
+        return getNamingURL(location.getHost(), location.getPort(), serviceName);
+    }","/**
+     * Get the naming url used for RMI registration
+     *
+     * @param location
+     *            the remote location
+     * @param serviceName
+     *            the remote service name
+     * @return the URL for RMI lookup
+     */"
+jcs3_265_3,"    public void testGetNamingURL_3_oe()
+    {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""//[0:0:0:0:0:0:0:1%251]:3/servicename"", RemoteUtils.getNamingURL(""0:0:0:0:0:0:0:1%1"",3,""servicename""));
+    }
+",RemoteUtilsUnitTest::testGetNamingURL_3_oe,org.apache.commons.jcs3.auxiliary.remote.RemoteUtils,"getNamingURL(final RemoteLocation location, final String serviceName)","/**
+     * Get the naming url used for RMI registration
+     *
+     * @param location
+     *            the remote location
+     * @param serviceName
+     *            the remote service name
+     * @return the URL for RMI lookup
+     */","public static String getNamingURL(final RemoteLocation location, final String serviceName)
+    {
+        return getNamingURL(location.getHost(), location.getPort(), serviceName);
+    }","public static String getNamingURL(final RemoteLocation location, final String serviceName)
+    {
+        return getNamingURL(location.getHost(), location.getPort(), serviceName);
+    }","/**
+     * Get the naming url used for RMI registration
+     *
+     * @param location
+     *            the remote location
+     * @param serviceName
+     *            the remote service name
+     * @return the URL for RMI lookup
+     */"
+jcs3_358_1,"    @Test
+    public void findProvider_1_oe()
+    {
+        assertNotNull(Caching.getCachingProvider());
+    }
+",CachingProviderTest::findProvider_1_oe,org.apache.commons.jcs3.jcache.JCSCachingManager,getCachingProvider(),,"@Override
+    public CachingProvider getCachingProvider()
+    {
+        return provider;
+    }","@Override
+    public CachingProvider getCachingProvider()
+    {
+        return provider;
+    }",
+jcs3_362_1,"    @Test
+    public void defaultCacheManager_1_oe()
+    {
+        assertNotNull(bean.getMgr());
+    }
+",ExtraJCacheExtensionTest::defaultCacheManager_1_oe,,,,,,
+jcs3_363_1,"    @Test
+    public void defaultCacheProvider_1_oe()
+    {
+        assertNotNull(bean.getProvider());
+    }
+",ExtraJCacheExtensionTest::defaultCacheProvider_1_oe,,,,,,
+jcs3_364_1,"    @Test
+    public void checkLoadAll_1_oe()
+    {
+        assertFalse(cache.iterator().hasNext());
+    }
+",CacheLoaderAdapterTest::checkLoadAll_1_oe,org.apache.commons.jcs3.jcache.JCSCache,hasNext(),,"@Override
+            public boolean hasNext()
+            {
+                return keys.hasNext();
+            }","@Override
+    public Iterator<Entry<K, V>> iterator()
+    {
+        return cache.iterator();
+    }",
+jcs3_364_2,"    @Test
+    public void checkLoadAll_2_oe()
+    {
+        // removed other assertion
+        assertEquals(""foo"", cache.get(""foo""));
+    }
+",CacheLoaderAdapterTest::checkLoadAll_2_oe,org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocal,"get( final String cacheName, final K key, final long requesterId )","/**
+     * Does nothing. Gets are synchronous and cannot be added to a queue.
+     * <p>
+     * @param cacheName - region name
+     * @param key - item key
+     * @param requesterId - identifies the caller.
+     * @return null
+     * @throws IOException
+     */","@Override
+    public ICacheElement<K, V> get( final String cacheName, final K key, final long requesterId )
+        throws IOException
+    {
+        // Zombies have no inner life
+        return null;
+    }","@Override
+    public ICacheElement<K, V> get( final String cacheName, final K key, final long requesterId )
+        throws IOException
+    {
+        // Zombies have no inner life
+        return null;
+    }","/**
+     * Does nothing. Gets are synchronous and cannot be added to a queue.
+     * <p>
+     * @param cacheName - region name
+     * @param key - item key
+     * @param requesterId - identifies the caller.
+     * @return null
+     * @throws IOException
+     */"
+jcs3_368_1,"    @Test
+    public void checkWriteAllAndDeleteAll_1_oe()
+    {
+        assertTrue(copy.isEmpty());
+    }
+",CacheWriterAdapterTest::checkWriteAllAndDeleteAll_1_oe,org.apache.commons.jcs3.engine.PooledCacheEventQueue,isEmpty(),"/**
+     * If the Queue is using a bounded channel we can determine the size. If it is zero or we can't
+     * determine the size, we return true.
+     * <p>
+     * @return whether or not there are items in the queue
+     */","@Override
+    public boolean isEmpty()
+    {
+        return size() == 0;
+    }","@Override
+    public boolean isEmpty()
+    {
+        return size() == 0;
+    }","/**
+     * If the Queue is using a bounded channel we can determine the size. If it is zero or we can't
+     * determine the size, we return true.
+     * <p>
+     * @return whether or not there are items in the queue
+     */"
+jcs3_368_2,"    @Test
+    public void checkWriteAllAndDeleteAll_2_oe()
+    {
+        // removed other assertion
+        assertFalse(cache.iterator().hasNext());
+    }
+",CacheWriterAdapterTest::checkWriteAllAndDeleteAll_2_oe,org.apache.commons.jcs3.jcache.JCSCache,hasNext(),,"@Override
+            public boolean hasNext()
+            {
+                return keys.hasNext();
+            }","@Override
+    public Iterator<Entry<K, V>> iterator()
+    {
+        return cache.iterator();
+    }",

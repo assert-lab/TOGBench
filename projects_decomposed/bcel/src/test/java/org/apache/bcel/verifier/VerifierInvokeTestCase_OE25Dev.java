@@ -29,6 +29,7 @@ public class VerifierInvokeTestCase_OE25Dev extends AbstractVerifierTestCase {
     }
 
     public void testLegalInvokeVirtual_2_oe_1_oe() {
+        // removed other assertion
                 final String classname0 = "TestLegalInvokeVirtual02";
         final String message0 = "Verification of invokevirtual on method defined in superinterface must pass.";
         final String testClassname0 = TEST_PACKAGE + classname0;
@@ -57,6 +58,7 @@ public class VerifierInvokeTestCase_OE25Dev extends AbstractVerifierTestCase {
     }
 
     public void testLegalInvokeSpecial_2_oe_1_oe() {
+        // removed other assertion
                 final String classname0 = "TestLegalInvokeSpecial02";
         final String message0 = "Verification of invokespecial on method defined in superclass must pass.";
         final String testClassname0 = TEST_PACKAGE + classname0;

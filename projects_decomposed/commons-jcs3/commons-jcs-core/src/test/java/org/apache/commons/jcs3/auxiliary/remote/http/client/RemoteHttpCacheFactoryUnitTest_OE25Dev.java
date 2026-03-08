@@ -70,13 +70,16 @@ public class RemoteHttpCacheFactoryUnitTest_OE25Dev
 
     public void testGetCache_normal_1_oe()
     {
+        // SETUP
         final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
         assertNotNull( "Should have a manager.", cacheMgr );
     }
 
     public void testGetCache_normal_2_oe()
     {
+        // SETUP
         final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        // removed other assertion
         final ICacheEventLogger cacheEventLogger = null;
         final IElementSerializer elementSerializer = null;
 
@@ -86,11 +89,14 @@ public class RemoteHttpCacheFactoryUnitTest_OE25Dev
 
     public void testGetCache_normal_3_oe()
     {
+        // SETUP
         final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        // removed other assertion
         final ICacheEventLogger cacheEventLogger = null;
         final IElementSerializer elementSerializer = null;
 
         final RemoteHttpCacheAttributes cattr = new RemoteHttpCacheAttributes();
+        // removed other assertion
         final RemoteHttpCacheFactory factory = new RemoteHttpCacheFactory();
         assertNotNull( "Should have a factory.", factory );
     }

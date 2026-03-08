@@ -38,6 +38,7 @@ public class QueryLoaderTest_OE25Dev extends BaseTestCase {
         QueryLoader loader = QueryLoader.instance();
         Map<String,String> q = loader.load(QUERIES);
         Map<String,String> q2 = loader.load(QUERIES);
+        // removed other assertion
 
         loader.unload(QUERIES);
         Map<String,String> q3 = loader.load(QUERIES);
@@ -50,6 +51,7 @@ public class QueryLoaderTest_OE25Dev extends BaseTestCase {
 
         try {
             queryLoader.load("e");
+            // removed other assertion
         } catch(IllegalArgumentException e) {
             assertEquals("e not found.",e.getMessage());
     }
@@ -61,7 +63,9 @@ public class QueryLoaderTest_OE25Dev extends BaseTestCase {
 
         try {
             queryLoader.load("e");
+            // removed other assertion
         } catch(IllegalArgumentException e) {
+            // removed other assertion
             assertEquals(QueryLoader.class.getName(), e.getStackTrace()[0].getClassName());
     }
     }

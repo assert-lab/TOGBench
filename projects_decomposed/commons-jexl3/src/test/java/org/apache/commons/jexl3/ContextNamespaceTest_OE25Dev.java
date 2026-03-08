@@ -271,6 +271,7 @@ public class ContextNamespaceTest_OE25Dev extends JexlTestCase {
         String src = "x != null ? x : func(y)";
         final JexlScript script = jexl.createScript(src,"x","y");
         Object result = script.execute(ctxt, null, 1);
+        // removed other assertion
         result = script.execute(ctxt, 169, -169);
         Assert.assertEquals(169, result);
     }
@@ -298,6 +299,7 @@ public class ContextNamespaceTest_OE25Dev extends JexlTestCase {
         String src = "x != null ? x : abs(y)";
         final JexlScript script = jexl.createScript(src,"x","y");
         Object result = script.execute(ctxt, null, 42);
+        // removed other assertion
         result = script.execute(ctxt, 169, -169);
         Assert.assertEquals(169, result);
     }
@@ -306,6 +308,7 @@ public class ContextNamespaceTest_OE25Dev extends JexlTestCase {
     public void testNamespacePragmaString_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext context = new MapContext();
+        // local namespace str declared
         final String strs =
                   "#pragma jexl.namespace.str java.lang.String\n"
                 + "str:format('%04d', 42)";
@@ -327,6 +330,7 @@ public class ContextNamespaceTest_OE25Dev extends JexlTestCase {
         final JexlEngine jexl = new JexlBuilder().strict(true).silent(false).create();
         final Vat vat = new Vat(18.6);
         final ObjectContext<Vat> ctxt = new ObjectContext<Vat>(jexl, vat);
+        // removed other assertion
         ctxt.set("VAT", 20.0d);
         Assert.assertEquals(20.0d, (Double) ctxt.get("VAT"), 0.0001d);
     }

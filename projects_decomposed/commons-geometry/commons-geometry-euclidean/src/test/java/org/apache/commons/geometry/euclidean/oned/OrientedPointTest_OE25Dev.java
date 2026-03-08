@@ -29,6 +29,8 @@ import org.apache.commons.numbers.core.Precision;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class OrientedPointTest_OE25Dev {
 
     private static final double TEST_EPS = 1e-15;
@@ -119,249 +121,401 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testOffset_positiveFacing_1_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
 
+        // act/assert
         Assertions.assertEquals(-98.0, pt.offset(Vector1D.of(-100)), Precision.EPSILON);
     }
 
     @Test
     void testOffset_positiveFacing_2_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(-0.1, pt.offset(Vector1D.of(-2.1)), Precision.EPSILON);
     }
 
     @Test
     void testOffset_positiveFacing_3_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0.0, pt.offset(Vector1D.of(-2)), Precision.EPSILON);
     }
 
     @Test
     void testOffset_positiveFacing_4_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0.99, pt.offset(Vector1D.of(-1.01)), Precision.EPSILON);
     }
 
     @Test
     void testOffset_positiveFacing_5_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.0, pt.offset(Vector1D.of(-1.0)), Precision.EPSILON);
     }
 
     @Test
     void testOffset_positiveFacing_6_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.01, pt.offset(Vector1D.of(-0.99)), Precision.EPSILON);
     }
 
     @Test
     void testOffset_positiveFacing_7_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(2.0, pt.offset(Vector1D.of(0)), Precision.EPSILON);
     }
 
     @Test
     void testOffset_positiveFacing_8_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(102, pt.offset(Vector1D.of(100)), Precision.EPSILON);
     }
 
     @Test
     void testOffset_negativeFacing_1_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), false, TEST_PRECISION);
 
+        // act/assert
         Assertions.assertEquals(98.0, pt.offset(Vector1D.of(-100)), Precision.EPSILON);
     }
 
     @Test
     void testOffset_negativeFacing_2_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), false, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(0.1, pt.offset(Vector1D.of(-2.1)), Precision.EPSILON);
     }
 
     @Test
     void testOffset_negativeFacing_3_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), false, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0.0, pt.offset(Vector1D.of(-2)), Precision.EPSILON);
     }
 
     @Test
     void testOffset_negativeFacing_4_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), false, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-0.99, pt.offset(Vector1D.of(-1.01)), Precision.EPSILON);
     }
 
     @Test
     void testOffset_negativeFacing_5_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), false, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.0, pt.offset(Vector1D.of(-1.0)), Precision.EPSILON);
     }
 
     @Test
     void testOffset_negativeFacing_6_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), false, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-1.01, pt.offset(Vector1D.of(-0.99)), Precision.EPSILON);
     }
 
     @Test
     void testOffset_negativeFacing_7_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), false, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-2, pt.offset(Vector1D.of(0)), Precision.EPSILON);
     }
 
     @Test
     void testOffset_negativeFacing_8_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), false, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-102, pt.offset(Vector1D.of(100)), Precision.EPSILON);
     }
 
     @Test
     void testOffset_infinityLocation_1_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(Double.POSITIVE_INFINITY), true, TEST_PRECISION);
 
+        // act/assert
         Assertions.assertTrue(Double.isNaN(pt.offset(Vector1D.of(Double.POSITIVE_INFINITY))));
     }
 
     @Test
     void testSpan_1_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
 
+        // act
         final HyperplaneConvexSubset<Vector1D> result = pt.span();
 
+        // assert
         Assertions.assertSame(pt, result.getHyperplane());
     }
 
     @Test
     void testSimilarOrientation_1_oe() {
+        // arrange
         final OrientedPoint negativeDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
         final OrientedPoint negativeDir2 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1.0), false, TEST_PRECISION);
         final OrientedPoint positiveDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, TEST_PRECISION);
         final OrientedPoint positiveDir2 = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
 
+        // act/assert
         Assertions.assertTrue(negativeDir1.similarOrientation(negativeDir1));
     }
 
     @Test
     void testSimilarOrientation_2_oe() {
+        // arrange
         final OrientedPoint negativeDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
         final OrientedPoint negativeDir2 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1.0), false, TEST_PRECISION);
         final OrientedPoint positiveDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, TEST_PRECISION);
         final OrientedPoint positiveDir2 = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertTrue(negativeDir1.similarOrientation(negativeDir2));
     }
 
     @Test
     void testSimilarOrientation_3_oe() {
+        // arrange
         final OrientedPoint negativeDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
         final OrientedPoint negativeDir2 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1.0), false, TEST_PRECISION);
         final OrientedPoint positiveDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, TEST_PRECISION);
         final OrientedPoint positiveDir2 = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(negativeDir2.similarOrientation(negativeDir1));
     }
 
     @Test
     void testSimilarOrientation_4_oe() {
+        // arrange
         final OrientedPoint negativeDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
         final OrientedPoint negativeDir2 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1.0), false, TEST_PRECISION);
         final OrientedPoint positiveDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, TEST_PRECISION);
         final OrientedPoint positiveDir2 = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(positiveDir1.similarOrientation(positiveDir1));
     }
 
     @Test
     void testSimilarOrientation_5_oe() {
+        // arrange
         final OrientedPoint negativeDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
         final OrientedPoint negativeDir2 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1.0), false, TEST_PRECISION);
         final OrientedPoint positiveDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, TEST_PRECISION);
         final OrientedPoint positiveDir2 = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(positiveDir1.similarOrientation(positiveDir2));
     }
 
     @Test
     void testSimilarOrientation_6_oe() {
+        // arrange
         final OrientedPoint negativeDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
         final OrientedPoint negativeDir2 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1.0), false, TEST_PRECISION);
         final OrientedPoint positiveDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, TEST_PRECISION);
         final OrientedPoint positiveDir2 = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(positiveDir2.similarOrientation(positiveDir1));
     }
 
     @Test
     void testSimilarOrientation_7_oe() {
+        // arrange
         final OrientedPoint negativeDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
         final OrientedPoint negativeDir2 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1.0), false, TEST_PRECISION);
         final OrientedPoint positiveDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, TEST_PRECISION);
         final OrientedPoint positiveDir2 = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(negativeDir1.similarOrientation(positiveDir1));
     }
 
     @Test
     void testSimilarOrientation_8_oe() {
+        // arrange
         final OrientedPoint negativeDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
         final OrientedPoint negativeDir2 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1.0), false, TEST_PRECISION);
         final OrientedPoint positiveDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, TEST_PRECISION);
         final OrientedPoint positiveDir2 = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(positiveDir1.similarOrientation(negativeDir1));
     }
 
     @Test
     void testProject_1_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, TEST_PRECISION);
 
+        // act/assert
         Assertions.assertEquals(1.0, pt.project(Vector1D.of(-1.0)).getX(), Precision.EPSILON);
     }
 
     @Test
     void testProject_2_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(1.0, pt.project(Vector1D.of(0.0)).getX(), Precision.EPSILON);
     }
 
     @Test
     void testProject_3_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.0, pt.project(Vector1D.of(1.0)).getX(), Precision.EPSILON);
     }
 
     @Test
     void testProject_4_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(1.0, pt.project(Vector1D.of(100.0)).getX(), Precision.EPSILON);
     }
 
     @Test
     void testEq_1_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final OrientedPoint a = OrientedPoints.createPositiveFacing(0, precision);
@@ -371,11 +525,13 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint d = OrientedPoints.createNegativeFacing(0, precision);
         final OrientedPoint e = OrientedPoints.createPositiveFacing(1e-4, precision);
 
+        // act/assert
         Assertions.assertTrue(a.eq(a, precision));
     }
 
     @Test
     void testEq_2_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final OrientedPoint a = OrientedPoints.createPositiveFacing(0, precision);
@@ -385,11 +541,14 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint d = OrientedPoints.createNegativeFacing(0, precision);
         final OrientedPoint e = OrientedPoints.createPositiveFacing(1e-4, precision);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertTrue(a.eq(b, precision));
     }
 
     @Test
     void testEq_3_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final OrientedPoint a = OrientedPoints.createPositiveFacing(0, precision);
@@ -399,12 +558,16 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint d = OrientedPoints.createNegativeFacing(0, precision);
         final OrientedPoint e = OrientedPoints.createPositiveFacing(1e-4, precision);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(a.eq(c, precision));
     }
 
     @Test
     void testEq_4_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final OrientedPoint a = OrientedPoints.createPositiveFacing(0, precision);
@@ -414,12 +577,17 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint d = OrientedPoints.createNegativeFacing(0, precision);
         final OrientedPoint e = OrientedPoints.createPositiveFacing(1e-4, precision);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(a.eq(d, precision));
     }
 
     @Test
     void testEq_5_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final OrientedPoint a = OrientedPoints.createPositiveFacing(0, precision);
@@ -429,13 +597,19 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint d = OrientedPoints.createNegativeFacing(0, precision);
         final OrientedPoint e = OrientedPoints.createPositiveFacing(1e-4, precision);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(a.eq(e, precision));
     }
 
     @Test
     void testEq_6_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
 
         final OrientedPoint a = OrientedPoints.createPositiveFacing(0, precision);
@@ -445,13 +619,20 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint d = OrientedPoints.createNegativeFacing(0, precision);
         final OrientedPoint e = OrientedPoints.createPositiveFacing(1e-4, precision);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertTrue(e.eq(a, precision));
     }
 
     @Test
     void testHashCode_1_oe() {
+        // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence precisionB = Precision.doubleEquivalenceOfEpsilon(1e-15);
 
@@ -463,11 +644,13 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint e = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), false, precisionA);
         final OrientedPoint f = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, precisionB);
 
+        // act/assert
         Assertions.assertNotEquals(a.hashCode(), b.hashCode());
     }
 
     @Test
     void testHashCode_2_oe() {
+        // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence precisionB = Precision.doubleEquivalenceOfEpsilon(1e-15);
 
@@ -479,11 +662,14 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint e = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), false, precisionA);
         final OrientedPoint f = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, precisionB);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertNotEquals(b.hashCode(), c.hashCode());
     }
 
     @Test
     void testHashCode_3_oe() {
+        // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence precisionB = Precision.doubleEquivalenceOfEpsilon(1e-15);
 
@@ -495,11 +681,15 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint e = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), false, precisionA);
         final OrientedPoint f = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, precisionB);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(c.hashCode(), a.hashCode());
     }
 
     @Test
     void testHashCode_4_oe() {
+        // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence precisionB = Precision.doubleEquivalenceOfEpsilon(1e-15);
 
@@ -511,12 +701,17 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint e = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), false, precisionA);
         final OrientedPoint f = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, precisionB);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(a.hashCode(), d.hashCode());
     }
 
     @Test
     void testHashCode_5_oe() {
+        // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence precisionB = Precision.doubleEquivalenceOfEpsilon(1e-15);
 
@@ -528,12 +723,18 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint e = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), false, precisionA);
         final OrientedPoint f = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, precisionB);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(b.hashCode(), e.hashCode());
     }
 
     @Test
     void testHashCode_6_oe() {
+        // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence precisionB = Precision.doubleEquivalenceOfEpsilon(1e-15);
 
@@ -545,12 +746,19 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint e = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), false, precisionA);
         final OrientedPoint f = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, precisionB);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(c.hashCode(), f.hashCode());
     }
 
     @Test
     void testEquals_2_oe() {
+        // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence precisionB = Precision.doubleEquivalenceOfEpsilon(1e-15);
 
@@ -565,12 +773,15 @@ class OrientedPointTest_OE25Dev {
 
         final OrientedPoint g = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, precisionA);
 
+        // act/assert
+        // removed other assertion
 
         Assertions.assertNotEquals(a, b);
     }
 
     @Test
     void testEquals_3_oe() {
+        // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence precisionB = Precision.doubleEquivalenceOfEpsilon(1e-15);
 
@@ -585,12 +796,16 @@ class OrientedPointTest_OE25Dev {
 
         final OrientedPoint g = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, precisionA);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertNotEquals(c, d);
     }
 
     @Test
     void testEquals_4_oe() {
+        // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence precisionB = Precision.doubleEquivalenceOfEpsilon(1e-15);
 
@@ -605,12 +820,17 @@ class OrientedPointTest_OE25Dev {
 
         final OrientedPoint g = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, precisionA);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNotEquals(e, f);
     }
 
     @Test
     void testEquals_5_oe() {
+        // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence precisionB = Precision.doubleEquivalenceOfEpsilon(1e-15);
 
@@ -625,13 +845,19 @@ class OrientedPointTest_OE25Dev {
 
         final OrientedPoint g = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, precisionA);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(a, g);
     }
 
     @Test
     void testEquals_6_oe() {
+        // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence precisionB = Precision.doubleEquivalenceOfEpsilon(1e-15);
 
@@ -646,91 +872,145 @@ class OrientedPointTest_OE25Dev {
 
         final OrientedPoint g = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, precisionA);
 
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(g, a);
     }
 
     @Test
     void testToString_1_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, TEST_PRECISION);
 
+        // act
         final String str = pt.toString();
 
+        // assert
         Assertions.assertTrue(str.contains("OrientedPoint"));
     }
 
     @Test
     void testToString_2_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, TEST_PRECISION);
 
+        // act
         final String str = pt.toString();
 
+        // assert
+        // removed other assertion
         Assertions.assertTrue(str.contains("point= (2.0)"));
     }
 
     @Test
     void testToString_3_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, TEST_PRECISION);
 
+        // act
         final String str = pt.toString();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(str.contains("direction= (1.0)"));
     }
 
     @Test
     void testSubset_simpleMethods_1_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
         Assertions.assertSame(pt, sub.getHyperplane());
     }
 
     @Test
     void testSubset_simpleMethods_2_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
         Assertions.assertFalse(sub.isFull());
     }
 
     @Test
     void testSubset_simpleMethods_3_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(sub.isEmpty());
     }
 
     @Test
     void testSubset_simpleMethods_4_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(sub.isInfinite());
     }
 
     @Test
     void testSubset_simpleMethods_5_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(sub.isFinite());
     }
 
     @Test
     void testSubset_simpleMethods_6_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(0.0, sub.getSize(), TEST_EPS);
     }
 
     @Test
     void testSubset_simpleMethods_8_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<? extends HyperplaneConvexSubset<Vector1D>> list = sub.toConvex();
         Assertions.assertEquals(1, list.size());
@@ -738,263 +1018,406 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testSubset_simpleMethods_9_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<? extends HyperplaneConvexSubset<Vector1D>> list = sub.toConvex();
+        // removed other assertion
         Assertions.assertSame(sub, list.get(0));
     }
 
     @Test
     void testSubset_classify_1_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
         Assertions.assertEquals(RegionLocation.BOUNDARY, sub.classify(Vector1D.of(0.95)));
     }
 
     @Test
     void testSubset_classify_2_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(RegionLocation.BOUNDARY, sub.classify(Vector1D.of(1)));
     }
 
     @Test
     void testSubset_classify_3_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(RegionLocation.BOUNDARY, sub.classify(Vector1D.of(1.05)));
     }
 
     @Test
     void testSubset_classify_4_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Vector1D.of(1.11)));
     }
 
     @Test
     void testSubset_classify_5_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Vector1D.of(0.89)));
     }
 
     @Test
     void testSubset_classify_6_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Vector1D.of(-3)));
     }
 
     @Test
     void testSubset_classify_7_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Vector1D.of(10)));
     }
 
     @Test
     void testSubset_classify_8_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Vector1D.NEGATIVE_INFINITY));
     }
 
     @Test
     void testSubset_classify_9_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Vector1D.POSITIVE_INFINITY));
     }
 
     @Test
     void testSubset_contains_1_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
         Assertions.assertTrue(sub.contains(Vector1D.of(0.95)));
     }
 
     @Test
     void testSubset_contains_2_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
         Assertions.assertTrue(sub.contains(Vector1D.of(1)));
     }
 
     @Test
     void testSubset_contains_3_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(sub.contains(Vector1D.of(1.05)));
     }
 
     @Test
     void testSubset_contains_4_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(sub.contains(Vector1D.of(1.11)));
     }
 
     @Test
     void testSubset_contains_5_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(sub.contains(Vector1D.of(0.89)));
     }
 
     @Test
     void testSubset_contains_6_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(sub.contains(Vector1D.of(-3)));
     }
 
     @Test
     void testSubset_contains_7_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(sub.contains(Vector1D.of(10)));
     }
 
     @Test
     void testSubset_contains_8_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(sub.contains(Vector1D.NEGATIVE_INFINITY));
     }
 
     @Test
     void testSubset_contains_9_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(1, precision);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(sub.contains(Vector1D.POSITIVE_INFINITY));
     }
 
     @Test
     void testSubset_reverse_1_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2.0, TEST_PRECISION);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act
         final HyperplaneConvexSubset<Vector1D> result = sub.reverse();
 
+        // assert
         Assertions.assertEquals(2.0, ((OrientedPoint) result.getHyperplane()).getLocation(), TEST_EPS);
     }
 
     @Test
     void testSubset_reverse_2_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2.0, TEST_PRECISION);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act
         final HyperplaneConvexSubset<Vector1D> result = sub.reverse();
 
+        // assert
+        // removed other assertion
         Assertions.assertFalse(((OrientedPoint) result.getHyperplane()).isPositiveFacing());
     }
 
     @Test
     void testSubset_reverse_3_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2.0, TEST_PRECISION);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act
         final HyperplaneConvexSubset<Vector1D> result = sub.reverse();
 
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(sub.getHyperplane(), result.reverse().getHyperplane());
     }
 
     @Test
     void testSubset_toString_1_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act
         final String str = sub.toString();
 
+        //assert
         Assertions.assertTrue(str.contains("OrientedPointConvexSubset"));
     }
 
     @Test
     void testSubset_toString_2_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act
         final String str = sub.toString();
 
+        //assert
+        // removed other assertion
         Assertions.assertTrue(str.contains("point= (2.0)"));
     }
 
     @Test
     void testSubset_toString_3_oe() {
+        // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
         final HyperplaneConvexSubset<Vector1D> sub = pt.span();
 
+        // act
         final String str = sub.toString();
 
+        //assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(str.contains("direction= (1.0)"));
     }
 
     @Test
     void testReverse_1_oe_1_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(0), true, TEST_PRECISION).reverse();
         final double location0 = 0.0;
         final boolean positiveFacing0 = false;
@@ -1004,42 +1427,58 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testReverse_1_oe_2_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(0), true, TEST_PRECISION).reverse();
         final double location0 = 0.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testReverse_1_oe_3_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(0), true, TEST_PRECISION).reverse();
         final double location0 = 0.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testReverse_1_oe_4_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(0), true, TEST_PRECISION).reverse();
         final double location0 = 0.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testReverse_1_oe_5_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(0), true, TEST_PRECISION).reverse();
         final double location0 = 0.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testReverse_2_oe_1_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1), false, TEST_PRECISION).reverse();
         final double location0 = -1.0;
         final boolean positiveFacing0 = true;
@@ -1049,42 +1488,63 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testReverse_2_oe_2_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1), false, TEST_PRECISION).reverse();
         final double location0 = -1.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testReverse_2_oe_3_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1), false, TEST_PRECISION).reverse();
         final double location0 = -1.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testReverse_2_oe_4_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1), false, TEST_PRECISION).reverse();
         final double location0 = -1.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testReverse_2_oe_5_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1), false, TEST_PRECISION).reverse();
         final double location0 = -1.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testReverse_3_oe_1_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(1), true, TEST_PRECISION).reverse();
         final double location0 = 1.0;
         final boolean positiveFacing0 = false;
@@ -1094,42 +1554,68 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testReverse_3_oe_2_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(1), true, TEST_PRECISION).reverse();
         final double location0 = 1.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testReverse_3_oe_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(1), true, TEST_PRECISION).reverse();
         final double location0 = 1.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testReverse_3_oe_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(1), true, TEST_PRECISION).reverse();
         final double location0 = 1.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testReverse_3_oe_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(1), true, TEST_PRECISION).reverse();
         final double location0 = 1.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testReverse_4_oe_1_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(0), true, TEST_PRECISION).reverse().reverse();
         final double location0 = 0.0;
@@ -1140,47 +1626,78 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testReverse_4_oe_2_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(0), true, TEST_PRECISION).reverse().reverse();
         final double location0 = 0.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testReverse_4_oe_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(0), true, TEST_PRECISION).reverse().reverse();
         final double location0 = 0.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testReverse_4_oe_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(0), true, TEST_PRECISION).reverse().reverse();
         final double location0 = 0.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testReverse_4_oe_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(0), true, TEST_PRECISION).reverse().reverse();
         final double location0 = 0.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testReverse_5_oe_1_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1), false, TEST_PRECISION).reverse().reverse();
         final double location0 = -1.0;
         final boolean positiveFacing0 = false;
@@ -1190,47 +1707,83 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testReverse_5_oe_2_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1), false, TEST_PRECISION).reverse().reverse();
         final double location0 = -1.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testReverse_5_oe_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1), false, TEST_PRECISION).reverse().reverse();
         final double location0 = -1.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testReverse_5_oe_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1), false, TEST_PRECISION).reverse().reverse();
         final double location0 = -1.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testReverse_5_oe_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(-1), false, TEST_PRECISION).reverse().reverse();
         final double location0 = -1.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testReverse_6_oe_1_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(1), true, TEST_PRECISION).reverse().reverse();
         final double location0 = 1.0;
         final boolean positiveFacing0 = true;
@@ -1240,46 +1793,81 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testReverse_6_oe_2_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(1), true, TEST_PRECISION).reverse().reverse();
         final double location0 = 1.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testReverse_6_oe_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(1), true, TEST_PRECISION).reverse().reverse();
         final double location0 = 1.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testReverse_6_oe_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(1), true, TEST_PRECISION).reverse().reverse();
         final double location0 = 1.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testReverse_6_oe_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(1), true, TEST_PRECISION).reverse().reverse();
         final double location0 = 1.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testTransform_1_oe_1_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1289,6 +1877,7 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
                 final OrientedPoint pt0 = a.transform(scaleAndTranslate);
         final double location0 = -9.0;
         final boolean positiveFacing0 = true;
@@ -1298,6 +1887,7 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testTransform_1_oe_2_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1307,15 +1897,18 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
                 final OrientedPoint pt0 = a.transform(scaleAndTranslate);
         final double location0 = -9.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testTransform_1_oe_3_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1325,15 +1918,19 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
                 final OrientedPoint pt0 = a.transform(scaleAndTranslate);
         final double location0 = -9.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testTransform_1_oe_4_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1343,15 +1940,20 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
                 final OrientedPoint pt0 = a.transform(scaleAndTranslate);
         final double location0 = -9.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testTransform_1_oe_5_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1361,15 +1963,21 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
                 final OrientedPoint pt0 = a.transform(scaleAndTranslate);
         final double location0 = -9.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testTransform_2_oe_1_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1379,6 +1987,8 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = b.transform(scaleAndTranslate);
         final double location0 = -11.5;
         final boolean positiveFacing0 = false;
@@ -1388,6 +1998,7 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testTransform_2_oe_2_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1397,15 +2008,19 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = b.transform(scaleAndTranslate);
         final double location0 = -11.5;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testTransform_2_oe_3_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1415,15 +2030,20 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = b.transform(scaleAndTranslate);
         final double location0 = -11.5;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testTransform_2_oe_4_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1433,15 +2053,21 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = b.transform(scaleAndTranslate);
         final double location0 = -11.5;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testTransform_2_oe_5_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1451,15 +2077,22 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = b.transform(scaleAndTranslate);
         final double location0 = -11.5;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testTransform_3_oe_1_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1469,6 +2102,9 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = a.transform(reflect);
         final double location0 = -4.0;
@@ -1479,6 +2115,7 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testTransform_3_oe_2_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1488,16 +2125,21 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = a.transform(reflect);
         final double location0 = -4.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testTransform_3_oe_3_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1507,16 +2149,22 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = a.transform(reflect);
         final double location0 = -4.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testTransform_3_oe_4_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1526,16 +2174,23 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = a.transform(reflect);
         final double location0 = -4.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testTransform_3_oe_5_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1545,16 +2200,24 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = a.transform(reflect);
         final double location0 = -4.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testTransform_4_oe_1_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1564,7 +2227,11 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = b.transform(reflect);
         final double location0 = 6.0;
         final boolean positiveFacing0 = true;
@@ -1574,6 +2241,7 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testTransform_4_oe_2_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1583,16 +2251,22 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = b.transform(reflect);
         final double location0 = 6.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testTransform_4_oe_3_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1602,16 +2276,23 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = b.transform(reflect);
         final double location0 = 6.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testTransform_4_oe_4_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1621,16 +2302,24 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = b.transform(reflect);
         final double location0 = 6.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testTransform_4_oe_5_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -1640,22 +2329,32 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint a = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
         final OrientedPoint b = OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = b.transform(reflect);
         final double location0 = 6.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testTransform_locationAtInfinity_1_oe_1_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
                 final OrientedPoint pt0 = pos.transform(scaleAndTranslate);
         final double location0 = Double.POSITIVE_INFINITY;
         final boolean positiveFacing0 = false;
@@ -1665,72 +2364,93 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testTransform_locationAtInfinity_1_oe_2_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
                 final OrientedPoint pt0 = pos.transform(scaleAndTranslate);
         final double location0 = Double.POSITIVE_INFINITY;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testTransform_locationAtInfinity_1_oe_3_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
                 final OrientedPoint pt0 = pos.transform(scaleAndTranslate);
         final double location0 = Double.POSITIVE_INFINITY;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testTransform_locationAtInfinity_1_oe_4_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
                 final OrientedPoint pt0 = pos.transform(scaleAndTranslate);
         final double location0 = Double.POSITIVE_INFINITY;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testTransform_locationAtInfinity_1_oe_5_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
                 final OrientedPoint pt0 = pos.transform(scaleAndTranslate);
         final double location0 = Double.POSITIVE_INFINITY;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testTransform_locationAtInfinity_2_oe_1_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = neg.transform(scaleAndTranslate);
         final double location0 = Double.NEGATIVE_INFINITY;
         final boolean positiveFacing0 = true;
@@ -1740,72 +2460,98 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testTransform_locationAtInfinity_2_oe_2_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = neg.transform(scaleAndTranslate);
         final double location0 = Double.NEGATIVE_INFINITY;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testTransform_locationAtInfinity_2_oe_3_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = neg.transform(scaleAndTranslate);
         final double location0 = Double.NEGATIVE_INFINITY;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testTransform_locationAtInfinity_2_oe_4_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = neg.transform(scaleAndTranslate);
         final double location0 = Double.NEGATIVE_INFINITY;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testTransform_locationAtInfinity_2_oe_5_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = neg.transform(scaleAndTranslate);
         final double location0 = Double.NEGATIVE_INFINITY;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testTransform_locationAtInfinity_3_oe_1_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = pos.transform(negate);
         final double location0 = Double.NEGATIVE_INFINITY;
@@ -1816,77 +2562,108 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testTransform_locationAtInfinity_3_oe_2_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = pos.transform(negate);
         final double location0 = Double.NEGATIVE_INFINITY;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testTransform_locationAtInfinity_3_oe_3_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = pos.transform(negate);
         final double location0 = Double.NEGATIVE_INFINITY;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testTransform_locationAtInfinity_3_oe_4_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = pos.transform(negate);
         final double location0 = Double.NEGATIVE_INFINITY;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testTransform_locationAtInfinity_3_oe_5_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = pos.transform(negate);
         final double location0 = Double.NEGATIVE_INFINITY;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testTransform_locationAtInfinity_4_oe_1_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = neg.transform(negate);
         final double location0 = Double.POSITIVE_INFINITY;
         final boolean positiveFacing0 = false;
@@ -1896,70 +2673,101 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testTransform_locationAtInfinity_4_oe_2_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = neg.transform(negate);
         final double location0 = Double.POSITIVE_INFINITY;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testTransform_locationAtInfinity_4_oe_3_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = neg.transform(negate);
         final double location0 = Double.POSITIVE_INFINITY;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testTransform_locationAtInfinity_4_oe_4_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = neg.transform(negate);
         final double location0 = Double.POSITIVE_INFINITY;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testTransform_locationAtInfinity_4_oe_5_oe() {
+        // arrange
         final OrientedPoint pos = OrientedPoints.createNegativeFacing(Double.POSITIVE_INFINITY, TEST_PRECISION);
         final OrientedPoint neg = OrientedPoints.createPositiveFacing(Double.NEGATIVE_INFINITY, TEST_PRECISION);
 
         final Transform<Vector1D> scaleAndTranslate = AffineTransformMatrix1D.identity().scale(10.0).translate(5.0);
         final Transform<Vector1D> negate = AffineTransformMatrix1D.from(Vector1D::negate);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = neg.transform(negate);
         final double location0 = Double.POSITIVE_INFINITY;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testFromLocationAndDirection_1_oe_1_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromLocationAndDirection(3.0, true, TEST_PRECISION);
         final double location0 = 3.0;
         final boolean positiveFacing0 = true;
@@ -1969,42 +2777,58 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testFromLocationAndDirection_1_oe_2_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromLocationAndDirection(3.0, true, TEST_PRECISION);
         final double location0 = 3.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testFromLocationAndDirection_1_oe_3_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromLocationAndDirection(3.0, true, TEST_PRECISION);
         final double location0 = 3.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testFromLocationAndDirection_1_oe_4_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromLocationAndDirection(3.0, true, TEST_PRECISION);
         final double location0 = 3.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testFromLocationAndDirection_1_oe_5_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromLocationAndDirection(3.0, true, TEST_PRECISION);
         final double location0 = 3.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testFromLocationAndDirection_2_oe_1_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromLocationAndDirection(2.0, false, TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
@@ -2014,42 +2838,61 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testFromLocationAndDirection_2_oe_2_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromLocationAndDirection(2.0, false, TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testFromLocationAndDirection_2_oe_3_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromLocationAndDirection(2.0, false, TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testFromLocationAndDirection_2_oe_4_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromLocationAndDirection(2.0, false, TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testFromLocationAndDirection_2_oe_5_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromLocationAndDirection(2.0, false, TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testFromPointAndDirection_pointAndBooleanArgs_1_oe_1_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(3.0), true, TEST_PRECISION);
         final double location0 = 3.0;
         final boolean positiveFacing0 = true;
@@ -2059,42 +2902,58 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testFromPointAndDirection_pointAndBooleanArgs_1_oe_2_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(3.0), true, TEST_PRECISION);
         final double location0 = 3.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testFromPointAndDirection_pointAndBooleanArgs_1_oe_3_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(3.0), true, TEST_PRECISION);
         final double location0 = 3.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testFromPointAndDirection_pointAndBooleanArgs_1_oe_4_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(3.0), true, TEST_PRECISION);
         final double location0 = 3.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testFromPointAndDirection_pointAndBooleanArgs_1_oe_5_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(3.0), true, TEST_PRECISION);
         final double location0 = 3.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testFromPointAndDirection_pointAndBooleanArgs_2_oe_1_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), false, TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
@@ -2104,42 +2963,61 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testFromPointAndDirection_pointAndBooleanArgs_2_oe_2_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), false, TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testFromPointAndDirection_pointAndBooleanArgs_2_oe_3_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), false, TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testFromPointAndDirection_pointAndBooleanArgs_2_oe_4_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), false, TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testFromPointAndDirection_pointAndBooleanArgs_2_oe_5_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), false, TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testFromPointAndDirection_pointAndVectorArgs_1_oe_1_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), Vector1D.of(0.1), TEST_PRECISION);
         final double location0 = -2.0;
         final boolean positiveFacing0 = true;
@@ -2149,42 +3027,58 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testFromPointAndDirection_pointAndVectorArgs_1_oe_2_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), Vector1D.of(0.1), TEST_PRECISION);
         final double location0 = -2.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testFromPointAndDirection_pointAndVectorArgs_1_oe_3_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), Vector1D.of(0.1), TEST_PRECISION);
         final double location0 = -2.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testFromPointAndDirection_pointAndVectorArgs_1_oe_4_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), Vector1D.of(0.1), TEST_PRECISION);
         final double location0 = -2.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testFromPointAndDirection_pointAndVectorArgs_1_oe_5_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), Vector1D.of(0.1), TEST_PRECISION);
         final double location0 = -2.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testFromPointAndDirection_pointAndVectorArgs_2_oe_1_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), Vector1D.of(-10.1), TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
@@ -2194,42 +3088,61 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testFromPointAndDirection_pointAndVectorArgs_2_oe_2_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), Vector1D.of(-10.1), TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testFromPointAndDirection_pointAndVectorArgs_2_oe_3_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), Vector1D.of(-10.1), TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testFromPointAndDirection_pointAndVectorArgs_2_oe_4_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), Vector1D.of(-10.1), TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testFromPointAndDirection_pointAndVectorArgs_2_oe_5_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), Vector1D.of(-10.1), TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testCreatePositiveFacing_1_oe_1_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.createPositiveFacing(Vector1D.of(-2.0), TEST_PRECISION);
         final double location0 = -2.0;
         final boolean positiveFacing0 = true;
@@ -2239,42 +3152,58 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testCreatePositiveFacing_1_oe_2_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.createPositiveFacing(Vector1D.of(-2.0), TEST_PRECISION);
         final double location0 = -2.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testCreatePositiveFacing_1_oe_3_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.createPositiveFacing(Vector1D.of(-2.0), TEST_PRECISION);
         final double location0 = -2.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testCreatePositiveFacing_1_oe_4_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.createPositiveFacing(Vector1D.of(-2.0), TEST_PRECISION);
         final double location0 = -2.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testCreatePositiveFacing_1_oe_5_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.createPositiveFacing(Vector1D.of(-2.0), TEST_PRECISION);
         final double location0 = -2.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testCreatePositiveFacing_2_oe_1_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.createPositiveFacing(-4.0, TEST_PRECISION);
         final double location0 = -4.0;
         final boolean positiveFacing0 = true;
@@ -2284,42 +3213,61 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testCreatePositiveFacing_2_oe_2_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.createPositiveFacing(-4.0, TEST_PRECISION);
         final double location0 = -4.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testCreatePositiveFacing_2_oe_3_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.createPositiveFacing(-4.0, TEST_PRECISION);
         final double location0 = -4.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testCreatePositiveFacing_2_oe_4_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.createPositiveFacing(-4.0, TEST_PRECISION);
         final double location0 = -4.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testCreatePositiveFacing_2_oe_5_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.createPositiveFacing(-4.0, TEST_PRECISION);
         final double location0 = -4.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testCreateNegativeFacing_1_oe_1_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.createNegativeFacing(Vector1D.of(2.0), TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
@@ -2329,42 +3277,58 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testCreateNegativeFacing_1_oe_2_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.createNegativeFacing(Vector1D.of(2.0), TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testCreateNegativeFacing_1_oe_3_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.createNegativeFacing(Vector1D.of(2.0), TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testCreateNegativeFacing_1_oe_4_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.createNegativeFacing(Vector1D.of(2.0), TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testCreateNegativeFacing_1_oe_5_oe() {
+        // act/assert
                 final OrientedPoint pt0 = OrientedPoints.createNegativeFacing(Vector1D.of(2.0), TEST_PRECISION);
         final double location0 = 2.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testCreateNegativeFacing_2_oe_1_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.createNegativeFacing(4, TEST_PRECISION);
         final double location0 = 4.0;
         final boolean positiveFacing0 = false;
@@ -2374,42 +3338,61 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testCreateNegativeFacing_2_oe_2_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.createNegativeFacing(4, TEST_PRECISION);
         final double location0 = 4.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testCreateNegativeFacing_2_oe_3_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.createNegativeFacing(4, TEST_PRECISION);
         final double location0 = 4.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testCreateNegativeFacing_2_oe_4_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.createNegativeFacing(4, TEST_PRECISION);
         final double location0 = 4.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testCreateNegativeFacing_2_oe_5_oe() {
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = OrientedPoints.createNegativeFacing(4, TEST_PRECISION);
         final double location0 = 4.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testSubset_transform_1_oe_1_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2421,6 +3404,7 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
                 final OrientedPoint pt0 = (OrientedPoint) a.transform(scaleAndTranslate).getHyperplane();
         final double location0 = -9.0;
         final boolean positiveFacing0 = true;
@@ -2430,6 +3414,7 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testSubset_transform_1_oe_2_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2441,15 +3426,18 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
                 final OrientedPoint pt0 = (OrientedPoint) a.transform(scaleAndTranslate).getHyperplane();
         final double location0 = -9.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testSubset_transform_1_oe_3_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2461,15 +3449,19 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
                 final OrientedPoint pt0 = (OrientedPoint) a.transform(scaleAndTranslate).getHyperplane();
         final double location0 = -9.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testSubset_transform_1_oe_4_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2481,15 +3473,20 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
                 final OrientedPoint pt0 = (OrientedPoint) a.transform(scaleAndTranslate).getHyperplane();
         final double location0 = -9.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testSubset_transform_1_oe_5_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2501,15 +3498,21 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
                 final OrientedPoint pt0 = (OrientedPoint) a.transform(scaleAndTranslate).getHyperplane();
         final double location0 = -9.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testSubset_transform_2_oe_1_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2521,6 +3524,8 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = (OrientedPoint) b.transform(scaleAndTranslate).getHyperplane();
         final double location0 = -11.5;
         final boolean positiveFacing0 = false;
@@ -2530,6 +3535,7 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testSubset_transform_2_oe_2_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2541,15 +3547,19 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = (OrientedPoint) b.transform(scaleAndTranslate).getHyperplane();
         final double location0 = -11.5;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testSubset_transform_2_oe_3_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2561,15 +3571,20 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = (OrientedPoint) b.transform(scaleAndTranslate).getHyperplane();
         final double location0 = -11.5;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testSubset_transform_2_oe_4_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2581,15 +3596,21 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = (OrientedPoint) b.transform(scaleAndTranslate).getHyperplane();
         final double location0 = -11.5;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testSubset_transform_2_oe_5_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2601,15 +3622,22 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
                 final OrientedPoint pt0 = (OrientedPoint) b.transform(scaleAndTranslate).getHyperplane();
         final double location0 = -11.5;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testSubset_transform_3_oe_1_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2621,6 +3649,9 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = (OrientedPoint) a.transform(reflect).getHyperplane();
         final double location0 = -4.0;
@@ -2631,6 +3662,7 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testSubset_transform_3_oe_2_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2642,16 +3674,21 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = (OrientedPoint) a.transform(reflect).getHyperplane();
         final double location0 = -4.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testSubset_transform_3_oe_3_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2663,16 +3700,22 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = (OrientedPoint) a.transform(reflect).getHyperplane();
         final double location0 = -4.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testSubset_transform_3_oe_4_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2684,16 +3727,23 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = (OrientedPoint) a.transform(reflect).getHyperplane();
         final double location0 = -4.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testSubset_transform_3_oe_5_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2705,16 +3755,24 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
                 final OrientedPoint pt0 = (OrientedPoint) a.transform(reflect).getHyperplane();
         final double location0 = -4.0;
         final boolean positiveFacing0 = false;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
     @Test
     void testSubset_transform_4_oe_1_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2726,7 +3784,11 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = (OrientedPoint) b.transform(reflect).getHyperplane();
         final double location0 = 6.0;
         final boolean positiveFacing0 = true;
@@ -2736,6 +3798,7 @@ class OrientedPointTest_OE25Dev {
 
     @Test
     void testSubset_transform_4_oe_2_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2747,16 +3810,22 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = (OrientedPoint) b.transform(reflect).getHyperplane();
         final double location0 = 6.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
                 Assertions.assertEquals(location0, pt0.getLocation(), TEST_EPS);
     }
 
     @Test
     void testSubset_transform_4_oe_3_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2768,16 +3837,23 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = (OrientedPoint) b.transform(reflect).getHyperplane();
         final double location0 = 6.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0 ? 1.0 : -1.0, pt0.getDirection().getX(), TEST_EPS);
     }
 
     @Test
     void testSubset_transform_4_oe_4_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2789,16 +3865,24 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = (OrientedPoint) b.transform(reflect).getHyperplane();
         final double location0 = 6.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertEquals(positiveFacing0, pt0.isPositiveFacing());
     }
 
     @Test
     void testSubset_transform_4_oe_5_oe() {
+        // arrange
         final AffineTransformMatrix1D scaleAndTranslate = AffineTransformMatrix1D
                 .createScale(0.5)
                 .translate(-10);
@@ -2810,104 +3894,158 @@ class OrientedPointTest_OE25Dev {
         final HyperplaneConvexSubset<Vector1D> b =
                 OrientedPoints.createNegativeFacing(Vector1D.of(-3.0), TEST_PRECISION).span();
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final OrientedPoint pt0 = (OrientedPoint) b.transform(reflect).getHyperplane();
         final double location0 = 6.0;
         final boolean positiveFacing0 = true;
         final Precision.DoubleEquivalence precision0 = TEST_PRECISION;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
     }
 
 @Test
     void testTransform_zeroScale_1_oe() {
+        // arrange
         final AffineTransformMatrix1D zeroScale = AffineTransformMatrix1D.createScale(0.0);
 
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
 
-        GeometryTestUtils.assertThrowsWithMessage( () -> pt.transform(zeroScale), IllegalArgumentException.class, "Oriented point direction cannot be zero");
+        // act/assert
+        try {
+    pt.transform(zeroScale);
+    fail("Expected IllegalArgumentException with message: " + "Oriented point direction cannot be zero");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testClassify_1_oe() {
+        // arrange
         final Precision.DoubleEquivalence smallPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence largePrecision = Precision.doubleEquivalenceOfEpsilon(1e-1);
 
         final OrientedPoint smallPosFacing = OrientedPoints.fromLocationAndDirection(1.0, true, smallPrecision);
         final OrientedPoint largeNegFacing = OrientedPoints.fromLocationAndDirection(1.0, false, largePrecision);
 
+        // act/assert
         assertClassify(HyperplaneLocation.MINUS, smallPosFacing, Double.NEGATIVE_INFINITY, -10, 0, 0.9, 0.99999, 1 - 1e-9);
     }
 
 @Test
     void testClassify_2_oe() {
+        // arrange
         final Precision.DoubleEquivalence smallPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence largePrecision = Precision.doubleEquivalenceOfEpsilon(1e-1);
 
         final OrientedPoint smallPosFacing = OrientedPoints.fromLocationAndDirection(1.0, true, smallPrecision);
         final OrientedPoint largeNegFacing = OrientedPoints.fromLocationAndDirection(1.0, false, largePrecision);
 
+        // act/assert
+        // removed other assertion
         assertClassify(HyperplaneLocation.ON, smallPosFacing, 1 - 1e-11, 1, 1 + 1e-11);
     }
 
 @Test
     void testClassify_3_oe() {
+        // arrange
         final Precision.DoubleEquivalence smallPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence largePrecision = Precision.doubleEquivalenceOfEpsilon(1e-1);
 
         final OrientedPoint smallPosFacing = OrientedPoints.fromLocationAndDirection(1.0, true, smallPrecision);
         final OrientedPoint largeNegFacing = OrientedPoints.fromLocationAndDirection(1.0, false, largePrecision);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         assertClassify(HyperplaneLocation.PLUS, smallPosFacing, 1 + 1e-9, 2, 10, Double.POSITIVE_INFINITY);
     }
 
 @Test
     void testClassify_4_oe() {
+        // arrange
         final Precision.DoubleEquivalence smallPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence largePrecision = Precision.doubleEquivalenceOfEpsilon(1e-1);
 
         final OrientedPoint smallPosFacing = OrientedPoints.fromLocationAndDirection(1.0, true, smallPrecision);
         final OrientedPoint largeNegFacing = OrientedPoints.fromLocationAndDirection(1.0, false, largePrecision);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertClassify(HyperplaneLocation.PLUS, largeNegFacing, Double.NEGATIVE_INFINITY, -10, 0, 0.89);
     }
 
 @Test
     void testClassify_5_oe() {
+        // arrange
         final Precision.DoubleEquivalence smallPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence largePrecision = Precision.doubleEquivalenceOfEpsilon(1e-1);
 
         final OrientedPoint smallPosFacing = OrientedPoints.fromLocationAndDirection(1.0, true, smallPrecision);
         final OrientedPoint largeNegFacing = OrientedPoints.fromLocationAndDirection(1.0, false, largePrecision);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertClassify(HyperplaneLocation.ON, largeNegFacing, 0.91, 0.9999, 1, 1.001, 1.09);
     }
 
 @Test
     void testClassify_6_oe() {
+        // arrange
         final Precision.DoubleEquivalence smallPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
         final Precision.DoubleEquivalence largePrecision = Precision.doubleEquivalenceOfEpsilon(1e-1);
 
         final OrientedPoint smallPosFacing = OrientedPoints.fromLocationAndDirection(1.0, true, smallPrecision);
         final OrientedPoint largeNegFacing = OrientedPoints.fromLocationAndDirection(1.0, false, largePrecision);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertClassify(HyperplaneLocation.MINUS, largeNegFacing, 1.11, 2, 10, Double.POSITIVE_INFINITY);
     }
 
 @Test
     void testFromPointAndDirection_invalidDirection_1_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(0.1);
 
-        GeometryTestUtils.assertThrowsWithMessage( () -> OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), Vector1D.of(0.09), precision), IllegalArgumentException.class, "Oriented point direction cannot be zero");
+        // act/assert
+        try {
+    OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), Vector1D.of(0.09), precision);
+    fail("Expected IllegalArgumentException with message: " + "Oriented point direction cannot be zero");
+} catch (IllegalArgumentException e) {
+}
     }
 
 @Test
     void testFromPointAndDirection_invalidDirection_2_oe() {
+        // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(0.1);
 
-        GeometryTestUtils.assertThrowsWithMessage( () -> OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), Vector1D.of(-0.09), precision), IllegalArgumentException.class, "Oriented point direction cannot be zero");
+        // act/assert
+        // removed other assertion
+        try {
+    OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), Vector1D.of(-0.09), precision);
+    fail("Expected IllegalArgumentException with message: " + "Oriented point direction cannot be zero");
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

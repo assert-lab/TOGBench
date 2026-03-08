@@ -79,6 +79,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
 
     public void testCheckForRemoval_Expired_1_oe() throws IOException
     {
+        // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
         cacheAttr.setCacheName("testRegion");
         cacheAttr.setMaxMemoryIdleTimeSeconds( 10 );
@@ -96,17 +97,21 @@ public class ShrinkerThreadUnitTest_OE25Dev
         element.getElementAttributes().setMaxLife(1);
 
         long now = System.currentTimeMillis();
+        // add two seconds
         now += 2000;
 
+        // DO WORK
         final boolean result = cache.isExpired( element, now,
                 ElementEventType.EXCEEDED_MAXLIFE_BACKGROUND,
                 ElementEventType.EXCEEDED_IDLETIME_BACKGROUND );
 
+        // VERIFY
         assertTrue( "Item should have expired.", result );
     }
 
     public void testCheckForRemoval_NotExpired_1_oe() throws IOException
     {
+        // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
         cacheAttr.setCacheName("testRegion");
         cacheAttr.setMaxMemoryIdleTimeSeconds( 10 );
@@ -124,17 +129,21 @@ public class ShrinkerThreadUnitTest_OE25Dev
         element.getElementAttributes().setMaxLife(1);
 
         long now = System.currentTimeMillis();
+        // subtract two seconds
         now -= 2000;
 
+        // DO WORK
         final boolean result = cache.isExpired( element, now,
                 ElementEventType.EXCEEDED_MAXLIFE_BACKGROUND,
                 ElementEventType.EXCEEDED_IDLETIME_BACKGROUND );
 
+        // VERIFY
         assertFalse( "Item should not have expired.", result );
     }
 
     public void testCheckForRemoval_IdleTooLong_1_oe() throws IOException
     {
+        // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
         cacheAttr.setCacheName("testRegion");
         cacheAttr.setMaxMemoryIdleTimeSeconds( 10 );
@@ -153,17 +162,21 @@ public class ShrinkerThreadUnitTest_OE25Dev
         element.getElementAttributes().setIdleTime( 1 );
 
         long now = System.currentTimeMillis();
+        // add two seconds
         now += 2000;
 
+        // DO WORK
         final boolean result = cache.isExpired( element, now,
                 ElementEventType.EXCEEDED_MAXLIFE_BACKGROUND,
                 ElementEventType.EXCEEDED_IDLETIME_BACKGROUND );
 
+        // VERIFY
         assertTrue( "Item should have expired.", result );
     }
 
     public void testCheckForRemoval_NotIdleTooLong_1_oe() throws IOException
     {
+        // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
         cacheAttr.setCacheName("testRegion");
         cacheAttr.setMaxMemoryIdleTimeSeconds( 10 );
@@ -182,18 +195,22 @@ public class ShrinkerThreadUnitTest_OE25Dev
         element.getElementAttributes().setIdleTime( 1 );
 
         long now = System.currentTimeMillis();
+        // subtract two seconds
         now -= 2000;
 
+        // DO WORK
         final boolean result = cache.isExpired( element, now,
                 ElementEventType.EXCEEDED_MAXLIFE_BACKGROUND,
                 ElementEventType.EXCEEDED_IDLETIME_BACKGROUND );
 
+        // VERIFY
         assertFalse( "Item should not have expired.", result );
     }
 
     public void testSimpleShrink_1_oe()
         throws Exception
     {
+        // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
         cacheAttr.setCacheName("testRegion");
         cacheAttr.setMemoryCacheName("org.apache.commons.jcs3.engine.memory.MockMemoryCache");
@@ -221,6 +238,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
     public void testSimpleShrink_2_oe()
         throws Exception
     {
+        // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
         cacheAttr.setCacheName("testRegion");
         cacheAttr.setMemoryCacheName("org.apache.commons.jcs3.engine.memory.MockMemoryCache");
@@ -242,14 +260,18 @@ public class ShrinkerThreadUnitTest_OE25Dev
         memory.update( element );
 
         final ICacheElement<String, String> returnedElement1 = memory.get( key );
+        // removed other assertion
 
+        // set this to 2 seconds ago.
         ElementAttributesUtils.setLastAccessTime( elementAttr,  System.currentTimeMillis() - 2000 );
 
+        // DO WORK
         final ShrinkerThread<String, String> shrinker = new ShrinkerThread<>( cache );
         shrinker.run();
 
         Thread.sleep( 500 );
 
+        // VERIFY
         final ICacheElement<String, String> returnedElement2 = memory.get( key );
         assertTrue( "Waterfall should have been called.", memory.waterfallCallCount > 0 );
     }
@@ -257,6 +279,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
     public void testSimpleShrink_3_oe()
         throws Exception
     {
+        // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
         cacheAttr.setCacheName("testRegion");
         cacheAttr.setMemoryCacheName("org.apache.commons.jcs3.engine.memory.MockMemoryCache");
@@ -278,21 +301,27 @@ public class ShrinkerThreadUnitTest_OE25Dev
         memory.update( element );
 
         final ICacheElement<String, String> returnedElement1 = memory.get( key );
+        // removed other assertion
 
+        // set this to 2 seconds ago.
         ElementAttributesUtils.setLastAccessTime( elementAttr,  System.currentTimeMillis() - 2000 );
 
+        // DO WORK
         final ShrinkerThread<String, String> shrinker = new ShrinkerThread<>( cache );
         shrinker.run();
 
         Thread.sleep( 500 );
 
+        // VERIFY
         final ICacheElement<String, String> returnedElement2 = memory.get( key );
+        // removed other assertion
         assertNull( "We not should have received an element.  It should have been spooled.", returnedElement2 );
     }
 
     public void testSimpleShrinkMultiple_1_oe()
         throws Exception
     {
+        // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
         cacheAttr.setCacheName("testRegion");
         cacheAttr.setMemoryCacheName("org.apache.commons.jcs3.engine.memory.MockMemoryCache");
@@ -323,6 +352,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
     public void testSimpleShrinkMultiple_2_oe()
         throws Exception
     {
+        // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
         cacheAttr.setCacheName("testRegion");
         cacheAttr.setMemoryCacheName("org.apache.commons.jcs3.engine.memory.MockMemoryCache");
@@ -346,13 +376,17 @@ public class ShrinkerThreadUnitTest_OE25Dev
             memory.update( element );
 
             final ICacheElement<String, String> returnedElement1 = memory.get( key );
+            // removed other assertion
 
+            // set this to 2 seconds ago.
             ElementAttributesUtils.setLastAccessTime( elementAttr,  System.currentTimeMillis() - 2000 );
         }
 
+        // DO WORK
         final ShrinkerThread<String, String> shrinker = new ShrinkerThread<>( cache );
         shrinker.run();
 
+        // VERIFY
         Thread.sleep( 500 );
         assertEquals( "Waterfall called the wrong number of times.", 3, memory.waterfallCallCount );
     }
@@ -360,6 +394,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
     public void testSimpleShrinkMultiple_3_oe()
         throws Exception
     {
+        // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
         cacheAttr.setCacheName("testRegion");
         cacheAttr.setMemoryCacheName("org.apache.commons.jcs3.engine.memory.MockMemoryCache");
@@ -383,20 +418,26 @@ public class ShrinkerThreadUnitTest_OE25Dev
             memory.update( element );
 
             final ICacheElement<String, String> returnedElement1 = memory.get( key );
+            // removed other assertion
 
+            // set this to 2 seconds ago.
             ElementAttributesUtils.setLastAccessTime( elementAttr,  System.currentTimeMillis() - 2000 );
         }
 
+        // DO WORK
         final ShrinkerThread<String, String> shrinker = new ShrinkerThread<>( cache );
         shrinker.run();
 
+        // VERIFY
         Thread.sleep( 500 );
+        // removed other assertion
         assertEquals( "Wrong number of elements remain.", 7, memory.getSize() );
     }
 
     public void testSimpleShrinkMultipleWithEventHandler_1_oe()
         throws Exception
     {
+        // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
         cacheAttr.setCacheName("testRegion");
         cacheAttr.setMemoryCacheName("org.apache.commons.jcs3.engine.memory.MockMemoryCache");
@@ -430,6 +471,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
     public void testSimpleShrinkMultipleWithEventHandler_2_oe()
         throws Exception
     {
+        // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
         cacheAttr.setCacheName("testRegion");
         cacheAttr.setMemoryCacheName("org.apache.commons.jcs3.engine.memory.MockMemoryCache");
@@ -456,13 +498,17 @@ public class ShrinkerThreadUnitTest_OE25Dev
             memory.update( element );
 
             final ICacheElement<String, String> returnedElement1 = memory.get( key );
+            // removed other assertion
 
+            // set this to 2 seconds ago.
             ElementAttributesUtils.setLastAccessTime( elementAttr,  System.currentTimeMillis() - 2000 );
         }
 
+        // DO WORK
         final ShrinkerThread<String, String> shrinker = new ShrinkerThread<>( cache );
         shrinker.run();
 
+        // VERIFY
         Thread.sleep( 500 );
         assertEquals( "Waterfall called the wrong number of times.", 3, memory.waterfallCallCount );
     }
@@ -470,6 +516,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
     public void testSimpleShrinkMultipleWithEventHandler_3_oe()
         throws Exception
     {
+        // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
         cacheAttr.setCacheName("testRegion");
         cacheAttr.setMemoryCacheName("org.apache.commons.jcs3.engine.memory.MockMemoryCache");
@@ -496,14 +543,22 @@ public class ShrinkerThreadUnitTest_OE25Dev
             memory.update( element );
 
             final ICacheElement<String, String> returnedElement1 = memory.get( key );
+            // removed other assertion
 
+            // set this to 2 seconds ago.
             ElementAttributesUtils.setLastAccessTime( elementAttr,  System.currentTimeMillis() - 2000 );
         }
 
+        // DO WORK
         final ShrinkerThread<String, String> shrinker = new ShrinkerThread<>( cache );
         shrinker.run();
 
+        // VERIFY
         Thread.sleep( 500 );
+        // removed other assertion
+        // the shrinker delegates the the composite cache on the memory cache to put the
+        // event on the queue.  This make it hard to test.  TODO we need to change this to make it easier to verify.
+        //assertEquals( "Event handler ExceededIdleTimeBackground called the wrong number of times.", 3, handler.getExceededIdleTimeBackgroundCount() );
         assertEquals( "Wrong number of elements remain.", 7, memory.getSize() );
     }
 

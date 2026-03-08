@@ -53,6 +53,7 @@ public class TiffRoundtripTest_OE25Dev extends TiffBaseTest {
             Debug.debug("imageFile", imageFile);
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            // removed other assertion
 
             final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
             assertNotNull(imageInfo);
@@ -67,8 +68,10 @@ public class TiffRoundtripTest_OE25Dev extends TiffBaseTest {
             Debug.debug("imageFile", imageFile);
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            // removed other assertion
 
             final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+            // removed other assertion
 
             final BufferedImage image = Imaging.getBufferedImage(imageFile);
             assertNotNull(image);
@@ -83,10 +86,13 @@ public class TiffRoundtripTest_OE25Dev extends TiffBaseTest {
             Debug.debug("imageFile", imageFile);
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            // removed other assertion
 
             final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+            // removed other assertion
 
             final BufferedImage image = Imaging.getBufferedImage(imageFile);
+            // removed other assertion
 
             final int[] compressions = new int[]{
                     TiffConstants.TIFF_COMPRESSION_UNCOMPRESSED,

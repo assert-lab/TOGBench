@@ -27,6 +27,9 @@ class TrigammaTest_OE25Dev {
     @Test
     void testTrigamma_1_oe() {
         final double eps = 1e-9; // Allowed relative error.
+        // computed using webMathematica.  For example, to compute trigamma($i) = Polygamma(1, $i), use
+        //
+        // http://functions.wolfram.com/webMathematica/Evaluated.jsp?name=PolyGamma2&plottype=0&vars={%221%22,%22$i%22}&digits=20
         final double[] data = {
             -98765.4321, 10.332673372988805424,
             -100.5, 9.8597034918700861520,
@@ -87,11 +90,14 @@ class TrigammaTest_OE25Dev {
 
     @Test
     void testTrigammaNonRealArgs_2_oe() {
+        // removed other assertion
         Assertions.assertTrue(Double.isInfinite(Trigamma.value(Double.POSITIVE_INFINITY)));
     }
 
     @Test
     void testTrigammaNonRealArgs_3_oe() {
+        // removed other assertion
+        // removed other assertion
         Assertions.assertTrue(Double.isInfinite(Trigamma.value(Double.NEGATIVE_INFINITY)));
     }
 

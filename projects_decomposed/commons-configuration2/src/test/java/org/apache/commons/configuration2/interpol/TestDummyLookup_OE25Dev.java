@@ -36,6 +36,7 @@ public class TestDummyLookup_OE25Dev {
 
     @Test
     public void testLookup_2_oe() {
+        // removed other assertion
         assertNull("Got a result (2)", DummyLookup.INSTANCE.lookup(null));
     }
 

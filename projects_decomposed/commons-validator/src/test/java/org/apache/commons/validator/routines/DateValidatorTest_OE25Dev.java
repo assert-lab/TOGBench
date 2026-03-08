@@ -71,6 +71,7 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
     public void testLocaleProviders_2_oe() throws Exception {
         String localeProviders = System.getProperty("java.locale.providers");
         if (localeProviders != null) { // may be null before Java 9
+            // removed other assertion
         }
         String txt = "3/20/15 10:59:00 PM";  // This relies on the locale format prior to Java 9 to parse correctly
         DateFormat dateformat= DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM, Locale.US); 
@@ -106,6 +107,7 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
         assertEquals("validate(A) locale ", expected, DateValidator.getInstance().validate(localeVal, locale));
     }
 
@@ -121,6 +123,8 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(A) pattern", expected, DateValidator.getInstance().validate(patternVal, pattern));
     }
 
@@ -136,6 +140,9 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(A) both",    expected, DateValidator.getInstance().validate(germanVal, germanPattern, Locale.GERMAN));
     }
 
@@ -151,6 +158,10 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue("isValid(A) default", DateValidator.getInstance().isValid(defaultVal));
     }
@@ -167,7 +178,12 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue("isValid(A) locale ", DateValidator.getInstance().isValid(localeVal, locale));
     }
 
@@ -183,7 +199,13 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid(A) pattern", DateValidator.getInstance().isValid(patternVal, pattern));
     }
 
@@ -199,7 +221,14 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid(A) both",    DateValidator.getInstance().isValid(germanVal, germanPattern, Locale.GERMAN));
     }
 
@@ -215,7 +244,15 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertNull("validate(B) default", DateValidator.getInstance().validate(XXXX));
     }
@@ -232,8 +269,17 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertNull("validate(B) locale ", DateValidator.getInstance().validate(XXXX, locale));
     }
 
@@ -249,8 +295,18 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertNull("validate(B) pattern", DateValidator.getInstance().validate(XXXX, pattern));
     }
 
@@ -266,8 +322,19 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("validate(B) both",    DateValidator.getInstance().validate("31 Dec 2005", germanPattern, Locale.GERMAN));
     }
 
@@ -283,8 +350,20 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertFalse("isValid(B) default", DateValidator.getInstance().isValid(XXXX));
     }
@@ -301,9 +380,22 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertFalse("isValid(B) locale ", DateValidator.getInstance().isValid(XXXX, locale));
     }
 
@@ -319,9 +411,23 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid(B) pattern", DateValidator.getInstance().isValid(XXXX, pattern));
     }
 
@@ -337,9 +443,24 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValid(B) both",    DateValidator.getInstance().isValid("31 Dec 2005", germanPattern, Locale.GERMAN));
     }
 
@@ -355,10 +476,27 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test Time Zone
         TimeZone zone = (TimeZone.getDefault().getRawOffset() == EET.getRawOffset() ? EST : EET); 
         Date expectedZone = createCalendar(zone, 20051231, 0).getTime();
         assertFalse("default/zone same "+zone, expected.getTime() == expectedZone.getTime());
@@ -376,12 +514,30 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test Time Zone
         TimeZone zone = (TimeZone.getDefault().getRawOffset() == EET.getRawOffset() ? EST : EET); 
         Date expectedZone = createCalendar(zone, 20051231, 0).getTime();
+        // removed other assertion
 
         assertEquals("validate(C) default", expectedZone, DateValidator.getInstance().validate(defaultVal, zone));
     }
@@ -398,13 +554,32 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test Time Zone
         TimeZone zone = (TimeZone.getDefault().getRawOffset() == EET.getRawOffset() ? EST : EET); 
         Date expectedZone = createCalendar(zone, 20051231, 0).getTime();
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("validate(C) locale ", expectedZone, DateValidator.getInstance().validate(localeVal, locale, zone));
     }
 
@@ -420,13 +595,33 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test Time Zone
         TimeZone zone = (TimeZone.getDefault().getRawOffset() == EET.getRawOffset() ? EST : EET); 
         Date expectedZone = createCalendar(zone, 20051231, 0).getTime();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(C) pattern", expectedZone, DateValidator.getInstance().validate(patternVal, pattern, zone));
     }
 
@@ -442,13 +637,34 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         String XXXX    = "XXXX"; 
         Date expected = createCalendar(null, 20051231, 0).getTime();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // Test Time Zone
         TimeZone zone = (TimeZone.getDefault().getRawOffset() == EET.getRawOffset() ? EST : EET); 
         Date expectedZone = createCalendar(zone, 20051231, 0).getTime();
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate(C) both",    expectedZone, DateValidator.getInstance().validate(germanVal, germanPattern, Locale.GERMAN, zone));
     }
 
@@ -507,6 +723,7 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
         assertEquals("date EQ",0,dateValidator.compareDates(value,diffHour,GMT));// same day,diff hour;
     }
 
@@ -536,6 +753,8 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("date GT",1,dateValidator.compareDates(value,date20050822,GMT));// -1 day;
     }
 
@@ -565,6 +784,9 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("week LT",-1,dateValidator.compareWeeks(value,date20050830,GMT));// +1 week;
     }
 
@@ -594,6 +816,10 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("week =1",0,dateValidator.compareWeeks(value,date20050824,GMT));// +1 day;
     }
 
@@ -623,6 +849,11 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("week =2",0,dateValidator.compareWeeks(value,date20050822,GMT));// same week;
     }
 
@@ -652,6 +883,12 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("week =3",0,dateValidator.compareWeeks(value,date20050822,GMT));// -1 day;
     }
 
@@ -681,6 +918,13 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("week GT",1,dateValidator.compareWeeks(value,date20050816,GMT));// -1 week;
     }
 
@@ -710,6 +954,14 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("mnth LT",-1,dateValidator.compareMonths(value,date20050901,GMT));// +1 month;
     }
 
@@ -739,6 +991,15 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("mnth =1",0,dateValidator.compareMonths(value,date20050830,GMT));// +1 week;
     }
 
@@ -768,6 +1029,16 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("mnth =2",0,dateValidator.compareMonths(value,date20050801,GMT));// same month;
     }
 
@@ -797,6 +1068,17 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("mnth =3",0,dateValidator.compareMonths(value,date20050816,GMT));// -1 week;
     }
 
@@ -826,6 +1108,18 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("mnth GT",1,dateValidator.compareMonths(value,date20050731,GMT));// -1 month;
     }
 
@@ -855,6 +1149,19 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("qtrA <1",-1,dateValidator.compareQuarters(value,date20051101,GMT));// +1 quarter(Feb);
     }
 
@@ -884,6 +1191,20 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("qtrA <2",-1,dateValidator.compareQuarters(value,date20051001,GMT));// +1 quarter;
     }
 
@@ -913,6 +1234,21 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("qtrA =1",0,dateValidator.compareQuarters(value,date20050901,GMT));// +1 month;
     }
 
@@ -942,6 +1278,22 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("qtrA =2",0,dateValidator.compareQuarters(value,date20050701,GMT));// same quarter;
     }
 
@@ -971,6 +1323,23 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("qtrA =3",0,dateValidator.compareQuarters(value,date20050731,GMT));// -1 month;
     }
 
@@ -1000,6 +1369,24 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("qtrA GT",1,dateValidator.compareQuarters(value,date20050630,GMT));// -1 quarter;
     }
 
@@ -1029,6 +1416,25 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("qtrB LT",-1,dateValidator.compareQuarters(value,date20051101,GMT,2));// +1 quarter(Feb);
     }
 
@@ -1058,6 +1464,26 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("qtrB =1",0,dateValidator.compareQuarters(value,date20051001,GMT,2));// same quarter;
     }
 
@@ -1087,6 +1513,27 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("qtrB =2",0,dateValidator.compareQuarters(value,date20050901,GMT,2));// +1 month;
     }
 
@@ -1116,6 +1563,28 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("qtrB =3",1,dateValidator.compareQuarters(value,date20050701,GMT,2));// same quarter;
     }
 
@@ -1145,6 +1614,29 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("qtrB =4",1,dateValidator.compareQuarters(value,date20050731,GMT,2));// -1 month;
     }
 
@@ -1174,6 +1666,30 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("qtrB GT",1,dateValidator.compareQuarters(value,date20050630,GMT,2));// -1 quarter;
     }
 
@@ -1203,6 +1719,31 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("qtrB prev",1,dateValidator.compareQuarters(value,date20050110,GMT,2));// Jan Prev year qtr;
     }
 
@@ -1232,6 +1773,32 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("year LT",-1,dateValidator.compareYears(value,date20060101,GMT));// +1 year;
     }
 
@@ -1261,6 +1828,33 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("year EQ",0,dateValidator.compareYears(value,date20050101,GMT));// same year;
     }
 
@@ -1290,6 +1884,34 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("year GT",1,dateValidator.compareYears(value,date20041231,GMT));// -1 year;
     }
 
@@ -1319,6 +1941,35 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Date sameDayTwoAm = createDate(GMT,testDate,20000);
         assertEquals("date LT", -1, dateValidator.compareDates(value, date20050824, EST)); // +1 day;
     }
@@ -1349,7 +2000,37 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Date sameDayTwoAm = createDate(GMT,testDate,20000);
+        // removed other assertion
         assertEquals("date EQ", 0,  dateValidator.compareDates(value, diffHour, EST));    // same day, diff hour;
     }
 
@@ -1379,7 +2060,38 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Date sameDayTwoAm = createDate(GMT,testDate,20000);
+        // removed other assertion
+        // removed other assertion
         assertEquals("date EQ", 1,  dateValidator.compareDates(value, sameDayTwoAm, EST));    // same day, diff hour;
     }
 
@@ -1409,7 +2121,39 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Date sameDayTwoAm = createDate(GMT,testDate,20000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("date GT", 1,  dateValidator.compareDates(value, date20050822, EST)); // -1 day;
     }
 

@@ -67,6 +67,7 @@ class CollectionSamplerTest_OE25Dev {
 
     @Test
     void testSamplePrecondition_1_oe() {
+        // Must fail for empty collection.
         try {
     new CollectionSampler<>(RandomSource.SPLIT_MIX_64.create(0L), new ArrayList<>());
     fail("IllegalArgumentException");

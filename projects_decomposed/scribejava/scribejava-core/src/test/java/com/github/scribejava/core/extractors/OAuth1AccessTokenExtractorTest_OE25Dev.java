@@ -90,6 +90,7 @@ public class OAuth1AccessTokenExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             extracted = extractor.extract(response);
         }
+        // removed other assertion
         assertEquals("hdhd0244k9j7ao03", extracted.getTokenSecret());
     }
 
@@ -110,6 +111,7 @@ public class OAuth1AccessTokenExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             extracted = extractor.extract(response);
         }
+        // removed other assertion
         assertEquals("hdhd0244k9j7ao03", extracted.getToken());
     }
 
@@ -132,6 +134,7 @@ public class OAuth1AccessTokenExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             extracted = extractor.extract(response);
         }
+        // removed other assertion
         assertEquals("hdhd0244k9j7ao03", extracted.getTokenSecret());
     }
 
@@ -152,6 +155,7 @@ public class OAuth1AccessTokenExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             extracted = extractor.extract(response);
         }
+        // removed other assertion
         assertEquals("", extracted.getTokenSecret());
     }
 

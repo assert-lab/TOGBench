@@ -389,6 +389,7 @@ public class TestBeanHelper_OE25Dev {
         src.setFooter("TestFooter");
         final LazyDynaBean dest = new LazyDynaBean();
         BeanHelper.copyProperties(dest, src);
+        // removed other assertion
         assertEquals("Wrong header property", "TestHeader", dest.get("header"));
     }
 
@@ -411,6 +412,7 @@ public class TestBeanHelper_OE25Dev {
         data.setBeanFactoryName(TEST_FACTORY);
         data.setBeanClassName(BeanCreationTestBean.class.getName());
         checkBean((BeanCreationTestBean) helper.createBean(data, null));
+        // removed other assertion
         assertEquals("Factory not called", 1, factory.getCreateBeanCount());
     }
 
@@ -453,6 +455,7 @@ public class TestBeanHelper_OE25Dev {
         data.setBeanFactoryName(TEST_FACTORY);
         data.setBeanClassName(BeanCreationTestBeanWithListChild.class.getName());
         checkBean((BeanCreationTestBeanWithListChild) helper.createBean(data, null));
+        // removed other assertion
         assertEquals("Factory not called", 1, factory.getCreateBeanCount());
     }
 
@@ -518,6 +521,7 @@ public class TestBeanHelper_OE25Dev {
         final BeanDeclarationTestImpl data = new BeanDeclarationTestImpl();
         final BeanCreationTestBean bean = new BeanCreationTestBean();
         helper.initBean(bean, data);
+        // removed other assertion
         assertEquals("Wrong int property", 0, bean.getIntValue());
     }
 
@@ -526,6 +530,8 @@ public class TestBeanHelper_OE25Dev {
         final BeanDeclarationTestImpl data = new BeanDeclarationTestImpl();
         final BeanCreationTestBean bean = new BeanCreationTestBean();
         helper.initBean(bean, data);
+        // removed other assertion
+        // removed other assertion
         assertNull("Buddy was set", bean.getBuddy());
     }
 
@@ -546,6 +552,7 @@ public class TestBeanHelper_OE25Dev {
     @Test
     public void testRegisterBeanFactory_2_oe() {
         helper.registerBeanFactory(TEST_FACTORY, new TestBeanFactory());
+        // removed other assertion
         assertTrue("Test factory is not contained", helper.registeredFactoryNames().contains(TEST_FACTORY));
     }
 

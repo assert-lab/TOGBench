@@ -301,6 +301,11 @@ public class TiffFloatingPointMultivariableTest_OE25Dev extends TiffBaseTest {
 
     @Test
     public void test_1_oe() throws Exception {
+        // we set up the 32 and 64 bit test cases.  At this time,
+        // the Tile format is not supported for floating-point samples by the
+        // TIFF datareaders classes.  So that format is not yet exercised.
+        // Note also that the compressed floating-point with predictor=3
+        // is processed in other tests, but not here.
         List<File>testFiles = new ArrayList<>();
         testFiles.add(writeFile(ByteOrder.LITTLE_ENDIAN, false, false, TiffPlanarConfiguration.CHUNKY));
         testFiles.add(writeFile(ByteOrder.BIG_ENDIAN,    false, false, TiffPlanarConfiguration.CHUNKY));
@@ -311,6 +316,11 @@ public class TiffFloatingPointMultivariableTest_OE25Dev extends TiffBaseTest {
         testFiles.add(writeFile(ByteOrder.LITTLE_ENDIAN, true, false, TiffPlanarConfiguration.PLANAR));
         testFiles.add(writeFile(ByteOrder.BIG_ENDIAN,    true, false, TiffPlanarConfiguration.PLANAR));
 
+        // To exercise the horizontal-differencing-predictor logic, we include a writer that will
+        // reorganize the bytes into the form used by the floating-pont horizontal predictor.
+        // This test does not apply data compression, but it does apply the predictor.
+        // Note that although the TIFF predictor does not require big-endian formats, per se,
+        // the test logic implemented here does.
         testFiles.add(writeFile(ByteOrder.BIG_ENDIAN, true, true, TiffPlanarConfiguration.PLANAR));
 
         for(File testFile : testFiles){
@@ -329,6 +339,11 @@ public class TiffFloatingPointMultivariableTest_OE25Dev extends TiffBaseTest {
 
     @Test
     public void test_2_oe() throws Exception {
+        // we set up the 32 and 64 bit test cases.  At this time,
+        // the Tile format is not supported for floating-point samples by the
+        // TIFF datareaders classes.  So that format is not yet exercised.
+        // Note also that the compressed floating-point with predictor=3
+        // is processed in other tests, but not here.
         List<File>testFiles = new ArrayList<>();
         testFiles.add(writeFile(ByteOrder.LITTLE_ENDIAN, false, false, TiffPlanarConfiguration.CHUNKY));
         testFiles.add(writeFile(ByteOrder.BIG_ENDIAN,    false, false, TiffPlanarConfiguration.CHUNKY));
@@ -339,6 +354,11 @@ public class TiffFloatingPointMultivariableTest_OE25Dev extends TiffBaseTest {
         testFiles.add(writeFile(ByteOrder.LITTLE_ENDIAN, true, false, TiffPlanarConfiguration.PLANAR));
         testFiles.add(writeFile(ByteOrder.BIG_ENDIAN,    true, false, TiffPlanarConfiguration.PLANAR));
 
+        // To exercise the horizontal-differencing-predictor logic, we include a writer that will
+        // reorganize the bytes into the form used by the floating-pont horizontal predictor.
+        // This test does not apply data compression, but it does apply the predictor.
+        // Note that although the TIFF predictor does not require big-endian formats, per se,
+        // the test logic implemented here does.
         testFiles.add(writeFile(ByteOrder.BIG_ENDIAN, true, true, TiffPlanarConfiguration.PLANAR));
 
         for(File testFile : testFiles){
@@ -351,12 +371,18 @@ public class TiffFloatingPointMultivariableTest_OE25Dev extends TiffBaseTest {
                 FormatCompliance.getDefault());
             final TiffDirectory directory = contents.directories.get(0);
             final TiffRasterData raster = directory.getRasterData(new TiffImagingParameters());
+            // removed other assertion
             assertEquals(2, raster.getSamplesPerPixel(), "Invalid samples per pixel in " + name);
     }
     }
 
     @Test
     public void test_3_oe() throws Exception {
+        // we set up the 32 and 64 bit test cases.  At this time,
+        // the Tile format is not supported for floating-point samples by the
+        // TIFF datareaders classes.  So that format is not yet exercised.
+        // Note also that the compressed floating-point with predictor=3
+        // is processed in other tests, but not here.
         List<File>testFiles = new ArrayList<>();
         testFiles.add(writeFile(ByteOrder.LITTLE_ENDIAN, false, false, TiffPlanarConfiguration.CHUNKY));
         testFiles.add(writeFile(ByteOrder.BIG_ENDIAN,    false, false, TiffPlanarConfiguration.CHUNKY));
@@ -367,6 +393,11 @@ public class TiffFloatingPointMultivariableTest_OE25Dev extends TiffBaseTest {
         testFiles.add(writeFile(ByteOrder.LITTLE_ENDIAN, true, false, TiffPlanarConfiguration.PLANAR));
         testFiles.add(writeFile(ByteOrder.BIG_ENDIAN,    true, false, TiffPlanarConfiguration.PLANAR));
 
+        // To exercise the horizontal-differencing-predictor logic, we include a writer that will
+        // reorganize the bytes into the form used by the floating-pont horizontal predictor.
+        // This test does not apply data compression, but it does apply the predictor.
+        // Note that although the TIFF predictor does not require big-endian formats, per se,
+        // the test logic implemented here does.
         testFiles.add(writeFile(ByteOrder.BIG_ENDIAN, true, true, TiffPlanarConfiguration.PLANAR));
 
         for(File testFile : testFiles){
@@ -379,6 +410,8 @@ public class TiffFloatingPointMultivariableTest_OE25Dev extends TiffBaseTest {
                 FormatCompliance.getDefault());
             final TiffDirectory directory = contents.directories.get(0);
             final TiffRasterData raster = directory.getRasterData(new TiffImagingParameters());
+            // removed other assertion
+            // removed other assertion
             for(int iPlane = 0; iPlane<2; iPlane++){
                 int pOffset = iPlane*width*height;
                 for(int iRow=0; iRow<height; iRow++){

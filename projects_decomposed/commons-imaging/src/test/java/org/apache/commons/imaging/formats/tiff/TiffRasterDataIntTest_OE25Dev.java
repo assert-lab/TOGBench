@@ -139,6 +139,7 @@ public class TiffRasterDataIntTest_OE25Dev {
                 final int index = y * width + height;
                 instance.setValue(x, y, index+0.4f);
                 int test = (int) instance.getValue(x, y);
+                // removed other assertion
                 instance.setIntValue(x, y, index);
                 test = instance.getIntValue(x, y);
                 assertEquals(index, test, "Set/get int value test failed");
@@ -163,6 +164,7 @@ public class TiffRasterDataIntTest_OE25Dev {
             for (int x = 0; x < width; x++) {
                 final int index = y * width + x;
                 int test = (int) raster.getValue(x, y);
+                // removed other assertion
                 test = raster.getIntValue(x, y);
                 assertEquals(index, test, "Get into source data test failed at (" + x + "," + y + ")");
     }
@@ -190,6 +192,7 @@ public class TiffRasterDataIntTest_OE25Dev {
                 final int index = y * width + height;
                 instance.setValue(x, y, 1, index+0.4f);
                 int test = (int) instance.getValue(x, y, 1);
+                // removed other assertion
                 instance.setIntValue(x, y, 1, index);
                 test = instance.getIntValue(x, y, 1);
                 assertEquals(index, test, "Set/get int value test failed");
@@ -212,6 +215,7 @@ public class TiffRasterDataIntTest_OE25Dev {
         data[width*height] = 77;
         TiffRasterDataInt instance = new TiffRasterDataInt(width, height, 2, data);
         int test = instance.getIntValue(0, 0, 1);
+        // removed other assertion
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -228,11 +232,13 @@ public class TiffRasterDataIntTest_OE25Dev {
         data[width*height] = 77;
         TiffRasterDataInt instance = new TiffRasterDataInt(width, height, 2, data);
         int test = instance.getIntValue(0, 0, 1);
+        // removed other assertion
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 final int index = y * width + x;
                 test = (int) raster.getValue(x, y, 0);
+                // removed other assertion
                 test = raster.getIntValue(x, y, 0);
                 assertEquals(index, test, "Get into source data test failed at (" + x + "," + y + ")");
     }
@@ -250,6 +256,7 @@ public class TiffRasterDataIntTest_OE25Dev {
     public void testGetSimpleStatistics_0args_2_oe() {
 
         final TiffRasterStatistics result = raster.getSimpleStatistics();
+        // removed other assertion
         assertEquals(width * height - 1, result.getMaxValue(), "Max value failure");
     }
 
@@ -257,11 +264,15 @@ public class TiffRasterDataIntTest_OE25Dev {
     public void testGetSimpleStatistics_0args_3_oe() {
 
         final TiffRasterStatistics result = raster.getSimpleStatistics();
+        // removed other assertion
+        // removed other assertion
         assertEquals(meanValue, result.getMeanValue(), "Mean value failure");
     }
 
     @Test
     public void testGetSimpleStatistics_float_1_oe() {
+        // exclude the maximum value (width*height-1).  This will result
+        // in a max value of width*height-2
         final TiffRasterStatistics result = raster.getSimpleStatistics(width * height - 1);
         assertEquals(width * height - 2, result.getMaxValue(), "Max value failure");
     }
@@ -288,6 +299,7 @@ public class TiffRasterDataIntTest_OE25Dev {
     public void testGetData_2_oe() {
         final float[] result = raster.getData();
         for(int i=0; i<result.length; i++){
+            // removed other assertion
         }
         final int []iResult = raster.getIntData();
         assertArrayEquals(data, iResult);
@@ -310,6 +322,7 @@ public class TiffRasterDataIntTest_OE25Dev {
 
     @Test
     public void testBadConstructor_2_oe() throws Exception {
+        // removed other assertion
         try {
     new TiffRasterDataInt(10, -1);
     fail("IllegalArgumentException: Constructor did not detect bad height");
@@ -319,6 +332,8 @@ public class TiffRasterDataIntTest_OE25Dev {
 
     @Test
     public void testBadConstructor_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
         try {
     new TiffRasterDataInt(1, 1, 0);
     fail("IllegalArgumentException: Constructor did not detect bad samplesPerPixel");
@@ -328,6 +343,9 @@ public class TiffRasterDataIntTest_OE25Dev {
 
     @Test
     public void testBadConstructor_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final int []s = new int[10];
         try {
@@ -339,8 +357,12 @@ public class TiffRasterDataIntTest_OE25Dev {
 
     @Test
     public void testBadConstructor_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final int []s = new int[10];
+        // removed other assertion
         try {
     new TiffRasterDataInt(2, 3, 2, s);
     fail("IllegalArgumentException: Constructor did not detect insufficient input array size");

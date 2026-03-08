@@ -54,6 +54,7 @@ public class CustomValidatorResourcesTest_OE25Dev extends TestCase {
      */
 
     public void testCustomResources_1_oe() {
+        // Load resources
         InputStream in = null;
         try {
             in = this.getClass().getResourceAsStream("TestNumber-config.xml");

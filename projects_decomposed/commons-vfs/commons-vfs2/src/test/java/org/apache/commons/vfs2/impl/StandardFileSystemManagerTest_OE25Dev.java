@@ -53,6 +53,7 @@ public class StandardFileSystemManagerTest_OE25Dev {
             VFS.setManager(fileSystemManager);
             VFS.setManager(null);
         }
+        // removed other assertion
         Assert.assertFalse(VFS.getManager().resolveFile(Paths.get("DoesNotExist.not").toUri()).exists());
     }
 

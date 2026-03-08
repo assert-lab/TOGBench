@@ -210,6 +210,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         defParams.setSystemID("someSysID");
         params.setDefinitionBuilderParameters(defParams);
         final CombinedBuilderParametersImpl clone = params.clone();
+        // removed other assertion
         assertNotSame("Parameters object not cloned", params.getDefinitionBuilderParameters(), clone.getDefinitionBuilderParameters());
     }
 
@@ -221,6 +222,8 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         defParams.setSystemID("someSysID");
         params.setDefinitionBuilderParameters(defParams);
         final CombinedBuilderParametersImpl clone = params.clone();
+        // removed other assertion
+        // removed other assertion
         assertEquals("Wrong field value in parameters object",params.getDefinitionBuilderParameters().getParameters().get("systemID"),clone.getDefinitionBuilderParameters().getParameters().get("systemID"));
     }
 
@@ -233,6 +236,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
     @Test
     public void testFromParametersCreate_2_oe() {
         final CombinedBuilderParametersImpl params = CombinedBuilderParametersImpl.fromParameters(new HashMap<>(), true);
+        // removed other assertion
         assertNull("Got data", params.getDefinitionBuilder());
     }
 
@@ -297,6 +301,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
 
         params2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = params2.getParameters();
+        // removed other assertion
         assertEquals("Default manager not set", manager, params2.getChildDefaultParametersManager());
     }
 
@@ -309,6 +314,8 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
 
         params2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = params2.getParameters();
+        // removed other assertion
+        // removed other assertion
         assertFalse("Inherit flag not set", params2.isInheritSettings());
     }
 
@@ -375,6 +382,8 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         final Map<String, ConfigurationBuilderProvider> map = new HashMap<>();
         map.put(tagPrefix, provider2);
         map.put(tagPrefix + 1, provider3);
+        // removed other assertion
+        // removed other assertion
         assertSame("Wrong provider (1)", provider1, params.providerForTag(tagPrefix));
     }
 
@@ -403,6 +412,8 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         params.registerProvider(tagPrefix, provider1);
         params2.registerProvider(tagPrefix, provider2);
         params2.registerProvider(tagPrefix + 1, provider3);
+        // removed other assertion
+        // removed other assertion
         assertSame("Wrong provider (1)", provider1, params.providerForTag(tagPrefix));
     }
 
@@ -441,6 +452,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         BeanHelper.setProperty(params, "basePath", "testPath");
         BeanHelper.setProperty(params, "definitionBuilderParameters", defparams);
         BeanHelper.setProperty(params, "inheritSettings", false);
+        // removed other assertion
         assertSame("Wrong def parameters", defparams, params.getDefinitionBuilderParameters());
     }
 
@@ -452,6 +464,8 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         BeanHelper.setProperty(params, "basePath", "testPath");
         BeanHelper.setProperty(params, "definitionBuilderParameters", defparams);
         BeanHelper.setProperty(params, "inheritSettings", false);
+        // removed other assertion
+        // removed other assertion
         assertFalse("Wrong inherit flag", params.isInheritSettings());
     }
 
@@ -464,6 +478,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
     @Test
     public void testSetDefinitionBuilder_2_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
+        // removed other assertion
         final ConfigurationBuilder<XMLConfiguration> builder = new BasicConfigurationBuilder<>(XMLConfiguration.class);
         assertSame("Wrong result", params, params.setDefinitionBuilder(builder));
     }
@@ -485,6 +500,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
     @Test
     public void testSetInheritSettings_2_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
+        // removed other assertion
         assertSame("Wrong result", params, params.setInheritSettings(false));
     }
 

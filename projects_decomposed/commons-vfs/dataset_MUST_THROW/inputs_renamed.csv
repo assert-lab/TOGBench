@@ -1,0 +1,269 @@
+id,test_prefix,test_name
+commons-vfs_11_101,"@Test
+    public void testRandomSetLength_oe_101_oe() throws Exception {
+        try (FileObject file = this.createScratchFolder().resolveFile(""random_write.txt"")) {
+            file.createFile();
+            final String fileString = file.toString();
+            final RandomAccessContent ra = file.getContent().getRandomAccessContent(RandomAccessMode.READWRITE);
+
+            // Write long string
+            ra.writeBytes(TEST_DATA);
+
+            // Shrink to length 1
+            ra.setLength(1);
+            // now read 1
+            ra.seek(0);
+
+            try {
+                ra.readByte();
+                Assert.fail(""Expected "" + Exception.class.getName());
+            } catch (final IOException e) {
+                // Expected
+            }
+
+            // Grow to length 2
+            ra.setLength(2);
+            // We have an undefined extra byte
+            ra.seek(1);
+            ra.readByte();
+
+        }
+    }
+",ProviderRandomSetLengthTests::testRandomSetLength_oe_101_oe
+commons-vfs_14_101,"@Test
+    public void testDotJarFolderNameLayer_oe_101_oe() throws Exception {
+        try {
+            final FileObject ignored = getManager().createFileSystem(folder);
+            fail(""Should not be able to create a layered filesystem on a directory. "" + ignored);
+        } catch (final FileSystemException e) {
+        }
+    }
+",ProviderReadTests::testDotJarFolderNameLayer_oe_101_oe
+commons-vfs_16_101,"@Test
+    public void testFolderContent_oe_101_oe() throws Exception {
+        try {
+            folder.getContent().getInputStream();
+            fail();
+        } catch (final FileSystemException e) {
+        }
+    }
+",ProviderReadTests::testFolderContent_oe_101_oe
+commons-vfs_34_101,"@Test
+    public void testChildren_oe_101_oe() throws FileSystemException {
+        try {
+            file.getChildren();
+            fail();
+        } catch (final FileSystemException e) {
+        }
+    }
+",ContentTests::testChildren_oe_101_oe
+commons-vfs_34_102,"@Test
+    public void testChildren_oe_102_oe() throws FileSystemException {
+        try {
+            file.getChildren();
+            fail();
+        } catch (final FileSystemException e) {
+        }
+    }
+",ContentTests::testChildren_oe_102_oe
+commons-vfs_48_101,"@Test
+    public void testUnknownContent_oe_101_oe() throws Exception {
+        try {
+            content.getInputStream();
+            fail();
+        } catch (final FileSystemException e) {
+        }
+    }
+",ContentTests::testUnknownContent_oe_101_oe
+commons-vfs_48_102,"@Test
+    public void testUnknownContent_oe_102_oe() throws Exception {
+        try {
+            content.getSize();
+            fail();
+        } catch (final FileSystemException e) {
+        }
+    }
+",ContentTests::testUnknownContent_oe_102_oe
+commons-vfs_58_101,"@Test
+    public void testRelativeUriEncoding_oe_101_oe() throws Exception {
+        try {
+            getManager().resolveFile(""%"");
+            fail();
+        } catch (final FileSystemException e) {
+        }
+    }
+",NamingTests::testRelativeUriEncoding_oe_101_oe
+commons-vfs_58_102,"@Test
+    public void testRelativeUriEncoding_oe_102_oe() throws Exception {
+        try {
+            getManager().resolveFile(""%5"");
+            fail();
+        } catch (final FileSystemException e) {
+        }
+    }
+",NamingTests::testRelativeUriEncoding_oe_102_oe
+commons-vfs_58_103,"@Test
+    public void testRelativeUriEncoding_oe_103_oe() throws Exception {
+        try {
+            getManager().resolveFile(""%q"");
+            fail();
+        } catch (final FileSystemException e) {
+        }
+    }
+",NamingTests::testRelativeUriEncoding_oe_103_oe
+commons-vfs_72_101,"@Test
+    public void testFileCreateMismatched_oe_101_oe() throws Exception {
+        try {
+            folder.createFile();
+            fail();
+        } catch (final FileSystemException exc) {
+        }
+    }
+",ProviderWriteTests::testFileCreateMismatched_oe_101_oe
+commons-vfs_72_102,"@Test
+    public void testFileCreateMismatched_oe_102_oe() throws Exception {
+        try {
+            file.createFolder();
+            fail();
+        } catch (final FileSystemException exc) {
+        }
+    }
+",ProviderWriteTests::testFileCreateMismatched_oe_102_oe
+commons-vfs_72_103,"@Test
+    public void testFileCreateMismatched_oe_103_oe() throws Exception {
+        try {
+            folder2.createFolder();
+            fail();
+        } catch (final FileSystemException exc) {
+        }
+    }
+",ProviderWriteTests::testFileCreateMismatched_oe_103_oe
+commons-vfs_82_101,"@Test
+    public void testUnknownURL_oe_101_oe() throws Exception {
+        try {
+            connection.getInputStream();
+            fail();
+        } catch (final IOException e) {
+        }
+    }
+",UrlTests::testUnknownURL_oe_101_oe
+commons-vfs_125_101,"@Test
+    public void testNotFoundOperation_oe_101_oe() throws FileSystemException {
+        try {
+            final FileOperation logop = ops.getOperation(VcsLog.class);
+            fail(""Must throw but returned "" + logop);
+        } catch (final FileSystemException e) {
+        }
+    }
+",BasicOperationsTestCase::testNotFoundOperation_oe_101_oe
+commons-vfs_241_101,"@Test
+    public void testDelegatingBad_oe_101_oe() throws Throwable {
+        try {
+            delgate.setConfigString(opts, ""http"", ""proxyPort"", ""wrong_port"");
+            fail();
+        } catch (final FileSystemException e) {
+        }
+    }
+",DelegatingFileSystemOptionsBuilderTest::testDelegatingBad_oe_101_oe
+commons-vfs_241_102,"@Test
+    public void testDelegatingBad_oe_102_oe() throws Throwable {
+        try {
+            delgate.setConfigClass(opts, ""sftp"", ""userinfo"", String.class);
+            fail();
+        } catch (final FileSystemException e) {
+        }
+    }
+",DelegatingFileSystemOptionsBuilderTest::testDelegatingBad_oe_102_oe
+commons-vfs_265_101,"@Test
+    public void testRootFolderExists_oe_101_oe() throws FileSystemException {
+        try {
+            root.delete();
+            fail();
+        } catch (final FileSystemException e) {
+            // Expected
+        }
+    }
+",CustomRamProviderTest::testRootFolderExists_oe_101_oe
+commons-vfs_267_101,"@Test
+    public void testSmallFS_oe_101_oe() throws Exception {
+        try {
+            final OutputStream os = fo3.getContent().getOutputStream();
+            os.write(new byte[10]);
+            os.close();
+        } catch (final FileSystemException e) {
+            fail(""Test should be able to save such a small file"");
+        }
+    }
+",CustomRamProviderTest::testSmallFS_oe_101_oe
+commons-vfs_267_102,"@Test
+    public void testSmallFS_oe_102_oe() throws Exception {
+        try {
+            final OutputStream os = fo3.getContent().getOutputStream();
+            os.write(new byte[11]);
+            os.close();
+            fail(""It shouldn't save such a big file"");
+        } catch (final FileSystemException e) {
+            // Expected
+        }
+    }
+",CustomRamProviderTest::testSmallFS_oe_102_oe
+commons-vfs_296_101,"@Test
+    public void testWindowsFilenameParserError_oe_101_oe() throws Exception {
+        try {
+            final String FILE = ""file://////"";
+            final DefaultFileSystemManager manager = getManager();
+            final FileObject fo = manager.resolveFile(FILE);
+            fail(""Windows File Parser should not allow "" + FILE + "" "" + fo);
+        } catch (FileSystemException ex) {
+            ex = (FileSystemException) ex.getCause();
+        }
+    }
+",WindowsFileNameTests::testWindowsFilenameParserError_oe_101_oe
+commons-vfs_297_101,"@Test
+    public void testWindowsFilenameUNCStartError_oe_101_oe() throws Exception {
+        try {
+            final String FILE = ""file://///"";
+            final DefaultFileSystemManager manager = getManager();
+            final FileObject fo = manager.resolveFile(FILE);
+            fail(""Windows File Parser should not allow "" + FILE + "" "" + fo);
+        } catch (FileSystemException ex) {
+            ex = (FileSystemException) ex.getCause();
+        }
+    }
+",WindowsFileNameTests::testWindowsFilenameUNCStartError_oe_101_oe
+commons-vfs_299_101,"@Test
+    public void testWindowsWrongRoots_oe_101_oe() throws Exception {
+            try {
+                final DefaultFileSystemManager manager = getManager();
+                final FileName fn = manager.resolveFile(name).getName();
+                fail(""should not accept root "" + name);
+            } catch (final FileSystemException ex) {
+            }
+    }
+",WindowsFileNameTests::testWindowsWrongRoots_oe_101_oe
+commons-vfs_362_101,"private void testBadlyFormedUri_oe_101_oe(final String uri, final String errorMsg) {
+        try {
+            new URLFileNameParser(80).parseUri(null, null, uri);
+            fail();
+        } catch (final FileSystemException e) {
+        }
+    }
+",GenericFileNameTestCase::testBadlyFormedUri_oe_101_oe
+commons-vfs_365_101,"@Test
+    public void testNestedJunction_oe_101_oe() throws Exception {
+        try {
+            fs.addJunction(""/a/b"", baseDir);
+            fail();
+        } catch (final Exception e) {
+        }
+    }
+",JunctionTests::testNestedJunction_oe_101_oe
+commons-vfs_365_102,"@Test
+    public void testNestedJunction_oe_102_oe() throws Exception {
+        try {
+            fs.addJunction(""/a"", baseDir);
+            fail();
+        } catch (final Exception e) {
+        }
+    }
+",JunctionTests::testNestedJunction_oe_102_oe

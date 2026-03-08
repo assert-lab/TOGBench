@@ -35,6 +35,7 @@ public class FilterImplTest_OE25Dev {
             public void handle(Request request, Response response) throws Exception {
             }
         };
+        // removed other assertion
         assertEquals("Should return accept type specified", ACCEPT_TYPE_TEST, filter.getAcceptType());
     }
 
@@ -47,6 +48,7 @@ public class FilterImplTest_OE25Dev {
 @Test
     public void testGets_thenReturnGetPathAndGetAcceptTypeSuccessfully_2_oe() throws Exception {
         filter = FilterImpl.create(PATH_TEST, ACCEPT_TYPE_TEST, null);
+        // removed other assertion
         assertEquals("Should return accept type specified", ACCEPT_TYPE_TEST, filter.getAcceptType());
     }
 
@@ -59,6 +61,7 @@ public class FilterImplTest_OE25Dev {
 @Test
     public void testCreate_whenOutAssignAcceptTypeInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_2_oe(){
         filter = FilterImpl.create(PATH_TEST, null);
+        // removed other assertion
         assertEquals("Should return accept type specified", RouteImpl.DEFAULT_ACCEPT_TYPE, filter.getAcceptType());
     }
 
@@ -71,6 +74,7 @@ public class FilterImplTest_OE25Dev {
 @Test
     public void testCreate_whenAcceptTypeNullValueInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_2_oe(){
         filter = FilterImpl.create(PATH_TEST, null, null);
+        // removed other assertion
         assertEquals("Should return accept type specified", RouteImpl.DEFAULT_ACCEPT_TYPE, filter.getAcceptType());
     }
 

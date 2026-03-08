@@ -84,6 +84,12 @@ public class FilterIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         return makePassThroughFilter(list.iterator());
     }
 
+    public void testRepeatedHasNext() {
+        for (int i = 0; i <= array.length; i++) {
+            assertTrue(iterator.hasNext());
+        }
+    }
+
     @SuppressWarnings("unused")
     public void testRepeatedNext() {
         for (final String element : array) {
@@ -107,11 +113,37 @@ public class FilterIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
      * Test that when the iterator is changed, the hasNext method returns the
      * correct response for the new iterator.
      */
+    @SuppressWarnings("unchecked")
+    public void testSetIterator() {
+        final Iterator<E> iter1 = Collections.singleton((E) new Object()).iterator();
+        final Iterator<E> iter2 = Collections.<E>emptyList().iterator();
+
+        final FilterIterator<E> filterIterator = new FilterIterator<>(iter1);
+        filterIterator.setPredicate(truePredicate());
+        // this iterator has elements
+        assertEquals(true, filterIterator.hasNext());
+
+        // this iterator has no elements
+        filterIterator.setIterator(iter2);
+        assertEquals(false, filterIterator.hasNext());
+    }
 
     /**
      * Test that when the predicate is changed, the hasNext method returns the
      * correct response for the new predicate.
      */
+    public void testSetPredicate() {
+        final Iterator<E> iter = Collections.singleton((E) null).iterator();
+
+        final FilterIterator<E> filterIterator = new FilterIterator<>(iter);
+        filterIterator.setPredicate(truePredicate());
+        // this predicate matches
+        assertEquals(true, filterIterator.hasNext());
+
+        // this predicate doesn't match
+        filterIterator.setPredicate(NotNullPredicate.notNullPredicate());
+        assertEquals(false, filterIterator.hasNext());
+    }
 
     private void verifyNoMoreElements() {
         assertTrue(!iterator.hasNext());

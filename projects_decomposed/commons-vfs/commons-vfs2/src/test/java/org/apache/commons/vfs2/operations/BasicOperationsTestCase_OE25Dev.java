@@ -156,6 +156,7 @@ public class BasicOperationsTestCase_OE25Dev {
     @Test
     public void testLifecycleComp_2_oe() throws FileSystemException {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderComp();
+        // removed other assertion
         manager.addOperationProvider("file", myop);
         assertEquals(7, myop.ops);
     }
@@ -163,7 +164,9 @@ public class BasicOperationsTestCase_OE25Dev {
     @Test
     public void testLifecycleComp_3_oe() throws FileSystemException {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderComp();
+        // removed other assertion
         manager.addOperationProvider("file", myop);
+        // removed other assertion
         manager.close();
         assertEquals("close() not called", 15, myop.ops); // VFS-577;
     }
@@ -181,6 +184,7 @@ public class BasicOperationsTestCase_OE25Dev {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderNoncomp();
         manager.addOperationProvider("file", myop);
         final FileOperationProvider[] ops = manager.getOperationProviders("file");
+        // removed other assertion
         assertSame(myop, ops[0]);
     }
 
@@ -189,6 +193,8 @@ public class BasicOperationsTestCase_OE25Dev {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderNoncomp();
         manager.addOperationProvider("file", myop);
         final FileOperationProvider[] ops = manager.getOperationProviders("file");
+        // removed other assertion
+        // removed other assertion
         assertEquals(0, myop.ops); // collect not invoked;
     }
 
@@ -209,6 +215,7 @@ public class BasicOperationsTestCase_OE25Dev {
         final FileObject fo = manager.toFileObject(new File("."));
 
         final FileOperations ops = fo.getFileOperations();
+        // removed other assertion
 
         final Class<? extends FileOperation>[] oparray = ops.getOperations();
         assertSame("no ops should be found", 0, oparray.length);
@@ -221,8 +228,10 @@ public class BasicOperationsTestCase_OE25Dev {
         final FileObject fo = manager.toFileObject(new File("."));
 
         final FileOperations ops = fo.getFileOperations();
+        // removed other assertion
 
         final Class<? extends FileOperation>[] oparray = ops.getOperations();
+        // removed other assertion
         assertSame(16, myop.ops); // collect;
     }
 
@@ -243,9 +252,11 @@ public class BasicOperationsTestCase_OE25Dev {
         final FileObject fo = manager.toFileObject(new File("."));
 
         final FileOperations ops = fo.getFileOperations();
+        // removed other assertion
 
         try {
             final FileOperation logop = ops.getOperation(VcsLog.class);
+            // removed other assertion
         } catch (final FileSystemException e) {
             assertEquals("vfs.operation/operation-not-supported.error", e.getCode());
     }
@@ -258,10 +269,13 @@ public class BasicOperationsTestCase_OE25Dev {
         final FileObject fo = manager.toFileObject(new File("."));
 
         final FileOperations ops = fo.getFileOperations();
+        // removed other assertion
 
         try {
             final FileOperation logop = ops.getOperation(VcsLog.class);
+            // removed other assertion
         } catch (final FileSystemException e) {
+            // removed other assertion
         }
         assertSame(32, myop.ops); // getOperation was called;
     }

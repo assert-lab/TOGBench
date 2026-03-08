@@ -202,6 +202,7 @@ public class ISBNValidatorTest_OE25Dev extends TestCase {
         ISBNValidator validator = ISBNValidator.getInstance();
         Pattern pattern = Pattern.compile(ISBNValidator.ISBN10_REGEX);
         for (int i = 0; i < invalidISBN10Format.length; i++) {
+            // removed other assertion
             assertFalse("isValidISBN10[" + i + "]=" + invalidISBN10Format[i], validator.isValidISBN10(invalidISBN10Format[i]));
     }
     }
@@ -210,6 +211,8 @@ public class ISBNValidatorTest_OE25Dev extends TestCase {
         ISBNValidator validator = ISBNValidator.getInstance();
         Pattern pattern = Pattern.compile(ISBNValidator.ISBN10_REGEX);
         for (int i = 0; i < invalidISBN10Format.length; i++) {
+            // removed other assertion
+            // removed other assertion
             assertNull("validateISBN10[" + i + "]=" + invalidISBN10Format[i], validator.validateISBN10(invalidISBN10Format[i]));
     }
     }
@@ -233,6 +236,7 @@ public class ISBNValidatorTest_OE25Dev extends TestCase {
         Pattern pattern = Pattern.compile(ISBNValidator.ISBN13_REGEX);
         ISBNValidator validator = ISBNValidator.getInstance();
         for (int i = 0; i < invalidISBN13Format.length; i++) {
+            // removed other assertion
             assertFalse("isValidISBN13[" + i + "]=" + invalidISBN13Format[i], validator.isValidISBN13(invalidISBN13Format[i]));
     }
     }
@@ -241,6 +245,8 @@ public class ISBNValidatorTest_OE25Dev extends TestCase {
         Pattern pattern = Pattern.compile(ISBNValidator.ISBN13_REGEX);
         ISBNValidator validator = ISBNValidator.getInstance();
         for (int i = 0; i < invalidISBN13Format.length; i++) {
+            // removed other assertion
+            // removed other assertion
             assertNull("validateISBN13[" + i + "]=" + invalidISBN13Format[i], validator.validateISBN13(invalidISBN13Format[i]));
     }
     }
@@ -252,62 +258,128 @@ public class ISBNValidatorTest_OE25Dev extends TestCase {
 
     public void testIsValidISBN10_2_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
         assertTrue("isValidISBN10-2", validator.isValidISBN10("1-930110-99-5"));
     }
 
     public void testIsValidISBN10_3_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValidISBN10-3", validator.isValidISBN10("1 930110 99 5"));
     }
 
     public void testIsValidISBN10_4_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValidISBN10-4", validator.isValidISBN10("020163385X"));
     }
 
     public void testIsValidISBN10_5_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValidISBN10-5", validator.isValidISBN10("0-201-63385-X"));
     }
 
     public void testIsValidISBN10_6_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValidISBN10-6", validator.isValidISBN10("0 201 63385 X"));
     }
 
     public void testIsValidISBN10_7_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue("isValid-1", validator.isValid("1930110995"));
     }
 
     public void testIsValidISBN10_8_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue("isValid-2", validator.isValid("1-930110-99-5"));
     }
 
     public void testIsValidISBN10_9_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid-3", validator.isValid("1 930110 99 5"));
     }
 
     public void testIsValidISBN10_10_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid-4", validator.isValid("020163385X"));
     }
 
     public void testIsValidISBN10_11_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid-5", validator.isValid("0-201-63385-X"));
     }
 
     public void testIsValidISBN10_12_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid-6", validator.isValid("0 201 63385 X"));
     }
 
@@ -318,62 +390,128 @@ public class ISBNValidatorTest_OE25Dev extends TestCase {
 
     public void testIsValidISBN13_2_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
         assertTrue("isValidISBN13-2", validator.isValidISBN13("978-1-930110-99-1"));
     }
 
     public void testIsValidISBN13_3_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValidISBN13-3", validator.isValidISBN13("978 1 930110 99 1"));
     }
 
     public void testIsValidISBN13_4_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValidISBN13-4", validator.isValidISBN13("9780201633856"));
     }
 
     public void testIsValidISBN13_5_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValidISBN13-5", validator.isValidISBN13("978-0-201-63385-6"));
     }
 
     public void testIsValidISBN13_6_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValidISBN13-6", validator.isValidISBN13("978 0 201 63385 6"));
     }
 
     public void testIsValidISBN13_7_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertTrue("isValid-1", validator.isValid("9781930110991"));
     }
 
     public void testIsValidISBN13_8_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertTrue("isValid-2", validator.isValid("978-1-930110-99-1"));
     }
 
     public void testIsValidISBN13_9_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid-3", validator.isValid("978 1 930110 99 1"));
     }
 
     public void testIsValidISBN13_10_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid-4", validator.isValid("9780201633856"));
     }
 
     public void testIsValidISBN13_11_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid-5", validator.isValid("978-0-201-63385-6"));
     }
 
     public void testIsValidISBN13_12_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("isValid-6", validator.isValid("978 0 201 63385 6"));
     }
 
@@ -384,62 +522,128 @@ public class ISBNValidatorTest_OE25Dev extends TestCase {
 
     public void testValidateISBN10_2_oe() {
         ISBNValidator validator = ISBNValidator.getInstance(false);
+        // removed other assertion
         assertEquals("validateISBN10-2", "1930110995", validator.validateISBN10("1-930110-99-5"));
     }
 
     public void testValidateISBN10_3_oe() {
         ISBNValidator validator = ISBNValidator.getInstance(false);
+        // removed other assertion
+        // removed other assertion
         assertEquals("validateISBN10-3", "1930110995", validator.validateISBN10("1 930110 99 5"));
     }
 
     public void testValidateISBN10_4_oe() {
         ISBNValidator validator = ISBNValidator.getInstance(false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validateISBN10-4", "020163385X", validator.validateISBN10("020163385X"));
     }
 
     public void testValidateISBN10_5_oe() {
         ISBNValidator validator = ISBNValidator.getInstance(false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validateISBN10-5", "020163385X", validator.validateISBN10("0-201-63385-X"));
     }
 
     public void testValidateISBN10_6_oe() {
         ISBNValidator validator = ISBNValidator.getInstance(false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validateISBN10-6", "020163385X", validator.validateISBN10("0 201 63385 X"));
     }
 
     public void testValidateISBN10_7_oe() {
         ISBNValidator validator = ISBNValidator.getInstance(false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("validate-1", "1930110995", validator.validate("1930110995"));
     }
 
     public void testValidateISBN10_8_oe() {
         ISBNValidator validator = ISBNValidator.getInstance(false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("validate-2", "1930110995", validator.validate("1-930110-99-5"));
     }
 
     public void testValidateISBN10_9_oe() {
         ISBNValidator validator = ISBNValidator.getInstance(false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate-3", "1930110995", validator.validate("1 930110 99 5"));
     }
 
     public void testValidateISBN10_10_oe() {
         ISBNValidator validator = ISBNValidator.getInstance(false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate-4", "020163385X", validator.validate("020163385X"));
     }
 
     public void testValidateISBN10_11_oe() {
         ISBNValidator validator = ISBNValidator.getInstance(false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate-5", "020163385X", validator.validate("0-201-63385-X"));
     }
 
     public void testValidateISBN10_12_oe() {
         ISBNValidator validator = ISBNValidator.getInstance(false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate-6", "020163385X", validator.validate("0 201 63385 X"));
     }
 
@@ -450,26 +654,41 @@ public class ISBNValidatorTest_OE25Dev extends TestCase {
 
     public void testValidateISBN10Convert_2_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
         assertEquals("validate-2", "9781930110991", validator.validate("1-930110-99-5"));
     }
 
     public void testValidateISBN10Convert_3_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate-3", "9781930110991", validator.validate("1 930110 99 5"));
     }
 
     public void testValidateISBN10Convert_4_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate-4", "9780201633856", validator.validate("020163385X"));
     }
 
     public void testValidateISBN10Convert_5_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate-5", "9780201633856", validator.validate("0-201-63385-X"));
     }
 
     public void testValidateISBN10Convert_6_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate-6", "9780201633856", validator.validate("0 201 63385 X"));
     }
 
@@ -480,62 +699,128 @@ public class ISBNValidatorTest_OE25Dev extends TestCase {
 
     public void testValidateISBN13_2_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
         assertEquals("validateISBN13-2", "9781930110991", validator.validateISBN13("978-1-930110-99-1"));
     }
 
     public void testValidateISBN13_3_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
         assertEquals("validateISBN13-3", "9781930110991", validator.validateISBN13("978 1 930110 99 1"));
     }
 
     public void testValidateISBN13_4_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validateISBN13-4", "9780201633856", validator.validateISBN13("9780201633856"));
     }
 
     public void testValidateISBN13_5_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validateISBN13-5", "9780201633856", validator.validateISBN13("978-0-201-63385-6"));
     }
 
     public void testValidateISBN13_6_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validateISBN13-6", "9780201633856", validator.validateISBN13("978 0 201 63385 6"));
     }
 
     public void testValidateISBN13_7_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         assertEquals("validate-1", "9781930110991", validator.validate("9781930110991"));
     }
 
     public void testValidateISBN13_8_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         assertEquals("validate-2", "9781930110991", validator.validate("978-1-930110-99-1"));
     }
 
     public void testValidateISBN13_9_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate-3", "9781930110991", validator.validate("978 1 930110 99 1"));
     }
 
     public void testValidateISBN13_10_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate-4", "9780201633856", validator.validate("9780201633856"));
     }
 
     public void testValidateISBN13_11_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate-5", "9780201633856", validator.validate("978-0-201-63385-6"));
     }
 
     public void testValidateISBN13_12_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("validate-6", "9780201633856", validator.validate("978 0 201 63385 6"));
     }
 
@@ -546,31 +831,52 @@ public class ISBNValidatorTest_OE25Dev extends TestCase {
 
     public void testNull_2_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
         assertFalse("isValidISBN10",  validator.isValidISBN10(null));
     }
 
     public void testNull_3_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
         assertFalse("isValidISBN13",  validator.isValidISBN13(null));
     }
 
     public void testNull_4_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("validate",        validator.validate(null));
     }
 
     public void testNull_5_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("validateISBN10",  validator.validateISBN10(null));
     }
 
     public void testNull_6_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("validateISBN13",  validator.validateISBN13(null));
     }
 
     public void testNull_7_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("convertToISBN13", validator.convertToISBN13(null));
     }
 
@@ -583,60 +889,115 @@ public class ISBNValidatorTest_OE25Dev extends TestCase {
     public void testInvalid_2_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
         assertFalse("ISBN10-1", validator.isValid(baseCode + "1"));
     }
 
     public void testInvalid_3_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
         assertFalse("ISBN10-2", validator.isValid(baseCode + "2"));
     }
 
     public void testInvalid_4_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("ISBN10-3", validator.isValid(baseCode + "3"));
     }
 
     public void testInvalid_5_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("ISBN10-4", validator.isValid(baseCode + "4"));
     }
 
     public void testInvalid_6_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertTrue("ISBN10-5",validator.isValid(baseCode + "5"));// valid check digit assertFalse("ISBN10-6",validator.isValid(baseCode + "6"));
     }
 
     public void testInvalid_7_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("ISBN10-7", validator.isValid(baseCode + "7"));
     }
 
     public void testInvalid_8_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("ISBN10-8", validator.isValid(baseCode + "8"));
     }
 
     public void testInvalid_9_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("ISBN10-9", validator.isValid(baseCode + "9"));
     }
 
     public void testInvalid_10_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("ISBN10-X", validator.isValid(baseCode + "X"));
     }
 
     public void testInvalid_11_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         baseCode = "978193011099";
         assertFalse("ISBN13-0", validator.isValid(baseCode + "0"));
@@ -645,64 +1006,180 @@ public class ISBNValidatorTest_OE25Dev extends TestCase {
     public void testInvalid_12_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         baseCode = "978193011099";
+        // removed other assertion
         assertTrue("ISBN13-1",validator.isValid(baseCode + "1"));// valid check digit assertFalse("ISBN13-2",validator.isValid(baseCode + "2"));
     }
 
     public void testInvalid_13_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         baseCode = "978193011099";
+        // removed other assertion
+        // removed other assertion
         assertFalse("ISBN13-3", validator.isValid(baseCode + "3"));
     }
 
     public void testInvalid_14_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         baseCode = "978193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("ISBN13-4", validator.isValid(baseCode + "4"));
     }
 
     public void testInvalid_15_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         baseCode = "978193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("ISBN13-5", validator.isValid(baseCode + "5"));
     }
 
     public void testInvalid_16_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         baseCode = "978193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("ISBN13-6", validator.isValid(baseCode + "6"));
     }
 
     public void testInvalid_17_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         baseCode = "978193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("ISBN13-7", validator.isValid(baseCode + "7"));
     }
 
     public void testInvalid_18_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         baseCode = "978193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("ISBN13-8", validator.isValid(baseCode + "8"));
     }
 
     public void testInvalid_19_oe() {
         ISBNValidator validator = ISBNValidator.getInstance();
         String baseCode = "193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         baseCode = "978193011099";
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse("ISBN13-9", validator.isValid(baseCode + "9"));
     }
 

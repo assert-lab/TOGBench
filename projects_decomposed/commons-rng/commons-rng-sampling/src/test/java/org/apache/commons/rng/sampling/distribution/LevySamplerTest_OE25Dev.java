@@ -84,6 +84,7 @@ class LevySamplerTest_OE25Dev {
     void testSupport_1_oe() {
          double location = 0.0;
          double scale = 1.0;
+        // Force the underlying ZigguratSampler.NormalizedGaussian to create 0
          LevySampler s1 = LevySampler.of(
             new SplitMix64(0L) {
                 @Override
@@ -98,6 +99,7 @@ class LevySamplerTest_OE25Dev {
     void testSupport_2_oe() {
          double location = 0.0;
          double scale = 1.0;
+        // Force the underlying ZigguratSampler.NormalizedGaussian to create 0
          LevySampler s1 = LevySampler.of(
             new SplitMix64(0L) {
                 @Override
@@ -105,10 +107,24 @@ class LevySamplerTest_OE25Dev {
                     return 0L;
                 }
             }, location, scale);
+        // removed other assertion
 
+        // Force the underlying ZigguratSampler.NormalizedGaussian to create a large
+        // sample in the tail of the distribution.
+        // The first two -1,-1 values enters the tail of the distribution.
+        // Here an exponential is added to 3.6360066255009455861.
+        // The exponential also requires -1,-1 to recurse. Each recursion adds 7.569274694148063
+        // to the exponential. A value of 0 stops recursion with a sample of 0.
+        // Two exponentials are required: x and y.
+        // The exponential is multiplied by 0.27502700159745347 to create x.
+        // The condition 2y >= x^x must be true to return x.
+        // Create x = 4 * 7.57 and y = 16 * 7.57
          long[] sequence = {
+            // Sample the Gaussian tail
             -1, -1,
+            // Exponential x = 4 * 7.57... * 0.275027001597525
             -1, -1, -1, -1, -1, -1, -1, -1, 0,
+            // Exponential y = 16 * 7.57...
             -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
             -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0,
         };
@@ -123,7 +139,11 @@ class LevySamplerTest_OE25Dev {
                     return super.next();
                 }
             }, location, scale);
+        // The tail of the zigguart should be approximately s=11.963
          double s = 4 * 7.569274694148063 * 0.27502700159745347 + 3.6360066255009455861;
+        // expected is 1/s^2 = 0.006987
+        // So the sampler never achieves the lower bound of zero.
+        // It requires an extreme deviate from the Gaussian.
          double expected = 1 / (s * s);
         Assertions.assertEquals(expected, s2.sample());
     }

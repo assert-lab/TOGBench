@@ -56,6 +56,7 @@ class BinomialCoefficientDoubleTest_OE25Dev {
 
         for (int n = 1; n < 10; n++) {
             for (int k = 0; k <= n; k++) {
+                // removed other assertion
             }
         }
 
@@ -93,6 +94,7 @@ class BinomialCoefficientDoubleTest_OE25Dev {
 
     @Test
     void testBinomialCoefficientLarge_1_oe() throws Exception {
+        // This tests all legal and illegal values for n <= 200.
         for (int n = 0; n <= 200; n++) {
             for (int k = 0; k <= n; k++) {
                 long exactResult = -1;
@@ -118,6 +120,7 @@ class BinomialCoefficientDoubleTest_OE25Dev {
 
     @Test
     void testBinomialCoefficientLarge_2_oe() throws Exception {
+        // This tests all legal and illegal values for n <= 200.
         for (int n = 0; n <= 200; n++) {
             for (int k = 0; k <= n; k++) {
                 long exactResult = -1;
@@ -135,6 +138,7 @@ class BinomialCoefficientDoubleTest_OE25Dev {
                 }
 
                 if (!shouldThrow && exactResult > 1) {
+                    // removed other assertion
                 }
             }
         }

@@ -214,6 +214,7 @@ public class ServiceTest_OE25Dev {
 
     @Test
     public void testEmbeddedServerIdentifier_defaultAndSet_2_oe() {
+        // removed other assertion
 
         Object obj = new Object();
 
@@ -290,6 +291,7 @@ public class ServiceTest_OE25Dev {
         int maxThreads = Whitebox.getInternalState(service, "maxThreads");
         int minThreads = Whitebox.getInternalState(service, "minThreads");
         int threadIdleTimeoutMillis = Whitebox.getInternalState(service, "threadIdleTimeoutMillis");
+        // removed other assertion
         assertEquals("Should return minThreads specified", -1, minThreads);
     }
 
@@ -299,6 +301,8 @@ public class ServiceTest_OE25Dev {
         int maxThreads = Whitebox.getInternalState(service, "maxThreads");
         int minThreads = Whitebox.getInternalState(service, "minThreads");
         int threadIdleTimeoutMillis = Whitebox.getInternalState(service, "threadIdleTimeoutMillis");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Should return threadIdleTimeoutMillis specified", -1, threadIdleTimeoutMillis);
     }
 
@@ -317,6 +321,7 @@ public class ServiceTest_OE25Dev {
         int maxThreads = Whitebox.getInternalState(service, "maxThreads");
         int minThreads = Whitebox.getInternalState(service, "minThreads");
         int threadIdleTimeoutMillis = Whitebox.getInternalState(service, "threadIdleTimeoutMillis");
+        // removed other assertion
         assertEquals("Should return minThreads specified", 50, minThreads);
     }
 
@@ -326,6 +331,8 @@ public class ServiceTest_OE25Dev {
         int maxThreads = Whitebox.getInternalState(service, "maxThreads");
         int minThreads = Whitebox.getInternalState(service, "minThreads");
         int threadIdleTimeoutMillis = Whitebox.getInternalState(service, "threadIdleTimeoutMillis");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Should return threadIdleTimeoutMillis specified", 75, threadIdleTimeoutMillis);
     }
 
@@ -340,6 +347,7 @@ public class ServiceTest_OE25Dev {
     public void testSecure_thenReturnNewSslStores_2_oe() {
         service.secure("keyfile", "keypassword", "truststorefile", "truststorepassword");
         SslStores sslStores = Whitebox.getInternalState(service, "sslStores");
+        // removed other assertion
         assertEquals("Should return keystoreFile from SslStores", "keyfile", sslStores.keystoreFile());
     }
 
@@ -347,6 +355,8 @@ public class ServiceTest_OE25Dev {
     public void testSecure_thenReturnNewSslStores_3_oe() {
         service.secure("keyfile", "keypassword", "truststorefile", "truststorepassword");
         SslStores sslStores = Whitebox.getInternalState(service, "sslStores");
+        // removed other assertion
+        // removed other assertion
         assertEquals("Should return keystorePassword from SslStores", "keypassword", sslStores.keystorePassword());
     }
 
@@ -354,6 +364,9 @@ public class ServiceTest_OE25Dev {
     public void testSecure_thenReturnNewSslStores_4_oe() {
         service.secure("keyfile", "keypassword", "truststorefile", "truststorepassword");
         SslStores sslStores = Whitebox.getInternalState(service, "sslStores");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Should return trustStoreFile from SslStores", "truststorefile", sslStores.trustStoreFile());
     }
 
@@ -361,6 +374,10 @@ public class ServiceTest_OE25Dev {
     public void testSecure_thenReturnNewSslStores_5_oe() {
         service.secure("keyfile", "keypassword", "truststorefile", "truststorepassword");
         SslStores sslStores = Whitebox.getInternalState(service, "sslStores");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Should return trustStorePassword from SslStores", "truststorepassword", sslStores.trustStorePassword());
     }
 

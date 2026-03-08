@@ -141,7 +141,9 @@ public class LRUMapUnitTest_OE25Dev
         }
 
         final Set<Entry<String, String>> entries = cache.entrySet();
+        // removed other assertion
 
+        // check minimal correctness
         for (final Entry<String, String> data : entries)
         {
             assertTrue( "Data is wrong.", data.getValue().indexOf( "data:") != -1  );

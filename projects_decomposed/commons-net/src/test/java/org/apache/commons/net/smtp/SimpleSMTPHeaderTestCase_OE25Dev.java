@@ -89,6 +89,8 @@ public class SimpleSMTPHeaderTestCase_OE25Dev {
 
     @Test
     public void testToString_2_oe() {
+        // removed other assertion
+        // Note that the DotTerminatedMessageWriter converts LF to CRLF
         assertEquals("From: from@here.invalid\nTo: to@there.invalid\nSubject: Test email\n\n", checkDate(header.toString()));
     }
 
@@ -101,6 +103,8 @@ public class SimpleSMTPHeaderTestCase_OE25Dev {
     @Test
     public void testToStringNoSubject_2_oe() {
         final SimpleSMTPHeader hdr = new SimpleSMTPHeader("from@here.invalid", "to@there.invalid", null);
+        // removed other assertion
+        // Note that the DotTerminatedMessageWriter converts LF to CRLF
         assertEquals("From: from@here.invalid\nTo: to@there.invalid\n\n", checkDate(hdr.toString()));
     }
 
@@ -113,6 +117,8 @@ public class SimpleSMTPHeaderTestCase_OE25Dev {
     @Test
     public void testToStringNoTo_2_oe() {
         final SimpleSMTPHeader hdr = new SimpleSMTPHeader("from@here.invalid", null, null);
+        // removed other assertion
+        // Note that the DotTerminatedMessageWriter converts LF to CRLF
         assertEquals("From: from@here.invalid\n\n", checkDate(hdr.toString()));
     }
 
@@ -125,8 +131,10 @@ public class SimpleSMTPHeaderTestCase_OE25Dev {
     @Test
     public void testToStringAddHeader_2_oe() {
         final SimpleSMTPHeader hdr = new SimpleSMTPHeader("from@here.invalid", null, null);
+        // removed other assertion
         hdr.addHeaderField("X-Header1", "value 1");
         hdr.addHeaderField("X-Header2", "value 2");
+        // Note that the DotTerminatedMessageWriter converts LF to CRLF
         assertEquals("X-Header1: value 1\nX-Header2: value 2\nFrom: from@here.invalid\n\n", checkDate(hdr.toString()));
     }
 
@@ -139,7 +147,9 @@ public class SimpleSMTPHeaderTestCase_OE25Dev {
     @Test
     public void testToStringAddHeaderDate_2_oe() {
         final SimpleSMTPHeader hdr = new SimpleSMTPHeader("from@here.invalid", null, null);
+        // removed other assertion
         hdr.addHeaderField("Date", "dummy date");
+        // does not replace the Date field
         assertEquals("Date: dummy date\nFrom: from@here.invalid\n\n", hdr.toString());
     }
 

@@ -116,6 +116,7 @@ public class AbstractMaybeProgressAsyncHandlerBridgeTest_OE25Dev {
     /* when */
     final AsyncHandler.State firstState = httpEvent.call();
     /* then */
+    // removed other assertion
     then(delegate).should(only()).onThrowable(isA(DisposedException.class));
 
     /* when */

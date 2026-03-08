@@ -40,6 +40,7 @@ public class TokenQueueTest_OE25Dev {
         String guts = tq.chompBalanced('(', ')');
         String remainder = tq.remainder();
 
+        // removed other assertion
         assertEquals("one (two) three", guts);
         }
 
@@ -49,6 +50,8 @@ public class TokenQueueTest_OE25Dev {
         String guts = tq.chompBalanced('(', ')');
         String remainder = tq.remainder();
 
+        // removed other assertion
+        // removed other assertion
         assertEquals(" four", remainder);
         }
 
@@ -67,6 +70,7 @@ public class TokenQueueTest_OE25Dev {
         String guts = tq.chompBalanced('(', ')');
         String remainder = tq.remainder();
 
+        // removed other assertion
         assertEquals("one (two) \\( \\) \\) three", guts);
         }
 
@@ -76,6 +80,8 @@ public class TokenQueueTest_OE25Dev {
         String guts = tq.chompBalanced('(', ')');
         String remainder = tq.remainder();
 
+        // removed other assertion
+        // removed other assertion
         assertEquals("one (two) ( ) ) three", TokenQueue.unescape(guts));
         }
 
@@ -85,6 +91,9 @@ public class TokenQueueTest_OE25Dev {
         String guts = tq.chompBalanced('(', ')');
         String remainder = tq.remainder();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(" four", remainder);
         }
 
@@ -110,6 +119,7 @@ public class TokenQueueTest_OE25Dev {
         String t = "<textarea>one < two </TEXTarea>";
         TokenQueue tq = new TokenQueue(t);
         String data = tq.chompToIgnoreCase("</textarea");
+        // removed other assertion
 
         tq = new TokenQueue("<textarea> one two < three </oops>");
         data = tq.chompToIgnoreCase("</textarea");
@@ -134,6 +144,7 @@ public class TokenQueueTest_OE25Dev {
         String t = "<textarea>one < two </TEXTarea> third </TEXTarea>";
         TokenQueue tq = new TokenQueue(t);
         String data = tq.chompToIgnoreCase("</textarea>");
+        // removed other assertion
 
         data = tq.chompToIgnoreCase("</textarea>");
         assertEquals(" third ", data);
@@ -145,6 +156,7 @@ public class TokenQueueTest_OE25Dev {
             TokenQueue tq = new TokenQueue("unbalanced(something(or another)) else");
             tq.consumeTo("(");
             tq.chompBalanced('(', '+');
+            // removed other assertion
         } catch (IllegalArgumentException expected) {
             assertEquals("Did not find balanced marker at 'something(or another)) else'", expected.getMessage());
     }
@@ -159,12 +171,15 @@ public class TokenQueueTest_OE25Dev {
     @Test
     public void testQuotedPattern_2_oe() {
         final Document doc = Jsoup.parse("<div>\\) foo1</div><div>( foo2</div><div>1) foo3</div>");
+        // removed other assertion
         assertEquals("\n( foo2",doc.select("div:matches(" + Pattern.quote("(") + ")").get(0).childNode(0).toString());
     }
 
     @Test
     public void testQuotedPattern_3_oe() {
         final Document doc = Jsoup.parse("<div>\\) foo1</div><div>( foo2</div><div>1) foo3</div>");
+        // removed other assertion
+        // removed other assertion
         assertEquals("\n1) foo3",doc.select("div:matches(" + Pattern.quote("1)") + ")").get(0).childNode(0).toString());
     }
 

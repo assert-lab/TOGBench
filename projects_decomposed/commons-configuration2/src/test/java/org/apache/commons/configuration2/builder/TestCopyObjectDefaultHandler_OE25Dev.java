@@ -97,6 +97,7 @@ public class TestCopyObjectDefaultHandler_OE25Dev {
         final FileBasedBuilderParametersImpl copy = new FileBasedBuilderParametersImpl();
         handler.initializeDefaults(copy);
         final Map<String, Object> map = copy.getParameters();
+        // removed other assertion
         assertEquals("Wrong refresh", refresh, copy.getReloadingRefreshDelay());
     }
 

@@ -1,0 +1,37 @@
+id,test_prefix,test_name
+http-request_77_101,"@Test
+  public void sendErrorReadStream_oe_101_oe() throws Exception {
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+        }
+    }
+",HttpRequestTest::sendErrorReadStream_oe_101_oe
+http-request_77_102,"@Test
+  public void sendErrorReadStream_oe_102_oe() throws Exception {
+    try {
+      post(url).send(stream);
+      fail(""Exception not thrown"");
+    } catch (HttpRequestException e) {
+    }
+    }
+",HttpRequestTest::sendErrorReadStream_oe_102_oe
+http-request_78_101,"@Test
+  public void sendErrorCloseStream_oe_101_oe() throws Exception {
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+        }
+    }
+",HttpRequestTest::sendErrorCloseStream_oe_101_oe
+http-request_78_102,"@Test
+  public void sendErrorCloseStream_oe_102_oe() throws Exception {
+    try {
+      post(url).ignoreCloseExceptions(false).send(stream);
+      fail(""Exception not thrown"");
+    } catch (HttpRequestException e) {
+    }
+    }
+",HttpRequestTest::sendErrorCloseStream_oe_102_oe

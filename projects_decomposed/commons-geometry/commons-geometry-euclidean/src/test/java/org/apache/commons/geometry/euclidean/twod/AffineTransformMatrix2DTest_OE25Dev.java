@@ -619,55 +619,70 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testOf_1_oe() {
+        // arrange
         final double[] arr = {
             1, 2, 3,
             4, 5, 6
         };
 
+        // act
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.of(arr);
 
+        // assert
         final double[] result = transform.toArray();
         Assertions.assertNotSame(arr, result);
     }
 
     @Test
     void testOf_2_oe() {
+        // arrange
         final double[] arr = {
             1, 2, 3,
             4, 5, 6
         };
 
+        // act
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.of(arr);
 
+        // assert
         final double[] result = transform.toArray();
+        // removed other assertion
         Assertions.assertArrayEquals(arr, result, 0.0);
     }
 
     @Test
     void testFromColumnVectors_twoVector_1_oe() {
+        // arrange
         final Vector2D u = Vector2D.of(1, 2);
         final Vector2D v = Vector2D.of(3, 4);
 
+        // act
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.fromColumnVectors(u, v);
 
+        // assert
         Assertions.assertArrayEquals(new double[] { 1, 3, 0, 2, 4, 0 }, transform.toArray(), 0.0);
     }
 
     @Test
     void testFromColumnVectors_threeVectors_1_oe() {
+        // arrange
         final Vector2D u = Vector2D.of(1, 2);
         final Vector2D v = Vector2D.of(3, 4);
         final Vector2D t = Vector2D.of(5, 6);
 
+        // act
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.fromColumnVectors(u, v, t);
 
+        // assert
         Assertions.assertArrayEquals(new double[] { 1, 3, 5, 2, 4, 6 }, transform.toArray(), 0.0);
     }
 
     @Test
     void testIdentity_1_oe() {
+        // act
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.identity();
 
+        // assert
         final double[] expected = {
             1, 0, 0,
             0, 1, 0
@@ -677,26 +692,37 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testFrom_1_oe() {
+        // act/assert
         Assertions.assertArrayEquals(new double[] { 1, 0, 0, 0, 1, 0 }, AffineTransformMatrix2D.from(UnaryOperator.identity()).toArray(), EPS);
     }
 
     @Test
     void testFrom_2_oe() {
+        // act/assert
+        // removed other assertion
         Assertions.assertArrayEquals(new double[] { 1, 0, 2, 0, 1, 3 }, AffineTransformMatrix2D.from(v -> v.add(Vector2D.of(2, 3))).toArray(), EPS);
     }
 
     @Test
     void testFrom_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertArrayEquals(new double[] { 3, 0, 0, 0, 3, 0 }, AffineTransformMatrix2D.from(v -> v.multiply(3)).toArray(), EPS);
     }
 
     @Test
     void testFrom_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertArrayEquals(new double[] { 3, 0, 6, 0, 3, 9 }, AffineTransformMatrix2D.from(v -> v.add(Vector2D.of(2, 3)).multiply(3)).toArray(), EPS);
     }
 
     @Test
     void testFrom_invalidFunction_1_oe() {
+        // act/assert
         try {
     AffineTransformMatrix2D.from(v -> v.multiply(0));
     fail("IllegalArgumentException");
@@ -706,8 +732,10 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testCreateTranslation_xy_1_oe() {
+        // act
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.createTranslation(2, 3);
 
+        // assert
         final double[] expected = {
             1, 0, 2,
             0, 1, 3
@@ -717,8 +745,10 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testCreateTranslation_vector_1_oe() {
+        // act
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.createTranslation(Vector2D.of(5, 6));
 
+        // assert
         final double[] expected = {
             1, 0, 5,
             0, 1, 6
@@ -728,8 +758,10 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testCreateScale_xy_1_oe() {
+        // act
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.createScale(2, 3);
 
+        // assert
         final double[] expected = {
             2, 0, 0,
             0, 3, 0
@@ -739,13 +771,16 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testTranslate_xy_1_oe() {
+        // arrange
         final AffineTransformMatrix2D a = AffineTransformMatrix2D.of(
                     2, 0, 10,
                     0, 3, 11
                 );
 
+        // act
         final AffineTransformMatrix2D result = a.translate(4, 5);
 
+        // assert
         final double[] expected = {
             2, 0, 14,
             0, 3, 16
@@ -755,13 +790,16 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testTranslate_vector_1_oe() {
+        // arrange
         final AffineTransformMatrix2D a = AffineTransformMatrix2D.of(
                     2, 0, 10,
                     0, 3, 11
                 );
 
+        // act
         final AffineTransformMatrix2D result = a.translate(Vector2D.of(7, 8));
 
+        // assert
         final double[] expected = {
             2, 0, 17,
             0, 3, 19
@@ -771,8 +809,10 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testCreateScale_vector_1_oe() {
+        // act
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.createScale(Vector2D.of(4, 5));
 
+        // assert
         final double[] expected = {
             4, 0, 0,
             0, 5, 0
@@ -782,8 +822,10 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testCreateScale_singleValue_1_oe() {
+        // act
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.createScale(7);
 
+        // assert
         final double[] expected = {
             7, 0, 0,
             0, 7, 0
@@ -793,13 +835,16 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testScale_xy_1_oe() {
+        // arrange
         final AffineTransformMatrix2D a = AffineTransformMatrix2D.of(
                     2, 0, 10,
                     0, 3, 11
                 );
 
+        // act
         final AffineTransformMatrix2D result = a.scale(4, 5);
 
+        // assert
         final double[] expected = {
             8, 0, 40,
             0, 15, 55
@@ -809,13 +854,16 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testScale_vector_1_oe() {
+        // arrange
         final AffineTransformMatrix2D a = AffineTransformMatrix2D.of(
                     2, 0, 10,
                     0, 3, 11
                 );
 
+        // act
         final AffineTransformMatrix2D result = a.scale(Vector2D.of(7, 8));
 
+        // assert
         final double[] expected = {
             14, 0, 70,
             0, 24, 88
@@ -825,13 +873,16 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testScale_singleValue_1_oe() {
+        // arrange
         final AffineTransformMatrix2D a = AffineTransformMatrix2D.of(
                     2, 0, 10,
                     0, 3, 11
                 );
 
+        // act
         final AffineTransformMatrix2D result = a.scale(10);
 
+        // assert
         final double[] expected = {
             20, 0, 100,
             0, 30, 110
@@ -841,9 +892,11 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testCreateRotation_1_oe() {
+        // act
         final double angle = Math.PI * 2.0 / 3.0;
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.createRotation(angle);
 
+        // assert
         final double sin = Math.sin(angle);
         final double cos = Math.cos(angle);
 
@@ -856,10 +909,12 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testCreateRotation_aroundCenter_rawAngle_1_oe() {
+        // act
         final Vector2D center = Vector2D.of(1, 2);
         final double angle = Math.PI * 2.0 / 3.0;
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.createRotation(center, angle);
 
+        // assert
         final double sin = Math.sin(angle);
         final double cos = Math.cos(angle);
 
@@ -872,11 +927,13 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testCreateRotation_aroundCenter_rotationInstance_1_oe() {
+        // act
         final Vector2D center = Vector2D.of(1, 2);
         final double angle = Math.PI * 4.0 / 3.0;
         final Rotation2D rotation = Rotation2D.of(angle);
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.createRotation(center, rotation);
 
+        // assert
         final double sin = Math.sin(angle);
         final double cos = Math.cos(angle);
 
@@ -889,13 +946,16 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testRotate_rawAngle_1_oe() {
+        // arrange
         final AffineTransformMatrix2D a = AffineTransformMatrix2D.of(
                     1, 2, 3,
                     4, 5, 6
                 );
 
+        // act
         final AffineTransformMatrix2D result = a.rotate(Angle.PI_OVER_TWO);
 
+        // assert
         final double[] expected = {
             -4, -5, -6,
             1, 2, 3
@@ -905,13 +965,16 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testRotate_rotationInstance_1_oe() {
+        // arrange
         final AffineTransformMatrix2D a = AffineTransformMatrix2D.of(
                     1, 2, 3,
                     4, 5, 6
                 );
 
+        // act
         final AffineTransformMatrix2D result = a.rotate(Rotation2D.of(Angle.PI_OVER_TWO));
 
+        // assert
         final double[] expected = {
             -4, -5, -6,
             1, 2, 3
@@ -921,6 +984,7 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testRotate_aroundCenter_rawAngle_1_oe() {
+        // arrange
         final Vector2D center = Vector2D.of(1, 2);
 
         final AffineTransformMatrix2D a = AffineTransformMatrix2D.of(
@@ -928,8 +992,10 @@ class AffineTransformMatrix2DTest_OE25Dev {
                     4, 5, 6
                 );
 
+        // act
         final AffineTransformMatrix2D result = a.rotate(center, Angle.PI_OVER_TWO);
 
+        // assert
         final double[] expected = {
             -4, -5, -3,
             1, 2, 4
@@ -939,6 +1005,7 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testRotate_aroundCenter_rotationInstance_1_oe() {
+        // arrange
         final Vector2D center = Vector2D.of(1, 2);
 
         final AffineTransformMatrix2D a = AffineTransformMatrix2D.of(
@@ -946,8 +1013,10 @@ class AffineTransformMatrix2DTest_OE25Dev {
                     4, 5, 6
                 );
 
+        // act
         final AffineTransformMatrix2D result = a.rotate(center, Rotation2D.of(Angle.PI_OVER_TWO));
 
+        // assert
         final double[] expected = {
             -4, -5, -3,
             1, 2, 4
@@ -957,8 +1026,10 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testCreateShear_1_oe() {
+        // act
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.createShear(2, 3);
 
+        // assert
         final double[] expected = {
             1, 2, 0,
             3, 1, 0
@@ -968,13 +1039,16 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testShear_1_oe() {
+        // arrange
         final AffineTransformMatrix2D a = AffineTransformMatrix2D.of(
                 1, 2, 3,
                 4, 5, 6
             );
 
+        // act
         final AffineTransformMatrix2D result = a.shear(-2, 3);
 
+        // assert
         final double[] expected = {
             -7, -8, -9,
             7, 11, 15
@@ -984,13 +1058,16 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testShear_noShear_1_oe() {
+        // arrange
         final AffineTransformMatrix2D a = AffineTransformMatrix2D.of(
                 1, 2, 3,
                 4, 5, 6
             );
 
+        // act
         final AffineTransformMatrix2D result = a.shear(0, 0);
 
+        // assert
         final double[] expected = {
             1, 2, 3,
             4, 5, 6
@@ -1000,6 +1077,7 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testApplyDirection_illegalNorm_1_oe() {
+        // act/assert
         try {
     AffineTransformMatrix2D.createScale(1, 0).applyDirection(Vector2D.Unit.PLUS_Y);
     fail("IllegalArgumentException");
@@ -1009,6 +1087,8 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testApplyDirection_illegalNorm_2_oe() {
+        // act/assert
+        // removed other assertion
         try {
     AffineTransformMatrix2D.createScale(2).applyDirection(Vector2D.ZERO);
     fail("IllegalArgumentException");
@@ -1018,59 +1098,90 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testDeterminant_1_oe() {
+        // act/assert
         Assertions.assertEquals(1.0, AffineTransformMatrix2D.identity().determinant(), EPS);
     }
 
     @Test
     void testDeterminant_2_oe() {
+        // act/assert
+        // removed other assertion
         Assertions.assertEquals(6.0,AffineTransformMatrix2D.of(2,0,4,0,3,5).determinant(),EPS);
     }
 
     @Test
     void testDeterminant_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-6.0,AffineTransformMatrix2D.of(2,0,4,0,-3,5).determinant(),EPS);
     }
 
     @Test
     void testDeterminant_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-5.0,AffineTransformMatrix2D.of(1,3,0,2,1,0).determinant(),EPS);
     }
 
     @Test
     void testDeterminant_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(-0.0,AffineTransformMatrix2D.of(0,0,1,0,0,2).determinant(),EPS);
     }
 
     @Test
     void testPreservesOrientation_1_oe() {
+        // act/assert
         Assertions.assertTrue(AffineTransformMatrix2D.identity().preservesOrientation());
     }
 
     @Test
     void testPreservesOrientation_2_oe() {
+        // act/assert
+        // removed other assertion
         Assertions.assertTrue(AffineTransformMatrix2D.of(2,0,4,0,3,5).preservesOrientation());
     }
 
     @Test
     void testPreservesOrientation_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(AffineTransformMatrix2D.of(2,0,4,0,-3,5).preservesOrientation());
     }
 
     @Test
     void testPreservesOrientation_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertFalse(AffineTransformMatrix2D.of(1,3,0,2,1,0).preservesOrientation());
     }
 
     @Test
     void testPreservesOrientation_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertFalse(AffineTransformMatrix2D.of(0,0,1,0,0,2).preservesOrientation());
     }
 
     @Test
     void testMultiply_1_oe() {
+        // arrange
         final AffineTransformMatrix2D a = AffineTransformMatrix2D.of(
                     1, 2, 3,
                     5, 6, 7
@@ -1080,14 +1191,17 @@ class AffineTransformMatrix2DTest_OE25Dev {
                     17, 18, 19
                 );
 
+        // act
         final AffineTransformMatrix2D result = a.multiply(b);
 
+        // assert
         final double[] arr = result.toArray();
         Assertions.assertArrayEquals(new double[] { 47, 50, 56, 167, 178, 196 }, arr, EPS);
     }
 
     @Test
     void testPremultiply_1_oe() {
+        // arrange
         final AffineTransformMatrix2D a = AffineTransformMatrix2D.of(
                     1, 2, 3,
                     5, 6, 7
@@ -1097,16 +1211,20 @@ class AffineTransformMatrix2DTest_OE25Dev {
                     17, 18, 19
                 );
 
+        // act
         final AffineTransformMatrix2D result = b.premultiply(a);
 
+        // assert
         final double[] arr = result.toArray();
         Assertions.assertArrayEquals(new double[] { 47, 50, 56, 167, 178, 196 }, arr, EPS);
     }
 
     @Test
     void testInverse_identity_1_oe() {
+        // act
         final AffineTransformMatrix2D inverse = AffineTransformMatrix2D.identity().inverse();
 
+        // assert
         final double[] expected = {
             1, 0, 0,
             0, 1, 0
@@ -1116,6 +1234,7 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testInverse_multiplyByInverse_producesIdentity_1_oe() {
+        // arrange
         final AffineTransformMatrix2D a = AffineTransformMatrix2D.of(
                     1, 3, 7,
                     2, 4, 9
@@ -1123,8 +1242,10 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
         final AffineTransformMatrix2D inv = a.inverse();
 
+        // act
         final AffineTransformMatrix2D result = inv.multiply(a);
 
+        // assert
         final double[] expected = {
             1, 0, 0,
             0, 1, 0
@@ -1134,10 +1255,13 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testInverse_translate_1_oe() {
+        // arrange
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.createTranslation(1, -2);
 
+        // act
         final AffineTransformMatrix2D inverse = transform.inverse();
 
+        // assert
         final double[] expected = {
             1, 0, -1,
             0, 1, 2
@@ -1147,10 +1271,13 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testInverse_scale_1_oe() {
+        // arrange
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.createScale(10, -2);
 
+        // act
         final AffineTransformMatrix2D inverse = transform.inverse();
 
+        // assert
         final double[] expected = {
             0.1, 0, 0,
             0, -0.5, 0
@@ -1160,10 +1287,13 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testInverse_rotate_1_oe() {
+        // arrange
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.createRotation(Angle.PI_OVER_TWO);
 
+        // act
         final AffineTransformMatrix2D inverse = transform.inverse();
 
+        // assert
         final double[] expected = {
             0, 1, 0,
             -1, 0, 0
@@ -1173,11 +1303,14 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testInverse_rotate_aroundCenter_1_oe() {
+        // arrange
         final Vector2D center = Vector2D.of(1, 2);
         final AffineTransformMatrix2D transform = AffineTransformMatrix2D.createRotation(center, Angle.PI_OVER_TWO);
 
+        // act
         final AffineTransformMatrix2D inverse = transform.inverse();
 
+        // assert
         final double[] expected = {
             0, 1, -1,
             -1, 0, 3
@@ -1187,12 +1320,15 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testLinear_1_oe() {
+        // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D.of(
                 2, 3, 4,
                 5, 6, 7);
 
+        // act
         final AffineTransformMatrix2D result = mat.linear();
 
+        // assert
         final double[] expected = {
             2, 3, 0,
             5, 6, 0
@@ -1202,12 +1338,15 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testLinearTranspose_1_oe() {
+        // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D.of(
                 2, 3, 4,
                 5, 6, 7);
 
+        // act
         final AffineTransformMatrix2D result = mat.linearTranspose();
 
+        // assert
         final double[] expected = {
             2, 5, 0,
             3, 6, 0
@@ -1217,6 +1356,7 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testNormalTransform_nonInvertible_1_oe() {
+        // act/assert
         try {
     AffineTransformMatrix2D.createScale(0).normalTransform();
     fail("IllegalStateException");
@@ -1226,11 +1366,13 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testHashCode_1_oe() {
+        // arrange
         final double[] values = {
             1, 2, 3,
             5, 6, 7
         };
 
+        // act/assert
         final int orig = AffineTransformMatrix2D.of(values).hashCode();
         final int same = AffineTransformMatrix2D.of(values).hashCode();
 
@@ -1239,14 +1381,17 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testHashCode_2_oe() {
+        // arrange
         final double[] values = {
             1, 2, 3,
             5, 6, 7
         };
 
+        // act/assert
         final int orig = AffineTransformMatrix2D.of(values).hashCode();
         final int same = AffineTransformMatrix2D.of(values).hashCode();
 
+        // removed other assertion
 
         double[] temp;
         for (int i = 0; i < values.length; ++i) {
@@ -1261,6 +1406,7 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testEquals_2_oe() {
+        // arrange
         final double[] values = {
             1, 2, 3,
             5, 6, 7
@@ -1268,6 +1414,8 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
         final AffineTransformMatrix2D a = AffineTransformMatrix2D.of(values);
 
+        // act/assert
+        // removed other assertion
 
         double[] temp;
         for (int i = 0; i < values.length; ++i) {
@@ -1282,6 +1430,7 @@ class AffineTransformMatrix2DTest_OE25Dev {
 
     @Test
     void testEqualsAndHashCode_signedZeroConsistency_1_oe() {
+        // arrange
         final double[] arrWithPosZero = {
             1.0, 0.0, 0.0,
             0.0, 1.0, 0.0
@@ -1295,11 +1444,13 @@ class AffineTransformMatrix2DTest_OE25Dev {
         final AffineTransformMatrix2D c = AffineTransformMatrix2D.of(arrWithPosZero);
         final AffineTransformMatrix2D d = AffineTransformMatrix2D.of(arrWithNegZero);
 
+        // act/assert
         Assertions.assertFalse(a.equals(b));
     }
 
     @Test
     void testEqualsAndHashCode_signedZeroConsistency_2_oe() {
+        // arrange
         final double[] arrWithPosZero = {
             1.0, 0.0, 0.0,
             0.0, 1.0, 0.0
@@ -1313,11 +1464,14 @@ class AffineTransformMatrix2DTest_OE25Dev {
         final AffineTransformMatrix2D c = AffineTransformMatrix2D.of(arrWithPosZero);
         final AffineTransformMatrix2D d = AffineTransformMatrix2D.of(arrWithNegZero);
 
+        // act/assert
+        // removed other assertion
         Assertions.assertNotEquals(a.hashCode(), b.hashCode());
     }
 
     @Test
     void testEqualsAndHashCode_signedZeroConsistency_3_oe() {
+        // arrange
         final double[] arrWithPosZero = {
             1.0, 0.0, 0.0,
             0.0, 1.0, 0.0
@@ -1331,12 +1485,16 @@ class AffineTransformMatrix2DTest_OE25Dev {
         final AffineTransformMatrix2D c = AffineTransformMatrix2D.of(arrWithPosZero);
         final AffineTransformMatrix2D d = AffineTransformMatrix2D.of(arrWithNegZero);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(a.equals(c));
     }
 
     @Test
     void testEqualsAndHashCode_signedZeroConsistency_4_oe() {
+        // arrange
         final double[] arrWithPosZero = {
             1.0, 0.0, 0.0,
             0.0, 1.0, 0.0
@@ -1350,12 +1508,17 @@ class AffineTransformMatrix2DTest_OE25Dev {
         final AffineTransformMatrix2D c = AffineTransformMatrix2D.of(arrWithPosZero);
         final AffineTransformMatrix2D d = AffineTransformMatrix2D.of(arrWithNegZero);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(a.hashCode(), c.hashCode());
     }
 
     @Test
     void testEqualsAndHashCode_signedZeroConsistency_5_oe() {
+        // arrange
         final double[] arrWithPosZero = {
             1.0, 0.0, 0.0,
             0.0, 1.0, 0.0
@@ -1369,13 +1532,19 @@ class AffineTransformMatrix2DTest_OE25Dev {
         final AffineTransformMatrix2D c = AffineTransformMatrix2D.of(arrWithPosZero);
         final AffineTransformMatrix2D d = AffineTransformMatrix2D.of(arrWithNegZero);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(b.equals(d));
     }
 
     @Test
     void testEqualsAndHashCode_signedZeroConsistency_6_oe() {
+        // arrange
         final double[] arrWithPosZero = {
             1.0, 0.0, 0.0,
             0.0, 1.0, 0.0
@@ -1389,68 +1558,103 @@ class AffineTransformMatrix2DTest_OE25Dev {
         final AffineTransformMatrix2D c = AffineTransformMatrix2D.of(arrWithPosZero);
         final AffineTransformMatrix2D d = AffineTransformMatrix2D.of(arrWithNegZero);
 
+        // act/assert
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assertions.assertEquals(b.hashCode(), d.hashCode());
     }
 
 @Test
     void testOf_invalidDimensions_1_oe() {
+        // act/assert
         GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix2D.of(1, 2), IllegalArgumentException.class, "Dimension mismatch: 2 != 6");
     }
 
 @Test
     void testInverse_nonInvertible_1_oe() {
+        // act/assert
         GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix2D.of( 0, 0, 0, 0, 0, 0).inverse(), IllegalStateException.class, "Matrix is not invertible; matrix determinant is 0.0");
     }
 
 @Test
     void testInverse_nonInvertible_2_oe() {
+        // act/assert
+        // removed other assertion
 
         GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix2D.of( 1, 0, 0, 0, Double.NaN, 0).inverse(), IllegalStateException.class, "Matrix is not invertible; matrix determinant is NaN");
     }
 
 @Test
     void testInverse_nonInvertible_3_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
         GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix2D.of( 1, 0, 0, 0, Double.NEGATIVE_INFINITY, 0).inverse(), IllegalStateException.class, "Matrix is not invertible; matrix determinant is -Infinity");
     }
 
 @Test
     void testInverse_nonInvertible_4_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix2D.of( Double.POSITIVE_INFINITY, 0, 0, 0, 1, 0).inverse(), IllegalStateException.class, "Matrix is not invertible; matrix determinant is Infinity");
     }
 
 @Test
     void testInverse_nonInvertible_5_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix2D.of( 1, 0, Double.NaN, 0, 1, 0).inverse(), IllegalStateException.class, "Matrix is not invertible; invalid matrix element: NaN");
     }
 
 @Test
     void testInverse_nonInvertible_6_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix2D.of( 1, 0, Double.POSITIVE_INFINITY, 0, 1, 0).inverse(), IllegalStateException.class, "Matrix is not invertible; invalid matrix element: Infinity");
     }
 
 @Test
     void testInverse_nonInvertible_7_oe() {
+        // act/assert
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
+        // removed other assertion
 
         GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix2D.of( 1, 0, Double.NEGATIVE_INFINITY, 0, 1, 0).inverse(), IllegalStateException.class, "Matrix is not invertible; invalid matrix element: -Infinity");
     }

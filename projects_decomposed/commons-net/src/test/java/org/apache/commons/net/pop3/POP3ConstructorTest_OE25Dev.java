@@ -55,98 +55,263 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
 
     public void testConstants_1_oe()
     {
+        //From POP3
         assertEquals(110, POP3.DEFAULT_PORT);
     }
 
     public void testConstants_2_oe()
     {
+        //From POP3
+        // removed other assertion
         assertEquals(-1, POP3.DISCONNECTED_STATE);
     }
 
     public void testConstants_3_oe()
     {
+        //From POP3
+        // removed other assertion
+        // removed other assertion
         assertEquals(0, POP3.AUTHORIZATION_STATE);
     }
 
     public void testConstants_4_oe()
     {
+        //From POP3
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1, POP3.TRANSACTION_STATE);
     }
 
     public void testConstants_5_oe()
     {
+        //From POP3
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(2, POP3.UPDATE_STATE);
     }
 
     public void testConstants_6_oe()
     {
+        //From POP3
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        //From POP3Command
         assertEquals(0, POP3Command.USER);
     }
 
     public void testConstants_7_oe()
     {
+        //From POP3
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        //From POP3Command
+        // removed other assertion
         assertEquals(1, POP3Command.PASS);
     }
 
     public void testConstants_8_oe()
     {
+        //From POP3
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        //From POP3Command
+        // removed other assertion
+        // removed other assertion
         assertEquals(2, POP3Command.QUIT);
     }
 
     public void testConstants_9_oe()
     {
+        //From POP3
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        //From POP3Command
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(3, POP3Command.STAT);
     }
 
     public void testConstants_10_oe()
     {
+        //From POP3
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        //From POP3Command
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(4, POP3Command.LIST);
     }
 
     public void testConstants_11_oe()
     {
+        //From POP3
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        //From POP3Command
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(5, POP3Command.RETR);
     }
 
     public void testConstants_12_oe()
     {
+        //From POP3
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        //From POP3Command
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(6, POP3Command.DELE);
     }
 
     public void testConstants_13_oe()
     {
+        //From POP3
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        //From POP3Command
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(7, POP3Command.NOOP);
     }
 
     public void testConstants_14_oe()
     {
+        //From POP3
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        //From POP3Command
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(8, POP3Command.RSET);
     }
 
     public void testConstants_15_oe()
     {
+        //From POP3
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        //From POP3Command
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(9, POP3Command.APOP);
     }
 
     public void testConstants_16_oe()
     {
+        //From POP3
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        //From POP3Command
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(10, POP3Command.TOP);
     }
 
     public void testConstants_17_oe()
     {
+        //From POP3
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        //From POP3Command
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(11, POP3Command.UIDL);
     }
 
@@ -161,6 +326,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
     {
         final POP3 pop = new POP3();
 
+        // removed other assertion
         assertEquals(POP3.DISCONNECTED_STATE, pop.getState());
     }
 
@@ -168,6 +334,8 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
     {
         final POP3 pop = new POP3();
 
+        // removed other assertion
+        // removed other assertion
         assertNull(pop.reader);
     }
 
@@ -175,6 +343,9 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
     {
         final POP3 pop = new POP3();
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNotNull(pop.replyLines);
     }
 
@@ -182,6 +353,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
     {
         final POP3Client pop = new POP3Client();
 
+        //Initial state
         assertEquals(110, pop.getDefaultPort());
     }
 
@@ -189,6 +361,8 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
     {
         final POP3Client pop = new POP3Client();
 
+        //Initial state
+        // removed other assertion
         assertEquals(POP3.DISCONNECTED_STATE, pop.getState());
     }
 
@@ -196,6 +370,9 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
     {
         final POP3Client pop = new POP3Client();
 
+        //Initial state
+        // removed other assertion
+        // removed other assertion
         assertNull(pop.reader);
     }
 
@@ -203,6 +380,10 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
     {
         final POP3Client pop = new POP3Client();
 
+        //Initial state
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNotNull(pop.replyLines);
     }
 

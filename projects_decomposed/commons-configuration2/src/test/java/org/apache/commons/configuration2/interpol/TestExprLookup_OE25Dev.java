@@ -118,6 +118,10 @@ public class TestExprLookup_OE25Dev {
     public void testLookup_1_oe() throws Exception {
         final ConsoleAppender app = new ConsoleAppender(new SimpleLayout());
         final Log log = LogFactory.getLog("TestLogger");
+        //final Logger logger = ((Log4JLogger) log).getLogger();
+        //logger.addAppender(app);
+        //logger.setLevel(Level.DEBUG);
+        //logger.setAdditivity(false);
         final ExprLookup.Variables vars = new ExprLookup.Variables();
         vars.add(new ExprLookup.Variable("String", org.apache.commons.lang3.StringUtils.class));
         vars.add(new ExprLookup.Variable("Util", new Utility("Hello")));
@@ -136,6 +140,10 @@ public class TestExprLookup_OE25Dev {
     public void testLookup_2_oe() throws Exception {
         final ConsoleAppender app = new ConsoleAppender(new SimpleLayout());
         final Log log = LogFactory.getLog("TestLogger");
+        //final Logger logger = ((Log4JLogger) log).getLogger();
+        //logger.addAppender(app);
+        //logger.setLevel(Level.DEBUG);
+        //logger.setAdditivity(false);
         final ExprLookup.Variables vars = new ExprLookup.Variables();
         vars.add(new ExprLookup.Variable("String", org.apache.commons.lang3.StringUtils.class));
         vars.add(new ExprLookup.Variable("Util", new Utility("Hello")));
@@ -147,6 +155,7 @@ public class TestExprLookup_OE25Dev {
         lookup.setInterpolator(config.getInterpolator());
         lookup.setLogger(testLogger);
         String str = lookup.lookup(PATTERN1);
+        // removed other assertion
         str = lookup.lookup(PATTERN2);
         assertTrue("Incorrect value: " + str, str.equals("value Some text"));
     }
@@ -195,6 +204,7 @@ public class TestExprLookup_OE25Dev {
             lookup.setInterpolator(config.getInterpolator());
             lookup.setLogger(testLogger);
             String str = lookup.lookup(PATTERN1);
+            // removed other assertion
             str = lookup.lookup(PATTERN2);
             assertTrue("Incorrect value: " + str, str.equals("value Some text"));
     }

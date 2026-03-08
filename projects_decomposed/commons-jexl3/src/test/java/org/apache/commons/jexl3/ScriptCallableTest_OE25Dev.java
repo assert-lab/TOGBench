@@ -281,7 +281,9 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Object t = 42;
         try {
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
+            // ok, ignore
             future.cancel(true);
         } finally {
             executor.shutdown();
@@ -300,12 +302,15 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Object t = 42;
         try {
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
+            // ok, ignore
             future.cancel(true);
         } finally {
             executor.shutdown();
         }
 
+        // removed other assertion
         Assert.assertEquals(42, t);
     }
 
@@ -327,8 +332,11 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         final Future<?> kfc = executor.submit(kc);
         List<Runnable> lr;
         try {
+            // removed other assertion
             t = future.get();
+            // removed other assertion
         } catch (final ExecutionException xexec) {
+            // ok, ignore
             Assert.assertTrue(xexec.getCause() instanceof JexlException.Cancel);
     }
     }
@@ -351,8 +359,12 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         final Future<?> kfc = executor.submit(kc);
         List<Runnable> lr;
         try {
+            // removed other assertion
             t = future.get();
+            // removed other assertion
         } catch (final ExecutionException xexec) {
+            // ok, ignore
+            // removed other assertion
         } finally {
             lr = executor.shutdownNow();
         }
@@ -377,11 +389,16 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         final Future<?> kfc = executor.submit(kc);
         List<Runnable> lr;
         try {
+            // removed other assertion
             t = future.get();
+            // removed other assertion
         } catch (final ExecutionException xexec) {
+            // ok, ignore
+            // removed other assertion
         } finally {
             lr = executor.shutdownNow();
         }
+        // removed other assertion
         Assert.assertTrue(lr == null || lr.isEmpty());
     }
 
@@ -404,8 +421,11 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         final Future<?> kfc = executor.submit(kc);
         List<Runnable> lr;
         try {
+            // removed other assertion
             t = future.get();
+            // removed other assertion
         } catch (final ExecutionException xexec) {
+            // ok, ignore
             Assert.assertTrue(xexec.getCause() instanceof JexlException.Cancel);
     }
     }
@@ -429,8 +449,12 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         final Future<?> kfc = executor.submit(kc);
         List<Runnable> lr;
         try {
+            // removed other assertion
             t = future.get();
+            // removed other assertion
         } catch (final ExecutionException xexec) {
+            // ok, ignore
+            // removed other assertion
         } finally {
             lr = executor.shutdownNow();
         }
@@ -456,11 +480,16 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         final Future<?> kfc = executor.submit(kc);
         List<Runnable> lr;
         try {
+            // removed other assertion
             t = future.get();
+            // removed other assertion
         } catch (final ExecutionException xexec) {
+            // ok, ignore
+            // removed other assertion
         } finally {
             lr = executor.shutdownNow();
         }
+        // removed other assertion
         Assert.assertTrue(lr == null || lr.isEmpty());
     }
 
@@ -480,7 +509,9 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             latch.acquire();
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
+            // ok, ignore
             future.cancel(true);
         } finally {
             lr = executor.shutdownNow();
@@ -504,11 +535,14 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             latch.acquire();
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
+            // ok, ignore
             future.cancel(true);
         } finally {
             lr = executor.shutdownNow();
         }
+        // removed other assertion
         Assert.assertEquals(42, t);
     }
 
@@ -528,11 +562,15 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             latch.acquire();
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
+            // ok, ignore
             future.cancel(true);
         } finally {
             lr = executor.shutdownNow();
         }
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(lr.isEmpty());
     }
 
@@ -547,7 +585,9 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         final Future<?> future = executor.submit(c);
         try {
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
+            // ok, ignore
             future.cancel(true);
         } finally {
             lr = executor.shutdownNow();
@@ -566,11 +606,14 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         final Future<?> future = executor.submit(c);
         try {
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
+            // ok, ignore
             future.cancel(true);
         } finally {
             lr = executor.shutdownNow();
         }
+        // removed other assertion
         Assert.assertEquals(42, t);
     }
 
@@ -585,11 +628,15 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         final Future<?> future = executor.submit(c);
         try {
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
+            // ok, ignore
             future.cancel(true);
         } finally {
             lr = executor.shutdownNow();
         }
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(lr.isEmpty());
     }
 
@@ -603,6 +650,8 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             final Future<?> future = executor.submit(c);
             final Object t = future.get(2, TimeUnit.SECONDS);
+            // removed other assertion
+            // removed other assertion
         } finally {
             lr = executor.shutdownNow();
         }
@@ -619,6 +668,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             final Future<?> future = executor.submit(c);
             final Object t = future.get(2, TimeUnit.SECONDS);
+            // removed other assertion
         } finally {
             lr = executor.shutdownNow();
         }
@@ -637,9 +687,13 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
             Object t = 42;
             try {
                 t = future.get(100, TimeUnit.MILLISECONDS);
+                // removed other assertion
             } catch (final TimeoutException xtimeout) {
+                // ok, ignore
                 future.cancel(true);
             }
+            // removed other assertion
+            // removed other assertion
         } finally {
             lr = executor.shutdownNow();
         }
@@ -658,7 +712,9 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
 
         try {
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
+            // ok, ignore
             future.cancel(true);
         } finally {
             lr = executor.shutdownNow();
@@ -678,11 +734,14 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
 
         try {
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
+            // ok, ignore
             future.cancel(true);
         } finally {
             lr = executor.shutdownNow();
         }
+        // removed other assertion
         Assert.assertEquals(42, t);
     }
 
@@ -698,11 +757,15 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
 
         try {
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
+            // ok, ignore
             future.cancel(true);
         } finally {
             lr = executor.shutdownNow();
         }
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(lr.isEmpty());
     }
 
@@ -723,7 +786,9 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             latch.acquire();
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
+            // ok, ignore
             future.cancel(true);
         } finally {
             lr = executor.shutdownNow();
@@ -748,11 +813,14 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             latch.acquire();
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
+            // ok, ignore
             future.cancel(true);
         } finally {
             lr = executor.shutdownNow();
         }
+        // removed other assertion
         Assert.assertEquals(42, t);
     }
 
@@ -773,11 +841,15 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             latch.acquire();
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
+            // ok, ignore
             future.cancel(true);
         } finally {
             lr = executor.shutdownNow();
         }
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(lr.isEmpty());
     }
 
@@ -793,6 +865,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
 
         try {
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
             future.cancel(true);
         } finally {
@@ -813,11 +886,13 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
 
         try {
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
             future.cancel(true);
         } finally {
             lr = executor.shutdownNow();
         }
+        // removed other assertion
         Assert.assertEquals(42, t);
     }
 
@@ -833,11 +908,14 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
 
         try {
             t = future.get(100, TimeUnit.MILLISECONDS);
+            // removed other assertion
         } catch (final TimeoutException xtimeout) {
             future.cancel(true);
         } finally {
             lr = executor.shutdownNow();
         }
+        // removed other assertion
+        // removed other assertion
         Assert.assertTrue(lr.isEmpty());
     }
 
@@ -850,6 +928,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             final Future<?> future = executor.submit(c);
             final Object t = future.get(1, TimeUnit.SECONDS);
+            // removed other assertion
         } catch(final ExecutionException xexec) {
             Assert.assertTrue(xexec.getCause() instanceof JexlException.Method);
     }
@@ -875,6 +954,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
         Assert.assertEquals("cancelled", result);
     }
@@ -887,7 +967,9 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
         Assert.assertEquals(42, result);
@@ -901,9 +983,12 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
+        // removed other assertion
         script = JEXL.createScript("(flag)->{ @timeout(100, 'cancelled') { while(flag); 42; } }");
         try {
             result = script.execute(ctxt, true);
@@ -920,13 +1005,17 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
+        // removed other assertion
         script = JEXL.createScript("(flag)->{ @timeout(100, 'cancelled') { while(flag); 42; } }");
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
         Assert.assertEquals("cancelled", result);
     }
@@ -939,14 +1028,19 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
+        // removed other assertion
         script = JEXL.createScript("(flag)->{ @timeout(100, 'cancelled') { while(flag); 42; } }");
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
         Assert.assertEquals(42, result);
@@ -960,16 +1054,22 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
+        // removed other assertion
         script = JEXL.createScript("(flag)->{ @timeout(100, 'cancelled') { while(flag); 42; } }");
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
+        // removed other assertion
         script = JEXL.createScript("@timeout(100) {sleep(1000); 42; } -42;");
         try {
             result = script.execute(ctxt);
@@ -986,20 +1086,27 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
+        // removed other assertion
         script = JEXL.createScript("(flag)->{ @timeout(100, 'cancelled') { while(flag); 42; } }");
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
+        // removed other assertion
         script = JEXL.createScript("@timeout(100) {sleep(1000); 42; } -42;");
         try {
             result = script.execute(ctxt);
         } catch (final Exception xany) {
+            // removed other assertion
         }
         Assert.assertEquals(-42, result);
     }
@@ -1012,21 +1119,29 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
+        // removed other assertion
         script = JEXL.createScript("(flag)->{ @timeout(100, 'cancelled') { while(flag); 42; } }");
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
+        // removed other assertion
         script = JEXL.createScript("@timeout(100) {sleep(1000); 42; } -42;");
         try {
             result = script.execute(ctxt);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         script = JEXL.createScript("@timeout(100) {sleep(1000); return 42; } return -42;");
         try {
@@ -1044,26 +1159,35 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
+        // removed other assertion
         script = JEXL.createScript("(flag)->{ @timeout(100, 'cancelled') { while(flag); 42; } }");
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
+        // removed other assertion
         script = JEXL.createScript("@timeout(100) {sleep(1000); 42; } -42;");
         try {
             result = script.execute(ctxt);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         script = JEXL.createScript("@timeout(100) {sleep(1000); return 42; } return -42;");
         try {
             result = script.execute(ctxt);
         } catch (final Exception xany) {
+            // removed other assertion
         }
         Assert.assertEquals(-42, result);
     }
@@ -1076,27 +1200,37 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
+        // removed other assertion
         script = JEXL.createScript("(flag)->{ @timeout(100, 'cancelled') { while(flag); 42; } }");
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
+        // removed other assertion
         script = JEXL.createScript("@timeout(100) {sleep(1000); 42; } -42;");
         try {
             result = script.execute(ctxt);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         script = JEXL.createScript("@timeout(100) {sleep(1000); return 42; } return -42;");
         try {
             result = script.execute(ctxt);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
         script = JEXL.createScript("@timeout(1000) {sleep(100); return 42; } return -42;");
         try {
             result = script.execute(ctxt);
@@ -1113,31 +1247,42 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
+        // removed other assertion
         script = JEXL.createScript("(flag)->{ @timeout(100, 'cancelled') { while(flag); 42; } }");
         try {
             result = script.execute(ctxt, true);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         result = script.execute(ctxt, false);
+        // removed other assertion
         script = JEXL.createScript("@timeout(100) {sleep(1000); 42; } -42;");
         try {
             result = script.execute(ctxt);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
 
         script = JEXL.createScript("@timeout(100) {sleep(1000); return 42; } return -42;");
         try {
             result = script.execute(ctxt);
         } catch (final Exception xany) {
+            // removed other assertion
         }
+        // removed other assertion
         script = JEXL.createScript("@timeout(1000) {sleep(100); return 42; } return -42;");
         try {
             result = script.execute(ctxt);
         } catch (final Exception xany) {
+            // removed other assertion
         }
         Assert.assertEquals(42, result);
     }

@@ -285,6 +285,7 @@ class JumpableProvidersParametricTest_OE25Dev {
                  TestJumpFunction jumpFunction0 = generator::jump;
          JumpableUniformRandomProvider generator0 = generator;
          UniformRandomProvider copy0 = jumpFunction0.jump();
+                // removed other assertion
                 Assertions.assertEquals(generator0.getClass(), copy0.getClass(), "The copy0 instance should be the same class");
     }
 
@@ -303,6 +304,7 @@ class JumpableProvidersParametricTest_OE25Dev {
                  TestJumpFunction jumpFunction0 = getLongJumpFunction(generator);
          JumpableUniformRandomProvider generator0 = generator;
          UniformRandomProvider copy0 = jumpFunction0.jump();
+                // removed other assertion
                 Assertions.assertEquals(generator0.getClass(), copy0.getClass(), "The copy0 instance should be the same class");
     }
 

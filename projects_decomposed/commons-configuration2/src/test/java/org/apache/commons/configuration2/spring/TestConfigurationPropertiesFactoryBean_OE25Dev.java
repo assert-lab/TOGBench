@@ -79,6 +79,7 @@ public class TestConfigurationPropertiesFactoryBean_OE25Dev {
     @Test
     public void testGetObject_2_oe() throws Exception {
         configurationFactory.setConfigurations(new BaseConfiguration());
+        // removed other assertion
         configurationFactory.afterPropertiesSet();
         Assert.assertNotNull(configurationFactory.getObject());
     }
@@ -129,6 +130,7 @@ public class TestConfigurationPropertiesFactoryBean_OE25Dev {
         configurationFactory.setConfigurations(one, two);
         configurationFactory.afterPropertiesSet();
         final Properties props = configurationFactory.getObject();
+        // removed other assertion
         Assert.assertEquals("bar", props.getProperty("foo"));
     }
 

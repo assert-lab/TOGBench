@@ -119,36 +119,57 @@ class PrimesTest_OE25Dev {
     @Test
     void testNextPrime_2_oe() {
 
+        // removed other assertion
         Assertions.assertEquals(2, Primes.nextPrime(1));
     }
 
     @Test
     void testNextPrime_3_oe() {
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(2, Primes.nextPrime(2));
     }
 
     @Test
     void testNextPrime_4_oe() {
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(3, Primes.nextPrime(3));
     }
 
     @Test
     void testNextPrime_5_oe() {
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(5, Primes.nextPrime(4));
     }
 
     @Test
     void testNextPrime_6_oe() {
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(5, Primes.nextPrime(5));
     }
 
     @Test
     void testNextPrime_7_oe() {
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         for (int i = 0; i < SmallPrimes.PRIMES.length - 1; i++) {
             for (int j = SmallPrimes.PRIMES[i] + 1; j <= SmallPrimes.PRIMES[i + 1]; j++) {
@@ -160,9 +181,16 @@ class PrimesTest_OE25Dev {
     @Test
     void testNextPrime_8_oe() {
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         for (int i = 0; i < SmallPrimes.PRIMES.length - 1; i++) {
             for (int j = SmallPrimes.PRIMES[i] + 1; j <= SmallPrimes.PRIMES[i + 1]; j++) {
+                // removed other assertion
             }
         }
 
@@ -172,12 +200,20 @@ class PrimesTest_OE25Dev {
     @Test
     void testNextPrime_9_oe() {
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         for (int i = 0; i < SmallPrimes.PRIMES.length - 1; i++) {
             for (int j = SmallPrimes.PRIMES[i] + 1; j <= SmallPrimes.PRIMES[i + 1]; j++) {
+                // removed other assertion
             }
         }
 
+        // removed other assertion
         for (int i = 25325981 + 1; i <= 25326023; i++) {
             Assertions.assertEquals(25326023, Primes.nextPrime(i));
     }
@@ -186,13 +222,22 @@ class PrimesTest_OE25Dev {
     @Test
     void testNextPrime_10_oe() {
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         for (int i = 0; i < SmallPrimes.PRIMES.length - 1; i++) {
             for (int j = SmallPrimes.PRIMES[i] + 1; j <= SmallPrimes.PRIMES[i + 1]; j++) {
+                // removed other assertion
             }
         }
 
+        // removed other assertion
         for (int i = 25325981 + 1; i <= 25326023; i++) {
+            // removed other assertion
         }
 
         Assertions.assertEquals(Integer.MAX_VALUE, Primes.nextPrime(Integer.MAX_VALUE - 10));
@@ -201,30 +246,51 @@ class PrimesTest_OE25Dev {
     @Test
     void testNextPrime_11_oe() {
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         for (int i = 0; i < SmallPrimes.PRIMES.length - 1; i++) {
             for (int j = SmallPrimes.PRIMES[i] + 1; j <= SmallPrimes.PRIMES[i + 1]; j++) {
+                // removed other assertion
             }
         }
 
+        // removed other assertion
         for (int i = 25325981 + 1; i <= 25326023; i++) {
+            // removed other assertion
         }
 
+        // removed other assertion
         Assertions.assertEquals(Integer.MAX_VALUE, Primes.nextPrime(Integer.MAX_VALUE - 1));
     }
 
     @Test
     void testNextPrime_12_oe() {
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         for (int i = 0; i < SmallPrimes.PRIMES.length - 1; i++) {
             for (int j = SmallPrimes.PRIMES[i] + 1; j <= SmallPrimes.PRIMES[i + 1]; j++) {
+                // removed other assertion
             }
         }
 
+        // removed other assertion
         for (int i = 25325981 + 1; i <= 25326023; i++) {
+            // removed other assertion
         }
 
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(Integer.MAX_VALUE, Primes.nextPrime(Integer.MAX_VALUE));
     }
 
@@ -238,6 +304,7 @@ class PrimesTest_OE25Dev {
     @Test
     void testIsPrime_2_oe() throws Exception {
         for (int i : BELOW_2) {
+            // removed other assertion
         }
         for (int i:NOT_PRIMES) {
             Assertions.assertFalse(Primes.isPrime(i));
@@ -247,8 +314,10 @@ class PrimesTest_OE25Dev {
     @Test
     void testIsPrime_3_oe() throws Exception {
         for (int i : BELOW_2) {
+            // removed other assertion
         }
         for (int i:NOT_PRIMES) {
+            // removed other assertion
         }
         for (int i:PRIMES) {
             Assertions.assertTrue(Primes.isPrime(i));
@@ -258,6 +327,7 @@ class PrimesTest_OE25Dev {
     @Test
     void testPrimeFactors_2_oe() throws Exception {
         for (int i : BELOW_2) {
+            // removed other assertion
         }
         for (int i : NOT_PRIMES) {
             List<Integer> factors = Primes.primeFactors(i);
@@ -270,11 +340,13 @@ class PrimesTest_OE25Dev {
     @Test
     void testPrimeFactors_3_oe() throws Exception {
         for (int i : BELOW_2) {
+            // removed other assertion
         }
         for (int i : NOT_PRIMES) {
             List<Integer> factors = Primes.primeFactors(i);
             checkPrimeFactors(factors);
             int prod = product(factors);
+            // removed other assertion
         }
         for (int i : PRIMES) {
             List<Integer> factors = Primes.primeFactors(i);
@@ -285,14 +357,17 @@ class PrimesTest_OE25Dev {
     @Test
     void testPrimeFactors_4_oe() throws Exception {
         for (int i : BELOW_2) {
+            // removed other assertion
         }
         for (int i : NOT_PRIMES) {
             List<Integer> factors = Primes.primeFactors(i);
             checkPrimeFactors(factors);
             int prod = product(factors);
+            // removed other assertion
         }
         for (int i : PRIMES) {
             List<Integer> factors = Primes.primeFactors(i);
+            // removed other assertion
             Assertions.assertEquals(1, factors.size());
     }
     }
@@ -300,20 +375,33 @@ class PrimesTest_OE25Dev {
     @Test
     void testNextPrime_13_oe_2_oe() {
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         for (int i = 0; i < SmallPrimes.PRIMES.length - 1; i++) {
             for (int j = SmallPrimes.PRIMES[i] + 1; j <= SmallPrimes.PRIMES[i + 1]; j++) {
+                // removed other assertion
             }
         }
 
+        // removed other assertion
         for (int i = 25325981 + 1; i <= 25326023; i++) {
+            // removed other assertion
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
                 final int n0 = Integer.MIN_VALUE;
         final String expected0 = MessageFormat.format(Primes.NUMBER_TOO_SMALL, Integer.MIN_VALUE, 0);
         try {
                     Primes.nextPrime(n0);
+                    // removed other assertion
                 } catch (IllegalArgumentException e0) {
                     Assertions.assertEquals(expected0, e0.getMessage());
     }
@@ -322,20 +410,34 @@ class PrimesTest_OE25Dev {
     @Test
     void testNextPrime_14_oe_2_oe() {
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         for (int i = 0; i < SmallPrimes.PRIMES.length - 1; i++) {
             for (int j = SmallPrimes.PRIMES[i] + 1; j <= SmallPrimes.PRIMES[i + 1]; j++) {
+                // removed other assertion
             }
         }
 
+        // removed other assertion
         for (int i = 25325981 + 1; i <= 25326023; i++) {
+            // removed other assertion
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
                 final int n0 = -1;
         final String expected0 = MessageFormat.format(Primes.NUMBER_TOO_SMALL, -1, 0);
         try {
                     Primes.nextPrime(n0);
+                    // removed other assertion
                 } catch (IllegalArgumentException e0) {
                     Assertions.assertEquals(expected0, e0.getMessage());
     }
@@ -344,20 +446,35 @@ class PrimesTest_OE25Dev {
     @Test
     void testNextPrime_15_oe_2_oe() {
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         for (int i = 0; i < SmallPrimes.PRIMES.length - 1; i++) {
             for (int j = SmallPrimes.PRIMES[i] + 1; j <= SmallPrimes.PRIMES[i + 1]; j++) {
+                // removed other assertion
             }
         }
 
+        // removed other assertion
         for (int i = 25325981 + 1; i <= 25326023; i++) {
+            // removed other assertion
         }
 
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
                 final int n0 = -13;
         final String expected0 = MessageFormat.format(Primes.NUMBER_TOO_SMALL, -13, 0);
         try {
                     Primes.nextPrime(n0);
+                    // removed other assertion
                 } catch (IllegalArgumentException e0) {
                     Assertions.assertEquals(expected0, e0.getMessage());
     }
@@ -370,6 +487,7 @@ class PrimesTest_OE25Dev {
             final String expected0 = MessageFormat.format(Primes.NUMBER_TOO_SMALL, i, 2);
             try {
                         Primes.primeFactors(n0);
+                        // removed other assertion
                     } catch (IllegalArgumentException e0) {
                         Assertions.assertEquals(expected0, e0.getMessage());
     }

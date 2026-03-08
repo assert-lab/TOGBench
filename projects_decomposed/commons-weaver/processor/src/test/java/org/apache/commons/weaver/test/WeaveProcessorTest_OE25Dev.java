@@ -67,6 +67,7 @@ public class WeaveProcessorTest_OE25Dev extends WeaverTestBase {
 
         wp.weave();
 
+        // removed other assertion
         Assert.assertEquals(TestBeanWithClassAnnotation.class, TestWeaver.wovenClasses.get(0));
     }
 
@@ -85,6 +86,8 @@ public class WeaveProcessorTest_OE25Dev extends WeaverTestBase {
 
         wp.weave();
 
+        // removed other assertion
+        // removed other assertion
 
         Assert.assertEquals(1, TestWeaver.wovenMethods.size());
     }
@@ -104,7 +107,10 @@ public class WeaveProcessorTest_OE25Dev extends WeaverTestBase {
 
         wp.weave();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
         Assert.assertEquals(TestBeanWithMethodAnnotation.class, TestWeaver.wovenMethods.get(0).getDeclaringClass());
     }
 
@@ -123,8 +129,13 @@ public class WeaveProcessorTest_OE25Dev extends WeaverTestBase {
 
         wp.weave();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
         Assert.assertEquals(TestBeanWithClassAnnotation.class, TestWeaver.implementors.get(0));
     }
 
@@ -143,9 +154,16 @@ public class WeaveProcessorTest_OE25Dev extends WeaverTestBase {
 
         wp.weave();
 
+        // removed other assertion
+        // removed other assertion
 
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
+        // removed other assertion
         
+        // removed other assertion
         Assert.assertTrue(TestWeaver.subclasses.containsAll(Arrays.<Class<?>> asList(TestBeanWithClassAnnotation.class,TestBeanWithMethodAnnotation.class)));
     }
 

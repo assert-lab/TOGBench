@@ -93,6 +93,7 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
         BeanHelper.setProperty(params, "IOFactory", factory);
         BeanHelper.setProperty(params, "throwExceptionOnMissing", Boolean.TRUE);
         BeanHelper.setProperty(params, "fileName", "test.properties");
+        // removed other assertion
         final Map<String, Object> paramsMap = params.getParameters();
         assertEquals("Wrong exception flag", Boolean.TRUE, paramsMap.get("throwExceptionOnMissing"));
     }
@@ -104,7 +105,9 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
         BeanHelper.setProperty(params, "IOFactory", factory);
         BeanHelper.setProperty(params, "throwExceptionOnMissing", Boolean.TRUE);
         BeanHelper.setProperty(params, "fileName", "test.properties");
+        // removed other assertion
         final Map<String, Object> paramsMap = params.getParameters();
+        // removed other assertion
         assertSame("Factory not set", factory, params.getParameters().get("IOFactory"));
     }
 
@@ -131,6 +134,7 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
 
         params2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = params2.getParameters();
+        // removed other assertion
         assertEquals("IncludeListener not set", includeListener, parameters.get("includeListener"));
     }
 
@@ -144,6 +148,8 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
 
         params2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = params2.getParameters();
+        // removed other assertion
+        // removed other assertion
         assertEquals("IOFactory not set", factory, parameters.get("IOFactory"));
     }
 
@@ -157,6 +163,9 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
 
         params2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = params2.getParameters();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals("Include flag not set", Boolean.FALSE, parameters.get("includesAllowed"));
     }
 
@@ -170,6 +179,10 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
 
         params2.inheritFrom(params.getParameters());
         final Map<String, Object> parameters = params2.getParameters();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertNull("Layout was copied", parameters.get("layout"));
     }
 

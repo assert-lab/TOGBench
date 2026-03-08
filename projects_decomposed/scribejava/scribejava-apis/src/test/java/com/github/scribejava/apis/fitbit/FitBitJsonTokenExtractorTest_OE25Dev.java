@@ -36,6 +36,7 @@ public class FitBitJsonTokenExtractorTest_OE25Dev {
     public void testErrorExtraction_2_oe() throws IOException {
 
         final FitBitJsonTokenExtractor extractor = new FitBitJsonTokenExtractor();
+        // removed other assertion
         assertSame(OAuth2Error.INVALID_GRANT, thrown.getError());
     }
 
@@ -43,6 +44,8 @@ public class FitBitJsonTokenExtractorTest_OE25Dev {
     public void testErrorExtraction_3_oe() throws IOException {
 
         final FitBitJsonTokenExtractor extractor = new FitBitJsonTokenExtractor();
+        // removed other assertion
+        // removed other assertion
         assertEquals(ERROR_DESCRIPTION, thrown.getErrorDescription());
     }
 
